@@ -121,6 +121,34 @@ namespace TurboEdition
 
         }
 
+        //Debugging
+        #if DEBUG
+        bool DEBUGcheckingInput = false;
+        public void Update()
+        {
+            var i3 = Input.GetKeyDown(KeyCode.Keypad3);
+            var i4 = Input.GetKeyDown(KeyCode.Keypad4);
+            var i5 = Input.GetKeyDown(KeyCode.Keypad5);
+            var i6 = Input.GetKeyDown(KeyCode.Keypad6);
+            var i7 = Input.GetKeyDown(KeyCode.Keypad7);
+            var i8 = Input.GetKeyDown(KeyCode.Keypad8);
+            if (i3 || i4 || i5 || i6 || i7 || i8)
+            {
+                var trans = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
+
+                List<PickupIndex> spawnList;
+                if (i3) spawnList = Run.instance.availableTier1DropList;
+                else if (i4) spawnList = Run.instance.availableTier2DropList;
+                else if (i5) spawnList = Run.instance.availableTier3DropList;
+                else if (i6) spawnList = Run.instance.availableEquipmentDropList;
+                //else if (i7) spawnList = Run.instance.availableTierSynergyDropList;
+                else spawnList = Run.instance.availableLunarDropList;
+
+                PickupDropletController.CreatePickupDroplet(spawnList[Run.instance.spawnRng.RangeInt(0, spawnList.Count)], trans.position, new Vector3(0f, -5f, 0f));
+            }
+        }
+        #endif
+
         /// <summary>
         /// A helper to easily set up and initialize an item from your item classes if the user has it enabled in their configuration files.
         /// <para>Additionally, it generates a configuration for each item to allow blacklisting it from AI.</para>
@@ -156,33 +184,5 @@ namespace TurboEdition
             }
             return false;
         }
-
-        //Debugging
-        #if DEBUG
-        bool DEBUGcheckingInput = false;
-        public void Update()
-        {
-            var i3 = Input.GetKeyDown(KeyCode.Keypad3);
-            var i4 = Input.GetKeyDown(KeyCode.Keypad4);
-            var i5 = Input.GetKeyDown(KeyCode.Keypad5);
-            var i6 = Input.GetKeyDown(KeyCode.Keypad6);
-            var i7 = Input.GetKeyDown(KeyCode.Keypad7);
-            var i8 = Input.GetKeyDown(KeyCode.Keypad8);
-            if (i3 || i4 || i5 || i6 || i7 || i8)
-            {
-                var trans = PlayerCharacterMasterController.instances[0].master.GetBodyObject().transform;
-
-                List<PickupIndex> spawnList;
-                if (i3) spawnList = Run.instance.availableTier1DropList;
-                else if (i4) spawnList = Run.instance.availableTier2DropList;
-                else if (i5) spawnList = Run.instance.availableTier3DropList;
-                else if (i6) spawnList = Run.instance.availableEquipmentDropList;
-                //else if (i7) spawnList = Run.instance.availableTierSynergyDropList;
-                else spawnList = Run.instance.availableLunarDropList;
-
-                PickupDropletController.CreatePickupDroplet(spawnList[Run.instance.spawnRng.RangeInt(0, spawnList.Count)], trans.position, new Vector3(0f, -5f, 0f));
-            }
-        }
-        #endif
     }
 }

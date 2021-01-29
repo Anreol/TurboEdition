@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3503460491
+CRC: 4104165009
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 60fe5418329d032e139b5867f65fcd00
+    Hash: 8a2349b655a71a746bdf2e4071a18a2e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: aa7bfdc5a09c6a8428e5587917cdaf3b
+    Hash: 21747e4ee48f36c7a65f9afbfd77f392
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -20,6 +20,8 @@ ClassTypes:
 - Class: 28
   Script: {instanceID: 0}
 - Class: 33
+  Script: {instanceID: 0}
+- Class: 43
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
@@ -41,4 +43,5 @@ Assets:
 - Assets/Textures/Icons/Items/Tier3.png
 - Assets/Textures/Materials/Default.mat
 - Assets/Textures/Icons/Items/TierSynergySpecial1.png
+- Assets/Models/Prefabs/Default.fbx
 Dependencies: []

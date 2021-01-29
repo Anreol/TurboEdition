@@ -16,13 +16,11 @@
   <ItemGroup>
     <None Remove="TurboEdition" />
     <None Remove="turboedition_assets" />
-    <None Remove="turboediton_assets" />
   </ItemGroup>
 
   <ItemGroup>
     <ApplicationDefinition Include="TurboEdition" />
     <EmbeddedResource Include="turboedition_assets" />
-    <EmbeddedResource Include="turboediton_assets" />
   </ItemGroup>
 
   <ItemGroup>
