@@ -8,7 +8,7 @@ namespace TurboEdition.Items
     {
         public override string ItemName => "Nanomachines";
 
-        public override string ItemLangTokenName => "TE_MELEE_ARMOR";
+        public override string ItemLangTokenName => "MELEE_ARMOR";
 
         public override string ItemPickupDesc => "Son!";
 

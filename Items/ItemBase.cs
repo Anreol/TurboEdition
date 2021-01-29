@@ -42,6 +42,8 @@ namespace TurboEdition.Items
 
         public virtual void CreateConfig(ConfigFile config) { }
 
+
+        //Change this to include ModInitals when I figure out how to make it so this file can access it
         protected virtual void CreateLang()
         {
             LanguageAPI.Add("ITEM_" + ItemLangTokenName + "_NAME", ItemName);

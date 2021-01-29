@@ -73,7 +73,8 @@ namespace TurboEdition
             // Don't know how to create/use an asset bundle, or don't have a unity project set up?
             // Look here for info on how to set these up: https://github.com/KomradeSpectre/AetheriumMod/blob/rewrite-master/Tutorials/Item%20Mod%20Creation.md#unity-project
 
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("turboedition.turboedition_assets"))
+            Logger.LogWarning("Getting assets.");
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TurboEdition.turboedition_assets"))
             {
                 MainAssets = AssetBundle.LoadFromStream(stream);
                 var provider = new AssetBundleResourcesProvider($"@{ModName}", MainAssets);
