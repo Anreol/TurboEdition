@@ -76,7 +76,7 @@ namespace TurboEdition
             Logger.LogWarning("Getting assets.");
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TurboEdition.turboedition_assets"))
             {
-                MainAssets = AssetBundle.LoadFromStream(stream);
+                var MainAssets = AssetBundle.LoadFromStream(stream);
                 var provider = new AssetBundleResourcesProvider($"@{ModName}", MainAssets);
                 ResourcesAPI.AddProvider(provider);
             }
