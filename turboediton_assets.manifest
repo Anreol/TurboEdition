@@ -1,0 +1,43 @@
+ManifestFileVersion: 0
+CRC: 1358503902
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8ba3ff668d0f6f1bc86447b290588e71
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: aa7bfdc5a09c6a8428e5587917cdaf3b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Textures/Icons/Items/TierSynergySpecial2.png
+- Assets/Textures/Icons/Items/Equipment.png
+- Assets/Textures/Icons/Items/TierSynergyTemp2.png
+- Assets/Textures/Icons/Items/TierSynergyTemp4.png
+- Assets/Textures/Icons/Items/Tier2.png
+- Assets/Textures/Icons/Items/TierSynergyTemp3.png
+- Assets/Textures/Icons/Items/Unique.png
+- Assets/Textures/Icons/Items/TierSynergyTemp1.png
+- Assets/Textures/Icons/Items/TLunar.png
+- Assets/Textures/Icons/Items/Tier1.png
+- Assets/Models/Prefabs/Default.prefab
+- Assets/Textures/Icons/Items/TBoss.png
+- Assets/Textures/Icons/Items/Tier3.png
+- Assets/Textures/Icons/Items/TierSynergySpecial1.png
+Dependencies: []
