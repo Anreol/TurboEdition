@@ -50,7 +50,6 @@ namespace TurboEdition
 
 
         //Buffs
-        public static BuffIndex meleearmorBuff { get; private set; }
         public static BuffIndex fortifiedBuff { get; private set; }
         public static BuffIndex tauntingBuff { get; private set; }
         public static BuffIndex heatedBuff { get; private set; }
@@ -104,18 +103,6 @@ namespace TurboEdition
                     equipment.Init(Config);
                 }
             }
-
-
-            Logger.LogWarning("Adding buffs...");
-            var meleearmorBuffDef = new CustomBuff(new BuffDef
-            {
-                buffColor = Color.cyan,
-                canStack = false,
-                isDebuff = true,
-                name = "TEmeleearmor",
-                iconPath = assetPrefix + "Assets/TurboEdition/icons/meleearmor_icon.png"
-            });
-            meleearmorBuff = BuffAPI.Add(meleearmorBuffDef);
 
             Logger.LogWarning("Adding items...");
 

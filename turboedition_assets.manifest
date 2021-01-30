@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4104165009
+CRC: 2188105471
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8a2349b655a71a746bdf2e4071a18a2e
+    Hash: 7c8f40cb1fbf30518ad82d5a547bb6fb
   TypeTreeHash:
     serializedVersion: 2
     Hash: 21747e4ee48f36c7a65f9afbfd77f392
@@ -39,6 +39,7 @@ Assets:
 - Assets/Textures/Icons/Items/TLunar.png
 - Assets/Textures/Icons/Items/Tier1.png
 - Assets/Models/Prefabs/Default.prefab
+- Assets/Textures/Icons/Buffs/meleearmor.png
 - Assets/Textures/Icons/Items/TBoss.png
 - Assets/Textures/Icons/Items/Tier3.png
 - Assets/Textures/Materials/Default.mat

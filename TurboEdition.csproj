@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Items\EqpLunar\**" />
-    <Compile Remove="Items\Eqp\**" />
-    <EmbeddedResource Remove="Items\EqpLunar\**" />
-    <EmbeddedResource Remove="Items\Eqp\**" />
-    <None Remove="Items\EqpLunar\**" />
-    <None Remove="Items\Eqp\**" />
+    <Compile Remove="TE\Items\EqpLunar\**" />
+    <Compile Remove="TE\Items\Eqp\**" />
+    <EmbeddedResource Remove="TE\Items\EqpLunar\**" />
+    <EmbeddedResource Remove="TE\Items\Eqp\**" />
+    <None Remove="TE\Items\EqpLunar\**" />
+    <None Remove="TE\Items\Eqp\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,11 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Equipment\Lunar\" />
-    <Folder Include="Items\TLunar\" />
-    <Folder Include="Items\TSynergy\" />
-    <Folder Include="Items\T2\" />
-    <Folder Include="Items\T1\" />
+    <Folder Include="TE\Equipment\Lunar\" />
+    <Folder Include="TE\Items\TLunar\" />
+    <Folder Include="TE\Items\TSynergy\" />
+    <Folder Include="TE\Items\T2\" />
+    <Folder Include="TE\Items\T1\" />
     <Folder Include="Utilities\Parents\Implementations\" />
   </ItemGroup>
 

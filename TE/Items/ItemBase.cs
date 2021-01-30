@@ -27,6 +27,7 @@ namespace TurboEdition.Items
 
         protected abstract void Initialization();
 
+
         /// <summary>
         /// Only override when you know what you are doing, or call base.Init()!
         /// </summary>
