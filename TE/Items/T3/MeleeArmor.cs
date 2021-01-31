@@ -92,13 +92,22 @@ namespace TurboEdition.Items
         {
             if (damageReport.attackerBody && damageReport.attackerBody != null)
             {
-                float distance = Vector3.Distance(damageReport.victimBody.transform.position, damageReport.attackerBody.transform.position);
-                if (distance <= rangeRadius)
+                var InventoryCount = GetCount(damageReport.victimBody);
+                if (damageReport.victimBody.inventory)
                 {
-                    OnDamaged(damageReport.victimBody);
+                    if(InventoryCount > 0)
+                    {
+                        float distance = Vector3.Distance(damageReport.victimBody.transform.position, damageReport.attackerBody.transform.position);
+                        if (distance <= rangeRadius)
+                        {
+#if DEBUG
+                            TurboEdition._logger.LogWarning("Turbo Edition: " + ItemName + " distance " + distance);
+#endif
+                            OnDamaged(damageReport.victimBody);
+                        }
+                    }
                 }
             }
-            ;
         }
         private void OnDamaged(RoR2.CharacterBody self)
         {
@@ -128,7 +137,7 @@ namespace TurboEdition.Items
                 #if DEBUG
                 Chat.AddMessage("Turbo Edition: " + ItemName + " CheckBuffAndAddArmor run, " + self + "'s armor is now " + self.armor);
                 Chat.AddMessage("Turbo Edition: " + ItemName + " Increased armor by " + (self.GetBuffCount(meleeArmorBuff) * armorPerBuff) + ".");
-#endif
+                #endif
             }
         }
     }
