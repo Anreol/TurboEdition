@@ -34,17 +34,11 @@ namespace TurboEdition.Equipment
         public float equipmentRecharge;
 
         public SceneExitController explicitSceneExitController { get;  }
-        private bool canSkipCurrentStage
-        {
-            get
-            {
-                return SceneCatalog.mostRecentSceneDef.sceneType == SceneType.Stage;
-            }
-        }
+
 
         protected override void CreateConfig(ConfigFile config)
         {
-            equipmentRecharge = config.Bind<float>("Equipment : " + EquipmentName, "Recharge time", 60f, "Amount in seconds for this equipment to be available again").Value;
+            equipmentRecharge = config.Bind<float>("Equipment : " + EquipmentName, "Recharge time", 90f, "Amount in seconds for this equipment to be available again").Value;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
