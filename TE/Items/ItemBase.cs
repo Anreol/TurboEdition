@@ -19,7 +19,7 @@ namespace TurboEdition.Items
         public abstract string ItemModelPath { get; }
         public abstract string ItemIconPath { get; }
 
-        public ItemIndex Index;
+        public static ItemIndex Index;
 
         public virtual bool CanRemove { get; } = true;
 
@@ -84,21 +84,21 @@ namespace TurboEdition.Items
         public virtual void Hooks() { }
 
         //Based on ThinkInvis' methods
-        public int GetCount(CharacterBody body)
+        public static int GetCount(CharacterBody body)
         {
             if (!body || !body.inventory) { return 0; }
 
             return body.inventory.GetItemCount(Index);
         }
 
-        public int GetCount(CharacterMaster master)
+        public static int GetCount(CharacterMaster master)
         {
             if (!master || !master.inventory) { return 0; }
 
             return master.inventory.GetItemCount(Index);
         }
 
-        public int GetCountSpecific(CharacterBody body, ItemIndex itemIndex)
+        public static int GetCountSpecific(CharacterBody body, ItemIndex itemIndex)
         {
             if (!body || !body.inventory) { return 0; }
 

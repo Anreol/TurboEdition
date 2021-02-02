@@ -16,7 +16,7 @@ namespace TurboEdition.Items
     {
         public override string ItemName => "Expanse Expander";
 
-        public override string ItemLangTokenName => "ADD_TELEPORTER_RADIUS";
+        public override string ItemLangTokenName => "ADDTELEPORTERRADIUS";
 
         public override string ItemPickupDesc => "Increase the teleporter zone.";
 
@@ -27,6 +27,9 @@ namespace TurboEdition.Items
 
         private Run.FixedTimeStamp enabledAtTime;
         private TeleporterInteraction currentTele;
+        private float lastItemNumber;
+        private int TeamCount;
+        private int LivingPlayers;
 
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
@@ -39,7 +42,7 @@ namespace TurboEdition.Items
         public float addStackRadius;
         public float startupDelay;
         public float rampupTime;
-        public float itemStackingCap;
+        public int itemStackingCap;
 
         public override void CreateConfig(ConfigFile config)
         {
@@ -62,8 +65,7 @@ namespace TurboEdition.Items
 
         public override void Hooks()
         {
-            TeleporterInteraction.onTeleporterBeginChargingGlobal += ExpandTeleporterRadius;
-            On.RoR2.Run.FixedUpdate += UpdateRadiusSize;
+            TeleporterInteraction.onTeleporterBeginChargingGlobal += Begin;
         }
 
         private static int GetUniqueItems(TeamIndex teamIndex)
@@ -72,7 +74,6 @@ namespace TurboEdition.Items
             for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
             {
                 CharacterMaster characterMaster = CharacterMaster.readOnlyInstancesList[i];
-                int InventoryCount = GetCount(characterMaster);
                 if (characterMaster.teamIndex == teamIndex && characterMaster.inventory.GetItemCount(Index) >= 1)
                 {
                     num++;
@@ -81,34 +82,69 @@ namespace TurboEdition.Items
             return num;
         }
 
+        private void Begin(TeleporterInteraction teleporterobject)
+        {
+            enabledAtTime = Run.FixedTimeStamp.now;
+            currentTele = teleporterobject;
+            //This actually shouldnt do absolutely nothing at first run?
+            if (CheckForItemChange())
+            {
+                ExpandTeleporterRadius(teleporterobject);
+                if (teleporterobject) { On.RoR2.Run.FixedUpdate += UpdateRadiusSize; }
+            }
+        }
+
+        private bool CheckForItemChange()
+        {
+            if ((GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addFirstRadius) + (TeamCount - (GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addStackRadius)) == lastItemNumber)
+            {
+                return false;
+            }
+            lastItemNumber = (GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addFirstRadius) + (TeamCount - (GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addStackRadius));
+            //Update living players too, not sure if its the best idea?
+            LivingPlayers = Run.instance.livingPlayerCount;
+            return true;
+        }
         private void ExpandTeleporterRadius(TeleporterInteraction teleporterobject)
         {
-            currentTele = teleporterobject;
-            this.enabledAtTime = Run.FixedTimeStamp.now;
+            //currentTele = teleporterobject;
             //Using the team that activated the teleporter, if not, use TeamIndex.Player to get the player team.
-            int TeamCount = Util.GetItemCountForTeam(teleporterobject.holdoutZoneController.chargingTeam, this.Index, true, false);
-            int LivingPlayers = Run.instance.livingPlayerCount;
+            TeamCount = Util.GetItemCountForTeam(teleporterobject.holdoutZoneController.chargingTeam, Index, true, false);
+            LivingPlayers = Run.instance.livingPlayerCount;
             if (TeamCount == 0) return;
-            teleporterobject.holdoutZoneController.baseRadius += (((TeamCount - LivingPlayers) * addStackRadius) + (LivingPlayers * addFirstRadius));
+            teleporterobject.holdoutZoneController.baseRadius += (GetUniqueItems(teleporterobject.holdoutZoneController.chargingTeam) * addFirstRadius) + (TeamCount - (GetUniqueItems(teleporterobject.holdoutZoneController.chargingTeam) * addStackRadius));
+#if DEBUG
+            Chat.AddMessage("Turbo Edition: " + ItemName + " baseRadius " + teleporterobject.holdoutZoneController.baseRadius);
+#endif
         }
 
         private void UpdateRadiusSize(On.RoR2.Run.orig_FixedUpdate orig, Run self)
         {
             orig(self);
-            //TODO get item count
-            this.currentFocusConvergenceCount = Util.GetItemCountForTeam(currentTele.holdoutZoneController.chargingTeam, Index, true, false);
-            if (this.enabledAtTime.timeSince < startupDelay) return;
-            //TODO get item count
+            //Check if there was any changes, since this is now constantly on Fixed update, it will run forever, so lets save some stuff
+            if (!CheckForItemChange()) { return; }
+            //if (!currentTele) { return; }
+            int currentItemCount = GetUniqueItems(currentTele.holdoutZoneController.chargingTeam);
+            if (enabledAtTime.timeSince < startupDelay) return;
             if(itemStackingCap != -1)
-            {
-                this.itemcount = Mathf.Min(itemcount, itemStackingCap);
+            {  
+                currentItemCount = Mathf.Min(currentItemCount, itemStackingCap);
+#if DEBUG
+                Chat.AddMessage("Turbo Edition: " + ItemName + " max stack is on, check log for details");
+                TurboEdition._logger.LogWarning("TE: " + ItemName + " currentItemCount" + currentItemCount);
+                TurboEdition._logger.LogWarning("TE: " + ItemName + " itemStackingCap" + itemStackingCap);
+#endif
             }
 
+            ExpandTeleporterRadius(currentTele);
             //I have absolutely no idea what this does, but I assume it sets the HoldoutZoneController's current value (radius? color?) to the float from the smooth transition thing
             //Totally unrelated to the actual size and function but ¯\_(ツ)_/¯
-            float intToFloat = ((float)this.itemcount > 0f) ? 1f : 0f;
+            float intToFloat = ((float)currentItemCount > 0f) ? 1f : 0f;
             float smoothTransition = Mathf.MoveTowards(Reflection.GetFieldValue<float>(currentTele.holdoutZoneController, "currentValue"), intToFloat, rampupTime * Time.fixedDeltaTime);
             Reflection.SetFieldValue<float>(currentTele.holdoutZoneController, "currentValue", smoothTransition);
+#if DEBUG
+            TurboEdition._logger.LogWarning("TE: " + ItemName + "currentTele.holdoutZoneController currentValue " + Reflection.GetFieldValue<float>(currentTele.holdoutZoneController, "currentValue"));
+#endif
         }
     }
 }

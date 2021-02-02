@@ -18,7 +18,7 @@ namespace TurboEdition.Equipment
     {
         public override string EquipmentName => "Emergency Button";
 
-        public override string EquipmentLangTokenName => "STAGE_SKIP";
+        public override string EquipmentLangTokenName => "STAGESKIP";
 
         public override string EquipmentPickupDesc => "Advances to next stage if teleporter is fully charged or boss is defeated.";
 
@@ -91,7 +91,7 @@ namespace TurboEdition.Equipment
                         {
                             sceneExitController = InstanceTracker.FirstOrNull<SceneExitController>();
 #if DEBUG
-                            TurboEdition._logger.LogWarning("instanceTracker.FirstOrNull: " + sceneExitController);
+                            TurboEdition._logger.LogWarning("TE instanceTracker.FirstOrNull: " + sceneExitController);
 #endif
                         }
                         SkipStage(sceneExitController);
@@ -101,9 +101,9 @@ namespace TurboEdition.Equipment
             }
             #if DEBUG
             Chat.AddMessage("Turbo Edition: " + EquipmentName + " couldn't skip stage, see log for details.");
-            TurboEdition._logger.LogWarning("chargeFraction: " + TeleporterInteraction.instance.chargeFraction);
-            TurboEdition._logger.LogWarning("monstersCleared: " + Reflection.GetFieldValue<bool>(TeleporterInteraction.instance, "monstersCleared"));
-            TurboEdition._logger.LogWarning("isRunning: " + SceneExitController.isRunning);
+            TurboEdition._logger.LogWarning("TE chargeFraction: " + TeleporterInteraction.instance.chargeFraction);
+            TurboEdition._logger.LogWarning("TE monstersCleared: " + Reflection.GetFieldValue<bool>(TeleporterInteraction.instance, "monstersCleared"));
+            TurboEdition._logger.LogWarning("TE isRunning: " + SceneExitController.isRunning);
             #endif
             return false;
         }

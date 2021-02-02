@@ -16,7 +16,7 @@ namespace TurboEdition.Items
     {
         public override string ItemName => "Nanomachines";
 
-        public override string ItemLangTokenName => "MELEE_ARMOR";
+        public override string ItemLangTokenName => "MELEEARMOR";
 
         public override string ItemPickupDesc => "THEY RESPONSE TO PHYSICAL TRAUMA.";
 
@@ -101,7 +101,7 @@ namespace TurboEdition.Items
                         if (distance <= rangeRadius)
                         {
 #if DEBUG
-                            TurboEdition._logger.LogWarning("Turbo Edition: " + ItemName + " distance " + distance);
+                            TurboEdition._logger.LogWarning("TE: " + ItemName + " distance " + distance);
 #endif
                             OnDamaged(damageReport.victimBody);
                         }
