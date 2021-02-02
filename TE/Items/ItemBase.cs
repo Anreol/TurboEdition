@@ -104,5 +104,20 @@ namespace TurboEdition.Items
 
             return body.inventory.GetItemCount(itemIndex);
         }
+
+        public static int GetUniqueItemCountForTeam(TeamIndex teamIndex, ItemIndex itemIndex, bool requiresAlive, bool requiresConnected = true)
+        {
+            int num = 0;
+            for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
+            {
+                CharacterMaster characterMaster = CharacterMaster.readOnlyInstancesList[i];
+                if (characterMaster.teamIndex == teamIndex && (!requiresAlive || characterMaster.hasBody) && (!requiresConnected || !characterMaster.playerCharacterMasterController || characterMaster.playerCharacterMasterController.isConnected) && characterMaster.inventory.GetItemCount(itemIndex) >= 1)
+                {
+                    num ++;
+                }
+            }
+            return num;
+        }
+
     }
 }

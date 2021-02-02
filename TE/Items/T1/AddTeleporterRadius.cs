@@ -27,9 +27,11 @@ namespace TurboEdition.Items
 
         private Run.FixedTimeStamp enabledAtTime;
         private TeleporterInteraction currentTele;
-        private float lastItemNumber;
+        private float lastRadiusCalculated;
+
+        //For Item Counts
         private int TeamCount;
-        private int LivingPlayers;
+        private int UniqueItemsInTeam;
 
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
@@ -50,7 +52,7 @@ namespace TurboEdition.Items
             addStackRadius = config.Bind<float>("Item: " + ItemName, "Added radius per stack", 1f, "Extend the Teleporter Radius by this on item stacking.").Value;
             startupDelay = config.Bind<float>("Item: " + ItemName, "Delay in seconds", 6f, "Delay in seconds for the item to be active, Focus Convergence has 3 seconds.").Value;
             rampupTime = config.Bind<float>("Item: " + ItemName, "Delay in seconds", 8f, "Delay in seconds for the teleporter radius be fully expanded").Value;
-            itemStackingCap = config.Bind<int>("Item: " + ItemName, "Max items per team", -1, "Maximum amount of items a whole team can have. Keep at -1 for no limit.").Value;
+            itemStackingCap = config.Bind<int>("Item: " + ItemName, "Max teleporter radius", -1, "Maximum radius that the teleporter can expand, probably in meters. Keep at -1 for no limit.").Value;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -68,53 +70,60 @@ namespace TurboEdition.Items
             TeleporterInteraction.onTeleporterBeginChargingGlobal += Begin;
         }
 
-        private static int GetUniqueItems(TeamIndex teamIndex)
-        {
-            int num = 0;
-            for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
-            {
-                CharacterMaster characterMaster = CharacterMaster.readOnlyInstancesList[i];
-                if (characterMaster.teamIndex == teamIndex && characterMaster.inventory.GetItemCount(Index) >= 1)
-                {
-                    num++;
-                }
-            }
-            return num;
-        }
-
         private void Begin(TeleporterInteraction teleporterobject)
         {
+#if DEBUG
+            Chat.AddMessage("Turbo Edition: " + ItemName + " now working. Check log for details.");
             enabledAtTime = Run.FixedTimeStamp.now;
             currentTele = teleporterobject;
-            //This actually shouldnt do absolutely nothing at first run?
-            if (CheckForItemChange())
-            {
-                ExpandTeleporterRadius(teleporterobject);
-                if (teleporterobject) { On.RoR2.Run.FixedUpdate += UpdateRadiusSize; }
-            }
+            TurboEdition._logger.LogWarning("TE: enabledAtTime " + enabledAtTime);
+            TurboEdition._logger.LogWarning("TE: currentTele " + currentTele);
+            TurboEdition._logger.LogWarning("TE: teleporterobject " + teleporterobject);
+            TurboEdition._logger.LogWarning("TE: " + ItemName + " about to do ExpandTeleporterRadius, CheckForItemChange " + CheckForItemChange() + " lastRadiusCalculated " + lastRadiusCalculated);
+            Chat.AddMessage("TE: if you don't see a CHECK! now, panic!");
+#endif
+            ExpandTeleporterRadius(teleporterobject);
+            if (teleporterobject) { On.RoR2.Run.FixedUpdate += UpdateRadiusSize; }
+            else { Chat.AddMessage("Turbo Edition: " + ItemName + " did not start FixedUpdate, teleporter object does not exist?."); }
         }
 
         private bool CheckForItemChange()
         {
-            if ((GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addFirstRadius) + (TeamCount - (GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addStackRadius)) == lastItemNumber)
+            //Lets get the number of unique items that alive players have
+            UniqueItemsInTeam = GetUniqueItemCountForTeam(currentTele.holdoutZoneController.chargingTeam, Index, true, false);
+            TeamCount = Util.GetItemCountForTeam(currentTele.holdoutZoneController.chargingTeam, Index, true, false);
+            float newCalculatedRadius = CalculateRadiusIncrease(UniqueItemsInTeam, TeamCount);
+            if (newCalculatedRadius == lastRadiusCalculated)
             {
                 return false;
             }
-            lastItemNumber = (GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addFirstRadius) + (TeamCount - (GetUniqueItems(currentTele.holdoutZoneController.chargingTeam) * addStackRadius));
-            //Update living players too, not sure if its the best idea?
-            LivingPlayers = Run.instance.livingPlayerCount;
+            lastRadiusCalculated = newCalculatedRadius;
+#if DEBUG
+            Chat.AddMessage("Turbo Edition: " + ItemName + " item counts and radius recalculated. Check log for details.");
+            TurboEdition._logger.LogWarning("TE: UniqueItemsInTeam " + UniqueItemsInTeam);
+            TurboEdition._logger.LogWarning("TE: TeamCount " + TeamCount);
+            TurboEdition._logger.LogWarning("TE: lastRadiusCalculated " + lastRadiusCalculated);
+#endif
             return true;
+        }
+
+        private float CalculateRadiusIncrease(float firstStack, float normalStacks)
+        {
+            return (firstStack * addFirstRadius) + ((normalStacks - firstStack) * addStackRadius);
         }
         private void ExpandTeleporterRadius(TeleporterInteraction teleporterobject)
         {
+#if DEBUG
+            Chat.AddMessage("Turbo Edition: " + ItemName + " CHECK!");
+#endif
             //currentTele = teleporterobject;
             //Using the team that activated the teleporter, if not, use TeamIndex.Player to get the player team.
-            TeamCount = Util.GetItemCountForTeam(teleporterobject.holdoutZoneController.chargingTeam, Index, true, false);
-            LivingPlayers = Run.instance.livingPlayerCount;
             if (TeamCount == 0) return;
-            teleporterobject.holdoutZoneController.baseRadius += (GetUniqueItems(teleporterobject.holdoutZoneController.chargingTeam) * addFirstRadius) + (TeamCount - (GetUniqueItems(teleporterobject.holdoutZoneController.chargingTeam) * addStackRadius));
+            teleporterobject.holdoutZoneController.baseRadius += lastRadiusCalculated;
 #if DEBUG
-            Chat.AddMessage("Turbo Edition: " + ItemName + " baseRadius " + teleporterobject.holdoutZoneController.baseRadius);
+            Chat.AddMessage("Turbo Edition: " + ItemName + " expanding teleporter radius, check logs.");
+            TurboEdition._logger.LogWarning("TE: " + ItemName + " lastRadiusCalculated " + lastRadiusCalculated);
+            TurboEdition._logger.LogWarning("TE: " + ItemName + " baseRadius " + teleporterobject.holdoutZoneController.baseRadius);
 #endif
         }
 
@@ -122,9 +131,14 @@ namespace TurboEdition.Items
         {
             orig(self);
             //Check if there was any changes, since this is now constantly on Fixed update, it will run forever, so lets save some stuff
-            if (!CheckForItemChange()) { return; }
+            if (!CheckForItemChange())
+            {
+                //Chat.AddMessage("Turbo Edition: " + ItemName + " there was no item change, won't update teleporter radius.");
+                return;
+            }
+            Chat.AddMessage("Turbo Edition: " + ItemName + " item count changed, updating teleporter radius.");
             //if (!currentTele) { return; }
-            int currentItemCount = GetUniqueItems(currentTele.holdoutZoneController.chargingTeam);
+            float currentItemCount = lastRadiusCalculated;
             if (enabledAtTime.timeSince < startupDelay) return;
             if(itemStackingCap != -1)
             {  
