@@ -66,6 +66,21 @@ namespace TurboEdition.Items
             On.RoR2.Run.FixedUpdate += UpdateRadiusSize;
         }
 
+        private static int GetUniqueItems(TeamIndex teamIndex)
+        {
+            int num = 0;
+            for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
+            {
+                CharacterMaster characterMaster = CharacterMaster.readOnlyInstancesList[i];
+                int InventoryCount = GetCount(characterMaster);
+                if (characterMaster.teamIndex == teamIndex && characterMaster.inventory.GetItemCount(Index) >= 1)
+                {
+                    num++;
+                }
+            }
+            return num;
+        }
+
         private void ExpandTeleporterRadius(TeleporterInteraction teleporterobject)
         {
             currentTele = teleporterobject;
@@ -81,8 +96,8 @@ namespace TurboEdition.Items
         {
             orig(self);
             //TODO get item count
-            this.currentFocusConvergenceCount = Util.GetItemCountForTeam(ExpandTeleporterRadius.chargingTeam, this.Index, true, false);
-            if (this.enabledAtTime.timeSince < this.startupDelay) return;
+            this.currentFocusConvergenceCount = Util.GetItemCountForTeam(currentTele.holdoutZoneController.chargingTeam, Index, true, false);
+            if (this.enabledAtTime.timeSince < startupDelay) return;
             //TODO get item count
             if(itemStackingCap != -1)
             {
