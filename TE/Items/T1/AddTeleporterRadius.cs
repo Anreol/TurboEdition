@@ -12,7 +12,7 @@ using static TurboEdition.Utils.ItemHelpers;
 
 namespace TurboEdition.Items
 {
-    public class AddTeleporterRadius : ItemBase
+    public class AddTeleporterRadius : ItemBase<AddTeleporterRadius>
     {
         public override string ItemName => "Expanse Expander";
 
@@ -68,6 +68,7 @@ namespace TurboEdition.Items
         public override void Hooks()
         {
             TeleporterInteraction.onTeleporterBeginChargingGlobal += Begin;
+            On.RoR2.HoldoutZoneController.FixedUpdate += UpdateRadiusSize;
         }
 
         private void Begin(TeleporterInteraction teleporterobject)
@@ -83,8 +84,6 @@ namespace TurboEdition.Items
             Chat.AddMessage("TE: if you don't see a CHECK! now, panic!");
 #endif
             ExpandTeleporterRadius(teleporterobject);
-            if (teleporterobject) { On.RoR2.Run.FixedUpdate += UpdateRadiusSize; }
-            else { Chat.AddMessage("Turbo Edition: " + ItemName + " did not start FixedUpdate, teleporter object does not exist?."); }
         }
 
         private bool CheckForItemChange()
@@ -127,7 +126,7 @@ namespace TurboEdition.Items
 #endif
         }
 
-        private void UpdateRadiusSize(On.RoR2.Run.orig_FixedUpdate orig, Run self)
+        private void UpdateRadiusSize(On.RoR2.HoldoutZoneController.orig_FixedUpdate orig, Run self)
         {
             orig(self);
             //Check if there was any changes, since this is now constantly on Fixed update, it will run forever, so lets save some stuff
@@ -138,7 +137,7 @@ namespace TurboEdition.Items
             }
             Chat.AddMessage("Turbo Edition: " + ItemName + " item count changed, updating teleporter radius.");
             //if (!currentTele) { return; }
-            float currentItemCount = lastRadiusCalculated;
+            float currentItemCount = this.lastRadiusCalculated;
             if (enabledAtTime.timeSince < startupDelay) return;
             if(itemStackingCap != -1)
             {  

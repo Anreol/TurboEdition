@@ -5,6 +5,17 @@ using System.Collections.Generic;
 
 namespace TurboEdition.Items
 {
+    //This is also based on TILER, thank you TI, very cool!
+    public abstract class ItemBase<T>:ItemBase where T : ItemBase<T> 
+    {
+        public static T instance {get;private set;}
+        public ItemBase() 
+        {
+                if(instance != null) throw new InvalidOperationException("Singleton class \"" + typeof(T).Name + "\" inheriting ItemBoilerplate/Item was instantiated twice");
+                instance = this as T;
+        }
+    }
+
     public abstract class ItemBase
     {
         public abstract string ItemName { get; }
@@ -83,6 +94,20 @@ namespace TurboEdition.Items
 
         public virtual void Hooks() { }
 
+        public static int GetUniqueItemCountForTeam(TeamIndex teamIndex, ItemIndex itemIndex, bool requiresAlive, bool requiresConnected = true)
+        {
+            int num = 0;
+            for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
+            {
+                CharacterMaster characterMaster = CharacterMaster.readOnlyInstancesList[i];
+                if (characterMaster.teamIndex == teamIndex && (!requiresAlive || characterMaster.hasBody) && (!requiresConnected || !characterMaster.playerCharacterMasterController || characterMaster.playerCharacterMasterController.isConnected) && characterMaster.inventory.GetItemCount(itemIndex) >= 1)
+                {
+                    num ++;
+                }
+            }
+            return num;
+        }
+
         //Based on ThinkInvis' methods
         public static int GetCount(CharacterBody body)
         {
@@ -105,19 +130,16 @@ namespace TurboEdition.Items
             return body.inventory.GetItemCount(itemIndex);
         }
 
-        public static int GetUniqueItemCountForTeam(TeamIndex teamIndex, ItemIndex itemIndex, bool requiresAlive, bool requiresConnected = true)
+        public static int GetCountOnDeployables(CharacterMaster master) 
         {
-            int num = 0;
-            for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
-            {
-                CharacterMaster characterMaster = CharacterMaster.readOnlyInstancesList[i];
-                if (characterMaster.teamIndex == teamIndex && (!requiresAlive || characterMaster.hasBody) && (!requiresConnected || !characterMaster.playerCharacterMasterController || characterMaster.playerCharacterMasterController.isConnected) && characterMaster.inventory.GetItemCount(itemIndex) >= 1)
-                {
-                    num ++;
-                }
+            if(master == null) return 0;
+            var dplist = master.deployablesList;
+            if(dplist == null) return 0;
+            int count = 0;
+            foreach(DeployableInfo d in dplist) {
+                count += GetCount(d.deployable.gameObject.GetComponent<Inventory>());
             }
-            return num;
+            return count;
         }
-
     }
 }

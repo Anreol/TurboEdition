@@ -14,7 +14,7 @@ using static TurboEdition.Utils.ItemHelpers;
 namespace TurboEdition.Equipment
 {
     [RequireComponent(typeof(SceneExitController))]
-    public class StageSkip : EquipmentBase
+    public class StageSkip : EquipmentBase<StageSkip>
     {
         public override string EquipmentName => "Emergency Button";
 
