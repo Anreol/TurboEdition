@@ -22,6 +22,7 @@ namespace TurboEdition
     [R2APISubmoduleDependency("ItemDropAPI")]
     [R2APISubmoduleDependency("LanguageAPI")]
     [R2APISubmoduleDependency("BuffAPI")]
+    [R2APISubmoduleDependency(nameof(CommandHelper))]
     [BepInDependency("com.bepis.r2api")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(ModGuid, ModName, ModVer)]
@@ -64,7 +65,7 @@ namespace TurboEdition
         public void Awake()
         {
             _logger = Logger;
-
+            CommandHelper.AddToConsoleWhenReady();
             #if DEBUG
             Logger.LogWarning("Running TurboEdition DEBUG build.");
             #endif
@@ -134,6 +135,14 @@ namespace TurboEdition
             }
         }
         #endif
+
+        [ConCommand(commandName ="itemsonteam",flags=ConVarFlags.None,helpText ="dumsp the amount of the item on the team")]
+        public static void ccItemsOnTeam(ConCommandArgs args)
+        {
+            Debug.Log("Count:"+ ItemBase.GetCountFromPlayers((ItemIndex)args.GetArgInt(0), false));
+            Debug.Log("uCount:"+ItemBase.GetUniqueCountFromPlayers((ItemIndex)args.GetArgInt(0), false));
+        }
+
 
         /// <summary>
         /// A helper to easily set up and initialize an item from your item classes if the user has it enabled in their configuration files.
