@@ -99,18 +99,32 @@ namespace TurboEdition.Items
 
         public virtual void Hooks() { }
 
-        public static int GetUniqueItemCountForTeam(TeamIndex teamIndex, ItemIndex itemIndex, bool requiresAlive, bool requiresConnected = true)
+        public static int GetUniqueCountFromPlayers(ItemIndex itemIndex, bool requiresAlive)
         {
-            int num = 0;
-            for (int i = 0; i < CharacterMaster.readOnlyInstancesList.Count; i++)
+            var playerUnique = PlayerCharacterMasterController.instances;
+            int stackCount = 0;
+            for (int i = 0; i < playerUnique.Count; i++)
             {
-                CharacterMaster characterMaster = CharacterMaster.readOnlyInstancesList[i];
-                if (characterMaster.teamIndex == teamIndex && (!requiresAlive || characterMaster.hasBody) && (!requiresConnected || !characterMaster.playerCharacterMasterController || characterMaster.playerCharacterMasterController.isConnected) && characterMaster.inventory.GetItemCount(itemIndex) >= 1)
+                if(playerUnique[i].master.inventory.GetItemCount(itemIndex) > 0 && (!requiresAlive || !playerUnique[i].master.IsDeadAndOutOfLivesServer()))
                 {
-                    num ++;
+                    stackCount++;
                 }
             }
-            return num;
+            return stackCount;
+        }
+
+        public static int GetCountFromPlayers(ItemIndex itemIndex, bool requiresAlive)
+        {
+            var playerTotal = PlayerCharacterMasterController.instances;
+            int totalCount = 0;
+            for (int i = 0; i < playerTotal.Count; i++)
+            {
+                if (playerTotal[i].master.inventory.GetItemCount(itemIndex) > 0 && (!requiresAlive || !playerTotal[i].master.IsDeadAndOutOfLivesServer()))
+                {
+                    totalCount += playerTotal[i].master.inventory.GetItemCount(itemIndex);
+                }
+            }
+            return totalCount;
         }
 
         //Based on ThinkInvis' methods

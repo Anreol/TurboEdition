@@ -142,14 +142,14 @@ namespace TurboEdition.Items
             TeleporterInteraction CurrentTele = self.GetComponent<TeleporterInteraction>();
             if (!CurrentTele) { return; }
 
-            UniqueItemsInTeam = GetUniqueItemCountForTeam(TeamIndex.Player, Index, true);
-            TeamCount = Util.GetItemCountForTeam(TeamIndex.Player, Index, true);
+            UniqueItemsInTeam = GetUniqueCountFromPlayers(Index, true);
+            TeamCount = GetCountFromPlayers(Index, true);
             #if DEBUG
             TurboEdition._logger.LogWarning("TE: Item Index for " + ItemName + ": " + Index);
             TurboEdition._logger.LogWarning("TE: UniqueItemsInTeam " + UniqueItemsInTeam);
             TurboEdition._logger.LogWarning("TE: TeamCount " + TeamCount);
             #endif
-            float newCalculatedRadius = CalculateRadiusIncrease(UniqueItemsInTeam, TeamCount);
+            newCalculatedRadius = CalculateRadiusIncrease(UniqueItemsInTeam, TeamCount);
             //Check if there was any changes, since this is now constantly on Fixed update, it will run forever, so lets save some stuff
             if (CheckForItemChange(newCalculatedRadius))
             {
@@ -170,7 +170,7 @@ namespace TurboEdition.Items
 
             //I have absolutely no idea what this does, but I assume it sets the HoldoutZoneController's current value (radius? color?) to the float from the smooth transition thing
             //Totally unrelated to the actual size and function but ¯\_(ツ)_/¯
-            float intToFloat = ((float)newCalculatedRadius > 0f) ? 1f : 0f;
+            float intToFloat = (newCalculatedRadius > 0f) ? 1f : 0f;
             float smoothTransition = Mathf.MoveTowards(currentValue, intToFloat, rampupTime * Time.fixedDeltaTime);
             if(currentValue < 0f && smoothTransition > 0f)
             {
