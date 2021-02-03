@@ -1,7 +1,12 @@
 ﻿using BepInEx.Configuration;
 using R2API;
+using R2API.Utils;
 using RoR2;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using UnityEngine;
 
 namespace TurboEdition.Items
 {
@@ -130,6 +135,7 @@ namespace TurboEdition.Items
             return body.inventory.GetItemCount(itemIndex);
         }
 
+        /*
         public static int GetCountOnDeployables(CharacterMaster master) 
         {
             if(master == null) return 0;
@@ -141,5 +147,6 @@ namespace TurboEdition.Items
             }
             return count;
         }
+        */
     }
 }

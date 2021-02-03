@@ -28,7 +28,6 @@
     <Folder Include="TE\Items\TLunar\" />
     <Folder Include="TE\Items\TSynergy\" />
     <Folder Include="TE\Items\T2\" />
-    <Folder Include="TE\Items\T1\" />
     <Folder Include="Utilities\Parents\Implementations\" />
   </ItemGroup>
 

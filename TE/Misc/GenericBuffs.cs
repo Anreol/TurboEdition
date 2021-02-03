@@ -24,33 +24,39 @@ namespace TurboEdition
 
         private void CreateBuffs()
         {
-            private void shaken
-            {
-                var shakenBuffDef = new R2API.CustomBuff(
-                new RoR2.BuffDef
-                {
-                    buffColor = Color.white,
-                    canStack = true,
-                    isDebuff = true,
-                    name = "Shaken",
-                    iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
-                });
-                shakenBuff = R2API.BuffAPI.Add(shakenBuffDef);
-            }
+            DefShaken();
         }
 
-//For shaken add a hook on damaged and check if incoming damage is crit, then add at the end of all that a roll for crit based on debuff
-//or try to hook it up to the crit rolling, but that would require a damage report? cloning the damage and applying it with increased crit chance?
-//crit damage is calculated inside HealthComponent in line 569
-//crit rolling is calculated inside CharacterBody in line 2645
-//rolling function is at Util in line 399
-    private void CheckBodyHasBuff(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
-    {
-        orig(self);
-        if (self.HasBuff(shakenBuffDef))
+        public static BuffIndex shakenBuff;
+        private void DefShaken()
         {
+            var shakenBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            shakenBuff = R2API.BuffAPI.Add(shakenBuffDef);
+        }
 
+        //For shaken add a hook on damaged and check if incoming damage is crit, then add at the end of all that a roll for crit based on debuff
+        //or try to hook it up to the crit rolling, but that would require a damage report? cloning the damage and applying it with increased crit chance?
+        //crit damage is calculated inside HealthComponent in line 569
+        //crit rolling is calculated inside CharacterBody in line 2645
+        //rolling function is at Util in line 399
+
+        private void CheckBodyHasBuff(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
+        {
+            orig(self);
+            if (self.HasBuff(shakenBuff))
+            {
+
+            }
         }
     }
 }
+
 
