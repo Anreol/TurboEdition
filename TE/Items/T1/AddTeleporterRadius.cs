@@ -25,8 +25,16 @@ namespace TurboEdition.Items
         public override string ItemLore => "Yet another mod that adds an item that increases Teleporter Radius, how creative are we today huh?";
         public override ItemTier Tier => ItemTier.Tier1;
 
-        //private Run.FixedTimeStamp enabledAtTime;
+        private Run.FixedTimeStamp enabledAtTime;
         private float lastRadiusCalculated;
+
+        private float currentValue;
+        private float lastIncreaseBy;
+        private float newCalculatedRadius;
+
+        private static readonly AnimationCurve colorCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+        private static readonly Color newMaterialColor = new Color(0f, 3.9411764f, 5f, 1f);
+
 
         //For Item Counts
         private int TeamCount;
@@ -41,7 +49,7 @@ namespace TurboEdition.Items
         //Item properties
         public float addFirstRadius;
         public float addStackRadius;
-        public float startupDelay;
+        public float startupDelay; //shouldnt this be a Run.FixedTimeStamp to compare to enabledAtTime??
         public float rampupTime;
         public int itemStackingCap;
 
@@ -66,9 +74,37 @@ namespace TurboEdition.Items
 
         public override void Hooks()
         {
-            //TeleporterInteraction.onTeleporterBeginChargingGlobal += ExpandTeleporterRadius;
+            TeleporterInteraction.onTeleporterBeginChargingGlobal += GetMinorThings;
             //On.RoR2.TeleporterInteraction.FixedUpdate += UpdateRadiusSize;
             On.RoR2.HoldoutZoneController.FixedUpdate += UpdateRadiusSize;
+        }
+
+        private void GetMinorThings(TeleporterInteraction teleporterInteraction)
+        {
+            enabledAtTime = Run.FixedTimeStamp.now;
+        }
+
+        private void OnEnable(HoldoutZoneController self)
+        {
+            self.calcColor += ChangeColor;
+            self.calcRadius += ChangeRadius;
+        }
+        private void OnDisable(HoldoutZoneController self)
+        {
+            self.calcColor -= ChangeColor;
+            self.calcRadius -= ChangeRadius;
+        }
+        private void ChangeColor(ref Color color)
+        {
+            color = Color.Lerp(color, newMaterialColor, colorCurve.Evaluate(currentValue));
+        }
+
+        private void ChangeRadius(ref float radius)
+        {
+            if (newCalculatedRadius > 0)
+            {
+                radius = newCalculatedRadius;
+            }
         }
 
         private bool CheckForItemChange(float thingyToCheck)
@@ -79,29 +115,40 @@ namespace TurboEdition.Items
                 return false;
             }
             lastRadiusCalculated = thingyToCheck;
-#if DEBUG
+            #if DEBUG
             Chat.AddMessage("Turbo Edition: " + ItemName + " item counts and radius recalculated. Check log for details.");
-            TurboEdition._logger.LogWarning("TE: UniqueItemsInTeam " + UniqueItemsInTeam);
-            TurboEdition._logger.LogWarning("TE: TeamCount " + TeamCount);
             TurboEdition._logger.LogWarning("TE: lastRadiusCalculated " + lastRadiusCalculated);
-#endif
+            #endif
             return true;
         }
 
         private float CalculateRadiusIncrease(float firstStack, float normalStacks)
         {
-            return (firstStack * addFirstRadius) + ((normalStacks - firstStack) * addStackRadius);
+            if (normalStacks > 0)
+            {
+                float calc = (firstStack * addFirstRadius) + ((normalStacks - firstStack) * addStackRadius);
+                #if DEBUG
+                TurboEdition._logger.LogWarning("TE: calculated the radius we have to increase by: " + calc);
+                #endif
+                return calc;
+            }
+            return 0;
         }
+
 
         private void UpdateRadiusSize(On.RoR2.HoldoutZoneController.orig_FixedUpdate orig, HoldoutZoneController self)
         {
             orig(self);
-
-            Run.FixedTimeStamp enabledAtTime  = Run.FixedTimeStamp.now;
             TeleporterInteraction CurrentTele = self.GetComponent<TeleporterInteraction>();
+            if (!CurrentTele) { return; }
 
-            UniqueItemsInTeam = GetUniqueItemCountForTeam(self.chargingTeam, Index, true, false);
-            TeamCount = Util.GetItemCountForTeam(self.chargingTeam, Index, true, false);
+            UniqueItemsInTeam = GetUniqueItemCountForTeam(TeamIndex.Player, Index, true);
+            TeamCount = Util.GetItemCountForTeam(TeamIndex.Player, Index, true);
+            #if DEBUG
+            TurboEdition._logger.LogWarning("TE: Item Index for " + ItemName + ": " + Index);
+            TurboEdition._logger.LogWarning("TE: UniqueItemsInTeam " + UniqueItemsInTeam);
+            TurboEdition._logger.LogWarning("TE: TeamCount " + TeamCount);
+            #endif
             float newCalculatedRadius = CalculateRadiusIncrease(UniqueItemsInTeam, TeamCount);
             //Check if there was any changes, since this is now constantly on Fixed update, it will run forever, so lets save some stuff
             if (CheckForItemChange(newCalculatedRadius))
@@ -110,27 +157,29 @@ namespace TurboEdition.Items
                 return;
             }
             //Chat.AddMessage("Turbo Edition: " + ItemName + " item count changed, updating teleporter radius.");
-            //if (!currentTele) { return; }
-            TurboEdition._logger.LogWarning("TE: enabledAtTime " + enabledAtTime);
-            if (enabledAtTime.timeSince < startupDelay) return;
-            if(itemStackingCap != -1)
+            //if (enabledAtTime.timeSince < startupDelay) return;
+            if (itemStackingCap != -1)
             {
                 newCalculatedRadius = Mathf.Min(newCalculatedRadius, itemStackingCap);
-#if DEBUG
+                #if DEBUG
                 Chat.AddMessage("Turbo Edition: " + ItemName + " max stack is on, check log for details");
                 TurboEdition._logger.LogWarning("TE: " + ItemName + " currentItemCount" + newCalculatedRadius);
                 TurboEdition._logger.LogWarning("TE: " + ItemName + " itemStackingCap" + itemStackingCap);
-#endif
+                #endif
             }
 
             //I have absolutely no idea what this does, but I assume it sets the HoldoutZoneController's current value (radius? color?) to the float from the smooth transition thing
             //Totally unrelated to the actual size and function but ¯\_(ツ)_/¯
             float intToFloat = ((float)newCalculatedRadius > 0f) ? 1f : 0f;
-            float smoothTransition = Mathf.MoveTowards(Reflection.GetFieldValue<float>(self, "currentValue"), intToFloat, rampupTime * Time.fixedDeltaTime);
-            Reflection.SetPropertyValue<float>(self, "currentValue", smoothTransition);
-#if DEBUG
-            TurboEdition._logger.LogWarning("TE: " + ItemName + "self currentValue " + Reflection.GetFieldValue<float>(self, "currentValue"));
-#endif
+            float smoothTransition = Mathf.MoveTowards(currentValue, intToFloat, rampupTime * Time.fixedDeltaTime);
+            if(currentValue < 0f && smoothTransition > 0f)
+            {
+                //we play a cool sound here indicating the zone is getting bigger
+            }
+            currentValue = smoothTransition;
+            #if DEBUG
+            TurboEdition._logger.LogWarning("TE: " + ItemName + " currentValue " + currentValue);
+            #endif
             ExpandTeleporterRadius(CurrentTele, newCalculatedRadius);
         }
 
@@ -144,10 +193,13 @@ namespace TurboEdition.Items
 #endif
             //Using the team that activated the teleporter, if not, use TeamIndex.Player to get the player team.
             if (Util.GetItemCountForTeam(obj.holdoutZoneController.chargingTeam, Index, true, false) == 0) return;
+            //OnEnable(obj.holdoutZoneController);
             obj.holdoutZoneController.baseRadius += increaseBy;
+            lastIncreaseBy = increaseBy;
 #if DEBUG
             Chat.AddMessage("Turbo Edition: " + ItemName + " expanding teleporter radius, check logs.");
-            TurboEdition._logger.LogWarning("TE: " + ItemName + " lastRadiusCalculated " + increaseBy);
+            TurboEdition._logger.LogWarning("TE: " + ItemName + " increaseBy " + increaseBy);
+            TurboEdition._logger.LogWarning("TE: " + ItemName + " lastIncreaseBy " + lastIncreaseBy);
             TurboEdition._logger.LogWarning("TE: " + ItemName + " baseRadius " + obj.holdoutZoneController.baseRadius);
 #endif
         }
