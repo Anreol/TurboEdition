@@ -10,7 +10,11 @@ using UnityEngine;
 
 namespace TurboEdition.Items
 {
-    //This is also based on TILER, thank you TI, very cool!
+    // The directly below is entirely from TILER2 API (by ThinkInvis) specifically the Item module. Utilized to keep instance checking functionality as I migrate off TILER2.
+    // TILER2 API can be found at the following places:
+    // https://github.com/ThinkInvis/RoR2-TILER2
+    // https://thunderstore.io/package/ThinkInvis/TILER2/
+
     public abstract class ItemBase<T>:ItemBase where T : ItemBase<T> 
     {
         public static T instance {get;private set;}
@@ -35,7 +39,7 @@ namespace TurboEdition.Items
         public abstract string ItemModelPath { get; }
         public abstract string ItemIconPath { get; }
 
-        public static ItemIndex Index;
+        public ItemIndex cIndex;
 
         public virtual bool CanRemove { get; } = true;
 
@@ -94,7 +98,7 @@ namespace TurboEdition.Items
                 itemDef.tags = ItemTags;
             }
             var itemDisplayRules = CreateItemDisplayRules();
-            Index = ItemAPI.Add(new CustomItem(itemDef, itemDisplayRules));
+            cIndex = ItemAPI.Add(new CustomItem(itemDef, itemDisplayRules));
         }
 
         public virtual void Hooks() { }
@@ -128,18 +132,18 @@ namespace TurboEdition.Items
         }
 
         //Based on ThinkInvis' methods
-        public static int GetCount(CharacterBody body)
+        public int GetCount(CharacterBody body)
         {
             if (!body || !body.inventory) { return 0; }
 
-            return body.inventory.GetItemCount(Index);
+            return body.inventory.GetItemCount(cIndex);
         }
 
-        public static int GetCount(CharacterMaster master)
+        public int GetCount(CharacterMaster master)
         {
             if (!master || !master.inventory) { return 0; }
 
-            return master.inventory.GetItemCount(Index);
+            return master.inventory.GetItemCount(cIndex);
         }
 
         public static int GetCountSpecific(CharacterBody body, ItemIndex itemIndex)

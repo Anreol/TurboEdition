@@ -10,7 +10,11 @@ using UnityEngine;
 
 namespace TurboEdition.Equipment
 {
-    //This is also based on TILER, thank you TI, very cool!
+    //Why is this in a folder named CORE? I dont know! I think the name is ok
+    // The directly below is entirely from TILER2 API (by ThinkInvis) specifically the Item module. Utilized to keep instance checking functionality as I migrate off TILER2.
+    // TILER2 API can be found at the following places:
+    // https://github.com/ThinkInvis/RoR2-TILER2
+    // https://thunderstore.io/package/ThinkInvis/TILER2/
     public abstract class EquipmentBase<T>:EquipmentBase where T : EquipmentBase<T> 
     {
         public static T instance {get;private set;}

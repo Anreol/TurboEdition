@@ -136,7 +136,7 @@ namespace TurboEdition
         }
         #endif
 
-        [ConCommand(commandName ="itemsonteam",flags=ConVarFlags.None,helpText ="dumsp the amount of the item on the team")]
+        [ConCommand(commandName ="itemsonteam",flags=ConVarFlags.None,helpText ="dumps the amount of the item on the team")]
         public static void ccItemsOnTeam(ConCommandArgs args)
         {
             Debug.Log("Count:"+ ItemBase.GetCountFromPlayers((ItemIndex)args.GetArgInt(0), false));
