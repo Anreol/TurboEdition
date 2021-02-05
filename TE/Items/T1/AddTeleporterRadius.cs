@@ -100,7 +100,7 @@ namespace TurboEdition.Items
                     newCalculatedRadius = ReturnRadiusIfCapped(itemStackingCap);
                 }
                 #if DEBUG
-                Chat.AddMessage("Turbo Edition: " + ItemName + " item counts, radius, recalculated. Check log for details.");
+                Chat.AddMessage("Turbo Edition: " + ItemName + " item counts, radius, recalculated.");
                 #endif
             }
 
@@ -157,11 +157,10 @@ namespace TurboEdition.Items
                 TurboEdition._logger.LogWarning("Hit a multiplier of baseRadius, newColor is: " + newColor + " and color: " + color);
                 #endif
             }
-            else if ((CurrentTele.holdoutZoneController.currentRadius < (nTimes - (CurrentTele.holdoutZoneController.baseRadius/4))))
+            else if ((CurrentTele.holdoutZoneController.currentRadius < (nTimes-1 * (CurrentTele.holdoutZoneController.baseRadius/4))))
             {
                 nTimes --;
                 CalculateTeleporterColor(0.5f);
-                //color = Color.Lerp(color, newColor, colorCurve.Evaluate(currentValue));
                 #if DEBUG
                 TurboEdition._logger.LogWarning("Dropped from a multipler of baseRadius, newColor is: " + newColor + " and color: " + color);
                 #endif

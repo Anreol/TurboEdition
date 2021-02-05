@@ -14,11 +14,11 @@ namespace TurboEdition.Items
 {
     public class DebuffNearbyEnemies : ItemBase<DebuffNearbyEnemies>
     {
-        public override string ItemName => "Nanomachines";
+        public override string ItemName => "Voice Modulator";
 
         public override string ItemLangTokenName => "DEBUFFNEARBYENEMIES";
 
-        public override string ItemPickupDesc => "THEY RESPONSE TO PHYSICAL TRAUMA.";
+        public override string ItemPickupDesc => "FUCK.";
 
         public override string ItemFullDescription => $"When damaged by an enemy within <style=cIsUtility>{rangeRadius} meters</style>, gain <style=cIsUtility>Nanomachines</style> {buffPerStack} times for {buffDuration}. <style=cStack>(+{buffPerStack} per stack).</style>";
 
@@ -60,6 +60,22 @@ namespace TurboEdition.Items
         public override void Hooks()
         {
 
+        }
+
+        //god check at how the lepton daisy does stuff with pulses because that might be just better yknow
+        private void ActivateScreamAura()
+        {
+            if (!NetworkServer.active) { return; }
+            if (this.screamAuraController)
+            {
+                UnityEngine.Object.Destroy(this.screamAuraController);
+            }
+            cb.screamController = UnityEngine.Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/NetworkedObjects/WarCryAura"), this.transform.position, this.transform.rotation, this.transform);
+            cb.screamAuraController.GetComponent<TeamFilter>().teamIndex = cb.teamComponent.teamIndex;
+            BuffWard component = cb.screamAuraController.GetComponent<BuffWard>();
+            component.expireDuration = 2f + 4f * (float)stacks; //TODO how does buffward work? get it to full expand and thats all
+            component.Networkradius = 8f + 4f * (float)stacks;
+            cb.screamAuraController.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(base.gameObject);
         }
     }
 }
