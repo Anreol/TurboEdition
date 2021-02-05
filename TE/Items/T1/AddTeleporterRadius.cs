@@ -27,7 +27,7 @@ namespace TurboEdition.Items
         public override bool AIBlacklisted => true;
 
         private static Run.FixedTimeStamp enabledAtTime;
-        private static float lastRadiusCalculated;
+        private static float lastTimeChecked;
         private static TeleporterInteraction CurrentTele;
 
         private static float currentValue;
@@ -35,11 +35,11 @@ namespace TurboEdition.Items
 
         //For colors
         private static float mSum;
-        private static float rVal = 0.7f, gVal = 0.7f, bVal = 0.2f;
-        float rMove = -0.1f, gMove = 0.1f, bMove = -0.1f;
+        private static float rVal = 180f, gVal = 180f, bVal = 50f;
+        float rMove = -1f, gMove = 1f, bMove = -1f;
 
         private static readonly AnimationCurve colorCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-        private static Color newMaterialColor; // = new Color(rVal, gVal, bVal, 1f);
+        //private static Color newColor;
 
         //For Item Counts
         private static int TeamCount;
@@ -86,10 +86,6 @@ namespace TurboEdition.Items
         private void GetMinorThings(TeleporterInteraction teleporterInteraction)
         {
             enabledAtTime = Run.FixedTimeStamp.now;
-            if (newMaterialColor != Color.clear)
-            {
-                newMaterialColor = new Color(rVal, gVal, bVal, 1f);
-            }
         }
 
         private void UpdateRadiusSize(On.RoR2.HoldoutZoneController.orig_FixedUpdate orig, HoldoutZoneController self)
@@ -108,10 +104,6 @@ namespace TurboEdition.Items
             TurboEdition._logger.LogWarning("TE: UniqueItemsInTeam " + UniqueItemsInTeam);
             TurboEdition._logger.LogWarning("TE: TeamCount " + TeamCount);
 #endif
-
-            //Check if there was any changes, since this is now constantly on Fixed update, it will run forever, so lets save some stuff
-            if (!CheckForItemChange(newCalculatedRadius)) { return; }
-            //Chat.AddMessage("Turbo Edition: " + ItemName + " item count changed, updating teleporter radius.");
             if (enabledAtTime.timeSince < startupDelay)
             {
                 #if DEBUG
@@ -119,15 +111,18 @@ namespace TurboEdition.Items
                 #endif
                 return;
             }
-                
+            //Check if there was any changes, since this is now constantly on Fixed update, it will run forever, so lets save some stuff
+            if (!CheckForItemChange(TeamCount)) { return; }
+            //Chat.AddMessage("Turbo Edition: " + ItemName + " item count changed, updating teleporter radius.");
+
             if (itemStackingCap != -1)
             {
                 newCalculatedRadius = Mathf.Min(newCalculatedRadius, itemStackingCap);
-#if DEBUG
+                #if DEBUG
                 Chat.AddMessage("Turbo Edition: " + ItemName + " max stack is on, check log for details");
                 TurboEdition._logger.LogWarning("TE: " + ItemName + " currentItemCount" + newCalculatedRadius);
                 TurboEdition._logger.LogWarning("TE: " + ItemName + " itemStackingCap" + itemStackingCap);
-#endif
+                #endif
             }
 
 
@@ -140,9 +135,9 @@ namespace TurboEdition.Items
                 //we play a cool sound here indicating the zone is getting bigger
             }
             currentValue = smoothTransition;
-            #if DEBUG
+#if DEBUG
             TurboEdition._logger.LogWarning("TE: " + ItemName + " currentValue " + currentValue);
-            #endif
+#endif
             OnEnable(self);
         }
 
@@ -158,38 +153,63 @@ namespace TurboEdition.Items
         }
         private void ChangeColor(ref Color color)
         {
+            Color newColor = new Color();
             //This is supposed to work as stages, each x2, x3, and so of the base teleporter radius it will change colors
             if (CurrentTele.holdoutZoneController.currentRadius > mSum + CurrentTele.holdoutZoneController.baseRadius)
             {
                 mSum += CurrentTele.holdoutZoneController.baseRadius;
-                newMaterialColor = CalculateTeleporterColor(-0.1f); //-1 by default, remember, think of a color slider, you want it to go down, reverse to go up!!
+                //CalculateTeleporterColor(-1f); //-1 by default, remember, think of a color slider, you want it to go down, reverse to go up!!
+                rVal += rMove;  gVal += gMove;  bVal += bMove;
+
+                if (rVal >= 180f || rVal <= 40f)    { rMove *= -1f; }
+                if (gVal >= 180f || gVal <= 40f)    { gMove *= -1f; }
+                if (bVal >= 180f || bVal <= 40f)    { bMove *= -1f; }
+
+                newColor.r = rVal;
+                newColor.g = gVal;
+                newColor.b = bVal;
             }
             else if (CurrentTele.holdoutZoneController.currentRadius < mSum + CurrentTele.holdoutZoneController.baseRadius)
             {
                 mSum -= CurrentTele.holdoutZoneController.baseRadius;
-                newMaterialColor = CalculateTeleporterColor(0.1f);
+                //CalculateTeleporterColor(1f);
+                rVal += rMove; gVal += gMove; bVal += bMove;
+
+                if (rVal >= 180f || rVal <= 40f) { rMove *= -1f; }
+                if (gVal >= 180f || gVal <= 40f) { gMove *= -1f; }
+                if (bVal >= 180f || bVal <= 40f) { bMove *= -1f; }
+
+                newColor.r = rVal;
+                newColor.g = gVal;
+                newColor.b = bVal;
             }
-            color = Color.Lerp(color, newMaterialColor, colorCurve.Evaluate(currentValue));
+            color = Color.Lerp(color, newColor, colorCurve.Evaluate(currentValue));
+            #if DEBUG
+            TurboEdition._logger.LogWarning("Color changing to: " + color);
+            #endif
         }
 
         private void ChangeRadius(ref float radius)
         {
             if (newCalculatedRadius > 0)
             {
-                radius = newCalculatedRadius;
+                radius = (UniqueItemsInTeam * addFirstRadius) + ((TeamCount - UniqueItemsInTeam) * addStackRadius);
+                #if DEBUG
+                TurboEdition._logger.LogWarning("Radius is now: " + radius);
+                #endif
             }
         }
 
         private bool CheckForItemChange(float thingyToCheck)
         {
-            if (thingyToCheck == lastRadiusCalculated)
+            if (thingyToCheck == lastTimeChecked)
             {
                 return false;
             }
-            lastRadiusCalculated = thingyToCheck;
+            lastTimeChecked = thingyToCheck;
 #if DEBUG
             Chat.AddMessage("Turbo Edition: " + ItemName + " item counts and radius recalculated. Check log for details.");
-            TurboEdition._logger.LogWarning("TE: lastRadiusCalculated " + lastRadiusCalculated);
+            TurboEdition._logger.LogWarning("TE: lastTimeChecked " + lastTimeChecked);
 #endif
             return true;
         }
@@ -206,35 +226,37 @@ namespace TurboEdition.Items
             }
             return 0;
         }
-
-        private void CalculateTeleporterColor(ref Color newMaterialColor, float colorCycle)
+        /*
+        private void CalculateTeleporterColor(ref Color newColor)
         {
             //What if we made the teleporter change colors?
             rVal += rMove;
             gVal += gMove;
             bVal += bMove;
 
-            if (rVal >= 0.85f || rVal <= 0.25f)
+            if (rVal >= 210f || rVal <= 40f)
             {
                 rMove *= colorCycle;
             }
-            if (gVal >= 0.85f || gVal <= 0.25f)
+            if (gVal >= 210f || gVal <= 40f)
             {
                 gMove *= colorCycle;
             }
-            if (bVal >= 0.85f || bVal <= 0.25f)
+            if (bVal >= 210f || bVal <= 40f)
             {
                 bMove *= colorCycle;
             }
 
-            newMaterialColor.r = rVal;
-            newMaterialColor.g = gVal;
-            newMaterialColor.b = bVal;
+            newColor.r = rVal;
+            newColor.g = gVal;
+            newColor.b = bVal;
+
             #if DEBUG
-            TurboEdition._logger.LogWarning("TE: newMaterialColor " + newMaterialColor);
+            TurboEdition._logger.LogWarning("TE: newColor " + newColor);
             #endif
+            
             //return newMaterialColor;
             //HOLY SHIT
-        }
+        }*/
     }
 }
