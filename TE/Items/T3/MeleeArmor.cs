@@ -112,20 +112,19 @@ namespace TurboEdition.Items
         private void OnDamaged(RoR2.CharacterBody self)
         {
             var InventoryCount = GetCount(self);
-            if (self.inventory)
+
+            if (InventoryCount > 0 && self.GetBuffCount(meleeArmorBuff) < InventoryCount * timesPerStack)
             {
-                if (InventoryCount > 0 && self.GetBuffCount(meleeArmorBuff) < InventoryCount * timesPerStack)
+                for (int i = 0; i < buffPerStack; i++)
                 {
-                    for (int i = 0; i < buffPerStack; i++)
-                    {
-                        self.AddTimedBuff(meleeArmorBuff, buffDuration);
-                    }
-                }
-                else
-                {
-                    return;
+                    self.AddTimedBuff(meleeArmorBuff, buffDuration);
                 }
             }
+            else
+            {
+                return;
+            }
+
         }
 
         private void CheckBuffAndAddArmor(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
