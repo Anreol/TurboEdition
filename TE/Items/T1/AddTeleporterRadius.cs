@@ -54,8 +54,8 @@ namespace TurboEdition.Items
 
         public override void CreateConfig(ConfigFile config)
         {
-            addFirstRadius = config.Bind<float>("Item: " + ItemName, "Added radius per first item", 6f, "Extend the Teleporter Radius by this on first item pickup.").Value;
-            addStackRadius = config.Bind<float>("Item: " + ItemName, "Added radius per stack", 2.5f, "Extend the Teleporter Radius by this on item stacking.").Value;
+            addFirstRadius = config.Bind<float>("Item: " + ItemName, "Added radius per first item", 8f, "Extend the Teleporter Radius by this on first item pickup.").Value;
+            addStackRadius = config.Bind<float>("Item: " + ItemName, "Added radius per stack", 3f, "Extend the Teleporter Radius by this on item stacking.").Value;
             startupDelay = config.Bind<float>("Item: " + ItemName, "Delay in seconds", 6f, "Delay in seconds for the item to be active, Focused Convergence has 3f.").Value;
             rampupTime = config.Bind<float>("Item: " + ItemName, "Speed", 3.5f, "Speed for the teleporter color to be changed to the custom one. Focused Convergence has 5f.").Value;
             itemStackingCap = config.Bind<int>("Item: " + ItemName, "Max teleporter radius", -1, "Maximum radius that the teleporter can expand, probably in meters. Keep at -1 for no limit.").Value;
@@ -80,6 +80,7 @@ namespace TurboEdition.Items
 
         private void GetMinorThings(TeleporterInteraction teleporterInteraction)
         {
+            if ((GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true) <= 0)) return;
             CurrentTele = teleporterInteraction;
             if (newColor != Color.clear)
             {
@@ -130,6 +131,7 @@ namespace TurboEdition.Items
         private void UpdateThingies(On.RoR2.HoldoutZoneController.orig_FixedUpdate orig, HoldoutZoneController self)
         {
             orig(self);
+            if ((GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true) <= 0)) return;
             //ART ATTACK
             //Makes current calculated radius a float between 1 and 0, then keeps updating the old smoothTransition
             float intToFloat = (newCalculatedRadius > 0f) ? 1f : 0f;
@@ -151,7 +153,7 @@ namespace TurboEdition.Items
             if ((CurrentTele.holdoutZoneController.currentRadius > (nTimes * (CurrentTele.holdoutZoneController.baseRadius/4))))
             {
                 nTimes ++;
-                CalculateTeleporterColor(-0.5f); //-1 by default, remember, think of a color slider, you want it to go down, reverse to go up!!
+                CalculateTeleporterColor(-1.2f); //-1 by default, remember, think of a color slider, you want it to go down, reverse to go up!!
                 
                 #if DEBUG
                 TurboEdition._logger.LogWarning("Hit a multiplier of baseRadius, newColor is: " + newColor + " and color: " + color);
@@ -160,7 +162,7 @@ namespace TurboEdition.Items
             else if ((CurrentTele.holdoutZoneController.currentRadius < (nTimes-1 * (CurrentTele.holdoutZoneController.baseRadius/4))))
             {
                 nTimes --;
-                CalculateTeleporterColor(0.5f);
+                CalculateTeleporterColor(1.2f);
                 #if DEBUG
                 TurboEdition._logger.LogWarning("Dropped from a multipler of baseRadius, newColor is: " + newColor + " and color: " + color);
                 #endif
@@ -202,15 +204,15 @@ namespace TurboEdition.Items
             gVal += gMove;
             bVal += bMove;
 
-            if (rVal >= 6f || rVal <= 1f)
+            if (rVal >= 5.99f || rVal <= 1f)
             {
                 rMove *= colorCycle;
             }
-            if (gVal >= 6f || gVal <= 1f)
+            if (gVal >= 5.99f || gVal <= 1f)
             {
                 gMove *= colorCycle;
             }
-            if (bVal >= 6f || bVal <= 1f)
+            if (bVal >= 5.99f || bVal <= 1f)
             {
                 bMove *= colorCycle;
             }
