@@ -80,7 +80,6 @@ namespace TurboEdition.Items
 
         private void GetMinorThings(TeleporterInteraction teleporterInteraction)
         {
-            if ((GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true) <= 0)) return;
             CurrentTele = teleporterInteraction;
             if (newColor != Color.clear)
             {

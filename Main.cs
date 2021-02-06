@@ -22,6 +22,7 @@ namespace TurboEdition
     [R2APISubmoduleDependency("ItemDropAPI")]
     [R2APISubmoduleDependency("LanguageAPI")]
     [R2APISubmoduleDependency("BuffAPI")]
+    [R2APISubmoduleDependency("PrefabAPI")]
     [R2APISubmoduleDependency(nameof(CommandHelper))]
     [BepInDependency("com.bepis.r2api")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]

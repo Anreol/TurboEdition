@@ -31,13 +31,14 @@ namespace TurboEdition.Items
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier1.png";
 
 		public static AnimationCurve novaRadiusCurve;
-		public static float duration;
+		public static Run.FixedTimeStamp fixedTime;
 
 		//properties
 		private float baseRadius;
 		private float stackRadius;
 		private int stackPulse;
 		private static float debuffDuration;
+		private float pulseDuration;
 
 		//fuck
 		internal static GameObject debuffPulsePrefab;
@@ -48,6 +49,7 @@ namespace TurboEdition.Items
 			stackRadius = config.Bind<float>("Item: " + ItemName, "Added radius per stack", 4f, "Extend the pulse radius by this each item you get.").Value;
 			stackPulse = config.Bind<int>("Item: " + ItemName, "Number of pulses", 1, "Amount of pulses to generate everytime you enter combat per item stack.").Value;
 			debuffDuration = config.Bind<float>("Item: " + ItemName, "Debuff duration", 18f, "Duration in seconds for each debuff.").Value;
+			pulseDuration = config.Bind<float>("Item: " + ItemName, "Pulse duration", 2f, "Duration in seconds for the pulse, slower makes it last longer.").Value;
 		}
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -62,18 +64,26 @@ namespace TurboEdition.Items
 #endif
 			var novaPrefab = Resources.Load<GameObject>("Prefabs/NetworkedObjects/TeleporterHealNovaPulse");
 
+			TurboEdition._logger.LogWarning("FUCK 1");
 			var scPrefabPrefab = new GameObject("ScreamPulsePrefabPrefab");
+			TurboEdition._logger.LogWarning("FUCK 2");
 			scPrefabPrefab.AddComponent<TeamFilter>().teamIndex = novaPrefab.GetComponent<TeamFilter>().teamIndex;
-			//scPrefabPrefab.AddComponent<Transform>().position
-			scPrefabPrefab.AddComponent<MeshFilter>().mesh = novaPrefab.GetComponentInChildren<MeshFilter>().mesh;
-			scPrefabPrefab.AddComponent<MeshRenderer>().material = UnityEngine.Object.Instantiate(novaPrefab.GetComponentInChildren<MeshRenderer>().material);
-			scPrefabPrefab.GetComponent<MeshRenderer>().material.SetVector("_TintColor", new Vector4(4f, 1f, 1f, 1f)); //should be black with a tint of red
+			TurboEdition._logger.LogWarning("FUCK 3");
+			//MAKES IT NOT WORK scPrefabPrefab.AddComponent<ParticleSystemRenderer>().material = novaPrefab.GetComponent<ParticleSystemRenderer>().material;
+			TurboEdition._logger.LogWarning("FUCK 4");
+			//MAKES IT NOT WORK EITHER scPrefabPrefab.GetComponent<ParticleSystemRenderer>().material.SetVector("_TintColor", new Vector4(2.2f, 2f, 2f, 1.5f));
+			//IT SAYS THIS IS PRIVATE WHY IS IT PRIVATE HOW THE HELL scPrefabPrefab.AddComponent<ParticleSystem>().main = novaPrefab.GetComponent<ParticleSystem>().main;
+			TurboEdition._logger.LogWarning("FUCK 5");
 			scPrefabPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
 
+			TurboEdition._logger.LogWarning("FUCK 6");
 			var sc = scPrefabPrefab.AddComponent<DebuffPulse>();
-			sc.pulseIndicator = scPrefabPrefab.GetComponent<MeshRenderer>().transform;
-			//sc.interval = 1f;
+			TurboEdition._logger.LogWarning("FUCK 7");
+			// I DONT THINK THIS THING LIKES PARTICLESYSTEMREDERERS sc.pulseIndicator = scPrefabPrefab.GetComponent<ParticleSystemRenderer>().transform;
+
+			TurboEdition._logger.LogWarning("FUCK 8");
 			debuffPulsePrefab = scPrefabPrefab.InstantiateClone("DebuffAuraPrefab");
+			TurboEdition._logger.LogWarning("FUCK 9");
 			UnityEngine.Object.Destroy(scPrefabPrefab);
 
 		}
@@ -90,32 +100,37 @@ namespace TurboEdition.Items
 
 			var component = body.GetComponentInChildren<DebuffPulse>()?.gameObject;
 			var InventoryCount = GetCount(body);
-			if(InventoryCount <= 0 || body.outOfCombat)
-            {
+			if (InventoryCount <= 0 || body.outOfCombat) //This is going to run constantly what the fuck is this ok?
+			{
+				if (component)
+				{
 #if DEBUG
-				TurboEdition._logger.LogWarning("Player has either zero items or out of combat, destroying component.");
+					TurboEdition._logger.LogWarning("Player has either zero items or out of combat, destroying component.");
 #endif
-				if (component) UnityEngine.Object.Destroy(component);
-            }
-            else
-            {
-                if (!component)
-                {
+					UnityEngine.Object.Destroy(component);
+				}
+			}
+			else
+			{
+				if (!component)
+				{
 #if DEBUG
 					TurboEdition._logger.LogWarning("Player does not have a component, creating one.");
 #endif
+					fixedTime = Run.FixedTimeStamp.now;
 					component = UnityEngine.Object.Instantiate(debuffPulsePrefab);
 					component.GetComponent<TeamFilter>().teamIndex = body.teamComponent.teamIndex;
 					component.GetComponent<DebuffPulse>().owner = body.gameObject;
 					component.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(body.gameObject);
-                }
+				}
 #if DEBUG
 				TurboEdition._logger.LogWarning("Updating component properties.");
 #endif
 				component.GetComponent<DebuffPulse>().netRadius = baseRadius + (InventoryCount - 1) * stackRadius;
-				component.GetComponent<DebuffPulse>().netPulse = InventoryCount * stackPulse; 
-            }
-
+				component.GetComponent<DebuffPulse>().netPulse = InventoryCount * stackPulse;
+				component.GetComponent<DebuffPulse>().netDuration = pulseDuration;
+				component.GetComponent<DebuffPulse>().netStackPulse = stackPulse;
+			}
         }
 		//god check at how the lepton daisy does stuff with pulses because that might be just better yknow
 
@@ -138,16 +153,38 @@ namespace TurboEdition.Items
 				set { base.SetSyncVar<int>(value, ref pulses, 1u); }
 			}
 
-			public float interval;
+			[SyncVar]
+			float duration;
+			public float netDuration
+			{
+				get { return duration; }
+				set { base.SetSyncVar<float>(value, ref duration, 1u); }
+			}
+
+			[SyncVar]
+			float stackPulse;
+			public float netStackPulse
+			{
+				get { return stackPulse; }
+				set { base.SetSyncVar<float>(value, ref stackPulse, 1u); }
+			}
+
+			//pulse shit
+			private readonly List<HurtBox> hurtBoxesList = new List<HurtBox>();
 			public Transform pulseIndicator;
+			private SphereSearch sphereSearch;
+			private TeamMask enemyTeams;
+			private float finalRadius;
 
 			public GameObject owner;
+			private float time;
+			private float rate;
 
+			//team shit
 			private TeamFilter teamFilter;
-			private float rangeIndicatorScaleVelocity;
+			List<HealthComponent> debuffedTargets = new List<HealthComponent>();
 
-			private float stopwatch;
-
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
 			private void Awake()
             {
 #if DEBUG
@@ -156,31 +193,33 @@ namespace TurboEdition.Items
 				teamFilter = GetComponent<TeamFilter>();
             }
 
-			public void Update()
-			{
-#if DEBUG
-				TurboEdition._logger.LogWarning("Updating thing.");
-#endif
-				if (pulseIndicator)
-				{
-					float num = Mathf.SmoothDamp(pulseIndicator.localScale.x, radius * 2f, ref rangeIndicatorScaleVelocity, 0.2f);
-					pulseIndicator.localScale = new Vector3(num, num, num);
-				}
-			}
-
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
 			private void FixedUpdate()
 			{
-				stopwatch -= Time.fixedDeltaTime;
-				if (stopwatch <= 0f)
+				if (NetworkServer.active)
 				{
-					if (NetworkServer.active)
+                    for (int i = 0; i < stackPulse; i++)
+                    {
+						ServerPulse(owner.GetComponent<TeamIndex>()); //is this how you do this?????
+					}
+					if (fixedTime.timeSince > duration)
 					{
-						stopwatch = interval;
-						ServerPulse();
+						UnityEngine.Object.Destroy(this);
 					}
 				}
 			}
 
+			//It really isnt tho? lol
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
+			private void OnExit()
+			{
+				if (pulseIndicator)
+				{
+					pulseIndicator.gameObject.SetActive(false);
+				}
+			}
+
+			[System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
 			private void OnDestroy()
 			{
 #if DEBUG
@@ -190,32 +229,43 @@ namespace TurboEdition.Items
 			}
 
 			[Server]
-			private void ServerPulse()
+			private void ServerPulse(TeamIndex teamIndex)
 			{
 #if DEBUG
 				TurboEdition._logger.LogWarning("Server Pulse made.");
 #endif
-				List<TeamComponent> teamMembers = new List<TeamComponent>();
-				bool isFF = FriendlyFireManager.friendlyFireMode != FriendlyFireManager.FriendlyFireMode.Off;
-				if (isFF || teamFilter.teamIndex != TeamIndex.Monster) teamMembers.AddRange(TeamComponent.GetTeamMembers(TeamIndex.Monster));
-				if (isFF || teamFilter.teamIndex != TeamIndex.Neutral) teamMembers.AddRange(TeamComponent.GetTeamMembers(TeamIndex.Neutral));
-				if (isFF || teamFilter.teamIndex != TeamIndex.Player) teamMembers.AddRange(TeamComponent.GetTeamMembers(TeamIndex.Player));
-				float sqrad = radius * radius;
-				teamMembers.Remove(owner.GetComponent<TeamComponent>());
-				foreach (TeamComponent tcpt in teamMembers)
+				sphereSearch = new SphereSearch
 				{
-					if ((tcpt.transform.position - transform.position).sqrMagnitude <= sqrad)
-					{
-						if (tcpt.body && tcpt.body.mainHurtBox && tcpt.body.isActiveAndEnabled && radius > 0f)
-						{
-							#if DEBUG
-							TurboEdition._logger.LogWarning("Debuffing somebody.");
-							#endif
-							DebuffTarget(tcpt.body);
-						}
-					}
-				}
+					mask = LayerIndex.entityPrecise.mask,
+					origin = owner.transform.position,
+					queryTriggerInteraction = QueryTriggerInteraction.Collide,
+					radius = 0f
+				};
+				finalRadius = radius;
+				rate = 1f / duration;
+				enemyTeams = TeamMask.GetEnemyTeams(teamIndex); //inb4 this will give issues with chaos and you will get affected by yourself
 			}
+			public void Update()
+			{
+				time += rate * Time.deltaTime;
+				time = ((time > 1f) ? 1f : time);
+				sphereSearch.radius = radius * novaRadiusCurve.Evaluate(time);
+				sphereSearch.RefreshCandidates().FilterCandidatesByHurtBoxTeam(enemyTeams).FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes(hurtBoxesList);
+				int i = 0;
+				int count = hurtBoxesList.Count;
+				while (i < count)
+				{
+					HealthComponent healthComponent = hurtBoxesList[i].healthComponent;
+					if (!debuffedTargets.Contains(healthComponent))
+					{
+						debuffedTargets.Add(healthComponent);
+						DebuffTarget(healthComponent.body);
+					}
+					i++;
+				}
+				hurtBoxesList.Clear();
+			}
+
 			private void DebuffTarget(CharacterBody target)
 			{
 				#if DEBUG
