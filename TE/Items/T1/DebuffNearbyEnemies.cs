@@ -18,7 +18,7 @@ namespace TurboEdition.Items
 
         public override string ItemLangTokenName => "DEBUFFNEARBYENEMIES";
 
-        public override string ItemPickupDesc => "FUCK.";
+        public override string ItemPickupDesc => "IT WOULD BE VERY PAINFUL";
 
         public override string ItemFullDescription => $"When entering combat, shriek <style=cIsStack>(+{stackPulse} times per stack)</style> in <style=cIsUtility>{baseRadius} meters</style> <style=cIsStack>(+{stackRadius} per stack) and apply <style=cIsDamage>Shaken</style>.";
 
