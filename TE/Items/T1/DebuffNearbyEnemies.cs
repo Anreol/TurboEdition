@@ -30,7 +30,6 @@ namespace TurboEdition.Items
 
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier1.png";
 
-		public static AnimationCurve novaRadiusCurve;
 
 		//properties
 		private float baseRadius;
@@ -68,6 +67,7 @@ namespace TurboEdition.Items
 			var scPrefabPrefab = new GameObject("ScreamPulsePrefabPrefab");
 			TurboEdition._logger.LogWarning("ST 1");
 			scPrefabPrefab.AddComponent<TeamFilter>().teamIndex = novaPrefab.GetComponent<TeamFilter>().teamIndex;
+			//scPrefabPrefab.AddComponent<AnimationCurve>().keys = novaRadiusCurve.keys;
 			
 			TurboEdition._logger.LogWarning("Creating Particle System");
 
@@ -84,8 +84,13 @@ namespace TurboEdition.Items
 			for (int x = 0; x < 53; x++) for (int y = 0; y < 16; y++) remapHealing.SetPixel(203 + x, y, new Color(c2.r, c2.g, c2.b, c2.a * (151f / 255f)));
 			remapHealing.Apply();
 
-			//Particle system or something
-			// BAD! var debuffMAIN = novaPulse.GetComponent<ParticleSystem>().main;
+			TurboEdition._logger.LogWarning("ST 4");
+			scPrefabPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
+
+			TurboEdition._logger.LogWarning("ST 5");
+			var sc = scPrefabPrefab.AddComponent<DebuffPulse>();
+			TurboEdition._logger.LogWarning("ST 6");
+
 
 			TurboEdition._logger.LogWarning("Particle 1");
 			var debuffPS = novaPulse.Find("Particle System").GetComponent<ParticleSystemRenderer>(); //This seems to work
@@ -98,18 +103,6 @@ namespace TurboEdition.Items
 			TurboEdition._logger.LogWarning("Particle 3");
 			var debuffDONT = novaPulse.Find("Donut").GetComponent<MeshRenderer>(); //And this
 			debuffDONT.material.SetTexture("_RemapTex", remapHealing);
-
-			TurboEdition._logger.LogWarning("ST 3");
-			//MAKES IT NOT WORK EITHER scPrefabPrefab.GetComponent<ParticleSystemRenderer>().material.SetVector("_TintColor", new Vector4(2.2f, 2f, 2f, 1.5f));
-			//IT SAYS THIS IS PRIVATE WHY IS IT PRIVATE HOW THE HELL scPrefabPrefab.AddComponent<ParticleSystem>().main = novaPrefab.GetComponent<ParticleSystem>().main;
-			TurboEdition._logger.LogWarning("ST 4");
-			scPrefabPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
-
-			TurboEdition._logger.LogWarning("ST 5");
-			var sc = scPrefabPrefab.AddComponent<DebuffPulse>();
-			TurboEdition._logger.LogWarning("ST 6");
-
-			//sc.pulseIndicator = scPrefabPrefab.GetComponent<MeshRenderer>().transform;
 
 			sc.interval = 1f;
 			TurboEdition._logger.LogWarning("ST 7");
@@ -192,6 +185,8 @@ namespace TurboEdition.Items
 				set { base.SetSyncVar<float>(value, ref duration, 1u); }
 			}
 
+			public static AnimationCurve novaRadiusCurve;
+
 			//pulse shit
 			private readonly List<HurtBox> hurtBoxesList = new List<HurtBox>();
 			public Transform pulseIndicator;
@@ -221,7 +216,8 @@ namespace TurboEdition.Items
 				lifeStopwatch = 0f;
 				teamFilter = GetComponent<TeamFilter>();
 				sphereSearch = GetComponent<SphereSearch>();
-            }
+				novaRadiusCurve = EntityStates.TeleporterHealNovaController.TeleporterHealNovaPulse.novaRadiusCurve;
+			}
 
 			[System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
 			private void FixedUpdate()
@@ -268,7 +264,7 @@ namespace TurboEdition.Items
 #if DEBUG
 				TurboEdition._logger.LogWarning("Server Pulse made.");
 #endif
-                this.sphereSearch = new RoR2.SphereSearch
+                this.sphereSearch = new RoR2.SphereSearch()
 				{
 					mask = LayerIndex.entityPrecise.mask,						//This should be ok too
 					origin = owner.transform.position,							//This should be ok
