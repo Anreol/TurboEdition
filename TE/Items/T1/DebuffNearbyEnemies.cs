@@ -40,6 +40,7 @@ namespace TurboEdition.Items
 
 		//fuck
 		internal static GameObject debuffPulsePrefab;
+		private GameObject debuffParticles;
 
 		public override void CreateConfig(ConfigFile config)
         {
@@ -63,14 +64,12 @@ namespace TurboEdition.Items
 			var novaPrefab = Resources.Load<GameObject>("Prefabs/NetworkedObjects/TeleporterHealNovaPulse");		
 			var novaPulse = novaPrefab.transform.Find("PulseEffect");
 
-			TurboEdition._logger.LogWarning("ST START");
 			var scPrefabPrefab = new GameObject("ScreamPulsePrefabPrefab");
-			TurboEdition._logger.LogWarning("ST 1");
 			scPrefabPrefab.AddComponent<TeamFilter>().teamIndex = novaPrefab.GetComponent<TeamFilter>().teamIndex;
-			//scPrefabPrefab.AddComponent<AnimationCurve>().keys = novaRadiusCurve.keys;
+			scPrefabPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
+			
 			
 			TurboEdition._logger.LogWarning("Creating Particle System");
-
 			//Lets remap texRampHealing.png because apparently Sphere and Donut uses them since they are meshRenderers
 			//Thanks to TheMysticSword for this
 			Color c1 = Color.red;
@@ -83,33 +82,31 @@ namespace TurboEdition.Items
 			for (int x = 0; x < 93; x++) for (int y = 0; y < 16; y++) remapHealing.SetPixel(110 + x, y, new Color(c1.r, c1.g, c1.b, c1.a * (71f / 255f)));
 			for (int x = 0; x < 53; x++) for (int y = 0; y < 16; y++) remapHealing.SetPixel(203 + x, y, new Color(c2.r, c2.g, c2.b, c2.a * (151f / 255f)));
 			remapHealing.Apply();
-
-			TurboEdition._logger.LogWarning("ST 4");
-			scPrefabPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
-
-			TurboEdition._logger.LogWarning("ST 5");
-			var sc = scPrefabPrefab.AddComponent<DebuffPulse>();
-			TurboEdition._logger.LogWarning("ST 6");
-
-
+			//////////////////////
+			
+			//For particles
+			var parPrefabPrefab = new GameObject("ParticlePulsePrefabPrefab");
 			TurboEdition._logger.LogWarning("Particle 1");
-			var debuffPS = novaPulse.Find("Particle System").GetComponent<ParticleSystemRenderer>(); //This seems to work
-			debuffPS.material.SetColor("_TintColor", new Color(1.5f, 1f, 1f, 1f));
+			parPrefabPrefab.AddComponent<ParticleSystemRenderer>().material = novaPulse.Find("Particle System").GetComponent<ParticleSystemRenderer>().material;
+			parPrefabPrefab.GetComponent<ParticleSystemRenderer>().material.SetColor("_TintColor", new Color(1.5f, 1f, 1f, 1f));
 
 			TurboEdition._logger.LogWarning("Particle 2");
-			var debuffSPH = novaPulse.Find("Sphere").GetComponent<MeshRenderer>(); //This works too
-			debuffSPH.material.SetTexture("_RemapTex", remapHealing);
+			parPrefabPrefab.AddComponent<MeshRenderer>().material = novaPulse.Find("Sphere").GetComponent<MeshRenderer>().material;
+			parPrefabPrefab.GetComponent<MeshRenderer>().material.SetTexture("_RemapTex", remapHealing);
 
 			TurboEdition._logger.LogWarning("Particle 3");
-			var debuffDONT = novaPulse.Find("Donut").GetComponent<MeshRenderer>(); //And this
-			debuffDONT.material.SetTexture("_RemapTex", remapHealing);
+			//parPrefabPrefab.AddComponent<MeshRenderer>().material = novaPulse.Find("Donut").GetComponent<MeshRenderer>().material;
+			//parPrefabPrefab.GetComponent<MeshRenderer>().material.SetTexture("_RemapTex", remapHealing);
 
+			parPrefabPrefab.transform.SetParent(scPrefabPrefab.transform);
+			scPrefabPrefab.AddComponent<Rigidbody>();
+
+			var sc = scPrefabPrefab.AddComponent<DebuffPulse>();
 			sc.interval = 1f;
-			TurboEdition._logger.LogWarning("ST 7");
 			debuffPulsePrefab = scPrefabPrefab.InstantiateClone("DebuffAuraPrefab");
-			TurboEdition._logger.LogWarning("ST END");
+			debuffParticles = parPrefabPrefab.InstantiateClone("DebuffParticlesPrefab");
 			UnityEngine.Object.Destroy(scPrefabPrefab);
-
+			UnityEngine.Object.Destroy(parPrefabPrefab);
 		}
 
         public override void Hooks()
@@ -147,6 +144,7 @@ namespace TurboEdition.Items
 					component.GetComponent<TeamFilter>().teamIndex = body.teamComponent.teamIndex;
 					component.GetComponent<DebuffPulse>().owner = body.gameObject;
 					component.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(body.gameObject);
+					debuffParticles.transform.SetParent(component.transform);
 				}
 #if DEBUG
 				TurboEdition._logger.LogWarning("Updating component properties.");
@@ -198,6 +196,7 @@ namespace TurboEdition.Items
 			private float lifeStopwatch;
 			private float stopwatch;
 			public float interval;
+			private int nPulses;
 
 			private float time;
 			private float rate;
@@ -226,19 +225,25 @@ namespace TurboEdition.Items
 				lifeStopwatch += Time.fixedDeltaTime;
 
 				if (lifeStopwatch > duration) Destroy(this.gameObject); //or is it just (this)?
-				else if (stopwatch <= 0f)
+				else if (stopwatch <= 0f && nPulses <= pulses)
 				{
 					stopwatch = interval;
+					nPulses++;
+
 					if (NetworkServer.active)
 					{
-						for (int i = 0; i < pulses; i++)
-						{
-							ServerPulse(teamFilter.teamIndex); //is this how you do this?????
-						}
+						ServerPulse(teamFilter.teamIndex); //is this how you do this?????
 					}
 				}
 			}
-
+			private void OnEnter()
+            {
+				//this.pulseIndicator = DebuffNearbyEnemies
+				if (this.pulseIndicator)
+				{
+					this.pulseIndicator.gameObject.SetActive(true);
+				}
+			}
 			//It really isnt tho? lol
 			[System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
 			private void OnExit()
