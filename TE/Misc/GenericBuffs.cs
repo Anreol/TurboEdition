@@ -25,6 +25,12 @@ namespace TurboEdition
         private void CreateBuffs()
         {
             DefShaken();
+            DefFortified();
+            DefTaunt();
+            DefHeated();
+            DefShock();
+            DefBuzzed();
+            DefMorph();
         }
 
         public static BuffIndex shakenBuff;
@@ -47,6 +53,142 @@ namespace TurboEdition
         //crit damage is calculated inside HealthComponent in line 569
         //crit rolling is calculated inside CharacterBody in line 2645
         //rolling function is at Util in line 399
+
+        public static BuffIndex fortifiedBuff;
+        private void DefFortified()
+        {
+            var fortifiedBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Fortified",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            fortifiedBuff = R2API.BuffAPI.Add(fortifiedBuffDef);
+        }
+
+        //Apply flat % damage reduction and inmunity to knockback
+
+        public static BuffIndex tauntBuff;
+        private void DefTaunt()
+        {
+            var tauntBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            tauntBuff = R2API.BuffAPI.Add(tauntBuffDef);
+        }
+
+        //Make enemies target you before anything else
+
+        public static BuffIndex heatedBuff;
+        private void DefHeated()
+        {
+            var heatedBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            heatedBuff = R2API.BuffAPI.Add(heatedBuffDef);
+        }
+
+        //Inmunity to one fire stack per heated stack
+
+        public static BuffIndex shockBuff;
+        private void DefShock()
+        {
+            var shockBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            shockBuff = R2API.BuffAPI.Add(shockBuffDef);
+        }
+
+        //Read the google doc i forgot what this did lol
+
+        public static BuffIndex buzzedBuff;
+        private void DefBuzzed()
+        {
+            var buzzedBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            buzzedBuff = R2API.BuffAPI.Add(buzzedBuffDef);
+        }
+
+        //inhability to sprint or something
+
+        public static BuffIndex morphBuff;
+        private void DefMorph()
+        {
+            var morphBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            morphBuff = R2API.BuffAPI.Add(morphBuffDef);
+        }
+
+        //Oh shit a Hisii is coming
+
+        public static BuffIndex disableLunarBuff;
+        private void DefDisableLunar()
+        {
+            var disableLunarBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            disableLunarBuff = R2API.BuffAPI.Add(disableLunarBuffDef);
+        }
+
+        //shitting on gesture frens since NOW
+
+        public static BuffIndex oiledBuff;
+        private void DefOiled()
+        {
+            var oiledBuffDef = new R2API.CustomBuff(
+            new RoR2.BuffDef
+            {
+                buffColor = Color.white,
+                canStack = true,
+                isDebuff = true,
+                name = "Shaken",
+                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/TODO"
+            });
+            oiledBuff = R2API.BuffAPI.Add(oiledBuffDef);
+        }
+
+        //what if we make blazing elites actually treatening after the player has 10231823987123 items?
 
         private void CheckBodyHasBuff(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
         {

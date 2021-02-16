@@ -50,19 +50,6 @@ namespace TurboEdition
         public List<ItemBase> Items = new List<ItemBase>();
         public List<EquipmentBase> Equipments = new List<EquipmentBase>();
 
-
-        //Buffs
-        public static BuffIndex fortifiedBuff { get; private set; }
-        public static BuffIndex tauntingBuff { get; private set; }
-        public static BuffIndex heatedBuff { get; private set; }
-        //Debuffs
-        public static BuffIndex shockedBuff { get; private set; }
-        public static BuffIndex buzzedBuff { get; private set; }
-        public static BuffIndex transformedBuff { get; private set; }
-        public static BuffIndex disablelunarBuff { get; private set; }
-        public static BuffIndex oiledBuff { get; private set; }
-
-
         public void Awake()
         {
             _logger = Logger;
