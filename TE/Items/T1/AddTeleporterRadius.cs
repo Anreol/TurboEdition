@@ -10,11 +10,14 @@ using UnityEngine;
 using UnityEngine.Networking;
 using static TurboEdition.Utils.ItemHelpers;
 
+//TODO Teleporter radius recalculation happens with any item pickup, change it so its only recalculated when player gets or loses this item
+//APPARENTLY INFUSION ACTIVATES ONINVENTORYCHANGE SO EVERY KILL WITH INFUSION FORCES AN UPDATE, GOTTA FIX THIS SOON
+//AAAAAAAAAAAAAAAA
 namespace TurboEdition.Items
 {
     public class AddTeleporterRadius : ItemBase<AddTeleporterRadius>
     {
-        public override string ItemName => "Expanse Expander";
+        public override string ItemName => "Chromatic Lens";
 
         public override string ItemLangTokenName => "ADDTELEPORTERRADIUS";
 

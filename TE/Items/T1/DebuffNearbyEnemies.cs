@@ -10,6 +10,10 @@ using UnityEngine;
 using UnityEngine.Networking;
 using static TurboEdition.Utils.ItemHelpers;
 
+
+//TODO fix the mf particles not showing up, parent a mesh or whatever the hell to make it visible
+//I really dont care just make it work
+//I also think it makes multiple pulses per oncombat despite you only having one
 namespace TurboEdition.Items
 {
     public class DebuffNearbyEnemies : ItemBase<DebuffNearbyEnemies>
@@ -144,7 +148,6 @@ namespace TurboEdition.Items
 					component.GetComponent<TeamFilter>().teamIndex = body.teamComponent.teamIndex;
 					component.GetComponent<DebuffPulse>().owner = body.gameObject;
 					component.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(body.gameObject);
-					debuffParticles.transform.SetParent(component.transform);
 				}
 #if DEBUG
 				TurboEdition._logger.LogWarning("Updating component properties.");

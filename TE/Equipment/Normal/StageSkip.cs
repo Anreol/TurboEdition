@@ -11,6 +11,9 @@ using UnityEngine.Events;
 using UnityEngine.Networking;
 using static TurboEdition.Utils.ItemHelpers;
 
+//TODO Fix this fucking thing not working in HR and Moon!
+//I dont give a fuck if moon doesn't have a next stage or whatever the functionality has to be there!
+
 namespace TurboEdition.Equipment
 {
     public class StageSkip : EquipmentBase<StageSkip>
@@ -37,7 +40,7 @@ namespace TurboEdition.Equipment
 
         protected override void CreateConfig(ConfigFile config)
         {
-            equipmentRecharge = config.Bind<float>("Equipment : " + EquipmentName, "Recharge time", 90f, "Amount in seconds for this equipment to be available again").Value;
+            equipmentRecharge = config.Bind<float>("Equipment : " + EquipmentName, "Recharge time", 90f, "Amount in seconds for this equipment to be available again.").Value;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()

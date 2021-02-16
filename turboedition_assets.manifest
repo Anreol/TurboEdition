@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2188105471
+CRC: 198348979
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7c8f40cb1fbf30518ad82d5a547bb6fb
+    Hash: e9784f43c724439853bad2df8fad3117
   TypeTreeHash:
     serializedVersion: 2
     Hash: 21747e4ee48f36c7a65f9afbfd77f392
@@ -36,6 +36,7 @@ Assets:
 - Assets/Textures/Icons/Items/TierSynergyTemp3.png
 - Assets/Textures/Icons/Items/Unique.png
 - Assets/Textures/Icons/Items/TierSynergyTemp1.png
+- Assets/Textures/Icons/Equipment/Placeholder_Scythe.png
 - Assets/Textures/Icons/Items/TLunar.png
 - Assets/Textures/Icons/Items/Tier1.png
 - Assets/Models/Prefabs/Default.prefab
