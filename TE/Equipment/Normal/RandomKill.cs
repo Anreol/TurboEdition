@@ -15,6 +15,8 @@ using static TurboEdition.Utils.ItemHelpers;
 //Think of Hades' Than's attack effect (shadowy "curtain" that comes from behind the enemy, then get a giant scythe slice the enemy)
 //Also see Shadow Sneak from Gen 6 Pokemon, if we can get the shadow effect to be the same (ie travel to the enemy before striking) that would be sick
 //Once thats done consider making the scythe summonable everytime and check for a target, if theres no target before a timeout the scythe disappears, but the equipment still gets consumed.
+//Important!!: the item is not truly random since it does a simple loop through the bodies of each team, meaning that it will ALWAYS target the earliest available enemy in the list. It will keep damaging that enemy until there's no more LOS or it dies.
+//The LOS check is also made within the character body, if theres no LOS between it and the enemy the item will fail, just because (YOU) see it doesn't mean you will hit it, so far it's kinda frustrating but you get used to it.
 namespace TurboEdition.Equipment
 {
     public class RandomKill : EquipmentBase<RandomKill>
@@ -23,7 +25,7 @@ namespace TurboEdition.Equipment
 
         public override string EquipmentLangTokenName => "RANDOMKILL";
 
-        public override string EquipmentPickupDesc => "Summon a scythe that targets a random enemy and ignores armor. Deals more damage if there's more enemies.";
+        public override string EquipmentPickupDesc => $"Summon a scythe that targets a random enemy and <style=cIsUtility>ignores armor</style> for <style=cIsDamage>{baseMultiplier * 100}% damage</style>. Deals <style=cIsDamage>{enemyMultiplier * 100}% or more damage</style> if <style=cIsUtility>there's more enemies</style>.";
 
         public override string EquipmentFullDescription => "";
 
@@ -43,12 +45,12 @@ namespace TurboEdition.Equipment
 
         protected override void CreateConfig(ConfigFile config)
         {
-            equipmentRecharge = config.Bind<float>("Equipment : " + EquipmentName, "Recharge time", 75f, "Amount in seconds for this equipment to be available again.").Value;
+            equipmentRecharge = config.Bind<float>("Equipment : " + EquipmentName, "Recharge time", 140f, "Amount in seconds for this equipment to be available again. For comparison, the highest cooldown is 140s (Preon). Royal Capacitor stands at 20s.").Value;
             consumeEquipment = config.Bind<bool>("Equipment : " + EquipmentName, "Equipment use if failed", true, "Whenever to consume the equipment and put it on cooldown even if it failed to perform its task.").Value;
             maxRange = config.Bind<float>("Equipment : " + EquipmentName, "Maximum range", 80f, "Maximum range the item will search for a target when doing the raycast.").Value;
-            attackCount = config.Bind<int>("Equipment : " + EquipmentName, "Number of attacks", 1, "Number of attacks per use that this equipment does.").Value;
-            enemyMultiplier = config.Bind<float>("Equipment : " + EquipmentName, "Extra damage per enemy", 5f, "The total enemy team count will get multiplied by this value, i.e if theres one enemy, it will deal 5 damage more.").Value;
-            baseMultiplier = config.Bind<float>("Equipment : " + EquipmentName, "Owners extra damage", 2.25f, "The owners current base damage will be multiplied by this value.").Value;
+            attackCount = config.Bind<int>("Equipment : " + EquipmentName, "Number of attacks", 1, "Number of attacks per use that this equipment performs.").Value;
+            enemyMultiplier = config.Bind<float>("Equipment : " + EquipmentName, "Extra damage per enemy", 4.3f, "The total enemy team count will get multiplied by this value, i.e if theres one enemy, the base damage will be multiplied by 5.").Value;
+            baseMultiplier = config.Bind<float>("Equipment : " + EquipmentName, "Owners extra damage", 2.00f, "The owners current base damage will be multiplied by this value.").Value;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -63,6 +65,9 @@ namespace TurboEdition.Equipment
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
         {
+#if DEBUG
+            Chat.AddMessage(EquipmentName + " Activated.");
+#endif
             FindTarget(slot.characterBody);
             if (FindTarget(slot.characterBody))
             {
@@ -92,10 +97,11 @@ namespace TurboEdition.Equipment
 #if DEBUG
                     TurboEdition._logger.LogWarning(EquipmentName + " Found the enemy team to owners: " + teamCounter);
 #endif
+                    if (teamCounter != TeamIndex.Neutral && enemyMember.Count <= 0){ return false; } //Added extra check for neutral since it ALWAYS tries to cycle through neutral enemies first (ie pots or barrels), if the extra check wasn't there it would return and never check for monsters.
                     for (int aC = 0; aC < attackCount; aC++)
                     {
 #if DEBUG
-                        TurboEdition._logger.LogWarning(EquipmentName + " Trying to attack somebody, " + aC + " out of " + attackCount);
+                        TurboEdition._logger.LogWarning(EquipmentName + " Trying to attack somebody, " + (aC + 1) + " out of " + attackCount);
 #endif
                         for (int i = 0; i < enemyMember.Count; i++)
                         {
@@ -110,12 +116,12 @@ namespace TurboEdition.Equipment
                                 Vector3 cbForward = cb.inputBank.aimDirection;
                                 Vector3 enemyPos = enemyObject.transform.position - cb.transform.position;
 
-                                if (Vector3.Dot(cbForward, enemyPos) > 0.2f) // Dot returns 1 if they point in exactly the same direction, -1 if they point in completely opposite directions and zero if the vectors are perpendicular.
+                                if (HasLoS(cb.gameObject, enemyObject) && Vector3.Dot(cbForward, enemyPos) > 0.4f) // Dot returns 1 if they point in exactly the same direction, -1 if they point in completely opposite directions and zero if the vectors are perpendicular.
                                 {
 #if DEBUG
                                     TurboEdition._logger.LogWarning(EquipmentName + " Found a suitable enemy inside the fov/range/whatever: " + enemyObject + " at " + enemyPos);
 #endif
-                                    if (HasLoS(cb.gameObject, enemyObject) && NetworkServer.active) //i dunno if packing both checks into one is a good idea
+                                    if (NetworkServer.active)
                                     {
                                         DamageInfo damageInfo = new DamageInfo
                                         {
@@ -156,9 +162,9 @@ namespace TurboEdition.Equipment
             //I could get the calculations to get the enemy team to cb here too to save up a parameter but i wont lol
             float baseDamage = cb.damage;
 #if DEBUG
-            TurboEdition._logger.LogWarning(EquipmentName + " Calculating damage. Base damage: " + baseDamage + " and theres " + TeamComponent.GetTeamMembers(enemyTeam).Count + " enemies, dealing " + enemyMultiplier * TeamComponent.GetTeamMembers(enemyTeam).Count + " more damage.");
+            TurboEdition._logger.LogWarning(EquipmentName + " Calculating damage. Base damage: " + baseDamage + " and theres " + TeamComponent.GetTeamMembers(enemyTeam).Count + " enemies, dealing " + enemyMultiplier * TeamComponent.GetTeamMembers(enemyTeam).Count + " (" + (baseDamage * (enemyMultiplier * TeamComponent.GetTeamMembers(enemyTeam).Count)) + ") more damage.");
 #endif
-            return ((float)((baseDamage * baseMultiplier) + (enemyMultiplier * TeamComponent.GetTeamMembers(enemyTeam).Count)));
+            return ((float)((baseDamage * baseMultiplier) + (baseDamage * (enemyMultiplier * TeamComponent.GetTeamMembers(enemyTeam).Count))));
         }
     }
 }

@@ -97,6 +97,8 @@ namespace TurboEdition.Items
                 {
                     if(InventoryCount > 0)
                     {
+                        //i thought that this might not be the best way to calculate damage, since this gets the POSITION of the body, like, the core (?), so lets say, if theres a GIANT roboball that has a radius bigger than this distance, the check would fail since you are comparing it to the TRANSFORM, not to hitboxes or anything.
+                        //But i also think that doing a raycast to check for hitboxes would be too expensive, so /shrug
                         float distance = Vector3.Distance(damageReport.victimBody.transform.position, damageReport.attackerBody.transform.position);
                         if (distance <= rangeRadius)
                         {
@@ -120,11 +122,7 @@ namespace TurboEdition.Items
                     self.AddTimedBuff(meleeArmorBuff, buffDuration);
                 }
             }
-            else
-            {
-                return;
-            }
-
+            return;
         }
 
         private void CheckBuffAndAddArmor(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)

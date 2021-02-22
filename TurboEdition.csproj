@@ -25,9 +25,7 @@
 
   <ItemGroup>
     <Folder Include="TE\Equipment\Lunar\" />
-    <Folder Include="TE\Items\TLunar\" />
     <Folder Include="TE\Items\TSynergy\" />
-    <Folder Include="TE\Items\T2\" />
   </ItemGroup>
 
   <ItemGroup>

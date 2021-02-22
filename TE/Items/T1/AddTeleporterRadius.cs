@@ -133,7 +133,7 @@ namespace TurboEdition.Items
         private void UpdateThingies(On.RoR2.HoldoutZoneController.orig_FixedUpdate orig, HoldoutZoneController self)
         {
             orig(self);
-            if ((GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true) <= 0)) return;
+            if ((GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true) <= 0)) { return; };
             //ART ATTACK
             //Makes current calculated radius a float between 1 and 0, then keeps updating the old smoothTransition
             float intToFloat = (newCalculatedRadius > 0f) ? 1f : 0f;

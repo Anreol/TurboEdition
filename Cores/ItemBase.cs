@@ -103,9 +103,10 @@ namespace TurboEdition.Items
 
         public virtual void Hooks() { }
 
-        public static int GetUniqueCountFromPlayers(ItemIndex itemIndex, bool requiresAlive)
+        //I sometimes think to myself, is there something as "too many methods?"
+        public static int GetUniqueCountFromPlayers(ItemIndex itemIndex, bool requiresAlive = false)
         {
-            var playerUnique = PlayerCharacterMasterController.instances;
+            var playerUnique = PlayerCharacterMasterController.instances; //Remove this and replace it with ANYTHING master, not just players. Add parameter for a teamindex
             int stackCount = 0;
             for (int i = 0; i < playerUnique.Count; i++)
             {
@@ -117,9 +118,9 @@ namespace TurboEdition.Items
             return stackCount;
         }
 
-        public static int GetCountFromPlayers(ItemIndex itemIndex, bool requiresAlive)
+        public static int GetCountFromPlayers(ItemIndex itemIndex, bool requiresAlive = false)
         {
-            var playerTotal = PlayerCharacterMasterController.instances;
+            var playerTotal = PlayerCharacterMasterController.instances; //Remove this and replace it with ANYTHING master, not just players
             int totalCount = 0;
             for (int i = 0; i < playerTotal.Count; i++)
             {
@@ -129,6 +130,20 @@ namespace TurboEdition.Items
                 }
             }
             return totalCount;
+        }
+
+        public static int GetCountHighestFromPlayers(ItemIndex itemIndex, bool requiresAlive = false)
+        {
+            var playerTotal = PlayerCharacterMasterController.instances;
+            int highestCount = 0;
+            for (int i = 0; i < playerTotal.Count; i++)
+            {
+                if (playerTotal[i].master.inventory.GetItemCount(itemIndex) > 0 && (!requiresAlive || !playerTotal[i].master.IsDeadAndOutOfLivesServer()))
+                {
+                    highestCount = Mathf.Max(highestCount, playerTotal[i].master.inventory.GetItemCount(itemIndex));
+                }
+            }
+            return highestCount;
         }
 
         //Based on ThinkInvis' methods

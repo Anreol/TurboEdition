@@ -11,9 +11,9 @@ using UnityEngine.Networking;
 using static TurboEdition.Utils.ItemHelpers;
 
 
-//TODO give the drones the damn items, figure out which way is better, if give entire unique stacks at once or x items of an item stack
-//also get the cool succ effect from Mithrix' item steal. without. stealing the items.
-//hey that makes for a cool lunar, you might have op drones but you are completly fucked up without items huhuhuhuhuuhh?
+//TODO
+//Add a delayer or whatever to slow down the item giving process
+//Please
 namespace TurboEdition.Items
 {
     public class ItemsToDeploys : ItemBase<ItemsToDeploys>
