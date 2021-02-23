@@ -59,7 +59,7 @@ namespace TurboEdition.Items
         public int storeMaxCapacity;
         public bool storeForgiveness;
 
-        public override void CreateConfig(ConfigFile config)
+        protected override void CreateConfig(ConfigFile config)
         {
             hitlagInitial = config.Bind<float>("Item: " + ItemName, "Initial lag duration", 1f, "Amount of time that the damage will be delayed for when getting the item for the first item.").Value;
             hitlagStack = config.Bind<float>("Item: " + ItemName, "Stack lag duration", 1f, "Amount of time that the damage will be delayed for when stacking the item.").Value;

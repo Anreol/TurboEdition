@@ -46,10 +46,11 @@ namespace TurboEdition.Items
             CreateLang();
             CreateBuff();
             CreateItem();
+            //Initialization();
             Hooks();
         }
 
-        public override void CreateConfig(ConfigFile config)
+        protected override void CreateConfig(ConfigFile config)
         {
             rangeRadius = config.Bind<float>("Item: " + ItemName, "Distance to enemy", 8f, "If an enemy within this range hits the user, it will add meleearmor buff").Value;
             buffPerStack = config.Bind<int>("Item: " + ItemName, "Buff per stack", 1, "Number of meleearmor to apply when hit.").Value;

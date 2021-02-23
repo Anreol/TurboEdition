@@ -59,7 +59,7 @@ namespace TurboEdition.Equipment
         /// <summary>
         /// Take care to call base.Init()!
         /// </summary>
-        public virtual void Init(ConfigFile config)
+        internal virtual void Init(ConfigFile config)
         {
             CreateConfig(config);
             CreateLang();

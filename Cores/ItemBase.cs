@@ -61,7 +61,7 @@ namespace TurboEdition.Items
             Hooks();
         }
 
-        public virtual void CreateConfig(ConfigFile config) { }
+        protected virtual void CreateConfig(ConfigFile config) { }
 
 
         //Change this to include ModInitals when I figure out how to make it so this file can access it

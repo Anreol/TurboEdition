@@ -55,7 +55,7 @@ namespace TurboEdition.Items
         public float rampupTime;
         public int itemStackingCap;
 
-        public override void CreateConfig(ConfigFile config)
+        protected override void CreateConfig(ConfigFile config)
         {
             addFirstRadius = config.Bind<float>("Item: " + ItemName, "Added radius per first item", 8f, "Extend the Teleporter Radius by this on first item pickup.").Value;
             addStackRadius = config.Bind<float>("Item: " + ItemName, "Added radius per stack", 3f, "Extend the Teleporter Radius by this on item stacking.").Value;

@@ -46,7 +46,7 @@ namespace TurboEdition.Items
 		internal static GameObject debuffPulsePrefab;
 		private GameObject debuffParticles;
 
-		public override void CreateConfig(ConfigFile config)
+		protected override void CreateConfig(ConfigFile config)
         {
 			baseRadius = config.Bind<float>("Item: " + ItemName, "Initial radius", 6f, "The radius that the first item will give you.").Value;
 			stackRadius = config.Bind<float>("Item: " + ItemName, "Added radius per stack", 4f, "Extend the pulse radius by this each item you get.").Value;

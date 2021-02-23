@@ -14,12 +14,13 @@ using static TurboEdition.Utils.ItemHelpers;
 //This file's purpose is to add generic buffs not linked to any item in specific, and has or could have a wider use.
 namespace TurboEdition
 {
-    public class GenericBuffs
+    public abstract class GenericBuffs
     {
 
         private void Hooks()
         {
             On.RoR2.CharacterBody.RecalculateStats += CheckBodyHasBuff;
+            GlobalEventManager.onServerDamageDealt += SomeoneHurt;
         }
 
         private void CreateBuffs()
@@ -31,6 +32,7 @@ namespace TurboEdition
             DefShock();
             DefBuzzed();
             DefMorph();
+            DefDisableLunar();
         }
 
         public static BuffIndex shakenBuff;
@@ -190,6 +192,11 @@ namespace TurboEdition
 
         //what if we make blazing elites actually treatening after the player has 10231823987123 items?
 
+
+
+
+        //What is a man?
+
         private void CheckBodyHasBuff(On.RoR2.CharacterBody.orig_RecalculateStats orig, RoR2.CharacterBody self)
         {
             orig(self);
@@ -197,6 +204,11 @@ namespace TurboEdition
             {
 
             }
+        }
+
+        private void SomeoneHurt(DamageReport damageReport)
+        {
+
         }
     }
 }

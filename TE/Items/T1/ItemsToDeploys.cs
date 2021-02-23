@@ -48,7 +48,7 @@ namespace TurboEdition.Items
         public bool useOrbs;
         public bool cappedByInventory;
 
-        public override void CreateConfig(ConfigFile config)
+        protected override void CreateConfig(ConfigFile config)
         {
             itemsToGive = config.Bind<int>("Item: " + ItemName, "Available items per stack", 1, "Number of unique items each stack will give to a drone.").Value;
             itemAddStack = config.Bind<int>("Item: " + ItemName, "Added items per stack", 3, "Maximum amount of stacks of the selected item the drone will get.").Value;
