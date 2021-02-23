@@ -4,6 +4,7 @@ using R2API;
 using R2API.Utils;
 using RoR2;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -44,6 +45,9 @@ namespace TurboEdition.Items
 
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier2.png";
 
+        internal static GameObject hitManager;
+        internal static GameObject hitComponent;
+
         //Item properties
         public float hitlagInitial;
         public float hitlagStack;
@@ -52,6 +56,8 @@ namespace TurboEdition.Items
         public int recoveryMode;
         public bool storesDoTs;
         public bool storesFall;
+        public int storeMaxCapacity;
+        public bool storeForgiveness;
 
         public override void CreateConfig(ConfigFile config)
         {
@@ -62,6 +68,8 @@ namespace TurboEdition.Items
             //I have to figure out how to do substraction mode recoveryMode = config.Bind<int>("Item: " + ItemName, "Recovery mode", 1, "In which way the user will heal, 0 for Clone (Healing will be copied) 1 for Substraction (Heal going to the delayed damage will be substracted from the one going to the HP)").Value;
             storesDoTs = config.Bind<bool>("Item: " + ItemName, "DoT Storage", false, "Should DoT damage reports get delayed too.").Value;
             storesFall = config.Bind<bool>("Item: " + ItemName, "Fall damage Storage", false, "Should fall damage damage reports get delayed too.").Value;
+            storeMaxCapacity = config.Bind<int>("Item: " + ItemName, "List Storage", -1, "Add a maximum capacity to SortedList<>. Use it if you fear of performance (shouldn't be an issue) or want to balance the item. New entries won't be added to the list. Keep at -1 for no limit.").Value;
+            storeForgiveness = config.Bind<bool>("Item: " + ItemName, "Storage forgiveness", true, "Should the SortedList<> just clear itself or release all stored damage before deleting itself.").Value;
         }
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
@@ -71,7 +79,20 @@ namespace TurboEdition.Items
 
         protected override void Initialization()
         {
+            //We shouldnt need these since the manager gets added to the healthcomponent gameobject via addComponent
+            /*
+            var hitManagerPrefab = new GameObject("HitlagManagerPrefabPrefab");
+            hitManagerPrefab.AddComponent<HitlagManager>();
+            hitManagerPrefab.GetComponent<HitlagManager>().netMaxCapacity = storeMaxCapacity;
+            hitManager = hitManagerPrefab.InstantiateClone("HitlagManagerPrefabClone");
+            */
 
+            var hitComponentPrefab = new GameObject("HitlagComponentPrefabPrefab");
+            hitComponentPrefab.AddComponent<HitlagComponent>();
+            hitComponent = hitComponentPrefab.InstantiateClone("HitlagComponentPrefabClone");
+
+            //UnityEngine.Object.Destroy(hitManagerPrefab);
+            UnityEngine.Object.Destroy(hitComponentPrefab);
         }
 
         public override void Hooks()
@@ -87,32 +108,46 @@ namespace TurboEdition.Items
         {
             //TODO: all of these has to make sure if 1. player is alive 2. player is not teleporting 3. player has a item 4. player has a hc
             var InventoryCount = GetCount(self.body);
-            if (InventoryCount <= 0) //only an inventory check, i do not care if it has a hc or not (right now, not sure if there could be any issues. Doing any extra checks could lead to issues, i.e player has no items but since its dead the component wont get removed). No item, no manager.
+            var hcGameObject = self.gameObject;
+            var hcHitManager = hcGameObject.GetComponentInChildren<HitlagManager>()?.gameObject; //check if the component exists or not
+            //only an inventory check, i do not care if it has a hc or not (right now, not sure if there could be any issues. Doing any extra checks could lead to issues, i.e player has no items but since its dead the component wont get removed). No item, no manager.
+            if (InventoryCount <= 0)
             {
-                if (managerthing)
+                if (hcHitManager)
                 {
-                    //obliterate the manager and any components stored within, thanks!
+                    UnityEngine.Object.Destroy(hcHitManager);
                 }
             }
             else
             {
 
-                if (!managerthing && self) //creates a manager if user has item and a hc
+                if (!hcHitManager && self) //creates a manager if user has item and a hc
                 {
-                    //create manager here, thanks
+                    hcGameObject.AddComponent<HitlagManager>();
+                    hcGameObject.GetComponent<HitlagManager>().netMaxCapacity = storeMaxCapacity;
                 }
 
-                if (managerthing && damageInfo.damage > 0)
+                if (hcHitManager && damageInfo.damage > 0)
                 {
-                    if (damageInfo.damageType == DamageType.FallDamage && storesFall)
+                    if (damageInfo.damageType == DamageType.FallDamage && !storesFall)
                     {
-                        componentthing
+                        orig(self, damageInfo);
+                        return;
                     }
-                    if (damageInfo.dotIndex != DotController.DotIndex.None && storesDoTs)
+                    if (damageInfo.dotIndex == DotController.DotIndex.None && !storesDoTs)
                     {
-                        componentthing
+                        orig(self, damageInfo);
+                        return;
                     }
-                    componentthing
+                    //We define a new object component
+                    var hitInstance = UnityEngine.Object.Instantiate(hitComponent);
+                    //hitInstance.AddComponent<HitlagComponent>();
+                    hitInstance.GetComponent<HitlagComponent>().cmpOrig = orig;
+                    hitInstance.GetComponent<HitlagComponent>().cmpSelf = self;
+                    hitInstance.GetComponent<HitlagComponent>().cmpDI = damageInfo;
+                    hitInstance.GetComponent<HitlagComponent>().lifeTime = (hitlagInitial + (InventoryCount - 1) * hitlagStack);
+                    //We give it to the manager
+                    hcHitManager.GetComponent<SortedList>().Add(hitInstance, Run.FixedTimeStamp.now);
                 }
             }
             orig(self, damageInfo);
@@ -120,20 +155,54 @@ namespace TurboEdition.Items
 
         private void GetIncomingHealing(HealthComponent healthComponent, float amount)
         {
-            //Get the oldest component and add the hp there
-            thing = Mathf.Min(amount, healValueInitial);
-            if (thing >= healValueInitial)
+            var InventoryCount = GetCount(healthComponent.body);
+            var ihGameObject = healthComponent.gameObject;
+            var ihHealManager = ihGameObject.GetComponentInChildren<HitlagManager>()?.gameObject;
+
+            if (ihHealManager && InventoryCount > 0) //If they have the hitlag manager that means they have at least one item, but lets do the extra check anyways
             {
-                thing += (amount * (healFractionStack / 100));
+                var thing = Mathf.Min(amount, healValueInitial);
+                if (thing > healValueInitial)
+                {
+                    thing += ((amount - healValueInitial) * (healFractionStack / 100));
+                }
+                //We need to get the item of the list with the highest age
+                var fuck = ihHealManager.GetComponent<SortedList>();
+                fuck.GetKey(0)
+                    
+                TurboEdition._logger.LogWarning(ItemName + "Healing recieved! Amount: " + thing + " hitlagComponent: " );
             }
+            //Get the oldest component and add the hp there
+
         }
 
         //manager that will be populated by HitlagComponents
         public class HitlagManager : NetworkBehaviour
         {
+            [SyncVar] //Syncing just in case, i do not want to know what would happen if clients have different configs
+            int maxCapacity;
+            public int netMaxCapacity
+            {
+                get { return maxCapacity; }
+                set { base.SetSyncVar<int>(value, ref maxCapacity, 1u); }
+            }
+
+            public SortedList<GameObject, Run.FixedTimeStamp> instanceLists;
+            private void Awake()
+            {
+                instanceLists = new SortedList<GameObject, Run.FixedTimeStamp>();
+                if (maxCapacity > 0) //i know i said -1 but like putting zero in wouldn't be funny
+                {
+                    instanceLists.Capacity = maxCapacity;
+                }
+            }
             private void FixedUpdate()
             {
-                //We get a list of components or whatever and we give all of em an updated stopwatch on Update()
+                IList<GameObject> iListKeys = instanceLists.Keys;
+                foreach (GameObject instance in iListKeys)
+                {
+                    instance.gameObject
+                }
             }
         }
 
@@ -190,7 +259,8 @@ namespace TurboEdition.Items
 
             private void OnDestroy()
             {
-                if (cmpDI.damage > 0 /*|| ((configFlags == 1 || configFlags == 3) && cmpDI.damageType == DamageType.FallDamage) || ((configFlags == 2 || configFlags == 3) && cmpDI.dotIndex != DotController.DotIndex.None)*/) //Lets only call orig if the damage info would actually do something
+                //Lets only call orig if the damage info would actually do something
+                if (cmpDI.damage > 0 /*|| ((configFlags == 1 || configFlags == 3) && cmpDI.damageType == DamageType.FallDamage) || ((configFlags == 2 || configFlags == 3) && cmpDI.dotIndex != DotController.DotIndex.None)*/)
                 {
                     //healthComponent.TakeDamage(damageInfo);
                     cmpOrig(cmpSelf, cmpDI);
