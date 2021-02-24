@@ -1,4 +1,5 @@
-﻿using BepInEx.Configuration;
+﻿/*
+using BepInEx.Configuration;
 using MonoMod.Cil;
 using R2API;
 using R2API.Utils;
@@ -34,6 +35,8 @@ namespace TurboEdition.Equipment
         public override float Cooldown => equipmentRecharge;
         public static BuffIndex linkedBuff;
 
+        private static GameObject linkManager;
+
         public float equipmentRecharge;
         public bool consumeEquipment;
 
@@ -50,7 +53,7 @@ namespace TurboEdition.Equipment
             CreateLang();
             CreateBuff();
             CreateEquipment();
-            //Initialization();
+            Initialization();
             Hooks();
         }
 
@@ -92,12 +95,24 @@ namespace TurboEdition.Equipment
 
         protected override void Initialization()
         {
+            var linkManagerPrefab = new GameObject("LinkManagerPrefabPrefab");
+            var siphonPrefab = Resources.Load<GameObject>("Prefabs/NetworkedObjects/SiphonNearbyController");
+
+            //Get tetherVFX from literally anywhere
+            linkManagerPrefab.AddComponent<LinkComponent>();
+            linkManagerPrefab.GetComponent<LinkComponent>().tetherVfxOrigin = siphonPrefab.GetComponent<TetherVfxOrigin>;
+            linkManagerPrefab.GetComponent<LinkComponent>().activeVfx = siphonPrefab.GetComponent<TetherVfxOrigin>;
+            linkManagerPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
+
+            linkManager = linkManagerPrefab.InstantiateClone("HitlagManagerPrefabClone");
+            UnityEngine.Object.Destroy(linkManagerPrefab);
 
         }
 
         public override void Hooks()
         {
             GlobalEventManager.onServerDamageDealt += CheckLink;
+            On.RoR2.CharacterBody.UpdateBuffs += CheckBuff;
         }
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
@@ -143,18 +158,34 @@ namespace TurboEdition.Equipment
             }
         }
 
-        private void CheckBuff()
+        private void CheckBuff(On.RoR2.CharacterBody.orig_UpdateBuffs orig, CharacterBody self)
         {
-
-            if (damageReport.victimBody.HasBuff(linkedBuff))
+            //orig(self);
+            var cbGameObject = self.gameObject;
+            var linkGameObject = self.GetComponentInChildren<LinkComponent>()?.gameObject;
+            if (!self.HasBuff(linkedBuff))
             {
-
+                if (linkGameObject)
+                {
+                    UnityEngine.Object.Destroy(linkGameObject);
+                }
+            }
+            if (self.HasBuff(linkedBuff))
+            {
+                
+                if (!linkGameObject)
+                {
+                    linkGameObject = UnityEngine.Object.Instantiate(linkManager);
+                    linkGameObject.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(self.gameObject);
+                    cbGameObject.AddComponent<LinkComponent>();
+                    cbGameObject.GetComponent<LinkComponent>().isLinked = false;
+                }
             }
             
         }
 
         [RequireComponent(typeof(NetworkedBodyAttachment))]
-        public class LinkComponent : NetworkBehaviour, /*IOnDamageDealtServerReceiver,*/ IOnTakeDamageServerReceiver
+        public class LinkComponent : NetworkBehaviour, /*IOnDamageDealtServerReceiver,*/ /* IOnTakeDamageServerReceiver
         {
             [SyncVar] 
             float radius;
@@ -170,6 +201,10 @@ namespace TurboEdition.Equipment
             protected new Transform transform;
             protected SphereSearch sphereSearch;
             protected float timer;
+
+            //wacky tether thingies
+            public TetherVfxOrigin tetherVfxOrigin;
+            public GameObject activeVfx;
 
             public bool isLinked;
 
@@ -198,14 +233,23 @@ namespace TurboEdition.Equipment
                 //Here we apply damage to the link found on SearchForLink
                 if (!NetworkServer.active || !isLinked)
                 {
-                    //Theres no server or we aren't linked!
+#if DEBUG
+                    TurboEdition._logger.LogWarning("LinkComponent is not linked or NetworkServer is not active!");
+#endif
                     return;
                 }
                 DamageInfo damageInfo = new DamageInfo();
 
                 damageInfo.attacker = damageReport.attacker;
+                damageInfo.inflictor = base.gameObject;
+                damageInfo.position = damageReport.attacker.transform.position;
                 damageInfo.crit = damageReport.attackerBody.RollCrit(); //Isn't this too much? Who are we refering to? Previous link or the player?
-                damageInfo.damage = 
+                damageInfo.damage = damageReport.damageInfo.damage;
+                damageInfo.damageColorIndex = DamageColorIndex.Item;
+                damageInfo.force = Vector3.zero; //Wouldn't it be funny if we set it to non-zero?
+                damageInfo.procCoefficient = 0f; //See: RandomKill line 131
+                damageInfo.damageType = DamageType.Generic; //Thinkan about nonlethal
+                damageInfo.procChainMask = default(ProcChainMask);
             }
 
             private void SearchForLink()
@@ -223,7 +267,7 @@ namespace TurboEdition.Equipment
                     var externalLink = hurtBoxToLink.GetComponentInChildren<LinkComponent>()?.gameObject; //we get the link component of whatever we are on rn
                     if (!externalLink)
                     {
-                        //They dont have a link, meaning they aren't debuffed and we don't want to do anything with them
+                        //They dont have a linkComponent, meaning they aren't debuffed and we don't want to do anything with them
                         i++;
                         continue;
                     }
@@ -240,78 +284,20 @@ namespace TurboEdition.Equipment
                         Transform transform = hcHurtBoxToLink.body.coreTransform ?? hurtBoxToLink.transform;
                         transformList.Add(transform);
                     }
+                    if (this.tetherVfxOrigin)
+                    {
+                        this.tetherVfxOrigin.SetTetheredTransforms(transformList);
+                    }
+                    if (this.activeVfx)
+                    {
+                        this.activeVfx.SetActive(this.isLinked);
+                    }
+                    CollectionPool<Transform, List<Transform>>.ReturnCollection(transformList);
+                    CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(hurtBoxList);
                 }
             }
 
             //SiphonNearbyController
-            protected void Tick()
-            {
-
-                DamageReport damageReport = this.networkedBodyAttachment.attachedBody.OnTakeDamageServer(damageReport);
-                float damage = this.damagePerSecondCoefficient * this.networkedBodyAttachment.attachedBody.damage / this.tickRate;
-                float num = 0f;
-                
-                int i = 0;
-                while (i < list.Count)
-                {
-                    HurtBox hurtBox = list[i];
-                    if (!hurtBox || !hurtBox.healthComponent || !hurtBox.healthComponent.alive)
-                    {
-                        return;
-                        //goto IL_1B4;
-                    }
-                    HealthComponent healthComponent = hurtBox.healthComponent;
-                    if (!(hurtBox.healthComponent.body == this.networkedBodyAttachment.attachedBody))
-                    {
-                        Transform transform = healthComponent.body.coreTransform ?? hurtBox.transform;
-                        list2.Add(transform);
-                        if (!NetworkServer.active)
-                        {
-                            return;
-                            //goto IL_1B4;
-                        }
-                        float combinedHealth = healthComponent.combinedHealth;
-                        DamageInfo damageInfo = new DamageInfo();
-                        damageInfo.attacker = this.networkedBodyAttachment.attachedBodyObject;
-                        damageInfo.inflictor = base.gameObject;
-                        damageInfo.position = transform.position;
-                        //this would be hilarious damageInfo.crit = this.networkedBodyAttachment.attachedBody.RollCrit();
-                        damageInfo.damage = damage;
-                        damageInfo.damageColorIndex = DamageColorIndex.Item;
-                        damageInfo.force = Vector3.zero;
-                        damageInfo.procCoefficient = 0f;
-                        damageInfo.damageType = DamageType.Generic;
-                        damageInfo.procChainMask = default(ProcChainMask);
-                        hurtBox.healthComponent.TakeDamage(damageInfo);
-
-                        goto IL_1B4;
-                    }
-                IL_1C2:
-                    i++;
-                    continue;
-                IL_1B4:
-                    if (list2.Count < this.maxTargets)
-                    {
-                        goto IL_1C2;
-                    }
-                    break;
-                }
-                this.isLinked = ((float)list2.Count > 0f);
-                if (NetworkServer.active && num > 0f)
-                {
-                    this.networkedBodyAttachment.attachedBody.healthComponent.Heal(num, default(ProcChainMask), true);
-                }
-                if (this.tetherVfxOrigin)
-                {
-                    this.tetherVfxOrigin.SetTetheredTransforms(list2);
-                }
-                if (this.activeVfx)
-                {
-                    this.activeVfx.SetActive(this.isTetheredToAtLeastOneObject);
-                }
-                CollectionPool<Transform, List<Transform>>.ReturnCollection(list2);
-                CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(list);
-            }
 
             protected void SearchForTargets(List<HurtBox> dest)
             {
@@ -328,4 +314,4 @@ namespace TurboEdition.Equipment
 
         }
     }
-}
+}*/

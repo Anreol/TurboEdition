@@ -47,7 +47,7 @@ namespace TurboEdition.Items
         public bool onlySacrifice;
         public bool easyModo;
 
-        public override void CreateConfig(ConfigFile config)
+        protected override void CreateConfig(ConfigFile config)
         {
             deathChanceInitial = config.Bind<float>("Item: " + ItemName, "Initial death chance", 3f, "Death % chance when getting the item for the first time.").Value;
             deathChanceStack = config.Bind<float>("Item: " + ItemName, "Stack death chance", 3f, "Added death % chance when stacking the item.").Value;
