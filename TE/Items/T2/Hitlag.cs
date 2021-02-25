@@ -55,10 +55,13 @@ namespace TurboEdition.Items
         public int storeMaxCapacity;
         public bool storeForgiveness;
 
+        //Healthbar garbage
+        private float cachedFractionalValue = 1f;
+
         protected override void CreateConfig(ConfigFile config)
         {
             hitlagInitial = config.Bind<float>("Item: " + ItemName, "Initial lag duration", 1f, "Amount of time that the damage will be delayed for when getting the item for the first item.").Value;
-            hitlagStack = config.Bind<float>("Item: " + ItemName, "Stack lag duration", 1f, "Amount of time that the damage will be delayed for when stacking the item.").Value;
+            hitlagStack = config.Bind<float>("Item: " + ItemName, "Stack lag duration", 0.5f, "Amount of time that the damage will be delayed for when stacking the item.").Value;
             healValueInitial = config.Bind<float>("Item: " + ItemName, "Initial heal value", 25f, "Amount of healing that will go to the delayed damage when you heal yourself. (On first pickup)").Value;
             healFractionStack = config.Bind<float>("Item: " + ItemName, "Stack heal percentage", 0.05f, "Percentage of healing that will go to the delayed damage when you heal yourself. (On item stack)").Value;
             //I have to figure out how to do substraction mode recoveryMode = config.Bind<int>("Item: " + ItemName, "Recovery mode", 1, "In which way the user will heal, 0 for Clone (Healing will be copied) 1 for Substraction (Heal going to the delayed damage will be substracted from the one going to the HP)").Value;
@@ -98,6 +101,8 @@ namespace TurboEdition.Items
             //GlobalEventManager.onServerDamageDealt += StoreDamage;
             On.RoR2.HealthComponent.TakeDamage += StoreDamage;
             HealthComponent.onCharacterHealServer += GetIncomingHealing;
+            On.RoR2.UI.HealthBar.UpdateBarInfos += UpdateDelayBar;
+            On.RoR2.UI.HealthBar.ApplyBars += ApplyDelayBar;
             //Theres uh two TakeDamageForces, one is within TakeDamage which works with damageinfo that TakeDamage gives it, other is with a vector
             //Lets hope the vector one doesnt fuck shit up, okay?
         }
@@ -206,7 +211,7 @@ namespace TurboEdition.Items
                 }
                 //This seems stupid but I do not know how to do a null check without a identifier for gameobject (do i need to tho?)
                 var component = hcGameObject.GetComponentInChildren<HitlagManager>();
-                component.AddHealing(healthComponent, healing);
+                component.AddHealing(healing, healthComponent);
 #if DEBUG
                 TurboEdition._logger.LogWarning(ItemName + " Healing recieved! Amount: " + healing + " hitlagComponent: " + component);
 #endif
@@ -298,28 +303,38 @@ namespace TurboEdition.Items
             }
 
             //Consider moving if damage < 0 here since this doesn't run on a fixed update
-            public void AddHealing(HealthComponent healthComponent, float healAmount, bool isShields = false)
+            public void AddHealing(float healAmount, HealthComponent healthComponent = null, bool isShields = false)
             {
                 float getDamage = 0;
-                for (int i = 0, ; i < instanceLists.Count; i++)
+                for (int i = 0; i < instanceLists.Count; i++)
                 {
-                    getDamage += instanceLists.Values[i].CmpDI.damage;
-                    //If the accumulated damage so far goes to barrier, ignore it
-                    if (getDamage < healthComponent.barrier)
+                    //HealthComponent is not really needed for the item to function, its only used to get current hp values
+                    if (healthComponent)
                     {
-                        return;
-                    }
-                    getDamage -= healthComponent.barrier;
-                    //If the accumulated damage so far goes to shields, ignore it, however make an extra check in case theres an item that instantly generates shields or something (not natural regeneration)
-                    if (getDamage < healthComponent.shield && !isShields)
-                    {
-                        return;
+                        getDamage += instanceLists.Values[i].CmpDI.damage;
+                        //If the accumulated damage so far goes to barrier, ignore it
+                        if (getDamage < healthComponent.barrier)
+                        {
+#if DEBUG
+                            TurboEdition._logger.LogWarning("HLM: Heal recieved, but went to barrier, so we rejected it. getDamage: " + getDamage + " current barrier: " + healthComponent.barrier);
+#endif
+                            return;
+                        }
+                        getDamage -= healthComponent.barrier;
+                        //If the accumulated damage so far goes to shields, ignore it, however make an extra check in case theres an item that instantly generates shields or something (not natural regeneration)
+                        if (getDamage < healthComponent.shield && !isShields)
+                        {
+#if DEBUG
+                            TurboEdition._logger.LogWarning("HLM: Heal recieved, but went to shields, so we rejected it. getDamage: " + getDamage + " current shields: " + healthComponent.shield);
+#endif
+                            return;
+                        }
                     }
                     if (instanceLists.Values[i].CmpDI.damage > 0)
                     {
                         instanceLists.Values[i].CmpDI.damage -= healAmount;
 #if DEBUG
-                        TurboEdition._logger.LogWarning("HLM: Heal recieved, reduced " + instanceLists.Values[0].CmpDI.damage);
+                        TurboEdition._logger.LogWarning("HLM: Heal recieved, reduced " + instanceLists.Values[i].CmpDI.damage);
 #endif
                     }
                 }
@@ -384,10 +399,40 @@ namespace TurboEdition.Items
             public DamageInfo CmpDI { get => cmpDI; set => cmpDI = value; }
 
         }
-        public class DelayedBarStyle
+
+        public class DelayedBarStyle 
         {
-            private RoR2.UI.HealthBarStyle.BarStyle delayedBar;
-            private GameObject barPrefab =;
+            public GameObject barPrefab; 
+            public RoR2.UI.HealthBarStyle.BarStyle delayedBar; 
+
+            private void CreateBar()
+            {
+                barPrefab = new RoR2.UI.HealthBarStyle().barPrefab;
+                delayedBar = new RoR2.UI.HealthBarStyle.BarStyle();
+
+                delayedBar.baseColor = new Color(2f, 0.9f, 0.9f, 1f);
+                delayedBar.sprite = asdas;
+                delayedBar.imageType = UnityEngine.UI.Image.Type.Filled;
+            }
+        }
+
+        private void UpdateDelayBar(On.RoR2.UI.HealthBar.orig_UpdateBarInfos orig, RoR2.UI.HealthBar self)
+        {
+            orig(self);
+
+            this.cachedFractionalValue = (self.source ? (self.source.health / self.source.fullCombinedHealth) : 0f);
+
+            float totalDamage = /*Get total damage from the instance lists*/;
+            /*delayedBar*/.enabled = (totalDamage > 0f);
+            /*delayedBar*/.normalizedXMin = totalDamage; //it starts at the end
+            /*delayedBar*/.normalizedXMax = cachedFractionalValue; //It ends at the end combined health
+
+        }
+        private void ApplyDelayBar(On.RoR2.UI.HealthBar.orig_ApplyBars orig, RoR2.UI.HealthBar self)
+        {
+            orig(self);
+            
         }
     }
+
 }
