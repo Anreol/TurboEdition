@@ -11,17 +11,13 @@ using UnityEngine;
 using UnityEngine.Networking;
 using static TurboEdition.Utils.ItemHelpers;
 
-//TODO okay jesus christ this is going to be hard, so:
-//Get a way to store damage, get a way to modify that damage since we will be reducing it if the user heals
-//Get a way to delay that damage
-//Get a way to apply that damage
-//Delete stored damage if the user dies, figure out if anything bad happens if you apply damage and the cb does not exist (i.e user teleporting (?))
-//Think about which way is better to heal damage, a percentage? by value? both? percentage is better at scaling, but its kinda shit if the user barely has any incoming healing, but broken if they have plenty
-//a value would be more "normalized" but it wont scale at all and the user will be forced to pick more of the same item if they want to heal the damage delayed, which makes more delay, and so it repeats and bla bla bla
-//Think about if its better to REMOVE healing that was going to actual hp missing or to clone it, what if the user has full hp and is overhealing with a barrier?
-//What the FUCK does happen if the user has RepeatHeal? I'm assuming that reserve =/ actual healing so we shouuuuldnt worry about that
-//Get a healthbar component or whatever so we can show how much damage will the (TOTAL) damage that is currently being delayed will cause
-//Clean damage that is about to get delayed on death, game end, and stage change
+//TODO check any other methods that could damage the user
+//fix DoTs and fall check interferring with damage
+//Make a custom health bar
+//Make it so healing cannot recover damage that would go to shields (ie get current hp and current shields, if the damage instance wont go to hp dont make it able to heal)
+//do the previous but with shields (i do not know how shield generation works)
+//if the damage goes to barrier make it so you cannot heal it
+
 
 //IMPORTANT ===========>
 //https://discord.com/channels/562704639141740588/562704639569428506/813439608049500231
@@ -29,7 +25,7 @@ namespace TurboEdition.Items
 {
     public class Hitlag : ItemBase<Hitlag>
     {
-        public override string ItemName => "Broken Fiber";
+        public override string ItemName => "Broken Fiber Cable";
 
         public override string ItemLangTokenName => "HITLAG";
 
@@ -179,8 +175,9 @@ namespace TurboEdition.Items
 #if DEBUG
                     TurboEdition._logger.LogWarning(ItemName + " Creating a new " + hitInstance);
 #endif
-                    this.currentTime = Run.FixedTimeStamp.now;
-                    hcHitManager.GetComponent<SortedList>().Add(hitInstance, currentTime);
+                    var component = hcGameObject.GetComponentInChildren<HitlagManager>();
+                    component.AddInstance(Run.FixedTimeStamp.now, hitInstance);
+                    component.NetTotalDamage += hitInstance.CmpDI.damage;
 #if DEBUG
                     TurboEdition._logger.LogWarning(ItemName + " Added it to the list with timestamp " + Run.FixedTimeStamp.now);
 #endif
@@ -199,6 +196,7 @@ namespace TurboEdition.Items
             var hcGameObject = healthComponent.gameObject;
             var hlmGameObject = hcGameObject.GetComponentInChildren<HitlagManager>()?.gameObject;
 
+
             if (hlmGameObject && InventoryCount > 0) //If they have the hitlag manager that means they have at least one item, but lets do the extra check anyways
             {
                 var healing = Mathf.Min(amount, healValueInitial);
@@ -208,9 +206,9 @@ namespace TurboEdition.Items
                 }
                 //This seems stupid but I do not know how to do a null check without a identifier for gameobject (do i need to tho?)
                 var component = hcGameObject.GetComponentInChildren<HitlagManager>();
-                component.AddHealing(healing);
+                component.AddHealing(healthComponent, healing);
 #if DEBUG
-                TurboEdition._logger.LogWarning(ItemName + "Healing recieved! Amount: " + healing + " hitlagComponent: " + component);
+                TurboEdition._logger.LogWarning(ItemName + " Healing recieved! Amount: " + healing + " hitlagComponent: " + component);
 #endif
             }
 
@@ -233,8 +231,15 @@ namespace TurboEdition.Items
                 get { return timeToReleaseAt; }
                 set { base.SetSyncVar<float>(value, ref timeToReleaseAt, 1u); }
             }
+            [SyncVar]
+            float totalDamage;
+            public float NetTotalDamage
+            {
+                get { return totalDamage; }
+                set { base.SetSyncVar<float>(value, ref totalDamage, 1u); }
+            }
 
-            public SortedList<Run.FixedTimeStamp, HitlagInstance> instanceLists;
+            private SortedList<Run.FixedTimeStamp, HitlagInstance> instanceLists;
             //public GameObject owner;
 
             [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
@@ -256,6 +261,12 @@ namespace TurboEdition.Items
                 IList<Run.FixedTimeStamp> iListKeys = instanceLists.Keys;
                 //not sure if we should do this, like, we are using a sorted list for a reason
                 //If this is too expensive change it to something else
+#if DEBUG
+                if (iListKeys.Count > 0)
+                {
+                    Chat.AddMessage("Theres " + iListKeys.Count + " entries in the instanceList");
+                }
+#endif
                 foreach (Run.FixedTimeStamp instance in iListKeys)
                 {
                     if (instanceLists.TryGetValue(instance, out HitlagInstance delayedDamageToDel))
@@ -266,10 +277,10 @@ namespace TurboEdition.Items
                             TurboEdition._logger.LogWarning("HLM: " + instance + " had zero or less damage to hurt the player for, removing it.");
 #endif
                             instanceLists.Remove(instance);
-                            continue; //should we do this?? no idea.
+                            return;
                         }
                     }
-                    if (instance.timeSince == timeToReleaseAt)
+                    if (instance.timeSince >= timeToReleaseAt)
                     {
                         //We need to get the hitlag instances, then do cmpOrig(cmpSelf, cmpDI) so we call origin
                         if (instanceLists.TryGetValue(instance, out HitlagInstance delayedDamage))
@@ -280,22 +291,44 @@ namespace TurboEdition.Items
 #endif
                             delayedDamage.CmpOrig(delayedDamage.CmpSelf, delayedDamage.CmpDI);
                             instanceLists.Remove(instance);
-                            continue;
+                            return;
                         }
                     }
                 }
             }
-            public void AddHealing(float healAmount)
+
+            //Consider moving if damage < 0 here since this doesn't run on a fixed update
+            public void AddHealing(HealthComponent healthComponent, float healAmount, bool isShields = false)
             {
-                if (instanceLists.Count > 0)
+                float getDamage = 0;
+                for (int i = 0, ; i < instanceLists.Count; i++)
                 {
-                    instanceLists.Values[0].CmpDI.damage -= healAmount;
+                    getDamage += instanceLists.Values[i].CmpDI.damage;
+                    //If the accumulated damage so far goes to barrier, ignore it
+                    if (getDamage < healthComponent.barrier)
+                    {
+                        return;
+                    }
+                    getDamage -= healthComponent.barrier;
+                    //If the accumulated damage so far goes to shields, ignore it, however make an extra check in case theres an item that instantly generates shields or something (not natural regeneration)
+                    if (getDamage < healthComponent.shield && !isShields)
+                    {
+                        return;
+                    }
+                    if (instanceLists.Values[i].CmpDI.damage > 0)
+                    {
+                        instanceLists.Values[i].CmpDI.damage -= healAmount;
 #if DEBUG
-                    TurboEdition._logger.LogWarning("HLM: Healed recieved, reduced " + instanceLists.Values[0].CmpDI.damage);
+                        TurboEdition._logger.LogWarning("HLM: Heal recieved, reduced " + instanceLists.Values[0].CmpDI.damage);
 #endif
+                    }
                 }
             }
 
+            public void AddInstance(Run.FixedTimeStamp time, HitlagInstance instance)
+            {
+                instanceLists.Add(time, instance);
+            }
             public void ReleaseAll(bool andDestroyManager = false)
             {
 #if DEBUG
@@ -310,11 +343,11 @@ namespace TurboEdition.Items
                         if (delayedDamageToDel.CmpDI.damage <= 0)
                         {
                             instanceLists.Remove(instance);
-                            continue; //should we do this?? no idea.
+                            return; //should we do this?? no idea.
                         }
                         delayedDamageToDel.CmpOrig(delayedDamageToDel.CmpSelf, delayedDamageToDel.CmpDI);
                         instanceLists.Remove(instance);
-                        continue;
+                        return;
                     }
                 }
                 if (andDestroyManager)
@@ -350,6 +383,11 @@ namespace TurboEdition.Items
             public HealthComponent CmpSelf { get => cmpSelf; set => cmpSelf = value; }
             public DamageInfo CmpDI { get => cmpDI; set => cmpDI = value; }
 
+        }
+        public class DelayedBarStyle
+        {
+            private RoR2.UI.HealthBarStyle.BarStyle delayedBar;
+            private GameObject barPrefab =;
         }
     }
 }
