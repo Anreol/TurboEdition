@@ -99,7 +99,7 @@ namespace TurboEdition.Equipment
             //The body attachment has the TetherVfxOrigin component. SiphonNearbyController gets it from here
             //SiphonNearbyController has ActiveVfx GameObject, which is a SiphonTetherHealing GameObject
             var linkManagerPrefab = new GameObject("LinkManagerPrefabPrefab");
-            var siphonPrefab = Resources.Load<GameObject>("Prefabs/NetworkedObjects/SiphonNearbyBodyAttachment");
+            var siphonPrefab = Resources.Load<GameObject>("Prefabs/NetworkedObjects/bodyattachments/SiphonNearbyBodyAttachment");
             var siphonController = siphonPrefab.GetComponent<SiphonNearbyController>();
 
             //Get tetherVFX from literally anywhere
@@ -171,7 +171,7 @@ namespace TurboEdition.Equipment
                     if (body)
                     {
 #if DEBUG
-                        TurboEdition._logger.LogWarning(EquipmentName + ": adding linkedBuff to someone, theres " + i+1 + " out of " + hurtBoxesList.Count + " hurtboxes with max " + sphereLinkCount);
+                        TurboEdition._logger.LogWarning(EquipmentName + ": adding linkedBuff to someone, theres " + (i+1) + " out of " + hurtBoxesList.Count + " hurtboxes with max " + sphereLinkCount);
 #endif
                         body.AddTimedBuff(linkedBuff, linkedBuffDuration);
                     }
@@ -224,9 +224,9 @@ namespace TurboEdition.Equipment
 
         private void CheckBuff(On.RoR2.CharacterBody.orig_UpdateBuffs orig, CharacterBody self, float deltaTime)
         {
-#if DEBUG
-            TurboEdition._logger.LogWarning(EquipmentName + "'s hooks: checking for linkedBuff.");
-#endif
+//#if DEBUG
+//            TurboEdition._logger.LogWarning(EquipmentName + "'s hooks: checking for linkedBuff.");
+//#endif
             var cbGameObject = self.gameObject;
             var linkGameObject = self.GetComponentInChildren<LinkComponent>()?.gameObject;
             if (!self.HasBuff(linkedBuff))
@@ -247,8 +247,12 @@ namespace TurboEdition.Equipment
                     TurboEdition._logger.LogWarning(EquipmentName + "'s hooks: someone has the link debuff but no LinkComponent, creating.");
 #endif
                     linkGameObject = UnityEngine.Object.Instantiate(linkManager);
+                    linkGameObject.GetComponent<LinkComponent>().ownerBody = self;
                     linkGameObject.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(self.gameObject);
                     cbGameObject.AddComponent<LinkComponent>();
+#if DEBUG
+                    TurboEdition._logger.LogWarning(EquipmentName + "'s hooks: LinkComponent created.");
+#endif
                 }
             }
             orig(self, deltaTime);
@@ -302,23 +306,23 @@ namespace TurboEdition.Equipment
 
             [Min(1E-45f)]
             public float tickRate = 0.1f; //One tick every 10 seconds
-            protected NetworkedBodyAttachment networkedBodyAttachment;
+
             protected new Transform transform;
             protected SphereSearch sphereSearch;
             protected float timer;
+            public CharacterBody ownerBody;
 
             //wacky tether thingies
 
             public TetherVfxOrigin tetherVfxOrigin;
             public GameObject activeVfx;
-
             public HealthComponent hasLinkTarget;
 
             [System.Diagnostics.CodeAnalysis.SuppressMessage("Code Quality", "IDE0051:Remove unused private members", Justification = "Used by UnityEngine")]
             private void Awake()
             {
                 this.transform = base.transform;
-                this.networkedBodyAttachment = base.GetComponent<NetworkedBodyAttachment>();
+                //this.networkedBodyAttachment = base.GetComponent<NetworkedBodyAttachment>();
                 this.sphereSearch = new SphereSearch();
                 this.timer = 0f;
             }
@@ -368,7 +372,7 @@ namespace TurboEdition.Equipment
             {
                 List<HurtBox> hurtBoxList = CollectionPool<HurtBox, List<HurtBox>>.RentCollection(); //Use these to store targets with hurtbox
                 List<Transform> transformList = CollectionPool<Transform, List<Transform>>.RentCollection(); //Use this to store the transforms of the targets
-                if (this.networkedBodyAttachment.attachedBody.HasBuff(linkedBuff))
+                if (ownerBody.HasBuff(linkedBuff)) //This previously used networkedBodyAttachment.attachedBody
                 {
 #if DEBUG
                     TurboEdition._logger.LogWarning("LinkComponent body has the correct debuff, trying to find a match.");
@@ -386,43 +390,52 @@ namespace TurboEdition.Equipment
                     if (!externalLink)
                     {
                         //They dont have a linkComponent, meaning they aren't debuffed and we don't want to do anything with them
+#if DEBUG
+                        TurboEdition._logger.LogWarning("LinkComponent, match doesn't have LinkComponent, ignoring.");
+#endif
                         i++;
                         continue;
                     }
                     if ((!currentHurtbox || !currentHurtbox.healthComponent || !currentHurtbox.healthComponent.alive) /*|| currentHurtbox.GetComponentInChildren<LinkComponent>().hasLinkTarget*/) //Commenting this last part because thats the output link, shouldnt be affect input.
                     {
                         //This means it either has no hurtboxes, no health component, not alive, or is already linked.
+#if DEBUG
+                        TurboEdition._logger.LogWarning("LinkComponent, match doesn't have a hurtbox, a HealthComponent, or is already dead, ignoring.");
+#endif
                         i++;
                         continue;
                     }
                     HealthComponent hcHurtBoxToLink = currentHurtbox.healthComponent;
-                    if (!(hcHurtBoxToLink == this.networkedBodyAttachment.attachedBody))
+                    if (!(hcHurtBoxToLink == ownerBody))
                     {
                         //We make sure we aren't linking ourselves
                         Transform transform = hcHurtBoxToLink.body.coreTransform ?? currentHurtbox.transform;
                         transformList.Add(transform);
                         this.hasLinkTarget = hcHurtBoxToLink;
 #if DEBUG
-                        TurboEdition._logger.LogWarning("LinkComponent hasLinkTarget: " + hasLinkTarget + " and transform: " + transform);
+                        TurboEdition._logger.LogWarning("LinkComponent, hasLinkTarget: " + hasLinkTarget + " and transform: " + transform);
 #endif
                     }
                     if (this.tetherVfxOrigin)
                     {
 #if DEBUG
-                        TurboEdition._logger.LogWarning("LinkComponent tetherVfxOrigin exists, setting transforms!");
+                        TurboEdition._logger.LogWarning("LinkComponent, tetherVfxOrigin exists, setting transforms!");
 #endif
                         this.tetherVfxOrigin.SetTetheredTransforms(transformList);
                     }
                     if (this.activeVfx)
                     {
 #if DEBUG
-                        TurboEdition._logger.LogWarning("LinkComponent activeVfx exists, changing enabled/disabled!");
+                        TurboEdition._logger.LogWarning("LinkComponent, activeVfx exists, changing enabled/disabled!");
 #endif
                         this.activeVfx.SetActive(this.hasLinkTarget);
                     }
                     CollectionPool<Transform, List<Transform>>.ReturnCollection(transformList);
                     CollectionPool<HurtBox, List<HurtBox>>.ReturnCollection(hurtBoxList);
                 }
+#if DEBUG
+                TurboEdition._logger.LogWarning("LinkComponent, couldn't find match, what a shame!");
+#endif
             }
 
 
