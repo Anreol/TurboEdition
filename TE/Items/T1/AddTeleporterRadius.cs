@@ -27,7 +27,9 @@ namespace TurboEdition.Items
 
         public override string ItemLore => "Yet another mod that adds an item that increases Teleporter Radius, how creative are we today huh?";
         public override ItemTier Tier => ItemTier.Tier1;
+        public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => true;
+        public override bool BrotherBlacklisted => true;
 
         private static TeleporterInteraction CurrentTele;
 

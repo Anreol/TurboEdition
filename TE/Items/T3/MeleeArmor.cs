@@ -26,6 +26,9 @@ namespace TurboEdition.Items
                                             "Fuck all these <style=cArtifact>limp-dick lawyers</style> and <style=cDeath>chicken-shit bureaucrats</style>.\nFuck <style=cIsHealth>their 24/7 internet spew of trivia</style> and <style=cDeath>celebrity bullshit.</style>\nFuck <style=cKeywordName>'American Pride.'</style><style=cUserSetting>Fuck the media!</style>\nFuck all of it!\nAmerica is <style=cDeath>diseased</style>. <style=cArtifact>Rotten to the core.</style>\nThere's no saving it -- <style=cIsUtility>we need to pull it out by the roots.</style>\nWipe the slate <style=cEvent>clean</style>. <style=cDeath>BURN IT DOWN!</style>\nAnd from the ashes a <style=cUserSetting>new America</style> will be born.\n<style=cIsUtility>Evolved</style>, but <style=cIsDamage>untamed</style>!\nThe <style=cStack>weak</style> will be <style=cDeath>purged</style>, and the <style=cStack>strongest</style> will <style=cIsHealing>thrive</style> -- <style=cIsUtility>free to live as they see fit</style>,\n<style=cShrine>they'll make America great again!</style>\n\n<style=cMono>What the hell are you talking about...</style>";
 
         public override ItemTier Tier => ItemTier.Tier3;
+        public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
+        public override bool AIBlacklisted => false;
+        public override bool BrotherBlacklisted => false;
 
         public static BuffIndex meleeArmorBuff;
 

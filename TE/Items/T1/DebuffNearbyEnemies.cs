@@ -29,8 +29,11 @@ namespace TurboEdition.Items
 		public override string ItemLore => "UUUU";
 
         public override ItemTier Tier => ItemTier.Tier1;
+		public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
+		public override bool AIBlacklisted => false;
+		public override bool BrotherBlacklisted => false;
 
-        public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
+		public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
 
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier1.png";
 

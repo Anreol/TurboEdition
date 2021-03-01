@@ -44,7 +44,7 @@ namespace TurboEdition.Items
         public virtual bool CanRemove { get; } = true;
 
         public virtual bool AIBlacklisted { get; set; } = false;
-
+        public virtual bool BrotherBlacklisted { get; set; } = false;
         protected abstract void Initialization();
 
 
@@ -79,6 +79,10 @@ namespace TurboEdition.Items
             if (AIBlacklisted)
             {
                 ItemTags = new List<ItemTag>(ItemTags) { ItemTag.AIBlacklist }.ToArray();
+            }
+            if (BrotherBlacklisted)
+            {
+                ItemTags = new List<ItemTag>(ItemTags) { ItemTag.BrotherBlacklist }.ToArray();
             }
             ItemDef itemDef = new RoR2.ItemDef()
             {

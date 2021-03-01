@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 198348979
+CRC: 3779235581
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e9784f43c724439853bad2df8fad3117
+    Hash: 44cd0a4df3afb96c30dffce214bd5089
   TypeTreeHash:
     serializedVersion: 2
     Hash: 21747e4ee48f36c7a65f9afbfd77f392
@@ -34,6 +34,8 @@ Assets:
 - Assets/Textures/Icons/Items/TierSynergyTemp4.png
 - Assets/Textures/Icons/Items/Tier2.png
 - Assets/Textures/Icons/Items/TierSynergyTemp3.png
+- Assets/Textures/Icons/Buffs/hellchain_linked.png
+- Assets/Textures/Icons/Equipment/Placeholder_Hellchain.png
 - Assets/Textures/Icons/Items/Unique.png
 - Assets/Textures/Icons/Items/TierSynergyTemp1.png
 - Assets/Textures/Icons/Equipment/Placeholder_Scythe.png

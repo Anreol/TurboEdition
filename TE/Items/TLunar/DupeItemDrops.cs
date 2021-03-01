@@ -28,7 +28,9 @@ namespace TurboEdition.Items
 
         public override string ItemLore => "I play the Trading Deck Item, this item allows me to get one more item!";
         public override ItemTier Tier => ItemTier.Lunar;
+        public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => true; //I mean is there really a reason to NOT be black listed? They cannot get items and having a chance of instakilling enemies isnt fun...
+        public override bool BrotherBlacklisted => true;
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
 

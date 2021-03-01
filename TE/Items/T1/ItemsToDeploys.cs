@@ -28,7 +28,9 @@ namespace TurboEdition.Items
 
         public override string ItemLore => "Its like Arms Race but instead of making it go shoot we allow it to do the same as the player does.";
         public override ItemTier Tier => ItemTier.Tier1;
+        public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => false;
+        public override bool BrotherBlacklisted => false;
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
 
