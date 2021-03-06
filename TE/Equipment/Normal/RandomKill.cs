@@ -17,6 +17,9 @@ using static TurboEdition.Utils.ItemHelpers;
 //Once thats done consider making the scythe summonable everytime and check for a target, if theres no target before a timeout the scythe disappears, but the equipment still gets consumed.
 //Important!!: the item is not truly random since it does a simple loop through the bodies of each team, meaning that it will ALWAYS target the earliest available enemy in the list. It will keep damaging that enemy until there's no more LOS or it dies.
 //The LOS check is also made within the character body, if theres no LOS between it and the enemy the item will fail, just because (YOU) see it doesn't mean you will hit it, so far it's kinda frustrating but you get used to it.
+//04/03/21: Been thinking about the last few days about when finding a target, instead of damaging it make an area that might / might not follow the target at a slower pace than it, makes it fair for players and its not a press q to win against fast enemies / literally everything. also works better against groups of enemies.
+//if this happens, thinking about removing the "only on screen" limitation since you would be able to see where it takes place
+//also make it different than meteor. meteor is funny. this is not supposed to be funny. but useful.
 namespace TurboEdition.Equipment
 {
     public class RandomKill : EquipmentBase<RandomKill>
