@@ -10,6 +10,7 @@ using UnityEngine;
 using System.Linq;
 using TurboEdition.Equipment;
 using TurboEdition.Items;
+using TurboEdition.Artifacts;
 using System.Reflection;
 
 //Dumbfuck's first (not really) ror2 mod
@@ -32,7 +33,7 @@ namespace TurboEdition
         //Lets get cool mod info.
         public const string ModVer =
         #if DEBUG
-            "000." +
+            "2060." +
         #endif
             "0.0.1";
 
@@ -49,6 +50,7 @@ namespace TurboEdition
 
         public List<ItemBase> Items = new List<ItemBase>();
         public List<EquipmentBase> Equipments = new List<EquipmentBase>();
+        public List<ArtifactBase> Artifacts = new List<ArtifactBase>();
 
         public void Awake()
         {
@@ -92,6 +94,18 @@ namespace TurboEdition
                 if (ValidateEquipment(equipment, Equipments))
                 {
                     equipment.Init(Config);
+                }
+            }
+            //this section automatically scans the project for all equipment
+            Logger.LogWarning("Adding artifacts...");
+            var ArtifactTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ArtifactBase)));
+
+            foreach (var artifactType in ArtifactTypes)
+            {
+                ArtifactBase artifact = (ArtifactBase)System.Activator.CreateInstance(artifactType);
+                if (ValidateArtifact(artifact, Artifacts))
+                {
+                    artifact.Init(Config);
                 }
             }
         }
@@ -142,12 +156,17 @@ namespace TurboEdition
         {
             var enabled = Config.Bind<bool>("Item: " + item.ItemName, "Enable Item?", true, "Should this item appear in runs?").Value;
             var aiBlacklist = Config.Bind<bool>("Item: " + item.ItemName, "Blacklist Item from AI Use?", false, "Should the AI not be able to obtain this item?").Value;
+            var brotherBlacklist = Config.Bind<bool>("Item: " + item.ItemName, "Blacklist Item from Mithrix Use?", false, "Should Mithrix not be able to obtain this item?").Value;
             if (enabled)
             {
                 itemList.Add(item);
                 if (aiBlacklist)
                 {
                     item.AIBlacklisted = true;
+                }
+                if (brotherBlacklist)
+                {
+                    item.BrotherBlacklisted = true;
                 }
             }
             return enabled;
@@ -163,6 +182,21 @@ namespace TurboEdition
             if (Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?").Value)
             {
                 equipmentList.Add(equipment);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// A helper to easily set up and initialize an artifact from your artifact classes if the user has it enabled in their configuration files.
+        /// </summary>
+        /// <param name="artifact">A new instance of an ArtifactBase class. E.g. "new ExampleArtifact()"</param>
+        /// <param name="artifactList">The list you would like to add this to if it passes the config check.</param>
+        public bool ValidateArtifact(ArtifactBase artifact, List<ArtifactBase> artifactList)
+        {
+            if (Config.Bind<bool>("Artifact: " + artifact.ArtifactName, "Enable Artifact?", true, "Should this artifact be enabled in game?").Value)
+            {
+                artifactList.Add(artifact);
                 return true;
             }
             return false;

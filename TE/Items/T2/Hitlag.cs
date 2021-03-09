@@ -31,7 +31,7 @@ namespace TurboEdition.Items
 
         public override string ItemPickupDesc => $"Delay incoming damage for <style=cIsUtility>{hitlagInitial} seconds</style>. <style=cStack>(+{hitlagStack} second per stack)</style>. Any healing incoming <style=cIsHealing>heals a bit</style> of the delayed damage.";
 
-        public override string ItemFullDescription => $"Delay incoming damage for <style=cIsUtility>{hitlagInitial} seconds</style>. <style=cStack>(+{hitlagStack} second per stack)</style>. <style=cIsHealing>Heal for {healValueInitial}</style> <style=cStack>(+{healFractionStack}% per stack) of incoming healing.";
+        public override string ItemFullDescription => $"Delay incoming damage for <style=cIsUtility>{hitlagInitial} seconds</style>. <style=cStack>(+{hitlagStack} second per stack)</style>. <style=cIsHealing>Heal for {healValueInitial}</style> <style=cStack>(+{healFractionStack * 100}% per stack) of incoming healing.";
 
         public override string ItemLore => "Fuck you I liked it.";
         public override ItemTier Tier => ItemTier.Tier2;

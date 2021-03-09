@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3779235581
+CRC: 922280407
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 44cd0a4df3afb96c30dffce214bd5089
+    Hash: 2bbe3a54e156f2846387b88387c8b705
   TypeTreeHash:
     serializedVersion: 2
     Hash: 21747e4ee48f36c7a65f9afbfd77f392
@@ -42,10 +42,13 @@ Assets:
 - Assets/Textures/Icons/Items/TLunar.png
 - Assets/Textures/Icons/Items/Tier1.png
 - Assets/Models/Prefabs/Default.prefab
+- Assets/Textures/Icons/Artifacts/spite2.png
 - Assets/Textures/Icons/Buffs/meleearmor.png
 - Assets/Textures/Icons/Items/TBoss.png
 - Assets/Textures/Icons/Items/Tier3.png
 - Assets/Textures/Materials/Default.mat
+- Assets/Textures/Icons/Artifacts/spite2_deselected.png
 - Assets/Textures/Icons/Items/TierSynergySpecial1.png
 - Assets/Models/Prefabs/Default.fbx
+- Assets/Textures/Icons/Artifacts/spite2_selected.png
 Dependencies: []

@@ -13,7 +13,7 @@ using static TurboEdition.Utils.ItemHelpers;
 
 //TODO Fix this fucking thing not working in HR and Moon!
 //I dont give a fuck if moon doesn't have a next stage or whatever the functionality has to be there!
-
+//Then we just make it reject it lol
 namespace TurboEdition.Equipment
 {
     public class StageSkip : EquipmentBase<StageSkip>
