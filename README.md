@@ -13,6 +13,10 @@ Down the road, the ideas, in order of relevance are:
 - A currency rework
 - And whole new item tier
 
+## Release
+A mod release is not being considered now or within the next 4 months, at the very least, scroll below if *you want to speed up this process*.
+Bare minimum would be artifacts, one survivor, and the remaining items.
+
 ## Contribute
 For now I'm working alone, but, if you are feeling like losing your sanity and self-respect by working with awful code, welcome!
 I'm accepting literally any form of contribution as long as it fits the scope of the project, that means code reviews, code, assets, and so on.
