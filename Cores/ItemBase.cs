@@ -15,6 +15,9 @@ namespace TurboEdition.Items
     // https://github.com/ThinkInvis/RoR2-TILER2
     // https://thunderstore.io/package/ThinkInvis/TILER2/
 
+
+    //What does "where T : class" means?
+    //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters
     public abstract class ItemBase<T>:ItemBase where T : ItemBase<T> 
     {
         public static T instance {get;private set;}

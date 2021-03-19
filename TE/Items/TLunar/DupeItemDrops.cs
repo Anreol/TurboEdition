@@ -14,16 +14,14 @@ using static TurboEdition.Utils.ItemHelpers;
 //That includes getting a particle effect or explosion or ANYTHING that isn't the void reaver explosion
 //Check how the battery cell does it
 //Idea: Get card deck to show up somewhere, on item duping, pull a card off, on death, start dropping every card til its empty, then a random timer til death, because not knowing when you will stop existing is fun.
+//Chest duping MUST be the same item or at /the very least/ come from the same item pool. Sacrifice Item Pool != Default Item pool.
 namespace TurboEdition.Items
 {
     public class DupeItemDrops : ItemBase<DupeItemDrops>
     {
         public override string ItemName => "Trading Deck";
-
         public override string ItemLangTokenName => "DUPEITEMDROPS";
-
         public override string ItemPickupDesc => $"Have a <style=cIsUtility>{dupeChanceInitial}% chance</style> of <style=cIsUtility>duplicating items</style> <style=cDeath>but</style> have a <style=cDeath>{deathChanceInitial}%</style> chance of <style=cDeath>instantly dying</style> when hurt. <style=cIsUtility>Death chance affected by luck</style>.";
-
         public override string ItemFullDescription => $"<style=cIsUtility>{dupeChanceInitial}% chance</style> to <style=cIsUtility>duplicate items</style> when opening a chest. <style=cStack>(+{dupeChanceStack}% per stack).</style> <style=cDeath>But</style> have a <style=cDeath>{deathChanceInitial}%</style> chance of <style=cDeath>instantly dying</style> when hurt. <style=cStack>(+{deathChanceStack}% per stack)";
 
         public override string ItemLore => "I play the Trading Deck Item, this item allows me to get one more item!";
@@ -33,7 +31,6 @@ namespace TurboEdition.Items
         public override bool BrotherBlacklisted => true;
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/TLunar.png";
 
         private static readonly Xoroshiro128Plus treasureRng = new Xoroshiro128Plus(0UL);

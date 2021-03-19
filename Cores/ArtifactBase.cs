@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Artifacts
 {
@@ -27,9 +28,15 @@ namespace TurboEdition.Artifacts
 
     public abstract class ArtifactBase
     {
+        
+
         public ArtifactIndex ArtIndex;
+
+        public abstract string ArtifactLangToken { get; }
         public abstract string ArtifactName { get; }
         public abstract string ArtifactDesc { get; }
+
+        public abstract string ArtifactUnlockable { get; }
         public abstract string SpriteSelectedPath { get; }
         public abstract string SpriteDeselectedPath { get; }
         public abstract string ArtifactModelPath { get; }
@@ -44,7 +51,7 @@ namespace TurboEdition.Artifacts
         internal virtual void Init(ConfigFile config)
         {
             CreateConfig(config);
-            //CreateLang();
+            CreateLang();
             CreateArtifact();
             Initialization();
             Hooks();
@@ -57,35 +64,87 @@ namespace TurboEdition.Artifacts
         //I do not know
         protected virtual void CreateLang()
         {
-            LanguageAPI.Add("ARTIFACT_" + ArtifactName + "_NAME", ArtifactName);
-            LanguageAPI.Add("ARTIFACT_" + ArtifactName + "_PICKUP", ArtifactDesc);
+            LanguageAPI.Add("ARTIFACT_" + ArtifactLangToken + "_NAME", ArtifactName);
+            LanguageAPI.Add("ARTIFACT_" + ArtifactLangToken + "_DESC", ArtifactDesc);
         }
 
         protected void CreateArtifact()
         {
+#if DEBUG
+            TurboEdition._logger.LogWarning("ArtifactBase, creating new artifact: " + ArtifactLangToken);
+#endif
             ArtifactDef ArtDef = ScriptableObject.CreateInstance<ArtifactDef>();
             ArtDef.pickupModelPrefab = Resources.Load<GameObject>(ArtifactModelPath);
             ArtDef.smallIconSelectedSprite = Resources.Load<Sprite>(SpriteSelectedPath);
             ArtDef.smallIconDeselectedSprite = Resources.Load<Sprite>(SpriteDeselectedPath);
-            ArtDef.unlockableName = "ARTIFACT_" + ArtifactName;
-            ArtDef.nameToken = "ARTIFACT_" + ArtifactName + "_NAME";
-            ArtDef.descriptionToken = "ARTIFACT_" + ArtifactName + "_DESCRIPTION";
+            ArtDef.unlockableName = ArtifactUnlockable; //DO NOT SET THIS UP UNLESS THERES AN ACTUAL UNLOCKABLE
+            ArtDef.nameToken = "ARTIFACT_" + ArtifactLangToken + "_NAME";
+            ArtDef.descriptionToken = "ARTIFACT_" + ArtifactLangToken + "_DESC";
+#if DEBUG
+            TurboEdition._logger.LogWarning("ArtifactBase, done defining " + ArtifactLangToken + ", it has the following tokens: " + ArtDef.unlockableName + " " + ArtDef.nameToken + " " + ArtDef.descriptionToken + " and assets: " + ArtDef.pickupModelPrefab + " " + ArtDef.smallIconDeselectedSprite + " " + ArtDef.smallIconSelectedSprite + ".");
+#endif
             ArtifactCatalog.getAdditionalEntries += (list) =>
             {
                 list.Add(ArtDef);
+#if DEBUG
+                TurboEdition._logger.LogWarning("ArtifactBase, added: " + ArtDef.nameToken + " with def " + ArtDef);
+#endif
             };
             On.RoR2.ArtifactCatalog.SetArtifactDefs += (orig, self) => {
                 orig(self);
                 ArtIndex = ArtDef.artifactIndex;
+#if DEBUG
+                TurboEdition._logger.LogWarning("ArtifactBase, got the ArtifactCatalog index " + ArtIndex + " (" + ArtDef.artifactIndex + ") of " + ArtDef + " (" + ArtDef.nameToken + ").");
+                TurboEdition._logger.LogWarning("ArtifactBase, searching thru the ArtifactCatalog by index " + ArtIndex + " got " + ArtifactCatalog.GetArtifactDef(ArtDef.artifactIndex).unlockableName + " finding artifact index by def name (" + ArtifactCatalog.FindArtifactIndex(ArtDef.nameToken) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.unlockableName) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.descriptionToken) + ")");
+#endif
             };
         }
 
-        public virtual void Hooks() { }
-
-        //Based on ThinkInvis' methods
-        public bool IsActive()
+        //A hook that hooks hooks hooking hooks, is this stupid? Sounds stupid.
+        //sometimes i look at english words and i go letter by letter and see how stupid they are
+        //Hook: From Middle English hoke, from Old English hōc, from Proto-Germanic *hōkaz (cf. West Frisian/Dutch hoek 'hook, angle, corner', Low German Hook, Huuk 'id.'), variant of *hakōn 'hook'. More at hake.
+        //Oi yong ladde, myntan tō laetan mē hōc tō bis hōc swā I cunnan modifien bis videō pleġan
+        public virtual void Hooks() 
         {
-            return RunArtifactManager.instance != null && RunArtifactManager.instance.IsArtifactEnabled(ArtIndex);
+            RunArtifactManager.onArtifactEnabledGlobal += OnArtifactEnabled;
+            RunArtifactManager.onArtifactDisabledGlobal += OnArtifactDisabled;
+        }
+
+        protected virtual void OnArtifactEnabled(RunArtifactManager runArtifactManager, ArtifactDef artifactDef)
+        {
+            if (!NetworkServer.active)
+            {
+                return;
+            }
+            if (artifactDef.artifactIndex != ArtIndex)
+            {
+                return;
+            }
+            HookEnabled();
+        }
+        protected virtual void OnArtifactDisabled(RunArtifactManager runArtifactManager, ArtifactDef artifactDef)
+        {
+            if (artifactDef.artifactIndex != ArtIndex)
+            {
+                return;
+            }
+            HookDisabled();
+        }
+
+        /// <summary>
+        /// Gets called whenever the artifact gets activated.
+        /// </summary>
+        protected virtual void HookEnabled() { }
+        /// <summary>
+        /// Gets called whenever the artifact gets disabled.
+        /// </summary>
+        protected virtual void HookDisabled() { }
+        //Latin is better anyways
+        
+        //Based on ThinkInvis' methods
+        public bool ArtifactIsActive()
+        {
+            return (RunArtifactManager.instance != null && RunArtifactManager.instance.IsArtifactEnabled(ArtIndex));
         }
     }
 }

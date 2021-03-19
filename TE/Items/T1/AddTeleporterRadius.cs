@@ -13,19 +13,17 @@ using static TurboEdition.Utils.ItemHelpers;
 //TODO Teleporter radius recalculation happens with any item pickup, change it so its only recalculated when player gets or loses this item
 //APPARENTLY INFUSION ACTIVATES ONINVENTORYCHANGE SO EVERY KILL WITH INFUSION FORCES AN UPDATE, GOTTA FIX THIS SOON
 //AAAAAAAAAAAAAAAA
+//Oh also this item doesnt have character display rules, rather, it will show up over the teleporter, because I think the teleporter gaining items is cool
 namespace TurboEdition.Items
 {
     public class AddTeleporterRadius : ItemBase<AddTeleporterRadius>
     {
         public override string ItemName => "Chromatic Lens";
-
         public override string ItemLangTokenName => "ADDTELEPORTERRADIUS";
-
         public override string ItemPickupDesc => "Increase the teleporter zone.";
-
         public override string ItemFullDescription => $"Increase teleporter radius by <style=cIsUtility>{addFirstRadius} meters</style>. <style=cStack>(+{addStackRadius} meters per stack).</style>";
-
         public override string ItemLore => "Yet another mod that adds an item that increases Teleporter Radius, how creative are we today huh?";
+        
         public override ItemTier Tier => ItemTier.Tier1;
         public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => true;
@@ -46,7 +44,6 @@ namespace TurboEdition.Items
 
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier1.png";
 
 

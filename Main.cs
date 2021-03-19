@@ -15,6 +15,22 @@ using System.Reflection;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
+
+//TODOS:
+//Adding this in here because its about the mod overall.
+//Get yer shit together and standarize the chances of items and stuff, 
+//i.e for 5%, some items have it as 5f, and others as 0.05f, and I'm losing my mind over it 
+//Get a component helper or something, like SS2, really streamlines stuff and standarizes how everything is done
+//Im sick of having to do null checks everytime i want to see if a component exists to see if i need to delete it or to add it
+
+//Uhhhh im manually setting up if an item is AI blacklisted / Mithrix Blacklisted, but by default they are always false
+//Fix that so we dont give the user a headache when Mithrix suddenly gets all your broken cables and you cannot hit him
+
+//When game update drops / R2API updates:
+//Cleanup item boilerplate, do as SS2 does (just has NameInternal for each item) and the actual tokens are loaded via languageAPI
+//Following the above, create a lang file, find out if r2api automatically loads different lang files depending on your system or i have to setup the spanish language myself
+//Add to boilerplate the shader setup which is essentially going item by item (models) and giving them hopoo's shaders
+
 namespace TurboEdition
 {
     [R2APISubmoduleDependency("ResourcesAPI")]
@@ -51,7 +67,6 @@ namespace TurboEdition
         public List<ItemBase> Items = new List<ItemBase>();
         public List<EquipmentBase> Equipments = new List<EquipmentBase>();
         public List<ArtifactBase> Artifacts = new List<ArtifactBase>();
-
         public void Awake()
         {
             _logger = Logger;
@@ -63,7 +78,7 @@ namespace TurboEdition
             // Don't know how to create/use an asset bundle, or don't have a unity project set up?
             // Look here for info on how to set these up: https://github.com/KomradeSpectre/AetheriumMod/blob/rewrite-master/Tutorials/Item%20Mod%20Creation.md#unity-project
 
-            Logger.LogWarning("Getting assets...");
+            Logger.LogWarning("G e t t i n g  a s s e t s . . .");
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TurboEdition.turboedition_assets"))
             {
                 var MainAssets = AssetBundle.LoadFromStream(stream);
@@ -72,7 +87,7 @@ namespace TurboEdition
             }
 
             //This section automatically scans the project for all items
-            Logger.LogWarning("Adding items...");
+            Logger.LogWarning("A d d i n g  i t e m s . . .");
             var ItemTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ItemBase)));
 
             foreach (var itemType in ItemTypes)
@@ -85,7 +100,7 @@ namespace TurboEdition
             }
 
             //this section automatically scans the project for all equipment
-            Logger.LogWarning("Adding equipment...");
+            Logger.LogWarning("A d d i n g  e q u i p m e n t . . .");
             var EquipmentTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(EquipmentBase)));
 
             foreach (var equipmentType in EquipmentTypes)
@@ -97,22 +112,28 @@ namespace TurboEdition
                 }
             }
             //this section automatically scans the project for all equipment
-            Logger.LogWarning("Adding artifacts...");
+            Logger.LogWarning("A d d i n g  A r t i f a c t s . . .");
             var ArtifactTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ArtifactBase)));
 
             foreach (var artifactType in ArtifactTypes)
             {
+#if DEBUG
+                Logger.LogWarning("Initializing artifacts, adding: " + artifactType + " in a ArtifactTypes of count " + ArtifactTypes.Count());
+#endif
                 ArtifactBase artifact = (ArtifactBase)System.Activator.CreateInstance(artifactType);
                 if (ValidateArtifact(artifact, Artifacts))
                 {
+#if DEBUG
+                    Logger.LogWarning("Validated artifact, and intializing config of " + artifact);
+#endif
                     artifact.Init(Config);
                 }
             }
         }
 
         //Debugging
-        #if DEBUG
-        bool DEBUGcheckingInput = false;
+#if DEBUG
+        readonly bool DEBUGcheckingInput = false;
         public void Update()
         {
             var i3 = Input.GetKeyDown(KeyCode.Keypad3);
@@ -144,7 +165,12 @@ namespace TurboEdition
             Debug.Log("Count:"+ ItemBase.GetCountFromPlayers((ItemIndex)args.GetArgInt(0), false));
             Debug.Log("uCount:"+ItemBase.GetUniqueCountFromPlayers((ItemIndex)args.GetArgInt(0), false));
         }
-
+        [ConCommand(commandName = "ccInspectArtifactCat", flags = ConVarFlags.None, helpText = "Dumps info from the game's Artifact Catalog")]
+        public static void ccInspectArtifactCat(ConCommandArgs args)
+        {
+            Debug.Log("Count:" + ArtifactCatalog.artifactCount);
+            Debug.Log("Found artifact def:" + ArtifactCatalog.FindArtifactDef(args.ToString()));
+        }
 
         /// <summary>
         /// A helper to easily set up and initialize an item from your item classes if the user has it enabled in their configuration files.
@@ -155,8 +181,8 @@ namespace TurboEdition
         public bool ValidateItem(ItemBase item, List<ItemBase> itemList)
         {
             var enabled = Config.Bind<bool>("Item: " + item.ItemName, "Enable Item?", true, "Should this item appear in runs?").Value;
-            var aiBlacklist = Config.Bind<bool>("Item: " + item.ItemName, "Blacklist Item from AI Use?", false, "Should the AI not be able to obtain this item?").Value;
-            var brotherBlacklist = Config.Bind<bool>("Item: " + item.ItemName, "Blacklist Item from Mithrix Use?", false, "Should Mithrix not be able to obtain this item?").Value;
+            var aiBlacklist = Config.Bind<bool>("Item: " + item.ItemName, "Blacklist Item from AI Use?", item.AIBlacklisted, "Should the AI not be able to obtain this item?").Value;
+            var brotherBlacklist = Config.Bind<bool>("Item: " + item.ItemName, "Blacklist Item from Mithrix Use?", item.BrotherBlacklisted, "Should Mithrix not be able to obtain this item?").Value;
             if (enabled)
             {
                 itemList.Add(item);
@@ -181,6 +207,7 @@ namespace TurboEdition
         {
             if (Config.Bind<bool>("Equipment: " + equipment.EquipmentName, "Enable Equipment?", true, "Should this equipment appear in runs?").Value)
             {
+
                 equipmentList.Add(equipment);
                 return true;
             }
@@ -196,6 +223,9 @@ namespace TurboEdition
         {
             if (Config.Bind<bool>("Artifact: " + artifact.ArtifactName, "Enable Artifact?", true, "Should this artifact be enabled in game?").Value)
             {
+#if DEBUG
+                Logger.LogWarning("Validating artifact " + artifact + ", user has it set to enabled, so adding it to " + artifactList);
+#endif
                 artifactList.Add(artifact);
                 return true;
             }

@@ -18,6 +18,11 @@ using static TurboEdition.Utils.ItemHelpers;
 //do the previous but with shields (i do not know how shield generation works)
 //if the damage goes to barrier make it so you cannot heal it
 
+//Get damage types that can bypass the lagger
+//Something as bypassArmor, for example, could be good
+//Also let the user config their own list
+
+//Now that we have a stubbed assembly look again into if its possible to implement a custom healthbar, since it was private before.
 
 //IMPORTANT ===========>
 //https://discord.com/channels/562704639141740588/562704639569428506/813439608049500231
@@ -26,21 +31,17 @@ namespace TurboEdition.Items
     public class Hitlag : ItemBase<Hitlag>
     {
         public override string ItemName => "Broken Fiber Cable";
-
         public override string ItemLangTokenName => "HITLAG";
-
         public override string ItemPickupDesc => $"Delay incoming damage for <style=cIsUtility>{hitlagInitial} seconds</style>. <style=cStack>(+{hitlagStack} second per stack)</style>. Any healing incoming <style=cIsHealing>heals a bit</style> of the delayed damage.";
-
         public override string ItemFullDescription => $"Delay incoming damage for <style=cIsUtility>{hitlagInitial} seconds</style>. <style=cStack>(+{hitlagStack} second per stack)</style>. <style=cIsHealing>Heal for {healValueInitial}</style> <style=cStack>(+{healFractionStack * 100}% per stack) of incoming healing.";
-
         public override string ItemLore => "Fuck you I liked it.";
+
         public override ItemTier Tier => ItemTier.Tier2;
         public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => false;
         public override bool BrotherBlacklisted => true;
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier2.png";
 
         internal static GameObject hitManager;

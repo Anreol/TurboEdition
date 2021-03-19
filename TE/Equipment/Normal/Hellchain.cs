@@ -19,7 +19,8 @@ using static TurboEdition.Utils.ItemHelpers;
 //Also I'd like if the bodies with the debuff would get something like death mark, instead of skull its the cross and instead of that weird bound its a chain
 
 //Get indicator for sphere search radius please
-//If SS2 was open source I could look at how they do it with the jet boots and shit
+//Need a custom gameobject FX that scales its mesh with the sphere search, idk, but thats how someone else does it
+//If i ever get that I could recyle it for DebuffNearbyEnemies
 
 //Fix tethers staying after a enemy has died, that shouldn't happen. UPDATE: I think it has to do with the update rate being only every 10 seconds.
 //This also makes enemies that got no actual hurtboxes linked to stop generating orbs going to themselves
@@ -31,17 +32,12 @@ namespace TurboEdition.Equipment
     public class Hellchain : EquipmentBase<Hellchain>
     {
         public override string EquipmentName => "Bloody Cross";
-
         public override string EquipmentLangTokenName => "HELLCHAIN";
-
         public override string EquipmentPickupDesc => $"<style=cIsUtility>Link enemies</style>, making each link take <style=cIsDamage>{damageFraction * 100}%</style> of the previous link's damage.";
-
         public override string EquipmentFullDescription => $"<style=cIsUtility>Link enemies around you</style>. Damaging a linked enemy makes that enemy's link take <style=cIsDamage>{damageFraction * 100}% of the damage dealt</style>.";
-
-        public override string EquipmentLore => "";
+        public override string EquipmentLore => "What is a man?";
 
         public override string EquipmentModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-
         public override string EquipmentIconPath => "@TurboEdition:Assets/Textures/Icons/Equipment/Placeholder_Hellchain.png";
         public override float Cooldown => equipmentRecharge;
         public static BuffIndex linkedBuff;

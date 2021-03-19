@@ -19,21 +19,17 @@ namespace TurboEdition.Items
     public class ItemsToDeploys : ItemBase<ItemsToDeploys>
     {
         public override string ItemName => "Glued Tape Roll";
-
         public override string ItemLangTokenName => "ITEMSTODEPLOYS";
-
         public override string ItemPickupDesc => "Give one of your items to a drone.";
-
         public override string ItemFullDescription => $"Give <style=cIsUtility>{itemsToGive} of your items</style> to a drone up to <style=cIsUtility>{itemAddStack} times </style>. <style=cStack>(+{itemsToGive} item, +{itemAddStack} times, per stack).</style>";
-
         public override string ItemLore => "Its like Arms Race but instead of making it go shoot we allow it to do the same as the player does.";
+        
         public override ItemTier Tier => ItemTier.Tier1;
         public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => false;
         public override bool BrotherBlacklisted => false;
 
         public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-
         public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier1.png";
 
         //whatever the hell is this
@@ -106,7 +102,7 @@ namespace TurboEdition.Items
                     bool foundBlacklisted;
                     if (cappedByInventory) { itemGiven = Mathf.Min(itemGiven, itemList.Count); }; //Let's not give more items than what the player has
                     for (int i = 0; i < itemGiven; i++)
-                    {
+                    {   
                         //Get a delayer here PLEASE, game shits itself with high item count or when summoning multiple at the same time i.e reinforcement!
                         //Would let the player know which items the drones are getting too!
                         do
