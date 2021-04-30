@@ -1,17 +1,11 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
+using HG;
 using R2API;
-using R2API.Utils;
 using RoR2;
 using RoR2.Orbs;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Networking;
-using HG;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO Get linking effect       DONE
 //Thinking about siphon but changing the green to red, should be easy
@@ -37,8 +31,8 @@ namespace TurboEdition.Equipment
         public override string EquipmentFullDescription => $"<style=cIsUtility>Link enemies around you</style>. Damaging a linked enemy makes that enemy's link take <style=cIsDamage>{damageFraction * 100}% of the damage dealt</style>.";
         public override string EquipmentLore => "What is a man?";
 
-        public override string EquipmentModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-        public override string EquipmentIconPath => "@TurboEdition:Assets/Textures/Icons/Equipment/Placeholder_Hellchain.png";
+        public override GameObject EquipmentModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
+        public override Sprite EquipmentIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Equipment/Placeholder_Hellchain.png");
         public override float Cooldown => equipmentRecharge;
         public static BuffIndex linkedBuff;
 
@@ -78,23 +72,18 @@ namespace TurboEdition.Equipment
             damageFraction = config.Bind<float>("Equipment : " + EquipmentName, "Percentage of damage to share", 0.25f, "Percentage of damage that all enemies linked will be damaged for. Hint: The % is taken after all damage reduction calcs, try going after a weak enemy.").Value;
             sphereSearchCount = config.Bind<int>("Equipment : " + EquipmentName, "Additional SphereSearchs", 3, "Number of extra sphere searchs to generate in each use. These generate within enemies, not activator's.").Value;
             //maxLinkCount = config.Bind<int>("Equipment : " + EquipmentName, "Max link count", 100, "Maximum number of BODIES (not just enemies) that can be linked (have the debuff) at the same time.").Value;
-           
         }
 
         private void CreateBuff()
         {
-            var linkedBuffDef = new R2API.CustomBuff(
-            new RoR2.BuffDef
-            {
-                buffColor = Color.red,
-                canStack = false,
-                isDebuff = true,
-                name = "Linked",
-                iconPath = "@TurboEdition:Assets/Textures/Icons/Buffs/hellchain_linked.png"
-            });
-            linkedBuff = R2API.BuffAPI.Add(linkedBuffDef);
-
+            var linkedBuffDef = ScriptableObject.CreateInstance<BuffDef>();
+            linkedBuffDef.buffColor = Color.red;
+            linkedBuffDef.canStack = false;
+            linkedBuffDef.isDebuff = true;
+            linkedBuffDef.name = "Linked";
+            linkedBuffDef.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/hellchain_linked.png");
         }
+
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {
             return new ItemDisplayRuleDict();
@@ -121,7 +110,6 @@ namespace TurboEdition.Equipment
 
             linkManager = linkManagerPrefab.InstantiateClone("LinkManagerPrefab");
             UnityEngine.Object.Destroy(linkManagerPrefab);
-
         }
 
         public override void Hooks()
@@ -172,8 +160,8 @@ namespace TurboEdition.Equipment
                 selfdestructionguaranteed.AddTeam(origin.teamComponent.teamIndex);
                 sphereSearch.RefreshCandidates().FilterCandidatesByHurtBoxTeam(selfdestructionguaranteed).FilterCandidatesByDistinctHurtBoxEntities().GetHurtBoxes(hurtBoxesList);
             }
-            
-            for (int i = 0, j = 0;  i < hurtBoxesList.Count && j < sphereLinkCount; i++)
+
+            for (int i = 0, j = 0; i < hurtBoxesList.Count && j < sphereLinkCount; i++)
             {
                 var hc = hurtBoxesList[i].healthComponent;
                 if (hc)
@@ -208,7 +196,7 @@ namespace TurboEdition.Equipment
                 if (TeamManager.IsTeamEnemy(ownerTeam, teamCounter))
                 {
                     var enemyMember = TeamComponent.GetTeamMembers(teamCounter);
-                    if (teamCounter != TeamIndex.Neutral && enemyMember.Count <= 0) { return false; } //It's gonna be hilarious if some enemies will link to barrels and pots 
+                    if (teamCounter != TeamIndex.Neutral && enemyMember.Count <= 0) { return false; } //It's gonna be hilarious if some enemies will link to barrels and pots
 #if DEBUG
                     TurboEdition._logger.LogWarning(EquipmentName + ": got enemy teams to activator's.");
 #endif
@@ -229,7 +217,6 @@ namespace TurboEdition.Equipment
                             GenerateSphereSearch(enemyMember[i].body, true);
                             link++;
                         }
-
                     }
 
                     return true;
@@ -237,7 +224,6 @@ namespace TurboEdition.Equipment
             }
             return false;
         }
-    
 
         private void CheckBuff(On.RoR2.CharacterBody.orig_UpdateBuffs orig, CharacterBody self, float deltaTime)
         {
@@ -245,7 +231,7 @@ namespace TurboEdition.Equipment
             //#if DEBUG
             //            TurboEdition._logger.LogWarning(EquipmentName + "'s hooks: checking for linkedBuff.");
             //#endif
-            if (!NetworkServer.active){ return; } //this update apparently runs in server so if server is not active this shouldnt even work? doing a check anyways.
+            if (!NetworkServer.active) { return; } //this update apparently runs in server so if server is not active this shouldnt even work? doing a check anyways.
             if (!self) { return; } //I feel like this is also stupid but ok
             var cbGameObject = self.gameObject;
             var linkGameObject = self.GetComponentInChildren<LinkComponent>()?.gameObject;
@@ -276,7 +262,6 @@ namespace TurboEdition.Equipment
 #endif
                 }
             }
-            
         }
 
         public class LinkedOrb : LightningOrb
@@ -296,6 +281,7 @@ namespace TurboEdition.Equipment
                 effectData.SetHurtBoxReference(target);
                 EffectManager.SpawnEffect(Resources.Load<GameObject>("prefabs/effects/orbeffects/InfusionOrbEffect"), effectData, true);
             }
+
             public override void OnArrival()
             {
 #if DEBUG
@@ -315,7 +301,7 @@ namespace TurboEdition.Equipment
                     }
                     var targetComponent = target.healthComponent.body.GetComponentInChildren<LinkComponent>();
                     if (targetComponent)
-                    {                        
+                    {
 #if DEBUG
                         TurboEdition._logger.LogWarning("LinkedOrb: Target has a link component " + targetComponent);
 #endif
@@ -326,13 +312,13 @@ namespace TurboEdition.Equipment
 #if DEBUG
                         TurboEdition._logger.LogWarning("LinkedOrb: Added " + this.bouncedObjects + " to target's " + targetComponent + ". Count is now " + targetComponent.PreviousBounces.Count);
 #endif
- /*                       if (targetComponent.PreviousBounces.Contains(healthComponent))
-                        {
-#if DEBUG
-                            TurboEdition._logger.LogWarning("LinkedOrb: REJECTED! Target healthComponent exists, " + healthComponent + " and is inside the previous bounces list, not applying damage.");
-#endif
-                            return;
-                        }*/
+                        /*                       if (targetComponent.PreviousBounces.Contains(healthComponent))
+                                               {
+                       #if DEBUG
+                                                   TurboEdition._logger.LogWarning("LinkedOrb: REJECTED! Target healthComponent exists, " + healthComponent + " and is inside the previous bounces list, not applying damage.");
+                       #endif
+                                                   return;
+                                               }*/
                         if (healthComponent /*&& !targetComponent.PreviousBounces.Contains(healthComponent)*/)
                         {
 #if DEBUG
@@ -353,8 +339,6 @@ namespace TurboEdition.Equipment
                             healthComponent.TakeDamage(damageInfo);
                             GlobalEventManager.instance.OnHitEnemy(damageInfo, healthComponent.gameObject);
                             GlobalEventManager.instance.OnHitAll(damageInfo, healthComponent.gameObject);
-
-
                         }
                         //We are overriding a Lightning orb OnArrive(), we are missing some more code here that is in the original but it uses shit that for some god forsaken reason is privatized so we cannot edit it
                         //the code missing is bouncing behaviour, and since we aren't bouncing at all it should be fine
@@ -385,7 +369,7 @@ namespace TurboEdition.Equipment
                 if (damageReport.damageDealt > 0f && component.TetheredHurtBoxList.Count > 0)
                 {
                     if (!component.PreviousBounces.Contains(damageReport.victimBody.healthComponent)) { component.AddEntryToPreviousBounces(damageReport.victimBody.healthComponent); }
-                    
+
 #if DEBUG
                     TurboEdition._logger.LogWarning(EquipmentName + "'s hooks: " + component.TetheredHurtBoxList + " has elements, doing foreach. It also has previousBounces as " + component.PreviousBounces + " with count " + component.PreviousBounces.Count);
 #endif
@@ -441,15 +425,14 @@ namespace TurboEdition.Equipment
         //[RequireComponent(typeof(NetworkedBodyAttachment))] //skipping since we are adding ours in initialization
         public class LinkComponent : NetworkBehaviour//, /*IOnDamageDealtServerReceiver,*/ IOnTakeDamageServerReceiver
         {
-            [SyncVar] 
-            float radius;
+            [SyncVar]
+            private float radius;
+
             public float NetRadius
             {
                 get { return radius; }
                 set { base.SetSyncVar<float>(value, ref radius, 1u); }
             }
-
-            
 
             [Min(1E-45f)]
             public float tickRate = 0.3f; //One tick every 3.33 seconds
@@ -461,9 +444,10 @@ namespace TurboEdition.Equipment
 
             //component stuff, im tired
             //protected NetworkedBodyAttachment networkedBodyAttachment;
-            
+
             //wacky tether thingies
             public TetherVfxOrigin tetherVfxOrigin;
+
             public GameObject activeVfx;
 
             private bool isLinkedToAtLeastOneObject;
@@ -499,7 +483,6 @@ namespace TurboEdition.Equipment
                     SearchForLink();
                     UpdateLinked();
                 }
-
             }
 
             /*public void OnTakeDamageServer(DamageReport damageReport)
@@ -530,12 +513,12 @@ namespace TurboEdition.Equipment
 #endif
                 this.hasLinkTarget.TakeDamage(damageInfo);
             }*/
-            
+
             private void SearchForLink()
             {
                 List<HurtBox> hurtBoxList = CollectionPool<HurtBox, List<HurtBox>>.RentCollection(); //Use these to store the sphere search targets that got found
                 List<Transform> transformList = CollectionPool<Transform, List<Transform>>.RentCollection(); //Use this to store the transforms of the targets
-                
+
                 //You might say, why not instead of storing two lists you store one and you replace the transforms list with hurtbox and you just go hurtbox by hurtbox getting the transforms? Check around line 468, transforms can be either from the hurtbox or the body if null.
 
                 if (ownerBody.HasBuff(linkedBuff)) //This previously used networkedBodyAttachment.attachedBody
@@ -576,15 +559,15 @@ namespace TurboEdition.Equipment
                     if (!(hcHurtBoxToLink.body == ownerBody))
                     {
                         if (!tetheredHurtBoxList.Contains(currentHurtbox)) { tetheredHurtBoxList.Add(currentHurtbox); Transform transform = hcHurtBoxToLink.body.coreTransform ?? currentHurtbox.transform; transformList.Add(transform); }
-                        if (!externalLink.tetheredHurtBoxList.Contains(ownerBody.mainHurtBox)){ externalLink.tetheredHurtBoxList.Add(ownerBody.mainHurtBox); }             
+                        if (!externalLink.tetheredHurtBoxList.Contains(ownerBody.mainHurtBox)) { externalLink.tetheredHurtBoxList.Add(ownerBody.mainHurtBox); }
 #if DEBUG
                         TurboEdition._logger.LogWarning("LinkComponent, found link, adding " + currentHurtbox + " to " + tetheredHurtBoxList);
 #endif
                         //We also make sure we aren't linking something that is already tethered to avoid drawing two lines
                         if (!externalLink.tetheredHurtBoxList.Contains(ownerBody.mainHurtBox)) //should be transformlist?
                         {
-                             //Get the hurtbox transform we are affecting, else the body transform
-                            
+                            //Get the hurtbox transform we are affecting, else the body transform
+
 #if DEBUG
                             TurboEdition._logger.LogWarning("LinkComponent, found link that wasn't linked to ours with transform: " + transform);
 #endif

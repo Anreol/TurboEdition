@@ -1,27 +1,18 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using UnityEngine;
 
 namespace TurboEdition.Equipment
 {
-    //Why is this in a folder named CORE? I dont know! I think the name is ok
-    // The directly below is entirely from TILER2 API (by ThinkInvis) specifically the Item module. Utilized to keep instance checking functionality as I migrate off TILER2.
-    // TILER2 API can be found at the following places:
-    // https://github.com/ThinkInvis/RoR2-TILER2
-    // https://thunderstore.io/package/ThinkInvis/TILER2/
-    public abstract class EquipmentBase<T>:EquipmentBase where T : EquipmentBase<T> 
+    //SS2 doesn't have it as "public", should look into it
+    public abstract class EquipmentBase<T> : EquipmentBase where T : EquipmentBase<T>
     {
-        public static T instance {get;private set;}
-        public EquipmentBase() 
+        public static T Instance { get; private set; }
+
+        public EquipmentBase()
         {
-            if(instance != null) throw new InvalidOperationException("Singleton class \"" + typeof(T).Name + "\" inheriting ItemBoilerplate/Equipment was instantiated twice");
-            instance = this as T;
+            Instance = this as T;
         }
     }
 
@@ -33,32 +24,33 @@ namespace TurboEdition.Equipment
         public abstract string EquipmentFullDescription { get; }
         public abstract string EquipmentLore { get; }
 
-        public abstract string EquipmentModelPath { get; }
-        public abstract string EquipmentIconPath { get; }
+        public abstract GameObject EquipmentModel { get; }
+        public abstract Sprite EquipmentIcon { get; }
 
         public virtual bool AppearsInSinglePlayer { get; } = true;
-
         public virtual bool AppearsInMultiPlayer { get; } = true;
-
         public virtual bool CanDrop { get; } = true;
-
         public virtual float Cooldown { get; } = 60f;
-
         public virtual bool EnigmaCompatible { get; } = true;
 
         public virtual bool IsBoss { get; } = false;
-
         public virtual bool IsLunar { get; } = false;
-
-        public EquipmentIndex Index;
+        public EquipmentDef EquipmentDef;
 
         public abstract ItemDisplayRuleDict CreateItemDisplayRules();
 
         protected abstract void Initialization();
 
         /// <summary>
-        /// Take care to call base.Init()!
+        /// This method structures your code execution of this class. An example implementation inside of it would be:
+        /// <para>CreateConfig(config);</para>
+        /// <para>CreateLang();</para>
+        /// <para>CreateEquipment();</para>
+        /// <para>Hooks();</para>
+        /// <para>This ensures that these execute in this order, one after another, and is useful for having things available to be used in later methods.</para>
+        /// <para>P.S. CreateItemDisplayRules(); does not have to be called in this, as it already gets called in CreateEquipment();</para>
         /// </summary>
+        /// <param name="config">The config file that will be passed into this from the main class.</param>
         internal virtual void Init(ConfigFile config)
         {
             CreateConfig(config);
@@ -68,8 +60,9 @@ namespace TurboEdition.Equipment
             Hooks();
         }
 
-        protected virtual void CreateConfig(ConfigFile config) { }
-
+        protected virtual void CreateConfig(ConfigFile config)
+        {
+        }
 
         /// <summary>
         /// Take care to call base.CreateLang()!
@@ -84,42 +77,42 @@ namespace TurboEdition.Equipment
 
         protected void CreateEquipment()
         {
-            EquipmentDef equipmentDef = new EquipmentDef()
-            {
-                name = "EQUIPMENT_" + EquipmentLangTokenName,
-                nameToken = "EQUIPMENT_" + EquipmentLangTokenName + "_NAME",
-                pickupToken = "EQUIPMENT_" + EquipmentLangTokenName + "_PICKUP",
-                descriptionToken = "EQUIPMENT_" + EquipmentLangTokenName + "_DESCRIPTION",
-                loreToken = "EQUIPMENT_" + EquipmentLangTokenName + "_LORE",
-                pickupModelPath = EquipmentModelPath,
-                pickupIconPath = EquipmentIconPath,
-                appearsInSinglePlayer = AppearsInSinglePlayer,
-                appearsInMultiPlayer = AppearsInMultiPlayer,
-                canDrop = CanDrop,
-                cooldown = Cooldown,
-                enigmaCompatible = EnigmaCompatible,
-                isBoss = IsBoss,
-                isLunar = IsLunar
-            };
-            var itemDisplayRules = CreateItemDisplayRules();
-            Index = ItemAPI.Add(new CustomEquipment(equipmentDef, itemDisplayRules));
+            EquipmentDef = ScriptableObject.CreateInstance<EquipmentDef>();
+            EquipmentDef.name = "EQUIPMENT_" + EquipmentLangTokenName;
+            EquipmentDef.nameToken = "EQUIPMENT_" + EquipmentLangTokenName + "_NAME";
+            EquipmentDef.pickupToken = "EQUIPMENT_" + EquipmentLangTokenName + "_PICKUP";
+            EquipmentDef.descriptionToken = "EQUIPMENT_" + EquipmentLangTokenName + "_DESCRIPTION";
+            EquipmentDef.loreToken = "EQUIPMENT_" + EquipmentLangTokenName + "_LORE";
+            EquipmentDef.pickupModelPrefab = EquipmentModel;
+            EquipmentDef.pickupIconSprite = EquipmentIcon;
+            EquipmentDef.appearsInSinglePlayer = AppearsInSinglePlayer;
+            EquipmentDef.appearsInMultiPlayer = AppearsInMultiPlayer;
+            EquipmentDef.canDrop = CanDrop;
+            EquipmentDef.cooldown = Cooldown;
+            EquipmentDef.enigmaCompatible = EnigmaCompatible;
+            EquipmentDef.isBoss = IsBoss;
+            EquipmentDef.isLunar = IsLunar;
+
+            ItemAPI.Add(new CustomEquipment(EquipmentDef, CreateItemDisplayRules()));
             On.RoR2.EquipmentSlot.PerformEquipmentAction += PerformEquipmentAction;
         }
 
-        private bool PerformEquipmentAction(On.RoR2.EquipmentSlot.orig_PerformEquipmentAction orig, RoR2.EquipmentSlot self, EquipmentIndex equipmentIndex)
+        private bool PerformEquipmentAction(On.RoR2.EquipmentSlot.orig_PerformEquipmentAction orig, RoR2.EquipmentSlot self, EquipmentDef equipmentDef)
         {
-            if (equipmentIndex == Index)
+            if (equipmentDef == EquipmentDef)
             {
                 return ActivateEquipment(self);
             }
             else
             {
-                return orig(self, equipmentIndex);
+                return orig(self, equipmentDef);
             }
         }
 
         protected abstract bool ActivateEquipment(EquipmentSlot slot);
 
-        public virtual void Hooks() { }
+        public virtual void Hooks()
+        {
+        }
     }
 }

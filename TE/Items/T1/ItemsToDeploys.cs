@@ -1,15 +1,8 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Networking;
-using static TurboEdition.Utils.ItemHelpers;
-
 
 //TODO
 //Add a delayer or whatever to slow down the item giving process
@@ -23,22 +16,23 @@ namespace TurboEdition.Items
         public override string ItemPickupDesc => "Give one of your items to a drone.";
         public override string ItemFullDescription => $"Give <style=cIsUtility>{itemsToGive} of your items</style> to a drone up to <style=cIsUtility>{itemAddStack} times </style>. <style=cStack>(+{itemsToGive} item, +{itemAddStack} times, per stack).</style>";
         public override string ItemLore => "Its like Arms Race but instead of making it go shoot we allow it to do the same as the player does.";
-        
+
         public override ItemTier Tier => ItemTier.Tier1;
-        public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
+        public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility, ItemTag.CannotCopy };
         public override bool AIBlacklisted => false;
         public override bool BrotherBlacklisted => false;
 
-        public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-        public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier1.png";
+        public override GameObject ItemModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
+        public override Sprite ItemIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Items/Tier1.png");
 
         //whatever the hell is this
         private List<RoR2.Orbs.ItemTransferOrb> inFlightOrbs;
+
         public static Xoroshiro128Plus random = new Xoroshiro128Plus((ulong)System.DateTime.Now.Ticks);
-        
 
         //Item properties
         public int itemsToGive;
+
         public int itemAddStack;
         public int itemGivingCap;
         public int itemStackingCap;
@@ -64,7 +58,6 @@ namespace TurboEdition.Items
 
         protected override void Initialization()
         {
-
         }
 
         public override void Hooks()
@@ -93,7 +86,7 @@ namespace TurboEdition.Items
 #endif
                     if (itemStackingCap != -1) { itemStack = Mathf.Min(itemStack, itemStackingCap); }
                     if (itemGivingCap != -1) { itemGiven = Mathf.Min(itemGiven, itemGivingCap); }
-                    
+
 #if DEBUG
                     TurboEdition._logger.LogWarning(ItemName + " Re-calculated numbers, itemStack: " + itemStack + " itemGiven: " + itemGiven);
 #endif
@@ -102,16 +95,21 @@ namespace TurboEdition.Items
                     bool foundBlacklisted;
                     if (cappedByInventory) { itemGiven = Mathf.Min(itemGiven, itemList.Count); }; //Let's not give more items than what the player has
                     for (int i = 0; i < itemGiven; i++)
-                    {   
+                    {
                         //Get a delayer here PLEASE, game shits itself with high item count or when summoning multiple at the same time i.e reinforcement!
                         //Would let the player know which items the drones are getting too!
                         do
                         {
                             foundBlacklisted = false;
                             randomIndex = random.RangeInt(0, itemList.Count);
-                            foreach (ItemIndex item in itemBlacklist)
+                            if (ItemCatalog.GetItemDef(itemList[randomIndex]).ContainsTag(ItemTag.CannotCopy))
                             {
-                                if (itemList[randomIndex] == item)
+                                foundBlacklisted = true;
+                            }
+
+                            foreach (ItemDef item in itemBlacklist)
+                            {
+                                if (ItemCatalog.GetItemDef(itemList[randomIndex]) == item)
                                 {
 #if DEBUG
                                     Chat.AddMessage("Turbo Edition: " + ItemName + " Found a blacklisted item (" + item + ") when giving items to a summon, rerolling.");
@@ -119,7 +117,7 @@ namespace TurboEdition.Items
                                     foundBlacklisted = true;
                                 }
                             }
-                        } while (itemList[randomIndex] == ItemCatalog.GetItemDef(cIndex).itemIndex || foundBlacklisted);
+                        } while (foundBlacklisted);
 
                         itemStack = Mathf.Min(itemStack, master.inventory.GetItemCount(itemList[randomIndex]));
 #if DEBUG
@@ -134,7 +132,7 @@ namespace TurboEdition.Items
 #endif
                                 servant.inventory.GiveItem(orb.itemIndex, orb.stack);
                                 this.inFlightOrbs.Remove(orb);
-                            }, null);
+                            }, servant.networkIdentity);
                             this.inFlightOrbs.Add(item);
                         }
                         else
@@ -149,35 +147,37 @@ namespace TurboEdition.Items
             }
         }
 
-
-        public static ItemIndex[] itemBlacklist = new ItemIndex[]
+        public static ItemDef[] itemBlacklist = new ItemDef[]
         {
-            ItemIndex.SprintWisp,
-            ItemIndex.TitanGoldDuringTP,
-            ItemIndex.TreasureCache,
-            ItemIndex.Feather,
-            ItemIndex.Firework,
-            ItemIndex.SprintArmor,
-            ItemIndex.JumpBoost,
-            ItemIndex.GoldOnHit,
-            ItemIndex.WardOnLevel,
-            ItemIndex.BeetleGland,
-            ItemIndex.RandomDamageZone,
-            ItemIndex.MonstersOnShrineUse,
-            ItemIndex.LunarBadLuck,
-            ItemIndex.CrippleWardOnLevel,
-            ItemIndex.TPHealingNova,
-            ItemIndex.FocusConvergence,
-            ItemIndex.ScrapWhite,
-            ItemIndex.ScrapGreen,
-            ItemIndex.ScrapRed,
-            ItemIndex.ScrapYellow,
-            ItemIndex.AdaptiveArmor,
-            ItemIndex.ArtifactKey,
-            ItemIndex.DrizzlePlayerHelper,
-            ItemIndex.WarCryOnCombat,
-            ItemIndex.ExtraLife,
-            ItemIndex.ExtraLifeConsumed
+            RoR2Content.Items.SprintWisp,
+            RoR2Content.Items.TitanGoldDuringTP,
+            RoR2Content.Items.TreasureCache,
+            RoR2Content.Items.Feather,
+            RoR2Content.Items.Firework,
+            RoR2Content.Items.SprintArmor,
+            RoR2Content.Items.JumpBoost,
+            RoR2Content.Items.GoldOnHit,
+            RoR2Content.Items.WardOnLevel,
+            RoR2Content.Items.BeetleGland,
+            RoR2Content.Items.ArtifactKey,
+            RoR2Content.Items.DrizzlePlayerHelper,
+            RoR2Content.Items.RoboBallBuddy,
+            RoR2Content.Items.RandomDamageZone,
+            RoR2Content.Items.MonstersOnShrineUse,
+            RoR2Content.Items.LunarBadLuck,
+            RoR2Content.Items.CrippleWardOnLevel,
+            RoR2Content.Items.TPHealingNova,
+            RoR2Content.Items.FocusConvergence,
+            RoR2Content.Items.ScrapWhite,
+            RoR2Content.Items.ScrapGreen,
+            RoR2Content.Items.ScrapRed,
+            RoR2Content.Items.ScrapYellow,
+            RoR2Content.Items.AdaptiveArmor,
+            RoR2Content.Items.ArtifactKey,
+            RoR2Content.Items.DrizzlePlayerHelper,
+            RoR2Content.Items.WarCryOnCombat,
+            RoR2Content.Items.ExtraLife,
+            RoR2Content.Items.ExtraLifeConsumed
         };
 
         /*

@@ -1,11 +1,7 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using R2API.Utils;
 using RoR2;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -19,6 +15,7 @@ namespace TurboEdition.Artifacts
     public abstract class ArtifactBase<T> : ArtifactBase where T : ArtifactBase<T>
     {
         public static T instance { get; private set; }
+
         public ArtifactBase()
         {
             if (instance != null) throw new InvalidOperationException("Singleton class \"" + typeof(T).Name + "\" inheriting ItemBoilerplate/ArtifactBase was instantiated twice");
@@ -28,21 +25,18 @@ namespace TurboEdition.Artifacts
 
     public abstract class ArtifactBase
     {
-        
-
         public ArtifactIndex ArtIndex;
 
         public abstract string ArtifactLangToken { get; }
         public abstract string ArtifactName { get; }
         public abstract string ArtifactDesc { get; }
 
-        public abstract string ArtifactUnlockable { get; }
+        public abstract UnlockableDef ArtifactUnlockable { get; }
         public abstract string SpriteSelectedPath { get; }
         public abstract string SpriteDeselectedPath { get; }
         public abstract string ArtifactModelPath { get; }
 
         protected abstract void Initialization();
-
 
         /// <summary>
         /// Only override when you know what you are doing, or call base.Init()!
@@ -57,8 +51,9 @@ namespace TurboEdition.Artifacts
             Hooks();
         }
 
-        protected virtual void CreateConfig(ConfigFile config) { }
-
+        protected virtual void CreateConfig(ConfigFile config)
+        {
+        }
 
         //Do artifacts need lang tokens?
         //I do not know
@@ -77,11 +72,11 @@ namespace TurboEdition.Artifacts
             ArtDef.pickupModelPrefab = Resources.Load<GameObject>(ArtifactModelPath);
             ArtDef.smallIconSelectedSprite = Resources.Load<Sprite>(SpriteSelectedPath);
             ArtDef.smallIconDeselectedSprite = Resources.Load<Sprite>(SpriteDeselectedPath);
-            ArtDef.unlockableName = ArtifactUnlockable; //DO NOT SET THIS UP UNLESS THERES AN ACTUAL UNLOCKABLE
+            ArtDef.unlockableDef = ArtifactUnlockable; //DO NOT SET THIS UP UNLESS THERES AN ACTUAL UNLOCKABLE
             ArtDef.nameToken = "ARTIFACT_" + ArtifactLangToken + "_NAME";
             ArtDef.descriptionToken = "ARTIFACT_" + ArtifactLangToken + "_DESC";
 #if DEBUG
-            TurboEdition._logger.LogWarning("ArtifactBase, done defining " + ArtifactLangToken + ", it has the following tokens: " + ArtDef.unlockableName + " " + ArtDef.nameToken + " " + ArtDef.descriptionToken + " and assets: " + ArtDef.pickupModelPrefab + " " + ArtDef.smallIconDeselectedSprite + " " + ArtDef.smallIconSelectedSprite + ".");
+            TurboEdition._logger.LogWarning("ArtifactBase, done defining " + ArtifactLangToken + ", it has the following tokens: " + ArtDef.unlockableDef + " " + ArtDef.nameToken + " " + ArtDef.descriptionToken + " and assets: " + ArtDef.pickupModelPrefab + " " + ArtDef.smallIconDeselectedSprite + " " + ArtDef.smallIconSelectedSprite + ".");
 #endif
             ArtifactCatalog.getAdditionalEntries += (list) =>
             {
@@ -90,12 +85,13 @@ namespace TurboEdition.Artifacts
                 TurboEdition._logger.LogWarning("ArtifactBase, added: " + ArtDef.nameToken + " with def " + ArtDef);
 #endif
             };
-            On.RoR2.ArtifactCatalog.SetArtifactDefs += (orig, self) => {
+            On.RoR2.ArtifactCatalog.SetArtifactDefs += (orig, self) =>
+            {
                 orig(self);
                 ArtIndex = ArtDef.artifactIndex;
 #if DEBUG
                 TurboEdition._logger.LogWarning("ArtifactBase, got the ArtifactCatalog index " + ArtIndex + " (" + ArtDef.artifactIndex + ") of " + ArtDef + " (" + ArtDef.nameToken + ").");
-                TurboEdition._logger.LogWarning("ArtifactBase, searching thru the ArtifactCatalog by index " + ArtIndex + " got " + ArtifactCatalog.GetArtifactDef(ArtDef.artifactIndex).unlockableName + " finding artifact index by def name (" + ArtifactCatalog.FindArtifactIndex(ArtDef.nameToken) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.unlockableName) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.descriptionToken) + ")");
+                TurboEdition._logger.LogWarning("ArtifactBase, searching thru the ArtifactCatalog by index " + ArtIndex + " got " + ArtifactCatalog.GetArtifactDef(ArtDef.artifactIndex).unlockableDef + " finding artifact index by def name (" + ArtifactCatalog.FindArtifactIndex(ArtDef.nameToken) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.descriptionToken) + ")");
 #endif
             };
         }
@@ -104,7 +100,7 @@ namespace TurboEdition.Artifacts
         //sometimes i look at english words and i go letter by letter and see how stupid they are
         //Hook: From Middle English hoke, from Old English hōc, from Proto-Germanic *hōkaz (cf. West Frisian/Dutch hoek 'hook, angle, corner', Low German Hook, Huuk 'id.'), variant of *hakōn 'hook'. More at hake.
         //Oi yong ladde, myntan tō laetan mē hōc tō bis hōc swā I cunnan modifien bis videō pleġan
-        public virtual void Hooks() 
+        public virtual void Hooks()
         {
             RunArtifactManager.onArtifactEnabledGlobal += OnArtifactEnabled;
             RunArtifactManager.onArtifactDisabledGlobal += OnArtifactDisabled;
@@ -122,6 +118,7 @@ namespace TurboEdition.Artifacts
             }
             HookEnabled();
         }
+
         protected virtual void OnArtifactDisabled(RunArtifactManager runArtifactManager, ArtifactDef artifactDef)
         {
             if (artifactDef.artifactIndex != ArtIndex)
@@ -135,12 +132,14 @@ namespace TurboEdition.Artifacts
         /// Gets called whenever the artifact gets activated.
         /// </summary>
         protected virtual void HookEnabled() { }
+
         /// <summary>
         /// Gets called whenever the artifact gets disabled.
         /// </summary>
         protected virtual void HookDisabled() { }
+
         //Latin is better anyways
-        
+
         //Based on ThinkInvis' methods
         public bool ArtifactIsActive()
         {
@@ -148,4 +147,3 @@ namespace TurboEdition.Artifacts
         }
     }
 }
-

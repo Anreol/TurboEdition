@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using RoR2;
+﻿using RoR2;
 using UnityEngine;
-using static TurboEdition.Utils.ItemHelpers;
 using static RoR2.Artifacts.BombArtifactManager;
+using static TurboEdition.Utils.ItemHelpers;
 
 namespace TurboEdition.Artifacts
 {
     //This wouldnt be possible (or wouldve taken me a lot of time) if Chen didn't show me their own spite artifact mods and how to get BombRequests
     //thank
-    class Bomb2ArtifactManager : DelayerManager<BombRequest>
+    internal class Bomb2ArtifactManager : DelayerManager<BombRequest>
     {
         public override float releaseAt => 1f;
         public override int entriesToRelease => 30;
@@ -19,7 +16,6 @@ namespace TurboEdition.Artifacts
         //set the amount of items per interval to release to 1
         //set interval to something pretty short, maybe 0.5
         //the getters and setters dont seem to work here
-
 
         //Copied and pasted from the game's own queue method, since i cant just add my shit to BombArtifactManager
         //It still uses the same properties, though
@@ -60,6 +56,7 @@ namespace TurboEdition.Artifacts
                 AddEntry(bombRequest);
             }
         }
+
         /// <summary>
         /// Spawn spite bombs the same way the game does, except the bomb's team is ALWAYS monster.
         /// </summary>

@@ -1,15 +1,7 @@
-﻿using RoR2;
-using R2API;
-using R2API.Utils;
-using UnityEngine;
-using System;
-using System.Collections.Generic;
-
-namespace Anreol.TurboEdition
+﻿namespace Anreol.TurboEdition
 {
     public class SynergyItemList
     {
-
         // Here's the dictionary that contains all the items necessary for each combo
         //Two types, any and all
         //Any makes the item spawn as long as theres ONE item requirement fulfilled
@@ -20,7 +12,6 @@ namespace Anreol.TurboEdition
         //Down here we should uh, add other type of requirements i.e based on player stats so its easier to keep track of like crit stat, instead of doing 10 Lensmaker Glasses.
         //Like here, lol.
 
-
         //Okay forget about all the above
         //Syngergy items should have requirements
         //In case of items, it can be specific items, and/or by tags. ie isHealing
@@ -30,6 +21,5 @@ namespace Anreol.TurboEdition
         //Synergy items have a way to meet those requirements
         //ANY or ALL, Any means that as long as one is fullfilled its fine
         //All means that all have to be fullfilled
-
     }
 }

@@ -1,14 +1,7 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Networking;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO Teleporter radius recalculation happens with any item pickup, change it so its only recalculated when player gets or loses this item
 //APPARENTLY INFUSION ACTIVATES ONINVENTORYCHANGE SO EVERY KILL WITH INFUSION FORCES AN UPDATE, GOTTA FIX THIS SOON
@@ -23,7 +16,7 @@ namespace TurboEdition.Items
         public override string ItemPickupDesc => "Increase the teleporter zone.";
         public override string ItemFullDescription => $"Increase teleporter radius by <style=cIsUtility>{addFirstRadius} meters</style>. <style=cStack>(+{addStackRadius} meters per stack).</style>";
         public override string ItemLore => "Yet another mod that adds an item that increases Teleporter Radius, how creative are we today huh?";
-        
+
         public override ItemTier Tier => ItemTier.Tier1;
         public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => true;
@@ -36,19 +29,19 @@ namespace TurboEdition.Items
 
         //For colors
         private static int nTimes;
+
         private static float rVal = 4f, gVal = 4f, bVal = 2f;
-        float rMove = -1f, gMove = 1f, bMove = -1f;
+        private float rMove = -1f, gMove = 1f, bMove = -1f;
 
         private static readonly AnimationCurve colorCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
         private static Color newColor;
 
-
-        public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-        public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier1.png";
-
+        public override GameObject ItemModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
+        public override Sprite ItemIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Items/Tier1.png");
 
         //Item properties
         public float addFirstRadius;
+
         public float addStackRadius;
         public float startupDelay; //shouldnt this be a Run.FixedTimeStamp to compare to enabledAtTime??
         public float rampupTime;
@@ -70,7 +63,6 @@ namespace TurboEdition.Items
 
         protected override void Initialization()
         {
-
         }
 
         public override void Hooks()
@@ -90,31 +82,31 @@ namespace TurboEdition.Items
             new WaitForSeconds(startupDelay);
             OnEnable(teleporterInteraction.holdoutZoneController);
         }
+
         private void CheckForItem(On.RoR2.CharacterMaster.orig_OnInventoryChanged orig, CharacterMaster self)
         {
             orig(self);
             var InventoryCount = GetCount(self);
             if (InventoryCount > 0)
             {
-                newCalculatedRadius = CalculateRadiusIncrease(GetUniqueCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true), GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true));
+                newCalculatedRadius = CalculateRadiusIncrease(GetUniqueCountFromPlayers(ItemDef, true), GetCountFromPlayers(ItemDef, true));
                 if (itemStackingCap != -1)
                 {
                     newCalculatedRadius = ReturnRadiusIfCapped(itemStackingCap);
                 }
-                #if DEBUG
+#if DEBUG
                 Chat.AddMessage("Turbo Edition: " + ItemName + " item counts, radius, recalculated.");
-                #endif
+#endif
             }
-
         }
 
         private float ReturnRadiusIfCapped(int cap)
         {
-            #if DEBUG
+#if DEBUG
             Chat.AddMessage("Turbo Edition: " + ItemName + " max stack is on, check log for details");
             TurboEdition._logger.LogWarning("TE: " + ItemName + " currentItemCount" + newCalculatedRadius);
             TurboEdition._logger.LogWarning("TE: " + ItemName + " itemStackingCap" + itemStackingCap);
-            #endif
+#endif
             return Mathf.Min(newCalculatedRadius, itemStackingCap);
         }
 
@@ -122,17 +114,18 @@ namespace TurboEdition.Items
         {
             self.calcColor += ChangeColor;
             self.calcRadius += ChangeRadius;
-
         }
+
         private void OnDisable(HoldoutZoneController self)
         {
             self.calcColor -= ChangeColor;
             self.calcRadius -= ChangeRadius;
         }
+
         private void UpdateThingies(On.RoR2.HoldoutZoneController.orig_FixedUpdate orig, HoldoutZoneController self)
         {
             orig(self);
-            if ((GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true) <= 0)) { return; };
+            if ((GetCountFromPlayers(ItemDef, true) <= 0)) { return; };
             //ART ATTACK
             //Makes current calculated radius a float between 1 and 0, then keeps updating the old smoothTransition
             float intToFloat = (newCalculatedRadius > 0f) ? 1f : 0f;
@@ -148,30 +141,31 @@ namespace TurboEdition.Items
             TurboEdition._logger.LogWarning("smoothTransition: " + smoothTransition);
 #endif
         }
+
         private void ChangeColor(ref Color color)
         {
             //This is supposed to work as stages, each x2, x3, and so of the base teleporter radius (by a fourth) it will change colors
-            if ((CurrentTele.holdoutZoneController.currentRadius > (nTimes * (CurrentTele.holdoutZoneController.baseRadius/4))))
+            if ((CurrentTele.holdoutZoneController.currentRadius > (nTimes * (CurrentTele.holdoutZoneController.baseRadius / 4))))
             {
-                nTimes ++;
+                nTimes++;
                 CalculateTeleporterColor(-1.2f); //-1 by default, remember, think of a color slider, you want it to go down, reverse to go up!!
-                
-                #if DEBUG
+
+#if DEBUG
                 TurboEdition._logger.LogWarning("Hit a multiplier of baseRadius, newColor is: " + newColor + " and color: " + color);
-                #endif
+#endif
             }
-            else if ((CurrentTele.holdoutZoneController.currentRadius < (nTimes-1 * (CurrentTele.holdoutZoneController.baseRadius/4))))
+            else if ((CurrentTele.holdoutZoneController.currentRadius < (nTimes - 1 * (CurrentTele.holdoutZoneController.baseRadius / 4))))
             {
-                nTimes --;
+                nTimes--;
                 CalculateTeleporterColor(1.2f);
-                #if DEBUG
+#if DEBUG
                 TurboEdition._logger.LogWarning("Dropped from a multipler of baseRadius, newColor is: " + newColor + " and color: " + color);
-                #endif
+#endif
             }
             color = Color.Lerp(color, newColor, colorCurve.Evaluate(currentValue));
-            #if DEBUG
+#if DEBUG
             TurboEdition._logger.LogWarning("Color didnt change, current color: " + color);
-            #endif
+#endif
         }
 
         private void ChangeRadius(ref float radius)
@@ -179,9 +173,9 @@ namespace TurboEdition.Items
             //if (newCalculatedRadius > 0)
             {
                 radius += newCalculatedRadius;
-                #if DEBUG
+#if DEBUG
                 TurboEdition._logger.LogWarning("Radius is now: " + radius);
-                #endif
+#endif
             }
         }
 
@@ -190,14 +184,14 @@ namespace TurboEdition.Items
             if (normalStacks > 0)
             {
                 float calc = (firstStack * addFirstRadius) + ((normalStacks - firstStack) * addStackRadius);
-                #if DEBUG
+#if DEBUG
                 TurboEdition._logger.LogWarning("TE: calculated the radius we have to increase by: " + calc);
-                #endif
+#endif
                 return calc;
             }
             return 0;
         }
-        
+
         private void CalculateTeleporterColor(float colorCycle)
         {
             //What if we made the teleporter change colors?
@@ -225,10 +219,10 @@ namespace TurboEdition.Items
             //lets do it either way because its giving me errors
             newColor.a = 1f;
 
-            #if DEBUG
+#if DEBUG
             TurboEdition._logger.LogWarning("TE: newColor " + newColor);
-            #endif
-            
+#endif
+
             //return newColor;
             //HOLY SHIT
         }

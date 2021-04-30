@@ -1,15 +1,9 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
 using R2API;
 using R2API.Utils;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Networking;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO Fix this fucking thing not working in HR and Moon!
 //I dont give a fuck if moon doesn't have a next stage or whatever the functionality has to be there!
@@ -19,24 +13,19 @@ namespace TurboEdition.Equipment
     public class StageSkip : EquipmentBase<StageSkip>
     {
         public override string EquipmentName => "Emergency Button";
-
         public override string EquipmentLangTokenName => "STAGESKIP";
-
         public override string EquipmentPickupDesc => "Advances to next stage if teleporter is fully charged or boss is defeated.";
-
         public override string EquipmentFullDescription => "";
-
         public override string EquipmentLore => "";
 
-        public override string EquipmentModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
+        public override GameObject EquipmentModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
 
-        public override string EquipmentIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Equipment.png";
+        public override Sprite EquipmentIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Items/Equipment.png");
         public override float Cooldown => equipmentRecharge;
 
         public float equipmentRecharge;
 
-        public SceneExitController explicitSceneExitController { get;  }
-
+        public SceneExitController explicitSceneExitController { get; }
 
         protected override void CreateConfig(ConfigFile config)
         {
@@ -50,9 +39,7 @@ namespace TurboEdition.Equipment
 
         protected override void Initialization()
         {
-
         }
-
 
         //IMPORTANT
         //AAAAAAAAA
@@ -71,15 +58,15 @@ namespace TurboEdition.Equipment
             }
             if (!(SceneCatalog.mostRecentSceneDef.sceneType == SceneType.Stage))
             {
-#if DEBUG       
+#if DEBUG
                 Chat.AddMessage("Turbo Edition: " + EquipmentName + " current scene is not a stage, won't skip!");
 #endif
                 return false;
             }
             int sceneExitCount = InstanceTracker.GetInstancesList<SceneExitController>().Count;
-            #if DEBUG
+#if DEBUG
             TurboEdition._logger.LogWarning("sceneExitCount: " + sceneExitCount);
-            #endif
+#endif
             if (TeleporterInteraction.instance || !SceneExitController.isRunning)
             {
                 //Makes sure that theres only the game's own controller, if theres none at least it wont create more than three
@@ -89,7 +76,7 @@ namespace TurboEdition.Equipment
                     if (TeleporterInteraction.instance.chargeFraction >= 0.99 || Reflection.GetFieldValue<bool>(TeleporterInteraction.instance, "monstersCleared"))
                     {
                         SceneExitController sceneExitController = explicitSceneExitController;
-                        if(!sceneExitController)
+                        if (!sceneExitController)
                         {
                             sceneExitController = InstanceTracker.FirstOrNull<SceneExitController>();
 #if DEBUG
@@ -101,16 +88,16 @@ namespace TurboEdition.Equipment
                     }
                 }
             }
-            #if DEBUG
+#if DEBUG
             Chat.AddMessage("Turbo Edition: " + EquipmentName + " couldn't skip stage, see log for details.");
             TurboEdition._logger.LogWarning("TE chargeFraction: " + TeleporterInteraction.instance.chargeFraction);
             TurboEdition._logger.LogWarning("TE monstersCleared: " + Reflection.GetFieldValue<bool>(TeleporterInteraction.instance, "monstersCleared"));
             TurboEdition._logger.LogWarning("TE isRunning: " + SceneExitController.isRunning);
-            #endif
+#endif
             return false;
         }
 
-        void SkipStage(SceneExitController self)
+        private void SkipStage(SceneExitController self)
         {
             /*I actually dont know what this does
             //self = explicitSceneExitController.GetComponent<SceneExitController>();
@@ -121,9 +108,9 @@ namespace TurboEdition.Equipment
             //self = new SceneExitController();
 
             InstanceTracker.Add(self);
-            #if DEBUG
+#if DEBUG
             Chat.AddMessage("Turbo Edition: " + EquipmentName + " forced stage skip.");
-            #endif
+#endif
             //The game does this so lets do too
             if (NetworkServer.active)
             {

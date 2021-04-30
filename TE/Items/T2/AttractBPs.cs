@@ -1,21 +1,17 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using HG;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO: The player loses the magnet component when switching stages, fix that shit and make him regain it (maybe the list manager can help?)
 //Currently doesnt until they get a change in inventory counts or some shit
 //Fix the LoS check being so wonky, while debugging an early version that didnt have everything in yet it worked fine
 //Check what happens when two players fight for the same pack, thats gonna be funny
+
+//For pack cloning i can get the GO's name or convert to string, remove the (clone) part and add the system path before it
 namespace TurboEdition.Items
 {
     public class AttractBPs : ItemBase<AttractBPs>
@@ -23,21 +19,22 @@ namespace TurboEdition.Items
         public override string ItemName => "Magnetic Belt";
         public override string ItemLangTokenName => "ATTRACTBPs";
         public override string ItemPickupDesc => $"<style=cIsUtility>Attract dropped pickups</style>. Have a low chance of <style=cIsUtility>duplicating</style> them.";
-        public override string ItemFullDescription => $"Attract dropped pickups in a radius of of <style=cIsUtility>{attractInitial} meters</style>. <style=cStack>(+{attractStack} meters per stack)</style>. Have a <style=cIsUtility>{duplicationInitial * 100}% chance of duplicating</style> them.";
+        public override string ItemFullDescription => $"Attract dropped pickups in a radius of <style=cIsUtility>{attractInitial} meters</style>. <style=cStack>(+{attractStack} meters per stack)</style>. Have a <style=cIsUtility>{duplicationInitial * 100}% chance of duplicating</style> them.";
         public override string ItemLore => "Making Ghor Tomes, Bandoliers, and Teeth 350% more useful since today, by the simple hack of not needing to walk to them.";
-        
+
         public override ItemTier Tier => ItemTier.Tier2;
         public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => false; //Do drones dream of stealing your drops?
         public override bool BrotherBlacklisted => false; //Its all fun and jokes til mithrix starts succing the item drops too
 
-        public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-        public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier2.png";
+        public override GameObject ItemModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
+        public override Sprite ItemIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("@Assets/Textures/Icons/Items/Tier2.png");
 
         internal static GameObject magnetManager;
 
         //Item properties
         public float attractInitial;
+
         public float attractStack;
         public float duplicationInitial;
         public float duplicationStack;
@@ -136,7 +133,8 @@ namespace TurboEdition.Items
         public class MagnetManager : NetworkBehaviour
         {
             [SyncVar]
-            float radius;
+            private float radius;
+
             public float NetRadius
             {
                 get { return radius; }
@@ -144,7 +142,8 @@ namespace TurboEdition.Items
             }
 
             [SyncVar]
-            float dupChance;
+            private float dupChance;
+
             public float NetDupChance
             {
                 get { return dupChance; }
@@ -152,16 +151,19 @@ namespace TurboEdition.Items
             }
 
             [SyncVar]
-            bool useLoS;
+            private bool useLoS;
+
             public bool NetLoS
             {
                 get { return useLoS; }
                 set { base.SetSyncVar<bool>(value, ref useLoS, 1u); }
             }
+
             public CharacterBody ownerBody;
 
             [Min(1E-45f)]
             public float tickRate = 0.3f; //One tick every 3.33 seconds, was 5 previously
+
             protected float timer;
 
             //I'm gonna reuse the code from hellchain, not sure if its the best way but whatever
@@ -181,9 +183,7 @@ namespace TurboEdition.Items
                     this.timer += 1f / this.tickRate;
                     Gravitate();
                 }
-
             }
-
 
             private void Gravitate()
             {
@@ -265,10 +265,12 @@ namespace TurboEdition.Items
                 return FUCK;
             }
         }
+
         public class ListManager : NetworkBehaviour
         {
             [Min(1E-45f)]
             public float tickRate = 0.3f; //One tick every 3.33 seconds
+
             protected float timer;
 
             private List<GravitatePickup> gravitatorList;
@@ -335,6 +337,7 @@ namespace TurboEdition.Items
                 TurboEdition._logger.LogWarning("ListManager, a entry was already duplicated, rejecting.");
 #endif
             }
+
             public void AddNewEntry(GravitatePickup entry)
             {
                 gravitatorList.Add(entry);
@@ -347,6 +350,7 @@ namespace TurboEdition.Items
 #endif
                 gravitatorList.Remove(entry);
             }
+
             public List<GravitatePickup> GetList()
             {
                 return gravitatorList.ToList();

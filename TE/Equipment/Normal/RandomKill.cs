@@ -1,15 +1,8 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.Networking;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO Get particle effect / model / whatever
 //Think of Hades' Than's attack effect (shadowy "curtain" that comes from behind the enemy, then get a giant scythe slice the enemy)
@@ -34,9 +27,8 @@ namespace TurboEdition.Equipment
 
         public override string EquipmentLore => "";
 
-        public override string EquipmentModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-
-        public override string EquipmentIconPath => "@TurboEdition:Assets/Textures/Icons/Equipment/Placeholder_Scythe.png";
+        public override GameObject EquipmentModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
+        public override Sprite EquipmentIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Equipment/Placeholder_Scythe.png");
         public override float Cooldown => equipmentRecharge;
 
         public float equipmentRecharge;
@@ -63,7 +55,6 @@ namespace TurboEdition.Equipment
 
         protected override void Initialization()
         {
-
         }
 
         protected override bool ActivateEquipment(EquipmentSlot slot)
@@ -100,7 +91,7 @@ namespace TurboEdition.Equipment
 #if DEBUG
                     TurboEdition._logger.LogWarning(EquipmentName + " Found the enemy team to owners: " + teamCounter);
 #endif
-                    if (teamCounter != TeamIndex.Neutral && enemyMember.Count <= 0){ return false; } //Added extra check for neutral since it ALWAYS tries to cycle through neutral enemies first (ie pots or barrels), if the extra check wasn't there it would return and never check for monsters.
+                    if (teamCounter != TeamIndex.Neutral && enemyMember.Count <= 0) { return false; } //Added extra check for neutral since it ALWAYS tries to cycle through neutral enemies first (ie pots or barrels), if the extra check wasn't there it would return and never check for monsters.
                     for (int aC = 0; aC < attackCount; aC++)
                     {
 #if DEBUG

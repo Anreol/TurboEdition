@@ -1,33 +1,11 @@
 ﻿using BepInEx.Configuration;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using UnityEngine;
 
 namespace TurboEdition.Items
 {
-    // The directly below is entirely from TILER2 API (by ThinkInvis) specifically the Item module. Utilized to keep instance checking functionality as I migrate off TILER2.
-    // TILER2 API can be found at the following places:
-    // https://github.com/ThinkInvis/RoR2-TILER2
-    // https://thunderstore.io/package/ThinkInvis/TILER2/
-
-
-    //What does "where T : class" means?
-    //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters
-    public abstract class ItemBase<T>:ItemBase where T : ItemBase<T> 
-    {
-        public static T instance {get;private set;}
-        public ItemBase() 
-        {
-                if(instance != null) throw new InvalidOperationException("Singleton class \"" + typeof(T).Name + "\" inheriting ItemBoilerplate/Item was instantiated twice");
-                instance = this as T;
-        }
-    }
-
     public abstract class ItemBase
     {
         public abstract string ItemName { get; }
@@ -39,22 +17,28 @@ namespace TurboEdition.Items
         public abstract ItemTier Tier { get; }
         public virtual ItemTag[] ItemTags { get; set; } = new ItemTag[] { };
 
-        public abstract string ItemModelPath { get; }
-        public abstract string ItemIconPath { get; }
+        public abstract GameObject ItemModel { get; }
+        public abstract Sprite ItemIcon { get; }
 
-        public ItemIndex cIndex;
+        public ItemDef ItemDef;
 
         public virtual bool CanRemove { get; } = true;
 
         public virtual bool AIBlacklisted { get; set; } = false;
         public virtual bool BrotherBlacklisted { get; set; } = false;
+
         protected abstract void Initialization();
 
-
         /// <summary>
-        /// Only override when you know what you are doing, or call base.Init()!
+        /// This method structures your code execution of this class. An example implementation inside of it would be:
+        /// <para>CreateConfig(config);</para>
+        /// <para>CreateLang();</para>
+        /// <para>CreateItem();</para>
+        /// <para>Hooks();</para>
+        /// <para>This ensures that these execute in this order, one after another, and is useful for having things available to be used in later methods.</para>
+        /// <para>P.S. CreateItemDisplayRules(); does not have to be called in this, as it already gets called in CreateItem();</para>
         /// </summary>
-        /// <param name="config"></param>
+        /// <param name="config">The config file that will be passed into this from the main class.</param>
         internal virtual void Init(ConfigFile config)
         {
             CreateConfig(config);
@@ -64,8 +48,9 @@ namespace TurboEdition.Items
             Hooks();
         }
 
-        protected virtual void CreateConfig(ConfigFile config) { }
-
+        protected virtual void CreateConfig(ConfigFile config)
+        {
+        }
 
         //Change this to include ModInitals when I figure out how to make it so this file can access it
         protected virtual void CreateLang()
@@ -77,6 +62,7 @@ namespace TurboEdition.Items
         }
 
         public abstract ItemDisplayRuleDict CreateItemDisplayRules();
+
         protected void CreateItem()
         {
             if (AIBlacklisted)
@@ -87,37 +73,36 @@ namespace TurboEdition.Items
             {
                 ItemTags = new List<ItemTag>(ItemTags) { ItemTag.BrotherBlacklist }.ToArray();
             }
-            ItemDef itemDef = new RoR2.ItemDef()
-            {
-                name = "ITEM_" + ItemLangTokenName,
-                nameToken = "ITEM_" + ItemLangTokenName + "_NAME",
-                pickupToken = "ITEM_" + ItemLangTokenName + "_PICKUP",
-                descriptionToken = "ITEM_" + ItemLangTokenName + "_DESCRIPTION",
-                loreToken = "ITEM_" + ItemLangTokenName + "_LORE",
-                pickupModelPath = ItemModelPath,
-                pickupIconPath = ItemIconPath,
-                hidden = false,
-                canRemove = CanRemove,
-                tier = Tier
-            };
-            if (ItemTags.Length > 0)
-            {
-                itemDef.tags = ItemTags;
-            }
-            var itemDisplayRules = CreateItemDisplayRules();
-            cIndex = ItemAPI.Add(new CustomItem(itemDef, itemDisplayRules));
+
+            ItemDef = ScriptableObject.CreateInstance<ItemDef>();
+            ItemDef.name = "ITEM_" + ItemLangTokenName;
+            ItemDef.nameToken = "ITEM_" + ItemLangTokenName + "_NAME";
+            ItemDef.pickupToken = "ITEM_" + ItemLangTokenName + "_PICKUP";
+            ItemDef.descriptionToken = "ITEM_" + ItemLangTokenName + "_DESCRIPTION";
+            ItemDef.loreToken = "ITEM_" + ItemLangTokenName + "_LORE";
+            ItemDef.pickupModelPrefab = ItemModel;
+            ItemDef.pickupIconSprite = ItemIcon;
+            ItemDef.hidden = false;
+            ItemDef.canRemove = CanRemove;
+            ItemDef.tier = Tier;
+
+            if (ItemTags.Length > 0) { ItemDef.tags = ItemTags; }
+
+            ItemAPI.Add(new CustomItem(ItemDef, CreateItemDisplayRules()));
         }
 
-        public virtual void Hooks() { }
+        public virtual void Hooks()
+        {
+        }
 
         //I sometimes think to myself, is there something as "too many methods?"
-        public static int GetUniqueCountFromPlayers(ItemIndex itemIndex, bool requiresAlive = false)
+        public static int GetUniqueCountFromPlayers(ItemDef itemDef, bool requiresAlive = false)
         {
             var playerUnique = PlayerCharacterMasterController.instances; //Remove this and replace it with ANYTHING master, not just players. Add parameter for a teamindex
             int stackCount = 0;
             for (int i = 0; i < playerUnique.Count; i++)
             {
-                if(playerUnique[i].master.inventory.GetItemCount(itemIndex) > 0 && (!requiresAlive || !playerUnique[i].master.IsDeadAndOutOfLivesServer()))
+                if (playerUnique[i].master.inventory.GetItemCount(itemDef) > 0 && (!requiresAlive || !playerUnique[i].master.IsDeadAndOutOfLivesServer()))
                 {
                     stackCount++;
                 }
@@ -125,29 +110,29 @@ namespace TurboEdition.Items
             return stackCount;
         }
 
-        public static int GetCountFromPlayers(ItemIndex itemIndex, bool requiresAlive = false)
+        public static int GetCountFromPlayers(ItemDef itemDef, bool requiresAlive = false)
         {
             var playerTotal = PlayerCharacterMasterController.instances; //Remove this and replace it with ANYTHING master, not just players
             int totalCount = 0;
             for (int i = 0; i < playerTotal.Count; i++)
             {
-                if (playerTotal[i].master.inventory.GetItemCount(itemIndex) > 0 && (!requiresAlive || !playerTotal[i].master.IsDeadAndOutOfLivesServer()))
+                if (playerTotal[i].master.inventory.GetItemCount(itemDef) > 0 && (!requiresAlive || !playerTotal[i].master.IsDeadAndOutOfLivesServer()))
                 {
-                    totalCount += playerTotal[i].master.inventory.GetItemCount(itemIndex);
+                    totalCount += playerTotal[i].master.inventory.GetItemCount(itemDef);
                 }
             }
             return totalCount;
         }
 
-        public static int GetCountHighestFromPlayers(ItemIndex itemIndex, bool requiresAlive = false)
+        public static int GetCountHighestFromPlayers(ItemDef itemDef, bool requiresAlive = false)
         {
             var playerTotal = PlayerCharacterMasterController.instances;
             int highestCount = 0;
             for (int i = 0; i < playerTotal.Count; i++)
             {
-                if (playerTotal[i].master.inventory.GetItemCount(itemIndex) > 0 && (!requiresAlive || !playerTotal[i].master.IsDeadAndOutOfLivesServer()))
+                if (playerTotal[i].master.inventory.GetItemCount(itemDef) > 0 && (!requiresAlive || !playerTotal[i].master.IsDeadAndOutOfLivesServer()))
                 {
-                    highestCount = Mathf.Max(highestCount, playerTotal[i].master.inventory.GetItemCount(itemIndex));
+                    highestCount = Mathf.Max(highestCount, playerTotal[i].master.inventory.GetItemCount(itemDef));
                 }
             }
             return highestCount;
@@ -158,25 +143,25 @@ namespace TurboEdition.Items
         {
             if (!body || !body.inventory) { return 0; }
 
-            return body.inventory.GetItemCount(cIndex);
+            return body.inventory.GetItemCount(ItemDef);
         }
 
         public int GetCount(CharacterMaster master)
         {
             if (!master || !master.inventory) { return 0; }
 
-            return master.inventory.GetItemCount(cIndex);
+            return master.inventory.GetItemCount(ItemDef);
         }
 
-        public static int GetCountSpecific(CharacterBody body, ItemIndex itemIndex)
+        public static int GetCountSpecific(CharacterBody body, ItemDef itemDef)
         {
             if (!body || !body.inventory) { return 0; }
 
-            return body.inventory.GetItemCount(itemIndex);
+            return body.inventory.GetItemCount(itemDef);
         }
 
         /*
-        public static int GetCountOnDeployables(CharacterMaster master) 
+        public static int GetCountOnDeployables(CharacterMaster master)
         {
             if(master == null) return 0;
             var dplist = master.deployablesList;
@@ -188,5 +173,15 @@ namespace TurboEdition.Items
             return count;
         }
         */
+    }
+}
+
+public abstract class ItemBase<T> : TurboEdition.Items.ItemBase where T : ItemBase<T>
+{
+    public static T Instance { get; private set; }
+
+    public ItemBase()
+    {
+        Instance = this as T;
     }
 }

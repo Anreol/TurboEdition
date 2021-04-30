@@ -1,14 +1,7 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Networking;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO Get a countdown or anything that indicates that you are about to be obliterated
 //That includes getting a particle effect or explosion or ANYTHING that isn't the void reaver explosion
@@ -30,15 +23,16 @@ namespace TurboEdition.Items
         public override bool AIBlacklisted => true; //I mean is there really a reason to NOT be black listed? They cannot get items and having a chance of instakilling enemies isnt fun...
         public override bool BrotherBlacklisted => true;
 
-        public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-        public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/TLunar.png";
+        public override GameObject ItemModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
+        public override Sprite ItemIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("@TurboEdition:Assets/Textures/Icons/Items/TLunar.png");
 
         private static readonly Xoroshiro128Plus treasureRng = new Xoroshiro128Plus(0UL);
-        static PickupDropTable dropTable = Resources.Load<PickupDropTable>("DropTables/dtSacrificeArtifact");
+        private static PickupDropTable dropTable = Resources.Load<PickupDropTable>("DropTables/dtSacrificeArtifact");
         private PickupIndex chestPickup = PickupIndex.none;
 
         //Item properties
         public float deathChanceInitial;
+
         public float deathChanceStack;
         public float dupeChanceInitial;
         public float dupeChanceStack;
@@ -64,7 +58,6 @@ namespace TurboEdition.Items
 
         protected override void Initialization()
         {
-
         }
 
         public override void Hooks()
@@ -108,11 +101,11 @@ namespace TurboEdition.Items
         private void DuplicateDropChest(On.RoR2.ChestBehavior.orig_ItemDrop orig, ChestBehavior self)
         {
             orig(self);
-            if (GetCountFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true) > 0)
+            if (GetCountFromPlayers(ItemDef, true) > 0)
             {
                 //chestPickup = Reflection.GetFieldValue<PickupIndex>(self, "dropPickup");
                 chestPickup = dropTable.GenerateDrop(treasureRng);
-                var HighestChance = GetCountHighestFromPlayers(ItemCatalog.GetItemDef(cIndex).itemIndex, true); //Doesn't work well across multiple players, but I don't really want to make clover but lunar and it fucking kills you dont know?
+                var HighestChance = GetCountHighestFromPlayers(ItemDef, true); //Doesn't work well across multiple players, but I don't really want to make clover but lunar and it fucking kills you dont know?
                 var DupeChance = dupeChanceInitial + ((HighestChance - 1) * dupeChanceStack); //Also I do not know how to get the cb that interacted and opened the chest
 #if DEBUG
                 Chat.AddMessage("Turbo Edition: " + ItemName + " duplication taking place, check logs.");

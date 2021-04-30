@@ -1,15 +1,9 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
 using R2API;
-using R2API.Utils;
 using RoR2;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO check any other methods that could damage the user
 //fix DoTs and fall check interferring with damage
@@ -41,13 +35,14 @@ namespace TurboEdition.Items
         public override bool AIBlacklisted => false;
         public override bool BrotherBlacklisted => true;
 
-        public override string ItemModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
-        public override string ItemIconPath => "@TurboEdition:Assets/Textures/Icons/Items/Tier2.png";
+        public override GameObject ItemModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
+        public override Sprite ItemIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Items/Tier2.png");
 
         internal static GameObject hitManager;
 
         //Item properties
         public float hitlagInitial;
+
         public float hitlagStack;
         public float healValueInitial;
         public float healFractionStack;
@@ -80,14 +75,11 @@ namespace TurboEdition.Items
 
         protected override void Initialization()
         {
-
             var hitManagerPrefab = new GameObject("HitlagManagerPrefabPrefab");
             hitManagerPrefab.AddComponent<HitlagManager>();
             hitManagerPrefab.GetComponent<HitlagManager>().NetMaxCapacity = storeMaxCapacity;
             hitManagerPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
             hitManager = hitManagerPrefab.InstantiateClone("HitlagManagerPrefab");
-
-
 
             //var hitComponentPrefab = new GameObject("HitlagComponentPrefabPrefab");
             //hitComponentPrefab.AddComponent<HitlagComponent>();
@@ -95,7 +87,6 @@ namespace TurboEdition.Items
 
             UnityEngine.Object.Destroy(hitManagerPrefab);
             //UnityEngine.Object.Destroy(hitComponentPrefab);
-
         }
 
         public override void Hooks()
@@ -116,7 +107,7 @@ namespace TurboEdition.Items
             var InventoryCount = GetCount(self.body);
             var hcGameObject = self.gameObject;
             var hcHitManager = hcGameObject.GetComponentInChildren<HitlagManager>()?.gameObject; //check if the component exists or not
-            
+
             if (InventoryCount <= 0)
             {
                 if (hcHitManager)
@@ -204,7 +195,6 @@ namespace TurboEdition.Items
             var hcGameObject = healthComponent.gameObject;
             var hlmGameObject = hcGameObject.GetComponentInChildren<HitlagManager>()?.gameObject;
 
-
             if (hlmGameObject && InventoryCount > 0) //If they have the hitlag manager that means they have at least one item, but lets do the extra check anyways
             {
                 var healing = Mathf.Min(amount, healValueInitial);
@@ -219,28 +209,32 @@ namespace TurboEdition.Items
                 TurboEdition._logger.LogWarning(ItemName + " Healing recieved! Amount: " + healing + " hitlagComponent: " + component);
 #endif
             }
-
         }
 
         //manager that will be populated by HitlagInstances
         public class HitlagManager : NetworkBehaviour
         {
             [SyncVar] //Syncing just in case, i do not want to know what would happen if clients have different configs
-            int maxCapacity;
+            private int maxCapacity;
+
             public int NetMaxCapacity
             {
                 get { return maxCapacity; }
                 set { base.SetSyncVar<int>(value, ref maxCapacity, 1u); }
             }
+
             [SyncVar]
-            float timeToReleaseAt;
+            private float timeToReleaseAt;
+
             public float NetTimeToReleaseAt
             {
                 get { return timeToReleaseAt; }
                 set { base.SetSyncVar<float>(value, ref timeToReleaseAt, 1u); }
             }
+
             [SyncVar]
-            float totalDamage;
+            private float totalDamage;
+
             public float NetTotalDamage
             {
                 get { return totalDamage; }
@@ -309,7 +303,7 @@ namespace TurboEdition.Items
             public void AddHealing(float healAmount, HealthComponent healthComponent = null, bool isShields = false)
             {
                 float getDamage = 0;
-                float reserveHP =+ healAmount;
+                float reserveHP = +healAmount;
                 for (int i = 0; i < instanceLists.Count && reserveHP > 0; i++)
                 {
                     //HealthComponent is not really needed for the item to function, its only used to get current hp values
@@ -341,7 +335,6 @@ namespace TurboEdition.Items
 #if DEBUG
                         TurboEdition._logger.LogWarning("HLM: Heal recieved, with no reserves left, reduced " + instanceLists.Values[i].CmpDI.damage);
 #endif
-
                     }
                     else
                     {
@@ -358,6 +351,7 @@ namespace TurboEdition.Items
             {
                 instanceLists.Add(time, instance);
             }
+
             public void ReleaseAll(bool andDestroyManager = false)
             {
 #if DEBUG
@@ -411,14 +405,13 @@ namespace TurboEdition.Items
             public On.RoR2.HealthComponent.orig_TakeDamage CmpOrig { get => cmpOrig; set => cmpOrig = value; }
             public HealthComponent CmpSelf { get => cmpSelf; set => cmpSelf = value; }
             public DamageInfo CmpDI { get => cmpDI; set => cmpDI = value; }
-
         }
 
         /*
-        public class DelayedBarStyle 
+        public class DelayedBarStyle
         {
-            //public GameObject barPrefab; 
-            public RoR2.UI.HealthBarStyle.BarStyle delayedBar; 
+            //public GameObject barPrefab;
+            public RoR2.UI.HealthBarStyle.BarStyle delayedBar;
 
             public void CreateBar()
             {
@@ -431,8 +424,6 @@ namespace TurboEdition.Items
             }
         }
 
-
-
         private void UpdateDelayBar(On.RoR2.UI.HealthBar.orig_UpdateBarInfos orig, RoR2.UI.HealthBar self)
         {
             orig(self);
@@ -442,7 +433,6 @@ namespace TurboEdition.Items
             delayedBar.enabled = (totalDamage > 0f);
             delayedBar.normalizedXMin = totalDamage; //it starts at the end
             delayedBar.normalizedXMax = cachedFractionalValue; //It ends at the end combined health
-
         }
         private void ApplyDelayBar(On.RoR2.UI.HealthBar.orig_ApplyBars orig, RoR2.UI.HealthBar self)
         {
@@ -450,5 +440,4 @@ namespace TurboEdition.Items
             self.
         }*/
     }
-    
 }

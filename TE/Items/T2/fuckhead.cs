@@ -23,7 +23,7 @@ namespace TurboEdition.Items
         public override string ItemPickupDesc => $"<style=cIsUtility>Attract dropped pickups</style>. Have a low chance of <style=cIsUtility>duplicating</style> them.";
         public override string ItemFullDescription => $"Attract dropped pickups in a radius of of <style=cIsUtility>{attractInitial} meters</style>. <style=cStack>(+{attractStack} meters per stack)</style>. Have a <style=cIsUtility>{duplicationInitial * 100}% chance of duplicating</style> them.";
         public override string ItemLore => "Making Ghor Tomes, Bandoliers, and Teeth 350% more useful since today, by the simple hack of not needing to walk to them.";
-        
+
         public override ItemTier Tier => ItemTier.Tier2;
         public override ItemTag[] ItemTags => new ItemTag[] { ItemTag.Utility };
         public override bool AIBlacklisted => false;
@@ -55,7 +55,6 @@ namespace TurboEdition.Items
 
         protected override void Initialization()
         {
-
             var magnetManagerPrefab = new GameObject("MagnetManagerPrefabPrefab");
             magnetManagerPrefab.AddComponent<MagnetManager>();
             magnetManagerPrefab.AddComponent<NetworkedBodyAttachment>().forceHostAuthority = true;
@@ -130,10 +129,8 @@ namespace TurboEdition.Items
                     this.timer += 1f / this.tickRate;
                     SearchForPickups();
                 }
-
             }
 
-            
             private void SearchForPickups()
             {
                 List<Collider> colliderList = CollectionPool<Collider, List<Collider>>.RentCollection();

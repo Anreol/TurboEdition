@@ -1,9 +1,6 @@
 ﻿using RoR2;
-using UnityEngine;
-using RoR2.Networking;
-using UnityEngine.Networking;
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace TurboEdition.Utils
 {
@@ -57,18 +54,23 @@ namespace TurboEdition.Utils
                 case ItemTier.Tier1:
                     list = Run.instance.availableTier1DropList;
                     break;
+
                 case ItemTier.Tier2:
                     list = Run.instance.availableTier2DropList;
                     break;
+
                 case ItemTier.Tier3:
                     list = Run.instance.availableTier3DropList;
                     break;
+
                 case ItemTier.Lunar:
                     list = Run.instance.availableLunarDropList;
                     break;
+
                 case ItemTier.Boss:
                     list = Run.instance.availableBossDropList;
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -90,7 +92,7 @@ namespace TurboEdition.Utils
             public abstract float releaseAt { get; }
             public abstract int entriesToRelease { get; }
             public abstract float interval { get; }
-            
+
             private float stopwatch;
 
             //Getters and setters
@@ -124,7 +126,11 @@ namespace TurboEdition.Utils
                 cuteList.Clear();
             }
 
-            public virtual void ProcessQueue(T entry) { /* Override this so FixedUpdate can process whatever entries you are adding to the queue */}
+            public virtual void ProcessQueue(T entry)
+            {
+                /* Override this so FixedUpdate can process whatever entries you are adding to the queue */
+            }
+
             protected virtual void FixedUpdate()
             {
                 stopwatch -= Time.fixedDeltaTime;
@@ -148,5 +154,5 @@ namespace TurboEdition.Utils
                 //Yaaay dynamic memory
             }
         }
-	}
+    }
 }

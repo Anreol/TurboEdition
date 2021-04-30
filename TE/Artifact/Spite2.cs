@@ -1,16 +1,6 @@
 ﻿using BepInEx.Configuration;
-using MonoMod.Cil;
-using R2API;
-using R2API.Utils;
 using RoR2;
-using HG;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using UnityEngine.Networking;
-using static RoR2.Artifacts.BombArtifactManager;
-using static TurboEdition.Utils.ItemHelpers;
 
 //TODO: figure out how can we move the spite bombs horizontally, so they dont stay in the same place constantly
 //That would singlehandly fix what makes spite so shitty
@@ -21,14 +11,15 @@ namespace TurboEdition.Artifacts
         public override string ArtifactLangToken => "SPITE2";
         public override string ArtifactName => "Revenge";
         public override string ArtifactDesc => $"Enemies have a " + /*{spiteChance * 100}% + */  "chance to drop bombs on hit. Extra bombs if Spite is enabled.";
-        
-        public override string ArtifactUnlockable => null; //MUST BE SET TO NULL UNLESS THERES AN UNLOCKABLE
+
+        public override UnlockableDef ArtifactUnlockable => null; //MUST BE SET TO NULL UNLESS THERES AN UNLOCKABLE
         public override string SpriteSelectedPath => "@TurboEdition:Assets/Textures/Icons/Artifacts/spite2_selected.png";
         public override string SpriteDeselectedPath => "@TurboEdition:Assets/Textures/Icons/Artifacts/spite2_deselected.png";
         public override string ArtifactModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
 
         //sasdjasdbasd
         private float spiteChance;
+
         private bool onlySpite;
         private int spiteBombs;
         private int playerBombs;
@@ -104,6 +95,7 @@ namespace TurboEdition.Artifacts
                 }
             }
         }
+
         private void BombOnHit(DamageReport damageReport)
         {
             if (!NetworkServer.active || !ArtifactIsActive()) { return; }
@@ -113,7 +105,7 @@ namespace TurboEdition.Artifacts
             TurboEdition._logger.LogWarning(ArtifactName + " is enabled, and body hurt wasnt a player gonna check rolls.");
 #endif
 
-            if (Util.CheckRoll(spiteChance*100) && damageReport.victim.body.healthComponent)
+            if (Util.CheckRoll(spiteChance * 100) && damageReport.victim.body.healthComponent)
             {
 #if DEBUG
                 Chat.AddMessage(ArtifactName + " succeeded the roll.");
@@ -137,7 +129,6 @@ namespace TurboEdition.Artifacts
                 }
                 manager.SpawnBombFromBody(damageReport.victimBody);
             }
-
         }
 
         private void ExtraDeath(DamageReport damageReport)
