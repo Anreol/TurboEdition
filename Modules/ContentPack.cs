@@ -1,4 +1,4 @@
-﻿/*using RoR2.ContentManagement;
+﻿using RoR2.ContentManagement;
 
 namespace TurboEdition.Modules
 {
@@ -20,20 +20,10 @@ namespace TurboEdition.Modules
         public System.Collections.IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
             this.contentPack.identifier = this.identifier;
-            contentPack.bodyPrefabs.Add(Prefabs.bodyPrefabs.ToArray());
-            contentPack.buffDefs.Add(Buffs.buffDefs.ToArray());
-            contentPack.buffDefs.Add(Cores.BuffCore.buffDefs.ToArray());
-            contentPack.effectDefs.Add(Assets.effectDefs.ToArray());
-            contentPack.entityStateTypes.Add(States.entityStates.ToArray());
-            contentPack.equipmentDefs.Add(Items.equipmentDefs.ToArray());
-            contentPack.itemDefs.Add(Items.itemDefs.ToArray());
-            contentPack.masterPrefabs.Add(Prefabs.masterPrefabs.ToArray());
-            contentPack.networkSoundEventDefs.Add(Assets.networkSoundEventDefs.ToArray());
-            contentPack.projectilePrefabs.Add(Prefabs.projectilePrefabs.ToArray());
-            contentPack.skillDefs.Add(Skills.skillDefs.ToArray());
-            contentPack.skillFamilies.Add(Skills.skillFamilies.ToArray());
-            contentPack.survivorDefs.Add(Prefabs.survivorDefinitions.ToArray());
-            contentPack.unlockableDefs.Add(Unlockables.unlockableDefs.ToArray());
+            contentPack.buffDefs.Add(TEBuffs.buffDefs.ToArray());
+            contentPack.equipmentDefs.Add(TEEquipments.instance.EquipmentDefs.ToArray());
+            contentPack.itemDefs.Add(TEItems.instance.ItemDefs.ToArray());
+            contentPack.artifactDefs.Add(TEArtifacts.instance.ArtifactDefs.ToArray());
 
             args.ReportProgress(1f);
             yield break;
@@ -52,4 +42,4 @@ namespace TurboEdition.Modules
             yield break;
         }
     }
-}*/
+}

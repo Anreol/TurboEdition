@@ -25,7 +25,7 @@ namespace TurboEdition.Artifacts
 
     public abstract class ArtifactBase
     {
-        public ArtifactIndex ArtIndex;
+        public ArtifactDef ArtDef;
 
         public abstract string ArtifactLangToken { get; }
         public abstract string ArtifactName { get; }
@@ -75,23 +75,14 @@ namespace TurboEdition.Artifacts
             ArtDef.unlockableDef = ArtifactUnlockable; //DO NOT SET THIS UP UNLESS THERES AN ACTUAL UNLOCKABLE
             ArtDef.nameToken = "ARTIFACT_" + ArtifactLangToken + "_NAME";
             ArtDef.descriptionToken = "ARTIFACT_" + ArtifactLangToken + "_DESC";
-#if DEBUG
-            TurboEdition._logger.LogWarning("ArtifactBase, done defining " + ArtifactLangToken + ", it has the following tokens: " + ArtDef.unlockableDef + " " + ArtDef.nameToken + " " + ArtDef.descriptionToken + " and assets: " + ArtDef.pickupModelPrefab + " " + ArtDef.smallIconDeselectedSprite + " " + ArtDef.smallIconSelectedSprite + ".");
-#endif
-            ArtifactCatalog.getAdditionalEntries += (list) =>
-            {
-                list.Add(ArtDef);
-#if DEBUG
-                TurboEdition._logger.LogWarning("ArtifactBase, added: " + ArtDef.nameToken + " with def " + ArtDef);
-#endif
-            };
+
+            ArtifactAPI.Add(ArtDef);
             On.RoR2.ArtifactCatalog.SetArtifactDefs += (orig, self) =>
             {
                 orig(self);
-                ArtIndex = ArtDef.artifactIndex;
 #if DEBUG
-                TurboEdition._logger.LogWarning("ArtifactBase, got the ArtifactCatalog index " + ArtIndex + " (" + ArtDef.artifactIndex + ") of " + ArtDef + " (" + ArtDef.nameToken + ").");
-                TurboEdition._logger.LogWarning("ArtifactBase, searching thru the ArtifactCatalog by index " + ArtIndex + " got " + ArtifactCatalog.GetArtifactDef(ArtDef.artifactIndex).unlockableDef + " finding artifact index by def name (" + ArtifactCatalog.FindArtifactIndex(ArtDef.nameToken) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.descriptionToken) + ")");
+                TurboEdition._logger.LogWarning("ArtifactBase, got the ArtifactCatalog index " + ArtDef + " (" + ArtDef.artifactIndex + ") of " + ArtDef + " (" + ArtDef.nameToken + ").");
+                TurboEdition._logger.LogWarning("ArtifactBase, searching thru the ArtifactCatalog by index " + ArtDef + " got " + ArtifactCatalog.GetArtifactDef(ArtDef.artifactIndex).unlockableDef + " finding artifact index by def name (" + ArtifactCatalog.FindArtifactIndex(ArtDef.nameToken) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.descriptionToken) + ")");
 #endif
             };
         }
@@ -112,7 +103,7 @@ namespace TurboEdition.Artifacts
             {
                 return;
             }
-            if (artifactDef.artifactIndex != ArtIndex)
+            if (artifactDef != ArtDef)
             {
                 return;
             }
@@ -121,7 +112,7 @@ namespace TurboEdition.Artifacts
 
         protected virtual void OnArtifactDisabled(RunArtifactManager runArtifactManager, ArtifactDef artifactDef)
         {
-            if (artifactDef.artifactIndex != ArtIndex)
+            if (artifactDef != ArtDef)
             {
                 return;
             }
@@ -143,7 +134,7 @@ namespace TurboEdition.Artifacts
         //Based on ThinkInvis' methods
         public bool ArtifactIsActive()
         {
-            return (RunArtifactManager.instance != null && RunArtifactManager.instance.IsArtifactEnabled(ArtIndex));
+            return (RunArtifactManager.instance != null && RunArtifactManager.instance.IsArtifactEnabled(ArtDef));
         }
     }
 }

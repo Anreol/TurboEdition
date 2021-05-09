@@ -2,12 +2,12 @@
 
 namespace TurboEdition.Modules
 {
-    internal static class Config
+    internal static class ModConfig
     {
-        #region Config
-
         internal static ConfigEntry<bool> te_test;
+        internal static void Initialize()
+        {
 
-        #endregion Config
+        }
     }
 }

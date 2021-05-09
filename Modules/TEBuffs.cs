@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //This file's purpose is to add generic buffs not linked to any item in specific, and has or could have a wider use.
-namespace TurboEdition.Buffs
+namespace TurboEdition.Modules
 {
-    public class BuffCore
+    public class TEBuffs
     {
-        internal static List<BuffDef> buffCoreBuffs = new List<BuffDef>();
+        internal static List<BuffDef> buffDefs = new List<BuffDef>();
 
-        public BuffCore()
+        public TEBuffs()
         {
             RegisterBuffs();
         }
@@ -23,7 +23,7 @@ namespace TurboEdition.Buffs
             fortifiedBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             fortifiedBuff.isDebuff = false;
             fortifiedBuff.name = "Fortified";
-            buffCoreBuffs.Add(fortifiedBuff);
+            buffDefs.Add(fortifiedBuff);
 
             //Make enemies target you before anything else
             var tauntBuff = ScriptableObject.CreateInstance<BuffDef>();
@@ -32,7 +32,7 @@ namespace TurboEdition.Buffs
             tauntBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             tauntBuff.isDebuff = false;
             tauntBuff.name = "Taunting";
-            buffCoreBuffs.Add(tauntBuff);
+            buffDefs.Add(tauntBuff);
 
             //Shake player's crosshair
             var staticShockBuff = ScriptableObject.CreateInstance<BuffDef>();
@@ -41,7 +41,7 @@ namespace TurboEdition.Buffs
             staticShockBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             staticShockBuff.isDebuff = true;
             staticShockBuff.name = "Shocked";
-            buffCoreBuffs.Add(staticShockBuff);
+            buffDefs.Add(staticShockBuff);
 
             //Inhability to sprint
             var buzzedBuff = ScriptableObject.CreateInstance<BuffDef>();
@@ -50,7 +50,7 @@ namespace TurboEdition.Buffs
             buzzedBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             buzzedBuff.isDebuff = true;
             buzzedBuff.name = "Buzzed";
-            buffCoreBuffs.Add(buzzedBuff);
+            buffDefs.Add(buzzedBuff);
 
             //Transform into beetle
             var polymorphBuff = ScriptableObject.CreateInstance<BuffDef>();
@@ -59,7 +59,7 @@ namespace TurboEdition.Buffs
             polymorphBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             polymorphBuff.isDebuff = false;
             polymorphBuff.name = "Polymorph";
-            buffCoreBuffs.Add(polymorphBuff);
+            buffDefs.Add(polymorphBuff);
 
             //Transform into any body
             var polymorphRandomBuff = ScriptableObject.CreateInstance<BuffDef>();
@@ -68,7 +68,7 @@ namespace TurboEdition.Buffs
             polymorphRandomBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             polymorphRandomBuff.isDebuff = false;
             polymorphRandomBuff.name = "Chaotic Polymorph";
-            buffCoreBuffs.Add(polymorphRandomBuff);
+            buffDefs.Add(polymorphRandomBuff);
 
             //Disable lunar items except heresy (?)
             var disableLunarBuff = ScriptableObject.CreateInstance<BuffDef>();
@@ -77,7 +77,7 @@ namespace TurboEdition.Buffs
             disableLunarBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             disableLunarBuff.isDebuff = false; //it's a debuff but lets make it so you cannot remove it
             disableLunarBuff.name = "Cosmic Distress";
-            buffCoreBuffs.Add(disableLunarBuff);
+            buffDefs.Add(disableLunarBuff);
 
             //Make fire deal more damage
             var oiledBuff = ScriptableObject.CreateInstance<BuffDef>();
@@ -86,7 +86,7 @@ namespace TurboEdition.Buffs
             oiledBuff.iconSprite = TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Buffs/TODO");
             oiledBuff.isDebuff = true;
             oiledBuff.name = "Oiled";
-            buffCoreBuffs.Add(oiledBuff);
+            buffDefs.Add(oiledBuff);
         }
     }
 }
