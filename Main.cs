@@ -38,6 +38,7 @@ namespace TurboEdition
     [R2APISubmoduleDependency("LanguageAPI")]
     [R2APISubmoduleDependency("BuffAPI")]
     [R2APISubmoduleDependency("PrefabAPI")]
+    [R2APISubmoduleDependency("ArtifactAPI")]
     [R2APISubmoduleDependency(nameof(CommandHelper))]
     [BepInDependency("com.bepis.r2api")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
@@ -85,7 +86,7 @@ namespace TurboEdition
         {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("TurboEdition.turboedition_assets"))
             {
-                var MainAssets = AssetBundle.LoadFromStream(stream);
+                MainAssets = AssetBundle.LoadFromStream(stream);
             }
             CreateContentPack();
         }
