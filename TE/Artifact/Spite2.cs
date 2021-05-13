@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using RoR2;
 using UnityEngine.Networking;
+using UnityEngine;
 
 //TODO: figure out how can we move the spite bombs horizontally, so they dont stay in the same place constantly
 //That would singlehandly fix what makes spite so shitty
@@ -13,9 +14,9 @@ namespace TurboEdition.Artifacts
         public override string ArtifactDesc => $"Enemies have a " + /*{spiteChance * 100}% + */  "chance to drop bombs on hit. Extra bombs if Spite is enabled.";
 
         public override UnlockableDef ArtifactUnlockable => null; //MUST BE SET TO NULL UNLESS THERES AN UNLOCKABLE
-        public override string SpriteSelectedPath => "@TurboEdition:Assets/Textures/Icons/Artifacts/spite2_selected.png";
-        public override string SpriteDeselectedPath => "@TurboEdition:Assets/Textures/Icons/Artifacts/spite2_deselected.png";
-        public override string ArtifactModelPath => "@TurboEdition:Assets/Models/Prefabs/Default.prefab";
+        public override Sprite ArtifactEnabledIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Artifacts/spite2_selected.png");
+        public override Sprite ArtifactDisabledIcon => TurboEdition.MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Artifacts/spite2_deselected.png");
+        public override GameObject ArtifactModel => TurboEdition.MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Default.prefab");
 
         //sasdjasdbasd
         private float spiteChance;
@@ -98,7 +99,7 @@ namespace TurboEdition.Artifacts
 
         private void BombOnHit(DamageReport damageReport)
         {
-            if (!NetworkServer.active || !ArtifactIsActive()) { return; }
+            if (!NetworkServer.active || !ArtifactEnabled) { return; }
             if (damageReport.victim.body.teamComponent.teamIndex == TeamIndex.Player) { return; } //Because pots and barrels making spite bombs is funny. also Birdsharks
 
 #if DEBUG
@@ -133,7 +134,7 @@ namespace TurboEdition.Artifacts
 
         private void ExtraDeath(DamageReport damageReport)
         {
-            if (!NetworkServer.active || !ArtifactIsActive()) { return; }
+            if (!NetworkServer.active || !ArtifactEnabled) { return; }
             if (RunArtifactManager.instance.IsArtifactEnabled(RoR2Content.Artifacts.bombArtifactDef) || !onlySpite)
             {
                 if (damageReport.victim.body.teamComponent.teamIndex == TeamIndex.Monster) { return; } //funny incoming

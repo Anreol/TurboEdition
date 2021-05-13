@@ -7,18 +7,13 @@ using UnityEngine.Networking;
 
 namespace TurboEdition.Artifacts
 {
-    // The directly below is entirely from TILER2 API (by ThinkInvis) specifically the Item module. Utilized to keep instance checking functionality as I migrate off TILER2.
-    // TILER2 API can be found at the following places:
-    // https://github.com/ThinkInvis/RoR2-TILER2
-    // https://thunderstore.io/package/ThinkInvis/TILER2/
-
     public abstract class ArtifactBase<T> : ArtifactBase where T : ArtifactBase<T>
     {
         public static T instance { get; private set; }
 
         public ArtifactBase()
         {
-            if (instance != null) throw new InvalidOperationException("Singleton class \"" + typeof(T).Name + "\" inheriting ItemBoilerplate/ArtifactBase was instantiated twice");
+            if (instance != null) throw new InvalidOperationException("Singleton class \"" + typeof(T).Name + "\" inheriting ArtifactBase was instantiated twice");
             instance = this as T;
         }
     }
@@ -32,9 +27,10 @@ namespace TurboEdition.Artifacts
         public abstract string ArtifactDesc { get; }
 
         public abstract UnlockableDef ArtifactUnlockable { get; }
-        public abstract string SpriteSelectedPath { get; }
-        public abstract string SpriteDeselectedPath { get; }
-        public abstract string ArtifactModelPath { get; }
+        public abstract Sprite ArtifactEnabledIcon { get; }
+        public abstract Sprite ArtifactDisabledIcon { get; }
+        public abstract GameObject ArtifactModel { get; }
+        public bool ArtifactEnabled => RunArtifactManager.instance.IsArtifactEnabled(ArtDef);
 
         protected abstract void Initialization();
 
@@ -69,22 +65,14 @@ namespace TurboEdition.Artifacts
             TurboEdition._logger.LogWarning("ArtifactBase, creating new artifact: " + ArtifactLangToken);
 #endif
             ArtifactDef ArtDef = ScriptableObject.CreateInstance<ArtifactDef>();
-            ArtDef.pickupModelPrefab = Resources.Load<GameObject>(ArtifactModelPath);
-            ArtDef.smallIconSelectedSprite = Resources.Load<Sprite>(SpriteSelectedPath);
-            ArtDef.smallIconDeselectedSprite = Resources.Load<Sprite>(SpriteDeselectedPath);
+            ArtDef.pickupModelPrefab = ArtifactModel;
+            ArtDef.smallIconSelectedSprite = ArtifactEnabledIcon;
+            ArtDef.smallIconDeselectedSprite = ArtifactDisabledIcon;
             ArtDef.unlockableDef = ArtifactUnlockable; //DO NOT SET THIS UP UNLESS THERES AN ACTUAL UNLOCKABLE
             ArtDef.nameToken = "ARTIFACT_" + ArtifactLangToken + "_NAME";
             ArtDef.descriptionToken = "ARTIFACT_" + ArtifactLangToken + "_DESC";
 
             ArtifactAPI.Add(ArtDef);
-            On.RoR2.ArtifactCatalog.SetArtifactDefs += (orig, self) =>
-            {
-                orig(self);
-#if DEBUG
-                TurboEdition._logger.LogWarning("ArtifactBase, got the ArtifactCatalog index " + ArtDef + " (" + ArtDef.artifactIndex + ") of " + ArtDef + " (" + ArtDef.nameToken + ").");
-                TurboEdition._logger.LogWarning("ArtifactBase, searching thru the ArtifactCatalog by index " + ArtDef + " got " + ArtifactCatalog.GetArtifactDef(ArtDef.artifactIndex).unlockableDef + " finding artifact index by def name (" + ArtifactCatalog.FindArtifactIndex(ArtDef.nameToken) + " " + ArtifactCatalog.FindArtifactIndex(ArtDef.descriptionToken) + ")");
-#endif
-            };
         }
 
         //A hook that hooks hooks hooking hooks, is this stupid? Sounds stupid.
@@ -99,24 +87,14 @@ namespace TurboEdition.Artifacts
 
         protected virtual void OnArtifactEnabled(RunArtifactManager runArtifactManager, ArtifactDef artifactDef)
         {
-            if (!NetworkServer.active)
-            {
-                return;
-            }
-            if (artifactDef != ArtDef)
-            {
-                return;
-            }
-            HookEnabled();
+            if (!NetworkServer.active && artifactDef == ArtDef) { HookEnabled(); }
+            return;
         }
 
         protected virtual void OnArtifactDisabled(RunArtifactManager runArtifactManager, ArtifactDef artifactDef)
         {
-            if (artifactDef != ArtDef)
-            {
-                return;
-            }
-            HookDisabled();
+            if (artifactDef == ArtDef) { HookDisabled(); }
+            return;
         }
 
         /// <summary>
@@ -130,11 +108,5 @@ namespace TurboEdition.Artifacts
         protected virtual void HookDisabled() { }
 
         //Latin is better anyways
-
-        //Based on ThinkInvis' methods
-        public bool ArtifactIsActive()
-        {
-            return (RunArtifactManager.instance != null && RunArtifactManager.instance.IsArtifactEnabled(ArtDef));
-        }
     }
 }
