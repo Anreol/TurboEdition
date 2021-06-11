@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: ContentPack
+  m_EditorClassIdentifier: 
+  bodyPrefabs: []
+  masterPrefabs: []
+  projectilePrefabs: []
+  gameModePrefabs: []
+  networkedObjectPrefabs: []
+  skillDefs: []
+  skillFamilies: []
+  sceneDefs: []
+  itemDefs:
+  - {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
+  - {fileID: 11400000, guid: 14b46053aaea12a41aa154aeaaa072c2, type: 2}
+  - {fileID: 11400000, guid: 316652a0f390cfe489524dedaa60a90c, type: 2}
+  - {fileID: 11400000, guid: 1d3dd72e3b25fc449a408424b08a17f4, type: 2}
+  - {fileID: 11400000, guid: a760ff4f0d4eb14419b43e97d1d7e7df, type: 2}
+  - {fileID: 11400000, guid: cf1407890f7341b428d93b2f619db61c, type: 2}
+  - {fileID: 11400000, guid: 6f26a54020669b047a113dcbe0fcbde2, type: 2}
+  equipmentDefs:
+  - {fileID: 11400000, guid: db5f8f8735505d440aad0e7b540c4933, type: 2}
+  - {fileID: 11400000, guid: 6dd507f5f16ba154aa4def91e95b105c, type: 2}
+  - {fileID: 11400000, guid: 2b525fa417a5d5c4d9b9b424ac22d29c, type: 2}
+  buffDefs:
+  - {fileID: 11400000, guid: 6fa3762a9e31b3e458e30f7c36e28813, type: 2}
+  - {fileID: 11400000, guid: 8ffd5c6e050f00c479b5cf8fe098c8cb, type: 2}
+  - {fileID: 11400000, guid: 0e4004db3ae50604f8e3b6fbabdf39f3, type: 2}
+  - {fileID: 11400000, guid: 26d9d65feaa32f8458921eb64400be64, type: 2}
+  - {fileID: 11400000, guid: 38f9af9ff75b2614d8cbef1ecf2c724c, type: 2}
+  eliteDefs: []
+  unlockableDefs: []
+  survivorDefs: []
+  artifactDefs: []
+  surfaceDefs: []
+  networkSoundEventDefs: []
+  musicTrackDefs: []
+  gameEndingDefs: []
+  entityStateConfigurations: []
+  entityStateTypes: []

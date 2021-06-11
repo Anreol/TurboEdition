@@ -1,0 +1,23 @@
+{
+    "name": "TurboEdition",
+    "references": [],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "0Harmony.dll",
+        "BepInEx.Harmony.dll",
+        "HGCSharpUtils.dll",
+        "Wwise.dll",
+        "Mono.Cecil.dll",
+        "MonoMod.RuntimeDetour.dll",
+        "MonoMod.Utils.dll",
+        "Assembly-Stubbed.dll",
+        "MMHOOK_Assembly-CSharp.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

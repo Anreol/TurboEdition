@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: MeleeArmor
+  m_EditorClassIdentifier: 
+  tier: 2
+  nameToken: Nanomachines
+  pickupToken: I never asked for this
+  descriptionToken: When damaged by an enemy within <style=cIsUtility>{rangeRadius}
+    meters</style>, gain <style=cIsUtility>Nanomachines</style> {buffPerStack} times
+    for {buffDuration} seconds. <style=cStack>(+{buffPerStack} times per stack).</style>
+  loreToken: 'You are right about <style=cUserSetting>one thing.</style>\nI do need
+    <style=cIsUtility>capital</style>. And <style=cIsUtility>votes.</style>\nWanna
+    know why?\n<style=cKeywordName>''I have a dream''</style><style=cMono>What?</style>\nThat
+    one day <style=cIsUtility>every person in this nation</style> will control their
+    <style=cIsHealing>OWN</style> destiny.\nA land of the <style=cIsHealing>TRULY</style>
+    free, damnit.\nA nation of <style=cIsHealing>ACTION</style>, <style=cDeath>not
+    words</style>.\nRuled by <style=cIsHealing>STRENGHT</style>, <style=cDeath>not
+    committee</style>.\nWhere the law changes <style=cIsUtility>to suit the individual</style>,
+    not the other way around\nWhere <style=cIsDamage>power</style> and <style=cIsHealth>justice</style>
+    are back where they belong: <style=cIsUtility>in the hands of the people!</style>\nWhere
+    every man is free to think -- <style=cIsUtility>to act</style> -- for <style=cIsHealing>himself</style>!\nFuck
+    all these <style=cArtifact>limp-dick lawyers</style> and <style=cDeath>chicken-shit
+    bureaucrats</style>.\nFuck <style=cIsHealth>their 24/7 internet spew of trivia</style>
+    and <style=cDeath>celebrity bullshit.</style>\nFuck <style=cKeywordName>''American
+    Pride.''</style><style=cUserSetting>Fuck the media!</style>\nFuck all of it!\nAmerica
+    is <style=cDeath>diseased</style>. <style=cArtifact>Rotten to the core.</style>\nThere''s
+    no saving it -- <style=cIsUtility>we need to pull it out by the roots.</style>\nWipe
+    the slate <style=cEvent>clean</style>. <style=cDeath>BURN IT DOWN!</style>\nAnd
+    from the ashes a <style=cUserSetting>new America</style> will be born.\n<style=cIsUtility>Evolved</style>,
+    but <style=cIsDamage>untamed</style>!\nThe <style=cStack>weak</style> will be
+    <style=cDeath>purged</style>, and the <style=cStack>strongest</style> will <style=cIsHealing>thrive</style>
+    -- <style=cIsUtility>free to live as they see fit</style>,\n<style=cShrine>they''ll
+    make America great again!</style>\n\n<style=cMono>What the hell are you talking
+    about...</style>'
+  unlockableDef: {fileID: 0}
+  pickupModelPrefab: {fileID: 0}
+  pickupIconSprite: {fileID: 0}
+  hidden: 0
+  canRemove: 1
+  tags: 03000000
