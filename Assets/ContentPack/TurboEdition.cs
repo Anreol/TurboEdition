@@ -36,13 +36,22 @@ namespace TurboEdition
         internal const string ModGuid = "com.Anreol." + ModIdentifier;
 
         internal static ManualLogSource _logger; // allow access to the logger across the plugin classes
-        public static AssetBundle MainAssets;
 
         public void Awake()
         {
             #if DEBUG
             _logger.LogWarning("Running TurboEdition DEBUG build. PANIC!");
-            #endif
+#endif
+            //Le items
+            CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
+        }
+
+        private void CharacterBody_onBodyStartGlobal(CharacterBody cb)
+        {
+            if (cb.inventory)
+            {
+                cb.AddItemBehavior<TurboItemManager>(1); //ItemBehavior that manages ItemBehaviors
+            }
         }
     }
 

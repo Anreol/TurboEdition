@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -74,12 +75,13 @@
     <Compile Include="Assets\ContentPack\Modules\Items\DebuffNearbyEnemies.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\DupeItemDrops.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\EnvBonus.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Items\EnvBonusBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\Hitlag.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\HitlagBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\HitlagController.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\ItemBehaviors.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Items\TurboItemManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\ItemsToDeploys.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\MeleeArmor.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Items\MeleeArmorBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <Reference Include="UnityEngine.AIModule">
