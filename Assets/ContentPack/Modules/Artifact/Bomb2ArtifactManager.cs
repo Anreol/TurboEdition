@@ -1,7 +1,6 @@
 ﻿using RoR2;
 using UnityEngine;
 using static RoR2.Artifacts.BombArtifactManager;
-using static TurboEdition.Utils.ItemHelpers;
 
 namespace TurboEdition.Artifacts
 {

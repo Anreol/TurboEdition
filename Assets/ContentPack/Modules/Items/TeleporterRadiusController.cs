@@ -1,12 +1,9 @@
 ﻿using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
 
 namespace TurboEdition
 {
-    class TeleporterRadiusController : MonoBehaviour
+    internal class TeleporterRadiusController : MonoBehaviour
     {
         private HoldoutZoneController holdoutZoneController;
 
@@ -24,6 +21,7 @@ namespace TurboEdition
         private static readonly AnimationCurve colorCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
         private static Color newMaterialColor = new Color(5f, 2.5f, 0f, 1f);
         private static int nTimes;
+
         private void Awake()
         {
             this.holdoutZoneController = base.GetComponent<HoldoutZoneController>();
@@ -49,10 +47,12 @@ namespace TurboEdition
         {
             radius += currentCalculatedRadius;
         }
+
         private void ApplyColor(ref Color color)
         {
             color = Color.Lerp(color, newMaterialColor, colorCurve.Evaluate(this.currentRadius));
         }
+
         private void FixedUpdate()
         {
             var chargingTeam = TeamComponent.GetTeamMembers(this.holdoutZoneController.chargingTeam);
@@ -86,10 +86,8 @@ namespace TurboEdition
             {
                 nTimes--;
                 CalculateTeleporterColor(1.2f);
-
             }
         }
-
 
         private void CalculateTeleporterColor(float colorCycle)
         {

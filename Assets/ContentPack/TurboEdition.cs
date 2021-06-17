@@ -1,12 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using RoR2;
-using RoR2.Modding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using UnityEngine;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
@@ -14,7 +8,6 @@ using UnityEngine;
 
 namespace TurboEdition
 {
-
     [BepInDependency("com.bepis.r2api")]
     //[NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(ModGuid, ModIdentifier, ModVer)]
@@ -39,7 +32,7 @@ namespace TurboEdition
 
         public void Awake()
         {
-            #if DEBUG
+#if DEBUG
             _logger.LogWarning("Running TurboEdition DEBUG build. PANIC!");
 #endif
             //Le items
@@ -64,7 +57,6 @@ namespace TurboEdition
         public RoR2.ContentManagement.IContentPackProvider contentPackProvider = ???;
         public TurboRoR2Mod() : base (Mod.FromJsonFile("TurboEdition", pathToFile))
         {
-
         }
     }*/
 }

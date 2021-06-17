@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -68,6 +67,7 @@
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Assets.cs" />
     <Compile Include="Assets\ContentPack\Modules\Equipment\Hellchain.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Equipment\LeaveStage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Equipment\RandomKill.cs" />
     <Compile Include="Assets\ContentPack\Modules\Equipment\StageSkip.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\AddTeleporterRadius.cs" />
@@ -76,13 +76,10 @@
     <Compile Include="Assets\ContentPack\Modules\Items\DupeItemDrops.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\EnvBonus.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\EnvBonusBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\Hitlag.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\HitlagBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\TurboItemManager.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\ItemsToDeploys.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\MeleeArmor.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\MeleeArmorBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Items\TeleporterRadiusController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Items\TurboItemManager.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
