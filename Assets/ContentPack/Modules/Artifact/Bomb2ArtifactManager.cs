@@ -1,7 +1,4 @@
-﻿using RoR2;
-using UnityEngine;
-using static RoR2.Artifacts.BombArtifactManager;
-
+﻿/*
 namespace TurboEdition.Artifacts
 {
     //This wouldnt be possible (or wouldve taken me a lot of time) if Chen didn't show me their own spite artifact mods and how to get BombRequests
@@ -81,4 +78,4 @@ namespace TurboEdition.Artifacts
             }
         }
     }
-}
+}*/

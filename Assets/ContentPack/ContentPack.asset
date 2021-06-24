@@ -22,12 +22,13 @@ MonoBehaviour:
   sceneDefs: []
   itemDefs:
   - {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
-  - {fileID: 11400000, guid: 14b46053aaea12a41aa154aeaaa072c2, type: 2}
+  - {fileID: 11400000, guid: d2baa190849934b42918cafaefa38084, type: 2}
   - {fileID: 11400000, guid: 316652a0f390cfe489524dedaa60a90c, type: 2}
   - {fileID: 11400000, guid: 1d3dd72e3b25fc449a408424b08a17f4, type: 2}
   - {fileID: 11400000, guid: a760ff4f0d4eb14419b43e97d1d7e7df, type: 2}
   - {fileID: 11400000, guid: cf1407890f7341b428d93b2f619db61c, type: 2}
   - {fileID: 11400000, guid: 6f26a54020669b047a113dcbe0fcbde2, type: 2}
+  - {fileID: 11400000, guid: 14b46053aaea12a41aa154aeaaa072c2, type: 2}
   equipmentDefs:
   - {fileID: 11400000, guid: db5f8f8735505d440aad0e7b540c4933, type: 2}
   - {fileID: 11400000, guid: 6dd507f5f16ba154aa4def91e95b105c, type: 2}

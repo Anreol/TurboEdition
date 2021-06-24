@@ -1,0 +1,102 @@
+ManifestFileVersion: 0
+CRC: 2433867115
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ea69acbff3e8a6ed2a8a1a2bfb0ba04c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b086d04733514d84cba32d6d3dac87d7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+- Class: 114
+  Script: {fileID: -2051541306, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1032072274, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -354346302, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1788389205, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -875252823, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1695578394, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1095921540, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -565067572, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -408685376, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -662483879, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3348151fc27f6834490dd33ce0ea7dbe, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/MeleeArmor.asset
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/BaneMask.asset
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/DropletDupe.asset
+- Assets/ContentPack/AssetBundle/Mesh/Sphere.asset
+- Assets/ContentPack/AssetBundle/Artifact/Spite2.asset
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/PackMagnet.asset
+- Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_selected.png
+- Assets/ContentPack/AssetBundle/Prefabs/HellChainTetherVFX.prefab
+- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/Hellchain.asset
+- Assets/ContentPack/AssetBundle/Prefabs/BaneMaskPulse.prefab
+- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/ExitStage.asset
+- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/CursedScythe.asset
+- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/EquipSprites/Placeholder_Hellchain.png
+- Assets/ContentPack/AssetBundle/Buff/BuffSprites/envradio.png
+- Assets/ContentPack/AssetBundle/Prefabs/HellChainNearbyAttachment.prefab
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/ItemDeploys.asset
+- Assets/ContentPack/AssetBundle/Buff/CannotSprint.asset
+- Assets/ContentPack/AssetBundle/icon.png
+- Assets/ContentPack/AssetBundle/Buff/EnvBuff.asset
+- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/EquipSprites/Placeholder_Scythe.png
+- Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_deselected.png
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/EnvBonus.asset
+- Assets/ContentPack/AssetBundle/Buff/ElectroStatic.asset
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/AddTeleporterRadius.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffSprites/hellchain_linked.png
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/Hitlag.asset
+- Assets/ContentPack/AssetBundle/Buff/HellLinked.asset
+- Assets/ContentPack/AssetBundle/Buff/MeleeArmor.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffSprites/nanomachines.png
+Dependencies: []

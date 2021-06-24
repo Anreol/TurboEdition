@@ -56,7 +56,8 @@ MonoBehaviour:
   Icon: {fileID: 2800000, guid: b1b68ecae957b164ea72e113d1204411, type: 3}
   Description: Test
   Version: 0.0.1
-  Dependencies: []
+  Dependencies:
+  - {fileID: 11400000, guid: db33d5b068040b5c2782085d4dcc86a1, type: 2}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1

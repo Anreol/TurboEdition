@@ -66,20 +66,23 @@
   <ItemGroup>
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Assets.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Equipment\Hellchain.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Equipment\LeaveStage.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Equipment\RandomKill.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Equipment\StageSkip.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\AddTeleporterRadius.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\AttractBPs.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\DebuffNearbyEnemies.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\DupeItemDrops.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\EnvBonus.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\EnvBonusBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\HitlagBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\MeleeArmorBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\TeleporterRadiusController.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Items\TurboItemManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\Hellchain.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\LeaveStage.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\RandomKill.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\InitPickups.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\IStatItemBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMaskBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupeBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\EnvBonusBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\HitlagBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\ItemDeployerController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MeleeArmorBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnetBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\TurboItemManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Scripts\HellchainLinkNearbyController.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -337,7 +340,7 @@
       <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Assembly-Stubbed.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_Assembly-CSharp">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Assets/Editor/References/MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/HookGenPatcher/MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

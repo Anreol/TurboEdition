@@ -1,6 +1,5 @@
 ﻿using BepInEx;
-using BepInEx.Logging;
-using RoR2;
+using UnityEngine;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
@@ -28,23 +27,12 @@ namespace TurboEdition
         internal const string ModIdentifier = "TurboEdition";
         internal const string ModGuid = "com.Anreol." + ModIdentifier;
 
-        internal static ManualLogSource _logger; // allow access to the logger across the plugin classes
-
         public void Awake()
         {
 #if DEBUG
-            _logger.LogWarning("Running TurboEdition DEBUG build. PANIC!");
+            Debug.LogWarning("Running TurboEdition DEBUG build. PANIC!");
 #endif
-            //Le items
-            CharacterBody.onBodyStartGlobal += CharacterBody_onBodyStartGlobal;
-        }
-
-        private void CharacterBody_onBodyStartGlobal(CharacterBody cb)
-        {
-            if (cb.inventory)
-            {
-                cb.AddItemBehavior<TurboItemManager>(1); //ItemBehavior that manages ItemBehaviors
-            }
+            InitPickups.Initialize();
         }
     }
 
