@@ -19,7 +19,7 @@ namespace TurboEdition.Equipments
         }
         public override void Initialize()
         {
-            base.Initialize();
+
         }
         public bool UseThingie()
         {

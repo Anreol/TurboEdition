@@ -10,8 +10,17 @@ namespace TurboEdition
     {
         public static AssetBundle mainAssetBundle = null;
         internal static string assetBundleName = "assetTurbo";
+        internal static void Initialize()
+        {
+            //assemblyDir = GetAssemblyDir();
+            LoadAssetBundle();
+            //LoadSoundbank();
+            //PopulateAssets();
+            //LoadEffects();
+            //AddSoundEvents();
+        }
 
-        public static void PopulateAssets()
+        public static void LoadAssetBundle()
         {
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             mainAssetBundle = AssetBundle.LoadFromFile(Path.Combine(path, assetBundleName));
@@ -19,59 +28,49 @@ namespace TurboEdition
         }
     }
 
-    public class ContentPackProvider : IContentPackProvider
-    {
-        public static SerializableContentPack serializedContentPack;
-        public static ContentPack contentPack;
+	public class ContentPackProvider : IContentPackProvider
+	{
+		public static SerializableContentPack serializedContentPack;
+		public static ContentPack contentPack;
+		//Should be the same names as your SerializableContentPack in the asset bundle
+		public static string contentPackName = "ContentPack";
 
-        //Should be the same names as your SerializableContentPack in the asset bundle
-        public static string contentPackName = "ContentPack";
-
-        public string identifier
-        {
-            get
-            {
-                //If I see this name while loading a mod I will make fun of you
-                return TurboEdition.ModIdentifier;
-            }
-        }
-
-        internal static void Initialize()
-        {
-            contentPack = serializedContentPack.CreateContentPack();
-            ContentManager.collectContentPackProviders += AddCustomContent;
-        }
-
-        private static void AddCustomContent(ContentManager.AddContentPackProviderDelegate addContentPackProvider)
-        {
-            addContentPackProvider(new ContentPackProvider());
-        }
-
-        public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
-        {
-            args.ReportProgress(1f);
-            yield break;
-        }
-
-        public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
-        {
-            ContentPack.Copy(contentPack, args.output);
-            args.ReportProgress(1f);
-            yield break;
-        }
-
-        public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
-        {
-            args.ReportProgress(1f);
-            yield break;
-        }
-
-        /*
-		internal static void LoadSoundbank()
+		public string identifier
 		{
-			string soundBankPath = Path.Combine(assemblyDir, soundBankName);
-			byte[] array = File.ReadAllBytes(soundBankPath);
-			SoundAPI.SoundBanks.Add(array);
-		}*/
-    }
+			get
+			{
+				return TurboEdition.ModGuid;
+			}
+		}
+
+		internal static void Initialize()
+		{
+			contentPack = serializedContentPack.CreateContentPack();
+			ContentManager.collectContentPackProviders += AddCustomContent;
+		}
+
+		private static void AddCustomContent(ContentManager.AddContentPackProviderDelegate addContentPackProvider)
+		{
+			addContentPackProvider(new ContentPackProvider());
+		}
+
+		public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
+		{
+			args.ReportProgress(1f);
+			yield break;
+		}
+
+		public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
+		{
+			ContentPack.Copy(contentPack, args.output);
+			args.ReportProgress(1f);
+			yield break;
+		}
+
+		public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
+		{
+			args.ReportProgress(1f);
+			yield break;
+		}
+	}
 }

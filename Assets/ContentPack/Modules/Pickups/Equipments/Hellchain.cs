@@ -1,6 +1,10 @@
-﻿namespace TurboEdition.Equipments
+﻿using RoR2;
+
+namespace TurboEdition.Equipments
 {
-    internal class Hellchain
+    internal class Hellchain : Equipment
     {
+        public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("HellChain");
+
     }
 }

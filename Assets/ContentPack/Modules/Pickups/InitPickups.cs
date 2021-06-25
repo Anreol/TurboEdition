@@ -7,43 +7,57 @@ using TurboEdition.Equipments;
 using UnityEngine;
 using UnityEngine.Networking;
 
+using Item = TurboEdition.Items.Item;
+using Equipment = TurboEdition.Equipments.Equipment;
+
 namespace TurboEdition
 {
     internal static class InitPickups
     {
-        public static Dictionary<EquipmentDef, Equipment> equipments = new Dictionary<EquipmentDef, Equipment>();
-        public static Dictionary<EquipmentDef, Equipment> eliteEquipments = new Dictionary<EquipmentDef, Equipment>();
+        public static Dictionary<ItemDef, Item> itemList = new Dictionary<ItemDef, Item>();
+        public static Dictionary<EquipmentDef, Equipment> equipmentList = new Dictionary<EquipmentDef, Equipment>();
 
         public static void Initialize()
         {
             InitializeEquipments();
+            InitializeItems();
 
             On.RoR2.CharacterBody.OnEquipmentGained += CheckForTurboEqpGain;
             On.RoR2.CharacterBody.OnEquipmentLost += CheckForTurboEqpLoss;
             On.RoR2.EquipmentSlot.PerformEquipmentAction += FireTurboEqp;
             CharacterBody.onBodyStartGlobal += AddItemManager;
             On.RoR2.CharacterBody.RecalculateStats += OnRecalculateStats;
-
-            OneTimerItems();
         }
 
         private static void InitializeEquipments()
         {
-            var equips = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)));
-            foreach (var eqpType in equips)
+            //GUIUtility.systemCopyBuffer = string.Join("\n", Assembly.GetExecutingAssembly().GetTypes().Select(t => $"{t.Name} .IsAbstract={t.IsAbstract} .IsSubclassOf({typeof(Equipment).Name})={t.IsSubclassOf(typeof(Equipment))}"));
+            var EquipmentTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)));
+            foreach (var item in EquipmentTypes)
             {
-                var eqp = (Equipment)Activator.CreateInstance(eqpType);
-                var def = eqp.equipmentDef;
-                /*if (!eqp.isElite)
+                Equipment eqp = (Equipment)System.Activator.CreateInstance(item);
+                if (!eqp.equipmentDef)
                 {
-                    eqp.Initialize();
-                    equipments.Add(eqp.equipmentDef, eqp);
+                    Debug.LogError("Equipment " + eqp + " is missing equipment Def. Check Unity Project. Skipping.");
+                    continue;
                 }
-                else*/
+                eqp.Initialize();
+                equipmentList.Add(eqp.equipmentDef, eqp);
+            }
+        }
+        private static void InitializeItems()
+        {
+            var items = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Item)));
+            foreach (var itemType in items)
+            {
+                Item item = (Item)System.Activator.CreateInstance(itemType);
+                if (!item.itemDef)
                 {
-                    eqp.Initialize();
-                    eliteEquipments.Add(eqp.equipmentDef, eqp);
+                    Debug.LogError("Item " + item + " is missing item Def. Check Unity Project. Skipping.");
+                    continue;
                 }
+                item.Initialize();
+                itemList.Add(item.itemDef, item);
             }
         }
 
@@ -54,21 +68,6 @@ namespace TurboEdition
                 var itemManager = body.gameObject.AddComponent<TurboItemManager>();
                 itemManager.CheckForTEItems(); //Initial check, should be useless considering the manager subscribes this method on awake to inventorychange
                 itemManager.CheckForBuffs();
-            }
-        }
-
-        private static void OneTimerItems()
-        {
-            //Hook because alternative would be using instance tracker and run that on a fixed update
-            On.RoR2.HoldoutZoneController.Awake += HoldoutZoneController_Awake;
-            MasterSummon.onServerMasterSummonGlobal += Items.ItemDeployerController.Activate;
-        }
-
-        private static void HoldoutZoneController_Awake(On.RoR2.HoldoutZoneController.orig_Awake orig, HoldoutZoneController self)
-        {
-            if (self.applyFocusConvergence)
-            {
-                self.gameObject.AddComponent<TeleporterRadiusController>();
             }
         }
 
@@ -92,9 +91,9 @@ namespace TurboEdition
                 return false;
             }
             Equipment equipment;
-            if (equipments.TryGetValue(equipmentDef, out equipment))
+            if (equipmentList.TryGetValue(equipmentDef, out equipment))
             {
-                var body = self.characterBody;
+                //var body = self.characterBody;
                 return equipment.FireAction(self);
             }
             return orig(self, equipmentDef);

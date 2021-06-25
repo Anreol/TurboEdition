@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2433867115
+CRC: 2079057470
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ea69acbff3e8a6ed2a8a1a2bfb0ba04c
+    Hash: ab1809adfd83e8935ed9a4631bde26f8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: b086d04733514d84cba32d6d3dac87d7
+    Hash: 3bfd65ac7b643a3faf50bd11a144cd46
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -52,6 +52,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1095921540, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -565067572, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -408685376, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -80,12 +82,13 @@ Assets:
 - Assets/ContentPack/AssetBundle/Prefabs/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/Hellchain.asset
 - Assets/ContentPack/AssetBundle/Prefabs/BaneMaskPulse.prefab
-- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/ExitStage.asset
+- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/LeaveStage.asset
+- Assets/ContentPack/AssetBundle/ContentPack.asset
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/CursedScythe.asset
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/EquipSprites/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/envradio.png
 - Assets/ContentPack/AssetBundle/Prefabs/HellChainNearbyAttachment.prefab
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/ItemDeploys.asset
+- Assets/ContentPack/AssetBundle/Pickups/itemDefs/ItemDeployer.asset
 - Assets/ContentPack/AssetBundle/Buff/CannotSprint.asset
 - Assets/ContentPack/AssetBundle/icon.png
 - Assets/ContentPack/AssetBundle/Buff/EnvBuff.asset

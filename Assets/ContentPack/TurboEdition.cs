@@ -32,7 +32,9 @@ namespace TurboEdition
 #if DEBUG
             Debug.LogWarning("Running TurboEdition DEBUG build. PANIC!");
 #endif
+            Assets.Initialize();
             InitPickups.Initialize();
+            ContentPackProvider.Initialize();
         }
     }
 
