@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: LeaveStage
   m_EditorClassIdentifier: 
-  pickupModelPrefab: {fileID: 0}
+  pickupModelPrefab: {fileID: 553121620005174921, guid: 4181551b7a3547146aa8deed8a77cfd9,
+    type: 3}
   cooldown: 90
   nameToken: Emergency Button
   pickupToken: Only for emergencies!
   descriptionToken: Activate to leave the current stage.
   loreToken: I really dont feel like dealing the boss right now, sorry mom.
-  pickupIconSprite: {fileID: 0}
+  pickupIconSprite: {fileID: 21300000, guid: d8948ab644698614998f4d8a0e4e9c3f, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5
   canDrop: 1

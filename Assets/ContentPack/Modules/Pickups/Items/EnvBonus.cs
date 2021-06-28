@@ -11,10 +11,10 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<Behavior>(stack);
+            body.AddItemBehavior<EnvBonusBehavior>(stack);
         }
 
-        internal class Behavior : CharacterBody.ItemBehavior, IStatItemBehavior
+        internal class EnvBonusBehavior : CharacterBody.ItemBehavior, IStatItemBehavior
         {
             private float activationWindow = 30f;
             private float regenBonus = 0f;
@@ -26,7 +26,7 @@ namespace TurboEdition.Items
                 {
                     return;
                 }
-                if (Stage.instance.entryTime.timeSince <= activationWindow)
+                if (Stage.instance.entryTime.timeSince <= activationWindow && body)
                 {
                     body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("EnvBuff"), 15 + ((stack - 1) * 10));
                 }

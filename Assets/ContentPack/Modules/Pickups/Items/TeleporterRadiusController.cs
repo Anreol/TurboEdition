@@ -9,12 +9,12 @@ namespace TurboEdition.Items
 
         public override void Initialize()
         {
-            On.RoR2.HoldoutZoneController.Awake += HoldoutZoneController_Awake;
+            On.RoR2.HoldoutZoneController.Start += HoldoutZoneController_Start;
         }
 
-        private void HoldoutZoneController_Awake(On.RoR2.HoldoutZoneController.orig_Awake orig, HoldoutZoneController self)
+        private void HoldoutZoneController_Start(On.RoR2.HoldoutZoneController.orig_Start orig, HoldoutZoneController self)
         {
-            if (self.applyFocusConvergence)
+            if (self.applyFocusConvergence) //If zone can get shrunk, it can grow too
             {
                 self.gameObject.AddComponent<TeleporterRadiusController>();
             }
@@ -35,7 +35,9 @@ namespace TurboEdition.Items
             private float rampUpTime = 5f;
 
             private static readonly AnimationCurve colorCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
-            private static Color newMaterialColor;
+            private static Color newMaterialColor; // = new Color(2.5f, 1.5f, 0.5f, 1f);
+            private static float newR, newG, newB; //I have no idea why i should do this
+            private float rMove = -1, gMove = -1, bMove = -1;
             private static int nTimes;
 
             private int itemCount;
@@ -43,8 +45,8 @@ namespace TurboEdition.Items
 
             private void Awake()
             {
-                newMaterialColor = new Color(2.5f, 1.5f, 0.5f, 1f);
                 this.holdoutZoneController = base.GetComponent<HoldoutZoneController>();
+                newMaterialColor = this.holdoutZoneController.baseIndicatorColor;
             }
 
             private void OnEnable()
@@ -90,8 +92,9 @@ namespace TurboEdition.Items
                 {
                     this.uniqueItemCount = 0;
                     this.itemCount = 0;
+                    return; //we do not want to do anything else as long as the start up delay hasnt passed
                 }
-                float target = (this.itemCount > 0f) ? 1f : 0f;
+                float target = (this.itemCount > 0f) ? 1f : 0f; //FIXME: Wont change if players pick up new items / lose em, meaning color changes will be sharp and sound wont play
                 float prevValue = Mathf.MoveTowards(this.currentValue, target, rampUpTime * Time.fixedDeltaTime);
                 if (currentValue <= 0f && prevValue > 0f)
                 {
@@ -103,33 +106,37 @@ namespace TurboEdition.Items
                 if ((holdoutZoneController.currentRadius > (nTimes * (holdoutZoneController.baseRadius / 4))))
                 {
                     nTimes++;
-                    CalculateTeleporterColor(1.2f);
+                    CalculateTeleporterColor(-1.3f);
                 }
                 else if ((holdoutZoneController.currentRadius < (nTimes - 1 * (holdoutZoneController.baseRadius / 4))))
                 {
                     nTimes--;
-                    CalculateTeleporterColor(-1.2f);
+                    CalculateTeleporterColor(1.3f);
                 }
             }
 
             private void CalculateTeleporterColor(float colorCycle)
             {
-                float rMove = -1, gMove = -1, bMove = -1;
-                if (newMaterialColor.r >= 3.99f || newMaterialColor.r <= 0.5f)
+                
+                newR += rMove;
+                newG += gMove;
+                newB += bMove;
+
+                if (newR >= 4.99f || newR <= 1f)
                 {
                     rMove *= colorCycle;
                 }
-                if (newMaterialColor.g >= 3.99f || newMaterialColor.g <= 0.5f)
+                if (newG >= 4.99f || newG <= 1f)
                 {
                     gMove *= colorCycle;
                 }
-                if (newMaterialColor.b >= 3.99f || newMaterialColor.b <= 0.5f)
+                if (newB >= 4.99f || newB <= 1f)
                 {
                     bMove *= colorCycle;
                 }
-                newMaterialColor.r += rMove;
-                newMaterialColor.g += gMove;
-                newMaterialColor.b += bMove;
+                newMaterialColor.r = newR;
+                newMaterialColor.g = newG;
+                newMaterialColor.b = newB;
                 newMaterialColor.a = 1f; //Reassigning just in case
             }
         }

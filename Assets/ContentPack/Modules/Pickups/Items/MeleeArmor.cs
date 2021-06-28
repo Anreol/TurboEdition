@@ -10,9 +10,9 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<Behavior>(stack);
+            body.AddItemBehavior<MeleeArmorBehavior>(stack);
         }
-        internal class Behavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver, IStatItemBehavior
+        internal class MeleeArmorBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver, IStatItemBehavior
         {
             private float detectRadius = 21f;
 

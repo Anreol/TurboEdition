@@ -1,17 +1,19 @@
 ManifestFileVersion: 0
-CRC: 2079057470
+CRC: 3162899618
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ab1809adfd83e8935ed9a4631bde26f8
+    Hash: b42b74e085a54cbdb802eb6db0ca10cd
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3bfd65ac7b643a3faf50bd11a144cd46
+    Hash: e77a3b292d69e2f3caaf821690ce6b42
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
 - Class: 4
+  Script: {instanceID: 0}
+- Class: 21
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
@@ -20,6 +22,8 @@ ClassTypes:
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
+  Script: {instanceID: 0}
+- Class: 48
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
@@ -81,18 +85,28 @@ Assets:
 - Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_selected.png
 - Assets/ContentPack/AssetBundle/Prefabs/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/Hellchain.asset
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Boss.png
 - Assets/ContentPack/AssetBundle/Prefabs/BaneMaskPulse.prefab
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/ErrorMat.mat
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/LeaveStage.asset
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_FiberCable.png
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Equipment.png
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Rare.png
 - Assets/ContentPack/AssetBundle/ContentPack.asset
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Uncommon.png
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Unique.png
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/CursedScythe.asset
-- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/EquipSprites/Placeholder_Hellchain.png
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/envradio.png
 - Assets/ContentPack/AssetBundle/Prefabs/HellChainNearbyAttachment.prefab
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/ItemDeployer.asset
 - Assets/ContentPack/AssetBundle/Buff/CannotSprint.asset
 - Assets/ContentPack/AssetBundle/icon.png
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/ErrorPrefab.prefab
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Lunar.png
 - Assets/ContentPack/AssetBundle/Buff/EnvBuff.asset
-- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/EquipSprites/Placeholder_Scythe.png
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Text.mesh
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_deselected.png
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/EnvBonus.asset
 - Assets/ContentPack/AssetBundle/Buff/ElectroStatic.asset
@@ -100,6 +114,7 @@ Assets:
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/hellchain_linked.png
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/Hitlag.asset
 - Assets/ContentPack/AssetBundle/Buff/HellLinked.asset
+- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Common.png
 - Assets/ContentPack/AssetBundle/Buff/MeleeArmor.asset
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/nanomachines.png
 Dependencies: []

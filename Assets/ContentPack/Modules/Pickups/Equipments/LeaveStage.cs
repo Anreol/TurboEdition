@@ -15,15 +15,13 @@ namespace TurboEdition.Equipments
                 SceneExitController.onBeginExit -= SceneExitController_onBeginExit; //I dunno bout this. Meant to unsubscribe after equipment use because i do not know if they stack per use.
                 return UseThingie();
             }
+            SceneExitController.onBeginExit -= SceneExitController_onBeginExit;
             return false;
-        }
-        public override void Initialize()
-        {
-
         }
         public bool UseThingie()
         {
             SceneExitController sceneExitController = new SceneExitController();
+            sceneExitController = UnityEngine.Object.Instantiate<SceneExitController>(sceneExitController);
             InstanceTracker.Add(sceneExitController); //Add it for the sake of consistency
             sceneExitController.useRunNextStageScene = true; //True by default
             if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) //Is anniversary moon. Do not know how to get it in a better way.

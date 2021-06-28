@@ -10,7 +10,7 @@ namespace TurboEdition.Items
     public class ItemDeployer : Item
     {
         public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeployer");
-        ItemDeployerController itemDeployerController;
+        //public static ItemDeployerController itemDeployerController = new ItemDeployerController();
         public override void Initialize()
         {
             MasterSummon.onServerMasterSummonGlobal += MasterSummon_onServerMasterSummonGlobal;
@@ -18,14 +18,17 @@ namespace TurboEdition.Items
 
         private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport obj)
         {
-            itemDeployerController = new ItemDeployerController();
-            itemDeployerController.Activate(obj);
+            ItemDeployerController.Activate(obj);
         }
 
-        public class ItemDeployerController
+        public static class ItemDeployerController
         {
-            public void Activate(MasterSummon.MasterSummonReport msr)
+            public static void Activate(MasterSummon.MasterSummonReport msr)
             {
+                if (!NetworkServer.active || !msr.leaderMasterInstance || !msr.summonMasterInstance) //needs a master else it will NRE director spawns
+                {
+                    return;
+                }
                 int itemDeployCount = msr.leaderMasterInstance.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeployer"));
                 if (itemDeployCount > 0)
                 {
@@ -43,7 +46,7 @@ namespace TurboEdition.Items
                 }
             }
 
-            private void ItemDeploysManager(ItemIndex indexGive, int numGive, MasterSummon.MasterSummonReport msr, List<ItemTransferOrb> inFlightOrbs)
+            private static void ItemDeploysManager(ItemIndex indexGive, int numGive, MasterSummon.MasterSummonReport msr, List<ItemTransferOrb> inFlightOrbs)
             {
                 if ((msr.summonMasterInstance.hasBody && (msr.summonMasterInstance.GetBody().bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None))
                 {

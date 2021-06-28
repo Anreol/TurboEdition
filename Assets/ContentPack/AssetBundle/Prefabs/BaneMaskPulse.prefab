@@ -2627,7 +2627,7 @@ MonoBehaviour:
   m_Script: {fileID: -1695578394, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finalRadius: 5
+  finalRadius: 10
   duration: 0.5
   normalizedRadiusCurve: {fileID: 0}
   effectTransform: {fileID: 4481037160514719}
@@ -2637,10 +2637,6 @@ MonoBehaviour:
   onPulseEndServer:
     m_PersistentCalls:
       m_Calls: []
-  startTime:
-    t: 0
-  hitObjects: []
-  previousVfxNormalizedTime: 0
 --- !u!114 &114502279732382788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2655,7 +2651,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 3
   resetAgeOnDisable: 0
-  age: 0
 --- !u!114 &114076067591869958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2678,10 +2673,6 @@ MonoBehaviour:
   radius: 60
   scaleShakeRadiusWithLocalScale: 0
   amplitudeTimeDecay: 1
-  stopwatch: 0
-  halfPeriodTimer: 0
-  halfPeriodVector: {x: 0, y: 0, z: 0}
-  currentOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114746736077311324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2742,7 +2733,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  fixedAge: 0
 --- !u!1 &1937988441581594
 GameObject:
   m_ObjectHideFlags: 0

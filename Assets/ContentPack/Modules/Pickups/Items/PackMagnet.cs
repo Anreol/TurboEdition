@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 //TODO: Consider turning this into a prefab and pack in the sphere search and a mesh renderer
 namespace TurboEdition.Items
@@ -11,11 +12,12 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<Behavior>(stack);
+            body.AddItemBehavior<PackMagnetBehavior>(stack);
         }
-        internal class Behavior : CharacterBody.ItemBehavior
+
+        internal class PackMagnetBehavior : CharacterBody.ItemBehavior
         {
-            private SphereSearch SphereSearch;
+            private SphereSearch sphereSearch;
 
             //private static readonly AnimationCurve colorCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
             private List<Collider> colliders;
@@ -23,36 +25,38 @@ namespace TurboEdition.Items
             private void OnEnable()
             {
                 colliders = new List<Collider>();
-                SphereSearch = new SphereSearch();
-                SphereSearch.origin = body.transform.position;
-                SphereSearch.mask = LayerIndex.entityPrecise.mask;
-                SphereSearch.queryTriggerInteraction = UnityEngine.QueryTriggerInteraction.Collide;
+                sphereSearch = new RoR2.SphereSearch()
+                {
+                    mask = LayerIndex.pickups.mask,
+                    queryTriggerInteraction = UnityEngine.QueryTriggerInteraction.Collide
+                    //We do not need to filter by team as a gravitate pickup OnTriggerEnter already does it
+                };
             }
 
             private void FixedUpdate()
             {
-                SphereSearch.radius = 8f + ((stack - 1) * 4f);
-                //GravitationControllers have sphere colliders to check whenever a player is in radius no matter what... so we can get the GO, then get the component.
-                SphereSearch.RefreshCandidates().OrderCandidatesByDistance().GetColliders(colliders);
+                if (!NetworkServer.active || sphereSearch == null || !body || body.transform.position == null) //Needs to be attatched to a body so we check if its null
+                {
+                    return;
+                }
+                sphereSearch.origin = body.transform.position;
+                sphereSearch.radius = 8f + ((stack - 1) * 4f);
+                //GravitationControllers have sphere colliders to check whenever a player is in radius no matter what...
+                colliders.Clear();
+                sphereSearch.RefreshCandidates().OrderCandidatesByDistance().GetColliders(colliders);
                 foreach (var item in colliders)
                 {
-                    if (item.gameObject.GetComponent<GravitatePickup>())
+                    if (item == null)
+                        return; //How did we get here
+                    GravitatePickup gravitatePickup = item.gameObject.GetComponent<GravitatePickup>();
+                    if (gravitatePickup && gravitatePickup.gravitateTarget == null)
                     {
-                        if (body.gameObject.GetComponent<CapsuleCollider>()) //Could probably clean up to capsuleCollider ? capsule : sphere
+                        if (body.gameObject.GetComponent<Collider>())
                         {
-                            item.gameObject.GetComponent<GravitatePickup>().OnTriggerEnter(body.gameObject.GetComponent<CapsuleCollider>());
-                            if (item.gameObject.GetComponent<GravitatePickup>().rigidbody)
+                            gravitatePickup.OnTriggerEnter(body.gameObject.GetComponent<Collider>());
+                            if (gravitatePickup.rigidbody)
                             {
-                                DuplicateGameObject(item.gameObject.GetComponent<GravitatePickup>().rigidbody.gameObject, item.transform);
-                            }
-                            continue;
-                        }
-                        else if (body.gameObject.GetComponent<SphereCollider>()) //Extra check done because the game does this when creating a body
-                        {
-                            item.gameObject.GetComponent<GravitatePickup>().OnTriggerEnter(body.gameObject.GetComponent<SphereCollider>());
-                            if (item.gameObject.GetComponent<GravitatePickup>().rigidbody)
-                            {
-                                DuplicateGameObject(item.gameObject.GetComponent<GravitatePickup>().rigidbody.gameObject, item.transform);
+                                DuplicateGameObject(gravitatePickup.rigidbody.gameObject, item.transform);
                             }
                         }
                     }
@@ -61,9 +65,14 @@ namespace TurboEdition.Items
 
             private void DuplicateGameObject(GameObject gameObject, Transform transform)
             {
-                if (Util.CheckRoll(5 * stack, body.master.luck))
+                float rawChance = Mathf.Min(stack / 25, 0.5f);
+                if (Util.CheckRoll(rawChance, body.master.luck))
                 {
-                    UnityEngine.Object.Instantiate<GameObject>(gameObject, transform);
+                    Debug.LogWarning("Passed luck check, duplicating.");
+                    GameObject pickup = UnityEngine.Object.Instantiate<GameObject>(gameObject, transform);
+                    GravitatePickup clonedGravitator = pickup.GetComponentInChildren<GravitatePickup>();
+                    clonedGravitator.gravitateTarget = body.transform; 
+                    //Duplicates pickup and makes it gravitate towards you right away, blocking it from getting magnetized and duplicated yet again
                 }
             }
         }

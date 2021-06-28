@@ -211,7 +211,7 @@ namespace TurboEdition.Scripts
                 if (!bouncedBodies.Contains(characterBody))
                 {
                     bouncedBodies.Add(characterBody);
-                    float minDamage = (50 / damageBounce.damageInfo.damage) * 100;
+                    float minDamage = (damageBounce.damageInfo.damage / 50);
                     //float maxDamage = (90 / damageBounce.damageInfo.damage) * 100;
                     damageBounce.damageInfo.damage = Mathf.Lerp(minDamage, damageBounce.damageInfo.damage, linkSeverity);
                     if (characterBody.healthComponent)

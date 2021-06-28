@@ -1,6 +1,7 @@
 ﻿using RoR2;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -10,15 +11,37 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<Behavior>(stack);
+            body.AddItemBehavior<HitlagBehavior>(stack);
         }
 
-        internal class Behavior : CharacterBody.ItemBehavior, IOnIncomingDamageServerReceiver
+        public override void Initialize()
         {
-            //poop public List<HitlagInstance> instanceLists = new List<HitlagInstance>();
-            //unused for now public List<DamageInfo> damageInfos = new List<DamageInfo>();
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+        }
 
-            public void OnIncomingDamageServer(DamageInfo damageInfo)
+        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+            if (damageInfo.rejected)
+            {
+                orig(self, damageInfo);
+                return;
+            }
+            HitlagBehavior itemshit = self.body.GetComponent<HitlagBehavior>();
+            if (itemshit)
+            {
+                itemshit.StoreDamage(orig, self, damageInfo);
+                return;
+            }
+            orig(self, damageInfo);
+            return;
+        }
+
+        internal class HitlagBehavior : CharacterBody.ItemBehavior//, IOnIncomingDamageServerReceiver
+        {
+            public List<HitlagInstance> instanceLists = new List<HitlagInstance>();
+            public List<DamageInfo> damageInfos = new List<DamageInfo>();
+
+            /*public void OnIncomingDamageServer(DamageInfo damageInfo)
             {
                 if (damageInfo.rejected)
                 {
@@ -28,17 +51,16 @@ namespace TurboEdition.Items
                 {
                     return;
                 }
-                StartCoroutine(DelayShit(1 + ((stack - 1) * 0.5f)));
+                //StartCoroutine(DelayShit(1 + ((stack - 1) * 0.5f)));
                 //damageInfos.Add(damageInfo);
                 //damageInfo.
             }
 
-            private IEnumerator DelayShit(float time)
+            /*private IEnumerator DelayShit(float time)
             {
                 yield return new WaitForSeconds(time);
-            }
+            }*/
 
-            /* very poopy
             private void FixedUpdate()
             {
                 if (!NetworkServer.active)
@@ -47,27 +69,42 @@ namespace TurboEdition.Items
                 }
                 if (base.body.healthComponent)
                 {
-                    foreach (var hitlag in instanceLists)
+                    int instanceCount = instanceLists.Count;
+                    for (int i = 0; i < instanceCount; i++)
+                    {
+                        if (instanceLists[i].FixedTimeStamp.timeSince >= stack + ((stack - 1) * 0.5))
+                        {
+                            instanceLists[i].CmpOrig(instanceLists[i].CmpSelf, instanceLists[i].CmpDI);
+                            instanceLists.RemoveAt(i);
+                        }
+                    }
+                    /*foreach (var hitlag in instanceLists)
                     {
                         if (hitlag.FixedTimeStamp.timeSince >= stack + ((stack - 1) * 0.5))
                         {
                             hitlag.CmpOrig(hitlag.CmpSelf, hitlag.CmpDI);
                             instanceLists.Remove(hitlag);
                         }
-                    }
+                    }*/
                 }
             }
 
             private void OnDestroy()
             {
-                On.RoR2.HealthComponent.TakeDamage -= StoreDamage;
+                //On.RoR2.HealthComponent.TakeDamage -= StoreDamage; I dont know the sideeffects of this so dont do it for now.
                 if (base.body.healthComponent)
                 {
-                    foreach (var hitlag in instanceLists)
+                    int instanceCount = instanceLists.Count;
+                    for (int i = 0; i < instanceCount; i++)
+                    {
+                        instanceLists[i].CmpOrig(instanceLists[i].CmpSelf, instanceLists[i].CmpDI);
+                        instanceLists.RemoveAt(i);
+                    }
+                    /*foreach (var hitlag in instanceLists)
                     {
                         hitlag.CmpOrig(hitlag.CmpSelf, hitlag.CmpDI);
                         instanceLists.Remove(hitlag);
-                    }
+                    }*/
                 }
             }
 
@@ -76,11 +113,17 @@ namespace TurboEdition.Items
             {
                 if (base.body.healthComponent)
                 {
-                    foreach (var hitlag in instanceLists)
+                    int instanceCount = instanceLists.Count;
+                    for (int i = 0; i < instanceCount; i++)
+                    {
+                        instanceLists[i].CmpOrig(instanceLists[i].CmpSelf, instanceLists[i].CmpDI);
+                        instanceLists.RemoveAt(i);
+                    }
+                    /*foreach (var hitlag in instanceLists)
                     {
                         hitlag.CmpOrig(hitlag.CmpSelf, hitlag.CmpDI);
                         instanceLists.Remove(hitlag);
-                    }
+                    }*/
                 }
             }
 
@@ -106,12 +149,12 @@ namespace TurboEdition.Items
                         FixedTimeStamp = RoR2.Run.FixedTimeStamp.now
                     };
                     instanceLists.Add(hitlagInstance);
+                    return;
                 }
                 orig(self, damageInfo);
-            }*/
+            }
         }
 
-        /*
         public class HitlagInstance
         {
             private On.RoR2.HealthComponent.orig_TakeDamage cmpOrig; //Orig
@@ -122,6 +165,6 @@ namespace TurboEdition.Items
             public HealthComponent CmpSelf { get => cmpSelf; set => cmpSelf = value; }
             public DamageInfo CmpDI { get => cmpDI; set => cmpDI = value; }
             public Run.FixedTimeStamp FixedTimeStamp { get => fixedTimeStamp; set => fixedTimeStamp = value; }
-        } */
+        }
     }
 }
