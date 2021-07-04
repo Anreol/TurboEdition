@@ -22,10 +22,7 @@ namespace TurboEdition.Items
 
             private void OnEnable()
             {
-                if (!NetworkServer.active)
-                {
-                    return;
-                }
+                if (!NetworkServer.active) return;
                 if (Stage.instance.entryTime.timeSince <= activationWindow && body)
                 {
                     body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("EnvBuff"), 15 + ((stack - 1) * 10));

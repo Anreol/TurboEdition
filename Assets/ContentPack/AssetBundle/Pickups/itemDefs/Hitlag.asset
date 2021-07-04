@@ -13,15 +13,10 @@ MonoBehaviour:
   m_Name: Hitlag
   m_EditorClassIdentifier: 
   tier: 1
-  nameToken: Broken Fiber Cable
-  pickupToken: Delay incoming damage for <style=cIsUtility>{hitlagInitial} seconds</style>.
-    <style=cStack>(+{hitlagStack} second per stack)</style>. Any healing incoming
-    <style=cIsHealing>heals a bit</style> of the delayed damage.
-  descriptionToken: Delay incoming damage for <style=cIsUtility>{hitlagInitial} seconds</style>.
-    <style=cStack>(+{hitlagStack} second per stack)</style>. <style=cIsHealing>Heal
-    for {healValueInitial}</style> <style=cStack>(+{healFractionStack * 100}% per
-    stack) of incoming healing.
-  loreToken: Fuck you I liked it.
+  nameToken: ITEM_HITLAG_NAME
+  pickupToken: ITEM_HITLAG_PICKUP
+  descriptionToken: ITEM_HITLAG_DESC
+  loreToken: ITEM_HITLAG_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 553121620005174921, guid: 4181551b7a3547146aa8deed8a77cfd9,
     type: 3}

@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Collections.Generic;
 
 namespace TurboEdition.Items
 {
@@ -18,16 +19,13 @@ namespace TurboEdition.Items
 
             void IOnTakeDamageServerReceiver.OnTakeDamageServer(DamageReport damageReport)
             {
-                if (!NetworkServer.active)
-                {
-                    return;
-                }
+                if (!NetworkServer.active) return;
                 if (damageReport.attackerBody)
                 {
                     float distance = Vector3.Distance(damageReport.victimBody.transform.position, damageReport.attackerBody.transform.position);
                     if (distance <= detectRadius && stack > body.GetBuffCount(Assets.mainAssetBundle.LoadAsset<BuffDef>("MeleeArmor")))
                     {
-                        body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("MeleeArmor"), 15);
+                        body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("MeleeArmor"), 10);
                     }
                 }
             }

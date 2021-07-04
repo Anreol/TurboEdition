@@ -26,6 +26,16 @@ namespace TurboEdition.Items
                 orig(self, damageInfo);
                 return;
             }
+            if (damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassOneShotProtection)
+            {
+                orig(self, damageInfo);
+                return;
+            }
+            if (damageInfo.dotIndex != DotController.DotIndex.None) //If damage applies any kind of DoT
+            {
+                orig(self, damageInfo);
+                return;
+            }
             HitlagBehavior itemshit = self.body.GetComponent<HitlagBehavior>();
             if (itemshit)
             {
@@ -69,13 +79,13 @@ namespace TurboEdition.Items
                 }
                 if (base.body.healthComponent)
                 {
-                    int instanceCount = instanceLists.Count;
-                    for (int i = 0; i < instanceCount; i++)
+                    var instanceBuffer = instanceLists;
+                    foreach (var item in instanceBuffer)
                     {
-                        if (instanceLists[i].FixedTimeStamp.timeSince >= stack + ((stack - 1) * 0.5))
+                        if (item.FixedTimeStamp.timeSince >= 1 + ((stack - 1) / 2))
                         {
-                            instanceLists[i].CmpOrig(instanceLists[i].CmpSelf, instanceLists[i].CmpDI);
-                            instanceLists.RemoveAt(i);
+                            item.CmpOrig(item.CmpSelf, item.CmpDI);
+                            instanceLists.Remove(item);
                         }
                     }
                     /*foreach (var hitlag in instanceLists)
@@ -94,11 +104,11 @@ namespace TurboEdition.Items
                 //On.RoR2.HealthComponent.TakeDamage -= StoreDamage; I dont know the sideeffects of this so dont do it for now.
                 if (base.body.healthComponent)
                 {
-                    int instanceCount = instanceLists.Count;
-                    for (int i = 0; i < instanceCount; i++)
+                    var instanceBuffer = instanceLists;
+                    foreach (var item in instanceBuffer)
                     {
-                        instanceLists[i].CmpOrig(instanceLists[i].CmpSelf, instanceLists[i].CmpDI);
-                        instanceLists.RemoveAt(i);
+                        item.CmpOrig(item.CmpSelf, item.CmpDI);
+                        instanceLists.Remove(item);
                     }
                     /*foreach (var hitlag in instanceLists)
                     {
@@ -131,16 +141,6 @@ namespace TurboEdition.Items
             {
                 if (body.healthComponent)
                 {
-                    if (damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassOneShotProtection)
-                    {
-                        orig(self, damageInfo);
-                        return;
-                    }
-                    if (damageInfo.dotIndex != DotController.DotIndex.None) //If damage applies any kind of DoT
-                    {
-                        orig(self, damageInfo);
-                        return;
-                    }
                     HitlagInstance hitlagInstance = new HitlagInstance
                     {
                         CmpOrig = orig,

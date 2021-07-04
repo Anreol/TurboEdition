@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: AddTeleporterRadius
   m_EditorClassIdentifier: 
   tier: 0
-  nameToken: Chromatic Lens
-  pickupToken: Increase the teleporter zone
-  descriptionToken: Increase teleporter radius by <style=cIsUtility>{addFirstRadius}
-    meters</style>. <style=cStack>(+{addStackRadius} meters per stack).</style>
-  loreToken: Yet another mod that adds an item that increases Teleporter Radius, how
-    creative are we today huh?
+  nameToken: ITEM_ADDTELEPORTERRADIUS_NAME
+  pickupToken: ITEM_ADDTELEPORTERRADIUS_PICKUP
+  descriptionToken: ITEM_ADDTELEPORTERRADIUS_DESC
+  loreToken: ITEM_ADDTELEPORTERRADIUS_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 553121620005174921, guid: 4181551b7a3547146aa8deed8a77cfd9,
     type: 3}

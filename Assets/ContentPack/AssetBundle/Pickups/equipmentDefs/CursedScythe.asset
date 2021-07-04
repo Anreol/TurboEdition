@@ -15,13 +15,10 @@ MonoBehaviour:
   pickupModelPrefab: {fileID: 553121620005174921, guid: 4181551b7a3547146aa8deed8a77cfd9,
     type: 3}
   cooldown: 120
-  nameToken: Cursed Scythe
-  pickupToken: Target an enemy for massive amount of damage.
-  descriptionToken: Summon a scythe that targets a random enemy and <style=cIsUtility>ignores
-    armor</style> for <style=cIsDamage>{baseMultiplier * 100}% damage</style>. Deals
-    <style=cIsDamage>{enemyMultiplier * 100}% or more damage</style> if <style=cIsUtility>there's
-    more enemies</style>.
-  loreToken: Get on the line!
+  nameToken: EQUIPMENT_CURSEDSCYTHE_NAME
+  pickupToken: EQUIPMENT_CURSEDSCYTHE_PICKUP
+  descriptionToken: EQUIPMENT_CURSEDSCYTHE_DESC
+  loreToken: EQUIPMENT_CURSEDSCYTHE_LORE
   pickupIconSprite: {fileID: 21300000, guid: f0d430dc9f7c50543849a817a72a3419, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5

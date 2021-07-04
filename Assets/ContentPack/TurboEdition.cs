@@ -34,8 +34,18 @@ namespace TurboEdition
 #endif
             Assets.Initialize();
             InitPickups.Initialize();
+            ApplyShaders();
             ContentPackProvider.Initialize();
         }
+
+        public static void ApplyShaders()
+        {
+            var materials = Assets.mainAssetBundle.LoadAllAssets<Material>();
+            foreach (Material material in materials)
+                if (material.shader.name.StartsWith("StubbedShader"))
+                    material.shader = Resources.Load<Shader>("shaders" + material.shader.name.Substring(13));
+        }
+
     }
 
     /* Apparently this is all unused because Ghor didn't finish it....

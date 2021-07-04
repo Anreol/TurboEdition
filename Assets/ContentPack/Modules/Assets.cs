@@ -26,7 +26,8 @@ namespace TurboEdition
             mainAssetBundle = AssetBundle.LoadFromFile(Path.Combine(path, assetBundleName));
             ContentPackProvider.serializedContentPack = mainAssetBundle.LoadAsset<SerializableContentPack>(ContentPackProvider.contentPackName);
         }
-    }
+
+	}
 
 	public class ContentPackProvider : IContentPackProvider
 	{

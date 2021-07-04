@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -66,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Assets.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboItemManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\EnvBonus.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Hitlag.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\ItemDeployerController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\KnifeFan.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MeleeArmor.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnet.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
