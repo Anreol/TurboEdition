@@ -36,7 +36,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553861968085051080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9651566, y: 0.13695443, z: -4.617997}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catalogIndex: -1
-  ghostPrefab: {fileID: 8064915879284518234, guid: 2c5d2527032b40848bfe2d18729ebce9,
+  ghostPrefab: {fileID: 8202156028514425107, guid: 725f00eca56908449bea4232f470b126,
     type: 3}
   ghostTransformAnchor: {fileID: 0}
   startSound: 
@@ -155,10 +155,37 @@ MonoBehaviour:
   desiredForwardSpeed: 160
   lifetime: 10
   updateAfterFiring: 0
-  enableVelocityOverLifetime: 0
+  enableVelocityOverLifetime: 1
   velocityOverLifetime:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.14
+      value: 0.00009153364
+      inSlope: 0
+      outSlope: -0.6027556
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.048941635
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -280,6 +307,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.35000002, z: 0}

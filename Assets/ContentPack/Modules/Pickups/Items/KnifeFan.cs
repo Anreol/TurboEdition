@@ -25,7 +25,7 @@ namespace TurboEdition.Items
 
             private void Body_onSkillActivatedServer(GenericSkill obj)
             {
-                if (!NetworkServer.active) return;
+                //if (!NetworkServer.active) return;
                 Debug.LogWarning("trol");
                 if (body.GetComponent<SkillLocator>().utility == obj)
                 {
