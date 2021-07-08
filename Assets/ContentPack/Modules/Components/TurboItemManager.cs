@@ -6,7 +6,6 @@ namespace TurboEdition
     public class TurboItemManager : MonoBehaviour
     {
         public IStatItemBehavior[] statItemBehaviors = new IStatItemBehavior[] { };
-        public IOnTakeDamageServerReceiver[] onTakeDamageServerReceivers = new IOnTakeDamageServerReceiver[] { };
         private CharacterBody body;
 
         private void Awake()
@@ -22,18 +21,9 @@ namespace TurboEdition
                 item.Value.AddBehavior(ref body, body.inventory.GetItemCount(item.Key.itemIndex));
             foreach (var equipment in InitPickups.equipmentList)
                 equipment.Value.AddBehavior(ref body, System.Convert.ToInt32(body.equipmentSlot?.equipmentIndex == equipment.Value.equipmentDef.equipmentIndex));
-            
-            onTakeDamageServerReceivers = GetComponents<IOnTakeDamageServerReceiver>(); //Grabs all available interfaces, even if its not from this mod. I do not care for now. Saves it to an array for reasons.
-            gameObject.GetComponent<HealthComponent>().onTakeDamageReceivers = onTakeDamageServerReceivers;
 
             statItemBehaviors = GetComponents<IStatItemBehavior>();
         }
-
-        public void CheckForBuffs()
-        {
-            statItemBehaviors = GetComponents<IStatItemBehavior>();
-        }
-
 
         public void CheckEqp(EquipmentDef equipmentDef, bool gainOrLoss)
         {

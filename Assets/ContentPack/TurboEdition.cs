@@ -3,7 +3,7 @@ using UnityEngine;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
-//le frankestein monster born from komrade's item boiler plate and how ss2 is structured
+//Now in Thunderkit!
 
 namespace TurboEdition
 {
@@ -34,8 +34,12 @@ namespace TurboEdition
 #endif
             Assets.Initialize();
             InitPickups.Initialize();
+            InitBuffs.Initialize();
             ApplyShaders();
             ContentPackProvider.Initialize();
+#if DEBUG
+            //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);
+#endif
         }
 
         public static void ApplyShaders()
@@ -45,7 +49,6 @@ namespace TurboEdition
                 if (material.shader.name.StartsWith("StubbedShader"))
                     material.shader = Resources.Load<Shader>("shaders" + material.shader.name.Substring(13));
         }
-
     }
 
     /* Apparently this is all unused because Ghor didn't finish it....

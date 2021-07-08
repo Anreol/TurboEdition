@@ -16,7 +16,6 @@ namespace TurboEdition
     {
         public static Dictionary<ItemDef, Item> itemList = new Dictionary<ItemDef, Item>();
         public static Dictionary<EquipmentDef, Equipment> equipmentList = new Dictionary<EquipmentDef, Equipment>();
-
         public static void Initialize()
         {
             InitializeEquipments();
@@ -67,10 +66,8 @@ namespace TurboEdition
             {
                 var itemManager = body.gameObject.AddComponent<TurboItemManager>();
                 itemManager.CheckForTEItems(); //Initial check, should be useless considering the manager subscribes this method on awake to inventorychange
-                itemManager.CheckForBuffs();
             }
         }
-
         private static void CheckForTurboEqpGain(On.RoR2.CharacterBody.orig_OnEquipmentGained orig, CharacterBody self, EquipmentDef equipmentDef)
         {
             orig(self, equipmentDef);
@@ -102,9 +99,12 @@ namespace TurboEdition
         private static void OnRecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
             var manager = self.GetComponent<TurboItemManager>();
+            var buffManager = self.GetComponent<TurboBuffManager>();
             manager?.RunStatRecalculationsStart();
+            buffManager?.RunStatRecalculationsStart();
             orig(self);
             manager?.RunStatRecalculationsEnd();
+            buffManager?.RunStatRecalculationsEnd();
         }
     }
 }

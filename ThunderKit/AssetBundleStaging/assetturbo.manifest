@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3974234117
+CRC: 3865919933
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: bfe69b7cb2474376012f302877b8e7d9
+    Hash: 0723b12735f293c40c0e58e8d7a82722
   TypeTreeHash:
     serializedVersion: 2
     Hash: 65e5769a714e1fd583d160e31862befe
@@ -102,10 +102,11 @@ Assets:
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/KnifeFan.asset
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/BaneMask.asset
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/DropletDupe.asset
-- Assets/ContentPack/AssetBundle/Misc/InvisibleOutlineMeshHolder.mat
+- Assets/ContentPack/AssetBundle/Materials/InvisibleOutlineMeshHolder.mat
 - Assets/ContentPack/AssetBundle/Mesh/Sphere.asset
 - Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/BaseHandle.mesh
 - Assets/ContentPack/AssetBundle/Artifact/Spite2.asset
+- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUVAlpha.png
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/PackMagnet.asset
 - Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_selected.png
 - Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/PickupGuard.mesh
@@ -117,6 +118,7 @@ Assets:
 - Assets/ContentPack/AssetBundle/Prefabs/BaneMaskPulse.prefab
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/ErrorMat.mat
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/LeaveStage.asset
+- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUVFresnel.png
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_FiberCable.png
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Equipment.png
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Rare.png
@@ -124,32 +126,34 @@ Assets:
 - Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Base.mesh
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Uncommon.png
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Unique.png
+- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUV.png
 - Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/CursedScythe.asset
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/envradio.png
 - Assets/ContentPack/AssetBundle/Prefabs/HellChainNearbyAttachment.prefab
 - Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeFanMat.mat
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/ItemDeployer.asset
-- Assets/ContentPack/AssetBundle/Buff/CannotSprint.asset
+- Assets/ContentPack/AssetBundle/Materials/GenericDustRamp.png
+- Assets/ContentPack/AssetBundle/Buff/BuffCannotSprint.asset
 - Assets/ContentPack/AssetBundle/icon.png
+- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUVEmission.png
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Lunar.png
-- Assets/ContentPack/AssetBundle/Buff/EnvBuff.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffEnvRadio.asset
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Text.mesh
 - Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/_KnifeFan.mesh
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/ContentPack/AssetBundle/Prefabs/Projectiles/KnifeFanGhost.prefab
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUV.png
 - Assets/ContentPack/AssetBundle/Prefabs/Projectiles/KnifeFanProjectile.prefab
 - Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_deselected.png
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/EnvBonus.asset
-- Assets/ContentPack/AssetBundle/Buff/ElectroStatic.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffElectroStatic.asset
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/hellchain_linked.png
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/Hitlag.asset
-- Assets/ContentPack/AssetBundle/Buff/HellLinked.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffHellLinked.asset
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Common.png
-- Assets/ContentPack/AssetBundle/Buff/MeleeArmor.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffMeleeArmor.asset
 - Assets/ContentPack/AssetBundle/Pickups/Prefabs/KnifeFan.prefab
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/nanomachines.png
 Dependencies: []

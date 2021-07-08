@@ -13,9 +13,15 @@ namespace TurboEdition.Items
         {
             body.AddItemBehavior<MeleeArmorBehavior>(stack);
         }
-        internal class MeleeArmorBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver, IStatItemBehavior
+        internal class MeleeArmorBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
             private float detectRadius = 21f;
+
+            private void Start()
+            {
+                if (body.healthComponent)
+                    HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
+            }
 
             void IOnTakeDamageServerReceiver.OnTakeDamageServer(DamageReport damageReport)
             {
@@ -23,20 +29,22 @@ namespace TurboEdition.Items
                 if (damageReport.attackerBody)
                 {
                     float distance = Vector3.Distance(damageReport.victimBody.transform.position, damageReport.attackerBody.transform.position);
-                    if (distance <= detectRadius && stack > body.GetBuffCount(Assets.mainAssetBundle.LoadAsset<BuffDef>("MeleeArmor")))
+                    if (distance <= detectRadius && stack > body.GetBuffCount(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffMeleeArmor")))
                     {
-                        body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("MeleeArmor"), 10);
+                        body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffMeleeArmor"), 10);
                     }
                 }
             }
-
-            public void RecalculateStatsEnd()
+            private void OnDestroy()
             {
-                body.armor += (body.GetBuffCount(Assets.mainAssetBundle.LoadAsset<BuffDef>("MeleeArmor")) * 25);
+                //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.
+                if (body.healthComponent)
+                {
+                    int i = System.Array.IndexOf(body.healthComponent.onIncomingDamageReceivers, this);
+                    if (i > -1)
+                        HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onIncomingDamageReceivers, body.healthComponent.onIncomingDamageReceivers.Length, i);
+                }
             }
-
-            public void RecalculateStatsStart()
-            { }
         }
     }
 }

@@ -66,6 +66,12 @@
   <ItemGroup>
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Assets.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\Buff.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffMeleeArmor.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\MaterialController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\TurboBuffManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboItemManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
@@ -85,7 +91,6 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnet.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Scripts\HellchainLinkNearbyController.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Scripts\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

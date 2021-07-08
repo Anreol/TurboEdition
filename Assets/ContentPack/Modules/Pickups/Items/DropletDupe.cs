@@ -22,13 +22,16 @@ namespace TurboEdition.Items
             private float dupeDelay = 30f;
             private float dropForwardStrength = 2f; //Default is 2
             private bool dupeReady = true;
-
+            private void Start()
+            {
+                if (body.healthComponent)
+                    HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
+            }
             private void OnEnable()
             {
                 PickupDropletController.onDropletHitGroundServer += PickupDropletController_onDropletHitGroundServer;
                 PurchaseInteraction.onItemSpentOnPurchase += PurchaseInteraction_onItemSpentOnPurchase;
             }
-
             private void PurchaseInteraction_onItemSpentOnPurchase(PurchaseInteraction arg1, Interactor arg2)
             {
                 DisableDupingFor(5f, true); //The more you print the less items you get lololo
@@ -89,6 +92,16 @@ namespace TurboEdition.Items
                         return;
                     }
                     dupeDelay = time;
+                }
+            }
+            private void OnDestroy()
+            {
+                //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.
+                if (body.healthComponent)
+                {
+                    int i = System.Array.IndexOf(body.healthComponent.onIncomingDamageReceivers, this);
+                    if (i > -1)
+                        HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onIncomingDamageReceivers, body.healthComponent.onIncomingDamageReceivers.Length, i);
                 }
             }
         }

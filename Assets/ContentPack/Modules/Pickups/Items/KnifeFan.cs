@@ -11,30 +11,33 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<KnifeFanBehavior>(stack);
+            body.AddItemBehavior<KnifeFanBehaviour>(stack);
         }
 
-        internal class KnifeFanBehavior : CharacterBody.ItemBehavior
+        internal class KnifeFanBehaviour : CharacterBody.ItemBehavior
         {
-            GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("KnifeFanProjectile");
-            private void OnEnable()
+            private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("KnifeFanProjectile");
+            private void Start() //On Start since we need to subscribe to the body, ANYTHING THAT HAS TO DO WITH BODIES, CANNOT BE ON AWAKE() OR ONENABLE()
             {
-                Debug.LogWarning("woke");
-                body.onSkillActivatedServer += Body_onSkillActivatedServer;
+                if (!body)
+                {
+                    Debug.LogWarning("Body not available or does not exist.");
+                    return;
+                }
+                base.body.onSkillActivatedServer += Body_onSkillActivatedServer;
             }
 
             private void Body_onSkillActivatedServer(GenericSkill obj)
             {
-                //if (!NetworkServer.active) return;
-                Debug.LogWarning("trol");
+                if (!NetworkServer.active) return;
                 if (body.GetComponent<SkillLocator>().utility == obj)
                 {
-                    Debug.LogWarning("trolo");
+                    Debug.LogWarning("Skill was utility!");
                     float y = Quaternion.LookRotation(body.GetComponent<TurboItemManager>().GetAimRay().direction).eulerAngles.y;
                     float distance = 3f; //How away it will spawn from the body
                     foreach (float num2 in new DegreeSlices(2 + (stack - 1), 0.5f))
                     {
-                        Debug.LogWarning("trololo");
+                        Debug.LogWarning("Spawning a knife.");
                         Quaternion rotation = Quaternion.Euler(0f, y + num2, 0f);
                         Quaternion rotation2 = Quaternion.Euler(0f, y + num2 + 180f, 0f);
                         Vector3 position = transform.position + rotation * (Vector3.forward * distance);
@@ -50,7 +53,7 @@ namespace TurboEdition.Items
                         };
                         ProjectileManager.instance.FireProjectile(fireProjectileInfo);
                     }
-                    Debug.LogWarning("trolololo");
+                    Debug.LogWarning("Done.");
                 }
             }
         }
