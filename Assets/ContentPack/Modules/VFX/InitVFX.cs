@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using RoR2;
 using UnityEngine;
 
+using TemporaryVFX = TurboEdition.TempVFX.TemporaryVFX;
+
 namespace TurboEdition
 {
     class InitVFX
     {
-        public static Dictionary<TemporaryVisualEffect, GameObject> temporaryVfx = new Dictionary<TemporaryVisualEffect, GameObject>();
+        public static Dictionary<TemporaryVFX, GameObject> temporaryVfx = new Dictionary<TemporaryVFX, GameObject>();
         public static TemporaryOverlay[] temporaryOverlays = new TemporaryOverlay[] { };
         public static void Initialize()
         {
@@ -18,14 +21,33 @@ namespace TurboEdition
             InitializeOverlays();
 
             CharacterBody.onBodyStartGlobal += AddVFXManager;
+            SceneCamera.onSceneCameraPreRender += SceneCamera_onSceneCameraPreRender;
+        }
+
+        private static void SceneCamera_onSceneCameraPreRender(SceneCamera sceneCamera)
+        {
+            if (sceneCamera.cameraRigController)
+            {
+                foreach (TurboVFXManager vFXManager in InstanceTracker.GetInstancesList<TurboVFXManager>())
+                {
+
+                }
+            }
         }
 
         private static void InitializeVfx()
         {
-            TemporaryVisualEffect[] vfxBuffer = Assets.mainAssetBundle.LoadAllAssets<TemporaryVisualEffect>();
-            foreach (var item in vfxBuffer)
+            var VFXTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(TemporaryVFX)));
+            foreach (var item in VFXTypes)
             {
-                temporaryVfx.Add(item, item.gameObject);
+                TemporaryVFX vfx = (TemporaryVFX)System.Activator.CreateInstance(item);
+                if (!vfx.temporaryVisualEffect)
+                {
+                    Debug.LogError("TempVFX " + vfx + " is missing the visual effect. Check Unity Project. Skipping.");
+                    continue;
+                }
+                vfx.Initialize();
+                temporaryVfx.Add(vfx, vfx.temporaryVisualEffect.gameObject);
             }
         }
 
@@ -33,5 +55,14 @@ namespace TurboEdition
         {
             temporaryOverlays = Assets.mainAssetBundle.LoadAllAssets<TemporaryOverlay>();
         }
+
+        private static void AddVFXManager(CharacterBody body)
+        {
+            if (body && body.modelLocator)
+            {
+                var vfxManager = body.gameObject.AddComponent<TurboVFXManager>();
+            }
+        }
+
     }
 }
