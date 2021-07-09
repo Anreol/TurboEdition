@@ -101,7 +101,7 @@ namespace TurboEdition
             var manager = self.GetComponent<TurboItemManager>();
             var buffManager = self.GetComponent<TurboBuffManager>();
             manager?.RunStatRecalculationsStart();
-            buffManager?.RunStatRecalculationsStart();
+            buffManager?.RunStatRecalculationsStart(self);
             orig(self);
             manager?.RunStatRecalculationsEnd();
             buffManager?.RunStatRecalculationsEnd();

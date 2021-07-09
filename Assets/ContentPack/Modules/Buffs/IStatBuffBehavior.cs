@@ -3,8 +3,8 @@ namespace TurboEdition
 {
     public interface IStatBuffBehavior
     {
-        void RecalculateStatsEnd(ref CharacterBody characterBody);
+        void RecalculateStatsEnd();
 
-        void RecalculateStatsStart();
+        void RecalculateStatsStart(ref CharacterBody characterBody);
     }
 }

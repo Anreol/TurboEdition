@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3865919933
+CRC: 1011582108
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0723b12735f293c40c0e58e8d7a82722
+    Hash: 6acaf86ee6a0355a49d4ed96153b8009
   TypeTreeHash:
     serializedVersion: 2
     Hash: 65e5769a714e1fd583d160e31862befe
@@ -139,7 +139,7 @@ Assets:
 - Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUVEmission.png
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Lunar.png
-- Assets/ContentPack/AssetBundle/Buff/BuffEnvRadio.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffEnvBonus.asset
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Text.mesh
 - Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/_KnifeFan.mesh
 - Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Scythe.png
@@ -147,7 +147,7 @@ Assets:
 - Assets/ContentPack/AssetBundle/Prefabs/Projectiles/KnifeFanProjectile.prefab
 - Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_deselected.png
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/EnvBonus.asset
-- Assets/ContentPack/AssetBundle/Buff/BuffElectroStatic.asset
+- Assets/ContentPack/AssetBundle/Buff/BuffElectrostatic.asset
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetBundle/Buff/BuffSprites/hellchain_linked.png
 - Assets/ContentPack/AssetBundle/Pickups/itemDefs/Hitlag.asset

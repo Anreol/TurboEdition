@@ -9,14 +9,11 @@ namespace TurboEdition
     internal class TurboBuffManager : MonoBehaviour
     {
         public IStatBuffBehavior[] statBuffBehaviors = new IStatBuffBehavior[] { };
-
-        //public Buff[] detectedBuffs = new Buff[] { };
         private CharacterBody body;
 
         private void Awake()
         {
             body = gameObject.GetComponent<CharacterBody>();
-            Debug.LogWarning("Hello! " + body);
         }
 
         public void CheckForBuffs()
@@ -24,26 +21,23 @@ namespace TurboEdition
             foreach (var buffRef in InitBuffs.buffList)
             {
                 int count = body.GetBuffCount(buffRef.Key);
-                Debug.LogWarning("Check check! " + count);
                 buffRef.Value.AddBehavior(ref body, count);
                 buffRef.Value.UpdateBuff(ref body, count);
             }
             statBuffBehaviors = GetComponents<IStatBuffBehavior>();
         }
 
-        public void OnBuffFinalStackLost(Buff buff)
-        {
-            /*int i = System.Array.IndexOf(detectedBuffs, buff);
-            if (i > -1)
-                HG.ArrayUtils.ArrayRemoveAtAndResize(ref detectedBuffs, detectedBuffs.Length, i);*/
-        }
-
-        public void RunStatRecalculationsStart()
+        public void RunStatRecalculationsStart(CharacterBody self)
         {
             foreach (var statBehavior in statBuffBehaviors)
-                statBehavior.RecalculateStatsStart();
+                statBehavior.RecalculateStatsStart(ref self);
             foreach (var buffRef in InitBuffs.buffList)
-                buffRef.Value.RecalcStatsStart(ref body);
+            {
+                if (body.HasBuff(buffRef.Key))
+                {
+                    buffRef.Value.RecalcStatsStart(ref self);
+                }
+            }
         }
 
         public void RunStatRecalculationsEnd()
@@ -51,7 +45,12 @@ namespace TurboEdition
             foreach (var statBehavior in statBuffBehaviors)
                 statBehavior.RecalculateStatsEnd();
             foreach (var buffRef in InitBuffs.buffList)
-                buffRef.Value.RecalcStatsEnd(ref body);
+            {
+                if (body.HasBuff(buffRef.Key))
+                {
+                    buffRef.Value.RecalcStatsEnd(ref body);
+                }
+            }
         }
     }
 }

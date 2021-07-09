@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -67,12 +68,17 @@
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Assets.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\Buff.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffCannotSprint.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffElectrostatic.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffEnvBonus.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffHellLinked.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffMeleeArmor.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboBuffManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboItemManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\TurboVFXManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\Hellchain.cs" />
@@ -91,6 +97,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnet.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Scripts\HellchainLinkNearbyController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\VFX\InitVFX.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
