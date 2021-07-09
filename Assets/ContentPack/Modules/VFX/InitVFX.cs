@@ -14,11 +14,11 @@ namespace TurboEdition
     class InitVFX
     {
         public static Dictionary<TemporaryVFX, GameObject> temporaryVfx = new Dictionary<TemporaryVFX, GameObject>();
-        public static TemporaryOverlay[] temporaryOverlays = new TemporaryOverlay[] { };
+        //public static TemporaryOverlay[] temporaryOverlays = new TemporaryOverlay[] { };
         public static void Initialize()
         {
             InitializeVfx();
-            InitializeOverlays();
+            //InitializeOverlays();
 
             CharacterBody.onBodyStartGlobal += AddVFXManager;
             SceneCamera.onSceneCameraPreRender += SceneCamera_onSceneCameraPreRender;
@@ -30,7 +30,7 @@ namespace TurboEdition
             {
                 foreach (TurboVFXManager vFXManager in InstanceTracker.GetInstancesList<TurboVFXManager>())
                 {
-
+                    vFXManager.UpdateForCamera(sceneCamera.cameraRigController);
                 }
             }
         }
@@ -51,10 +51,10 @@ namespace TurboEdition
             }
         }
 
-        private static void InitializeOverlays()
+        /*private static void InitializeOverlays()
         {
             temporaryOverlays = Assets.mainAssetBundle.LoadAllAssets<TemporaryOverlay>();
-        }
+        }*/
 
         private static void AddVFXManager(CharacterBody body)
         {
