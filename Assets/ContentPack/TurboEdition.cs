@@ -35,6 +35,7 @@ namespace TurboEdition
             Assets.Initialize();
             InitPickups.Initialize();
             InitBuffs.Initialize();
+            InitVFX.Initialize();
             ApplyShaders();
             ContentPackProvider.Initialize();
 #if DEBUG

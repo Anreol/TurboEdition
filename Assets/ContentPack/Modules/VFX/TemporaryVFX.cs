@@ -14,7 +14,7 @@ namespace TurboEdition.TempVFX
 {
     public abstract class TemporaryVFX
     {
-        public abstract TemporaryVisualEffect temporaryVisualEffect { get; set; }
+        public abstract GameObject tempVfxRootGO { get; set; }
         public virtual void Initialize()
         {
         }

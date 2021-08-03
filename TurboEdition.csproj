@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -98,8 +97,9 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Scripts\HellchainLinkNearbyController.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\InitVFX.cs" />
-    <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\DeathCards.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TemporaryVFX.cs" />
+    <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDeathCards.cs" />
+    <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDummy1.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

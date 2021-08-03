@@ -7,7 +7,7 @@ namespace TurboEdition
 {
     internal class TurboVFXManager : MonoBehaviour
     {
-        private TemporaryVisualEffect[] tempVisualEffects = new TemporaryVisualEffect[] { };
+        private TemporaryVisualEffect[] tempVisualEffects; //= new TemporaryVisualEffect[] { };
         private CharacterBody body;
         private CharacterModel model;
 
@@ -15,11 +15,12 @@ namespace TurboEdition
         {
             body = gameObject.GetComponent<CharacterBody>();
             model = gameObject.GetComponent<ModelLocator>().modelTransform.gameObject.GetComponent<CharacterModel>();
-            TemporaryVFX[] tempVfx = InitVFX.temporaryVfx.Keys.ToArray();
+            tempVisualEffects = new TemporaryVisualEffect[InitVFX.temporaryVfx.Count];
+            /*TemporaryVFX[] tempVfx = InitVFX.temporaryVfx.Keys.ToArray();
             foreach (var item in tempVfx)
             {
-                HG.ArrayUtils.ArrayAppend(ref tempVisualEffects, item.temporaryVisualEffect);
-            }
+                HG.ArrayUtils.ArrayAppend(ref tempVisualEffects, item.tempVfxRootGO.GetComponent<TemporaryVisualEffect>());
+            }*/
         }
         private void OnEnable()
         {
@@ -51,7 +52,9 @@ namespace TurboEdition
             for (int i = 0; i < tempVisualEffects.Length; i++)
             {
                 TemporaryVFX vFX = InitVFX.temporaryVfx.Keys.ElementAt(i);
+                Debug.LogWarning("Updating " + vFX);
                 UpdateSingleTemporaryVisualEffect(ref tempVisualEffects[i], InitVFX.temporaryVfx.Values.ElementAt(i), vFX.GetEffectRadius(ref body), vFX.IsEnabled(ref body), vFX.GetChildOverride(ref body));
+                Debug.LogWarning("Updated " + tempVisualEffects[i] + " " + InitVFX.temporaryVfx.Values.ElementAt(i) + " " + vFX.GetEffectRadius(ref body) + " " + vFX.IsEnabled(ref body) + " " + vFX.GetChildOverride(ref body) + " ");
             }
         }
 
@@ -72,13 +75,17 @@ namespace TurboEdition
         //Temporary VFX Updater, gets the state of the VFX (That's why is passed by ref + stored per component) and if it has to be active, instantiates the gameobject prefab.
         private void UpdateSingleTemporaryVisualEffect(ref TemporaryVisualEffect tempEffect, GameObject prefab, float effectRadius, bool active, string childLocatorOverride = "")
         {
+            Debug.LogWarning(tempEffect + " = tempEffect; " + prefab + " = Prefab; " + effectRadius + " = Radius; " + active + " = active; " + childLocatorOverride);
             bool flag = tempEffect != null;
             if (flag != active)
             {
+                Debug.LogWarning("Passed check 1");
                 if (active)
                 {
+                    Debug.LogWarning("Passed check 2");
                     if (!flag)
                     {
+                        Debug.LogWarning("Passed check 3");
                         GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(prefab, body.corePosition, Quaternion.identity);
                         tempEffect = gameObject.GetComponent<TemporaryVisualEffect>();
                         tempEffect.parentTransform = body.coreTransform;

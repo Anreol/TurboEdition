@@ -22,6 +22,7 @@ namespace TurboEdition.Items
             private float dupeDelay = 30f;
             private float dropForwardStrength = 2f; //Default is 2
             private bool dupeReady = true;
+            public bool suicideReady = false;
             private void Start()
             {
                 if (body.healthComponent)
@@ -48,11 +49,17 @@ namespace TurboEdition.Items
             }
             public void OnTakeDamageServer(DamageReport damageReport)
             {
-                Debug.LogWarning("poo");
                 if (!NetworkServer.active) return;
                 if (damageReport.isFallDamage || damageReport.dotType != DotController.DotIndex.None) return;
-                if (Util.CheckRoll(3f * stack, -body.master.luck) && body.healthComponent)
+                if (Util.CheckRoll(3f * stack, -body.master.luck) && body.healthComponent && !suicideReady)
                 {
+                    Debug.LogWarning("Rolled for death");
+                    suicideReady = true;
+                    if (body.master)
+                    {
+                        body.master.gameObject.AddComponent<MasterSuicideOnTimer>().lifeTimer = 10 + UnityEngine.Random.Range(0f, 8f);
+                    }
+                    else
                     body.healthComponent.Suicide(damageReport.attacker, damageReport.attacker, DamageType.VoidDeath);
                 }
             }

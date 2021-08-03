@@ -41,13 +41,13 @@ namespace TurboEdition
             foreach (var item in VFXTypes)
             {
                 TemporaryVFX vfx = (TemporaryVFX)System.Activator.CreateInstance(item);
-                if (!vfx.temporaryVisualEffect)
+                if (!vfx.tempVfxRootGO)
                 {
-                    Debug.LogError("TempVFX " + vfx + " is missing the visual effect. Check Unity Project. Skipping.");
+                    Debug.LogError("TempVFX " + vfx + " is missing the visual effect root GameObject. Check Unity Project. Skipping.");
                     continue;
                 }
                 vfx.Initialize();
-                temporaryVfx.Add(vfx, vfx.temporaryVisualEffect.gameObject);
+                temporaryVfx.Add(vfx, vfx.tempVfxRootGO);
             }
         }
 
@@ -60,7 +60,7 @@ namespace TurboEdition
         {
             if (body && body.modelLocator)
             {
-                var vfxManager = body.gameObject.AddComponent<TurboVFXManager>();
+                //var vfxManager = body.gameObject.AddComponent<TurboVFXManager>();
             }
         }
 

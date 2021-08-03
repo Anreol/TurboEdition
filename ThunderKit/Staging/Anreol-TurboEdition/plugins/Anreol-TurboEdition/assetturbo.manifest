@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1011582108
+CRC: 1913298507
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6acaf86ee6a0355a49d4ed96153b8009
+    Hash: 2b1ad08d55cf50b9de6bd2d3ad056ab0
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 65e5769a714e1fd583d160e31862befe
+    Hash: 5e7f31ee7b13be7286fbdc1d257fd3e5
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -44,6 +44,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1788389205, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 1080798252, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -54,7 +56,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -1122936093, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -432102721, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1848696948, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -80,9 +86,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -1561644061, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -408685376, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -662483879, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
+- Class: 114
+  Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
   Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
@@ -98,62 +110,66 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/MeleeArmor.asset
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/KnifeFan.asset
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/BaneMask.asset
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/DropletDupe.asset
-- Assets/ContentPack/AssetBundle/Materials/InvisibleOutlineMeshHolder.mat
-- Assets/ContentPack/AssetBundle/Mesh/Sphere.asset
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/BaseHandle.mesh
-- Assets/ContentPack/AssetBundle/Artifact/Spite2.asset
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUVAlpha.png
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/PackMagnet.asset
-- Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_selected.png
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/PickupGuard.mesh
-- Assets/ContentPack/AssetBundle/Prefabs/HellChainTetherVFX.prefab
+- Assets/ContentPack/AssetTurbo/ItemDefs/MeleeArmor.asset
+- Assets/ContentPack/AssetTurbo/ItemDefs/KnifeFan.asset
+- Assets/ContentPack/AssetTurbo/ItemDefs/BaneMask.asset
+- Assets/ContentPack/AssetTurbo/ItemDefs/DropletDupe.asset
+- Assets/Materials/matInvisibleOutlineMeshHolder.mat
+- Assets/Mesh/Sphere.asset
+- Assets/Mesh/Items/meshKnifeHandle.mesh
+- Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2.asset
+- Assets/Textures/texKnifeUVAlpha.png
+- Assets/ContentPack/AssetTurbo/ItemDefs/PackMagnet.asset
+- Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_selected.png
+- Assets/Mesh/Items/meshKnifeGuard.mesh
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/HellChainTetherVFX.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTonicTest.prefab
 - Assets/Hopoo/shaders/deferred/hgstandard.shader
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/BaseBlade.mesh
-- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/Hellchain.asset
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Boss.png
-- Assets/ContentPack/AssetBundle/Prefabs/BaneMaskPulse.prefab
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/ErrorMat.mat
-- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/LeaveStage.asset
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUVFresnel.png
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_FiberCable.png
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Equipment.png
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Rare.png
-- Assets/ContentPack/AssetBundle/ContentPack.asset
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Base.mesh
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Uncommon.png
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Unique.png
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUV.png
-- Assets/ContentPack/AssetBundle/Pickups/equipmentDefs/CursedScythe.asset
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Hellchain.png
-- Assets/ContentPack/AssetBundle/Buff/BuffSprites/envradio.png
-- Assets/ContentPack/AssetBundle/Prefabs/HellChainNearbyAttachment.prefab
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeFanMat.mat
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/ItemDeployer.asset
-- Assets/ContentPack/AssetBundle/Materials/GenericDustRamp.png
-- Assets/ContentPack/AssetBundle/Buff/BuffCannotSprint.asset
-- Assets/ContentPack/AssetBundle/icon.png
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/Materials/KnifeUVEmission.png
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/ErrorPrefab.prefab
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Lunar.png
-- Assets/ContentPack/AssetBundle/Buff/BuffEnvBonus.asset
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Text.mesh
-- Assets/ContentPack/AssetBundle/Pickups/Mesh/FanBlade/_KnifeFan.mesh
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Scythe.png
-- Assets/ContentPack/AssetBundle/Prefabs/Projectiles/KnifeFanGhost.prefab
-- Assets/ContentPack/AssetBundle/Prefabs/Projectiles/KnifeFanProjectile.prefab
-- Assets/ContentPack/AssetBundle/Artifact/ArtifactSprites/spite2_deselected.png
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/EnvBonus.asset
-- Assets/ContentPack/AssetBundle/Buff/BuffElectrostatic.asset
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/AddTeleporterRadius.asset
-- Assets/ContentPack/AssetBundle/Buff/BuffSprites/hellchain_linked.png
-- Assets/ContentPack/AssetBundle/Pickups/itemDefs/Hitlag.asset
-- Assets/ContentPack/AssetBundle/Buff/BuffHellLinked.asset
-- Assets/ContentPack/AssetBundle/Misc/Placeholder/Placeholder_Common.png
-- Assets/ContentPack/AssetBundle/Buff/BuffMeleeArmor.asset
-- Assets/ContentPack/AssetBundle/Pickups/Prefabs/KnifeFan.prefab
-- Assets/ContentPack/AssetBundle/Buff/BuffSprites/nanomachines.png
+- Assets/Mesh/Items/meshKnifeBlade.mesh
+- Assets/ContentPack/AssetTurbo/EquipmentDefs/Hellchain.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxDeathCards.prefab
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
+- Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
+- Assets/ContentPack/AssetTurbo/EquipmentDefs/LeaveStage.asset
+- Assets/Textures/texKnifeUVFresnel.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Rare.png
+- Assets/ContentPack/AssetTurbo/ContentPack.asset
+- Assets/Mesh/Items/meshKnifeBase.mesh
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Uncommon.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
+- Assets/Textures/texKnifeUV.png
+- Assets/ContentPack/AssetTurbo/EquipmentDefs/CursedScythe.asset
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
+- Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
+- Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/HellChainNearbyAttachment.prefab
+- Assets/Materials/matKnife.mat
+- Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
+- Assets/Textures/Ramps/texGenericDustRamp.png
+- Assets/ContentPack/AssetTurbo/BuffDefs/BuffCannotSprint.asset
+- Assets/ContentPack/AssetTurbo/icon.png
+- Assets/Textures/texKnifeUVEmission.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lunar.png
+- Assets/ContentPack/AssetTurbo/BuffDefs/BuffEnvBonus.asset
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Text.mesh
+- Assets/Mesh/Items/meshKnife_.mesh
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
+- Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab
+- Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
+- Assets/ContentPack/AssetTurbo/ItemDefs/EnvBonus.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupDisplays/VFX/Materials/matCardTest.mat
+- Assets/ContentPack/AssetTurbo/BuffDefs/BuffElectrostatic.asset
+- Assets/ContentPack/AssetTurbo/ItemDefs/AddTeleporterRadius.asset
+- Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupDisplays/VFX/Materials/texCardTest.png
+- Assets/ContentPack/AssetTurbo/ItemDefs/Hitlag.asset
+- Assets/ContentPack/AssetTurbo/BuffDefs/BuffHellLinked.asset
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png
+- Assets/ContentPack/AssetTurbo/BuffDefs/BuffMeleeArmor.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/KnifeFan.prefab
+- Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/nanomachines.png
 Dependencies: []
