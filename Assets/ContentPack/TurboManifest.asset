@@ -32,7 +32,7 @@ MonoBehaviour:
   Errored: 0
   ErrorMessage: 
   StagingPaths:
-  - <ManifestPluginStaging>
+  - <BuildPath>
   definitions:
   - {fileID: 5897886265953266890, guid: 92321e1e984a56941b638bfa92d9a0ef, type: 3}
 --- !u!114 &114211852988908172
@@ -73,7 +73,7 @@ MonoBehaviour:
   Errored: 0
   ErrorMessage: 
   StagingPaths:
-  - <ManifestPluginStaging>
+  - <BuildPathAssets>
   assetBundles:
   - assetBundleName: assetTurbo
     assets:

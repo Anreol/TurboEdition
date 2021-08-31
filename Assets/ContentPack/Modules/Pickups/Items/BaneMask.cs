@@ -93,11 +93,11 @@ namespace TurboEdition.Items
                     HealthComponent hc = (HealthComponent)hitInfo.hitObject;
                     if (TeamManager.IsTeamEnemy(hc.body.teamComponent.teamIndex, body.teamComponent.teamIndex))
                     {
-                        if (BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffFear"))) //Lazy to check for SS2 installation, check if catalog has fear in
+                        /*if (BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffFear"))) //Lazy to check for SS2 installation, check if catalog has fear in
                         {
                             hc.body.AddTimedBuff(BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffFear")), (4 + stack) * hitInfo.hitSeverity);
                             return;
-                        }
+                        }*/
                         hc.body.AddTimedBuff(RoR2Content.Buffs.Cripple, (4 + stack) * hitInfo.hitSeverity);
                         return;
                     }

@@ -6,11 +6,11 @@ namespace TurboEdition.Buffs
     public class BuffHellLinked : Buff
     {
         public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffHellLinked");
-        public static BuffDef buff;
+
 
         public override void Initialize()
         {
-            buff = buffDef;
+
         }
 
         public override void BuffStep(ref CharacterBody body, int stack)

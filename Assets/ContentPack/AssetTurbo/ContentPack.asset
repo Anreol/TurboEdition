@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPrefabs: []
   masterPrefabs: []
-  projectilePrefabs: []
+  projectilePrefabs:
+  - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs: []
   skillDefs: []

@@ -46,15 +46,5 @@ namespace TurboEdition
             foreach (var statBehavior in statItemBehaviors)
                 statBehavior.RecalculateStatsEnd();
         }
-
-        public Ray GetAimRay()
-        {
-            return new Ray
-            {
-                direction = body.inputBank.aimDirection,
-                origin = body.inputBank.aimOrigin
-            };
-        }
-
     }
 }

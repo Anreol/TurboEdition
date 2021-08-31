@@ -1,22 +1,23 @@
 ﻿using BepInEx;
 using UnityEngine;
+using RoR2.ContentManagement;
+using RoR2;
+using System.Linq;
+using System.Collections.Generic;
+using System.Collections;
+using System.Collections.ObjectModel;
+using System.IO;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
 //Now in Thunderkit!
+//Mod wouldnt be possible without Kevin and his contributions to SS2!
 
 namespace TurboEdition
 {
-    [BepInDependency("com.bepis.r2api")]
-    //[NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(ModGuid, ModIdentifier, ModVer)]
 
-    //SS2 soft dependency
-    [BepInDependency("com.TeamMoonstorm.Starstorm2", BepInDependency.DependencyFlags.SoftDependency)]
-    //[BepInDependency("com.niwith.DropInMultiplayer", BepInDependency.DependencyFlags.SoftDependency)]
-    //[BepInDependency("com.DestroyedClone.AncientScepter", BepInDependency.DependencyFlags.SoftDependency)]
-
-    public class TurboEdition : BaseUnityPlugin
+    public class TurboEdition : BaseUnityPlugin, IContentPackProvider
     {
         internal const string ModVer =
 #if DEBUG
@@ -27,30 +28,96 @@ namespace TurboEdition
         internal const string ModIdentifier = "TurboEdition";
         internal const string ModGuid = "com.Anreol." + ModIdentifier;
 
+        public static TurboEdition instance;
+        public static PluginInfo pluginInfo;
+        public static SerializableContentPack serializableContentPack;
+        public string identifier
+        {
+            get
+            {
+                return ModGuid;
+            }
+        }
+
         public void Awake()
         {
 #if DEBUG
             Debug.LogWarning("Running TurboEdition DEBUG build. PANIC!");
 #endif
-            Assets.Initialize();
-            InitPickups.Initialize();
-            InitBuffs.Initialize();
-            InitVFX.Initialize();
-            ApplyShaders();
-            ContentPackProvider.Initialize();
+            pluginInfo = Info;
+            instance = this;
+            ContentManager.collectContentPackProviders += (addContentPackProvider) => addContentPackProvider(this);
+
 #if DEBUG
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);
 #endif
         }
 
-        public static void ApplyShaders()
+        public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
-            var materials = Assets.mainAssetBundle.LoadAllAssets<Material>();
-            foreach (Material material in materials)
-                if (material.shader.name.StartsWith("StubbedShader"))
-                    material.shader = Resources.Load<Shader>("shaders" + material.shader.name.Substring(13));
+            List<AssetBundle> loadedBundles = new List<AssetBundle>();
+            //AssetBundles
+            var bundlePaths = Assets.GetAssetBundlePaths();
+            int num;
+            for (int i = 0; i < bundlePaths.Length; i = num)
+            {
+                var bundleLoadRequest = AssetBundle.LoadFromFileAsync(bundlePaths[i]);
+                while (!bundleLoadRequest.isDone)
+                {
+                    args.ReportProgress(Util.Remap(bundleLoadRequest.progress + i, 0f, bundlePaths.Length, 0f, 0.8f));
+                    yield return null;
+                }
+                num = i + 1;
+                loadedBundles.Add(bundleLoadRequest.assetBundle);
+            }
+            Assets.assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
+
+            serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
+            Assets.Init();
+            InitPickups.Initialize();
+            InitBuffs.Initialize();
+            GetType().Assembly.GetTypes()
+                              .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
+                              .ToList()
+                              .ForEach(state => HG.ArrayUtils.ArrayAppend(ref serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+
+            args.ReportProgress(1f);
+
+            if (onLoadStaticContent != null)
+                yield return onGenerateContentPack;
+            yield break;
+
         }
+        public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
+        {
+            //NOTE: For some reason any instructions that are put inside of here are done twice. This will cause serious errors if you do not watch out.
+
+            ContentPack contentPack = serializableContentPack.CreateContentPack();
+            contentPack.identifier = identifier;
+            ContentPack.Copy(contentPack, args.output);
+
+            args.ReportProgress(1f);
+            if (onGenerateContentPack != null)
+                yield return onGenerateContentPack;
+            yield break;
+        }
+        public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
+        {
+            args.ReportProgress(1f);
+            yield break;
+        }
+        public static LoadStaticContentAsyncDelegate onLoadStaticContent { get; set; }
+        public static GenerateContentPackAsyncDelegate onGenerateContentPack { get; set; }
+        public static FinalizeAsyncDelegate onFinalizeAsync { get; set; }
+
+
+        public delegate IEnumerator LoadStaticContentAsyncDelegate(LoadStaticContentAsyncArgs args);
+        public delegate IEnumerator GenerateContentPackAsyncDelegate(GetContentPackAsyncArgs args);
+        public delegate IEnumerator FinalizeAsyncDelegate(FinalizeAsyncArgs args);
     }
+
+
+
 
     /* Apparently this is all unused because Ghor didn't finish it....
      * leaving it just in case tho...

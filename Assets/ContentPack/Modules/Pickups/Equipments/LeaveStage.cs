@@ -1,4 +1,6 @@
 ﻿using RoR2;
+using UnityEngine.Networking;
+using UnityEngine;
 
 namespace TurboEdition.Equipments
 {
@@ -6,22 +8,32 @@ namespace TurboEdition.Equipments
     {
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("LeaveStage");
 
-        private bool canLeave = true;
+        private static bool canLeave = true;
+        public override void Initialize()
+        {
+            Stage.onStageStartGlobal += Stage_onStageStartGlobal;
+            SceneExitController.onBeginExit += ListenToSceneExitController;
+        }
+
+        private void Stage_onStageStartGlobal(Stage obj)
+        {
+            if (!NetworkServer.active) return;
+            canLeave = true;
+        }
+
         public override bool FireAction(EquipmentSlot slot)
         {
-            SceneExitController.onBeginExit += SceneExitController_onBeginExit;
             if (canLeave)
             {
-                SceneExitController.onBeginExit -= SceneExitController_onBeginExit; //I dunno bout this. Meant to unsubscribe after equipment use because i do not know if they stack per use.
                 return UseThingie();
             }
-            SceneExitController.onBeginExit -= SceneExitController_onBeginExit;
             return false;
         }
         public bool UseThingie()
         {
-            SceneExitController sceneExitController = new SceneExitController();
-            sceneExitController = UnityEngine.Object.Instantiate<SceneExitController>(sceneExitController);
+            GameObject sceneExitGo = new GameObject("SceneExitLeaveStageEquip");
+            sceneExitGo.AddComponent<SceneExitController>();
+            SceneExitController sceneExitController = UnityEngine.Object.Instantiate<GameObject>(sceneExitGo).GetComponent<SceneExitController>();
             InstanceTracker.Add(sceneExitController); //Add it for the sake of consistency
             sceneExitController.useRunNextStageScene = true; //True by default
             if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) //Is anniversary moon. Do not know how to get it in a better way.
@@ -43,9 +55,9 @@ namespace TurboEdition.Equipments
             return false;
         }
 
-        private void SceneExitController_onBeginExit(SceneExitController obj)
+        private void ListenToSceneExitController(SceneExitController obj)
         {
-            SceneExitController.onBeginExit -= SceneExitController_onBeginExit;
+            if (!NetworkServer.active) return;
             canLeave = false;
         }
     }

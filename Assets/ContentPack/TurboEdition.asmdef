@@ -15,8 +15,8 @@
         "Mono.Cecil.dll",
         "MonoMod.RuntimeDetour.dll",
         "MonoMod.Utils.dll",
-        "Assembly-Stubbed.dll",
-        "MMHOOK_Assembly-CSharp.dll"
+        "MMHOOK_Assembly-CSharp.dll",
+        "Assembly-Stubbed.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

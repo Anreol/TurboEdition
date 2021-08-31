@@ -1,77 +1,99 @@
 ﻿using RoR2.ContentManagement;
 using System.Collections;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using Path = System.IO.Path;
+using TurboEdition.ScriptableObjects;
 
 namespace TurboEdition
 {
-    public static class Assets
-    {
-        public static AssetBundle mainAssetBundle = null;
-        internal static string assetBundleName = "assetTurbo";
-        internal static void Initialize()
-        {
-            //assemblyDir = GetAssemblyDir();
-            LoadAssetBundle();
-            //LoadSoundbank();
-            //PopulateAssets();
-            //LoadEffects();
-            //AddSoundEvents();
-        }
-
-        public static void LoadAssetBundle()
-        {
-            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            mainAssetBundle = AssetBundle.LoadFromFile(Path.Combine(path, assetBundleName));
-            ContentPackProvider.serializedContentPack = mainAssetBundle.LoadAsset<SerializableContentPack>(ContentPackProvider.contentPackName);
-        }
-
-	}
-
-	public class ContentPackProvider : IContentPackProvider
+	public static class Assets
 	{
-		public static SerializableContentPack serializedContentPack;
-		public static ContentPack contentPack;
-		//Should be the same names as your SerializableContentPack in the asset bundle
-		public static string contentPackName = "ContentPack";
-
-		public string identifier
+		public static AssetBundle mainAssetBundle
 		{
 			get
 			{
-				return TurboEdition.ModGuid;
+				return assetBundles[0];
+			}
+		}
+		internal static string assemblyDir
+		{
+			get
+			{
+				return Path.GetDirectoryName(TurboEdition.pluginInfo.Location);
 			}
 		}
 
-		internal static void Initialize()
+		private const string assetBundleFolderName = "assetbundles";
+		internal static string mainAssetBundleName = "assetTurbo";
+		public static ReadOnlyCollection<AssetBundle> assetBundles;
+
+		public static void Init()
 		{
-			contentPack = serializedContentPack.CreateContentPack();
-			ContentManager.collectContentPackProviders += AddCustomContent;
+			LoadEffects();
+			var gameMaterials = Resources.FindObjectsOfTypeAll<Material>();
+			foreach (var assetBundle in assetBundles)
+				MapMaterials(assetBundle, gameMaterials);
 		}
 
-		private static void AddCustomContent(ContentManager.AddContentPackProviderDelegate addContentPackProvider)
+		public static string[] GetAssetBundlePaths()
 		{
-			addContentPackProvider(new ContentPackProvider());
+			return Directory.GetFiles(Path.Combine(assemblyDir, assetBundleFolderName))
+			   .Where(filePath => !filePath.EndsWith(".manifest"))
+			   .OrderByDescending(path => Path.GetFileName(path).Equals(mainAssetBundleName))
+			   .ToArray();
 		}
 
-		public IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
+		//This one is the one for actually loading effects into the contentpack
+		internal static void LoadEffects()
 		{
-			args.ReportProgress(1f);
-			yield break;
+			var effectHolders = mainAssetBundle.LoadAllAssets<EffectDefHolder>();
+			foreach (var effectHolder in effectHolders)
+				foreach (var effectPrefab in effectHolder.effectPrefabs)
+					HG.ArrayUtils.ArrayAppend(ref TurboEdition.serializableContentPack.effectDefs, EffectDefHolder.ToEffectDef(effectPrefab));
 		}
-
-		public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
+		internal static void MapMaterials(AssetBundle assetBundle, Material[] gameMaterials)
 		{
-			ContentPack.Copy(contentPack, args.output);
-			args.ReportProgress(1f);
-			yield break;
-		}
+			if (assetBundle.isStreamedSceneAssetBundle)
+				return;
 
-		public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
-		{
-			args.ReportProgress(1f);
-			yield break;
+			//The absolute fucking state of having to do shaders in RoR2
+			//SHADERS NEVER FUCKING EVER
+			var cloudMat = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
+
+			Material[] assetBundleMaterials = assetBundle.LoadAllAssets<Material>();
+
+			for (int i = 0; i < assetBundleMaterials.Length; i++)
+			{
+				var material = assetBundleMaterials[i];
+				// If it's stubbed, just switch out the shader unless it's fucking cloudremap
+				if (material.shader.name.StartsWith("StubbedShader"))
+				{
+					material.shader = Resources.Load<Shader>("shaders" + material.shader.name.Substring(13));
+					if (material.shader.name.Contains("Cloud Remap"))
+					{
+						var cockSucker = new RuntimeCloudMaterialMapper(material);
+						material.CopyPropertiesFromMaterial(cloudMat);
+						cockSucker.SetMaterialValues(ref material);
+					}
+				}
+
+				//If it's this shader it searches for a material with the same name and copies the properties
+				if (material.shader.name.Equals("CopyFromRoR2"))
+				{
+					foreach (var gameMaterial in gameMaterials)
+						if (material.name.Equals(gameMaterial.name))
+						{
+							material.shader = gameMaterial.shader;
+							material.CopyPropertiesFromMaterial(gameMaterial);
+							break;
+						}
+				}
+				assetBundleMaterials[i] = material;
+			}
 		}
 	}
 }

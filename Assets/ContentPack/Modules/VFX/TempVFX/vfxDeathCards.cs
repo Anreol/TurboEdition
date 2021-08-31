@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace TurboEdition.TempVFX
 {
-    class vfxDeathCards : TemporaryVFX
+    class vfxHellchainLocked : TemporaryVFX
     {
         public override GameObject tempVfxRootGO { get; set; } = Assets.mainAssetBundle.LoadAsset<GameObject>("vfxDeathCards");
         public override bool IsEnabled(ref CharacterBody body)
