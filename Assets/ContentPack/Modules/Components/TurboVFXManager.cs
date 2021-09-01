@@ -22,14 +22,17 @@ namespace TurboEdition
                 HG.ArrayUtils.ArrayAppend(ref tempVisualEffects, item.tempVfxRootGO.GetComponent<TemporaryVisualEffect>());
             }*/
         }
+
         private void OnEnable()
         {
             InstanceTracker.Add<TurboVFXManager>(this);
         }
+
         private void Update()
         {
             UpdateAllTemporaryVFX();
         }
+
         private void OnDisable()
         {
             InstanceTracker.Remove<TurboVFXManager>(this);
@@ -43,7 +46,6 @@ namespace TurboEdition
         //Updates all overlays, meant to be used with AddOverlay() or to add Temporary Overlays
         private void UpdateOverlays()
         {
-
         }
 
         //Updates all VFX, check each class for the attributes

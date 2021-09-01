@@ -1,19 +1,16 @@
-﻿using System;
+﻿using RoR2;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using RoR2;
 using UnityEngine;
-
 using TemporaryVFX = TurboEdition.TempVFX.TemporaryVFX;
 
 namespace TurboEdition
 {
-    class InitVFX
+    internal class InitVFX
     {
         public static Dictionary<TemporaryVFX, GameObject> temporaryVfx = new Dictionary<TemporaryVFX, GameObject>();
+
         //public static TemporaryOverlay[] temporaryOverlays = new TemporaryOverlay[] { };
         public static void Initialize()
         {
@@ -63,6 +60,5 @@ namespace TurboEdition
                 //var vfxManager = body.gameObject.AddComponent<TurboVFXManager>();
             }
         }
-
     }
 }

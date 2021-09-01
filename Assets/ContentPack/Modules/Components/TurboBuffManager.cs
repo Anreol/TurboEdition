@@ -1,8 +1,6 @@
 ﻿using RoR2;
 using UnityEngine;
 
-using Buff = TurboEdition.Buffs.Buff;
-
 namespace TurboEdition
 {
     //Collection of Buffs and their logic

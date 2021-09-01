@@ -31,7 +31,8 @@ namespace TurboEdition.Orbs
             };
             base.duration = base.distanceToTarget / this.speed;
             effectData.SetHurtBoxReference(this.target);
-            EffectManager.SpawnEffect(Assets.mainAssetBundle.LoadAsset<GameObject>("HellLightningOrbEffect"), effectData, true);
+            //EffectManager.SpawnEffect(Assets.mainAssetBundle.LoadAsset<GameObject>("HellLightningOrbEffect"), effectData, true);
+            EffectManager.SpawnEffect(Resources.Load<GameObject>("prefabs/effects/orbeffects/InfusionOrbEffect"), effectData, true);
         }
 
         public override void OnArrival()

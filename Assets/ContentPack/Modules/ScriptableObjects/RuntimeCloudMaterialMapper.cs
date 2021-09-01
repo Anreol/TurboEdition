@@ -10,6 +10,7 @@ namespace TurboEdition.ScriptableObjects
     public class RuntimeCloudMaterialMapper
     {
         public string[] shaderKeywords;
+
         private static string[] keywordStrings = new string[]
         {
             "DISABLEREMAP",
@@ -54,6 +55,7 @@ namespace TurboEdition.ScriptableObjects
             Front,
             Back
         }
+
         public _CullEnum _Cull_Mode;
 
         public enum _ZTestEnum
@@ -68,11 +70,11 @@ namespace TurboEdition.ScriptableObjects
             GreaterEqual,
             Always
         }
+
         public _ZTestEnum _ZTest_Mode = _ZTestEnum.LessEqual;
 
         [Range(-10f, 10f)]
         public float _DepthOffset;
-
 
         [Range(-2f, 2f)]
         public float _DistortionStrength = 0.1f;
@@ -193,8 +195,6 @@ namespace TurboEdition.ScriptableObjects
             material.SetVector("_CutoffScroll", _CutoffScroll);
             material.SetFloat("_FresnelPower", _FresnelPower);
             material.SetFloat("_OffsetAmount", _VertexOffsetAmount);
-
-
         }
     }
 }

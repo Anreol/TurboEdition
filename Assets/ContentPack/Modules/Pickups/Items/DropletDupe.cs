@@ -1,5 +1,4 @@
 ﻿using RoR2;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -19,20 +18,24 @@ namespace TurboEdition.Items
             //If anybody else gets this item it will subscribe as well, letting the % stack in one way or another
             //However this can lead to a single item being duplicated more than once
             private float dropUpStrength = 20f; //Default is 20 in chests but seems that its too strong
+
             private float dupeDelay = 30f;
             private float dropForwardStrength = 2f; //Default is 2
             private bool dupeReady = true;
             public bool suicideReady = false;
+
             private void Start()
             {
                 if (body.healthComponent)
                     HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
             }
+
             private void OnEnable()
             {
                 PickupDropletController.onDropletHitGroundServer += PickupDropletController_onDropletHitGroundServer;
                 PurchaseInteraction.onItemSpentOnPurchase += PurchaseInteraction_onItemSpentOnPurchase;
             }
+
             private void PurchaseInteraction_onItemSpentOnPurchase(PurchaseInteraction arg1, Interactor arg2)
             {
                 DisableDupingFor(5f, true); //The more you print the less items you get lololo
@@ -47,6 +50,7 @@ namespace TurboEdition.Items
                     this.dupeDelay = 30f;
                 }
             }
+
             public void OnTakeDamageServer(DamageReport damageReport)
             {
                 if (!NetworkServer.active) return;
@@ -60,7 +64,7 @@ namespace TurboEdition.Items
                         body.master.gameObject.AddComponent<MasterSuicideOnTimer>().lifeTimer = 10 + UnityEngine.Random.Range(0f, 8f);
                     }
                     else
-                    body.healthComponent.Suicide(damageReport.attacker, damageReport.attacker, DamageType.VoidDeath);
+                        body.healthComponent.Suicide(damageReport.attacker, damageReport.attacker, DamageType.VoidDeath);
                 }
             }
 
@@ -75,7 +79,7 @@ namespace TurboEdition.Items
                     EffectData effectData = new EffectData
                     {
                         origin = createPickupInfo.position,
-                        //networkSoundEventIndex = 
+                        //networkSoundEventIndex =
                     };
                     //EffectManager.SpawnEffect(effectPrefab, effectData, true);
                     PickupDropletController.CreatePickupDroplet(createPickupInfo.pickupIndex, createPickupInfo.position + Vector3.up * dropForwardStrength, Vector3.up * dropUpStrength);
@@ -101,6 +105,7 @@ namespace TurboEdition.Items
                     dupeDelay = time;
                 }
             }
+
             private void OnDestroy()
             {
                 //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.

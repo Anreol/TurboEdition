@@ -1,0 +1,42 @@
+{
+    "name": "EditorUtils",
+    "references": [
+        "Unity.TextMeshPro",
+        "TurboEdition",
+        "ThunderKit.Core"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "0Harmony.dll",
+        "ProBuilderMeshOps.dll",
+        "BepInEx.Harmony.dll",
+        "BepInEx.MonoMod.HookGenPatcher.dll",
+        "BepInEx.Preloader.dll",
+        "Facepunch.Steamworks.dll",
+        "HGCSharpUtils.dll",
+        "MMHOOK_Assembly-CSharp.dll",
+        "Mono.Cecil.dll",
+        "Mono.Cecil.Mdb.dll",
+        "Mono.Cecil.Pdb.dll",
+        "Mono.Cecil.Rocks.dll",
+        "MonoMod.RuntimeDetour.dll",
+        "MonoMod.Utils.dll",
+        "Rewired_Core.dll",
+        "Rewired_CSharp.dll",
+        "Rewired_Windows_Lib.dll",
+        "HGCSharpUtils.dll",
+        "HGUnityUtils.dll",
+        "BepInEx.dll",
+        "Assembly-Stubbed.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ]
+}

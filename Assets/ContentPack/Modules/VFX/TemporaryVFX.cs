@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RoR2;
+﻿using RoR2;
 using UnityEngine;
 
 //I am so fucking sick of this system organization but classes are extremely powerful.
@@ -15,21 +10,24 @@ namespace TurboEdition.TempVFX
     public abstract class TemporaryVFX
     {
         public abstract GameObject tempVfxRootGO { get; set; }
+
         public virtual void Initialize()
         {
         }
+
         public virtual float GetEffectRadius(ref CharacterBody body)
         {
             return body.radius;
         }
+
         public virtual string GetChildOverride(ref CharacterBody body)
         {
             return "";
         }
+
         public virtual bool IsEnabled(ref CharacterBody body)
         {
             return false;
         }
-
     }
 }

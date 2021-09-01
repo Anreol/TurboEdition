@@ -10,6 +10,7 @@ namespace TurboEdition.Items
     public class ItemDeployer : Item
     {
         public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeployer");
+
         //public static ItemDeployerController itemDeployerController = new ItemDeployerController();
         public override void Initialize()
         {

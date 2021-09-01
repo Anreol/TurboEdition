@@ -12,6 +12,7 @@ namespace TurboEdition
     internal static class InitBuffs
     {
         public static Dictionary<BuffDef, Buff> buffList = new Dictionary<BuffDef, Buff>();
+
         public static void Initialize()
         {
             InitializeBuffs();
@@ -19,6 +20,7 @@ namespace TurboEdition
             CharacterBody.onBodyStartGlobal += AddBuffManager;
             On.RoR2.CharacterBody.OnClientBuffsChanged += CheckForBuffs;
         }
+
         public static void InitializeBuffs()
         {
             var buffs = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Buff)));
@@ -34,6 +36,7 @@ namespace TurboEdition
                 buffList.Add(buff.buffDef, buff);
             }
         }
+
         private static void AddBuffManager(CharacterBody body)
         {
             if (body)
@@ -42,6 +45,7 @@ namespace TurboEdition
                 buffManager.CheckForBuffs();
             }
         }
+
         //Recalcstat hooks get done in InitPickups. Yes. But that shouldnt be an issue
         private static void CheckForBuffs(On.RoR2.CharacterBody.orig_OnClientBuffsChanged orig, CharacterBody self)
         {

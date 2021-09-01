@@ -10,12 +10,12 @@ namespace TurboEdition.Components
     [RequireComponent(typeof(EntityStateMachine))]
     public class HellchainController : NetworkBehaviour
     {
-        private protected TeamFilter teamFilter;
         public List<CharacterBody> listOLinks;
+        private protected CharacterBody attachedCB;
 
         private void Awake()
         {
-            this.teamFilter = base.GetComponent<TeamFilter>();
+            this.attachedCB = base.GetComponent<NetworkedBodyAttachment>().attachedBody;
         }
 
         private void OnEnable()
@@ -54,13 +54,11 @@ namespace TurboEdition.Components
 
         public void FixedUpdate()
         {
-
         }
 
         [Client]
         private void UpdateClient()
         {
-
         }
     }
 }

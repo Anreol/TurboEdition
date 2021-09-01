@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboEdition", "TurboEdition.csproj", "{889E8141-CA38-8809-3C00-1BBF54EC217D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditorUtils", "EditorUtils.csproj", "{3E2814BE-4557-36DC-FE9C-10AEA7664F54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{889E8141-CA38-8809-3C00-1BBF54EC217D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{889E8141-CA38-8809-3C00-1BBF54EC217D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{889E8141-CA38-8809-3C00-1BBF54EC217D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E2814BE-4557-36DC-FE9C-10AEA7664F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E2814BE-4557-36DC-FE9C-10AEA7664F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E2814BE-4557-36DC-FE9C-10AEA7664F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E2814BE-4557-36DC-FE9C-10AEA7664F54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

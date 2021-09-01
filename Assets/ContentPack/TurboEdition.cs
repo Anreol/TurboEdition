@@ -1,12 +1,11 @@
 ﻿using BepInEx;
-using UnityEngine;
-using RoR2.ContentManagement;
 using RoR2;
-using System.Linq;
-using System.Collections.Generic;
+using RoR2.ContentManagement;
 using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
+using System.Linq;
+using UnityEngine;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
@@ -16,7 +15,6 @@ using System.IO;
 namespace TurboEdition
 {
     [BepInPlugin(ModGuid, ModIdentifier, ModVer)]
-
     public class TurboEdition : BaseUnityPlugin, IContentPackProvider
     {
         internal const string ModVer =
@@ -31,6 +29,7 @@ namespace TurboEdition
         public static TurboEdition instance;
         public static PluginInfo pluginInfo;
         public static SerializableContentPack serializableContentPack;
+
         public string identifier
         {
             get
@@ -86,8 +85,8 @@ namespace TurboEdition
             if (onLoadStaticContent != null)
                 yield return onGenerateContentPack;
             yield break;
-
         }
+
         public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
         {
             //NOTE: For some reason any instructions that are put inside of here are done twice. This will cause serious errors if you do not watch out.
@@ -101,23 +100,23 @@ namespace TurboEdition
                 yield return onGenerateContentPack;
             yield break;
         }
+
         public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
         {
             args.ReportProgress(1f);
             yield break;
         }
+
         public static LoadStaticContentAsyncDelegate onLoadStaticContent { get; set; }
         public static GenerateContentPackAsyncDelegate onGenerateContentPack { get; set; }
         public static FinalizeAsyncDelegate onFinalizeAsync { get; set; }
 
-
         public delegate IEnumerator LoadStaticContentAsyncDelegate(LoadStaticContentAsyncArgs args);
+
         public delegate IEnumerator GenerateContentPackAsyncDelegate(GetContentPackAsyncArgs args);
+
         public delegate IEnumerator FinalizeAsyncDelegate(FinalizeAsyncArgs args);
     }
-
-
-
 
     /* Apparently this is all unused because Ghor didn't finish it....
      * leaving it just in case tho...

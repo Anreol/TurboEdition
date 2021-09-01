@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -210918009, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
+  m_Name: Stop_gravekeeper_attack2_fly_loop
+  m_EditorClassIdentifier: 
+  objectName: Stop_gravekeeper_attack2_fly_loop
+  id: 1741427889
+  guid: 2A1351F4-D9F3-4FF1-A6DC-8ACDF2131F11

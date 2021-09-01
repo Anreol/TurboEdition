@@ -1,7 +1,6 @@
 ﻿using RoR2;
 using System;
 using System.Linq;
-using UnityEngine;
 
 namespace TurboEdition.Buffs
 {
@@ -10,8 +9,8 @@ namespace TurboEdition.Buffs
         public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffEnvBonus");
         public static BuffDef buff;
 
-        float regenBonus = 0;
-        float armorBonus = 0;
+        private float regenBonus = 0;
+        private float armorBonus = 0;
 
         public override void Initialize()
         {

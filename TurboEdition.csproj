@@ -104,7 +104,6 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\EffectDefHolder.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\RuntimeCloudMaterialMapper.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Scripts\HellchainLinkNearbyController.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\InitVFX.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TemporaryVFX.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDeathCards.cs" />

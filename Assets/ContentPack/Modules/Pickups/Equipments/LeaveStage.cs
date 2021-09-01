@@ -1,6 +1,6 @@
 ﻿using RoR2;
-using UnityEngine.Networking;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Equipments
 {
@@ -9,6 +9,7 @@ namespace TurboEdition.Equipments
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("LeaveStage");
 
         private static bool canLeave = true;
+
         public override void Initialize()
         {
             Stage.onStageStartGlobal += Stage_onStageStartGlobal;
@@ -29,18 +30,15 @@ namespace TurboEdition.Equipments
             }
             return false;
         }
+
         public bool UseThingie()
         {
-            GameObject sceneExitGo = new GameObject("SceneExitLeaveStageEquip");
-            sceneExitGo.AddComponent<SceneExitController>();
-            SceneExitController sceneExitController = UnityEngine.Object.Instantiate<GameObject>(sceneExitGo).GetComponent<SceneExitController>();
-            InstanceTracker.Add(sceneExitController); //Add it for the sake of consistency
-            sceneExitController.useRunNextStageScene = true; //True by default
             if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) //Is anniversary moon. Do not know how to get it in a better way.
             {
+                SceneExitController sceneExitController = CreateSceneExit();
                 sceneExitController.useRunNextStageScene = false;
                 sceneExitController.destinationScene = SceneCatalog.GetSceneDefFromSceneName("moon");
-                sceneExitController.SetState(SceneExitController.ExitState.Idle);
+                sceneExitController.Begin();
                 return true;
             }
             if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) //Not a stage trololo
@@ -49,10 +47,21 @@ namespace TurboEdition.Equipments
             }
             if (TeleporterInteraction.instance.chargeFraction >= 0.99 || TeleporterInteraction.instance.monstersCleared)
             {
-                sceneExitController.SetState(SceneExitController.ExitState.Idle);
+                CreateSceneExit().Begin();
                 return true;
             }
             return false;
+        }
+
+        public SceneExitController CreateSceneExit()
+        {
+            GameObject sceneExitGo = new GameObject("SceneExitLeaveStageEquip");
+            sceneExitGo.AddComponent<SceneExitController>();
+            SceneExitController sceneExitController = sceneExitGo.GetComponent<SceneExitController>();
+            //InstanceTracker.Add(sceneExitController); //Add it for the sake of consistency EDIT: It adds itself on Enable!!
+            sceneExitController.useRunNextStageScene = true; //True by default
+            sceneExitController.SetState(SceneExitController.ExitState.Idle); //Idle by default
+            return sceneExitController;
         }
 
         private void ListenToSceneExitController(SceneExitController obj)

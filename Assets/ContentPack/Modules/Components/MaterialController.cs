@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace TurboEdition.Components
@@ -87,7 +85,6 @@ namespace TurboEdition.Components
 
                     if (Material)
                     {
-
                         switch (Material.shader.name)
                         {
                             case "Hopoo Games/Deferred/Standard":
@@ -95,11 +92,13 @@ namespace TurboEdition.Components
                                 standardController.Material = Material;
                                 standardController.Renderer = Renderer;
                                 break;
+
                             case "Hopoo Games/FX/Cloud Remap":
                                 var cloudController = gameObject.AddComponent<HGCloudRemapController>();
                                 cloudController.Material = Material;
                                 cloudController.Renderer = Renderer;
                                 break;
+
                             case "Hopoo Games/FX/Cloud Intersection Remap":
                                 var intersectionController = gameObject.AddComponent<HGIntersectionController>();
                                 intersectionController.Material = Material;
@@ -149,6 +148,7 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
+
             public _RampInfoEnum _RampChoice;
 
             public enum _DecalLayerEnum
@@ -158,6 +158,7 @@ namespace TurboEdition.Components
                 Character = 2,
                 Misc = 3
             }
+
             public _DecalLayerEnum _DecalLayer;
 
             [Range(0f, 1f)]
@@ -172,6 +173,7 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull_Mode;
 
             public bool _EnableDither;
@@ -221,6 +223,7 @@ namespace TurboEdition.Components
                 TopDown = 1,
                 BackToFront = 3
             }
+
             public _PrintDirectionEnum _PrintDirection;
 
             public Texture _PrintRamp;
@@ -298,6 +301,7 @@ namespace TurboEdition.Components
             {
                 GrabMaterialValues();
             }
+
             public void GrabMaterialValues()
             {
                 if (Material)
@@ -603,7 +607,6 @@ namespace TurboEdition.Components
                     SetShaderKeywordBasedOnBool(_EnableLimbRemoval, Material, "LIMBREMOVAL");
                 }
             }
-
         }
 
         /// <summary>
@@ -649,6 +652,7 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull_Mode;
 
             public enum _ZTestEnum
@@ -663,6 +667,7 @@ namespace TurboEdition.Components
                 GreaterEqual = 7,
                 Always = 8
             }
+
             public _ZTestEnum _ZTest_Mode;
 
             [Range(-10f, 10f)]
@@ -743,11 +748,8 @@ namespace TurboEdition.Components
                 }
             }
 
-
-
             public void Update()
             {
-
                 if (Material)
                 {
                     if (Material.name != MaterialName && Renderer)
@@ -860,6 +862,7 @@ namespace TurboEdition.Components
                 SrcAlphaSaturate = 9,
                 OneMinusSrcAlpha = 10
             }
+
             public enum _DstBlendFloatEnum
             {
                 Zero = 0,
@@ -874,6 +877,7 @@ namespace TurboEdition.Components
                 SrcAlphaSaturate = 9,
                 OneMinusSrcAlpha = 10
             }
+
             public _SrcBlendFloatEnum _Source_Blend_Mode;
             public _DstBlendFloatEnum _Destination_Blend_Mode;
 
@@ -919,6 +923,7 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull_Mode;
 
             public bool _FadeFromVertexColorsOn;
@@ -965,7 +970,6 @@ namespace TurboEdition.Components
 
             public void Update()
             {
-
                 if (Material)
                 {
                     if (Material.name != MaterialName && Renderer)

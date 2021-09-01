@@ -71,7 +71,7 @@ namespace TurboEdition.Items
                     Debug.LogWarning("Passed luck check, duplicating.");
                     GameObject pickup = UnityEngine.Object.Instantiate<GameObject>(gameObject, transform);
                     GravitatePickup clonedGravitator = pickup.GetComponentInChildren<GravitatePickup>();
-                    clonedGravitator.gravitateTarget = body.transform; 
+                    clonedGravitator.gravitateTarget = body.transform;
                     //Duplicates pickup and makes it gravitate towards you right away, blocking it from getting magnetized and duplicated yet again
                 }
             }

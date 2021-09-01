@@ -13,6 +13,5 @@ namespace TurboEdition.ScriptableObjects
         {
             return new EffectDef(effect);
         }
-
     }
 }

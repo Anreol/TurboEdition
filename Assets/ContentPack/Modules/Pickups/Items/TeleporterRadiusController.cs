@@ -117,7 +117,6 @@ namespace TurboEdition.Items
 
             private void CalculateTeleporterColor(float colorCycle)
             {
-                
                 newR += rMove;
                 newG += gMove;
                 newB += bMove;

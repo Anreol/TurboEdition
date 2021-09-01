@@ -9,7 +9,7 @@ namespace TurboEdition.Equipments
         /// <summary>
         /// For the love of god PLEASE use this as minimally as possible
         /// </summary>
-        
+
         public virtual void Initialize()
         {
         }

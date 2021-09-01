@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3148998474
+CRC: 298939970
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8819f21e129d5ab3b634468b2365cd52
+    Hash: b51dc417fa955ece7ad37f3f55d54205
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f1b45fa51e87cc9bd62a431c1c749f38
+    Hash: 8612fac598655e95972567ee9840ca12
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,6 +42,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -226763392, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 924743675, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1788389205, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -49,6 +51,8 @@ ClassTypes:
   Script: {fileID: 1080798252, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 511512695, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1297580292, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -63,6 +67,8 @@ ClassTypes:
   Script: {fileID: -1122936093, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 488236779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -106,6 +112,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 816898038, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 01540905e4ff7a74097e6ae8ce100ea3, type: 3}
+- Class: 114
   Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
 - Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
@@ -114,9 +122,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 3348151fc27f6834490dd33ce0ea7dbe, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: ef2a123f517c6464c9503cf474018e5f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 68b09e9f07410cb4ca4b7feb5675ef18, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 134
@@ -136,12 +144,15 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ItemDefs/DropletDupe.asset
 - Assets/Materials/matInvisibleOutlineMeshHolder.mat
 - Assets/Hopoo/materials/matOmniRing2.mat
+- Assets/Textures/texHellLinkedBuffOverlay.png
 - Assets/Mesh/meshSphere.asset
 - Assets/Hopoo/materials/matOmniHitspark3.mat
 - Assets/Hopoo/materials/matOmniHitspark1.mat
 - Assets/Mesh/Items/meshKnifeHandle.mesh
+- Assets/Materials/matHellLinkedBuffBillboard.mat
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2.asset
 - Assets/Textures/texKnifeUVAlpha.png
+- Assets/Hopoo/shaders/fx/hgcloudremap.shader
 - Assets/ContentPack/AssetTurbo/ItemDefs/PackMagnet.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_selected.png
 - Assets/Mesh/Items/meshKnifeGuard.mesh
@@ -155,11 +166,13 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/Hopoo/materials/matBrotherSwingDistortion.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
+- Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxHellLinkedBuffEffect.prefab
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/LeaveStage.asset
 - Assets/Textures/texKnifeUVFresnel.png
 - Assets/Hopoo/prefabs/OmniImpactVFXSlash.prefab
 - Assets/Hopoo/materials/matGenericFlash.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
+- Assets/Textures/Ramps/texRedcrossBillRamp.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Rare.png
 - Assets/ContentPack/AssetTurbo/ContentPack.asset
@@ -171,8 +184,9 @@ Assets:
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/CursedScythe.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
-- Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/HellChainNearbyAttachment.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/HellChainNearbyAttachment.prefab
 - Assets/Materials/matKnife.mat
+- Assets/Hopoo/materials/matDeathProjectileFlare.mat
 - Assets/Hopoo/materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
 - Assets/Textures/Ramps/texGenericDustRamp.png
@@ -180,6 +194,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OrbEffects/HellLightningOrbEffect.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffCannotSprint.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniImpactVFXHellchain.prefab
+- Assets/Hopoo/materials/matMercExposedBackdrop.mat
 - Assets/ContentPack/AssetTurbo/icon.png
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab

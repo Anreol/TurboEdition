@@ -1,14 +1,11 @@
 ﻿using RoR2;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using TurboEdition.Equipments;
 using UnityEngine;
 using UnityEngine.Networking;
-
-using Item = TurboEdition.Items.Item;
 using Equipment = TurboEdition.Equipments.Equipment;
+using Item = TurboEdition.Items.Item;
 
 namespace TurboEdition
 {
@@ -16,6 +13,7 @@ namespace TurboEdition
     {
         public static Dictionary<ItemDef, Item> itemList = new Dictionary<ItemDef, Item>();
         public static Dictionary<EquipmentDef, Equipment> equipmentList = new Dictionary<EquipmentDef, Equipment>();
+
         public static void Initialize()
         {
             InitializeEquipments();
@@ -44,6 +42,7 @@ namespace TurboEdition
                 equipmentList.Add(eqp.equipmentDef, eqp);
             }
         }
+
         private static void InitializeItems()
         {
             var items = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Item)));
@@ -68,6 +67,7 @@ namespace TurboEdition
                 itemManager.CheckForTEItems(); //Initial check, should be useless considering the manager subscribes this method on awake to inventorychange
             }
         }
+
         private static void CheckForTurboEqpGain(On.RoR2.CharacterBody.orig_OnEquipmentGained orig, CharacterBody self, EquipmentDef equipmentDef)
         {
             orig(self, equipmentDef);

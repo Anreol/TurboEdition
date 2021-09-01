@@ -1,7 +1,6 @@
 ﻿using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections.Generic;
 
 namespace TurboEdition.Items
 {
@@ -13,6 +12,7 @@ namespace TurboEdition.Items
         {
             body.AddItemBehavior<MeleeArmorBehavior>(stack);
         }
+
         internal class MeleeArmorBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
             private float detectRadius = 21f;
@@ -35,6 +35,7 @@ namespace TurboEdition.Items
                     }
                 }
             }
+
             private void OnDestroy()
             {
                 //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.

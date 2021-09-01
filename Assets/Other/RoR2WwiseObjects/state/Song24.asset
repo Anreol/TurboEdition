@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1833314201, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
+  m_Name: Song24
+  m_EditorClassIdentifier: 
+  objectName: Song24
+  id: 3076090096
+  guid: C2E883CE-8E34-4793-B665-F374614A03F6
+  WwiseStateGroupReference: {fileID: 11400000, guid: 06398b33af64433fbea5085957c75a26,
+    type: 2}
