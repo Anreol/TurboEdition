@@ -7,14 +7,12 @@ namespace TurboEdition.Buffs
     public class BuffEnvBonus : Buff
     {
         public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffEnvBonus");
-        public static BuffDef buff;
 
         private float regenBonus = 0;
         private float armorBonus = 0;
 
         public override void Initialize()
         {
-            buff = buffDef;
         }
 
         public override void BuffStep(ref CharacterBody body, int stack)

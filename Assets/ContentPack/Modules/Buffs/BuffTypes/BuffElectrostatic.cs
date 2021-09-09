@@ -5,11 +5,9 @@ namespace TurboEdition.Buffs
     public class BuffElectrostatic : Buff
     {
         public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffElectrostatic");
-        public static BuffDef buff;
 
         public override void Initialize()
         {
-            buff = buffDef;
         }
 
         public override void BuffStep(ref CharacterBody body, int stack)

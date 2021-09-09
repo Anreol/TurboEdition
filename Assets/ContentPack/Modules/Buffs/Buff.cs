@@ -5,7 +5,6 @@ namespace TurboEdition.Buffs
     public abstract class Buff
     {
         public abstract BuffDef buffDef { get; set; }
-        public int oldCount; 
 
         public Buff()
         { }
