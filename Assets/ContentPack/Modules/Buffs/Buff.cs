@@ -24,22 +24,6 @@ namespace TurboEdition.Buffs
         {
         }
 
-        /// <summary>
-        /// Main body of the buff, manages and calls every other method. Has the update rate of OnClientBuffsChanged
-        /// </summary>
-        public virtual void UpdateBuff(ref CharacterBody body, int stack)
-        {
-            if (stack <= 0 && stack != oldCount)
-            {
-                OnBuffLastStackLost(ref body);
-                return;
-            }
-
-            if (oldCount <= 0 && stack > oldCount) OnBuffFirstStackGained(ref body);
-            oldCount = stack;
-
-            BuffStep(ref body, stack);
-        }
 
         /// <summary>
         /// Single step of the buff. Gets called everytime the buff updates.
