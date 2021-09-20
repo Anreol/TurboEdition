@@ -7,7 +7,7 @@ namespace TurboEdition
 {
     internal class TurboVFXManager : MonoBehaviour
     {
-        private TemporaryVisualEffect[] tempVisualEffects; //= new TemporaryVisualEffect[] { };
+        private TemporaryVisualEffect[] tempVisualEffects = new TemporaryVisualEffect[InitVFX.temporaryVfx.Count];
         private CharacterBody body;
         private CharacterModel model;
 
@@ -15,7 +15,7 @@ namespace TurboEdition
         {
             body = gameObject.GetComponent<CharacterBody>();
             model = gameObject.GetComponent<ModelLocator>().modelTransform.gameObject.GetComponent<CharacterModel>();
-            tempVisualEffects = new TemporaryVisualEffect[InitVFX.temporaryVfx.Count];
+            //tempVisualEffects = new TemporaryVisualEffect[InitVFX.temporaryVfx.Count];
             /*TemporaryVFX[] tempVfx = InitVFX.temporaryVfx.Keys.ToArray();
             foreach (var item in tempVfx)
             {

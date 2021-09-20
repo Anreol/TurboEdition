@@ -1,4 +1,6 @@
 ﻿using RoR2;
+using RoR2.ContentManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,54 +11,69 @@ using Item = TurboEdition.Items.Item;
 
 namespace TurboEdition
 {
-    internal static class InitPickups
+    public class InitPickups
     {
         public static Dictionary<ItemDef, Item> itemList = new Dictionary<ItemDef, Item>();
         public static Dictionary<EquipmentDef, Equipment> equipmentList = new Dictionary<EquipmentDef, Equipment>();
+        public static SerializableContentPack contentPack { get; set; } = TurboEdition.serializableContentPack;
 
-        public static void Initialize()
+        public static void Init()
         {
             InitializeEquipments();
             InitializeItems();
+        }
 
-            On.RoR2.CharacterBody.OnEquipmentGained += CheckForTurboEqpGain;
-            On.RoR2.CharacterBody.OnEquipmentLost += CheckForTurboEqpLoss;
-            On.RoR2.EquipmentSlot.PerformEquipmentAction += FireTurboEqp;
+        [SystemInitializer(typeof(PickupCatalog))]
+        private static void HookInit()
+        {
+            TELog.LogI("Subscribing to delegates related to Items and Equipments.");
             CharacterBody.onBodyStartGlobal += AddItemManager;
             On.RoR2.CharacterBody.RecalculateStats += OnRecalculateStats;
+            On.RoR2.EquipmentSlot.PerformEquipmentAction += FireTurboEqp;
         }
 
-        private static void InitializeEquipments()
+        public static IEnumerable<Item> InitializeItems()
         {
-            //GUIUtility.systemCopyBuffer = string.Join("\n", Assembly.GetExecutingAssembly().GetTypes().Select(t => $"{t.Name} .IsAbstract={t.IsAbstract} .IsSubclassOf({typeof(Equipment).Name})={t.IsSubclassOf(typeof(Equipment))}"));
-            var EquipmentTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)));
-            foreach (var item in EquipmentTypes)
-            {
-                Equipment eqp = (Equipment)System.Activator.CreateInstance(item);
-                if (!eqp.equipmentDef)
-                {
-                    Debug.LogError("Equipment " + eqp + " is missing equipment Def. Check Unity Project. Skipping.");
-                    continue;
-                }
-                eqp.Initialize();
-                equipmentList.Add(eqp.equipmentDef, eqp);
-            }
+            TELog.LogD($"Getting the Items found inside {Assembly.GetExecutingAssembly()}...");
+            Assembly.GetExecutingAssembly().GetTypes()
+                           .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Item)))
+                           .Where(type => !type.GetCustomAttributes(true)
+                                    .Select(obj => obj.GetType())
+                                    .Contains(typeof(DisabledContent)))
+                           .Select(itemType => (Item)Activator.CreateInstance(itemType)).ToList().ForEach(item => AddItem(item, contentPack));
+            return null;
         }
 
-        private static void InitializeItems()
+        public static void AddItem(Item item, SerializableContentPack contentPack, Dictionary<ItemDef, Item> itemDictionary = null)
         {
-            var items = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Item)));
-            foreach (var itemType in items)
-            {
-                Item item = (Item)System.Activator.CreateInstance(itemType);
-                if (!item.itemDef)
-                {
-                    Debug.LogError("Item " + item + " is missing item Def. Check Unity Project. Skipping.");
-                    continue;
-                }
-                item.Initialize();
-                itemList.Add(item.itemDef, item);
-            }
+            item.Initialize();
+            //HG.ArrayUtils.ArrayAppend(ref TurboEdition.serializableContentPack.itemDefs, item.itemDef);
+            itemList.Add(item.itemDef, item);
+            if (itemDictionary != null)
+                itemDictionary.Add(item.itemDef, item);
+            TELog.LogD($"Item {item.itemDef} added to {contentPack.name}");
+        }
+
+        public static IEnumerable<Equipment> InitializeEquipments()
+        {
+            TELog.LogD($"Getting the Equipments found inside {Assembly.GetExecutingAssembly()}...");
+            Assembly.GetExecutingAssembly().GetType().Assembly.GetTypes()
+                           .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)))
+                           .Where(type => !type.GetCustomAttributes(true)
+                                    .Select(obj => obj.GetType())
+                                    .Contains(typeof(DisabledContent)))
+                           .Select(eqpType => (Equipment)Activator.CreateInstance(eqpType)).ToList().ForEach(eqp => AddEquipment(eqp, contentPack));
+            return null;
+        }
+
+        public static void AddEquipment(Equipment equip, SerializableContentPack contentPack, Dictionary<EquipmentDef, Equipment> equipDictionary = null)
+        {
+            equip.Initialize();
+            //HG.ArrayUtils.ArrayAppend(ref contentPack.equipmentDefs, equip.equipmentDef);
+            equipmentList.Add(equip.equipmentDef, equip);
+            if (equipDictionary != null)
+                equipDictionary.Add(equip.equipmentDef, equip);
+            TELog.LogD($"Equipment {equip.equipmentDef} added to {contentPack.name}");
         }
 
         private static void AddItemManager(CharacterBody body)
@@ -64,20 +81,19 @@ namespace TurboEdition
             if (!body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Masterless) && body.master.inventory)
             {
                 var itemManager = body.gameObject.AddComponent<TurboItemManager>();
-                itemManager.CheckForTEItems(); //Initial check, should be useless considering the manager subscribes this method on awake to inventorychange
+                itemManager.CheckForTEItems();
             }
         }
 
-        private static void CheckForTurboEqpGain(On.RoR2.CharacterBody.orig_OnEquipmentGained orig, CharacterBody self, EquipmentDef equipmentDef)
+        private static void OnRecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
         {
-            orig(self, equipmentDef);
-            self.GetComponent<TurboItemManager>()?.CheckEqp(equipmentDef, true);
-        }
-
-        private static void CheckForTurboEqpLoss(On.RoR2.CharacterBody.orig_OnEquipmentLost orig, CharacterBody self, EquipmentDef equipmentDef)
-        {
-            orig(self, equipmentDef);
-            self.GetComponent<TurboItemManager>()?.CheckEqp(equipmentDef, false);
+            var manager = self.GetComponent<TurboItemManager>();
+            var buffManager = self.GetComponent<TurboBuffManager>();
+            manager?.RunStatRecalculationsStart();
+            buffManager?.RunStatRecalculationsStart(self);
+            orig(self);
+            manager?.RunStatRecalculationsEnd();
+            buffManager?.RunStatRecalculationsEnd();
         }
 
         private static bool FireTurboEqp(On.RoR2.EquipmentSlot.orig_PerformEquipmentAction orig, EquipmentSlot self, EquipmentDef equipmentDef)
@@ -90,21 +106,10 @@ namespace TurboEdition
             Equipment equipment;
             if (equipmentList.TryGetValue(equipmentDef, out equipment))
             {
-                //var body = self.characterBody;
+                var body = self.characterBody;
                 return equipment.FireAction(self);
             }
             return orig(self, equipmentDef);
-        }
-
-        private static void OnRecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
-        {
-            var manager = self.GetComponent<TurboItemManager>();
-            var buffManager = self.GetComponent<TurboBuffManager>();
-            manager?.RunStatRecalculationsStart();
-            buffManager?.RunStatRecalculationsStart(self);
-            orig(self);
-            manager?.RunStatRecalculationsEnd();
-            buffManager?.RunStatRecalculationsEnd();
         }
     }
 }

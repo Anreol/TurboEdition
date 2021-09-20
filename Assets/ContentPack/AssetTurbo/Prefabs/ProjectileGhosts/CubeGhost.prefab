@@ -39,12 +39,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2432784358857196848}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 488236779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useOverallCurveOnly: 0
+  useOverallCurveOnly: 1
   curveX:
     serializedVersion: 2
     m_Curve: []
@@ -65,11 +65,29 @@ MonoBehaviour:
     m_RotationOrder: 4
   overallCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  timeMax: 3
+  timeMax: 1
 --- !u!1 &4370487668103189499
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +217,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202156028514425107}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 816898038, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 

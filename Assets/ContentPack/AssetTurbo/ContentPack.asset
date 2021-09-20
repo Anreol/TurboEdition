@@ -16,6 +16,7 @@ MonoBehaviour:
   masterPrefabs: []
   projectilePrefabs:
   - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
+  - {fileID: 5362953076993711961, guid: ab21e409a4590454dbe48729bf59a1b3, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs: []
   skillDefs: []
@@ -50,4 +51,10 @@ MonoBehaviour:
   musicTrackDefs: []
   gameEndingDefs: []
   entityStateConfigurations: []
-  entityStateTypes: []
+  entityStateTypes:
+  - _typeName: TurboEdition.States.Pickups.HellchainBaseState, TurboEdition, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: TurboEdition.States.Pickups.HellchainEnterState, TurboEdition, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  - _typeName: TurboEdition.States.Pickups.HellchainIdleState, TurboEdition, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null

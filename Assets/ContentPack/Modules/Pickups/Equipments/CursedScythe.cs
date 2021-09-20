@@ -1,68 +1,49 @@
-﻿/* i feel like dying
+﻿using HG;
+using RoR2;
+using RoR2.Projectile;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Networking;
+
 namespace TurboEdition.Equipments
 {
     public class CursedScythe : Equipment
     {
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("CursedScythe");
-        public override bool isElite { get; set; } = false;
-
+        private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BigScytheProjectile");
         public override bool FireAction(EquipmentSlot slot)
         {
-            return false;
+            if (!NetworkServer.active) return false;
+            if (projectilePrefab == null) return false;
+            return SpawnProjectile(slot.characterBody);
         }
 
-		private class Scythe
-		{
-			public Vector3 impactPosition;
-			public float startTime;
-			public bool didTravelEffect;
-			public bool valid = true;
-		}
-
-		private class ScytheSend
+        public bool SpawnProjectile(CharacterBody body)
         {
-			NodeGraphSpider nodeGraphSpider;
-			Vector3 position;
-			public ScytheSend(CharacterBody[] targets, Vector3 origin)
-			{
-				CharacterBody[] hitlist = new CharacterBody[targets.Length];
-                for (int i = 0; i < hitlist.Length; i++)
+            int enemyCount = 1;
+            for (TeamIndex teamCounter = TeamIndex.Neutral; teamCounter < TeamIndex.Count; teamCounter++)
+            {
+                if (TeamManager.IsTeamEnemy(body.teamComponent.teamIndex, teamCounter))
                 {
-					targets.CopyTo(hitlist, i);
-				}
-				Util.ShuffleArray(targets);
-				position = origin;
-				nodeGraphSpider = new NodeGraphSpider(SceneInfo.instance.groundNodes, HullMask.Human);
-				nodeGraphSpider.AddNodeForNextStep(SceneInfo.instance.groundNodes.FindClosestNode(position, HullClassification.Human, float.PositiveInfinity));
-				int steps = 0;
-				int maxSteps = 50;
-				while (0 < maxSteps && this.nodeGraphSpider.PerformStep())
-				{
-					steps++;
-				}
-			}
-
-			public ScytheSend UpdateScythe()
-			{
-				if (targets)
-				{
-					Scythe.impactPosition = characterBody.corePosition;
-					Vector3 origin = meteor.impactPosition + Vector3.up * 6f;
-				}
-				else if (this.nodeGraphSpider.collectedSteps.Count != 0)
-				{
-					int index = UnityEngine.Random.Range(0, this.nodeGraphSpider.collectedSteps.Count);
-					SceneInfo.instance.groundNodes.GetNodePosition(this.nodeGraphSpider.collectedSteps[index].node, out meteor.impactPosition);
-				}
-				else
-				{
-					meteor.valid = false;
-				}
-				meteor.startTime = Run.instance.time;
-				this.currentStep++;
-				return meteor;
-			}
-		}
+                    if (teamCounter != TeamIndex.Neutral)
+                    {
+                        enemyCount += TeamComponent.GetTeamMembers(teamCounter).Count;
+                    }
+                }
+            }
+            FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
+            {
+                projectilePrefab = projectilePrefab,
+                position = body.aimOrigin,
+                rotation = Quaternion.LookRotation(body.inputBank.GetAimRay().direction),
+                owner = body.gameObject,
+                damage = body.damage * enemyCount,
+                force = 15,
+                crit = body.RollCrit(),
+                damageColorIndex = DamageColorIndex.DeathMark
+            };
+            ProjectileManager.instance.FireProjectile(fireProjectileInfo);
+            return true;
+        }
 	}
 }
-*/

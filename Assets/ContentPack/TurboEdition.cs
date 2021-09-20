@@ -40,11 +40,13 @@ namespace TurboEdition
 
         public void Awake()
         {
+            TELog.logger = Logger;
 #if DEBUG
-            Debug.LogWarning("Running TurboEdition DEBUG build. PANIC!");
+            TELog.LogW("Running TurboEdition DEBUG build. PANIC!");
 #endif
             pluginInfo = Info;
             instance = this;
+            
             ContentManager.collectContentPackProviders += (addContentPackProvider) => addContentPackProvider(this);
 
 #if DEBUG
@@ -73,7 +75,7 @@ namespace TurboEdition
 
             serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
             Assets.Init();
-            InitPickups.Initialize();
+            InitPickups.Init();
             InitBuffs.Initialize();
             GetType().Assembly.GetTypes()
                               .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))

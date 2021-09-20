@@ -30,16 +30,21 @@ namespace TurboEdition.Items
 
             private void Body_onSkillActivatedServer(GenericSkill obj)
             {
-                if (!NetworkServer.active) return;
+                //if (!NetworkServer.active) return;
+                if (!Util.HasEffectiveAuthority(body.networkIdentity))
+                {
+                    TELog.LogW("No effective authority when trying to spawn knife blade!");
+                    return;
+                }
                 if (projectilePrefab == null) return;
                 if (body.GetComponent<SkillLocator>().utility == obj)
                 {
-                    Debug.LogWarning("Skill was utility!");
+                    TELog.LogW("Skill was utility!");
                     float y = Quaternion.LookRotation(body.inputBank.GetAimRay().direction).eulerAngles.y;
                     float distance = 1f; //How away it will spawn from the body
                     foreach (float num2 in new DegreeSlices(2 + (stack - 1), 5f))
                     {
-                        Debug.LogWarning("Spawning a knife.");
+                        TELog.LogW("Spawning a knife.");
                         Quaternion rotationFromBody = Quaternion.Euler(0f, y + num2, 0f);
                         Quaternion rotation2 = Quaternion.Euler(0f, y + num2 + 180f, 0f); //Default is (0f, y + num2 + 180f, 0f)
                         Vector3 origin = transform.position + rotationFromBody * (Vector3.forward * distance);
@@ -56,8 +61,12 @@ namespace TurboEdition.Items
                         };
                         ProjectileManager.instance.FireProjectile(fireProjectileInfo);
                     }
-                    Debug.LogWarning("Done.");
+                    TELog.LogW("Done.");
                 }
+            }
+            private void OnDestroy()
+            {
+                base.body.onSkillActivatedServer -= Body_onSkillActivatedServer;
             }
         }
     }

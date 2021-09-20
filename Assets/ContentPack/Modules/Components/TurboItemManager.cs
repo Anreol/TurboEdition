@@ -1,8 +1,10 @@
 ﻿using RoR2;
+using System.Collections;
 using UnityEngine;
 
 namespace TurboEdition
 {
+    [RequireComponent(typeof(CharacterBody))]
     public class TurboItemManager : MonoBehaviour
     {
         public IStatItemBehavior[] statItemBehaviors = new IStatItemBehavior[] { };
@@ -22,7 +24,7 @@ namespace TurboEdition
             foreach (var equipment in InitPickups.equipmentList)
                 equipment.Value.AddBehavior(ref body, System.Convert.ToInt32(body.equipmentSlot?.equipmentIndex == equipment.Value.equipmentDef.equipmentIndex));
 
-            statItemBehaviors = GetComponents<IStatItemBehavior>();
+            StartCoroutine(GetInterfaces());
         }
 
         public void CheckEqp(EquipmentDef equipmentDef, bool gainOrLoss)
@@ -31,10 +33,18 @@ namespace TurboEdition
             if (InitPickups.equipmentList.TryGetValue(equipmentDef, out equipment))
             {
                 equipment.AddBehavior(ref body, System.Convert.ToInt32(gainOrLoss));
-                statItemBehaviors = GetComponents<IStatItemBehavior>();
+                StartCoroutine(GetInterfaces());
             }
         }
 
+        private IEnumerator GetInterfaces()
+        {
+            yield return new WaitForEndOfFrame();
+            statItemBehaviors = GetComponents<IStatItemBehavior>();
+            body.healthComponent.onIncomingDamageReceivers = GetComponents<IOnIncomingDamageServerReceiver>();
+            body.healthComponent.onTakeDamageReceivers = GetComponents<IOnTakeDamageServerReceiver>();
+
+        }
         public void RunStatRecalculationsStart()
         {
             foreach (var statBehavior in statItemBehaviors)

@@ -4886,7 +4886,7 @@ MonoBehaviour:
   catalogIndex: 0
   ghostPrefab: {fileID: 8202156028514425107, guid: 725f00eca56908449bea4232f470b126,
     type: 3}
-  ghostTransformAnchor: {fileID: 0}
+  ghostTransformAnchor: {fileID: 1968541507833826153}
   startSound: 
   flightSoundLoop: {fileID: 0}
   allowPrediction: 1
@@ -4932,7 +4932,7 @@ MonoBehaviour:
   m_Script: {fileID: -1819008361, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredForwardSpeed: 160
+  desiredForwardSpeed: 100
   lifetime: 10
   updateAfterFiring: 0
   enableVelocityOverLifetime: 0

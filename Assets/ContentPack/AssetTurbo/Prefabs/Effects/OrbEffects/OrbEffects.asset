@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2a123f517c6464c9503cf474018e5f, type: 3}
   m_Name: OrbEffects
   m_EditorClassIdentifier: 
-  effectPrefabs:
-  - {fileID: 1617647148787445, guid: 0aec20b94dc0f1f419765295897b75c1, type: 3}
+  effectPrefabs: []

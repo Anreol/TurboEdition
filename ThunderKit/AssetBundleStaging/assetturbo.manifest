@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 298939970
+CRC: 2147733585
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b51dc417fa955ece7ad37f3f55d54205
+    Hash: dd95c7ae1daed3d035487ca583e11cc9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8612fac598655e95972567ee9840ca12
+    Hash: 3e2289705845c1b4ab630d6747f213e9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -35,6 +35,8 @@ ClassTypes:
   Script: {fileID: -2051541306, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1032072274, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 760127866, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -354346302, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -74,13 +76,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -2130789662, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
-  Script: {fileID: 1245112779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: -432102721, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1848696948, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1790887305, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -343225066, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 678291247, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -90,7 +92,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1952984350, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 1839950351, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 664490745, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 717380117, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1695578394, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -128,6 +134,8 @@ ClassTypes:
 - Class: 115
   Script: {instanceID: 0}
 - Class: 134
+  Script: {instanceID: 0}
+- Class: 135
   Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
@@ -182,16 +190,17 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
 - Assets/Textures/texKnifeUV.png
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/CursedScythe.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/BigScytheGhost.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/HellChainNearbyAttachment.prefab
 - Assets/Materials/matKnife.mat
 - Assets/Hopoo/materials/matDeathProjectileFlare.mat
 - Assets/Hopoo/materials/matTracerBright.mat
+- Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectile.prefab
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
 - Assets/Textures/Ramps/texGenericDustRamp.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/CopyFromHopoo.asset
-- Assets/ContentPack/AssetTurbo/Prefabs/Effects/OrbEffects/HellLightningOrbEffect.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffCannotSprint.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniImpactVFXHellchain.prefab
 - Assets/Hopoo/materials/matMercExposedBackdrop.mat
