@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2147733585
+CRC: 3149843790
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dd95c7ae1daed3d035487ca583e11cc9
+    Hash: dc7b004d73c98cd1b7034e24c68648cf
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3e2289705845c1b4ab630d6747f213e9
@@ -211,6 +211,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffEnvBonus.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Text.mesh
+- Assets/ContentPack/AssetTurbo/ItemDefs/StandBonus.asset
 - Assets/Mesh/Items/meshKnife_.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab

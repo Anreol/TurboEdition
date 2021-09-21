@@ -2,7 +2,108 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1045 &1
 EditorBuildSettings:
-  m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/RoR2/Scenes/loadingbasic.unity
+    guid: 05fbf89fdb6d4c5aaa420c7003e8bd39
+  - enabled: 1
+    path: Assets/RoR2/Scenes/splash.unity
+    guid: 33e014caa3514c08ac819bd78e77d1cc
+  - enabled: 1
+    path: Assets/RoR2/Scenes/intro.unity
+    guid: c42e5e179473484da9c15e98f699a4ae
+  - enabled: 1
+    path: Assets/RoR2/Scenes/title.unity
+    guid: 40c98e6e916d46e1bdf380774ea5e82b
+  - enabled: 1
+    path: Assets/RoR2/Scenes/lobby.unity
+    guid: ac9326210f744e2492108e402dfde271
+  - enabled: 1
+    path: Assets/RoR2/Scenes/blackbeach.unity
+    guid: 7923c1f042370d64dae4591d16754a1b
+  - enabled: 1
+    path: Assets/RoR2/Scenes/logbook.unity
+    guid: e029046d17aa4c4788bc89172f2611e7
+  - enabled: 1
+    path: Assets/RoR2/Scenes/testscene.unity
+    guid: f088c052e9f24447bdedc68e80c3b053
+  - enabled: 1
+    path: Assets/RoR2/Scenes/goolake.unity
+    guid: 3bf28b128ef9036448dedbd7d8378e69
+  - enabled: 1
+    path: Assets/RoR2/Scenes/bazaar.unity
+    guid: 47bc4343bca740759fe6e12abf0aa919
+  - enabled: 1
+    path: Assets/RoR2/Scenes/frozenwall.unity
+    guid: fd5503c786cb467c9d3dd969d1d6c7ce
+  - enabled: 1
+    path: Assets/RoR2/Scenes/crystalworld.unity
+    guid: 0283865882c54c4ea8d8ed0e935f767b
+  - enabled: 1
+    path: Assets/RoR2/Scenes/goldshores.unity
+    guid: 7a0651226142400f880c6682ac3462d8
+  - enabled: 1
+    path: Assets/RoR2/Scenes/dampcave.unity
+    guid: d0c16ee577284b65b2bf112701932f36
+  - enabled: 1
+    path: Assets/RoR2/Scenes/golemplains.unity
+    guid: cfaa9d92367dc0d41a6ab468607b1a5b
+  - enabled: 1
+    path: Assets/RoR2/Scenes/dampcavesimple.unity
+    guid: 89d21c13f79b8b9418bb8d35311f9ce1
+  - enabled: 1
+    path: Assets/RoR2/Scenes/foggyswamp.unity
+    guid: b28da714b4d71ed499ff23891363c7d2
+  - enabled: 1
+    path: Assets/RoR2/Scenes/mysteryspace.unity
+    guid: ca8f764b804c4a718a002a2b2a580322
+  - enabled: 1
+    path: Assets/RoR2/Scenes/blackbeachTest.unity
+    guid: 7923c1f042370d64dae4591d16754a1b
+  - enabled: 1
+    path: Assets/RoR2/Scenes/golemplains_trailer.unity
+    guid: 4ffb98dfaf244d38a297f25f2457598c
+  - enabled: 1
+    path: Assets/RoR2/Scenes/wispgraveyard.unity
+    guid: 3514e1ade5167f54f92bb3449595c4be
+  - enabled: 1
+    path: Assets/RoR2/Scenes/shipgraveyard.unity
+    guid: 2d3c7cf8eb86e134d92a80b2713e5840
+  - enabled: 1
+    path: Assets/RoR2/Scenes/arena.unity
+    guid: cd55221be3d3e4542a46b14e27e7e2f5
+  - enabled: 1
+    path: Assets/RoR2/Scenes/golemplains2.unity
+    guid: ed37018179769f446bcaf187c67992ec
+  - enabled: 1
+    path: Assets/RoR2/Scenes/blackbeach2.unity
+    guid: 1b79a8290425e994289f3b6c5fd2a0d2
+  - enabled: 1
+    path: Assets/RoR2/Scenes/limbo.unity
+    guid: 2d896f6290ee40d380ab3d404e4fcf41
+  - enabled: 1
+    path: Assets/RoR2/Scenes/artifactworld.unity
+    guid: 170371a1922b4097883b130ffe8dfb71
+  - enabled: 1
+    path: Assets/RoR2/Scenes/rootjungle.unity
+    guid: 87118fc61aa299447859e2f95ac018de
+  - enabled: 1
+    path: Assets/RoR2/Scenes/skymeadow.unity
+    guid: 85844fc8cda02b74480de96e69d49445
+  - enabled: 1
+    path: Assets/RoR2/Scenes/moon.unity
+    guid: f83a6302dc808824c89c519f124a6938
+  - enabled: 1
+    path: Assets/RoR2/Scenes/outro.unity
+    guid: 3da600d1a08249779982b9d53fffc29b
+  - enabled: 1
+    path: Assets/RoR2/Scenes/eclipseworld.unity
+    guid: 8feb3d48e8af46e187c27a71c3ddb4ad
+  - enabled: 1
+    path: Assets/RoR2/Scenes/ai_test.unity
+    guid: ed3dd0c251a2498c9299a8960505cbe3
+  - enabled: 1
+    path: Assets/RoR2/Scenes/moon2.unity
+    guid: 2877eb890bc1f284fbb86f14efa82a0a
   m_configObjects: {}

@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 114683002203477180}
   - {fileID: 114741640740392424}
   - {fileID: 114540977576171844}
+  - {fileID: 114904987072464370}
   - {fileID: 114643622350610336}
   - {fileID: 114336154361294396}
   - {fileID: 114366308522735304}
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
-  Active: 1
+  Active: 0
   AssetBundleBuildOptions: 1
   buildTarget: 5
   recurseDirectories: 1
@@ -168,3 +169,23 @@ MonoBehaviour:
   Errored: 0
   ErrorMessage: 
   Active: 1
+--- !u!114 &114904987072464370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39f0dca337ac68d49b100d419b8e5fee, type: 3}
+  m_Name: StageAssetBundlesAndSwapShaders
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  Active: 1
+  AssetBundleBuildOptions: 1
+  buildTarget: 5
+  recurseDirectories: 1
+  simulate: 0
+  BundleArtifactPath: <AssetBundleStaging>

@@ -14,7 +14,11 @@ namespace TurboEdition.Equipments
         public override bool FireAction(EquipmentSlot slot)
         {
             if (!NetworkServer.active) return false;
-            if (projectilePrefab == null) return false;
+            if (projectilePrefab == null)
+            {
+                TELog.LogE("Cursed Scythe is missing a projectile prefab");
+                return false;
+            }
             return SpawnProjectile(slot.characterBody);
         }
 

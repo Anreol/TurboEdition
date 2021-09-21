@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: da3067aef16f18c449b3d3cdfddb860a
+  productGUID: 8ec134035c1925643b974a71728cfff8
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: TurboEdition
+  productName: RiskOfDecompilation
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -532,15 +532,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    7: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    13: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    19: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    21: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    25: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    26: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    27: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
-    28: thunderkit;bbepis-bepinexpack;riskofthunder-hookgenpatcher;xoxfaby-mmhook_standalone
+    1: thunderkit
+    7: thunderkit
+    13: thunderkit
+    19: thunderkit
+    21: thunderkit
+    25: thunderkit
+    26: thunderkit
+    27: thunderkit
+    28: thunderkit
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
