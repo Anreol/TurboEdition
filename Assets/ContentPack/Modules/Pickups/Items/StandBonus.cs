@@ -39,7 +39,7 @@ namespace TurboEdition.Items
                     lerp = 0f;
                     return;
                 }
-                lerp = Mathf.Lerp(stack * body.maxHealth, 0, accumulatedDamage);
+                lerp = Mathf.Lerp((stack / 4) * body.maxHealth, 0, accumulatedDamage);
                 provideBuffs = body.GetNotMoving() && stack > 0;
             }
 
@@ -48,7 +48,7 @@ namespace TurboEdition.Items
                 if (!provideBuffs) return;
                 if (motor)
                 {
-                    motor.mass += (5 + 2 * stack); //[body] IS FAT
+                    motor.mass += (10 + 5 * stack); //[body] IS FAT
                 }
                 body.armor += 500 * lerp;
             }

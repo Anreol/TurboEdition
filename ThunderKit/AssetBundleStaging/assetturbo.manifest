@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3149843790
+CRC: 1432927183
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dc7b004d73c98cd1b7034e24c68648cf
+    Hash: bc5c2a8ea9a627104e1d6864f5b57679
   TypeTreeHash:
     serializedVersion: 2
     Hash: 3e2289705845c1b4ab630d6747f213e9
@@ -167,9 +167,11 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
 - Assets/Hopoo/shaders/deferred/hgstandard.shader
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/SandBag.prefab
 - Assets/Mesh/Items/meshKnifeBlade.mesh
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/Hellchain.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
+- Assets/Textures/texSandbagNormal.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/Hopoo/materials/matBrotherSwingDistortion.mat
@@ -208,6 +210,8 @@ Assets:
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lunar.png
+- Assets/Materials/matSandbag.mat
+- Assets/Textures/texSandbagDiffuse.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffEnvBonus.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Text.mesh
@@ -216,6 +220,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OrbEffects/OrbEffects.asset
+- Assets/Textures/texSandbagRoughness.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
 - Assets/Hopoo/shaders/CopyFromRoR2.shader
@@ -230,6 +235,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png
 - Assets/Mesh/donut2Mesh.asset
+- Assets/Mesh/Items/meshSandbag_.mesh
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffMeleeArmor.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/KnifeFan.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/nanomachines.png

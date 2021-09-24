@@ -76,7 +76,8 @@ namespace TurboEdition
             serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
             Assets.Init();
             InitPickups.Init();
-            InitBuffs.Initialize();
+            InitBuffs.Init();
+            InitVFX.Init();
             GetType().Assembly.GetTypes()
                               .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
                               .ToList()

@@ -12,7 +12,7 @@ namespace TurboEdition
         public static Dictionary<TemporaryVFX, GameObject> temporaryVfx = new Dictionary<TemporaryVFX, GameObject>();
 
         //public static TemporaryOverlay[] temporaryOverlays = new TemporaryOverlay[] { };
-        public static void Initialize()
+        public static void Init()
         {
             InitializeVfx();
             //InitializeOverlays();

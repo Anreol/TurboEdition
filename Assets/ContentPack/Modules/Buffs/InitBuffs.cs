@@ -13,7 +13,7 @@ namespace TurboEdition
     {
         public static Dictionary<BuffDef, Buff> buffList = new Dictionary<BuffDef, Buff>();
 
-        public static void Initialize()
+        public static void Init()
         {
             InitializeBuffs();
 
