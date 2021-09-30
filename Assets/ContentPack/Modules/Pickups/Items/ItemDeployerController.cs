@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
-    public class ItemDeployer : Item
+    public class ItemDeployer : Item //Do we need anything of the item class here? We dont. Look at making this independent. It should be added to the dictionary, yknow
     {
         public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeployer");
 

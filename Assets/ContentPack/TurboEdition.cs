@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
+using Zio;
+using Zio.FileSystems;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
@@ -29,6 +31,7 @@ namespace TurboEdition
         public static TurboEdition instance;
         public static PluginInfo pluginInfo;
         public static SerializableContentPack serializableContentPack;
+        public static FileSystem fileSystem { get; private set; }
 
         public string identifier
         {
@@ -48,6 +51,15 @@ namespace TurboEdition
             instance = this;
             
             ContentManager.collectContentPackProviders += (addContentPackProvider) => addContentPackProvider(this);
+            //Language.collectLanguageRootFolders += ();
+
+            //Language garbage
+            PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
+            RoR2Application.fileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Application.dataPath), true);
+            Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
+            {
+                list.Add(RoR2Application.fileSystem.GetDirectoryEntry("/Language/"));
+            };
 
 #if DEBUG
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);

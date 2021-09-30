@@ -16,7 +16,8 @@
         "MonoMod.RuntimeDetour.dll",
         "MonoMod.Utils.dll",
         "MMHOOK_Assembly-CSharp.dll",
-        "Assembly-Stubbed.dll"
+        "Assembly-Stubbed.dll",
+        "Zio.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

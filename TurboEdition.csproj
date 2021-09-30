@@ -97,6 +97,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMask.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupe.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\EnvBonus.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GracePeriod.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Hitlag.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\ItemDeployerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\KnifeFan.cs" />
@@ -372,6 +373,9 @@
     </Reference>
     <Reference Include="Assembly-Stubbed">
       <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Assembly-Stubbed.dll</HintPath>
+    </Reference>
+    <Reference Include="Zio">
+      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Zio.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
