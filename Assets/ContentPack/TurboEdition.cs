@@ -49,17 +49,20 @@ namespace TurboEdition
 #endif
             pluginInfo = Info;
             instance = this;
-            
+
             ContentManager.collectContentPackProviders += (addContentPackProvider) => addContentPackProvider(this);
-            //Language.collectLanguageRootFolders += ();
 
             //Language garbage
             PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
-            RoR2Application.fileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Application.dataPath), true);
-            Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
+            TurboEdition.fileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Assets.assemblyDir), true);
+            if (TurboEdition.fileSystem.DirectoryExists("/language/")) //Uh, it exists and we make sure to not shit up R2Api
             {
-                list.Add(RoR2Application.fileSystem.GetDirectoryEntry("/Language/"));
-            };
+                Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
+                {
+                    TELog.LogI("Adding in TurboEdition's language directory... " + list);
+                    list.Add(TurboEdition.fileSystem.GetDirectoryEntry("/language/"));
+                };
+            }
 
 #if DEBUG
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);

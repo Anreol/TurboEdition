@@ -20,5 +20,5 @@ Shader "StubbedShader/fx/hgintersectioncloudremap" {
 		[Toggle(FADE_FROM_VERTEX_COLORS)] _FadeFromVertexColorsOn ("Fade Alpha from Vertex Color Luminance", Float) = 0
 		[Toggle(TRIPLANAR)] _TriplanarOn ("Enable Triplanar Projections for Clouds", Float) = 0
 	}
-		Fallback "Diffuse"
-}
+		Fallback "Legacy Shaders / Particles / Alpha Blended"
+} 

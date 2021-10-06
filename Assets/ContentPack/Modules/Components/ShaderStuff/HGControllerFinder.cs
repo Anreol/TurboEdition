@@ -22,18 +22,23 @@ namespace TurboEdition.Components
                     case "Hopoo Games/Deferred/Standard":
                         materialController = gameObject.AddComponent<MaterialControllerComponents.HGStandardController>();
                         break;
+
                     case "Hopoo Games/Deferred/Snow Topped":
                         materialController = gameObject.AddComponent<MaterialControllerComponents.HGSnowToppedController>();
                         break;
+
                     case "Hopoo Games/FX/Cloud Remap":
                         materialController = gameObject.AddComponent<MaterialControllerComponents.HGCloudRemapController>();
                         break;
+
                     case "Hopoo Games/FX/Cloud Intersection Remap":
                         materialController = gameObject.AddComponent<MaterialControllerComponents.HGIntersectionController>();
                         break;
+
                     case "Hopoo Games/FX/Solid Parallax":
                         materialController = gameObject.AddComponent<MaterialControllerComponents.HGSolidParallaxController>();
                         break;
+
                     case "Hopoo Games/Deferred/Wavy Cloth":
                         materialController = gameObject.AddComponent<MaterialControllerComponents.HGWavyClothController>();
                         break;

@@ -1,7 +1,5 @@
 ﻿using RoR2;
-using RoR2.Projectile;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -21,6 +19,7 @@ namespace TurboEdition.Items
             private bool reset;
             private float accumulatedDamage;
             private float lerp = 0.0f;
+
             private void Start() //On Start since we need to subscribe to the body, ANYTHING THAT HAS TO DO WITH BODIES, CANNOT BE ON AWAKE() OR ONENABLE()
             {
                 if (!body)
@@ -48,7 +47,7 @@ namespace TurboEdition.Items
                 if (!provideBuffs) return;
                 if (motor)
                 {
-                    motor.mass += (10 + 5 * stack); //[body] IS FAT
+                    motor.mass += (10 + ((stack - 1) * 5)); //[body] IS FAT
                 }
                 body.armor += 500 * lerp;
             }

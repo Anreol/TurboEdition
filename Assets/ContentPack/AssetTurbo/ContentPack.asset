@@ -33,6 +33,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f26a54020669b047a113dcbe0fcbde2, type: 2}
   - {fileID: 11400000, guid: 14b46053aaea12a41aa154aeaaa072c2, type: 2}
   - {fileID: 11400000, guid: 3e7ec56cec60a0a47846c86c30f18eb2, type: 2}
+  - {fileID: 11400000, guid: 32e6075c127f2494e9638d9281349f29, type: 2}
   equipmentDefs:
   - {fileID: 11400000, guid: db5f8f8735505d440aad0e7b540c4933, type: 2}
   - {fileID: 11400000, guid: 6dd507f5f16ba154aa4def91e95b105c, type: 2}

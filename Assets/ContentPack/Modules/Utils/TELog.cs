@@ -16,22 +16,27 @@ namespace TurboEdition
         {
             logger.LogDebug(logString(data, i, member));
         }
+
         public static void LogE(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
             logger.LogError(logString(data, i, member));
         }
+
         public static void LogF(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
             logger.LogFatal(logString(data, i, member));
         }
+
         public static void LogI(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
             logger.LogInfo(logString(data, i, member));
         }
+
         public static void LogM(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
             logger.LogMessage(logString(data, i, member));
         }
+
         public static void LogW(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
             logger.LogWarning(logString(data, i, member));

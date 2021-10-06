@@ -19,6 +19,7 @@ namespace TurboEdition.Items
 
         private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport obj)
         {
+            if (!NetworkServer.active || !obj.leaderMasterInstance || !obj.summonMasterInstance) return; //needs a master else it will NRE director spawns
             ItemDeployerController.Activate(obj);
         }
 
@@ -26,10 +27,6 @@ namespace TurboEdition.Items
         {
             public static void Activate(MasterSummon.MasterSummonReport msr)
             {
-                if (!NetworkServer.active || !msr.leaderMasterInstance || !msr.summonMasterInstance) //needs a master else it will NRE director spawns
-                {
-                    return;
-                }
                 int itemDeployCount = msr.leaderMasterInstance.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeployer"));
                 if (itemDeployCount > 0)
                 {

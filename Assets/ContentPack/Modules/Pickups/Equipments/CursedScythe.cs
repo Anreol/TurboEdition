@@ -1,7 +1,5 @@
-﻿using HG;
-using RoR2;
+﻿using RoR2;
 using RoR2.Projectile;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -11,6 +9,7 @@ namespace TurboEdition.Equipments
     {
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("CursedScythe");
         private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BigScytheProjectile");
+
         public override bool FireAction(EquipmentSlot slot)
         {
             if (!NetworkServer.active) return false;
@@ -49,5 +48,5 @@ namespace TurboEdition.Equipments
             ProjectileManager.instance.FireProjectile(fireProjectileInfo);
             return true;
         }
-	}
+    }
 }

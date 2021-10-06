@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 114904987072464370}
   - {fileID: 114643622350610336}
   - {fileID: 114336154361294396}
-  - {fileID: 114366308522735304}
+  - {fileID: 114597682216115884}
   - {fileID: 114724867410330964}
   manifest: {fileID: 11400000, guid: 7aeb74afd1732f140abe1c0996171e07, type: 2}
 --- !u!114 &114336154361294396
@@ -39,21 +39,6 @@ MonoBehaviour:
   Active: 1
   StagingPath: <StagingRoot>
   ExcludedManifests: []
---- !u!114 &114366308522735304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3570c76eb7a5c3c45942d9295a150917, type: 3}
-  m_Name: StageManifestFiles
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  Active: 1
 --- !u!114 &114540977576171844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +59,21 @@ MonoBehaviour:
   recurseDirectories: 1
   simulate: 0
   BundleArtifactPath: <AssetBundleStaging>
+--- !u!114 &114597682216115884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3570c76eb7a5c3c45942d9295a150917, type: 3}
+  m_Name: StageManifestFiles
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  Active: 1
 --- !u!114 &114643622350610336
 MonoBehaviour:
   m_ObjectHideFlags: 1

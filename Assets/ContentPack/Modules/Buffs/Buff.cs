@@ -23,7 +23,6 @@ namespace TurboEdition.Buffs
         {
         }
 
-
         /// <summary>
         /// Single step of the buff. Gets called everytime the buff updates.
         /// </summary>

@@ -23,4 +23,4 @@ Shader "StubbedShader/fx/hgopaquecloudremap" {
 		[PerRendererData] _ExternalAlpha ("External Alpha", Range(0, 1)) = 1
 	}
 	Fallback "Transparent/Cutout/Diffuse"
-}
+} 

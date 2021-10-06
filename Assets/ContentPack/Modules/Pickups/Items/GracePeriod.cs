@@ -44,7 +44,7 @@ namespace TurboEdition.Items
                             item.duration = stack;
                             item.storedReport = obj;
                         }
-                        else if (!obj.victim.alive)
+                        else if (!obj.victim.alive && obj.attackerBody != body)
                         {
                             SimulateDeathMethods(item);
                         }

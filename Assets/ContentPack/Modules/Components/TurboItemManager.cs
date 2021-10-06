@@ -43,8 +43,8 @@ namespace TurboEdition
             statItemBehaviors = GetComponents<IStatItemBehavior>();
             body.healthComponent.onIncomingDamageReceivers = GetComponents<IOnIncomingDamageServerReceiver>();
             body.healthComponent.onTakeDamageReceivers = GetComponents<IOnTakeDamageServerReceiver>();
-
         }
+
         public void RunStatRecalculationsStart()
         {
             foreach (var statBehavior in statItemBehaviors)

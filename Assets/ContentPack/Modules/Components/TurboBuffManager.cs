@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using UnityEngine;
+
 //using System.Linq;
 
 namespace TurboEdition
@@ -19,7 +20,7 @@ namespace TurboEdition
         public void CheckForBuffs()
         {
             int i = 0; //I cant be bothered to transform the below into a for...
-            foreach (var buffRef in InitBuffs.buffList) 
+            foreach (var buffRef in InitBuffs.buffList)
             {
                 int count = body.GetBuffCount(buffRef.Key);
                 bool wasActive = false;

@@ -1,7 +1,6 @@
 ﻿using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -33,7 +32,7 @@ namespace TurboEdition.Items
                 //if (!NetworkServer.active) return;
                 if (!Util.HasEffectiveAuthority(body.networkIdentity))
                 {
-                    TELog.LogW("No effective authority when trying to spawn knife blade!");
+                    TELog.LogW("Function 'System.Void TurboEdition.Items.KnifeFan::Body_onSkillActivatedServer() called without authority.'");
                     return;
                 }
                 if (projectilePrefab == null) return;
@@ -64,6 +63,7 @@ namespace TurboEdition.Items
                     TELog.LogW("Done.");
                 }
             }
+
             private void OnDestroy()
             {
                 base.body.onSkillActivatedServer -= Body_onSkillActivatedServer;

@@ -55,7 +55,7 @@ namespace TurboEdition.Items
                     origin = body.transform.position,
                 };
 
-                component.finalRadius += stack;
+                component.finalRadius += ((stack - 1) * 2);
                 component.duration += (stack * 0.1f); //Artificially increase duration because in higher radius its almost instant
                 component.performSearch += Component_performSearch;
                 component.onPulseHit += Component_onPulseHit;

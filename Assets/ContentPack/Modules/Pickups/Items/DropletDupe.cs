@@ -38,7 +38,7 @@ namespace TurboEdition.Items
 
             private void PurchaseInteraction_onItemSpentOnPurchase(PurchaseInteraction arg1, Interactor arg2)
             {
-                DisableDupingFor(5f, true); //The more you print the less items you get lololo
+                DisableDupingFor(2.5f, true); //The more you print the less items you get lololo
             }
 
             private void FixedUpdate() //I hate fixed updates but i want to nerf the item so be it
@@ -57,7 +57,7 @@ namespace TurboEdition.Items
                 if (damageReport.isFallDamage || damageReport.dotType != DotController.DotIndex.None) return;
                 if (Util.CheckRoll(3f * stack, -body.master.luck) && body.healthComponent && !suicideReady)
                 {
-                    Debug.LogWarning("Rolled for death");
+                    TELog.LogW("Rolled for death");
                     suicideReady = true;
                     if (body.master)
                     {
@@ -84,12 +84,6 @@ namespace TurboEdition.Items
                     //EffectManager.SpawnEffect(effectPrefab, effectData, true);
                     PickupDropletController.CreatePickupDroplet(createPickupInfo.pickupIndex, createPickupInfo.position + Vector3.up * dropForwardStrength, Vector3.up * dropUpStrength);
                 }
-            }
-
-            public void OnIncomingDamageServer(DamageInfo damageInfo)
-            {
-                Debug.LogWarning("poo2");
-                Debug.LogWarning(damageInfo);
             }
 
             public void DisableDupingFor(float time, bool additive = false)

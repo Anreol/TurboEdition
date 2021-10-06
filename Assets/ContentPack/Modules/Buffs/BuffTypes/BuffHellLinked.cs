@@ -25,7 +25,6 @@ namespace TurboEdition.Buffs
 
         public override void OnBuffLastStackLost(ref CharacterBody body)
         {
-
         }
 
         public override void RecalcStatsStart(ref CharacterBody body)

@@ -105,10 +105,10 @@
     <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="ThunderKit.Core">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Core.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Core.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -342,64 +342,64 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="0Harmony">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/0Harmony.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="ProBuilderMeshOps">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/ProBuilderMeshOps.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/ProBuilderMeshOps.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx.Harmony">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/BepInEx.Harmony.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/BepInEx.Harmony.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx.MonoMod.HookGenPatcher">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/patchers/Bepinex.MonoMod.HookGenPatcher/BepInEx.MonoMod.HookGenPatcher.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/patchers/Bepinex.MonoMod.HookGenPatcher/BepInEx.MonoMod.HookGenPatcher.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx.Preloader">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/BepInEx.Preloader.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/BepInEx.Preloader.dll</HintPath>
     </Reference>
     <Reference Include="Facepunch.Steamworks">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Facepunch.Steamworks.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/Facepunch.Steamworks.dll</HintPath>
     </Reference>
     <Reference Include="HGCSharpUtils">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/HGCSharpUtils.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/HGCSharpUtils.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_Assembly-CSharp">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/HookGenPatcher/MMHOOK_Assembly-CSharp.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.Mdb.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.Mdb.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.Pdb.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil.Rocks">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.Rocks.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="MonoMod.RuntimeDetour">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/MonoMod.RuntimeDetour.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/MonoMod.RuntimeDetour.dll</HintPath>
     </Reference>
     <Reference Include="MonoMod.Utils">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/MonoMod.Utils.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Core">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Rewired_Core.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/Rewired_Core.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_CSharp">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Rewired_CSharp.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/Rewired_CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Windows_Lib">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Rewired_Windows_Lib.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/Rewired_Windows_Lib.dll</HintPath>
     </Reference>
     <Reference Include="HGUnityUtils">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/HGUnityUtils.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/HGUnityUtils.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/BepInEx.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-Stubbed">
-      <HintPath>C:/Users/Angel/source/repos/TurboEdition/Packages/Risk of Rain 2/Assembly-Stubbed.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/Assembly-Stubbed.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

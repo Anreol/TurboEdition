@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 114211852988908172}
   - {fileID: 114107831304456238}
   - {fileID: 114431642618062350}
+  - {fileID: 114338525782180936}
   identity: {fileID: 114211852988908172}
 --- !u!114 &114107831304456238
 MonoBehaviour:
@@ -58,6 +59,25 @@ MonoBehaviour:
   Version: 0.0.1
   Dependencies:
   - {fileID: 11400000, guid: db33d5b068040b5c2782085d4dcc86a1, type: 2}
+--- !u!114 &114338525782180936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  StagingPaths:
+  - <BuildPathLang>
+  files:
+  - {fileID: 102900000, guid: 4870c48caece70542b94265b8f0168e6, type: 3}
+  - {fileID: 102900000, guid: f517a910ba92e5941afa761c4df805b5, type: 3}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1
