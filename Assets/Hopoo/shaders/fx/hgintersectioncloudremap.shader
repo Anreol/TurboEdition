@@ -21,4 +21,4 @@ Shader "StubbedShader/fx/hgintersectioncloudremap" {
 		[Toggle(TRIPLANAR)] _TriplanarOn ("Enable Triplanar Projections for Clouds", Float) = 0
 	}
 		Fallback "Legacy Shaders / Particles / Alpha Blended"
-} 
+}

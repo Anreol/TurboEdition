@@ -1,7 +1,7 @@
 Shader "StubbedShader/fx/hgcloudremap" {
 	Properties{
-		[Enum(UnityEngine.Rendering.BlendMode)] _SrcBlend("Source Blend", Float) = 1
-		[Enum(UnityEngine.Rendering.BlendMode)] _DstBlend("Destination Blend", Float) = 1
+		_SrcBlend("Source Blend", Float) = 1
+		_DstBlend("Destination Blend", Float) = 1
 		[HideInInspector] _InternalSimpleBlendMode("Internal Simple Blend Mode", Float) = 0
 		[HDR] _TintColor("Tint", Color) = (1,1,1,1)
 		[Toggle(DISABLEREMAP)] _DisableRemapOn("Disable Remapping", Float) = 0
@@ -35,4 +35,4 @@ Shader "StubbedShader/fx/hgcloudremap" {
 		[PerRendererData] _Fade("Fade", Range(0, 1)) = 1
 	}
 		Fallback "Legacy Shaders/Particles/Alpha Blended"
-} 
+}

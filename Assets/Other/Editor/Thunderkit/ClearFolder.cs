@@ -3,48 +3,51 @@ using ThunderKit.Core.Attributes;
 using ThunderKit.Core.Paths;
 using ThunderKit.Core.Pipelines;
 
-[PipelineSupport(typeof(Pipeline))]
-public class ClearFolder : PipelineJob
+namespace Moonstorm.EditorUtils.Pipelines
 {
-    [PathReferenceResolver]
-    public string input;
-
-    public override void Execute(Pipeline pipeline)
+    [PipelineSupport(typeof(Pipeline))]
+    public class ClearFolder : PipelineJob
     {
-        string source = input.Resolve(pipeline, this);
-        if (!Directory.Exists(source))
+        [PathReferenceResolver]
+        public string input;
+        public override void Execute(Pipeline pipeline)
         {
-            return;
+            string source = input.Resolve(pipeline, this);
+            if (!Directory.Exists(source))
+            {
+                return;
+            }
+
+            ClearDirectory(source);
         }
 
-        ClearDirectory(source);
+        private void ClearDirectory(string path)
+        {
+            foreach (var file in Directory.GetFiles(path))
+            {
+                File.Delete(file);
+            }
+
+            foreach (var directory in Directory.GetDirectories(path))
+            {
+                DeleteDirectory(directory);
+            }
+        }
+
+        private void DeleteDirectory(string path)
+        {
+            foreach (var file in Directory.GetFiles(path))
+            {
+                File.Delete(file);
+            }
+
+            foreach (var directory in Directory.GetDirectories(path))
+            {
+                DeleteDirectory(directory);
+            }
+
+            Directory.Delete(path);
+        }
     }
 
-    private void ClearDirectory(string path)
-    {
-        foreach (var file in Directory.GetFiles(path))
-        {
-            File.Delete(file);
-        }
-
-        foreach (var directory in Directory.GetDirectories(path))
-        {
-            DeleteDirectory(directory);
-        }
-    }
-
-    private void DeleteDirectory(string path)
-    {
-        foreach (var file in Directory.GetFiles(path))
-        {
-            File.Delete(file);
-        }
-
-        foreach (var directory in Directory.GetDirectories(path))
-        {
-            DeleteDirectory(directory);
-        }
-
-        Directory.Delete(path);
-    }
 }

@@ -5,7 +5,7 @@ Shader "StubbedShader/deferred/hgstandard" {
 		_MainTex ("Base (RGB) Specular Scale (A)", 2D) = "white" {}
 		_NormalStrength ("Normal Strength", Range(0, 5)) = 1
 		_NormalTex ("Normal Map", 2D) = "bump" {}
-		_EmColor ("Emission Color", Vector) = (0,0,0,1)
+		_EmColor ("Emission Color", Color) = (0,0,0,1)
 		[NoScaleOffset] _EmTex ("Emission Tex (RGB)", 2D) = "white" {}
 		_EmPower ("Emission Power", Range(0, 1000)) = 1
 		_Smoothness ("Smoothness", Range(0, 1)) = 0

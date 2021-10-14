@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1363323686
+CRC: 3650640267
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0edca6a0d60b183ce1b2a0ef13a53a3b
+    Hash: 15767000f61c89fac7227986968e629c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3e2289705845c1b4ab630d6747f213e9
+    Hash: 4e074ef49b5e8f0368471bb69b970429
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -64,6 +64,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 296141222, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1122936093, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -102,6 +104,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1095921540, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 1518736395, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -455717551, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -116,11 +120,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -662483879, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 816898038, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 01540905e4ff7a74097e6ae8ce100ea3, type: 3}
 - Class: 114
   Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
   Script: {fileID: -1752031980, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
@@ -128,10 +136,14 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: ef2a123f517c6464c9503cf474018e5f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 68b09e9f07410cb4ca4b7feb5675ef18, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 128
   Script: {instanceID: 0}
 - Class: 134
   Script: {instanceID: 0}
@@ -144,6 +156,10 @@ ClassTypes:
 - Class: 199
   Script: {instanceID: 0}
 - Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
   Script: {instanceID: 0}
 Assets:
 - Assets/ContentPack/AssetTurbo/ItemDefs/MeleeArmor.asset
@@ -160,16 +176,16 @@ Assets:
 - Assets/Materials/matHellLinkedBuffBillboard.mat
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2.asset
 - Assets/Textures/texKnifeUVAlpha.png
-- Assets/Hopoo/shaders/fx/hgcloudremap.shader
 - Assets/ContentPack/AssetTurbo/ItemDefs/PackMagnet.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/RadioConnect.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_selected.png
 - Assets/Mesh/Items/meshKnifeGuard.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
-- Assets/Hopoo/shaders/deferred/hgstandard.shader
 - Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/SandBag.prefab
 - Assets/Mesh/Items/meshKnifeBlade.mesh
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/Hellchain.asset
+- Assets/Other/TextMesh Pro/Fonts/LiberationSans.ttf
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
 - Assets/Textures/texSandbagNormal.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
@@ -196,7 +212,10 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/HellChainNearbyAttachment.prefab
+- Assets/Hopoo/shaders/deferred/hgstandard.shader
+- Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Font Asset Icon.psd
 - Assets/Materials/matKnife.mat
+- Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
 - Assets/Hopoo/materials/matDeathProjectileFlare.mat
 - Assets/Hopoo/materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectile.prefab
@@ -214,7 +233,9 @@ Assets:
 - Assets/Textures/texSandbagDiffuse.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffEnvBonus.asset
+- Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Text.mesh
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/StatArmorUP.prefab
 - Assets/ContentPack/AssetTurbo/ItemDefs/GracePeriod.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/StandBonus.asset
 - Assets/Mesh/Items/meshKnife_.mesh
@@ -222,16 +243,21 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OrbEffects/OrbEffects.asset
 - Assets/Textures/texSandbagRoughness.png
+- Assets/ContentPack/AssetTurbo/ItemDefs/Typewriter.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
 - Assets/Hopoo/shaders/CopyFromRoR2.shader
 - Assets/ContentPack/AssetTurbo/ItemDefs/EnvBonus.asset
+- Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
 - Assets/Materials/matCardTest.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniEffects.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffElectrostatic.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
+- Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/Textures/texCardTest.png
+- Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd
+- Assets/Hopoo/tmpfonts/misc/tmpriskofrainfont bold outlinesdf.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/Hitlag.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png

@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 482d482f01eb8844e850023d5c13010e
+  productGUID: 1fa62d355bdcca44fb351b13230074c4
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: RiskOfDecompilation
+  productName: Risk
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -532,15 +532,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit
-    7: thunderkit
-    13: thunderkit
-    19: thunderkit
-    21: thunderkit
-    25: thunderkit
-    26: thunderkit
-    27: thunderkit
-    28: thunderkit
+    1: thunderkit;twiner-unitygameimporter
+    7: thunderkit;twiner-unitygameimporter
+    13: thunderkit;twiner-unitygameimporter
+    19: thunderkit;twiner-unitygameimporter
+    21: thunderkit;twiner-unitygameimporter
+    25: thunderkit;twiner-unitygameimporter
+    26: thunderkit;twiner-unitygameimporter
+    27: thunderkit;twiner-unitygameimporter
+    28: thunderkit;twiner-unitygameimporter
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

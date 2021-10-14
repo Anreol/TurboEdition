@@ -13,7 +13,7 @@
 	
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
 	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
-	"ITEM_DROPLETDUPE_DESC": "8% <style=cStack>(+2.5% per stack) to duplicate items that fall. 3% <style=cStack>(+1% per stack) to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
+	"ITEM_DROPLETDUPE_DESC": "8% <style=cStack>(+2.5% per stack)</style> to duplicate items that fall. 3% <style=cStack>(+1% per stack) to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
 	"ITEM_DROPLETDUPE_LORE": "",
 	
 	"ITEM_ENVBONUS_NAME": "UVB-51 Radio",
@@ -33,7 +33,7 @@
 	
 	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",
 	"ITEM_ITEMDEPLOYER_PICKUP": "Copy one of your items to a drone.",
-	"ITEM_ITEMDEPLOYER_DESC": "Give 1 <style=cStack>(+1 per stack) item(s) to a drone. Give up this <style=cIsUtility>item's stack by two</style> of the chosen item to give.",
+	"ITEM_ITEMDEPLOYER_DESC": "Give 1 <style=cStack>(+1 per stack)</style> item(s) to a drone. Give up this <style=cIsUtility>item's stack by two</style> of the chosen item to give.",
 	"ITEM_ITEMDEPLOYER_LORE": "",
 	
 	"ITEM_KNIFEFAN_NAME": "Fan of Blades",

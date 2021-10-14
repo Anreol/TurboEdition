@@ -5,31 +5,33 @@ using ThunderKit.Core.Pipelines;
 using UnityEditor;
 using UnityEngine;
 
-[PipelineSupport(typeof(Pipeline))]
-public class BuildAssetBundles : PipelineJob
+namespace Moonstorm.EditorUtils.Pipelines
 {
-    [EnumFlag]
-    public BuildAssetBundleOptions AssetBundleBuildOptions = BuildAssetBundleOptions.UncompressedAssetBundle;
-
-    public BuildTarget buildTarget = BuildTarget.StandaloneWindows;
-
-    [PathReferenceResolver]
-    public string outputFolder;
-
-    public override void Execute(Pipeline pipeline)
+    [PipelineSupport(typeof(Pipeline))]
+    public class BuildAssetBundles : PipelineJob
     {
-        AssetDatabase.SaveAssets();
-        var stagingPath = outputFolder.Resolve(pipeline, this);
-        if (!Directory.Exists(stagingPath)) Directory.CreateDirectory(stagingPath);
+        [EnumFlag]
+        public BuildAssetBundleOptions AssetBundleBuildOptions = BuildAssetBundleOptions.UncompressedAssetBundle;
+        public BuildTarget buildTarget = BuildTarget.StandaloneWindows;
+        [PathReferenceResolver]
+        public string outputFolder;
 
-        var result = BuildPipeline.BuildAssetBundles(stagingPath, AssetBundleBuildOptions, buildTarget);
-        if (!result)
+        public override void Execute(Pipeline pipeline)
         {
-            throw new System.Exception("Failed to build AssetBundles");
-        }
-        if (BuildPipeline.isBuildingPlayer)
-        {
-            Debug.Log("Building");
+            AssetDatabase.SaveAssets();
+            var stagingPath = outputFolder.Resolve(pipeline, this);
+            if (!Directory.Exists(stagingPath)) Directory.CreateDirectory(stagingPath);
+
+            var result = BuildPipeline.BuildAssetBundles(stagingPath, AssetBundleBuildOptions, buildTarget);
+            if (!result)
+            {
+                throw new System.Exception("Failed to build AssetBundles");
+            }
+            if (BuildPipeline.isBuildingPlayer)
+            {
+                Debug.Log("Building");
+
+            }
         }
     }
 }

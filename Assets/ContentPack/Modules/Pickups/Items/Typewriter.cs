@@ -23,11 +23,18 @@ namespace TurboEdition.Items
             private char[] arr = new char[25];
             private float sprintTimer;
             private static readonly float fireRate = 0.08571429f;
-
+            private bool isNotASCII = false;
             private void Start()
             {
                 EquipmentSlot.onServerEquipmentActivated += EquipmentSlot_onServerEquipmentActivated;
                 base.body.onSkillActivatedServer += Body_onSkillActivatedServer;
+                foreach (string name in Typewriter.nonAsciiLanguages)
+                {
+                    if (Language.currentLanguage.name == name)
+                    {
+                        isNotASCII = true;
+                    }
+                };
             }
 
             private void OnDisable()
@@ -83,11 +90,11 @@ namespace TurboEdition.Items
                 if (EffectSpawnItem()) return;
                 PopWord(pop.ToString());
             }
-            private void PopWord(String word)
+            private void PopWord(string word)
             {
 
             }
-            private void ClearArray(String wordTriggered)
+            private void ClearArray(string wordTriggered)
             {
                 int len = arr.Length;
                 HGArrayUtilities.Clear(arr, ref len);
@@ -97,7 +104,7 @@ namespace TurboEdition.Items
             {
                 foreach (CharacterBody item in RoR2.BodyCatalog.allBodyPrefabBodyBodyComponents)
                 {
-                    String bodyString = String.Concat(Language.GetString(item.baseNameToken).Where(c => !Char.IsWhiteSpace(c)));
+                    string bodyString = (!isNotASCII) ? string.Concat(Language.GetString(item.baseNameToken).Where(c => !Char.IsWhiteSpace(c))) : string.Concat(Language.GetString(item.baseNameToken).Where(c => !Char.IsWhiteSpace(c)), Language.english.name);
                     if (arr.ToString().Contains(bodyString))
                     {
                         new MasterSummon
@@ -120,7 +127,7 @@ namespace TurboEdition.Items
                 foreach (ItemIndex item in RoR2.ItemCatalog.allItems)
                 {
                     ItemDef itemDef = ItemCatalog.GetItemDef(item);
-                    String itemString = String.Concat(Language.GetString(itemDef.nameToken).Where(c => !Char.IsWhiteSpace(c)));
+                    String itemString = (!isNotASCII) ? string.Concat(Language.GetString(itemDef.nameToken).Where(c => !Char.IsWhiteSpace(c))) : string.Concat(Language.GetString(itemDef.nameToken).Where(c => !Char.IsWhiteSpace(c)), Language.english.name);
                     if (arr.ToString().Contains(itemString))
                     {
                         if ((!body.isPlayerControlled && (itemDef.ContainsTag(ItemTag.AIBlacklist) || itemDef.ContainsTag(ItemTag.CannotCopy))) || (BodyCatalog.FindBodyIndex("BrotherBody") == body.bodyIndex && itemDef.ContainsTag(ItemTag.BrotherBlacklist)))
@@ -144,5 +151,23 @@ namespace TurboEdition.Items
                 return false;
             }
         }
+
+        //https://partner.steamgames.com/doc/store/localization
+        public static string[] nonAsciiLanguages = new string[] {
+            "ar",
+            "bg",
+            "zh-CN",
+            "zh-TW",
+            "cs",
+            "el",
+            "ja",
+            "ko",
+            "ru",
+            "th",
+            "tr",
+            "uk",
+            "vn"
+        };
+
     }
 }

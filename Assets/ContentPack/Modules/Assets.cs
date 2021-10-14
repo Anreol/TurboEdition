@@ -29,9 +29,9 @@ namespace TurboEdition
         internal static string mainAssetBundleName = "assetTurbo";
         public static ReadOnlyCollection<AssetBundle> assetBundles;
 
+        [RoR2.SystemInitializer] //look at putting it in FinalizeAsync
         public static void Init()
         {
-            LoadEffects();
             var gameMaterials = Resources.FindObjectsOfTypeAll<Material>();
             foreach (var assetBundle in assetBundles)
                 MapMaterials(assetBundle, gameMaterials);

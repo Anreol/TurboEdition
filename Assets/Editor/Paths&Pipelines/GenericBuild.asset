@@ -123,8 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03063c7a6ec04cc4c82c75cf9bcc8db8, type: 3}
   m_Name: Copy
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
+  Errored: 1
+  ErrorMessage: 'Failed to Copy File / Directory from ''ThunderKit/Staging/Anreol-TurboEdition/plugins/Anreol-TurboEdition''
+    to ''C:/Users/Anr/source/repos/TurboEdition/Builds/Anreol-TurboEdition/0.0.1/plugins'':
+    destination path already exists.'
   Active: 1
   PerManifest: 1
   ExcludedManifests:

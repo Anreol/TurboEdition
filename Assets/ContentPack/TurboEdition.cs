@@ -89,19 +89,19 @@ namespace TurboEdition
             Assets.assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
 
             serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
-            Assets.Init();
+            //Assets.Init();
             InitPickups.Init();
             InitBuffs.Init();
             InitVFX.Init();
+            Assets.LoadEffects();
             GetType().Assembly.GetTypes()
                               .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
                               .ToList()
                               .ForEach(state => HG.ArrayUtils.ArrayAppend(ref serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
 
-            args.ReportProgress(1f);
-
             if (onLoadStaticContent != null)
                 yield return onGenerateContentPack;
+            args.ReportProgress(1f);
             yield break;
         }
 
@@ -113,9 +113,9 @@ namespace TurboEdition
             contentPack.identifier = identifier;
             ContentPack.Copy(contentPack, args.output);
 
-            args.ReportProgress(1f);
             if (onGenerateContentPack != null)
                 yield return onGenerateContentPack;
+            args.ReportProgress(1f);
             yield break;
         }
 

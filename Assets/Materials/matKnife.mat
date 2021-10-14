@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matKnife
-  m_Shader: {fileID: 4800000, guid: 3f16d4d3670544d59dbab41c2cc2b675, type: 2}
+  m_Shader: {fileID: 4800000, guid: bd8619b81f584bae957e44fdbe6d7837, type: 2}
   m_ShaderKeywords: FRESNEL_EMISSION USE_CLOUDS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -96,6 +96,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal1Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal2Tex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -211,6 +219,7 @@ Material:
     - _VertexAlphaOn: 0
     - _VertexColorOn: 0
     - _VertexOffsetOn: 0
+    - _VertexOffsetStrength: 0
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
@@ -221,4 +230,5 @@ Material:
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
