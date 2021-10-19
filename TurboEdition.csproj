@@ -76,6 +76,7 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\QuestTracker.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\SimpleListTether.cs" />
@@ -106,8 +107,12 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\StandBonus.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Typewriter.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Quests\HuntQuestController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Quests\QuestCatalog.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\EffectDefHolder.cs" />
+    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\QuestDef.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\RuntimeCloudMaterialMapper.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\TELog.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\InitVFX.cs" />

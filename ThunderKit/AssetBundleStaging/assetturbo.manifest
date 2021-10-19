@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3650640267
+CRC: 435656602
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 15767000f61c89fac7227986968e629c
+    Hash: ff7c238ca05fd9cf65c687aec0222f84
   TypeTreeHash:
     serializedVersion: 2
     Hash: 4e074ef49b5e8f0368471bb69b970429
@@ -169,8 +169,10 @@ Assets:
 - Assets/Materials/matInvisibleOutlineMeshHolder.mat
 - Assets/Hopoo/materials/matOmniRing2.mat
 - Assets/Textures/texHellLinkedBuffOverlay.png
+- Assets/ContentPack/AssetTurbo/ItemDefs/SuperStickies.asset
 - Assets/Mesh/meshSphere.asset
 - Assets/Hopoo/materials/matOmniHitspark3.mat
+- Assets/Hopoo/tmpfonts/fontsource/RiskofRainFont SDF.asset
 - Assets/Hopoo/materials/matOmniHitspark1.mat
 - Assets/Mesh/Items/meshKnifeHandle.mesh
 - Assets/Materials/matHellLinkedBuffBillboard.mat
@@ -191,6 +193,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/Hopoo/materials/matBrotherSwingDistortion.mat
+- Assets/ContentPack/AssetTurbo/ItemDefs/SoulDevourer.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxHellLinkedBuffEffect.prefab
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/LeaveStage.asset
@@ -211,6 +214,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/BigScytheGhost.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/Effects.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/HellChainNearbyAttachment.prefab
 - Assets/Hopoo/shaders/deferred/hgstandard.shader
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Font Asset Icon.psd
@@ -224,12 +228,14 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/CopyFromHopoo.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffCannotSprint.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniImpactVFXHellchain.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTextEffect.prefab
 - Assets/Hopoo/materials/matMercExposedBackdrop.mat
 - Assets/ContentPack/AssetTurbo/icon.png
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lunar.png
 - Assets/Materials/matSandbag.mat
+- Assets/ContentPack/AssetTurbo/ItemDefs/BloodEconomy.asset
 - Assets/Textures/texSandbagDiffuse.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffEnvBonus.asset

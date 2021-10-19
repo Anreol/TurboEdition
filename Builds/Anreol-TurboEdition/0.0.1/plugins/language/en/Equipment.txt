@@ -1,0 +1,20 @@
+{
+	"strings":
+	{
+		"EQUIPMENT_CURSEDSCYTHE_NAME" : "Big Scythe",
+		"EQUIPMENT_CURSEDSCYTHE_PICKUP" : "Throw a scythe for massive damage to a random enemy. <sprite name=\"WIP\"> This equipment is currently unimplemented. <sprite name=\"WIP\">",
+		"EQUIPMENT_CURSEDSCYTHE_DESC" : "Throw a scythe for massive damage to a random enemy.",
+		"EQUIPMENT_CURSEDSCYTHE_LORE" : "",
+
+		"EQUIPMENT_HELLCHAIN_NAME" : "Bloody Cross",
+		"EQUIPMENT_HELLCHAIN_PICKUP" : "Target an enemy and connect it to nearby enemies, sharing damage. <sprite name=\"WIP\"> This equipment is currently unimplemented. <sprite name=\"WIP\">",
+		"EQUIPMENT_HELLCHAIN_DESC" : "Target an enemy and connect it to nearby enemies, sharing damage.",
+		"EQUIPMENT_HELLCHAIN_LORE" : "",
+
+		"EQUIPMENT_LEAVESTAGE_NAME" : "Ejection Lever",
+		"EQUIPMENT_LEAVESTAGE_PICKUP" : "Escape, escape.",
+		"EQUIPMENT_LEAVESTAGE_DESC" : "Leave the current stage if either the boss is killed or the Teleporter is at 99% charge or more.",
+		"EQUIPMENT_LEAVESTAGE_LORE" : "",
+
+	}
+}

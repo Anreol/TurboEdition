@@ -1,9 +1,8 @@
 ﻿using HG;
 using RoR2;
 using RoR2.Orbs;
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -20,21 +19,22 @@ namespace TurboEdition.Items
 
         internal class TypewriterBehavior : CharacterBody.ItemBehavior
         {
-            private char[] arr = new char[25];
+            private char[] arr = new char[40];
             private float sprintTimer;
             private static readonly float fireRate = 0.08571429f;
-            private bool isNotASCII = false;
+
+            private GameObject trollJect = Assets.mainAssetBundle.LoadAsset<GameObject>("vfxTextEffect");
+            private RoR2.UI.LanguageTextMeshController component;
+
             private void Start()
             {
                 EquipmentSlot.onServerEquipmentActivated += EquipmentSlot_onServerEquipmentActivated;
                 base.body.onSkillActivatedServer += Body_onSkillActivatedServer;
-                foreach (string name in Typewriter.nonAsciiLanguages)
+
+                if (component == null)
                 {
-                    if (Language.currentLanguage.name == name)
-                    {
-                        isNotASCII = true;
-                    }
-                };
+                    component = trollJect.GetComponentInChildren<RoR2.UI.LanguageTextMeshController>();
+                } 
             }
 
             private void OnDisable()
@@ -50,13 +50,26 @@ namespace TurboEdition.Items
                     TELog.LogW("Function 'System.Void TurboEdition.Items.Typewriter::Body_onSkillActivatedServer() called without authority.'");
                     return;
                 }
-                AddLetterAndCheckEffects();
+                ForceAttempt();
+                for (int i = 0; i < stack; i++)
+                {
+                    AddLetterAndCheckEffects();
+                }
             }
 
             private void EquipmentSlot_onServerEquipmentActivated(EquipmentSlot arg1, EquipmentIndex arg2)
             {
                 if (!arg1.characterBody == body) return;
-                AddLetterAndCheckEffects();
+                if (!Util.HasEffectiveAuthority(body.networkIdentity))
+                {
+                    TELog.LogW("Function 'System.Void TurboEdition.Items.Typewriter::EquipmentSlot_onServerEquipmentActivated() called without authority.'");
+                    return;
+                }
+                ForceAttempt();
+                for (int i = 0; i < stack; i++)
+                {
+                    AddLetterAndCheckEffects();
+                }
             }
 
             private void FixedUpdate()
@@ -66,13 +79,22 @@ namespace TurboEdition.Items
 
             private void SprintBehavior()
             {
+                if (!Util.HasEffectiveAuthority(body.networkIdentity))
+                {
+                    TELog.LogW("Function 'System.Void TurboEdition.Items.Typewriter::SprintBehavior() called without authority.'");
+                    return;
+                }
                 if (body.isSprinting)
                 {
                     this.sprintTimer -= Time.fixedDeltaTime;
                     if (this.sprintTimer <= 0f)
                     {
                         this.sprintTimer += 1f / (fireRate * this.body.moveSpeed);
-                        AddLetterAndCheckEffects();
+                        ForceAttempt();
+                        for (int i = 0; i < stack; i++)
+                        {
+                            AddLetterAndCheckEffects();
+                        }
                     }
                 }
             }
@@ -86,88 +108,128 @@ namespace TurboEdition.Items
                 }
 
                 arr[arr.Length - 1] = (char)UnityEngine.Random.Range('a', 'z');
-                if (EffectSpawnBody()) return;
-                if (EffectSpawnItem()) return;
+                //TELog.LogD("Adding a letter. Current array is " + arr.ToString());
+                StartCoroutine(EffectSpawnBody());
+                StartCoroutine(EffectSpawnItem());
                 PopWord(pop.ToString());
             }
+
             private void PopWord(string word)
             {
-
+                if (component != null && word != null)
+                {
+                    component.token = word;
+                    if (word.Length == 1 && component.token == component.previousToken) //Don't dupe letters.
+                    {
+                        return;
+                    }
+                    EffectData effectData = new EffectData()
+                    {
+                        //networkSoundEventIndex = get a key press sound
+                        origin = body.transform.position,
+                        rotation = Util.QuaternionSafeLookRotation((body.characterDirection.moveVector != Vector3.zero) ? body.characterDirection.moveVector : UnityEngine.Random.onUnitSphere)
+                    };
+                    effectData.SetHurtBoxReference(body.gameObject);
+                    EffectManager.SpawnEffect(trollJect, effectData, true);
+                }
             }
+
             private void ClearArray(string wordTriggered)
             {
                 int len = arr.Length;
-                HGArrayUtilities.Clear(arr, ref len);
+                HG.ArrayUtils.Clear(arr, ref len);
                 PopWord(wordTriggered);
             }
-            private bool EffectSpawnBody()
+
+            private void ForceAttempt()
             {
-                foreach (CharacterBody item in RoR2.BodyCatalog.allBodyPrefabBodyBodyComponents)
+                if (Util.CheckRoll(0.001f * stack, body.master))
                 {
-                    string bodyString = (!isNotASCII) ? string.Concat(Language.GetString(item.baseNameToken).Where(c => !Char.IsWhiteSpace(c))) : string.Concat(Language.GetString(item.baseNameToken).Where(c => !Char.IsWhiteSpace(c)), Language.english.name);
-                    if (arr.ToString().Contains(bodyString))
+                    int no = UnityEngine.Random.Range(0, Utils.CleanTokens.bodyIndices.Length - 1);
+                    BodyIndex bi = Utils.CleanTokens.bodyIndices[no];
+                    new MasterSummon
+                    {
+                        masterPrefab = MasterCatalog.GetMasterPrefab(MasterCatalog.FindAiMasterIndexForBody(bi)),
+                        position = body.corePosition,
+                        rotation = body.aimOriginTransform.rotation,
+                        ignoreTeamMemberLimit = false,
+                        summonerBodyObject = body.gameObject,
+                        useAmbientLevel = true
+                    }.Perform();
+                    PopWord(BodyCatalog.GetBodyPrefabBodyComponent(bi).baseNameToken);
+                }
+                if (Util.CheckRoll(0.001f * stack, body.master))
+                {
+                    int no2 = UnityEngine.Random.Range(0, Utils.CleanTokens.itemIndices.Length - 1);
+                    ItemIndex found = Utils.CleanTokens.itemIndices[no2];
+                    ItemDef foundDef = ItemCatalog.GetItemDef(found);
+                    if ((!body.isPlayerControlled && (foundDef.ContainsTag(ItemTag.AIBlacklist) || !foundDef.inDroppableTier || foundDef.ContainsTag(ItemTag.CannotCopy))) || (BodyCatalog.FindBodyIndex("BrotherBody") == body.bodyIndex && foundDef.ContainsTag(ItemTag.BrotherBlacklist)))
+                    {
+                        return;
+                    }
+                    List<RoR2.Orbs.ItemTransferOrb> inFlightOrbs = new List<RoR2.Orbs.ItemTransferOrb>();
+                    for (int z = 0; z < 3; z++)
+                    {
+                        ItemTransferOrb itemOrb = ItemTransferOrb.DispatchItemTransferOrb(body.transform.position, body.inventory, found, 1, delegate (ItemTransferOrb orb)
+                        {
+                            body.inventory.GiveItem(orb.itemIndex, orb.stack);
+                            inFlightOrbs.Remove(orb);
+                        }, default(Either<NetworkIdentity, HurtBox>));
+                        inFlightOrbs.Add(itemOrb);
+                    }
+                    PopWord(foundDef.nameToken);
+                }
+            }
+            private IEnumerator EffectSpawnBody()
+            {
+                //TELog.LogD("Coroutine SpawnBody");
+                for (int i = 0; i < Utils.CleanTokens.cleanBodyNames.Length; i++)
+                {
+                    if (arr.ToString().Contains(Utils.CleanTokens.cleanBodyNames[i]))
                     {
                         new MasterSummon
                         {
-                            masterPrefab = MasterCatalog.GetMasterPrefab(MasterCatalog.FindAiMasterIndexForBody(BodyCatalog.FindBodyIndex(item))),
+                            masterPrefab = MasterCatalog.GetMasterPrefab(MasterCatalog.FindAiMasterIndexForBody(Utils.CleanTokens.bodyIndices[i])),
                             position = body.corePosition,
                             rotation = body.aimOriginTransform.rotation,
                             ignoreTeamMemberLimit = true,
                             summonerBodyObject = body.gameObject,
                             useAmbientLevel = true
                         }.Perform();
-                        ClearArray(bodyString);
-                        return true;
+                        ClearArray(BodyCatalog.GetBodyPrefabBodyComponent(Utils.CleanTokens.bodyIndices[i]).baseNameToken);
                     }
                 }
-                return false;
+                yield return new WaitForSeconds(.1f);
             }
-            private bool EffectSpawnItem()
+
+            private IEnumerator EffectSpawnItem()
             {
-                foreach (ItemIndex item in RoR2.ItemCatalog.allItems)
+                //TELog.LogD("Coroutine SpawnItem");
+                for (int i = 0; i < Utils.CleanTokens.cleanItemNames.Length; i++)
                 {
-                    ItemDef itemDef = ItemCatalog.GetItemDef(item);
-                    String itemString = (!isNotASCII) ? string.Concat(Language.GetString(itemDef.nameToken).Where(c => !Char.IsWhiteSpace(c))) : string.Concat(Language.GetString(itemDef.nameToken).Where(c => !Char.IsWhiteSpace(c)), Language.english.name);
-                    if (arr.ToString().Contains(itemString))
+                    if (arr.ToString().Contains(Utils.CleanTokens.cleanItemNames[i]))
                     {
-                        if ((!body.isPlayerControlled && (itemDef.ContainsTag(ItemTag.AIBlacklist) || itemDef.ContainsTag(ItemTag.CannotCopy))) || (BodyCatalog.FindBodyIndex("BrotherBody") == body.bodyIndex && itemDef.ContainsTag(ItemTag.BrotherBlacklist)))
+                        ItemIndex found = Utils.CleanTokens.itemIndices[i];
+                        ItemDef foundDef = ItemCatalog.GetItemDef(found);
+                        if ((!body.isPlayerControlled && (foundDef.ContainsTag(ItemTag.AIBlacklist) || foundDef.ContainsTag(ItemTag.CannotCopy))) || (BodyCatalog.FindBodyIndex("BrotherBody") == body.bodyIndex && foundDef.ContainsTag(ItemTag.BrotherBlacklist)))
                         {
                             continue;
                         }
                         List<RoR2.Orbs.ItemTransferOrb> inFlightOrbs = new List<RoR2.Orbs.ItemTransferOrb>();
-                        for (int i = 0; i < 3; i++)
+                        for (int z = 0; z < 3; z++)
                         {
-                            ItemTransferOrb itemOrb = ItemTransferOrb.DispatchItemTransferOrb(body.transform.position, body.inventory, itemDef.itemIndex, 1, delegate (ItemTransferOrb orb)
+                            ItemTransferOrb itemOrb = ItemTransferOrb.DispatchItemTransferOrb(body.transform.position, body.inventory, found, 1, delegate (ItemTransferOrb orb)
                             {
                                 body.inventory.GiveItem(orb.itemIndex, orb.stack);
                                 inFlightOrbs.Remove(orb);
                             }, default(Either<NetworkIdentity, HurtBox>));
                             inFlightOrbs.Add(itemOrb);
                         }
-                        ClearArray(itemString);
-                        return true;
+                        ClearArray(foundDef.nameToken);
                     };
                 }
-                return false;
+                yield return new WaitForSeconds(.1f);
             }
         }
-
-        //https://partner.steamgames.com/doc/store/localization
-        public static string[] nonAsciiLanguages = new string[] {
-            "ar",
-            "bg",
-            "zh-CN",
-            "zh-TW",
-            "cs",
-            "el",
-            "ja",
-            "ko",
-            "ru",
-            "th",
-            "tr",
-            "uk",
-            "vn"
-        };
-
     }
 }

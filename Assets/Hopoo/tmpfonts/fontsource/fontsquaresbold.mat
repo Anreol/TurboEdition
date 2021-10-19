@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: fontsquaresbold
-  m_Shader: {fileID: 4800000, guid: 5c15d20dbe374a8a8e23a9c4ec40eafb, type: 2}
+  m_Shader: {fileID: 4800000, guid: 1fb6d88d0e1143398fcb0dc3dbdfb680, type: 2}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a2963ffbe7084861a10d8dcdc86458e9, type: 2}
+        m_Texture: {fileID: 2800000, guid: b823a738270d4216baeee04531336baf, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
