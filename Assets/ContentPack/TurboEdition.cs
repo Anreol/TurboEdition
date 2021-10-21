@@ -62,6 +62,7 @@ namespace TurboEdition
                     TELog.LogI("Adding in TurboEdition's language directory... " + list);
                     list.Add(TurboEdition.fileSystem.GetDirectoryEntry("/language/"));
                 };
+                Misc.MiscLanguage.AddDeathMessages();
             }
 
 #if DEBUG

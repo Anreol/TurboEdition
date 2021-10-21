@@ -86,6 +86,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Orbs\HellOrb.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />

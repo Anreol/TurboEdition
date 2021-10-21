@@ -20,6 +20,13 @@ namespace TurboEdition.ScriptableObjects
 				return this.maxTime > 0f;
 			}
 		}
+		public bool isTeamWide
+		{
+			get
+			{
+				return ContainsTag(QuestCatalog.QuestTag.TeamWide);
+			}
+		}
 		public Texture questIconTexture
 		{
 			get
@@ -47,12 +54,14 @@ namespace TurboEdition.ScriptableObjects
 		{
 			return Array.IndexOf<QuestCatalog.QuestTag>(this.tags, tag) == -1;
 		}
+
 		public GameObject questPrefab;
 		public string nameToken;
 		public string objectiveToken;
 		public string loseToken;
 		public Sprite questIconSprite;
 		public QuestCatalog.QuestTag[] tags = Array.Empty<QuestCatalog.QuestTag>();
+		public RoR2.CostTypeIndex[] rewardTypes = Array.Empty<RoR2.CostTypeIndex>();
 		public bool hidden;
 		public float maxTime;
 	}

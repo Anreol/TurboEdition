@@ -60,7 +60,10 @@ namespace TurboEdition.Quests
 			SetQuestDefs(questsToLoad);
 		}
 
-		//Can only get called once!!!
+		/// <summary>
+		/// Should be called only once. Append any desired QuestDefs to load to QuestCatalog.questsToLoad
+		/// </summary>
+		/// <param name="newQuestDefs"></param>
 		private static void SetQuestDefs(QuestDef[] newQuestDefs)
 		{
 			QuestCatalog.questIndexByName.Clear();
@@ -127,6 +130,19 @@ namespace TurboEdition.Quests
 			return new int[QuestCatalog.questCount];
 		}
 
+		[ConCommand(commandName = "list_quests", flags = ConVarFlags.None, helpText = "Lists all loaded questsDefs.")]
+		private static void ListQuests(ConCommandArgs args)
+		{
+			for (int i = 0; i < questCount; i++)
+				TELog.LogD($"[{i}]\t{questNames[i]}");
+		}
+
+		[ConCommand(commandName = "list_quests_activego", flags = ConVarFlags.ExecuteOnServer, helpText = "Lists all active quest game objects.")]
+		private static void ListQuestsActiveGo(ConCommandArgs args)
+		{
+
+		}
+
 		private static readonly Stack<int[]> questStackArrays = new Stack<int[]>();
 		public enum QuestIndex
 		{
@@ -136,8 +152,10 @@ namespace TurboEdition.Quests
         {
 			Any,
 			TeamWide,
-			Money,
-			Item,
+			NoScale,
+			WontInverse,
+			ItemRelated,
+			EnemyRelated,
 			Special
         }
 	}

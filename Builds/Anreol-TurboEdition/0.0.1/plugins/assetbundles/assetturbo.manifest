@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 435656602
+CRC: 971097744
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ff7c238ca05fd9cf65c687aec0222f84
+    Hash: db5a6dbe087909296f9f38a01dc0ceca
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4e074ef49b5e8f0368471bb69b970429
+    Hash: eaf2c239e9ff2c828728f5bc256dfe94
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,16 +27,22 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+- Class: 114
+  Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 - Class: 114
   Script: {fileID: -2051541306, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1032072274, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 760127866, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -2108948543, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -354346302, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -61,6 +67,10 @@ ClassTypes:
   Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -875252823, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1343443687, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 3143073, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -181,6 +191,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ItemDefs/PackMagnet.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/RadioConnect.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_selected.png
+- Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BloodPackHeal.prefab
 - Assets/Mesh/Items/meshKnifeGuard.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
