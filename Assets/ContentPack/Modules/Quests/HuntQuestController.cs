@@ -1,96 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.Networking;
-using RoR2;
+﻿using RoR2;
 using RoR2.UI;
+using System;
+using System.Collections.Generic;
+using TurboEdition.Components;
 using TurboEdition.Quests;
-using QuestDef = TurboEdition.ScriptableObjects.QuestDef;
-using System.Runtime.InteropServices;
+using TurboEdition;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace TurboEdition.Quests
 {
-    class HuntQuestController : NetworkBehaviour
+    internal class HuntQuestController : QuestComponent
     {
-        public static event Action onInstanceChangedGlobal;
-        public int numCurrentCount
+        public override void OnEnable()
         {
-            get
-            {
-                return this._numCurrentCount;
-            }
-        }
-        public int numRequiredCount
-        {
-            get
-            {
-                return this._numRequiredCount;
-            }
-        }
-        public string objectiveToken
-        {
-            get
-            {
-                return this._objectiveToken;
-            }
-        }
-        private Xoroshiro128Plus rng;
-        private TeamIndex teamIndex = TeamIndex.None;
-        private NetworkUser networkUserOrigin;
-        private QuestDef questDefSpawner;
-        private void OnEnable()
-        {
-            InstanceTracker.Add(this);
-            Action action = HuntQuestController.onInstanceChangedGlobal;
-            if (action != null)
-            {
-                action();
-            }
+            base.OnEnable();
             GlobalEventManager.onCharacterDeathGlobal += GlobalEventManager_onCharacterDeathGlobal;
-            ObjectivePanelController.collectObjectiveSources += ObjectivePanelController_collectObjectiveSources;
+            ObjectivePanelController.collectObjectiveSources += ReportObjective;
         }
 
-        private void OnDisable()
+        public override void OnDisable()
         {
-            InstanceTracker.Remove(this);
-            Action action = HuntQuestController.onInstanceChangedGlobal;
-            if (action != null)
-            {
-                action();
-            }
+            base.OnDisable();
+            ObjectivePanelController.collectObjectiveSources -= ReportObjective;
             GlobalEventManager.onCharacterDeathGlobal -= GlobalEventManager_onCharacterDeathGlobal;
-            
         }
-        [Server]
-        public override void OnStartServer()
+
+        private void ReportObjective(CharacterMaster characterMaster, List<ObjectivePanelController.ObjectiveSourceDescriptor> output)
         {
-            if (!NetworkServer.active)
+            if (base.teamIndex != TeamIndex.None && characterMaster.teamIndex == base.teamIndex)
             {
-                TELog.LogW("[Server] function 'System.Void TurboEdition.QuestController::OnStartServer()' called on client");
-                return;
-            }
-            base.OnStartServer();
-            this.rng = new Xoroshiro128Plus((ulong)Run.instance.stageRng.nextUint);
-        }        
-        private void ObjectivePanelController_collectObjectiveSources(CharacterMaster arg1, List<ObjectivePanelController.ObjectiveSourceDescriptor> arg2)
-        {
-            if (teamIndex != TeamIndex.None && arg1.teamIndex == teamIndex)
-            {
-                arg2.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
+                output.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
                 {
-                    master = arg1,
-                    objectiveType = typeof(MoonBatteryMissionObjectiveTracker),
+                    master = characterMaster,
+                    objectiveType = typeof(HuntQuestObjectiveTracker),
                     source = this
                 });
             }
-            else if (arg1 == networkUserOrigin.master)
+            else if (characterMaster.netId == base.masterNetIdOrigin)
             {
-                arg2.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
+                output.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
                 {
-                    master = arg1,
-                    objectiveType = typeof(MoonBatteryMissionObjectiveTracker),
+                    master = characterMaster,
+                    objectiveType = typeof(HuntQuestObjectiveTracker),
                     source = this
                 });
             }
@@ -100,131 +52,49 @@ namespace TurboEdition.Quests
         {
             throw new NotImplementedException();
         }
-
-        public int Network_numCurrentCount
-        {
-            get
-            {
-                return this._numCurrentCount;
-            }
-            [param: In]
-            set
-            {
-                base.SetSyncVar<int>(value, ref this._numCurrentCount, 1U);
-            }
-        }
-        public int Network_numRequiredCount
-        {
-            get
-            {
-                return this._numRequiredCount;
-            }
-            [param: In]
-            set
-            {
-                base.SetSyncVar<int>(value, ref this._numRequiredCount, 2U);
-            }
-        }
-        public string Network_objectiveToken
-        {
-            get
-            {
-                return this._objectiveToken;
-            }
-            [param: In]
-            set
-            {
-                base.SetSyncVar<string>(value, ref this._objectiveToken, 4U);
-            }
-        }
-        public override bool OnSerialize(NetworkWriter writer, bool forceAll)
-        {
-            if (forceAll)
-            {
-                writer.WritePackedUInt32((uint)this._numCurrentCount);
-                writer.WritePackedUInt32((uint)this._numRequiredCount);
-                writer.Write((string)this._objectiveToken);
-                return true;
-            }
-            bool flag = false;
-            if ((base.syncVarDirtyBits & 1U) != 0U)
-            {
-                if (!flag)
-                {
-                    writer.WritePackedUInt32(base.syncVarDirtyBits);
-                    flag = true;
-                }
-                writer.WritePackedUInt32((uint)this._numCurrentCount);
-            }
-            if ((base.syncVarDirtyBits & 2U) != 0U)
-            {
-                if (!flag)
-                {
-                    writer.WritePackedUInt32(base.syncVarDirtyBits);
-                    flag = true;
-                }
-                writer.WritePackedUInt32((uint)this._numRequiredCount);
-            }
-            if ((base.syncVarDirtyBits & 4U) != 0U)
-            {
-                if (!flag)
-                {
-                    writer.WritePackedUInt32(base.syncVarDirtyBits);
-                    flag = true;
-                }
-                writer.Write((string)this._objectiveToken);
-            }
-            if (!flag)
-            {
-                writer.WritePackedUInt32(base.syncVarDirtyBits);
-            }
-            return flag;
-        }
-        public override void OnDeserialize(NetworkReader reader, bool initialState)
-        {
-            if (initialState)
-            {
-                this._numCurrentCount = (int)reader.ReadPackedUInt32();
-                this._numRequiredCount = (int)reader.ReadPackedUInt32();
-                this._objectiveToken = (string)reader.ReadString();
-                return;
-            }
-            int num = (int)reader.ReadPackedUInt32();
-            if ((num & 1) != 0)
-            {
-                this._numCurrentCount = (int)reader.ReadPackedUInt32();
-            }
-            if ((num & 2) != 0)
-            {
-                this._numRequiredCount = (int)reader.ReadPackedUInt32();
-            }
-            if ((num & 4) != 0)
-            {
-                this._objectiveToken = (string)reader.ReadString();
-            }
-        }
-
-        [SyncVar]
-        private int _numCurrentCount;
-        [SyncVar]
-        private int _numRequiredCount;
-        [SyncVar]
-        private string _objectiveToken;
     }
 }
 
 public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTracker
 {
+    private UnityEngine.GameObject gameObjectPrefab = TurboEdition.Assets.mainAssetBundle.LoadAsset<GameObject>("QuestObjectiveStrip");
+    private bool changed = false;
+    public override void UpdateStrip()
+    {
+        base.UpdateStrip();
+        if (!changed)
+            FixStrip();
+
+        if (this.rewardImage)
+        {
+            //this.rewardImage.sprite =
+        }
+    }
+
+    public void FixStrip()
+    {
+        changed = true;
+        Transform transform = stripObject.transform.parent;
+        UnityEngine.Object.Destroy(this.stripObject);
+        GameObject game = UnityEngine.Object.Instantiate<GameObject>(gameObjectPrefab, transform);
+        game.SetActive(true);
+        this.stripObject = game;
+        this.rewardImage = this.stripObject.transform.Find("RewardSprite").GetComponent<Image>();
+    }
     public override string GenerateString()
     {
         HuntQuestController huntQuestController = (HuntQuestController)this.sourceDescriptor.source;
         this.numCurrentCount = huntQuestController.numCurrentCount;
-        return string.Format(Language.GetString(huntQuestController.objectiveToken), this.numCurrentCount, huntQuestController.numRequiredBatteries);
+        return string.Format(Language.GetString(huntQuestController.objectiveToken), this.numCurrentCount, huntQuestController.numRequiredCount);
     }
 
     public override bool IsDirty()
     {
-        return ((HuntQuestController)this.sourceDescriptor.source).numChargedBatteries != this.numCurrentCount;
+        return ((HuntQuestController)this.sourceDescriptor.source).numCurrentCount != this.numCurrentCount;
     }
+
     private int numCurrentCount = -1;
+
+    protected Image rewardImage;
+    //protected HGTextMeshProUGUI labelLose;
 }

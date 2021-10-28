@@ -1,10 +1,7 @@
 ﻿using RoR2;
 using System;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace TurboEdition.Utils
 {
@@ -14,6 +11,7 @@ namespace TurboEdition.Utils
         //you WILL have slower lookups
         //you WONT enjoy looking up by index
         public static string[] cleanItemNames = new string[0];
+
         public static string[] cleanBodyNames = new string[0];
         public static ItemIndex[] itemIndices = new ItemIndex[0];
         public static BodyIndex[] bodyIndices = new BodyIndex[0];
@@ -104,7 +102,7 @@ namespace TurboEdition.Utils
             }
             //if (stringBuilder.ToString().Length == 0)
             //    return null;
-            return stringBuilder.ToString().Normalize(NormalizationForm.FormC).ToLower();
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC).ToLowerInvariant();
         }
 
         //https://partner.steamgames.com/doc/store/localization

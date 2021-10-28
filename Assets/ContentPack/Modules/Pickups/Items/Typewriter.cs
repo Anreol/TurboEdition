@@ -34,7 +34,7 @@ namespace TurboEdition.Items
                 if (component == null)
                 {
                     component = trollJect.GetComponentInChildren<RoR2.UI.LanguageTextMeshController>();
-                } 
+                }
             }
 
             private void OnDisable()
@@ -180,6 +180,7 @@ namespace TurboEdition.Items
                     PopWord(foundDef.nameToken);
                 }
             }
+
             private IEnumerator EffectSpawnBody()
             {
                 //TELog.LogD("Coroutine SpawnBody");

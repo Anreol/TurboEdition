@@ -12,7 +12,9 @@ namespace Moonstorm.EditorUtils.Pipelines
     {
         [EnumFlag]
         public BuildAssetBundleOptions AssetBundleBuildOptions = BuildAssetBundleOptions.UncompressedAssetBundle;
+
         public BuildTarget buildTarget = BuildTarget.StandaloneWindows;
+
         [PathReferenceResolver]
         public string outputFolder;
 
@@ -30,7 +32,6 @@ namespace Moonstorm.EditorUtils.Pipelines
             if (BuildPipeline.isBuildingPlayer)
             {
                 Debug.Log("Building");
-
             }
         }
     }

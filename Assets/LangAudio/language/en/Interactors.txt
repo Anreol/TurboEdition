@@ -1,0 +1,23 @@
+{
+	strings:
+	{
+	//[INTERACTABLES],
+
+	//[CHESTS],
+
+	//[LUNAR STUFF],
+
+	//[SHRINES],
+	"SHRINE_QUEST_NAME": "UES Beacon",
+	"SHRINE_QUEST_CONTEXT": "Download new data",
+	"SHRINE_QUEST_USE_MESSAGE_2P": "<style=cShrine>You have received new data.</color>",
+	"SHRINE_QUEST_USE_MESSAGE": "<style=cShrine>{0} has received a new data.</color>",
+	"SHRINE_QUEST_USE_MESSAGE_TEAM": "<style=cShrine>{0} has received new data for everyone.</color>"
+	//MISC
+	
+	//[DRONES],
+	
+	//[TURRETS],
+
+	}
+}

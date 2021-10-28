@@ -3,7 +3,7 @@
 	{
 
 		"PLAYER_DEATH_QUOTE_TE_0_2P" : "It all comes tumbling down.",
-		"PLAYER_DEATH_QUOTE_TE_0" : "{0} comes tumbling down, tumbling down.",
+		"PLAYER_DEATH_QUOTE_TE_0" : "{0} comes tumbling down.",
 		"PLAYER_DEATH_QUOTE_TE_1_2P" : "Lost the pace.",
 		"PLAYER_DEATH_QUOTE_TE_1" : "{0} wanted to live their life at their pace.",
 		"PLAYER_DEATH_QUOTE_TE_2_2P" : "Violence breeds violence.",
@@ -20,7 +20,7 @@
 		"PLAYER_DEATH_QUOTE_TE_7" : "{0} is playing among the stars.",
 		"PLAYER_DEATH_QUOTE_TE_8_2P" : "Your name got reclaimed.",
 		"PLAYER_DEATH_QUOTE_TE_8" : "{0} got their name reclaimed.",
-		"PLAYER_DEATH_QUOTE_TE_9_2P" : "It's Kill or be Killed.",
+		"PLAYER_DEATH_QUOTE_TE_9_2P" : "It's kill or be killed.",
 		"PLAYER_DEATH_QUOTE_TE_9" : "{0} wanted to be the number one.",
 		"PLAYER_DEATH_QUOTE_TE_10_2P" : "No time to stand still.",
 		"PLAYER_DEATH_QUOTE_TE_10" : "{0} stood still.",

@@ -1,0 +1,9 @@
+{
+	"strings":
+	{
+		"QUEST_ENEMYHUNTQUEST_NAME" : "Hunt",
+		"QUEST_ENEMYHUNTQUEST_OBJECTIVE" : "<sprite name=\"WIP\"> Kill NUMBER ENEMY",
+		"QUEST_ENEMYHUNTQUEST_LOSE" : "Throw a scythe for massive damage to a random enemy.",
+
+	}
+}

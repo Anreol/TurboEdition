@@ -76,9 +76,11 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\QuestComponent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTracker.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\ShrineQuestBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\SimpleListTether.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboBuffManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboItemManager.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Orbs\HellOrb.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
@@ -111,7 +114,7 @@
     <Compile Include="Assets\ContentPack\Modules\Quests\HuntQuestController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Quests\QuestCatalog.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\EffectDefHolder.cs" />
-    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\QuestDef.cs" />
+    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\QuestCard.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\RuntimeCloudMaterialMapper.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />

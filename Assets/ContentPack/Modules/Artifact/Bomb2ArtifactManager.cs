@@ -3,7 +3,6 @@ using System;
 
 namespace TurboEdition.Artifacts
 {
-
     internal class Bomb2ArtifactManager
     {
         [SystemInitializer(new Type[]

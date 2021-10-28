@@ -18,12 +18,14 @@ namespace Moonstorm.EditorUtils.Pipelines
     {
         [EnumFlag]
         public BuildAssetBundleOptions AssetBundleBuildOptions = BuildAssetBundleOptions.UncompressedAssetBundle;
+
         public BuildTarget buildTarget = BuildTarget.StandaloneWindows;
         public bool recurseDirectories;
         public bool simulate;
 
         [PathReferenceResolver]
         public string BundleArtifactPath = "<AssetBundleStaging>";
+
         public override void Execute(Pipeline pipeline)
         {
             var excludedExtensions = new[] { ".dll", ".cs", ".meta" };
@@ -141,7 +143,6 @@ namespace Moonstorm.EditorUtils.Pipelines
                                 string destFileName = filePath.Replace(bundleArtifactPath, outputPath);
                                 Directory.CreateDirectory(Path.GetDirectoryName(destFileName));
                                 FileUtil.ReplaceFile(filePath, destFileName);
-
                             }
 
                             var manifestSource = Path.Combine(bundleArtifactPath, $"{Path.GetFileName(bundleArtifactPath)}.manifest");
@@ -162,10 +163,10 @@ namespace Moonstorm.EditorUtils.Pipelines
         private int SwapRealShadersForStubbed(Material[] materials)
         {
             var count = 0;
-            for(int i = 0; i < materials.Length; i++)
+            for (int i = 0; i < materials.Length; i++)
             {
                 var current = materials[i];
-                if(HopooShaderDictionary.realToStubbed.TryGetValue(current.shader, out Shader stubbed))
+                if (HopooShaderDictionary.realToStubbed.TryGetValue(current.shader, out Shader stubbed))
                 {
                     count++;
                     current.shader = stubbed;

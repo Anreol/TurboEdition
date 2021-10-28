@@ -10,6 +10,7 @@ namespace Moonstorm.EditorUtils.Pipelines
     {
         [PathReferenceResolver]
         public string input;
+
         public override void Execute(Pipeline pipeline)
         {
             string source = input.Resolve(pipeline, this);
@@ -49,5 +50,4 @@ namespace Moonstorm.EditorUtils.Pipelines
             Directory.Delete(path);
         }
     }
-
 }
