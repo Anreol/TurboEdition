@@ -1,6 +1,8 @@
 {
     "name": "TurboEdition",
-    "references": [],
+    "references": [
+        "Unity.TextMeshPro"
+    ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -18,8 +18,8 @@ MonoBehaviour:
   nameToken: QUEST_ENEMYHUNTQUEST_NAME
   objectiveToken: QUEST_ENEMYHUNTQUEST_OBJECTIVE
   loseToken: QUEST_ENEMYHUNTQUEST_LOSE
-  maxTime: 0
+  stageDuration: 3
+  selectionWeight: 0
   hidden: 0
   tags: 
   costType: 1
-  rewardTypes: 04000000

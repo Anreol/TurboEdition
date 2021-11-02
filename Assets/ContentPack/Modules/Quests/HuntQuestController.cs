@@ -2,9 +2,9 @@
 using RoR2.UI;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using TurboEdition.Components;
 using TurboEdition.Quests;
-using TurboEdition;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +12,8 @@ namespace TurboEdition.Quests
 {
     internal class HuntQuestController : QuestComponent
     {
+        private Type trackerType = typeof(HuntQuestObjectiveTracker);
+
         public override void OnEnable()
         {
             base.OnEnable();
@@ -25,15 +27,20 @@ namespace TurboEdition.Quests
             ObjectivePanelController.collectObjectiveSources -= ReportObjective;
             GlobalEventManager.onCharacterDeathGlobal -= GlobalEventManager_onCharacterDeathGlobal;
         }
+        public override void GenerateObjective()
+        {
 
+        }
         private void ReportObjective(CharacterMaster characterMaster, List<ObjectivePanelController.ObjectiveSourceDescriptor> output)
         {
+            if (QuestCatalog.GetQuestDef(base.questIndexSpawner).hidden)
+                return;
             if (base.teamIndex != TeamIndex.None && characterMaster.teamIndex == base.teamIndex)
             {
                 output.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
                 {
                     master = characterMaster,
-                    objectiveType = typeof(HuntQuestObjectiveTracker),
+                    objectiveType = trackerType,
                     source = this
                 });
             }
@@ -42,7 +49,7 @@ namespace TurboEdition.Quests
                 output.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
                 {
                     master = characterMaster,
-                    objectiveType = typeof(HuntQuestObjectiveTracker),
+                    objectiveType = trackerType,
                     source = this
                 });
             }
@@ -59,42 +66,79 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
 {
     private UnityEngine.GameObject gameObjectPrefab = TurboEdition.Assets.mainAssetBundle.LoadAsset<GameObject>("QuestObjectiveStrip");
     private bool changed = false;
+
     public override void UpdateStrip()
     {
         base.UpdateStrip();
         if (!changed)
             FixStrip();
 
-        if (this.rewardImage)
+        if (this.rewardSprite)
         {
             //this.rewardImage.sprite =
+        }
+        if (this.expireCountdown)
+        {
+            expireCountdown.text = GetCountdown();
         }
     }
 
     public void FixStrip()
     {
         changed = true;
+
         Transform transform = stripObject.transform.parent;
         UnityEngine.Object.Destroy(this.stripObject);
         GameObject game = UnityEngine.Object.Instantiate<GameObject>(gameObjectPrefab, transform);
         game.SetActive(true);
+
         this.stripObject = game;
-        this.rewardImage = this.stripObject.transform.Find("RewardSprite").GetComponent<Image>();
+        ChildLocator childLocator = this.stripObject.GetComponent<ChildLocator>();
+        this.singlePanel = childLocator.FindChild("LabelPanelSingle").gameObject;
+        this.doublePanel = childLocator.FindChild("LabelPanelDouble").gameObject;
+        //this.expireLabel = childLocator.FindChild("ExpirationPanel").transform.Find("ExpiresIn").GetComponent<TextMeshProUGUI>();
+        this.expireCountdown = childLocator.FindChild("ExpirationPanel").transform.Find("StageNumber").GetComponent<TextMeshProUGUI>();
+        this.rewardSprite = childLocator.FindChild("RewardPanel").transform.Find("RewardSprite").GetComponent<Image>();
+        this.label = childLocator.FindChild("LabelPanelSingle").transform.Find("Label").GetComponent<TextMeshProUGUI>();
+        this.checkbox = childLocator.FindChild("Checkbox").GetComponent<Image>();
+    }
+
+    public string GetCountdown()
+    {
+        if (this.IsDirty())
+        {
+            HuntQuestController huntQuestController = (HuntQuestController)this.sourceDescriptor.source;
+            this.numTilExpiration = huntQuestController.numTilExpiration;
+        }
+        if (numTilExpiration >= 0)
+        {
+            return Language.GetString("QUEST_PANELUI_EXPIRESNOW");
+        }
+        return Language.GetStringFormatted("QUEST_PANELUI_EXPIRESTAGE", this.numTilExpiration);
     }
     public override string GenerateString()
     {
         HuntQuestController huntQuestController = (HuntQuestController)this.sourceDescriptor.source;
         this.numCurrentCount = huntQuestController.numCurrentCount;
-        return string.Format(Language.GetString(huntQuestController.objectiveToken), this.numCurrentCount, huntQuestController.numRequiredCount);
+        return string.Format(Language.GetString(huntQuestController.objectiveToken), this.questTarget, this.numCurrentCount, huntQuestController.numRequiredCount);
     }
 
     public override bool IsDirty()
     {
-        return ((HuntQuestController)this.sourceDescriptor.source).numCurrentCount != this.numCurrentCount;
+        return ((HuntQuestController)this.sourceDescriptor.source).numCurrentCount != this.numCurrentCount || ((HuntQuestController)this.sourceDescriptor.source).numTilExpiration != this.numTilExpiration;
     }
 
     private int numCurrentCount = -1;
+    private int numTilExpiration = -1;
+    private string questTarget = null;
 
-    protected Image rewardImage;
-    //protected HGTextMeshProUGUI labelLose;
+    //protected TextMeshProUGUI timerLabel;
+    protected GameObject doublePanel;
+
+    protected GameObject singlePanel;
+
+    //protected TextMeshProUGUI expireLabel;
+    protected TextMeshProUGUI expireCountdown;
+
+    protected Image rewardSprite;
 }

@@ -77,6 +77,7 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestComponent.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\QuestTimer.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTracker.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
@@ -126,6 +127,9 @@
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxHellchainLocked.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <None Include="Assets\ContentPack\TurboEdition.asmdef" />
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>

@@ -18,19 +18,6 @@ namespace TurboEdition.Components
             return Language.GetString(this.contextToken);
         }
 
-        public static int GetQuestCount(CharacterBody cb)
-        {
-            int count = 0;
-            foreach (QuestComponent item in QuestCatalog.activeQuests)
-            {
-                if (item.teamIndex == cb.teamComponent.teamIndex)
-                    count++;
-                else if (item.masterNetIdOrigin == cb.master.netId)
-                    count++;
-            }
-            return count;
-        }
-
         private void FairQuestCosts()
         {
             switch (this.purchaseInteraction.costType)
@@ -97,20 +84,16 @@ namespace TurboEdition.Components
         [Server]
         public void AddShrineStack(Interactor interactor)
         {
-            if (!NetworkServer.active)
-            {
-                TELog.LogW("[Server] function 'System.Void TurboEdition.ShrineQuestBehavior::AddShrineStack(RoR2.Interactor)' called on client");
-                return;
-            }
             CharacterBody component = interactor.GetComponent<CharacterBody>();
-            chosenQuests[purchaseCount].Spawn(interactor);
+            currentSelectedCard = weightedSelection.Evaluate(Run.instance.stageRng.nextNormalizedFloat);
+            currentSelectedCard.Spawn(interactor);
             Chat.SendBroadcastChat(new Chat.SubjectFormatChatMessage
             {
                 subjectAsCharacterBody = component,
                 baseToken = "SHRINE_QUEST_USE_MESSAGE",
                 paramTokens = new string[]
                 {
-                            chosenQuests[purchaseCount].objectiveToken
+                            currentSelectedCard.objectiveToken
                 }
             });
             EffectManager.SpawnEffect(activationEffectPrefab, new EffectData
@@ -136,7 +119,7 @@ namespace TurboEdition.Components
 
         public Interactability GetInteractability([NotNull] Interactor activator)
         {
-            if (GetQuestCount(activator.GetComponent<CharacterBody>()) >= 3)
+            if (QuestCatalog.GetQuestCount(activator.GetComponent<CharacterBody>()) >= 3)
             {
                 return Interactability.ConditionsNotMet;
             }
@@ -145,9 +128,12 @@ namespace TurboEdition.Components
 
         public void OnInteractionBegin([NotNull] Interactor activator)
         {
-            if (chosenQuests.Length <= 0)
+            if (weightedSelection.Count <= 0)
             {
-                TELog.LogW("Theres no quests loaded in " + this);
+                if (QuestCatalog.cvTurboEditionQuestLogs.value)
+                {
+                    TELog.LogW("Theres no quests loaded in " + this);
+                }
                 return;
             }
         }
@@ -165,11 +151,12 @@ namespace TurboEdition.Components
         private void Awake()
         {
             this.purchaseInteraction = base.GetComponent<PurchaseInteraction>();
-            for (int i = 0; i < maxPurchaseCount; i++)
+            for (int x = 0; x < maxPurchaseCount && x < weightedSelection.Capacity; x++)
             {
-                QuestCatalog.QuestIndex questIndex = (QuestCatalog.QuestIndex)UnityEngine.Random.Range(0, QuestCatalog.questCount);
-                HG.ArrayUtils.ArrayAppend(ref chosenQuests, QuestCatalog.GetQuestDef(questIndex));
+                QuestCard questCard = QuestCatalog.GetQuestDef((QuestCatalog.QuestIndex)UnityEngine.Random.Range(0, QuestCatalog.questCount));
+                weightedSelection.AddChoice(questCard, questCard.selectionWeight);
             }
+
         }
 
         public void FixedUpdate()
@@ -179,10 +166,9 @@ namespace TurboEdition.Components
                 this.refreshTimer -= Time.fixedDeltaTime;
                 if (this.refreshTimer <= 0f && this.purchaseCount < this.maxPurchaseCount)
                 {
-                    QuestCard questCard = chosenQuests[purchaseCount];
-                    this.purchaseInteraction.costType = questCard.costType;
+                    this.purchaseInteraction.costType = currentSelectedCard.costType;
                     this.purchaseInteraction.automaticallyScaleCostWithDifficulty = true;
-                    if (questCard.ContainsTag(QuestCatalog.QuestTag.NoScalePrice))
+                    if (currentSelectedCard.ContainsTag(QuestCatalog.QuestTag.NoScalePrice))
                         this.purchaseInteraction.automaticallyScaleCostWithDifficulty = false;
                     this.purchaseInteraction.SetAvailable(true);
                     this.purchaseInteraction.Networkcost = (int)((float)this.purchaseInteraction.cost * this.costMultiplierPerPurchase);
@@ -194,7 +180,8 @@ namespace TurboEdition.Components
 
         public static event Action<ShrineQuestBehavior, Interactor> onActivated;
 
-        private QuestCard[] chosenQuests = Array.Empty<QuestCard>();
+        private WeightedSelection<QuestCard> weightedSelection = new WeightedSelection<QuestCard>();
+        private QuestCard currentSelectedCard;
 
         public int maxPurchaseCount;
         public float costMultiplierPerPurchase;

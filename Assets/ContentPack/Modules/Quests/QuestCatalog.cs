@@ -1,4 +1,5 @@
 ﻿using RoR2;
+using RoR2.ConVar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,11 @@ namespace TurboEdition.Quests
             }
         }
 
-        public static int timedQuestCount
+        public static int negativeQuestCount
         {
             get
             {
-                return QuestCatalog.allTimedQuestDefs.Length;
+                return QuestCatalog.allQuestsNegative.Length;
             }
         }
 
@@ -36,7 +37,7 @@ namespace TurboEdition.Quests
         private static readonly Dictionary<string, QuestIndex> questIndexByName = new Dictionary<string, QuestIndex>();
         private static readonly Dictionary<QuestIndex, QuestCard> questDefsByIndex = new Dictionary<QuestIndex, QuestCard>();
         private static QuestCard[] allQuestCards = Array.Empty<QuestCard>();
-        private static QuestCard[] allTimedQuestDefs = Array.Empty<QuestCard>();
+        private static QuestCard[] allQuestsNegative = Array.Empty<QuestCard>();
 
         //private static GameObject[] questGOs = Array.Empty<GameObject>();
         //private static List<GameObject> activeQuestList = new List<GameObject>();
@@ -61,6 +62,38 @@ namespace TurboEdition.Quests
             return intresult;
         }
 
+        /// <summary>
+        /// Selects a random, non-negative quest. Can use the current run's RNG
+        /// </summary>
+        /// <param name="useRunRNG"></param>
+        /// <returns></returns>
+        public static QuestCard SelectSafeQuest(bool useRunRNG = false)
+        {
+            QuestCard selection;
+            do
+            {
+                if (useRunRNG)
+                    selection = QuestCatalog.allQuestCards[Run.instance.runRNG.nextInt];
+                else
+                    selection = QuestCatalog.allQuestCards[UnityEngine.Random.Range(0, questCount)];
+            } while (selection.isNegative || selection == null);
+            return selection;
+        }
+        public static int GetQuestCount(CharacterBody cb)
+        {
+            int count = 0;
+            foreach (QuestComponent item in QuestCatalog.activeQuests)
+            {
+                if (!QuestCatalog.GetQuestDef(item.questIndexSpawner).isNegative)
+                {
+                    if (item.teamIndex == cb.teamComponent.teamIndex)
+                        count++;
+                    else if (item.masterNetIdOrigin == cb.master.netId)
+                        count++;
+                }
+            }
+            return count;
+        }
         [SystemInitializer(new Type[]
         {
             typeof(ItemCatalog),
@@ -73,13 +106,16 @@ namespace TurboEdition.Quests
             QuestCard[] questHolders = Assets.mainAssetBundle.LoadAllAssets<QuestCard>();
 
             HG.ArrayUtils.CloneTo<QuestCard>(questHolders, ref questsToLoad);
-            if (questsToLoad.Length <= 0)
+            if (questsToLoad.Length <= 0 && cvTurboEditionQuestLogs.value)
             {
                 TELog.LogW("The quest catalog initiated without any quests to load, is this OK?");
             }
-            foreach (QuestCard item in questsToLoad)
+            if (cvTurboEditionQuestLogs.value)
             {
-                TELog.LogW(item + " Name: " + item.nameToken);
+                foreach (QuestCard item in questsToLoad)
+                {
+                    TELog.LogW(item + " Name: " + item.nameToken);
+                }
             }
             SetQuestDefs(questsToLoad);
             //PopulateQuestGOs();
@@ -112,8 +148,8 @@ namespace TurboEdition.Quests
                 QuestCard chosenQuest = QuestCatalog.allQuestCards[(int)k];
                 string globalName = QuestCatalog.questNames[(int)k];
                 chosenQuest.globalIndex = k;
-                QuestCatalog.allTimedQuestDefs = (from FUCK in QuestCatalog.allQuestCards
-                                                  where FUCK.isTimed
+                QuestCatalog.allQuestsNegative = (from FUCK in QuestCatalog.allQuestCards
+                                                  where FUCK.isNegative
                                                   select FUCK).ToArray<QuestCard>();
                 QuestCatalog.questIndexByName.Add(globalName, k);
                 QuestCatalog.questDefsByIndex.Add(k, chosenQuest);
@@ -130,10 +166,8 @@ namespace TurboEdition.Quests
             questDef.globalIndex = lastIndex;
 
             HG.ArrayUtils.ArrayAppend(ref allQuestCards, questDef);
-            if (questDef.isTimed)
-            {
-                HG.ArrayUtils.ArrayAppend(ref QuestCatalog.allTimedQuestDefs, questDef);
-            }
+            if (questDef.isNegative)
+                HG.ArrayUtils.ArrayAppend(ref QuestCatalog.allQuestsNegative, questDef);
             QuestCatalog.questIndexByName.Add(questDef.nameToken, questDef.globalIndex);
             QuestCatalog.questDefsByIndex.Add(questDef.globalIndex, questDef);
             //PopulateQuestGOs();
@@ -173,14 +207,16 @@ namespace TurboEdition.Quests
         //				select lmfao.questPrefab).Distinct().ToArray<GameObject>();
         //}
 
-        [ConCommand(commandName = "list_quests", flags = ConVarFlags.None, helpText = "Lists all loaded questsDefs.")]
+        public static readonly BoolConVar cvTurboEditionQuestLogs = new BoolConVar("te_enable_quest_logs", ConVarFlags.None, "0", "Enables all quest components to print internal logging.");
+
+        [ConCommand(commandName = "te_list_quests", flags = ConVarFlags.ExecuteOnServer, helpText = "Lists all loaded questsDefs.")]
         private static void ListQuests(ConCommandArgs args)
         {
             for (int i = 0; i < questCount; i++)
                 TELog.LogD($"[{i}]\t{questNames[i]}");
         }
 
-        [ConCommand(commandName = "list_quests_activego", flags = ConVarFlags.ExecuteOnServer, helpText = "Lists all active quest game objects.")]
+        [ConCommand(commandName = "te_list_quests_activego", flags = ConVarFlags.ExecuteOnServer, helpText = "Lists all active quest game objects.")]
         private static void ListQuestsActiveGo(ConCommandArgs args)
         {
             for (int i = 0; i < activeQuests.Count; i++)
@@ -198,10 +234,10 @@ namespace TurboEdition.Quests
         public enum QuestTag
         {
             Any,
+            Negative,
             TeamWide,
             NoScalePrice,
             NoScaleReward,
-            WontInverse,
             ItemRelated,
             EnemyRelated,
             Special

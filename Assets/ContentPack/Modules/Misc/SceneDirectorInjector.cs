@@ -92,7 +92,7 @@ namespace TurboEdition.Misc
             return -1;
         }
 
-        [ConCommand(commandName = "list_DirectorInteractableCardsOnStageChange", flags = ConVarFlags.None, helpText = "Lists all ListDirectorInteractable cards whenever a stage changes.")]
+        [ConCommand(commandName = "te_list_DirectorInteractableCardsOnStageChange", flags = ConVarFlags.None, helpText = "Lists all ListDirectorInteractable cards whenever a stage changes.")]
         private static void ListDirectorInteractable(ConCommandArgs args)
         {
             logCards = args.TryGetArgBool(0) ?? false;

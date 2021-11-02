@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4082746435
+CRC: 3943602967
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0cf77723fc9cd72f0e604c3853591317
+    Hash: 1282c882d299aa83cbf779ced975e3b1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4a05488f6645ea2ee244d5c06de27a0f
+    Hash: e8e8d8e8e4417214e73c4304305c1865
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -148,6 +148,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -1218053310, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -455717551, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -565067572, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -159,6 +161,10 @@ ClassTypes:
   Script: {fileID: -408685376, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -662483879, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 354667520, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 755410421, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1756662517, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -209,6 +215,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
 - Class: 225
@@ -225,9 +233,11 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ItemDefs/SuperStickies.asset
 - Assets/Mesh/meshSphere.asset
 - Assets/Hopoo/materials/matOmniHitspark3.mat
-- Assets/Hopoo/tmpfonts/fontsource/RiskofRainFont SDF.asset
+- Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
 - Assets/Hopoo/materials/matOmniHitspark1.mat
+- Assets/Other/TextMesh Pro/Fonts/BOMBARD SDF.asset
 - Assets/Mesh/Items/meshKnifeHandle.mesh
+- Assets/Other/TextMesh Pro/Fonts/BOMBARD.OTF
 - Assets/Materials/matHellLinkedBuffBillboard.mat
 - Assets/Hopoo/materials/matUIPaintStreakAnimated.mat
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2.asset
@@ -245,18 +255,20 @@ Assets:
 - Assets/Mesh/Items/meshKnifeBlade.mesh
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/Hellchain.asset
 - Assets/Other/TextMesh Pro/Fonts/LiberationSans.ttf
-- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
 - Assets/Textures/texSandbagNormal.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
 - Assets/Materials/matOilDecal.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/Hopoo/materials/matBrotherSwingDistortion.mat
+- Assets/ScriptableObject/tsfRunStopwatch.asset
 - Assets/ContentPack/AssetTurbo/Spawncards/interactablespawncard/iscShrineQuest.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/SoulDevourer.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxHellLinkedBuffEffect.prefab
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/LeaveStage.asset
+- Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texClockTimer.png
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/Textures/texKnifeUVFresnel.png
 - Assets/Hopoo/prefabs/OmniImpactVFXSlash.prefab
 - Assets/Hopoo/materials/matGenericFlash.mat
@@ -285,6 +297,7 @@ Assets:
 - Assets/Hopoo/materials/matDeathProjectileFlare.mat
 - Assets/Hopoo/materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectile.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStripOld.prefab
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
 - Assets/Hopoo/sprites/texUICutOffCorner.png
 - Assets/Textures/Ramps/texGenericDustRamp.png
@@ -333,7 +346,6 @@ Assets:
 - Assets/Hopoo/sprites/texUICheckboxes.png
 - Assets/Textures/texCardTest.png
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd
-- Assets/Hopoo/tmpfonts/misc/tmpriskofrainfont bold outlinesdf.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/Hitlag.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png

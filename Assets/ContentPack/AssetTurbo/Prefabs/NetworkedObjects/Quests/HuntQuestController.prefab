@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5133863355907390}
   - component: {fileID: 5379493206418175900}
   - component: {fileID: 7893407094576780778}
+  - component: {fileID: 3336454122460891266}
   m_Layer: 0
   m_Name: HuntQuestController
   m_TagString: Untagged
@@ -75,5 +76,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3bc9dbbfb0b1f44097d2330cd0ff7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tier1Weight: 0.8
+  tier2Weight: 0.2
+  tier3Weight: 0.01
+  teamIndex: -1
+--- !u!114 &3336454122460891266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944396783361593712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1218053310, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
