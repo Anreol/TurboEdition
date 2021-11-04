@@ -70,6 +70,8 @@ namespace TurboEdition.Misc
         private static void SceneDirector_onGenerateInteractableCardSelection(SceneDirector arg1, DirectorCardCategorySelection arg2)
         {
             AddQuestShrine(ref arg1, ref arg2);
+            if (!logCards)
+                return;
             foreach (var item in arg2.categories)
             {
                 TELog.LogW("Director category: " + item.name);

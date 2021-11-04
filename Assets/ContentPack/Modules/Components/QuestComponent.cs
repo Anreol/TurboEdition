@@ -121,7 +121,7 @@ namespace TurboEdition.Components
         public virtual void GenerateReward()
         {
             QuestCard questCard = QuestCatalog.GetQuestDef(questIndexSpawner);
-            this.rewardAmount = (questCard.ContainsTag(QuestCatalog.QuestTag.NoScalePrice) ? questCard.baseRewardCount : Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
+            this.rewardAmount = (questCard.ContainsTag(QuestCatalog.QuestTag.NoScaleReward) ? questCard.baseRewardCount : Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
             
         }
 
@@ -180,12 +180,17 @@ namespace TurboEdition.Components
         }
         private void Stage_onStageStartGlobal(Stage obj)
         {
+            /* This actually does jack fucking shit
             if (_stageNumExpiration >= 0 && gameObject.GetComponent<SetDontDestroyOnLoad>() != null)
             {
                 if (Run.instance.stageClearCount >= _stageNumExpiration)
                 {
                     UnityEngine.Object.Destroy(gameObject.GetComponent<SetDontDestroyOnLoad>());
                 }
+            }*/
+            if (Run.instance.stageClearCount > _stageNumExpiration)
+            {
+                Destroy(this.gameObject);
             }
         }
 

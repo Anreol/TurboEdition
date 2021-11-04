@@ -23,7 +23,7 @@ namespace TurboEdition.ScriptableObjects
         {
             get
             {
-                return this.stageDuration > 0f;
+                return this.stageDuration > 0f && questPrefab.GetComponent<SetDontDestroyOnLoad>();
             }
         }
         public bool isTeamWide

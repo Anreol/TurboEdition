@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3943602967
+CRC: 1891976231
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1282c882d299aa83cbf779ced975e3b1
+    Hash: 728614c5477a21f117a0a72276d04a7a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e8e8d8e8e4417214e73c4304305c1865
+    Hash: 8df476ed320fa4f79ece91e9bb63c0a4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -35,6 +35,8 @@ ClassTypes:
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 - Class: 114
@@ -93,6 +95,8 @@ ClassTypes:
   Script: {fileID: 1063210218, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -630047940, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1437645409, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -225,6 +229,7 @@ Assets:
 - Assets/Hopoo/materials/matUIPaintStreakFlash.mat
 - Assets/ContentPack/AssetTurbo/ItemDefs/MeleeArmor.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/KnifeFan.asset
+- Assets/Textures/Ramps/texRampWhiteAlphaOnly.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/BaneMask.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/DropletDupe.asset
 - Assets/Materials/matInvisibleOutlineMeshHolder.mat
@@ -268,7 +273,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxHellLinkedBuffEffect.prefab
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/LeaveStage.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texClockTimer.png
-- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/Textures/texKnifeUVFresnel.png
 - Assets/Hopoo/prefabs/OmniImpactVFXSlash.prefab
 - Assets/Hopoo/materials/matGenericFlash.mat
@@ -293,11 +297,11 @@ Assets:
 - Assets/Hopoo/shaders/deferred/hgstandard.shader
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Font Asset Icon.psd
 - Assets/Materials/matKnife.mat
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
 - Assets/Hopoo/materials/matDeathProjectileFlare.mat
 - Assets/Hopoo/materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectile.prefab
-- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStripOld.prefab
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
 - Assets/Hopoo/sprites/texUICutOffCorner.png
 - Assets/Textures/Ramps/texGenericDustRamp.png
@@ -340,6 +344,7 @@ Assets:
 - Assets/Hopoo/sprites/texUIAnimateSliceNakedButton.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniEffects.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffElectrostatic.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStripOld.prefab
 - Assets/ContentPack/AssetTurbo/ItemDefs/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader

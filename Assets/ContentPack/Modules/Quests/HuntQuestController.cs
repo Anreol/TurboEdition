@@ -73,13 +73,21 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
         if (!changed)
             FixStrip();
 
-        if (this.rewardSprite)
+        if (this.rewardMoney)
         {
             //this.rewardImage.sprite =
+        }
+        if (this.inventoryDisplay)
+        {
+
         }
         if (this.expireCountdown)
         {
             expireCountdown.text = GetCountdown();
+            if (this.expirePanelBG && this.numTilExpiration <= 0)
+            {
+                expirePanelBG.color = new Color(1f, 0.259f, 0.278f, 0.133f);
+            }
         }
     }
 
@@ -94,11 +102,13 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
 
         this.stripObject = game;
         ChildLocator childLocator = this.stripObject.GetComponent<ChildLocator>();
-        this.singlePanel = childLocator.FindChild("LabelPanelSingle").gameObject;
-        this.doublePanel = childLocator.FindChild("LabelPanelDouble").gameObject;
+        //this.singlePanel = childLocator.FindChild("LabelPanelSingle").gameObject;
+        //this.doublePanel = childLocator.FindChild("LabelPanelDouble").gameObject;
         //this.expireLabel = childLocator.FindChild("ExpirationPanel").transform.Find("ExpiresIn").GetComponent<TextMeshProUGUI>();
         this.expireCountdown = childLocator.FindChild("ExpirationPanel").transform.Find("StageNumber").GetComponent<TextMeshProUGUI>();
-        this.rewardSprite = childLocator.FindChild("RewardPanel").transform.Find("RewardSprite").GetComponent<Image>();
+        this.expirePanelBG = childLocator.FindChild("ExpirationPanel").transform.Find("BackgroundPanel").GetComponent<RawImage>();
+        this.rewardMoney = childLocator.FindChild("MoneyRoot").transform.Find("ValueText").GetComponent<TextMeshProUGUI>();
+        this.inventoryDisplay = childLocator.FindChild("InventoryProvider").GetComponent<ItemInventoryDisplay>();
         this.label = childLocator.FindChild("LabelPanelSingle").transform.Find("Label").GetComponent<TextMeshProUGUI>();
         this.checkbox = childLocator.FindChild("Checkbox").GetComponent<Image>();
     }
@@ -110,7 +120,7 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
             HuntQuestController huntQuestController = (HuntQuestController)this.sourceDescriptor.source;
             this.numTilExpiration = huntQuestController.numTilExpiration;
         }
-        if (numTilExpiration >= 0)
+        if (this.numTilExpiration <= 0)
         {
             return Language.GetString("QUEST_PANELUI_EXPIRESNOW");
         }
@@ -133,12 +143,12 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
     private string questTarget = null;
 
     //protected TextMeshProUGUI timerLabel;
-    protected GameObject doublePanel;
-
-    protected GameObject singlePanel;
+    //protected GameObject doublePanel;
+    //protected GameObject singlePanel;
 
     //protected TextMeshProUGUI expireLabel;
+    protected RawImage expirePanelBG;
     protected TextMeshProUGUI expireCountdown;
-
-    protected Image rewardSprite;
+    protected TextMeshProUGUI rewardMoney;
+    protected ItemInventoryDisplay inventoryDisplay;
 }
