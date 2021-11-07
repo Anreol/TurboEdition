@@ -51,20 +51,6 @@ namespace TurboEdition
             instance = this;
 
             ContentManager.collectContentPackProviders += (addContentPackProvider) => addContentPackProvider(this);
-
-            //Language garbage
-            PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
-            TurboEdition.fileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Assets.assemblyDir), true);
-            if (TurboEdition.fileSystem.DirectoryExists("/language/")) //Uh, it exists and we make sure to not shit up R2Api
-            {
-                Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
-                {
-                    TELog.LogI("Adding in TurboEdition's language directory... " + list);
-                    list.Add(TurboEdition.fileSystem.GetDirectoryEntry("/language/"));
-                };
-                Misc.MiscLanguage.AddDeathMessages();
-            }
-
 #if DEBUG
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);
 #endif
@@ -122,6 +108,18 @@ namespace TurboEdition
 
         public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
         {
+            PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
+            TurboEdition.fileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Assets.assemblyDir), true);
+            if (TurboEdition.fileSystem.DirectoryExists("/language/")) //Uh, it exists and we make sure to not shit up R2Api
+            {
+                Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
+                {
+                    TELog.LogI("Adding in TurboEdition's language directory... " + list);
+                    list.Add(TurboEdition.fileSystem.GetDirectoryEntry("/language/"));
+                };
+                Misc.MiscLanguage.AddDeathMessages();
+            }
+
             args.ReportProgress(1f);
             yield break;
         }

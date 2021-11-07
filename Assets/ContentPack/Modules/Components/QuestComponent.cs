@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using System;
 using TurboEdition.Quests;
+using UnityEngine;
 using UnityEngine.Networking;
 using QuestCard = TurboEdition.ScriptableObjects.QuestCard;
 
@@ -8,6 +9,8 @@ namespace TurboEdition.Components
 {
     public class QuestComponent : NetworkBehaviour
     {
+        public static event Action onInstanceEnableGlobal;
+
         public static event Action onInstanceChangedGlobal;
 
         public int numCurrentCount
@@ -90,6 +93,14 @@ namespace TurboEdition.Components
             }
         }
 
+        public int rewardAmount
+        {
+            get
+            {
+                return _rewardCredits;
+            }
+        }
+
         public virtual void OnEnable()
         {
             InstanceTracker.Add(this);
@@ -99,12 +110,18 @@ namespace TurboEdition.Components
                 TELog.LogI("Quest Prefab did not have SetDontDestroyOnLoad component, quest unable to stay past current scene.");
                 _stageNumExpiration = 0; //Unable stay between stages, and will expire after the current one
             }
+            Action enabled = QuestComponent.onInstanceEnableGlobal;
+            if (enabled != null)
+            {
+                enabled();
+            }
             Action action = QuestComponent.onInstanceChangedGlobal;
             if (action != null)
             {
                 action();
             }
         }
+
         public virtual void OnDisable()
         {
             InstanceTracker.Remove(this);
@@ -114,24 +131,69 @@ namespace TurboEdition.Components
                 action();
             }
         }
+
         public virtual void GenerateObjective()
         {
             throw new NotImplementedException();
         }
+
         public virtual void GenerateReward()
         {
             QuestCard questCard = QuestCatalog.GetQuestDef(questIndexSpawner);
-            this.rewardAmount = (questCard.ContainsTag(QuestCatalog.QuestTag.NoScaleReward) ? questCard.baseRewardCount : Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
-            
+            this._rewardCredits = (questCard.ContainsTag(QuestCatalog.QuestTag.NoScaleReward) ? questCard.baseRewardCount : Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
+            //I LOVE WEIGHTED SELECTIONS
+            WeightedSelection<CostTypeIndex> weightedSelection = new WeightedSelection<CostTypeIndex>(2);
+            weightedSelection.AddChoice(CostTypeIndex.Money, questCard.moneyWeight);
+            weightedSelection.AddChoice(CostTypeIndex.WhiteItem, questCard.itemWeight); //Items in general.
+            if (weightedSelection.Evaluate(this.rng.nextNormalizedFloat) == CostTypeIndex.WhiteItem)
+            {
+                if (rewardInventory == null)
+                    rewardInventory = base.gameObject.AddComponent<Inventory>();
+                while (_rewardCredits > 0) //I hate this very much
+                {
+                    ItemDef chosenItemDef = ItemCatalog.GetItemDef(PickupCatalog.GetPickupDef(RollItem()).itemIndex);
+                    switch (chosenItemDef.tier)
+                    {
+                        case ItemTier.Tier1:
+                            _rewardCredits -= Run.instance.GetDifficultyScaledCost(25);
+                            break;
+
+                        case ItemTier.Tier2:
+                            _rewardCredits -= Run.instance.GetDifficultyScaledCost(50);
+                            break;
+
+                        case ItemTier.Tier3:
+                            _rewardCredits -= Run.instance.GetDifficultyScaledCost(200);
+                            break;
+
+                        case ItemTier.Lunar:
+                            _rewardCredits -= Run.instance.GetDifficultyScaledCost(175);
+                            break;
+
+                        case ItemTier.Boss:
+                            _rewardCredits -= Run.instance.GetDifficultyScaledCost(175);
+                            break;
+
+                        case ItemTier.NoTier: //This is not supposed to happen
+                            break;
+
+                        default:
+                            break;
+                    }
+                    rewardInventory.GiveItem(chosenItemDef);
+                }
+                return;
+            }
         }
 
         [Server]
         public override void OnStartServer()
         {
             base.OnStartServer();
+            this.rng = new Xoroshiro128Plus((ulong)Run.instance.stageRng.nextUint);
+            TELog.LogW("Thing awaken on server");
             GenerateObjective();
             GenerateReward();
-            this.rng = new Xoroshiro128Plus((ulong)Run.instance.stageRng.nextUint);
         }
 
         [Server]
@@ -143,7 +205,7 @@ namespace TurboEdition.Components
                 CombatDirector combatDirector = this.rng.NextElementUniform<CombatDirector>(CombatDirector.instancesList);
                 directorCard = combatDirector.lastAttemptedMonsterCard;
             } while (directorCard == null);
-           
+
             return directorCard.spawnCard.prefab.GetComponent<CharacterBody>();
         }
 
@@ -160,6 +222,7 @@ namespace TurboEdition.Components
 
             return eliteDef;
         }
+
         [Server]
         public PickupIndex RollItem()
         {
@@ -176,8 +239,9 @@ namespace TurboEdition.Components
             weightedSelection.AddChoice(value4, this.equipmentWeight);
             weightedSelection.AddChoice(value5, this.tierLunarWeight);
             weightedSelection.AddChoice(value6, this.tierBossWeight);
-            return weightedSelection.Evaluate(Run.instance.treasureRng.nextNormalizedFloat);
+            return weightedSelection.Evaluate(Run.instance.treasureRng.nextNormalizedFloat); //uses treasure rng instead of this's rng to avoid fucking up
         }
+
         private void Stage_onStageStartGlobal(Stage obj)
         {
             /* This actually does jack fucking shit
@@ -203,6 +267,9 @@ namespace TurboEdition.Components
         [SyncVar]
         private int _questIndexSpawner;
 
+        [SyncVar]
+        private int _rewardCredits;
+
         private int _stageNumExpiration = -1;
 
         [SyncVar]
@@ -215,11 +282,15 @@ namespace TurboEdition.Components
         public float tierBossWeight = 0f;
         public float equipmentWeight = 0f;
 
-        private int rewardAmount;
+        public string extraData;
 
+        //public object[] extraData = null;
         public Xoroshiro128Plus rng;
+
+        [HideInInspector]
         public TeamIndex teamIndex = TeamIndex.None;
 
-        
+        [HideInInspector]
+        public Inventory rewardInventory;
     }
 }

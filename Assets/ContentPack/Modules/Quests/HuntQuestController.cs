@@ -71,17 +71,21 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
     {
         base.UpdateStrip();
         if (!changed)
+        {
             FixStrip();
-
-        if (this.rewardMoney)
-        {
-            //this.rewardImage.sprite =
+            AssignInventory();
+            SwitchRewardPanels(this.inventoryDisplay.inventoryWasValid);
         }
-        if (this.inventoryDisplay)
+
+        if (this.rewardMoney && !this.inventoryDisplay.inventoryWasValid)
+        {
+            rewardMoney.text = GetInt().ToString(); 
+        }
+        if (this.inventoryDisplay.inventoryWasValid)
         {
 
         }
-        if (this.expireCountdown)
+        if (this.expireCountdown && IsDirty())
         {
             expireCountdown.text = GetCountdown();
             if (this.expirePanelBG && this.numTilExpiration <= 0)
@@ -90,7 +94,6 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
             }
         }
     }
-
     public void FixStrip()
     {
         changed = true;
@@ -111,14 +114,35 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
         this.inventoryDisplay = childLocator.FindChild("InventoryProvider").GetComponent<ItemInventoryDisplay>();
         this.label = childLocator.FindChild("LabelPanelSingle").transform.Find("Label").GetComponent<TextMeshProUGUI>();
         this.checkbox = childLocator.FindChild("Checkbox").GetComponent<Image>();
-    }
 
+        //this.inventoryDisplay.itemIconPrefab = HUD.instancesList[0].itemInventoryDisplay.itemIconPrefab; //jej
+    }
+    private void SwitchRewardPanels(bool toInventory)
+    {
+        ChildLocator childLocator = this.stripObject.GetComponent<ChildLocator>();
+        childLocator.FindChild("MoneyRoot").transform.gameObject.SetActive(!toInventory);
+        childLocator.FindChild("InventoryProvider").transform.gameObject.SetActive(toInventory);
+    }
+    public void AssignInventory()
+    {
+        if (((HuntQuestController)this.sourceDescriptor.source).rewardInventory != null)
+        {
+            this.inventoryDisplay.SetSubscribedInventory(((HuntQuestController)this.sourceDescriptor.source).rewardInventory);
+        }  
+    }
+    public int GetInt()
+    {
+        if (this.IsMoneyDirty())
+        {
+            this.cachedInt = ((HuntQuestController)this.sourceDescriptor.source).rewardAmount;
+        }
+        return cachedInt;
+    }
     public string GetCountdown()
     {
         if (this.IsDirty())
         {
-            HuntQuestController huntQuestController = (HuntQuestController)this.sourceDescriptor.source;
-            this.numTilExpiration = huntQuestController.numTilExpiration;
+            this.numTilExpiration = ((HuntQuestController)this.sourceDescriptor.source).numTilExpiration;
         }
         if (this.numTilExpiration <= 0)
         {
@@ -137,7 +161,10 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
     {
         return ((HuntQuestController)this.sourceDescriptor.source).numCurrentCount != this.numCurrentCount || ((HuntQuestController)this.sourceDescriptor.source).numTilExpiration != this.numTilExpiration;
     }
-
+    private bool IsMoneyDirty()
+    {
+        return ((HuntQuestController)this.sourceDescriptor.source).rewardAmount != this.cachedInt;
+    }
     private int numCurrentCount = -1;
     private int numTilExpiration = -1;
     private string questTarget = null;
@@ -151,4 +178,6 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
     protected TextMeshProUGUI expireCountdown;
     protected TextMeshProUGUI rewardMoney;
     protected ItemInventoryDisplay inventoryDisplay;
+
+    protected int cachedInt;
 }

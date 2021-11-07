@@ -19,6 +19,7 @@ namespace TurboEdition.ScriptableObjects
                 return ContainsTag(QuestCatalog.QuestTag.Negative);
             }
         }
+
         public bool hasExpiration
         {
             get
@@ -26,6 +27,7 @@ namespace TurboEdition.ScriptableObjects
                 return this.stageDuration > 0f && questPrefab.GetComponent<SetDontDestroyOnLoad>();
             }
         }
+
         public bool isTeamWide
         {
             get
@@ -67,9 +69,9 @@ namespace TurboEdition.ScriptableObjects
             if (this.isTeamWide)
             {
                 trollNent.teamIndex = interactor.GetComponent<CharacterBody>().teamComponent.teamIndex;
-                NetworkServer.Spawn(gameObject);
-                return;
             }
+            NetworkServer.Spawn(gameObject);
+            return;
         }
 
         public bool ContainsTag(QuestCatalog.QuestTag tag)
@@ -88,7 +90,7 @@ namespace TurboEdition.ScriptableObjects
         [Tooltip("Icon sprite that will show up in the UI.")]
         public Sprite questIconSprite;
 
-        [Tooltip("Token for the name that will show up in the UI.")]
+        [Tooltip("Token for the name that will show up in the UI, and that will be registered in the catalog. Has to be unique.")]
         public string nameToken;
 
         [Tooltip("Token for the objective that will show up in the UI.")]
@@ -102,6 +104,16 @@ namespace TurboEdition.ScriptableObjects
 
         [Tooltip("How common should be this quest.")]
         public int selectionWeight;
+
+        [Tooltip("How common should raw money rewards be for this quest.")]
+        public int moneyWeight;
+
+        [Tooltip("How common should item rewards be for this quest. Tier weights are calculated in the quest prefab, not here!")]
+        public int itemWeight;
+
+        [Tooltip("You shove everything else that your specific quest needs to function here.")]
+        public string extraData;
+        //public object[] extraData = Array.Empty<object>();
 
         [Tooltip("Whenever it should not appear in the UI.")]
         public bool hidden;

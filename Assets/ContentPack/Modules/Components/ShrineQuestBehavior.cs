@@ -96,13 +96,16 @@ namespace TurboEdition.Components
                             currentSelectedCard.objectiveToken
                 }
             });
-            EffectManager.SpawnEffect(activationEffectPrefab, new EffectData
+            if (activationEffectPrefab)
             {
-                origin = base.transform.position,
-                rotation = Quaternion.identity,
-                scale = 1f,
-                color = Color.cyan
-            }, true);
+                EffectManager.SpawnEffect(activationEffectPrefab, new EffectData
+                {
+                    origin = base.transform.position,
+                    rotation = Quaternion.identity,
+                    scale = 1f,
+                    color = Color.cyan
+                }, true);
+            }
             this.purchaseCount++;
             this.refreshTimer = refreshDuration;
             Action<ShrineQuestBehavior, Interactor> action = ShrineQuestBehavior.onActivated;

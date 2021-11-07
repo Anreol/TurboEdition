@@ -10,6 +10,7 @@ namespace TurboEdition.Quests
 {
     public static class QuestCatalog
     {
+        public static event Action<QuestCard[]> onPreLoadQuestCards;
         public static int questCount
         {
             get
@@ -104,8 +105,14 @@ namespace TurboEdition.Quests
         private static void Init()
         {
             QuestCard[] questHolders = Assets.mainAssetBundle.LoadAllAssets<QuestCard>();
-
             HG.ArrayUtils.CloneTo<QuestCard>(questHolders, ref questsToLoad);
+
+            Action<QuestCard[]> action = QuestCatalog.onPreLoadQuestCards;
+            if (action != null)
+            {
+                action(questsToLoad);
+            }
+
             if (questsToLoad.Length <= 0 && cvTurboEditionQuestLogs.value)
             {
                 TELog.LogW("The quest catalog initiated without any quests to load, is this OK?");

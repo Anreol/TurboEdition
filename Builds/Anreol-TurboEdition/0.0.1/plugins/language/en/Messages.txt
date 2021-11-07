@@ -5,7 +5,7 @@
 		"PLAYER_DEATH_QUOTE_TE_0_2P" : "It all comes tumbling down.",
 		"PLAYER_DEATH_QUOTE_TE_0" : "{0} comes tumbling down.",
 		"PLAYER_DEATH_QUOTE_TE_1_2P" : "Lost the pace.",
-		"PLAYER_DEATH_QUOTE_TE_1" : "{0} wanted to live their life at their pace.",
+		"PLAYER_DEATH_QUOTE_TE_1" : "{0} wanted to live at their own pace.",
 		"PLAYER_DEATH_QUOTE_TE_2_2P" : "Violence breeds violence.",
 		"PLAYER_DEATH_QUOTE_TE_2" : "{0} is not to blame.",
 		"PLAYER_DEATH_QUOTE_TE_3_2P" : "Your world has ended.",
@@ -15,7 +15,7 @@
 		"PLAYER_DEATH_QUOTE_TE_5_2P" : "I <3 YOU.",
 		"PLAYER_DEATH_QUOTE_TE_5" : "{0} was insane.",
 		"PLAYER_DEATH_QUOTE_TE_6_2P" : "Your only chance.",
-		"PLAYER_DEATH_QUOTE_TE_6" : "{0} has no chances.",
+		"PLAYER_DEATH_QUOTE_TE_6" : "{0} has no more chances.",
 		"PLAYER_DEATH_QUOTE_TE_7_2P" : "Fly to the Moon.",
 		"PLAYER_DEATH_QUOTE_TE_7" : "{0} is playing among the stars.",
 		"PLAYER_DEATH_QUOTE_TE_8_2P" : "Your name got reclaimed.",
@@ -28,7 +28,7 @@
 		"PLAYER_DEATH_QUOTE_TE_11" : "{0} didn\'t risk enough.",
 		"PLAYER_DEATH_QUOTE_TE_12_2P" : "You\'ll never see it coming.",
 		"PLAYER_DEATH_QUOTE_TE_12" : "{0} never saw it coming.",
-		"PLAYER_DEATH_QUOTE_TE_13_2P" : "See you space cowboy...",
+		"PLAYER_DEATH_QUOTE_TE_13_2P" : "See you space survivor...",
 		"PLAYER_DEATH_QUOTE_TE_13" : "See you space {0}...",
 		"PLAYER_DEATH_QUOTE_TE_14_2P" : "Nobody will avenge you.",
 		"PLAYER_DEATH_QUOTE_TE_14" : "{0} wishes to be avenged.",
@@ -80,7 +80,7 @@
 		"PLAYER_DEATH_QUOTE_TE_37" : "All according to {0}.",
 		
 		
-		"PLAYER_DEATH_QUOTE_CARDDEATH_2P" : "You went in and lost all.",
+		"PLAYER_DEATH_QUOTE_CARDDEATH_2P" : "You went all in and lost.",
 		"PLAYER_DEATH_QUOTE_CARDDEATH" : "{0} ran out of luck.",
 
 	}

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1891976231
+CRC: 2694977612
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 728614c5477a21f117a0a72276d04a7a
+    Hash: 1a76cee21da0c8dea955fc5eaf1fd58f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8df476ed320fa4f79ece91e9bb63c0a4
+    Hash: d800c7d5e875eb97282cae8945f1c2c2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -96,6 +96,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1284244208, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 877486143, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -630047940, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1437645409, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -170,6 +172,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 755410421, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 1873157448, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1756662517, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -238,6 +242,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ItemDefs/SuperStickies.asset
 - Assets/Mesh/meshSphere.asset
 - Assets/Hopoo/materials/matOmniHitspark3.mat
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestRewardItemIcon.prefab
 - Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
 - Assets/Hopoo/materials/matOmniHitspark1.mat
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD SDF.asset
@@ -266,6 +271,7 @@ Assets:
 - Assets/Materials/matOilDecal.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/Hopoo/materials/matBrotherSwingDistortion.mat
+- Assets/ContentPack/AssetTurbo/QuestDefs/EnemyHuntQuestRareMoney.asset
 - Assets/ScriptableObject/tsfRunStopwatch.asset
 - Assets/ContentPack/AssetTurbo/Spawncards/interactablespawncard/iscShrineQuest.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/SoulDevourer.asset
@@ -297,8 +303,9 @@ Assets:
 - Assets/Hopoo/shaders/deferred/hgstandard.shader
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Font Asset Icon.psd
 - Assets/Materials/matKnife.mat
-- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStripOld.prefab
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/Hopoo/materials/matDeathProjectileFlare.mat
 - Assets/Hopoo/materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectile.prefab
@@ -340,11 +347,11 @@ Assets:
 - Assets/Hopoo/shaders/CopyFromRoR2.shader
 - Assets/ContentPack/AssetTurbo/ItemDefs/EnvBonus.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
+- Assets/ContentPack/AssetTurbo/QuestDefs/EnemyHuntQuestRare.asset
 - Assets/Materials/matCardTest.mat
 - Assets/Hopoo/sprites/texUIAnimateSliceNakedButton.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniEffects.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffElectrostatic.asset
-- Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStripOld.prefab
 - Assets/ContentPack/AssetTurbo/ItemDefs/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
