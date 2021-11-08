@@ -18,6 +18,7 @@ MonoBehaviour:
   nameToken: QUEST_ENEMYHUNTQUESTRARE_NAME
   objectiveToken: QUEST_ENEMYHUNTQUEST_OBJECTIVE
   baseRewardCount: 300
+  rewardMultiplerPerStage: 0.05
   stageDuration: 0
   selectionWeight: 5
   moneyWeight: 0

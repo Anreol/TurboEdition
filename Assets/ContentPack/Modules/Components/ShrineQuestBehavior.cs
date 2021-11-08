@@ -108,6 +108,7 @@ namespace TurboEdition.Components
             }
             this.purchaseCount++;
             this.refreshTimer = refreshDuration;
+            this.waitingForRefresh = true;
             Action<ShrineQuestBehavior, Interactor> action = ShrineQuestBehavior.onActivated;
             if (action == null)
             {

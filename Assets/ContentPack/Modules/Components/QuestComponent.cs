@@ -140,7 +140,11 @@ namespace TurboEdition.Components
         public virtual void GenerateReward()
         {
             QuestCard questCard = QuestCatalog.GetQuestDef(questIndexSpawner);
-            this._rewardCredits = (questCard.ContainsTag(QuestCatalog.QuestTag.NoScaleReward) ? questCard.baseRewardCount : Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
+            this._rewardCredits += (int)(questCard.baseRewardCount * (questCard.rewardMultiplerPerStage * (Run.instance.stageClearCount)));
+            this._rewardCredits += (questCard.ContainsTag(QuestCatalog.QuestTag.NoScaleReward) ? questCard.baseRewardCount : Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
+            TELog.LogW(_rewardCredits);
+            TELog.LogW(Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
+            TELog.LogW("doesnt scale: " + questCard.ContainsTag(QuestCatalog.QuestTag.NoScaleReward));
             //I LOVE WEIGHTED SELECTIONS
             WeightedSelection<CostTypeIndex> weightedSelection = new WeightedSelection<CostTypeIndex>(2);
             weightedSelection.AddChoice(CostTypeIndex.Money, questCard.moneyWeight);
@@ -149,7 +153,7 @@ namespace TurboEdition.Components
             {
                 if (rewardInventory == null)
                     rewardInventory = base.gameObject.AddComponent<Inventory>();
-                while (_rewardCredits > 0) //I hate this very much
+                while (this._rewardCredits > 0) //I hate this very much
                 {
                     ItemDef chosenItemDef = ItemCatalog.GetItemDef(PickupCatalog.GetPickupDef(RollItem()).itemIndex);
                     switch (chosenItemDef.tier)
@@ -191,7 +195,6 @@ namespace TurboEdition.Components
         {
             base.OnStartServer();
             this.rng = new Xoroshiro128Plus((ulong)Run.instance.stageRng.nextUint);
-            TELog.LogW("Thing awaken on server");
             GenerateObjective();
             GenerateReward();
         }
@@ -254,6 +257,7 @@ namespace TurboEdition.Components
             }*/
             if (Run.instance.stageClearCount > _stageNumExpiration)
             {
+                NetworkServer.Destroy(this.gameObject); //Doing it in both?
                 Destroy(this.gameObject);
             }
         }

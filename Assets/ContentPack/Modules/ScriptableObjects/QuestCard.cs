@@ -24,7 +24,7 @@ namespace TurboEdition.ScriptableObjects
         {
             get
             {
-                return this.stageDuration > 0f && questPrefab.GetComponent<SetDontDestroyOnLoad>();
+                return this.stageDuration >= 0 && questPrefab.GetComponent<SetDontDestroyOnLoad>();
             }
         }
 
@@ -98,6 +98,9 @@ namespace TurboEdition.ScriptableObjects
 
         [Tooltip("Base of amount in money to give. For reference, small chests are 25, medium 50, and gold 400. Tagged chests are 30.")]
         public int baseRewardCount;
+
+        [Tooltip("Number to multiply the base reward by each stage. Ie if 2, by stage 2, it will be multiplied by 4. This calculation is done before it's summed to the base reward scaled by difficulty. Zero to disable.\n(baseRewardCount * (rewardMultiplerPerStage * (stageClearCount)) + baseRewardCount")]
+        public double rewardMultiplerPerStage;
 
         [Tooltip("For how many stages this quest should persist. -1 to make it permanent. i.e 1 will make it expire upon finishing the next stage.")]
         public int stageDuration;
