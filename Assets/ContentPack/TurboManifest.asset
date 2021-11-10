@@ -58,7 +58,7 @@ MonoBehaviour:
   Description: Test
   Version: 0.0.1
   Dependencies:
-  - {fileID: 11400000, guid: db33d5b068040b5c2782085d4dcc86a1, type: 2}
+  - {fileID: 11400000, guid: bff73382628f698c89c1d9ae43c8f350, type: 2}
 --- !u!114 &114338525782180936
 MonoBehaviour:
   m_ObjectHideFlags: 0

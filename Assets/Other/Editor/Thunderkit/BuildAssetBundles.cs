@@ -4,6 +4,7 @@ using ThunderKit.Core.Paths;
 using ThunderKit.Core.Pipelines;
 using UnityEditor;
 using UnityEngine;
+using System.Threading.Tasks;
 
 namespace Moonstorm.EditorUtils.Pipelines
 {
@@ -18,7 +19,7 @@ namespace Moonstorm.EditorUtils.Pipelines
         [PathReferenceResolver]
         public string outputFolder;
 
-        public override void Execute(Pipeline pipeline)
+        public override Task Execute(Pipeline pipeline)
         {
             AssetDatabase.SaveAssets();
             var stagingPath = outputFolder.Resolve(pipeline, this);
@@ -33,6 +34,7 @@ namespace Moonstorm.EditorUtils.Pipelines
             {
                 Debug.Log("Building");
             }
+            return Task.CompletedTask;
         }
     }
 }

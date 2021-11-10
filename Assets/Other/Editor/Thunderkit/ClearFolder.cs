@@ -2,6 +2,7 @@
 using ThunderKit.Core.Attributes;
 using ThunderKit.Core.Paths;
 using ThunderKit.Core.Pipelines;
+using System.Threading.Tasks;
 
 namespace Moonstorm.EditorUtils.Pipelines
 {
@@ -11,15 +12,16 @@ namespace Moonstorm.EditorUtils.Pipelines
         [PathReferenceResolver]
         public string input;
 
-        public override void Execute(Pipeline pipeline)
+        public override Task Execute(Pipeline pipeline)
         {
             string source = input.Resolve(pipeline, this);
             if (!Directory.Exists(source))
             {
-                return;
+                return Task.CompletedTask;
             }
 
             ClearDirectory(source);
+            return Task.CompletedTask;
         }
 
         private void ClearDirectory(string path)

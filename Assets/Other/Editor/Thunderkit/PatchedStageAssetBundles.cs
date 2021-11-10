@@ -10,6 +10,7 @@ using ThunderKit.Core.Pipelines;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
+using System.Threading.Tasks;
 
 namespace ThunderKit.Pipelines.Jobs
 {
@@ -26,7 +27,7 @@ namespace ThunderKit.Pipelines.Jobs
         [PathReferenceResolver]
         public string BundleArtifactPath = "<AssetBundleStaging>";
 
-        public override void Execute(Pipeline pipeline)
+        public override Task Execute(Pipeline pipeline)
         {
             var excludedExtensions = new[] { ".dll", ".cs", ".meta" };
 
@@ -142,6 +143,7 @@ namespace ThunderKit.Pipelines.Jobs
                 }
                 pipeline.ManifestIndex = -1;
             }
+            return Task.CompletedTask;
         }
 
         private static void PopulateWithExplicitAssets(IEnumerable<Object> inputAssets, List<string> outputAssets)
