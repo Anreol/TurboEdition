@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 namespace TurboEdition.ScriptableObjects
 {
-    [CreateAssetMenu(menuName = "TurboEdition/QuestDef")]
+    [CreateAssetMenu(menuName = "TurboEdition/QuestCard")]
     public class QuestCard : ScriptableObject
     {
         public QuestCatalog.QuestIndex globalIndex { get; set; } = 0;

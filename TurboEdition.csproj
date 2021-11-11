@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -77,6 +78,7 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestComponent.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\QuestMissionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTimer.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTracker.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
@@ -89,6 +91,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\BaseQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Orbs\HellOrb.cs" />
@@ -116,6 +119,7 @@
     <Compile Include="Assets\ContentPack\Modules\Quests\QuestCatalog.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\EffectDefHolder.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\QuestCard.cs" />
+    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\QuestDef.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\RuntimeCloudMaterialMapper.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />
