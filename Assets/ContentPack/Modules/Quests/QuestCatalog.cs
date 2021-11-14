@@ -4,18 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TurboEdition.Components;
-using QuestCard = TurboEdition.ScriptableObjects.QuestCard;
+using QuestDef = TurboEdition.ScriptableObjects.QuestDef;
 
 namespace TurboEdition.Quests
 {
     public static class QuestCatalog
     {
-        public static event Action<QuestCard[]> onPreLoadQuestCards;
+        public static event Action<QuestDef[]> onPreLoadQuestCards;
         public static int questCount
         {
             get
             {
-                return QuestCatalog.allQuestCards.Length;
+                return QuestCatalog.allQuestDefs.Length;
             }
         }
 
@@ -36,22 +36,22 @@ namespace TurboEdition.Quests
         }
 
         private static readonly Dictionary<string, QuestIndex> questIndexByName = new Dictionary<string, QuestIndex>();
-        private static readonly Dictionary<QuestIndex, QuestCard> questDefsByIndex = new Dictionary<QuestIndex, QuestCard>();
-        private static QuestCard[] allQuestCards = Array.Empty<QuestCard>();
-        private static QuestCard[] allQuestsNegative = Array.Empty<QuestCard>();
+        private static readonly Dictionary<QuestIndex, QuestDef> questDefsByIndex = new Dictionary<QuestIndex, QuestDef>();
+        private static QuestDef[] allQuestDefs = Array.Empty<QuestDef>();
+        private static QuestDef[] allQuestsNegative = Array.Empty<QuestDef>();
 
         //private static GameObject[] questGOs = Array.Empty<GameObject>();
         //private static List<GameObject> activeQuestList = new List<GameObject>();
 
         public static string[] questNames = Array.Empty<string>();
-        public static QuestCard[] questsToLoad = Array.Empty<QuestCard>();
+        public static QuestDef[] questsToLoad = Array.Empty<QuestDef>();
 
-        public static QuestCard GetQuestDef(QuestIndex questDefIndex)
+        public static QuestDef GetQuestDef(QuestIndex questDefIndex)
         {
-            return QuestCatalog.allQuestCards[(int)questDefIndex];
+            return QuestCatalog.allQuestDefs[(int)questDefIndex];
         }
 
-        public static QuestCard FindQuestDef(string questDefGlobalName)
+        public static QuestDef FindQuestDef(string questDefGlobalName)
         {
             return GetQuestDef(FindQuestIndex(questDefGlobalName));
         }
@@ -68,15 +68,15 @@ namespace TurboEdition.Quests
         /// </summary>
         /// <param name="useRunRNG"></param>
         /// <returns></returns>
-        public static QuestCard SelectSafeQuest(bool useRunRNG = false)
+        public static QuestDef SelectSafeQuest(bool useRunRNG = false)
         {
-            QuestCard selection;
+            QuestDef selection;
             do
             {
                 if (useRunRNG)
-                    selection = QuestCatalog.allQuestCards[Run.instance.runRNG.nextInt];
+                    selection = QuestCatalog.allQuestDefs[Run.instance.runRNG.nextInt];
                 else
-                    selection = QuestCatalog.allQuestCards[UnityEngine.Random.Range(0, questCount)];
+                    selection = QuestCatalog.allQuestDefs[UnityEngine.Random.Range(0, questCount)];
             } while (selection.isNegative || selection == null);
             return selection;
         }
@@ -104,10 +104,10 @@ namespace TurboEdition.Quests
         })]
         private static void Init()
         {
-            QuestCard[] questHolders = Assets.mainAssetBundle.LoadAllAssets<QuestCard>();
-            HG.ArrayUtils.CloneTo<QuestCard>(questHolders, ref questsToLoad);
+            QuestDef[] questHolders = Assets.mainAssetBundle.LoadAllAssets<QuestDef>();
+            HG.ArrayUtils.CloneTo<QuestDef>(questHolders, ref questsToLoad);
 
-            Action<QuestCard[]> action = QuestCatalog.onPreLoadQuestCards;
+            Action<QuestDef[]> action = QuestCatalog.onPreLoadQuestCards;
             if (action != null)
             {
                 action(questsToLoad);
@@ -119,9 +119,9 @@ namespace TurboEdition.Quests
             }
             if (cvTurboEditionQuestLogs.value)
             {
-                foreach (QuestCard item in questsToLoad)
+                foreach (QuestDef item in questsToLoad)
                 {
-                    TELog.LogW(item + " Name: " + item.nameToken);
+                    TELog.LogW(item + " Name: " + item.questName);
                 }
             }
             SetQuestDefs(questsToLoad);
@@ -133,31 +133,31 @@ namespace TurboEdition.Quests
         /// Should be called only once. Append any desired QuestDefs to load to QuestCatalog.questsToLoad
         /// </summary>
         /// <param name="newQuestDefs"></param>
-        private static void SetQuestDefs(QuestCard[] newQuestDefs)
+        private static void SetQuestDefs(QuestDef[] newQuestDefs)
         {
             QuestCatalog.questIndexByName.Clear();
             QuestCatalog.questDefsByIndex.Clear();
             QuestCatalog.questStackArrays.Clear();
 
-            foreach (QuestCard item in newQuestDefs)
+            foreach (QuestDef item in newQuestDefs)
             {
                 item.globalIndex = QuestIndex.None;
             }
-            HG.ArrayUtils.CloneTo<QuestCard>(newQuestDefs, ref QuestCatalog.allQuestCards);
+            HG.ArrayUtils.CloneTo<QuestDef>(newQuestDefs, ref QuestCatalog.allQuestDefs);
             Array.Resize<string>(ref QuestCatalog.questNames, newQuestDefs.Length);
             for (int j = 0; j < newQuestDefs.Length; j++)
             {
-                QuestCatalog.questNames[j] = newQuestDefs[j].nameToken;
+                QuestCatalog.questNames[j] = newQuestDefs[j].questName;
             }
-            Array.Sort<string, QuestCard>(QuestCatalog.questNames, QuestCatalog.allQuestCards, StringComparer.Ordinal);
-            for (QuestIndex k = 0; k < (QuestIndex)QuestCatalog.allQuestCards.Length; k++)
+            Array.Sort<string, QuestDef>(QuestCatalog.questNames, QuestCatalog.allQuestDefs, StringComparer.Ordinal);
+            for (QuestIndex k = 0; k < (QuestIndex)QuestCatalog.allQuestDefs.Length; k++)
             {
-                QuestCard chosenQuest = QuestCatalog.allQuestCards[(int)k];
+                QuestDef chosenQuest = QuestCatalog.allQuestDefs[(int)k];
                 string globalName = QuestCatalog.questNames[(int)k];
                 chosenQuest.globalIndex = k;
-                QuestCatalog.allQuestsNegative = (from FUCK in QuestCatalog.allQuestCards
+                QuestCatalog.allQuestsNegative = (from FUCK in QuestCatalog.allQuestDefs
                                                   where FUCK.isNegative
-                                                  select FUCK).ToArray<QuestCard>();
+                                                  select FUCK).ToArray<QuestDef>();
                 QuestCatalog.questIndexByName.Add(globalName, k);
                 QuestCatalog.questDefsByIndex.Add(k, chosenQuest);
             }
@@ -167,12 +167,12 @@ namespace TurboEdition.Quests
         /// Meant to be used after the initial load has been done. Also refreshes the questGOs.
         /// </summary>
         /// <param name="questDef"></param>
-        public static void AddQuest(QuestCard questDef)
+        public static void AddQuest(QuestDef questDef)
         {
-            QuestIndex lastIndex = (QuestIndex)QuestCatalog.allQuestCards.Length;
+            QuestIndex lastIndex = (QuestIndex)QuestCatalog.allQuestDefs.Length;
             questDef.globalIndex = lastIndex;
 
-            HG.ArrayUtils.ArrayAppend(ref allQuestCards, questDef);
+            HG.ArrayUtils.ArrayAppend(ref allQuestDefs, questDef);
             if (questDef.isNegative)
                 HG.ArrayUtils.ArrayAppend(ref QuestCatalog.allQuestsNegative, questDef);
             QuestCatalog.questIndexByName.Add(questDef.nameToken, questDef.globalIndex);

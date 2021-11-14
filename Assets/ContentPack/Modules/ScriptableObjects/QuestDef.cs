@@ -10,7 +10,7 @@ using UnityEngine;
 namespace TurboEdition.ScriptableObjects
 {
     [CreateAssetMenu(menuName = "TurboEdition/QuestDef")]
-    class QuestDef : ScriptableObject
+    public class QuestDef : ScriptableObject
     {
         [Obsolete("Accessing UnityEngine.Object.Name causes allocations on read. Look up the name from the catalog instead. If absolutely necessary to perform direct access, cast to ScriptableObject first.")]
 		public new string name
@@ -20,7 +20,21 @@ namespace TurboEdition.ScriptableObjects
 				return null;
 			}
 		}
-		public QuestCatalog.QuestIndex questIndex { get; set; } = 0;
+        public bool isNegative
+        {
+            get
+            {
+                return ContainsTag(QuestCatalog.QuestTag.Negative);
+            }
+        }
+        public bool isTeamWide
+        {
+            get
+            {
+                return ContainsTag(QuestCatalog.QuestTag.TeamWide);
+            }
+        }
+        public QuestCatalog.QuestIndex questIndex { get; set; } = 0;
 
         [ContextMenu("Auto Populate Tokens")]
         public void AutoPopulateTokens()
@@ -48,6 +62,10 @@ namespace TurboEdition.ScriptableObjects
         [Header("User-Facing Info")]
         public string questNameToken;
 
+        [Tooltip("Selection weight for this quest line.")]
+        [Header("Chance to appear.")]
+        public int selectionWeight;
+
         //[Tooltip("Token with the description of this quest.")]
         //public string questDescriptionToken;
 
@@ -57,5 +75,13 @@ namespace TurboEdition.ScriptableObjects
         [Tooltip("The entitystate steps to use when this quest is activated.")]
         public SerializableEntityStateType[][] activationStates;
 
+        [Tooltip("MainEntityState to be used for the machine.")]
+        public SerializableEntityStateType mainEntityState;
+
+        [Tooltip("Entity State to use whenever it expires.")]
+        public SerializableEntityStateType expirationState;
+
+        [HideInInspector]
+        public QuestCatalog.QuestIndex globalIndex;
     }
 }

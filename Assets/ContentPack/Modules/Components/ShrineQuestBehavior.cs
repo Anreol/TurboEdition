@@ -4,7 +4,7 @@ using System;
 using TurboEdition.Quests;
 using UnityEngine;
 using UnityEngine.Networking;
-using QuestCard = TurboEdition.ScriptableObjects.QuestCard;
+using QuestDef = TurboEdition.ScriptableObjects.QuestDef;
 
 namespace TurboEdition.Components
 {
@@ -157,7 +157,7 @@ namespace TurboEdition.Components
             this.purchaseInteraction = base.GetComponent<PurchaseInteraction>();
             for (int x = 0; x < maxPurchaseCount && x < weightedSelection.Capacity; x++)
             {
-                QuestCard questCard = QuestCatalog.GetQuestDef((QuestCatalog.QuestIndex)UnityEngine.Random.Range(0, QuestCatalog.questCount));
+                QuestDef questCard = QuestCatalog.GetQuestDef((QuestCatalog.QuestIndex)UnityEngine.Random.Range(0, QuestCatalog.questCount));
                 weightedSelection.AddChoice(questCard, questCard.selectionWeight);
             }
 

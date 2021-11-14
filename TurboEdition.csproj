@@ -91,8 +91,16 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\AfterQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\BaseQuestState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\BeforeQuestState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\DuringHunt.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\DuringQuestState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\FinishQuestState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\IdleQuestState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\ExpiredQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\QuestObjectiveProvider.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Orbs\HellOrb.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />

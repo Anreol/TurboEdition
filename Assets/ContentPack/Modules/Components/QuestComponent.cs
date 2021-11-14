@@ -77,22 +77,6 @@ namespace TurboEdition.Components
             }
         }
 
-        public string titleToken
-        {
-            get
-            {
-                return QuestCatalog.GetQuestDef(questIndexSpawner).nameToken;
-            }
-        }
-
-        public string objectiveToken
-        {
-            get
-            {
-                return QuestCatalog.GetQuestDef(questIndexSpawner).objectiveToken;
-            }
-        }
-
         public int rewardAmount
         {
             get
