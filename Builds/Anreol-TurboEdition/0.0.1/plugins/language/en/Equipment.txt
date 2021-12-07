@@ -8,7 +8,7 @@
 
 		"EQUIPMENT_HELLCHAIN_NAME" : "Bloody Cross",
 		"EQUIPMENT_HELLCHAIN_PICKUP" : "Target an enemy and connect it to nearby enemies, sharing damage. <sprite name=\"WIP\"> This equipment is currently unimplemented. <sprite name=\"WIP\">",
-		"EQUIPMENT_HELLCHAIN_DESC" : "Target an enemy and connect it to nearby enemies, sharing damage.",
+		"EQUIPMENT_HELLCHAIN_DESC" : "Target an enemy which will gain a massive defense increase and connect it to nearby enemies for 15 seconds, sharing damage. Killing all connected enemies within time will release all damage stored into the origin.",
 		"EQUIPMENT_HELLCHAIN_LORE" : "",
 
 		"EQUIPMENT_LEAVESTAGE_NAME" : "Ejection Lever",

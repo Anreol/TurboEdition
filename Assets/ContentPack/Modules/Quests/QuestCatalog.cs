@@ -175,7 +175,7 @@ namespace TurboEdition.Quests
             HG.ArrayUtils.ArrayAppend(ref allQuestDefs, questDef);
             if (questDef.isNegative)
                 HG.ArrayUtils.ArrayAppend(ref QuestCatalog.allQuestsNegative, questDef);
-            QuestCatalog.questIndexByName.Add(questDef.nameToken, questDef.globalIndex);
+            QuestCatalog.questIndexByName.Add(questDef.questName, questDef.globalIndex);
             QuestCatalog.questDefsByIndex.Add(questDef.globalIndex, questDef);
             //PopulateQuestGOs();
         }
@@ -226,8 +226,8 @@ namespace TurboEdition.Quests
         [ConCommand(commandName = "te_list_quests_activego", flags = ConVarFlags.ExecuteOnServer, helpText = "Lists all active quest game objects.")]
         private static void ListQuestsActiveGo(ConCommandArgs args)
         {
-            for (int i = 0; i < activeQuests.Count; i++)
-                TELog.LogD($"[{i}]\t{activeQuests[i].titleToken}");
+            /*for (int i = 0; i < activeQuests.Count; i++)
+                TELog.LogD($"[{i}]\t{activeQuests[i].titleToken}");*/
         }
 
         private static readonly Stack<int[]> questStackArrays = new Stack<int[]>();

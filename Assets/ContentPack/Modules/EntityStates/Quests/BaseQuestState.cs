@@ -30,7 +30,7 @@ namespace TurboEdition.EntityStates.Quests
                     {
                         if (item.Value == this.outer)
                         {
-                            return _objectiveProvider ??= item.Key;
+                            return _objectiveProvider;
                         }
                     }
                 }

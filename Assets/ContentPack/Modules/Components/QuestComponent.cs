@@ -123,7 +123,7 @@ namespace TurboEdition.Components
 
         public virtual void GenerateReward()
         {
-            QuestCard questCard = QuestCatalog.GetQuestDef(questIndexSpawner);
+            /*QuestCard questCard = QuestCatalog.GetQuestDef(questIndexSpawner); TODO
             this._rewardCredits += (int)(questCard.baseRewardCount * (questCard.rewardMultiplerPerStage * (Run.instance.stageClearCount)));
             this._rewardCredits += (questCard.ContainsTag(QuestCatalog.QuestTag.NoScaleReward) ? questCard.baseRewardCount : Run.instance.GetDifficultyScaledCost(questCard.baseRewardCount));
             TELog.LogW(_rewardCredits);
@@ -171,7 +171,7 @@ namespace TurboEdition.Components
                     rewardInventory.GiveItem(chosenItemDef);
                 }
                 return;
-            }
+            }*/
         }
 
         [Server]

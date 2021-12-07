@@ -11,7 +11,7 @@
 		"PLAYER_DEATH_QUOTE_TE_3_2P" : "Your world has ended.",
 		"PLAYER_DEATH_QUOTE_TE_3" : "{0}'s world is gone.",
 		"PLAYER_DEATH_QUOTE_TE_4_2P" : "We'll take that, thank you.",
-		"PLAYER_DEATH_QUOTE_TE_4" : "{0} found confidential data.",
+		"PLAYER_DEATH_QUOTE_TE_4" : "{0} knew too much.",
 		"PLAYER_DEATH_QUOTE_TE_5_2P" : "I <3 YOU.",
 		"PLAYER_DEATH_QUOTE_TE_5" : "{0} was insane.",
 		"PLAYER_DEATH_QUOTE_TE_6_2P" : "Your only chance.",

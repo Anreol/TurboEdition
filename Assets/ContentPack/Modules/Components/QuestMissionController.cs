@@ -73,7 +73,7 @@ namespace TurboEdition.Components
         {
             QuestObjectiveProvider newProvider = this.gameObject.AddComponent<QuestObjectiveProvider>();
             EntityStateMachine newMachine = this.gameObject.AddComponent<EntityStateMachine>();
-            newMachine.initialStateType = new SerializableEntityStateType(typeof(EntityStates.Quests.EntryQuestState));
+            newMachine.initialStateType = new SerializableEntityStateType(typeof(EntityStates.Quests.BeforeQuestState));
             newMachine.mainStateType = new SerializableEntityStateType(typeof(EntityStates.Quests.IdleQuestState));
 
             Action<EntityStateMachine> action = QuestMissionController.onQuestAdded;

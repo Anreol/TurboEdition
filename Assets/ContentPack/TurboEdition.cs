@@ -8,6 +8,7 @@ using System.Linq;
 using UnityEngine;
 using Zio;
 using Zio.FileSystems;
+using EntityStates;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
@@ -82,9 +83,9 @@ namespace TurboEdition
             InitVFX.Init();
             Assets.LoadEffects();
             GetType().Assembly.GetTypes()
-                              .Where(type => typeof(EntityStates.EntityState).IsAssignableFrom(type))
+                              .Where(type => typeof(EntityState).IsAssignableFrom(type))
                               .ToList()
-                              .ForEach(state => HG.ArrayUtils.ArrayAppend(ref serializableContentPack.entityStateTypes, new EntityStates.SerializableEntityStateType(state)));
+                              .ForEach(state => HG.ArrayUtils.ArrayAppend(ref serializableContentPack.entityStateTypes, new SerializableEntityStateType(state)));
 
             if (onLoadStaticContent != null)
                 yield return onGenerateContentPack;

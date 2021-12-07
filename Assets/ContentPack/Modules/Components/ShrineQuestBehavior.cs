@@ -86,14 +86,14 @@ namespace TurboEdition.Components
         {
             CharacterBody component = interactor.GetComponent<CharacterBody>();
             currentSelectedCard = weightedSelection.Evaluate(Run.instance.stageRng.nextNormalizedFloat);
-            currentSelectedCard.Spawn(interactor);
+            //currentSelectedCard.Spawn(interactor); TODO
             Chat.SendBroadcastChat(new Chat.SubjectFormatChatMessage
             {
                 subjectAsCharacterBody = component,
                 baseToken = "SHRINE_QUEST_USE_MESSAGE",
                 paramTokens = new string[]
                 {
-                            currentSelectedCard.objectiveToken
+                            //currentSelectedCard.objectiveToken TODO
                 }
             });
             if (activationEffectPrefab)
@@ -170,7 +170,7 @@ namespace TurboEdition.Components
                 this.refreshTimer -= Time.fixedDeltaTime;
                 if (this.refreshTimer <= 0f && this.purchaseCount < this.maxPurchaseCount)
                 {
-                    this.purchaseInteraction.costType = currentSelectedCard.costType;
+                    //this.purchaseInteraction.costType = currentSelectedCard.costType;  TODO
                     this.purchaseInteraction.automaticallyScaleCostWithDifficulty = true;
                     if (currentSelectedCard.ContainsTag(QuestCatalog.QuestTag.NoScalePrice))
                         this.purchaseInteraction.automaticallyScaleCostWithDifficulty = false;
@@ -184,8 +184,8 @@ namespace TurboEdition.Components
 
         public static event Action<ShrineQuestBehavior, Interactor> onActivated;
 
-        private WeightedSelection<QuestCard> weightedSelection = new WeightedSelection<QuestCard>();
-        private QuestCard currentSelectedCard;
+        private WeightedSelection<QuestDef> weightedSelection = new WeightedSelection<QuestDef>();
+        private QuestDef currentSelectedCard;
 
         public int maxPurchaseCount;
         public float costMultiplierPerPurchase;

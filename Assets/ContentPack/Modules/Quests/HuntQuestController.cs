@@ -33,7 +33,7 @@ namespace TurboEdition.Quests
         }
         private void ReportObjective(CharacterMaster characterMaster, List<ObjectivePanelController.ObjectiveSourceDescriptor> output)
         {
-            if (QuestCatalog.GetQuestDef(base.questIndexSpawner).hidden)
+            //if (QuestCatalog.GetQuestDef(base.questIndexSpawner).hidden)
                 return;
             if (base.teamIndex != TeamIndex.None && characterMaster.teamIndex == base.teamIndex)
             {
@@ -154,7 +154,7 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
     {
         HuntQuestController huntQuestController = (HuntQuestController)this.sourceDescriptor.source;
         this.numCurrentCount = huntQuestController.numCurrentCount;
-        return string.Format(Language.GetString(huntQuestController.objectiveToken), this.questTarget, this.numCurrentCount, huntQuestController.numRequiredCount);
+        return string.Format(/*Language.GetString(huntQuestController.objectiveToken),*/ this.questTarget, this.numCurrentCount, huntQuestController.numRequiredCount);
     }
 
     public override bool IsDirty()

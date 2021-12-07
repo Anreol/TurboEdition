@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -66,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Artifact\WormsArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\AssemblyInfo.cs" />
     <Compile Include="Assets\ContentPack\Modules\Assets.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\Buff.cs" />
@@ -96,12 +96,13 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\BeforeQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\DuringHunt.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\DuringQuestState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\ExpiredQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\FinishQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\IdleQuestState.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\ExpiredQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\QuestObjectiveProvider.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\Settings.cs" />
     <Compile Include="Assets\ContentPack\Modules\Orbs\HellOrb.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2670001537
+CRC: 4111547056
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8758483a1746cd5f3147de96af9c9b90
+    Hash: aac40b10c354ca4defc2967d442e4246
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e49719c16ca460114dcf68d656e94ca9
+    Hash: a13d12c3d846d92a482fc012934b5b8c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -32,11 +32,21 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
   Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: -146154839, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 - Class: 114
@@ -60,6 +70,10 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -226763392, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 1284260368, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 701432784, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1252323107, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 924743675, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -74,7 +88,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1161602148, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 89795172, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1297580292, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -124976994, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -87,6 +105,12 @@ ClassTypes:
   Script: {fileID: 1343443687, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 3143073, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -801810430, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1387824614, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1979810121, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 871971028, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -110,6 +134,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1699741063, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -103623725, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1918207524, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -117,6 +143,8 @@ ClassTypes:
   Script: {fileID: 488236779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -2130789662, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1630511094, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1640616833, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -148,15 +176,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 370243918, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -952978839, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1095921540, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1518736395, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1989667288, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1218053310, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -455717551, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1429667217, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -565067572, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -173,6 +207,10 @@ ClassTypes:
   Script: {fileID: 755410421, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1873157448, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -1622332621, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -946661946, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1756662517, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -243,19 +281,22 @@ Assets:
 - Assets/Mesh/meshSphere.asset
 - Assets/Hopoo/materials/matOmniHitspark3.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestRewardItemIcon.prefab
+- Assets/Shaders/HGShader-DONT-PUSH/UIDefault.asset
 - Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
 - Assets/Hopoo/materials/matOmniHitspark1.mat
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD SDF.asset
 - Assets/Mesh/Items/meshKnifeHandle.mesh
+- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Quests.Hunt.Common.Manager.asset
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD.OTF
 - Assets/Materials/matHellLinkedBuffBillboard.mat
 - Assets/Hopoo/materials/matUIPaintStreakAnimated.mat
-- Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2.asset
+- Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2Artifact.asset
 - Assets/Textures/texKnifeUVAlpha.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/PackMagnet.asset
 - Assets/Textures/texOilSplatter.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/RadioConnect.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_selected.png
+- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Quests.Hunt.Common.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BloodPackHeal.prefab
 - Assets/Mesh/Items/meshKnifeGuard.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
@@ -267,6 +308,7 @@ Assets:
 - Assets/Other/TextMesh Pro/Fonts/LiberationSans.ttf
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
 - Assets/Textures/texSandbagNormal.png
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/SettingsSubPanel, Turbo.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
 - Assets/Materials/matOilDecal.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
@@ -287,12 +329,14 @@ Assets:
 - Assets/ScriptableObject/skinObjectivePanel.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Rare.png
+- Assets/Hopoo/sprites/texUIHighlightBoxOutlineThick.png
 - Assets/ContentPack/AssetTurbo/ContentPack.asset
 - Assets/Hopoo/materials/physmatSuperFriction.asset
 - Assets/Mesh/Items/meshKnifeBase.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Uncommon.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
 - Assets/Textures/texKnifeUV.png
+- Assets/Materials/matUIBlur.mat
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/CursedScythe.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/BigScytheGhost.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
@@ -307,17 +351,20 @@ Assets:
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/Hopoo/materials/matDeathProjectileFlare.mat
+- Assets/Hopoo/sprites/texUIHighlightHeader.png
 - Assets/Hopoo/materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectile.prefab
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
 - Assets/Hopoo/sprites/texUICutOffCorner.png
 - Assets/Textures/Ramps/texGenericDustRamp.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/CopyFromHopoo.asset
+- Assets/Hopoo/sprites/texUICleanButton.png
 - Assets/Shaders/HGShader-DONT-PUSH/DecaliciousDeferred Decal.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffCannotSprint.asset
 - Assets/Textures/texBBDecalMask1.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniImpactVFXHellchain.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTextEffect.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/GenericHeaderButton (Turbo).prefab
 - Assets/Hopoo/materials/matMercExposedBackdrop.mat
 - Assets/ContentPack/AssetTurbo/icon.png
 - Assets/Textures/texKnifeUVEmission.png
@@ -326,6 +373,7 @@ Assets:
 - Assets/Materials/matSandbag.mat
 - Assets/ContentPack/AssetTurbo/ItemDefs/BloodEconomy.asset
 - Assets/Textures/texSandbagDiffuse.png
+- Assets/ContentPack/AssetTurbo/ArtifactDefs/WormsArtifact.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffEnvBonus.asset
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
@@ -340,9 +388,12 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OrbEffects/OrbEffects.asset
 - Assets/Textures/texSandbagRoughness.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/Typewriter.asset
+- Assets/Hopoo/sprites/texUIOutlineOnly.png
+- Assets/ScriptableObject/skinCleanButton.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab
 - Assets/ContentPack/AssetTurbo/QuestDefs/EnemyHuntQuest.asset
-- Assets/ContentPack/AssetTurbo/ArtifactDefs/Pain.asset
+- Assets/ContentPack/AssetTurbo/ArtifactDefs/PainArtifact.asset
+- Assets/Hopoo/sprites/texUIPopupRect.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
 - Assets/Hopoo/shaders/CopyFromRoR2.shader
 - Assets/ContentPack/AssetTurbo/ItemDefs/EnvBonus.asset
@@ -356,6 +407,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/Hopoo/sprites/texUICheckboxes.png
+- Assets/Hopoo/sprites/texUIHighlightBoxOutline.png
 - Assets/Textures/texCardTest.png
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd
 - Assets/ContentPack/AssetTurbo/ItemDefs/Hitlag.asset
