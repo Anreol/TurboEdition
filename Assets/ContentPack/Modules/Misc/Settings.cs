@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using LeTai.Asset.TranslucentImage;
+using RoR2;
 using RoR2.UI;
 using System;
 using System.Collections;
@@ -60,6 +61,8 @@ namespace TurboEdition.Misc
             GameObject headerInstance = UnityEngine.Object.Instantiate(headerButton, header);
             GameObject panelInstance = UnityEngine.Object.Instantiate(panel, subPanelArea);
 
+            FixBlurShader(panelInstance.transform.Find("Scroll View/BlurPanel").gameObject);
+            panelInstance.SetActive(false);
             RoR2.UI.HGButton leButton = headerInstance.GetComponent<RoR2.UI.HGButton>();
             RoR2.UI.HGHeaderNavigationController leHeader = submenuPanelInstance.GetComponent<RoR2.UI.HGHeaderNavigationController>();
             leButton.onClick.AddListener((delegate ()
@@ -67,7 +70,8 @@ namespace TurboEdition.Misc
                 leHeader.ChooseHeaderByButton(leButton);
             }));
 
-            panelInstance.GetComponent<RoR2.UI.SettingsPanelController>().revertButton = submenuPanelInstance.transform.Find("FooterContainer/FooterPanel, M&KB/RevertAndBack (JUICED)/NakedButton (Revert)").GetComponent<RoR2.UI.MPButton>();
+            if (panelInstance.GetComponent<RoR2.UI.SettingsPanelController>())
+                panelInstance.GetComponent<RoR2.UI.SettingsPanelController>().revertButton = submenuPanelInstance.transform.Find("SafeArea/FooterContainer/FooterPanel, M&KB/RevertAndBack (JUICED)/NakedButton (Revert)").GetComponent<RoR2.UI.HGButton>();
 
             //panelInstance.GetComponent<RoR2.UI.HGButtonHistory>().requiredTopLayer = submenuPanelInstance.GetComponentInChildren<RoR2.UI.UILayerKey>();
             //panelInstance.GetComponent<RoR2.UI.HGScrollRectHelper>().requiredTopLayer = submenuPanelInstance.GetComponentInChildren<RoR2.UI.UILayerKey>();
@@ -87,16 +91,26 @@ namespace TurboEdition.Misc
             header.Find("GenericGlyph (Right)").SetSiblingIndex(headerInstance.transform.GetSiblingIndex() + 1);
         }
 
+        private static void FixBlurShader(GameObject panel)
+        {
+            panel.GetComponent<TranslucentImage>().material.shader = Shader.Find("UI/TranslucentImage");
+        }
         private static IEnumerator Trolltine(RoR2.UI.MainMenu.SubmenuMainMenuScreen trolled) //Me getting trolled by one single line of code
         {
             yield return new WaitForEndOfFrame();
-            AssignMenu(trolled.submenuPanelInstance);
+            if (trolled == null)
+                TELog.logger.LogWarning("Something went wrong when getting SubmenuMainMenuScreen");
+            else
+                AssignMenu(trolled.submenuPanelInstance);
         }
 
         private static IEnumerator Trolltine(RoR2.UI.PauseScreenController trolled) //Me getting trolled by one single line of code
         {
             yield return new WaitForEndOfFrame();
-            AssignMenu(trolled.submenuObject);
+            if (trolled == null)
+                TELog.logger.LogWarning("Something went wrong when getting PauseScreenController");
+            else
+                AssignMenu(trolled.submenuObject);
         }
     }
 }

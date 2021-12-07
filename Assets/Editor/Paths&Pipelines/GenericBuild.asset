@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 114336154361294396}
   - {fileID: 114597682216115884}
   - {fileID: 114724867410330964}
-  manifest: {fileID: 11400000, guid: 7aeb74afd1732f140abe1c0996171e07, type: 2}
+  manifest: {fileID: 0}
 --- !u!114 &114336154361294396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -36,6 +36,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 1
   StagingPath: <StagingRoot>
   ExcludedManifests: []
@@ -53,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 0
   AssetBundleBuildOptions: 1
   buildTarget: 5
@@ -73,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 1
 --- !u!114 &114643622350610336
 MonoBehaviour:
@@ -88,9 +91,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 1
   stageDebugDatabases: 0
-  preferPlayerBuilds: 0
+  assemblyArtifactPath: <AssemblyStaging>
+  buildTarget: 5
+  buildTargetGroup: 1
 --- !u!114 &114683002203477180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 1
   PerManifest: 1
   ExcludedManifests: []
@@ -127,13 +134,13 @@ MonoBehaviour:
   ErrorMessage: 'Failed to Copy File / Directory from ''ThunderKit/Staging/Anreol-TurboEdition/plugins/Anreol-TurboEdition''
     to ''C:/Users/Anr/source/repos/TurboEdition/Builds/Anreol-TurboEdition/0.0.1/plugins'':
     destination path already exists.'
+  ErrorStacktrace: 
   Active: 1
   PerManifest: 1
-  ExcludedManifests:
-  - {fileID: 11400000, guid: db33d5b068040b5c2782085d4dcc86a1, type: 2}
-  - {fileID: 11400000, guid: 6893422731aa6d67012f5f4d8209c304, type: 2}
+  ExcludedManifests: []
   Recursive: 0
   SourceRequired: 0
+  EstablishDestination: 1
   Source: <ManifestPluginStaging>
   Destination: <BuildPath>
 --- !u!114 &114741640740392424
@@ -150,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 1
   PerManifest: 0
   ExcludedManifests: []
@@ -170,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   Active: 1
 --- !u!114 &114904987072464370
 MonoBehaviour:

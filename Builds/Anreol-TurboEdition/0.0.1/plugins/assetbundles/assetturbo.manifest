@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4111547056
+CRC: 1698483507
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aac40b10c354ca4defc2967d442e4246
+    Hash: 9fb566ab7653a3055aba36cab95d364b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a13d12c3d846d92a482fc012934b5b8c
+    Hash: 7123158415943416dd76229ead16bf99
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -67,6 +67,8 @@ ClassTypes:
   Script: {fileID: 422384671, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1102028033, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -226763392, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -281,7 +283,6 @@ Assets:
 - Assets/Mesh/meshSphere.asset
 - Assets/Hopoo/materials/matOmniHitspark3.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestRewardItemIcon.prefab
-- Assets/Shaders/HGShader-DONT-PUSH/UIDefault.asset
 - Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
 - Assets/Hopoo/materials/matOmniHitspark1.mat
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD SDF.asset
@@ -354,6 +355,7 @@ Assets:
 - Assets/Hopoo/sprites/texUIHighlightHeader.png
 - Assets/Hopoo/materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectile.prefab
+- Assets/ScriptableObject/skinCleanHeaderButton.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
 - Assets/Hopoo/sprites/texUICutOffCorner.png
 - Assets/Textures/Ramps/texGenericDustRamp.png
@@ -395,6 +397,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/PainArtifact.asset
 - Assets/Hopoo/sprites/texUIPopupRect.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
+- Assets/Le Tai's Asset/TranslucentImage/Resources/TranslucentImage.shader
 - Assets/Hopoo/shaders/CopyFromRoR2.shader
 - Assets/ContentPack/AssetTurbo/ItemDefs/EnvBonus.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader

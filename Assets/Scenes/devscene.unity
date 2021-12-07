@@ -794,6 +794,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GenericHeaderButton (Turbo)
       objectReference: {fileID: 0}
+    - target: {fileID: 2577632497570285187, guid: a5e5687a6604d13478dd4ae32022264e,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2577632497570285187, guid: a5e5687a6604d13478dd4ae32022264e,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4315766192512210587, guid: a5e5687a6604d13478dd4ae32022264e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -998,7 +1008,7 @@ PrefabInstance:
     - target: {fileID: 2716268407102032947, guid: 3cccc015c27510542b5c4ec22a52e8e7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2716268407102032947, guid: 3cccc015c27510542b5c4ec22a52e8e7,
         type: 3}
@@ -1008,7 +1018,7 @@ PrefabInstance:
     - target: {fileID: 2716268407102032947, guid: 3cccc015c27510542b5c4ec22a52e8e7,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2716268407102032947, guid: 3cccc015c27510542b5c4ec22a52e8e7,
         type: 3}

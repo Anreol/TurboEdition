@@ -53,7 +53,10 @@ MonoBehaviour:
   eliteDefs: []
   unlockableDefs: []
   survivorDefs: []
-  artifactDefs: []
+  artifactDefs:
+  - {fileID: 11400000, guid: 09dec09dc17766b46b38d41a6089551b, type: 2}
+  - {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}
+  - {fileID: 11400000, guid: 55f7519b8d49e694d9036a31bc141dfd, type: 2}
   surfaceDefs: []
   networkSoundEventDefs: []
   musicTrackDefs: []

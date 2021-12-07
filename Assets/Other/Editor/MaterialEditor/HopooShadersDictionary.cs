@@ -17,7 +17,7 @@ namespace Moonstorm.EditorUtils
             PopulateDictionary(realToStubbed, true);
             PopulateDictionary(stubbedToReal, false);
             if (realToStubbed.Count == 0 || stubbedToReal.Count == 0)
-                Debug.Log($"There was an error while trying to populate the Hopoo Shaders dictionary.");
+                Debug.Log($"The Hopoo Shaders dictionary got populated with zero entries, there might be an issue.");
             else
                 Debug.Log("Populated Hopoo Shader dictionary.");
         }
