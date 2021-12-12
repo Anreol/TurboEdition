@@ -4,11 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Artifacts
 {
     class WormsArtifactManager
     {
+        public static ArtifactDef artifact = Assets.mainAssetBundle.LoadAsset<ArtifactDef>("WormsArtifact");
+        public static GameObject directorObject = Assets.mainAssetBundle.LoadAsset<GameObject>("WormDirector");
+        private static DirectorCardCategorySelection dccsWormArtifact = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsWormArtifact");
+        private static GameObject directorInstance = null;
+
         [SystemInitializer(new Type[]
         {
             typeof(ArtifactCatalog)
@@ -17,25 +24,73 @@ namespace TurboEdition.Artifacts
         {
             RunArtifactManager.onArtifactEnabledGlobal += RunArtifactManager_onArtifactEnabledGlobal;
             RunArtifactManager.onArtifactDisabledGlobal += RunArtifactManager_onArtifactDisabledGlobal;
+            SetupCards(ref dccsWormArtifact);
         }
-        public static ArtifactDef artifact = Assets.mainAssetBundle.LoadAsset<ArtifactDef>("WormsArtifact");
-        public static bool honor = false;
         private static void RunArtifactManager_onArtifactDisabledGlobal([JetBrains.Annotations.NotNull] RunArtifactManager runArtifactManager, [JetBrains.Annotations.NotNull] ArtifactDef artifactDef)
         {
-            if (artifactDef == RoR2Content.Artifacts.EliteOnly)
-            {
-                honor = false;
-                return;
-            }
             if (artifactDef != artifact)
-            {
                 return;
+
+            Stage.onServerStageComplete -= onServerStageCompleted;
+            Stage.onServerStageBegin -= onServerStageBegin;
+        }
+        private static void RunArtifactManager_onArtifactEnabledGlobal([JetBrains.Annotations.NotNull] RunArtifactManager runArtifactManager, [JetBrains.Annotations.NotNull] ArtifactDef artifactDef)
+        {
+            if (!NetworkServer.active) //uNet Weaver doesnt like [Server] Tags on something that isnt a network behavior
+                return;
+            if (artifactDef != artifact)
+                return;
+            Stage.onServerStageBegin += onServerStageBegin;
+            Stage.onServerStageComplete += onServerStageCompleted;
+        }
+
+        private static void onServerStageCompleted(Stage obj)
+        {
+            if (directorInstance)
+            {
+                UnityEngine.Object.Destroy(directorInstance);
+                NetworkServer.Destroy(directorInstance);
             }
         }
 
-        private static void RunArtifactManager_onArtifactEnabledGlobal([JetBrains.Annotations.NotNull] RunArtifactManager runArtifactManager, [JetBrains.Annotations.NotNull] ArtifactDef artifactDef)
+        private static void onServerStageBegin(Stage obj)
         {
-            throw new NotImplementedException();
+            if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage)
+                return;
+            if (!directorInstance)
+            {
+                directorInstance = UnityEngine.Object.Instantiate(directorObject);
+                directorInstance.GetComponent<CombatDirector>().monsterCards = dccsWormArtifact;
+                if (directorInstance)
+                {
+                    NetworkServer.Spawn(directorInstance);
+                }
+            }
+        }
+
+        private static void SetupCards(ref DirectorCardCategorySelection dccsWormArtifact)
+        {
+            List<CharacterSpawnCard> spawnCards = new List<CharacterSpawnCard>();
+            spawnCards.Add(Resources.Load<CharacterSpawnCard>("SpawnCards/CharacterSpawncards/cscMagmaWorm"));
+            spawnCards.Add(Resources.Load<CharacterSpawnCard>("SpawnCards/CharacterSpawncards/cscElectricWorm"));
+            foreach (CharacterSpawnCard item in spawnCards)
+            {
+                item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>().baseMaxHealth /= 3;
+            }
+            List<CharacterSpawnCard> eliteCards = spawnCards;
+            foreach (CharacterSpawnCard item in eliteCards)
+            {
+                item.name += "Elite";
+                item.directorCreditCost /= 2;
+                item.eliteRules = SpawnCard.EliteRules.ArtifactOnly;
+                item.noElites = false;
+            }
+            spawnCards.AddRange(eliteCards);
+
+            for (int i = 0; i < dccsWormArtifact.categories[0].cards.Length; i++)
+            {
+                dccsWormArtifact.categories[0].cards[i].spawnCard = spawnCards[i];
+            }
         }
     }
 }

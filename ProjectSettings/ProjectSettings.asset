@@ -532,15 +532,15 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: thunderkit;twiner-unitygameimporter
-    7: thunderkit;twiner-unitygameimporter
-    13: thunderkit;twiner-unitygameimporter
-    19: thunderkit;twiner-unitygameimporter
-    21: thunderkit;twiner-unitygameimporter
-    25: thunderkit;twiner-unitygameimporter
-    26: thunderkit;twiner-unitygameimporter
-    27: thunderkit;twiner-unitygameimporter
-    28: thunderkit;twiner-unitygameimporter
+    1: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    7: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    13: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    19: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    21: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    25: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    26: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    27: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
+    28: thunderkit;twiner-unitygameimporter;ror2editorkitteam-ror2editorkit
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

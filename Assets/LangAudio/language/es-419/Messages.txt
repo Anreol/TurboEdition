@@ -4,7 +4,7 @@
 
 		"PLAYER_DEATH_QUOTE_TE_0_2P" : "Todo se viene derrumbándose.",
 		"PLAYER_DEATH_QUOTE_TE_0" : "{0} viene derrumbándose.",
-		"PLAYER_DEATH_QUOTE_TE_1_2P" : "Perdió el ritmo.",
+		"PLAYER_DEATH_QUOTE_TE_1_2P" : "Perdiste el ritmo.",
 		"PLAYER_DEATH_QUOTE_TE_1" : "{0} quiso vivir a su propio ritmo.",
 		"PLAYER_DEATH_QUOTE_TE_2_2P" : "Violencia crea violencia.",
 		"PLAYER_DEATH_QUOTE_TE_2" : "{0} no es a culpar.",

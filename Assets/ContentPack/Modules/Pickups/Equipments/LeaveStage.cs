@@ -18,7 +18,8 @@ namespace TurboEdition.Equipments
 
         private void Stage_onStageStartGlobal(Stage obj)
         {
-            if (!NetworkServer.active) return;
+            if (!NetworkServer.active) //uNet Weaver doesnt like [Server] Tags on something that isnt a network behavior
+                return;
             canLeave = true;
         }
 

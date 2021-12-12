@@ -73,8 +73,14 @@ namespace TurboEdition.Misc
             if (panelInstance.GetComponent<RoR2.UI.SettingsPanelController>())
                 panelInstance.GetComponent<RoR2.UI.SettingsPanelController>().revertButton = submenuPanelInstance.transform.Find("SafeArea/FooterContainer/FooterPanel, M&KB/RevertAndBack (JUICED)/NakedButton (Revert)").GetComponent<RoR2.UI.HGButton>();
 
-            //panelInstance.GetComponent<RoR2.UI.HGButtonHistory>().requiredTopLayer = submenuPanelInstance.GetComponentInChildren<RoR2.UI.UILayerKey>();
-            //panelInstance.GetComponent<RoR2.UI.HGScrollRectHelper>().requiredTopLayer = submenuPanelInstance.GetComponentInChildren<RoR2.UI.UILayerKey>();
+            if (submenuPanelInstance.GetComponent<RoR2.UI.UILayerKey>())
+            { 
+                if (panelInstance.GetComponent<RoR2.UI.HGButtonHistory>())
+                    panelInstance.GetComponent<RoR2.UI.HGButtonHistory>().requiredTopLayer = submenuPanelInstance.GetComponent<RoR2.UI.UILayerKey>();
+                if (panelInstance.GetComponent<RoR2.UI.HGScrollRectHelper>())
+                    panelInstance.GetComponent<RoR2.UI.HGScrollRectHelper>().requiredTopLayer = submenuPanelInstance.GetComponentInChildren<RoR2.UI.UILayerKey>();
+            }
+            
 
             RoR2.UI.HGHeaderNavigationController hnc = submenuPanelInstance.GetComponent<RoR2.UI.HGHeaderNavigationController>();
             RoR2.UI.HGHeaderNavigationController.Header sloppytoppy = new RoR2.UI.HGHeaderNavigationController.Header

@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7399638598008387699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8864035438234764320}
+  - component: {fileID: 7089616796267566410}
+  - component: {fileID: 5958553561924110971}
+  - component: {fileID: 2976323720318654951}
+  m_Layer: 0
+  m_Name: WormDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8864035438234764320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399638598008387699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7089616796267566410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399638598008387699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &5958553561924110971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399638598008387699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 653292689, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: 
+  monsterCredit: 400
+  expRewardCoefficient: 0.2
+  minSeriesSpawnInterval: 0.1
+  maxSeriesSpawnInterval: 5
+  minRerollSpawnInterval: 30
+  maxRerollSpawnInterval: 60
+  moneyWaveIntervals:
+  - min: 180
+    max: 180
+  teamIndex: 2
+  creditMultiplier: 1
+  spawnDistanceMultiplier: 1.5
+  shouldSpawnOneWave: 0
+  targetPlayers: 1
+  skipSpawnIfTooCheap: 0
+  resetMonsterCardIfFailed: 1
+  maximumNumberToSpawnBeforeSkipping: 6
+  eliteBias: 1
+  onSpawnedServer:
+    m_PersistentCalls:
+      m_Calls: []
+  combatSquad: {fileID: 0}
+  spawnEffectPrefab: {fileID: 7538539870988796341, guid: 28d908b334e10224ea826287a57751ae,
+    type: 3}
+  ignoreTeamSizeLimit: 0
+  _monsterCards: {fileID: 0}
+  fallBackToStageMonsterCards: 0
+  currentSpawnTarget: {fileID: 0}
+--- !u!114 &2976323720318654951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7399638598008387699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d55a29ba09a8d949b633b9b87f4ae94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDifficultyScaleValue: 0.75
+  useAutomaticDifficultyScalingValue: 1
+  easyDifficultyScale: 1
+  normalDifficultyScale: 2
+  hardDifficultyScale: 3
+  baseIntervalApplyTimer: 120
+  baseMinIntervalApplyTimer: 15
+  intervalDecreaseTime: 5
+  intervalDecreaseApplyTimer: 30
+  intervalDecreaseApplySpeedUpWithDifficulty: 1
+  useMoneyWaveGenerator: 1
+  moneyWaveNumberToGenerate: -1
+  moneyWaveTimerMin: 1
+  moneyWaveTimerMax: 30
+  useSpeedUpRerolls: 1
+  modMinRerollInterval: -1
+  modMaxRerollInterval: -1
+  minimumMinCombatRerollSpawn: 10
+  minimumMaxCombatRerollSpawn: 10
+  modCreditAdd: 400
+  modCreditMultiplier: 0.25
