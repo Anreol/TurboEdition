@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3361135039
+CRC: 2064933125
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 04550f9428268a14c6a25bcf8690b8cb
+    Hash: 859dcb2ef0dac9d28971dd21422887e1
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d7b0404baab3b43a0b50271a48043787
+    Hash: 77513a9d85033ee711e6186ab93194be
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -121,6 +121,8 @@ ClassTypes:
   Script: {fileID: 871971028, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1322397448, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -146705984, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1063210218, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -238,19 +240,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 0d55a29ba09a8d949b633b9b87f4ae94, type: 3}
+- Class: 114
   Script: {fileID: 1395413934, guid: da77c7bbf69f66ab2145560542327715, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: e3bc9dbbfb0b1f44097d2330cd0ff7ab, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: d3b44e7d35805b843b38f505092d2aad, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: ef2a123f517c6464c9503cf474018e5f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 68b09e9f07410cb4ca4b7feb5675ef18, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 0d55a29ba09a8d949b633b9b87f4ae94, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
@@ -427,6 +431,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/Hopoo/sprites/texUICheckboxes.png
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
 - Assets/Hopoo/sprites/texUIHighlightBoxOutline.png
 - Assets/Textures/texCardTest.png
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd

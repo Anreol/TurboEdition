@@ -37,11 +37,12 @@ namespace TurboEdition
             }
         }
 
+        //This will eventually break if someone adds a interface that doesnt want to be added right away
         private IEnumerator GetInterfaces()
         {
             yield return new WaitForEndOfFrame();
             statItemBehaviors = GetComponents<IStatItemBehavior>();
-            body.healthComponent.onIncomingDamageReceivers = GetComponents<IOnIncomingDamageServerReceiver>();
+            body.healthComponent.onIncomingDamageReceivers = GetComponents<IOnIncomingDamageServerReceiver>(); 
             body.healthComponent.onTakeDamageReceivers = GetComponents<IOnTakeDamageServerReceiver>();
         }
 

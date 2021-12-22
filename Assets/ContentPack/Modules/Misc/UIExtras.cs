@@ -9,13 +9,14 @@ using UnityEngine.Events;
 
 namespace TurboEdition.Misc
 {
-    internal class Settings
+    internal class UIExtras
     {
         [SystemInitializer(new Type[]
         {
         })]
         private static void Init()
         {
+            CameraRigController.onCameraEnableGlobal += onCameraEnabledGlobal;
             SceneCatalog.onMostRecentSceneDefChanged += SceneCatalog_onMostRecentSceneDefChanged;
             PauseManager.onPauseStartGlobal += new Action(delegate ()
             {
@@ -25,6 +26,16 @@ namespace TurboEdition.Misc
 
         public static GameObject panel = Assets.mainAssetBundle.LoadAsset<GameObject>("SettingsSubPanel, Turbo");
         public static GameObject headerButton = Assets.mainAssetBundle.LoadAsset<GameObject>("GenericHeaderButton (Turbo)");
+        //public static GameObject statBarContainer = Assets.mainAssetBundle.LoadAsset<GameObject>("StatBarsContainer");
+        public static GameObject scoreboardLeftSidePanel = Assets.mainAssetBundle.LoadAsset<GameObject>("ScoreboardLeftSidePanel");
+        private static void onCameraEnabledGlobal(CameraRigController obj)
+        {
+            if (obj)
+            {
+                //TurboEdition.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, statBarContainer, "MainContainer/MainUIArea/SpringCanvas/LeftCluster"));
+                TurboEdition.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, scoreboardLeftSidePanel, "MainContainer/MainUIArea/SpringCanvas"));
+            }
+        }
 
         private static void SceneCatalog_onMostRecentSceneDefChanged(SceneDef obj)
         {
@@ -36,7 +47,7 @@ namespace TurboEdition.Misc
                 {
                     mmc.settingsMenuScreen.onEnter.AddListener(new UnityAction(delegate ()
                     {
-                        TurboEdition.instance.StartCoroutine(Trolltine(mmc.settingsMenuScreen.GetComponent<RoR2.UI.MainMenu.SubmenuMainMenuScreen>()));
+                        TurboEdition.instance.StartCoroutine(AddSettingsMenuCoroutine(mmc.settingsMenuScreen.GetComponent<RoR2.UI.MainMenu.SubmenuMainMenuScreen>()));
                     }));
                 }
             }
@@ -44,13 +55,21 @@ namespace TurboEdition.Misc
 
         private static void PauseAction()
         {
-            if (!PauseManager.isPaused || SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("title"))
+            if (!PauseManager.isPaused || SceneCatalog.mostRecentSceneDef.isOfflineScene)
                 return;
             PauseManager.pauseScreenInstance.transform.Find("Blur + Background Panel/ValidScreenspacePanel/MainPanel/OptionsPanel (JUICED)/GenericMenuButton (Settings)").GetComponent<RoR2.UI.HGButton>().onClick.AddListener(delegate ()
             {
-                TurboEdition.instance.StartCoroutine(Trolltine(PauseManager.pauseScreenInstance.GetComponent<PauseScreenController>()));
+                TurboEdition.instance.StartCoroutine(AddSettingsMenuCoroutine(PauseManager.pauseScreenInstance.GetComponent<PauseScreenController>()));
             });
             return;
+        }
+
+        private static void AssignHUDElement(HUD newHud, GameObject panel, string transform)
+        {
+            if (!newHud.transform.Find(transform))
+                return;
+            Transform parent = newHud.transform.Find(transform).transform;
+            UnityEngine.Object.Instantiate(panel, parent).SetActive(true);
         }
 
         private static void AssignMenu(GameObject submenuPanelInstance)
@@ -74,13 +93,12 @@ namespace TurboEdition.Misc
                 panelInstance.GetComponent<RoR2.UI.SettingsPanelController>().revertButton = submenuPanelInstance.transform.Find("SafeArea/FooterContainer/FooterPanel, M&KB/RevertAndBack (JUICED)/NakedButton (Revert)").GetComponent<RoR2.UI.HGButton>();
 
             if (submenuPanelInstance.GetComponent<RoR2.UI.UILayerKey>())
-            { 
+            {
                 if (panelInstance.GetComponent<RoR2.UI.HGButtonHistory>())
                     panelInstance.GetComponent<RoR2.UI.HGButtonHistory>().requiredTopLayer = submenuPanelInstance.GetComponent<RoR2.UI.UILayerKey>();
                 if (panelInstance.GetComponent<RoR2.UI.HGScrollRectHelper>())
                     panelInstance.GetComponent<RoR2.UI.HGScrollRectHelper>().requiredTopLayer = submenuPanelInstance.GetComponentInChildren<RoR2.UI.UILayerKey>();
             }
-            
 
             RoR2.UI.HGHeaderNavigationController hnc = submenuPanelInstance.GetComponent<RoR2.UI.HGHeaderNavigationController>();
             RoR2.UI.HGHeaderNavigationController.Header sloppytoppy = new RoR2.UI.HGHeaderNavigationController.Header
@@ -101,7 +119,22 @@ namespace TurboEdition.Misc
         {
             panel.GetComponent<TranslucentImage>().material.shader = Shader.Find("UI/TranslucentImage");
         }
-        private static IEnumerator Trolltine(RoR2.UI.MainMenu.SubmenuMainMenuScreen trolled) //Me getting trolled by one single line of code
+
+        private void GetGapBetweenPanels(RectTransform leftPanel, RectTransform rightPanel)
+        {
+            Vector2 panel2UpperLeftCorner = new Vector2((rightPanel.anchorMax.x - rightPanel.rect.width), (rightPanel.anchorMax.y - rightPanel.rect.height));
+            Vector2.Distance(leftPanel.anchorMax, panel2UpperLeftCorner);
+        }
+        private static IEnumerator AwaitForHUDCreationAndAppend(CameraRigController camera, GameObject objectToInstantiate = null, string parent = null) //Me getting trolled by one single line of code
+        {
+            yield return new WaitForEndOfFrame();
+            if (camera.hud == null && SceneCatalog.mostRecentSceneDef.isOfflineScene)
+                TELog.logger.LogWarning("Something went wrong when awaiting for the Camera's HUD creation on a Non-Offline Scene.");
+            else
+                AssignHUDElement(camera.hud, objectToInstantiate, parent);
+        }
+
+        private static IEnumerator AddSettingsMenuCoroutine(RoR2.UI.MainMenu.SubmenuMainMenuScreen trolled) //Me getting trolled by one single line of code
         {
             yield return new WaitForEndOfFrame();
             if (trolled == null)
@@ -110,7 +143,7 @@ namespace TurboEdition.Misc
                 AssignMenu(trolled.submenuPanelInstance);
         }
 
-        private static IEnumerator Trolltine(RoR2.UI.PauseScreenController trolled) //Me getting trolled by one single line of code
+        private static IEnumerator AddSettingsMenuCoroutine(RoR2.UI.PauseScreenController trolled) //Me getting trolled by one single line of code
         {
             yield return new WaitForEndOfFrame();
             if (trolled == null)

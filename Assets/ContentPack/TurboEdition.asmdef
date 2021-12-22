@@ -19,7 +19,8 @@
         "MonoMod.Utils.dll",
         "MMHOOK_Assembly-CSharp.dll",
         "Assembly-Stubbed.dll",
-        "Zio.dll"
+        "Zio.dll",
+        "Rewired_Core.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": []

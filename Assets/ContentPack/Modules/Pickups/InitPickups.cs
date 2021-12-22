@@ -81,7 +81,7 @@ namespace TurboEdition
             if (!body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Masterless) && body.master.inventory)
             {
                 var itemManager = body.gameObject.AddComponent<TurboItemManager>();
-                itemManager.CheckForTEItems();
+                itemManager.CheckForTEItems(); //Just move it to the component's Awake? Lol
             }
         }
 

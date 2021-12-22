@@ -83,7 +83,7 @@ namespace TurboEdition.Artifacts
                     teamIndex = obj.victimTeamIndex,
                     velocityY = UnityEngine.Random.Range(5f, 25f)
                 };
-                BombArtifactManager.bombRequestQueue.Enqueue(item);
+                Bomb2ArtifactManager.bombRequestQueue.Enqueue(item);
             }
         }
         private static void ProcessBombQueue()

@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using UnityEngine;
+using TurboEdition.UI;
 
 namespace TurboEdition.Items
 {
@@ -12,7 +13,7 @@ namespace TurboEdition.Items
             body.AddItemBehavior<Sandbag>(stack);
         }
 
-        internal class Sandbag : CharacterBody.ItemBehavior, IStatItemBehavior, IOnTakeDamageServerReceiver
+        internal class Sandbag : CharacterBody.ItemBehavior, IStatItemBehavior, IOnTakeDamageServerReceiver, IStatBarProvider
         {
             private CharacterMotor motor; //brrrrum brrum
             private bool provideBuffs;
@@ -38,7 +39,7 @@ namespace TurboEdition.Items
                     lerp = 0f;
                     return;
                 }
-                lerp = Mathf.Lerp((stack / 4) * body.maxHealth, 0, accumulatedDamage);
+                lerp = Mathf.InverseLerp((stack / 4) * body.maxHealth, 0, accumulatedDamage);
                 provideBuffs = body.GetNotMoving() && stack > 0;
             }
 
@@ -62,6 +63,26 @@ namespace TurboEdition.Items
                 {
                     this.accumulatedDamage += damageReport.damageDealt;
                 }
+            }
+
+            public float GetDataCurrent()
+            {
+                return lerp;
+            }
+
+            public float GetDataMax()
+            {
+                return 1;
+            }
+
+            public Sprite GetSprite()
+            {
+                return Assets.mainAssetBundle.LoadAsset<ItemDef>("StandBonus").pickupIconSprite;
+            }
+
+            public Color GetColor()
+            {
+                return new Color(0.5f, 0.7f, 0.5f, 1f);
             }
         }
     }
