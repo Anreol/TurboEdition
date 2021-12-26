@@ -17,26 +17,34 @@ namespace TurboEdition.Buffs
 
         public override void BuffStep(ref CharacterBody body, int stack)
         {
-            CalculateBonuses();
+            //CalculateBonuses(); //We dont need to calculate in every step of the way. Not until we get storms.
         }
 
         public override void OnBuffFirstStackGained(ref CharacterBody body)
         {
             CalculateBonuses();
         }
-
+        public override void OnBuffLastStackLost(ref CharacterBody body)
+        {
+            //Clearing just in case
+            regenBonus = 0;
+            armorBonus = 0;
+        }
         private void CalculateBonuses()
         {
+            regenBonus = 0;
+            armorBonus = 0;
+
             if (SceneCatalog.mostRecentSceneDef.sceneType == SceneType.Stage)
             {
                 if (scenesDay.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
-                    regenBonus += 2 * (Run.instance.stageClearCount + 1);
+                    regenBonus += (Run.instance.stageClearCount + 1);
                 if (scenesNight.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
                     armorBonus += 2 * (Run.instance.stageClearCount + 1);
             }
             if (SceneCatalog.mostRecentSceneDef.sceneType == SceneType.Intermission || SceneCatalog.mostRecentSceneDef.baseSceneName == "moon2") //Hidden realms and moon will add a bonus no matter what. Original moon counts as HR
             {
-                regenBonus += 2 * (Run.instance.stageClearCount + 1);
+                regenBonus += (Run.instance.stageClearCount + 1);
                 armorBonus += 2 * (Run.instance.stageClearCount + 1);
             }
             if (SceneCatalog.mostRecentSceneDef.isFinalStage)

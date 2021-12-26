@@ -1,6 +1,6 @@
 ﻿using RoR2;
-using UnityEngine;
 using TurboEdition.UI;
+using UnityEngine;
 
 namespace TurboEdition.Items
 {
@@ -39,7 +39,7 @@ namespace TurboEdition.Items
                     lerp = 0f;
                     return;
                 }
-                lerp = Mathf.InverseLerp((stack / 4) * body.maxHealth, 0, accumulatedDamage);
+                lerp = Mathf.InverseLerp((stack / 4f) * body.healthComponent.fullCombinedHealth, 0f, accumulatedDamage);
                 provideBuffs = body.GetNotMoving() && stack > 0;
             }
 
@@ -50,7 +50,7 @@ namespace TurboEdition.Items
                 {
                     motor.mass += (10 + ((stack - 1) * 5)); //[body] IS FAT
                 }
-                body.armor += 500 * lerp;
+                body.armor += Mathf.Round((500f * lerp) * 100) / 100;
             }
 
             public void RecalculateStatsStart()
@@ -65,24 +65,24 @@ namespace TurboEdition.Items
                 }
             }
 
-            public float GetDataCurrent()
+            public StatBarData GetStatBarData()
             {
-                return lerp;
-            }
-
-            public float GetDataMax()
-            {
-                return 1;
-            }
-
-            public Sprite GetSprite()
-            {
-                return Assets.mainAssetBundle.LoadAsset<ItemDef>("StandBonus").pickupIconSprite;
-            }
-
-            public Color GetColor()
-            {
-                return new Color(0.5f, 0.7f, 0.5f, 1f);
+                float currentData = Mathf.Round((500f * lerp) * 100) / 100;
+                string overString = (currentData <= 0) ? "TOOLTIP_ITEM_NOBUFF_DESCRIPTION" : "";
+                return new StatBarData
+                {
+                    fillBarColor = new Color(0.5f, 0.7f, 0.5f, 1f),
+                    maxData = 500f,
+                    currentData = currentData,
+                    sprite = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).pickupIconSprite,
+                    tooltipContent = new RoR2.UI.TooltipContent
+                    {
+                        titleColor = ColorCatalog.GetColor(ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).darkColorIndex),
+                        titleToken = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).nameToken,
+                        bodyToken = "TOOLTIP_ITEM_STANDBONUS_DESCRIPTION",
+                        overrideBodyText = Language.GetString(overString),
+                    }
+                };
             }
         }
     }

@@ -128,9 +128,9 @@ namespace TurboEdition.Misc
         private static IEnumerator AwaitForHUDCreationAndAppend(CameraRigController camera, GameObject objectToInstantiate = null, string parent = null) //Me getting trolled by one single line of code
         {
             yield return new WaitForEndOfFrame();
-            if (camera.hud == null && SceneCatalog.mostRecentSceneDef.isOfflineScene)
+            if (camera.hud == null && !SceneCatalog.mostRecentSceneDef.isOfflineScene)
                 TELog.logger.LogWarning("Something went wrong when awaiting for the Camera's HUD creation on a Non-Offline Scene.");
-            else
+            else if (!SceneCatalog.mostRecentSceneDef.isOfflineScene)
                 AssignHUDElement(camera.hud, objectToInstantiate, parent);
         }
 

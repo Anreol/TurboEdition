@@ -117,6 +117,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\IStatItemBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Item.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMask.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BloodMoney.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupe.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\EnvBonus.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GetDamageFromHurtVictim.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MeleeArmor.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnet.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\StandBonus.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\SuperStickies.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Typewriter.cs" />
     <Compile Include="Assets\ContentPack\Modules\Quests\HuntQuestController.cs" />

@@ -1,30 +1,28 @@
 ﻿using RoR2.UI;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace TurboEdition.UI
 {
-    [RequireComponent(typeof(Canvas))]
     [RequireComponent(typeof(RectTransform))]
     [RequireComponent(typeof(HudElement))]
-    class StatBarSimpleController : MonoBehaviour
+    internal class StatBarSimpleController : MonoBehaviour
     {
         [Tooltip("Panel where Stat bars will get instantiated.")]
         public RectTransform viewport;
+
         [Tooltip("Prefab that all bars will use")]
         public GameObject barPrefab;
+
         [Tooltip("HudElement that will get assigned the HUD on enable.")]
         public HudElement hudElement;
 
         private IStatBarProvider[] statBarProviders = new IStatBarProvider[] { };
-        private UIElementAllocator<Canvas> elementAllocator;
+        private UIElementAllocator<RectTransform> elementAllocator;
+
         private void OnEnable()
         {
             this.hudElement.hud = base.GetComponentInParent<HUD>();
@@ -34,6 +32,7 @@ namespace TurboEdition.UI
             Build();
             UpdateBars();
         }
+
         private void onInventoryChanged()
         {
             Build();
@@ -46,27 +45,35 @@ namespace TurboEdition.UI
             this.viewport.gameObject.SetActive(active);
             UpdateBars();
         }
+
         private void OnDisable()
         {
             hudElement.targetCharacterBody.onInventoryChanged -= onInventoryChanged;
         }
+
         private void Build()
         {
-            this.elementAllocator = new UIElementAllocator<Canvas>(viewport, barPrefab, true, false);
+            if (this.elementAllocator == null)
+            {
+                this.elementAllocator = new UIElementAllocator<RectTransform>(viewport, barPrefab, true, false);
+            }
             statBarProviders = hudElement.targetCharacterBody.gameObject.GetComponents<IStatBarProvider>();
             this.elementAllocator.AllocateElements(statBarProviders.Length);
-            ReadOnlyCollection<Canvas> elements = this.elementAllocator.elements;
+            ReadOnlyCollection<RectTransform> elements = this.elementAllocator.elements;
             for (int i = 0; i < elements.Count; i++)
             {
                 RectTransform fillRectTransform = elements.ElementAt(i).GetComponent<ChildLocator>().FindChild("fillRectTransform").GetComponent<RectTransform>();
                 RawImage sprite = elements.ElementAt(i).GetComponent<ChildLocator>().FindChild("spriteIcon").GetComponent<RawImage>();
+                TooltipProvider tooltipProvider = elements.ElementAt(i).gameObject.transform.GetComponentInChildren<TooltipProvider>();
+                StatBarData statBarData = statBarProviders[i].GetStatBarData();
 
+                if (tooltipProvider)
+                    tooltipProvider.SetContent(statBarData.tooltipContent);
                 if (fillRectTransform)
-                {
-                    fillRectTransform.GetComponent<RawImage>().color = statBarProviders[i].GetColor();
-                }
+                    fillRectTransform.GetComponent<RawImage>().color = statBarProviders[i].GetStatBarData().fillBarColor;
+
                 if (sprite)
-                    sprite.texture = statBarProviders[i].GetSprite().texture;
+                    sprite.texture = statBarProviders[i].GetStatBarData().sprite.texture;
             }
         }
 
@@ -74,15 +81,16 @@ namespace TurboEdition.UI
         {
             if (elementAllocator == null)
                 return;
-            ReadOnlyCollection<Canvas> elements = this.elementAllocator.elements;
+            ReadOnlyCollection<RectTransform> elements = this.elementAllocator.elements;
             for (int i = 0; i < elements.Count; i++)
             {
                 RectTransform fillRectTransform = elements.ElementAt(i).GetComponent<ChildLocator>().FindChild("fillRectTransform").GetComponent<RectTransform>();
                 TextMeshProUGUI text = elements.ElementAt(i).GetComponent<ChildLocator>().FindChild("textValue").GetComponent<TextMeshProUGUI>();
+                TooltipProvider tooltipProvider = elements.ElementAt(i).gameObject.transform.GetComponentInChildren<TooltipProvider>();
 
-                float maxValue = statBarProviders[i].GetDataMax();
-                float currentValue = statBarProviders[i].GetDataCurrent();
-                float representedValue = Mathf.Lerp(0, maxValue, currentValue);
+                float maxValue = statBarProviders[i].GetStatBarData().maxData;
+                float currentValue = statBarProviders[i].GetStatBarData().currentData;
+                float representedValue = currentValue/maxValue;
 
                 if (fillRectTransform)
                 {
@@ -92,7 +100,11 @@ namespace TurboEdition.UI
                 }
                 if (text)
                     text.text = currentValue.ToString() + "/" + maxValue.ToString();
-            } 
+
+                if (tooltipProvider.overrideBodyText != statBarProviders[i].GetStatBarData().tooltipContent.overrideBodyText)
+                    tooltipProvider.SetContent(statBarProviders[i].GetStatBarData().tooltipContent);
+
+            }
         }
     }
 }

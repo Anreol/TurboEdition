@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2064933125
+CRC: 2025889964
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 859dcb2ef0dac9d28971dd21422887e1
+    Hash: 765d9908041fc4f3b3f22a690a954ba1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 77513a9d85033ee711e6186ab93194be
@@ -341,6 +341,7 @@ Assets:
 - Assets/Textures/texKnifeUVFresnel.png
 - Assets/Hopoo/prefabs/OmniImpactVFXSlash.prefab
 - Assets/Hopoo/materials/matGenericFlash.mat
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
 - Assets/Textures/Ramps/texRedcrossBillRamp.png
 - Assets/ScriptableObject/skinObjectivePanel.asset
@@ -431,7 +432,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/Hopoo/sprites/texUICheckboxes.png
-- Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
 - Assets/Hopoo/sprites/texUIHighlightBoxOutline.png
 - Assets/Textures/texCardTest.png
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd

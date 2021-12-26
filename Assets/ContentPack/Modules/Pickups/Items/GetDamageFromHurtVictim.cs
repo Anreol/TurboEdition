@@ -17,30 +17,34 @@ namespace TurboEdition.Items
         {
             body.AddItemBehavior<GetDamageFromHurtVictimBehavior>(stack);
         }
-        internal class GetDamageFromHurtVictimBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IStatBarProvider
+        internal class GetDamageFromHurtVictimBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnDamageDealtServerReceiver, IOnTakeDamageServerReceiver, IStatBarProvider
         {
-            private bool reset;
             private float accumulatedDamage;
-            private float lerp = 0.0f;
-
-            private void OnEnable()
+            private void Start()
             {
-                GlobalEventManager.onServerDamageDealt += onServerDamageDealt;
+                GlobalEventManager.onServerCharacterExecuted += onServerCharacterExecuted; //This will be subscribing for each player that has the item... good idea? dont think so
             }
             private void OnDisable()
             {
-                GlobalEventManager.onServerDamageDealt -= onServerDamageDealt;
+                GlobalEventManager.onServerCharacterExecuted -= onServerCharacterExecuted;
             }
-            private void onServerDamageDealt(DamageReport obj)
+            private void onServerCharacterExecuted(DamageReport arg1, float executionHealthLost)
             {
-
+                if (arg1.attackerBody == body && accumulatedDamage <= (100 + ((stack - 1) * 50))) 
+                    accumulatedDamage += 25f;
+                accumulatedDamage = Mathf.Min(accumulatedDamage, 100 + ((stack - 1) * 50));
             }
 
-            private void FixedUpdate()
+            public void OnDamageDealtServer(DamageReport damageReport)
             {
-
+                if (accumulatedDamage > (100 + ((stack - 1) * 50)) || damageReport.victim.isHealthLow)
+                    return;
+                if (damageReport.combinedHealthBeforeDamage == damageReport.victim.combinedHealth && !damageReport.victim.alive)
+                    accumulatedDamage += 25f;
+                if (damageReport.victim.alive)
+                    accumulatedDamage += damageReport.damageInfo.procCoefficient;
+                accumulatedDamage = Mathf.Min(accumulatedDamage, 100 + ((stack - 1) * 50)); //it's 3am and i suck at math lol dont mind me
             }
-
             public void RecalculateStatsEnd()
             {
                 body.damage += accumulatedDamage;
@@ -52,31 +56,31 @@ namespace TurboEdition.Items
 
             public void OnTakeDamageServer(DamageReport damageReport)
             {
-                if (!damageReport.damageInfo.rejected)
+                if (!damageReport.damageInfo.rejected || !damageReport.isFallDamage || (damageReport.dotType == DotController.DotIndex.None)) //Rejects shit with dot because if you are getting dotted, you got it from being damaged
+                    this.accumulatedDamage = 0;
+            }
+
+            public StatBarData GetStatBarData()
+            {
+                string overString = (accumulatedDamage <= 0) ? "TOOLTIP_ITEM_NOBUFF_DESCRIPTION" : "";
+                return new StatBarData
                 {
-                    this.accumulatedDamage += damageReport.damageDealt;
-                }
+                    fillBarColor = new Color(0.3f, 1f, 0.8f, 1f),
+                    maxData = (100 + ((stack - 1) * 50)),
+                    currentData = accumulatedDamage,
+                    offData = "TOOLTIP_ITEM_NOBUFF_DESCRIPTION",
+                    sprite = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).pickupIconSprite,
+                    tooltipContent = new RoR2.UI.TooltipContent
+                    {
+                        titleColor = ColorCatalog.GetColor(ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).darkColorIndex),
+                        titleToken = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).nameToken,
+                        bodyToken = "TOOLTIP_ITEM_SOULDEVOURER_DESCRIPTION",
+                        overrideBodyText = Language.GetString(overString),
+                    }
+                };
             }
 
-            public float GetDataCurrent()
-            {
-                return lerp;
-            }
 
-            public float GetDataMax()
-            {
-                return 100 + ((stack - 1) * 50);
-            }
-
-            public Sprite GetSprite()
-            {
-                return Assets.mainAssetBundle.LoadAsset<ItemDef>("SoulDevourer").pickupIconSprite;
-            }
-
-            public Color GetColor()
-            {
-                return new Color(0.3f, 1f, 0.8f, 1f);
-            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace TurboEdition.Misc
         {
             GenerateDirectorCards();
             SceneDirector.onGenerateInteractableCardSelection += SceneDirector_onGenerateInteractableCardSelection;
-            SceneDirector.onGenerateInteractableCardSelection += SceneDirector_onGenerateInteractableCardSelection1;
+            //SceneDirector.onGenerateInteractableCardSelection += SceneDirector_onGenerateInteractableCardSelection1;
         }
 
         private static void SceneDirector_onGenerateInteractableCardSelection1(SceneDirector arg1, DirectorCardCategorySelection arg2)
@@ -69,7 +69,7 @@ namespace TurboEdition.Misc
 
         private static void SceneDirector_onGenerateInteractableCardSelection(SceneDirector arg1, DirectorCardCategorySelection arg2)
         {
-            AddQuestShrine(ref arg1, ref arg2);
+            //AddQuestShrine(ref arg1, ref arg2); TODO FOR... uhm, some update, maybe 1.0? god i wish
             if (!logCards)
                 return;
             foreach (var item in arg2.categories)

@@ -11,9 +11,9 @@
 	"ITEM_BANEMASK_DESC": "Weaken enemies within <style=cIsUtility>+10m</style> <style=cStack>(+2m per stack) upon entering combat.</style>",
 	"ITEM_BANEMASK_LORE": "",
 	
-	"ITEM_BLOODECONOMY_NAME": "",
-	"ITEM_BLOODECONOMY_PICKUP": "",
-	"ITEM_BLOODECONOMY_DESC": "",
+	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
+	"ITEM_BLOODECONOMY_PICKUP": "Gain money when bleeding or getting hurt when near death.",
+	"ITEM_BLOODECONOMY_DESC": "Fill blood bags when bleeding or getting hurt when near death, filling a bag grants <style=cIsUtility>$15</style> <style=cStack>(+$10 per stack)</style>.<style=cIsUtility>Scales over time.</style>",
 	"ITEM_BLOODECONOMY_LORE": "",
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
@@ -23,7 +23,7 @@
 	
 	"ITEM_ENVBONUS_NAME": "UVB-51 Radio",
 	"ITEM_ENVBONUS_PICKUP": "Gain a buff that changes with enviroment upon entering a stage.",
-	"ITEM_ENVBONUS_DESC": "Gain a buff upon entering a stage for <style=cIsUtility>15 seconds</style> <style=cStack>(+10s per stack)</style>. Buff depends on enviroment.",
+	"ITEM_ENVBONUS_DESC": "Gain a buff upon entering a stage for <style=cIsUtility>15 seconds</style> <style=cStack>(+10s per stack)</style>. Bonuses depends on enviroment. <style=cIsUtility>Scales over time.</style>",
 	"ITEM_ENVBONUS_LORE": "",
 	
 	"ITEM_GRACEPERIOD_NAME": "PLACEHOLDER",
@@ -53,27 +53,27 @@
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
-	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>8m"</style> <style="cStack>(+4 m per stack)</style>. Low chance of duplicating them <style=cStack>(+0.04% per stack, at a minimum of 0.5)</style>",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>8m"</style> <style="cStack>(+4 m per stack)</style>. 0.5% chance of duplicating them <style=cStack>(+0.04% per stack)</style>",
 	"ITEM_PACKMAGNET_LORE": "",
 	
-	"ITEM_SOULDEVOURER_NAME": "",
-	"ITEM_SOULDEVOURER_PICKUP": "",
-	"ITEM_SOULDEVOURER_DESC": "",
+	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
+	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has critical health increases your damage, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>100</style> <style=cStack>(+50 per stack)</style> each time you hit an enemy that has critical health, bonus is lost when you get hurt.",
 	"ITEM_SOULDEVOURER_LORE": "",
 
 	"ITEM_STANDBONUS_NAME": "Punching Bag",
-	"ITEM_STANDBONUS_PICKUP": "Gain massive armor and weight for a while after standing still.",
-	"ITEM_STANDBONUS_DESC": "Gain <style=cIsUtility>500 armor</style> and <style=cIsUtility>10kg</style> <style=cStack>(+5kg per stack)</style> after standing still.\nBuff decreases as you take 25% <style=cStack>(+25% per stack)</style> damage of your maximum HP.",
+	"ITEM_STANDBONUS_PICKUP": "Gain massive armor and weight after standing still. Armor decreases as you take damage.",
+	"ITEM_STANDBONUS_DESC": "Gain <style=cIsUtility>500 armor</style> and <style=cIsUtility>10kg</style> <style=cStack>(+5kg per stack)</style> after standing still.\nBuff decreases as you take 25% <style=cStack>(+25% per stack)</style> damage of your combined maximum HP.",
 	"ITEM_STANDBONUS_LORE": "",
 
-	"ITEM_SUPERSTICKIES_NAME": "",
-	"ITEM_SUPERSTICKIES_PICKUP": "",
-	"ITEM_SUPERSTICKIES_DESC": "",
+	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
+	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
+	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>5%</style> <style=cStack>(+5% per stack)</style> chance on sticky bomb creation to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>180%x3</style> TOTAL damage.",
 	"ITEM_SUPERSTICKIES_LORE": "",
 
 	"ITEM_TYPEWRITER_NAME": "Typewriter",
 	"ITEM_TYPEWRITER_PICKUP": "Performing actions types a letter, forming up words creates unique effects.",
-	"ITEM_TYPEWRITER_DESC": "Gain <style=cIsUtility>500 armor</style> and <style=cIsUtility>10kg</style> <style=cStack>(+5kg per stack)</style> after standing still.\nBuff decreases as you take 25% <style=cStack>(+25% per stack)</style> damage of your maximum HP.",
+	"ITEM_TYPEWRITER_DESC": "",
 	"ITEM_TYPEWRITER_LORE": "",
 	}
 }

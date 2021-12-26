@@ -1,5 +1,4 @@
 ﻿using RoR2;
-using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -18,11 +17,13 @@ namespace TurboEdition.Items
 
             private void Start()
             {
-                if (!NetworkServer.active) return;
-                if (Stage.instance.entryTime.timeSince <= activationWindow && body)
+                //if (!NetworkServer.active) return;
+                if (body.hasEffectiveAuthority)
                 {
-                    body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffEnvBonus"), 15 + ((stack - 1) * 10));
+                    if (Stage.instance.entryTime.timeSince <= activationWindow && body)
+                        body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffEnvBonus"), 15 + ((stack - 1) * 10));
                 }
+                Destroy(this);
             }
         }
     }

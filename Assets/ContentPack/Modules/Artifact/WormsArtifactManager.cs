@@ -62,9 +62,7 @@ namespace TurboEdition.Artifacts
                 directorInstance = UnityEngine.Object.Instantiate(directorObject);
                 directorInstance.GetComponent<CombatDirector>().monsterCards = dccsWormArtifact;
                 if (directorInstance)
-                {
                     NetworkServer.Spawn(directorInstance);
-                }
             }
         }
 
@@ -76,6 +74,21 @@ namespace TurboEdition.Artifacts
             foreach (CharacterSpawnCard item in spawnCards)
             {
                 item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>().baseMaxHealth /= 3;
+                DeathRewards death = item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<DeathRewards>();
+                WormBodyPositionsDriver wormBodyPositionsDriver = item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<WormBodyPositionsDriver>();
+                /*if (death != null)
+                {
+                    death.spawnValue = (int)Mathf.Max(1f, (float)death.spawnValue / 3f);
+                    death.expReward = (uint)Mathf.Ceil(death.expReward / 3f);
+                    death.goldReward = (uint)Mathf.Ceil(death.goldReward / 3f);
+                }*/
+                if (wormBodyPositionsDriver != null)
+                {
+                    wormBodyPositionsDriver.allowShoving = true;
+                    wormBodyPositionsDriver.wormForceCoefficientAboveGround += 0.5f;
+                    wormBodyPositionsDriver.maxBreachSpeed *= 1.5f;
+                    wormBodyPositionsDriver.ySpringConstant *= 1.5f;
+                }
             }
             List<CharacterSpawnCard> eliteCards = spawnCards;
             foreach (CharacterSpawnCard item in eliteCards)

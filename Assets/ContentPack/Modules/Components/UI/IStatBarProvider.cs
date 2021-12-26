@@ -1,4 +1,5 @@
-﻿using RoR2.UI;
+﻿using RoR2;
+using RoR2.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,19 @@ namespace TurboEdition.UI
 {
     interface IStatBarProvider
     {
-        //So fucking stupid but i dont want to deal with unity's broken serialization of structs
-        float GetDataCurrent();
-        float GetDataMax();
-        Sprite GetSprite();
-        Color GetColor();
+        StatBarData GetStatBarData();
+    }
+    public struct StatBarData
+    {
+        public float maxData;
+        public float currentData;
+        /// <summary>
+        /// Appears if currentData is zero or less
+        /// </summary>
+        public string offData;
+        public Color fillBarColor;
+        public Sprite sprite;
+        public TooltipContent tooltipContent;
+
     }
 }
