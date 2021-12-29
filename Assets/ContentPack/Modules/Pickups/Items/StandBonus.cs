@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using TurboEdition.UI;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -15,11 +16,10 @@ namespace TurboEdition.Items
 
         internal class Sandbag : CharacterBody.ItemBehavior, IStatItemBehavior, IOnTakeDamageServerReceiver, IStatBarProvider
         {
-            private CharacterMotor motor; //brrrrum brrum
-            private bool provideBuffs;
-            private bool reset;
-            private float accumulatedDamage;
-            private float lerp = 0.0f;
+            private CharacterMotor _motor; //brrrrum brrum
+            private bool _provideBuffs;
+            private float _accumulatedDamage;
+            private float _lerp = 0.0f;
 
             private void Start() //On Start since we need to subscribe to the body, ANYTHING THAT HAS TO DO WITH BODIES, CANNOT BE ON AWAKE() OR ONENABLE()
             {
@@ -28,29 +28,30 @@ namespace TurboEdition.Items
                     TELog.LogE("Body not available or does not exist.");
                     return;
                 }
-                motor = base.GetComponent<CharacterMotor>();
+                _motor = base.GetComponent<CharacterMotor>();
             }
 
             private void FixedUpdate()
             {
+                if (!NetworkServer.active) return;
                 if (!body.GetNotMoving())
                 {
-                    accumulatedDamage = 0f;
-                    lerp = 0f;
+                    _accumulatedDamage = 0f;
+                    _lerp = 0f;
                     return;
                 }
-                lerp = Mathf.InverseLerp((stack / 4f) * body.healthComponent.fullCombinedHealth, 0f, accumulatedDamage);
-                provideBuffs = body.GetNotMoving() && stack > 0;
+                _lerp = Mathf.InverseLerp((stack / 4f) * body.healthComponent.fullCombinedHealth, 0f, _accumulatedDamage);
+                _provideBuffs = body.GetNotMoving() && stack > 0;
             }
 
             public void RecalculateStatsEnd()
             {
-                if (!provideBuffs) return;
-                if (motor)
+                if (!_provideBuffs) return;
+                if (_motor)
                 {
-                    motor.mass += (10 + ((stack - 1) * 5)); //[body] IS FAT
+                    _motor.mass += (10 + ((stack - 1) * 5)); //[body] IS FAT
                 }
-                body.armor += Mathf.Round((500f * lerp) * 100) / 100;
+                body.armor += Mathf.RoundToInt(500f * this._lerp);
             }
 
             public void RecalculateStatsStart()
@@ -61,13 +62,13 @@ namespace TurboEdition.Items
             {
                 if (!damageReport.damageInfo.rejected)
                 {
-                    this.accumulatedDamage += damageReport.damageDealt;
+                    this._accumulatedDamage += damageReport.damageDealt;
                 }
             }
 
             public StatBarData GetStatBarData()
             {
-                float currentData = Mathf.Round((500f * lerp) * 100) / 100;
+                float currentData = Mathf.RoundToInt(500f * this._lerp);
                 string overString = (currentData <= 0) ? "TOOLTIP_ITEM_NOBUFF_DESCRIPTION" : "";
                 return new StatBarData
                 {

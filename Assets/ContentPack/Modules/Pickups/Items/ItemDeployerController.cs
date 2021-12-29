@@ -36,7 +36,8 @@ namespace TurboEdition.Items
                     {
                         ItemIndex itemIndex = msr.leaderMasterInstance.inventory.itemAcquisitionOrder[i];
                         int maxStackToGive = Mathf.Min(itemDeployCount * 2, msr.leaderMasterInstance.inventory.GetItemCount(itemIndex));
-                        if (ItemCatalog.GetItemDef(itemIndex).DoesNotContainTag(ItemTag.AIBlacklist) || ItemCatalog.GetItemDef(itemIndex).DoesNotContainTag(ItemTag.CannotCopy) || itemIndex != Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeploys").itemIndex)
+                        ItemDef itemdef = ItemCatalog.GetItemDef(itemIndex);
+                        if (itemdef.DoesNotContainTag(ItemTag.AIBlacklist) || itemdef.DoesNotContainTag(ItemTag.CannotCopy) || itemdef.hidden || itemdef != Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeploys"))
                         {
                             ItemDeploysManager(itemIndex, maxStackToGive, msr, inFlightOrbs);
                         }

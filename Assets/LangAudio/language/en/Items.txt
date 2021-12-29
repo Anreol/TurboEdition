@@ -68,12 +68,12 @@
 
 	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
 	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
-	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>5%</style> <style=cStack>(+5% per stack)</style> chance on sticky bomb creation to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>180%x3</style> TOTAL damage.",
+	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on sticky bomb proc to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>180%x3</style><style=cStack>(+ x1 per stack)</style> TOTAL damage.",
 	"ITEM_SUPERSTICKIES_LORE": "",
 
 	"ITEM_TYPEWRITER_NAME": "Typewriter",
 	"ITEM_TYPEWRITER_PICKUP": "Performing actions types a letter, forming up words creates unique effects.",
-	"ITEM_TYPEWRITER_DESC": "",
+	"ITEM_TYPEWRITER_DESC": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
 	"ITEM_TYPEWRITER_LORE": "",
 	}
 }

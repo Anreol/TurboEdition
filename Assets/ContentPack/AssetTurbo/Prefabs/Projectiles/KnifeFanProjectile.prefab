@@ -4935,7 +4935,7 @@ MonoBehaviour:
   desiredForwardSpeed: 100
   lifetime: 10
   updateAfterFiring: 0
-  enableVelocityOverLifetime: 0
+  enableVelocityOverLifetime: 1
   velocityOverLifetime:
     serializedVersion: 2
     m_Curve:

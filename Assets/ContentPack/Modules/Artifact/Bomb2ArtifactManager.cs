@@ -53,7 +53,7 @@ namespace TurboEdition.Artifacts
         {
             if (!TeamManager.IsTeamEnemy(TeamIndex.Player, obj.victimTeamIndex) || obj.victimTeamIndex == TeamIndex.Player) //If it's an ally to player or player
                 return;
-            if (Util.CheckRoll((obj.damageDealt * 100) / (obj.combinedHealthBeforeDamage / 100), obj.damageInfo.procCoefficient)) //*fucks ur proc chance*
+            if (Util.CheckRoll((obj.damageDealt * 2) / (obj.combinedHealthBeforeDamage / 10), obj.damageInfo.procCoefficient)) //*fucks ur proc chance*
             {
                 ProcessDamage(obj);
             }

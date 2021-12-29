@@ -1,8 +1,10 @@
-﻿using RoR2.UI;
+﻿using RoR2;
+using RoR2.UI;
 using System.Collections.ObjectModel;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace TurboEdition.UI
@@ -22,16 +24,7 @@ namespace TurboEdition.UI
 
         private IStatBarProvider[] statBarProviders = new IStatBarProvider[] { };
         private UIElementAllocator<RectTransform> elementAllocator;
-
-        private void OnEnable()
-        {
-            this.hudElement.hud = base.GetComponentInParent<HUD>();
-
-            hudElement.targetCharacterBody.onInventoryChanged += onInventoryChanged;
-
-            Build();
-            UpdateBars();
-        }
+        private CharacterBody _characterBody;
 
         private void onInventoryChanged()
         {
@@ -41,22 +34,47 @@ namespace TurboEdition.UI
 
         private void FixedUpdate()
         {
-            bool active = hudElement.hud.localUserViewer != null && hudElement.hud.localUserViewer.inputPlayer != null && hudElement.hud.localUserViewer.inputPlayer.GetButton("info");
-            this.viewport.gameObject.SetActive(active);
-            UpdateBars();
+            if (!this.hudElement.hud && GetComponentInParent<HUD>().targetMaster) //Initial setup, let's constantly check til the hud has a target
+            {
+                this.hudElement.hud = GetComponentInParent<HUD>();
+                SetSubscribedBody(this.hudElement.targetCharacterBody);
+            }
+            if (this.hudElement.hud)
+            {
+                if (this.hudElement.targetCharacterBody != GetComponentInParent<HUD>().targetMaster.GetBody())
+                {
+                    this.hudElement.targetCharacterBody = GetComponentInParent<HUD>().targetMaster.GetBody();
+                    SetSubscribedBody(this.hudElement.targetCharacterBody);
+                }
+                bool active = hudElement.hud.localUserViewer != null && hudElement.hud.localUserViewer.inputPlayer != null && hudElement.hud.localUserViewer.inputPlayer.GetButton("info");
+                this.viewport.gameObject.SetActive(active);
+                UpdateBars();
+            }
         }
 
         private void OnDisable()
         {
-            hudElement.targetCharacterBody.onInventoryChanged -= onInventoryChanged;
+            if (hudElement.targetCharacterBody)
+            {
+                hudElement.targetCharacterBody.onInventoryChanged -= onInventoryChanged;
+            }
+        }
+        private void SetSubscribedBody(CharacterBody newCharacter)
+        {
+            if (newCharacter == this._characterBody) return;
+            if (this._characterBody)
+                this._characterBody.onInventoryChanged -= onInventoryChanged;
+            this._characterBody = newCharacter;
+            this._characterBody.onInventoryChanged += onInventoryChanged;
+            Build();
         }
 
         private void Build()
         {
             if (this.elementAllocator == null)
-            {
                 this.elementAllocator = new UIElementAllocator<RectTransform>(viewport, barPrefab, true, false);
-            }
+            if (!hudElement.targetCharacterBody)
+                return;
             statBarProviders = hudElement.targetCharacterBody.gameObject.GetComponents<IStatBarProvider>();
             this.elementAllocator.AllocateElements(statBarProviders.Length);
             ReadOnlyCollection<RectTransform> elements = this.elementAllocator.elements;

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matSandbag
-  m_Shader: {fileID: 4800000, guid: bd8619b81f584bae957e44fdbe6d7837, type: 2}
+  m_Shader: {fileID: 4800000, guid: 5bdba6f7a7c94525baf0a58d928ad3bc, type: 3}
   m_ShaderKeywords: CUTOUT FRESNEL_EMISSION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

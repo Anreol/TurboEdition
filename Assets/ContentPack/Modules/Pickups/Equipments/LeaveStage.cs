@@ -18,8 +18,6 @@ namespace TurboEdition.Equipments
 
         private void Stage_onStageStartGlobal(Stage obj)
         {
-            if (!NetworkServer.active) //uNet Weaver doesnt like [Server] Tags on something that isnt a network behavior
-                return;
             canLeave = true;
         }
 
@@ -36,10 +34,15 @@ namespace TurboEdition.Equipments
         {
             if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) //Is anniversary moon. Do not know how to get it in a better way.
             {
-                SceneExitController sceneExitController = CreateSceneExit();
+                GameObject sceneExitGO = CreateSceneExitGameObject();
+                SceneExitController sceneExitController = sceneExitGO.GetComponent<SceneExitController>();
                 sceneExitController.useRunNextStageScene = false;
                 sceneExitController.destinationScene = SceneCatalog.GetSceneDefFromSceneName("moon");
-                sceneExitController.Begin();
+                NetworkServer.Spawn(sceneExitGO);
+                if (NetworkServer.active)
+                {
+                    sceneExitController.Begin();
+                }
                 return true;
             }
             if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) //Not a stage trololo
@@ -48,13 +51,19 @@ namespace TurboEdition.Equipments
             }
             if (TeleporterInteraction.instance.chargeFraction >= 0.99 || TeleporterInteraction.instance.monstersCleared)
             {
-                CreateSceneExit().Begin();
+                GameObject sceneExitGO = CreateSceneExitGameObject();
+                SceneExitController sceneExitController = sceneExitGO.GetComponent<SceneExitController>();
+                NetworkServer.Spawn(sceneExitGO);
+                if (NetworkServer.active)
+                {
+                    sceneExitController.Begin();
+                }
                 return true;
             }
             return false;
         }
 
-        public SceneExitController CreateSceneExit()
+        public GameObject CreateSceneExitGameObject()
         {
             GameObject sceneExitGo = new GameObject("SceneExitLeaveStageEquip");
             sceneExitGo.AddComponent<SceneExitController>();
@@ -62,12 +71,11 @@ namespace TurboEdition.Equipments
             //InstanceTracker.Add(sceneExitController); //Add it for the sake of consistency EDIT: It adds itself on Enable!!
             sceneExitController.useRunNextStageScene = true; //True by default
             sceneExitController.SetState(SceneExitController.ExitState.Idle); //Idle by default
-            return sceneExitController;
+            return sceneExitGo;
         }
 
         private void ListenToSceneExitController(SceneExitController obj)
         {
-            if (!NetworkServer.active) return;
             canLeave = false;
         }
     }

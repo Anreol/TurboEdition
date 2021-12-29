@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 namespace TurboEdition.Artifacts
@@ -62,10 +63,28 @@ namespace TurboEdition.Artifacts
                 directorInstance = UnityEngine.Object.Instantiate(directorObject);
                 directorInstance.GetComponent<CombatDirector>().monsterCards = dccsWormArtifact;
                 if (directorInstance)
+                {
                     NetworkServer.Spawn(directorInstance);
+                    directorInstance.GetComponent<CombatDirector>().onSpawnedServer.AddListener(new UnityAction<GameObject>(ModifySpawnedMasters));
+                }
             }
         }
 
+        private static void ModifySpawnedMasters(GameObject gameObject)
+        {
+            if (!NetworkServer.active) return;
+            CharacterBody cb = gameObject.GetComponent<CharacterMaster>().GetBody();
+            if (cb)
+            {
+                DeathRewards  deathRewards = cb.GetComponent<DeathRewards>();
+                if (deathRewards)
+                {
+                    deathRewards.spawnValue = (int)Mathf.Max(1f, (float)deathRewards.spawnValue / 4f);
+                    deathRewards.expReward = (uint)Mathf.Ceil(deathRewards.expReward / 4f);
+                    deathRewards.goldReward = (uint)Mathf.Ceil(deathRewards.goldReward / 4f);
+                }
+            }
+        }
         private static void SetupCards(ref DirectorCardCategorySelection dccsWormArtifact)
         {
             List<CharacterSpawnCard> spawnCards = new List<CharacterSpawnCard>();
@@ -74,7 +93,7 @@ namespace TurboEdition.Artifacts
             foreach (CharacterSpawnCard item in spawnCards)
             {
                 item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>().baseMaxHealth /= 3;
-                DeathRewards death = item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<DeathRewards>();
+                //DeathRewards death = item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<DeathRewards>();
                 WormBodyPositionsDriver wormBodyPositionsDriver = item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<WormBodyPositionsDriver>();
                 /*if (death != null)
                 {
@@ -86,8 +105,8 @@ namespace TurboEdition.Artifacts
                 {
                     wormBodyPositionsDriver.allowShoving = true;
                     wormBodyPositionsDriver.wormForceCoefficientAboveGround += 0.5f;
-                    wormBodyPositionsDriver.maxBreachSpeed *= 1.5f;
-                    wormBodyPositionsDriver.ySpringConstant *= 1.5f;
+                    wormBodyPositionsDriver.maxBreachSpeed *= 2f;
+                    wormBodyPositionsDriver.ySpringConstant *= 2.5f;
                 }
             }
             List<CharacterSpawnCard> eliteCards = spawnCards;

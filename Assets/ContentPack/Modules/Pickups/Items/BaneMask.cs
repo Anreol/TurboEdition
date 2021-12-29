@@ -30,9 +30,7 @@ namespace TurboEdition.Items
             private void FixedUpdate()
             {
                 if (!NetworkServer.active)
-                {
                     return;
-                }
                 if (!body.outOfCombat && !alreadyIn)
                 {
                     GeneratePulse();
@@ -44,7 +42,7 @@ namespace TurboEdition.Items
                 }
             }
 
-            private void GeneratePulse()
+            private void GeneratePulse() //Runs in server
             {
                 GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(pulsePrefab, body.transform.position, body.transform.rotation);
                 PulseController component = gameObject.GetComponent<PulseController>();

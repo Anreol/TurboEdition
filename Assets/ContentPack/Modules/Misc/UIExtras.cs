@@ -16,6 +16,8 @@ namespace TurboEdition.Misc
         })]
         private static void Init()
         {
+            if (RoR2.RoR2Application.isDedicatedServer || Application.isBatchMode) //We dont need graphics
+                return;
             CameraRigController.onCameraEnableGlobal += onCameraEnabledGlobal;
             SceneCatalog.onMostRecentSceneDefChanged += SceneCatalog_onMostRecentSceneDefChanged;
             PauseManager.onPauseStartGlobal += new Action(delegate ()

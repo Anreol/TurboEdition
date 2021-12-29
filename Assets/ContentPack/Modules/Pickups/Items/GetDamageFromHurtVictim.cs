@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TurboEdition.UI;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -17,18 +18,23 @@ namespace TurboEdition.Items
         {
             body.AddItemBehavior<GetDamageFromHurtVictimBehavior>(stack);
         }
+        public override void Initialize()
+        {
+            GlobalEventManager.onServerCharacterExecuted += onServerCharacterExecuted;
+        }
+
+        private void onServerCharacterExecuted(DamageReport arg1, float arg2)
+        {
+            if (arg1.attackerBody.inventory.GetItemCount(ItemCatalog.FindItemIndex("SoulDevourer")) > 0)
+            {
+                arg1.attackerBody.GetComponent<GetDamageFromHurtVictimBehavior>()?.onServerCharacterExecuted(arg1, arg2);
+            }
+        }
+
         internal class GetDamageFromHurtVictimBehavior : CharacterBody.ItemBehavior, IStatItemBehavior, IOnDamageDealtServerReceiver, IOnTakeDamageServerReceiver, IStatBarProvider
         {
             private float accumulatedDamage;
-            private void Start()
-            {
-                GlobalEventManager.onServerCharacterExecuted += onServerCharacterExecuted; //This will be subscribing for each player that has the item... good idea? dont think so
-            }
-            private void OnDisable()
-            {
-                GlobalEventManager.onServerCharacterExecuted -= onServerCharacterExecuted;
-            }
-            private void onServerCharacterExecuted(DamageReport arg1, float executionHealthLost)
+            public void onServerCharacterExecuted(DamageReport arg1, float executionHealthLost)
             {
                 if (arg1.attackerBody == body && accumulatedDamage <= (100 + ((stack - 1) * 50))) 
                     accumulatedDamage += 25f;
@@ -39,7 +45,7 @@ namespace TurboEdition.Items
             {
                 if (accumulatedDamage > (100 + ((stack - 1) * 50)) || damageReport.victim.isHealthLow)
                     return;
-                if (damageReport.combinedHealthBeforeDamage == damageReport.victim.combinedHealth && !damageReport.victim.alive)
+                if ( damageReport.combinedHealthBeforeDamage >= damageReport.victim.fullCombinedHealth && !damageReport.victim.alive)
                     accumulatedDamage += 25f;
                 if (damageReport.victim.alive)
                     accumulatedDamage += damageReport.damageInfo.procCoefficient;
@@ -82,5 +88,6 @@ namespace TurboEdition.Items
 
 
         }
+
     }
 }

@@ -32,6 +32,8 @@ namespace TurboEdition
         [RoR2.SystemInitializer] //look at putting it in FinalizeAsync
         public static void Init()
         {
+            if (RoR2.RoR2Application.isDedicatedServer || Application.isBatchMode) //We dont need graphics
+                return;
             var gameMaterials = Resources.FindObjectsOfTypeAll<Material>();
             foreach (var assetBundle in assetBundles)
                 MapMaterials(assetBundle, gameMaterials);
@@ -58,7 +60,6 @@ namespace TurboEdition
         {
             if (assetBundle.isStreamedSceneAssetBundle)
                 return;
-
             //The absolute fucking state of having to do shaders in RoR2
             //SHADERS NEVER FUCKING EVER
             var cloudMat = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;

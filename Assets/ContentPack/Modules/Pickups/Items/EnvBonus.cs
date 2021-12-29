@@ -1,4 +1,5 @@
 ﻿using RoR2;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -8,17 +9,18 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<EnvBonusBehavior>(stack);
+            if (!NetworkServer.active) return;
+            body.AddItemBehavior<EnvBonusBehaviorServer>(stack);
         }
 
-        internal class EnvBonusBehavior : CharacterBody.ItemBehavior
+        internal class EnvBonusBehaviorServer : CharacterBody.ItemBehavior
         {
             private float activationWindow = 30f;
 
             private void Start()
             {
-                //if (!NetworkServer.active) return;
-                if (body.hasEffectiveAuthority)
+                if (!NetworkServer.active) return;
+                //if (body.hasEffectiveAuthority)
                 {
                     if (Stage.instance.entryTime.timeSince <= activationWindow && body)
                         body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffEnvBonus"), 15 + ((stack - 1) * 10));

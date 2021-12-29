@@ -23,7 +23,6 @@ namespace TurboEdition
             foreach (var buffRef in InitBuffs.buffList)
             {
                 int count = body.GetBuffCount(buffRef.Key);
-                bool wasActive = false;
                 if (count > 0 && activeBuffsList[i] == null)
                 {
                     activeBuffsList[i] = buffRef.Value.buffDef;

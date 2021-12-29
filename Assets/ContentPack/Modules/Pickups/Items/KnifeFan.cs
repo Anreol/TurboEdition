@@ -2,6 +2,9 @@
 using RoR2.Projectile;
 using UnityEngine;
 
+//TODO: Check if utility skill has been sucessfully used so that floating whore cannot spam this by cancelling ice wall
+//make it so knifes use your aim vector or whatever
+
 namespace TurboEdition.Items
 {
     public class KnifeFan : Item
@@ -30,11 +33,11 @@ namespace TurboEdition.Items
             private void Body_onSkillActivatedServer(GenericSkill obj)
             {
                 //if (!NetworkServer.active) return;
-                if (!Util.HasEffectiveAuthority(body.networkIdentity))
+                /*if (!Util.HasEffectiveAuthority(body.networkIdentity))
                 {
                     TELog.LogW("Function 'System.Void TurboEdition.Items.KnifeFan::Body_onSkillActivatedServer() called without authority.'");
                     return;
-                }
+                }*/ //This isnt needed because its only run in the server...
                 if (projectilePrefab == null) return;
                 if (body.GetComponent<SkillLocator>().utility == obj)
                 {

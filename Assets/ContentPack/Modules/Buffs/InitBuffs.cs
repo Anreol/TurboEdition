@@ -39,18 +39,20 @@ namespace TurboEdition
 
         private static void AddBuffManager(CharacterBody body)
         {
-            if (body)
+            if (body && Util.HasEffectiveAuthority(body.networkIdentity))
             {
                 var buffManager = body.gameObject.AddComponent<TurboBuffManager>();
                 buffManager.CheckForBuffs();
             }
         }
 
-        //Recalcstat hooks get done in InitPickups. Yes. But that shouldnt be an issue
         private static void CheckForBuffs(On.RoR2.CharacterBody.orig_OnClientBuffsChanged orig, CharacterBody self)
         {
             orig(self);
-            self.GetComponent<TurboBuffManager>()?.CheckForBuffs();
+            if (Util.HasEffectiveAuthority(self.networkIdentity)) //This only should be running in the client... but still
+            {
+                self.GetComponent<TurboBuffManager>()?.CheckForBuffs();
+            }
         }
     }
 }
