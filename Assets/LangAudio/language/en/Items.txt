@@ -8,27 +8,27 @@
 	
 	"ITEM_BANEMASK_NAME": "Voice Modulator",
 	"ITEM_BANEMASK_PICKUP": "Shriek each time you enter combat, weakening nearby enemies.",
-	"ITEM_BANEMASK_DESC": "Weaken enemies within <style=cIsUtility>+10m</style> <style=cStack>(+2m per stack) upon entering combat.</style>",
+	"ITEM_BANEMASK_DESC": "Weaken enemies within <style=cIsUtility>+10m</style> <style=cStack>(+2m per stack)</style> upon entering combat.",
 	"ITEM_BANEMASK_LORE": "",
 	
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
-	"ITEM_BLOODECONOMY_PICKUP": "Gain money when bleeding or getting hurt when near death.",
-	"ITEM_BLOODECONOMY_DESC": "Fill blood bags when bleeding or getting hurt when near death, filling a bag grants <style=cIsUtility>$25</style> <style=cStack>(+$15 per stack)</style>.<style=cIsUtility>Scales over time.</style>",
+	"ITEM_BLOODECONOMY_PICKUP": "Gain money by getting hurt by damage over time or when near death.",
+	"ITEM_BLOODECONOMY_DESC": "Fill blood bags by <style=cIsHealth>getting hurt</style> by <style=cIsDamage>damage over time</style> or <style=cIsHealth>under 25% hp</style>, filling a bag grants you <style=cIsUtility>$25</style> <style=cStack>(+$15 per stack)</style>. <style=cIsUtility>Scales over time.</style>",
 	"ITEM_BLOODECONOMY_LORE": "",
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
 	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
-	"ITEM_DROPLETDUPE_DESC": "8% <style=cStack>(+2.5% per stack)</style> to duplicate items that fall. 3% <style=cStack>(+1% per stack) to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
+	"ITEM_DROPLETDUPE_DESC": "8% chance <style=cStack>(+2.5% per stack)</style> to duplicate items that fall. 3% chance <style=cStack>(+1% per stack)</style> to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
 	"ITEM_DROPLETDUPE_LORE": "",
 	
 	"ITEM_ENVBONUS_NAME": "UVB-51 Radio",
 	"ITEM_ENVBONUS_PICKUP": "Gain a buff that changes with enviroment upon entering a stage.",
 	"ITEM_ENVBONUS_DESC": "Gain a buff upon entering a stage for <style=cIsUtility>15 seconds</style> <style=cStack>(+10s per stack)</style>. Bonuses depends on enviroment. <style=cIsUtility>Scales over time.</style>",
-	"ITEM_ENVBONUS_LORE": "",
+	"ITEM_ENVBONUS_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
 	
 	"ITEM_GRACEPERIOD_NAME": "PLACEHOLDER",
 	"ITEM_GRACEPERIOD_PICKUP": "Be able to get <style=cIsUtility>assists</style> from enemy deaths, activating <style=cIsDamage>On Kill</style> effects... <color=#FF7F7F>BUT it also activates negative effects</color>.",
-	"ITEM_GRACEPERIOD_DESC": "Enemies not directly killed by you, but you've hurt in the past 1 second <style=cStack>(+1s per stack) will activate all On Kill effects, including negative ones.",
+	"ITEM_GRACEPERIOD_DESC": "Enemies not directly killed by you, but that <style=cIsDamage>you've hurt</style> in the last 1 second <style=cStack>(+1s per stack)</style> will activate all <style=cIsDamage>On Kill effects</style>, <color=#FF7F7F>including negative ones</style>.",
 	"ITEM_GRACEPERIOD_LORE": "",
 	
 	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
@@ -48,17 +48,17 @@
 	
 	"ITEM_MELEEARMOR_NAME": "Nanomachines",
 	"ITEM_MELEEARMOR_PICKUP": "Gain armor in response to physical trauma.",
-	"ITEM_MELEEARMOR_DESC": "Being hurt from <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to 1 time <style=cStack>(+1 per stack)</style>.",
+	"ITEM_MELEEARMOR_DESC": "Getting hurt by a enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to 1 time <style=cStack>(+1 per stack)</style>.",
 	"ITEM_MELEEARMOR_LORE": "",
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
-	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>8m"</style> <style="cStack>(+4 m per stack)</style>. 0.5% chance of duplicating them <style=cStack>(+0.04% per stack)</style>",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>8m</style> <style=cStack>(+4 m per stack)</style> with a 0.5% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+0.04% per stack)</style>",
 	"ITEM_PACKMAGNET_LORE": "",
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
-	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has critical health increases your damage, bonus is lost when you get hurt.",
-	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>100</style> <style=cStack>(+50 per stack)</style> each time you hit an enemy that has critical health, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>50</style> <style=cStack>(+25 per stack)</style> each time you hit an enemy that is under 25% HP, bonus is lost when you get hurt.",
 	"ITEM_SOULDEVOURER_LORE": "",
 
 	"ITEM_STANDBONUS_NAME": "Punching Bag",

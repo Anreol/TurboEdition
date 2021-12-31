@@ -1,6 +1,7 @@
 {
 	"strings":
 	{
+		"TOOLTIP_ITEM_INIT": "Initializing, you aren't supposed to see this!",
 		"TOOLTIP_ITEM_NOBUFF_DESCRIPTION": "Not giving any buffs right now.",
 		"TOOLTIP_ITEM_STANDBONUS_DESCRIPTION": "Current bonus on armor given.",
 		"TOOLTIP_ITEM_SOULDEVOURER_DESCRIPTION": "Current damage bonus accumulated."

@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{889E8141-CA38-8809-3C00-1BBF54EC217D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -78,11 +77,13 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\GetDamageFromHurtVictimBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestComponent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestMissionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTimer.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTracker.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\SandbagBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShrineQuestBehavior.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\IStatBarProvider.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\WeaveTest.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />

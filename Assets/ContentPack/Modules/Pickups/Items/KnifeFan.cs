@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using RoR2.Projectile;
 using UnityEngine;
+using UnityEngine.Networking;
 
 //TODO: Check if utility skill has been sucessfully used so that floating whore cannot spam this by cancelling ice wall
 //make it so knifes use your aim vector or whatever
@@ -13,10 +14,11 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<KnifeFanBehaviour>(stack);
+            if (NetworkServer.active)
+                body.AddItemBehavior<KnifeFanBehaviourServer>(stack);
         }
 
-        internal class KnifeFanBehaviour : CharacterBody.ItemBehavior
+        internal class KnifeFanBehaviourServer : CharacterBody.ItemBehavior
         {
             private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("KnifeFanProjectile"); //Resources.Load<GameObject>("prefabs/projectiles/EngiGrenadeProjectile"); for testing!
 

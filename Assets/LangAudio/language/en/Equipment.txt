@@ -8,15 +8,14 @@
 
 		"EQUIPMENT_HELLCHAIN_NAME" : "Bloody Cross",
 		"EQUIPMENT_HELLCHAIN_PICKUP" : "Target an enemy and connect it to nearby enemies, sharing damage. <sprite name=\"WIP\"> This equipment is currently unimplemented. <sprite name=\"WIP\">",
-		"EQUIPMENT_HELLCHAIN_DESC" : "Target an enemy which will gain a massive defense increase and connect it to nearby enemies for 15 seconds, sharing damage. Killing all connected enemies within time will release all damage stored into the origin.",
-		"EQUIPMENT_HELLCHAIN_LORE" : "",
+		"EQUIPMENT_HELLCHAIN_DESC" : "Target an enemy which will gain a massive defense increase and connect it to nearby enemies for 15 seconds, sharing damage. Killing all connected enemies within time will release all damage stored into the target.",
+		"EQUIPMENT_HELLCHAIN_LORE" : "I\'m also accepting other ideas, because this sounds like fucking shit.",
 
 		"EQUIPMENT_LEAVESTAGE_NAME" : "Ejection Lever",
 		"EQUIPMENT_LEAVESTAGE_PICKUP" : "Escape, escape.",
-		"EQUIPMENT_LEAVESTAGE_DESC" : "Leave the current stage if either the boss is killed or the Teleporter is at 99% charge or more.",
+		"EQUIPMENT_LEAVESTAGE_DESC" : "<style=cIsUtility>Leave the current stage</style> if either the <style=cIsDamage>boss has been defeated</style> or if the Teleporter is at <style=cIsUtility>99% charge</style> or more.",
 		"EQUIPMENT_LEAVESTAGE_LORE" : "I cannot think or comprehend of anything more cucked than piloting an Ion chassis. Honestly, think about it rationally. You are feeding batteries, coring, leveling and regenning an Ion solely so she can go and get ravaged as every pilots first beginner titan. All the hard work you put into your beautiful little Ion - managing her shared power pool perfectly, making her go to Frontier Defense for aegis upgrades, making sure she had plenty of laser shot pilot kills, piloting her. All of it has one simple result: her chassis is more enjoyable for the new pilot that just bought the game to have her as his first titan.
-Balanced the perfect titan? Great. Who benefits? If you're lucky, a random man who had nothing to do with the way she was balanced, who pilots her. He gets to laser core other pilots and titans every night. He gets the benefits of her years of balance patches from the way you piloted her and doesn't even notice her energy bar on the HUD.
-As a man who pilots an Ion, you are LITERALLY dedicating at least 5 years of your life simply to balance a titan for another man to enjoy. It is the ULTIMATE AND FINAL cuck. Think about it logically, her very first meta was catching your teammates loads in her vortex because Respawn added a couple extra zeroes to her splash multiplier.",
-
+		\nBalanced the perfect titan? Great. Who benefits? If you\'re lucky, a random man who had nothing to do with the way she was balanced, who pilots her. He gets to laser core other pilots and titans every night. He gets the benefits of her years of balance patches from the way you piloted her and doesn\'t even notice her energy bar on the HUD.
+		\nAs a man who pilots an Ion, you are LITERALLY dedicating at least 5 years of your life simply to balance a titan for another man to enjoy. It is the ULTIMATE AND FINAL cuck. Think about it logically, her very first meta was catching your teammates loads in her vortex because Respawn added a couple extra zeroes to her splash multiplier."
 	}
 }

@@ -132,7 +132,7 @@ namespace TurboEdition.Misc
             yield return new WaitForEndOfFrame();
             if (camera.hud == null && !SceneCatalog.mostRecentSceneDef.isOfflineScene)
                 TELog.logger.LogWarning("Something went wrong when awaiting for the Camera's HUD creation on a Non-Offline Scene.");
-            else if (!SceneCatalog.mostRecentSceneDef.isOfflineScene)
+            else if (!SceneCatalog.mostRecentSceneDef.isOfflineScene && SceneCatalog.mostRecentSceneDef.baseSceneName != "lobby")
                 AssignHUDElement(camera.hud, objectToInstantiate, parent);
         }
 

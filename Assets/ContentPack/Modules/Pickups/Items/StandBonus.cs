@@ -1,10 +1,14 @@
 ﻿using RoR2;
+using TurboEdition.Components;
 using TurboEdition.UI;
 using UnityEngine;
 using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
+    //Networking can suck my dick so im copying and pasting my soul devourer solution, cant be bothered to mess with new stuff now
+    //i find it a bad practice due to the amount of components (2 in go, 1 in client, 1 in server) it uses to function
+    //This wouldnt be such a pain in the ass if RecalcStats was easier to use
     public class StandBonus : Item
     {
         public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("StandBonus");
@@ -14,76 +18,102 @@ namespace TurboEdition.Items
             body.AddItemBehavior<Sandbag>(stack);
         }
 
-        internal class Sandbag : CharacterBody.ItemBehavior, IStatItemBehavior, IOnTakeDamageServerReceiver, IStatBarProvider
+        internal class Sandbag : CharacterBody.ItemBehavior, IStatItemBehavior, IStatBarProvider
         {
-            private CharacterMotor _motor; //brrrrum brrum
-            private bool _provideBuffs;
-            private float _accumulatedDamage;
-            private float _lerp = 0.0f;
+            private NetworkedBodyAttachment attachment;
+            public SandbagBodyAttachment sandbagBodyAttachment;
 
-            private void Start() //On Start since we need to subscribe to the body, ANYTHING THAT HAS TO DO WITH BODIES, CANNOT BE ON AWAKE() OR ONENABLE()
+            private void Start()
             {
-                if (!body)
+                if (NetworkServer.active)
                 {
-                    TELog.LogE("Body not available or does not exist.");
-                    return;
+                    this.attachment = UnityEngine.Object.Instantiate<GameObject>(Assets.mainAssetBundle.LoadAsset<GameObject>("SandbagBodyAttachment")).GetComponent<NetworkedBodyAttachment>();
+                    this.attachment.AttachToGameObjectAndSpawn(this.body.gameObject);
+                    this.sandbagBodyAttachment = this.attachment.GetComponent<SandbagBodyAttachment>();
                 }
-                _motor = base.GetComponent<CharacterMotor>();
             }
 
             private void FixedUpdate()
             {
-                if (!NetworkServer.active) return;
-                if (!body.GetNotMoving())
+                if (NetworkServer.active)
                 {
-                    _accumulatedDamage = 0f;
-                    _lerp = 0f;
-                    return;
+                    if (!this.body.healthComponent.alive)
+                    {
+                        UnityEngine.Object.Destroy(this);
+                    }
                 }
-                _lerp = Mathf.InverseLerp((stack / 4f) * body.healthComponent.fullCombinedHealth, 0f, _accumulatedDamage);
-                _provideBuffs = body.GetNotMoving() && stack > 0;
+                if (this.sandbagBodyAttachment)
+                {
+                    this.sandbagBodyAttachment.stack = stack;
+                }
+            }
+
+            private void OnDestroy()
+            {
+                if (NetworkServer.active)
+                {
+                    if (this.attachment)
+                    {
+                        UnityEngine.Object.Destroy(this.attachment.gameObject);
+                        this.attachment = null;
+                    }
+                }
             }
 
             public void RecalculateStatsEnd()
             {
-                if (!_provideBuffs) return;
-                if (_motor)
-                {
-                    _motor.mass += (10 + ((stack - 1) * 5)); //[body] IS FAT
-                }
-                body.armor += Mathf.RoundToInt(500f * this._lerp);
+                if (sandbagBodyAttachment)
+                    sandbagBodyAttachment.RecalculateStatsEnd();
             }
 
             public void RecalculateStatsStart()
             {
             }
 
-            public void OnTakeDamageServer(DamageReport damageReport)
-            {
-                if (!damageReport.damageInfo.rejected)
-                {
-                    this._accumulatedDamage += damageReport.damageDealt;
-                }
-            }
-
             public StatBarData GetStatBarData()
             {
-                float currentData = Mathf.RoundToInt(500f * this._lerp);
-                string overString = (currentData <= 0) ? "TOOLTIP_ITEM_NOBUFF_DESCRIPTION" : "";
+                if (sandbagBodyAttachment)
+                {
+                    return sandbagBodyAttachment.GetStatBarData();
+                }
                 return new StatBarData
                 {
                     fillBarColor = new Color(0.5f, 0.7f, 0.5f, 1f),
-                    maxData = 500f,
-                    currentData = currentData,
+                    maxData = 0,
+                    currentData = 0,
+                    offData = "TOOLTIP_ITEM_INIT",
                     sprite = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).pickupIconSprite,
                     tooltipContent = new RoR2.UI.TooltipContent
                     {
                         titleColor = ColorCatalog.GetColor(ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).darkColorIndex),
                         titleToken = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).nameToken,
-                        bodyToken = "TOOLTIP_ITEM_STANDBONUS_DESCRIPTION",
-                        overrideBodyText = Language.GetString(overString),
+                        bodyToken = "TOOLTIP_ITEM_INIT"
                     }
                 };
+            }
+        }
+
+        internal class ServerListener : MonoBehaviour, IOnTakeDamageServerReceiver
+        {
+            public SandbagBodyAttachment attachment;
+
+            public void OnTakeDamageServer(DamageReport damageReport)
+            {
+                if (!damageReport.damageInfo.rejected)
+                {
+                    attachment.accumulatedDamage += damageReport.damageDealt;
+                }
+            }
+
+            private void FixedUpdate()
+            {
+                if (!attachment.nba.attachedBody.GetNotMoving())
+                {
+                    attachment.accumulatedDamage = 0f;
+                    attachment.syncLerp = 0f;
+                    return;
+                }
+                attachment.syncLerp = Mathf.InverseLerp(((float)attachment.stack / 4f) * (float)attachment.nba.attachedBody.healthComponent.fullCombinedHealth, 0f, (float)attachment.accumulatedDamage);
             }
         }
     }

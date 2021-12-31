@@ -35,6 +35,7 @@ namespace TurboEdition.Artifacts
             Stage.onServerStageComplete -= onServerStageCompleted;
             Stage.onServerStageBegin -= onServerStageBegin;
         }
+
         private static void RunArtifactManager_onArtifactEnabledGlobal([JetBrains.Annotations.NotNull] RunArtifactManager runArtifactManager, [JetBrains.Annotations.NotNull] ArtifactDef artifactDef)
         {
             if (!NetworkServer.active) //uNet Weaver doesnt like [Server] Tags on something that isnt a network behavior
@@ -79,9 +80,9 @@ namespace TurboEdition.Artifacts
                 DeathRewards  deathRewards = cb.GetComponent<DeathRewards>();
                 if (deathRewards)
                 {
-                    deathRewards.spawnValue = (int)Mathf.Max(1f, (float)deathRewards.spawnValue / 4f);
-                    deathRewards.expReward = (uint)Mathf.Ceil(deathRewards.expReward / 4f);
-                    deathRewards.goldReward = (uint)Mathf.Ceil(deathRewards.goldReward / 4f);
+                    deathRewards.spawnValue = (int)Mathf.Max(1f, (float)deathRewards.spawnValue / 8f);
+                    deathRewards.expReward = (uint)Mathf.Ceil(deathRewards.expReward / 8f);
+                    deathRewards.goldReward = (uint)Mathf.Ceil(deathRewards.goldReward / 8f);
                 }
             }
         }

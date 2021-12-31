@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -13,10 +14,11 @@ namespace TurboEdition.Items
         public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("BloodEconomy");
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<BloodMoneyBehavior>(stack);
+            if (NetworkServer.active)
+                body.AddItemBehavior<BloodMoneyBehaviorServer>(stack);
         }
 
-        internal class BloodMoneyBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
+        internal class BloodMoneyBehaviorServer : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
             private int currentMl = 0;
             private bool shouldScale = true;
@@ -35,9 +37,27 @@ namespace TurboEdition.Items
                 switch (damageReport.dotType)
                 {
                     case DotController.DotIndex.Bleed:
+                        currentMl += Mathf.RoundToInt(damageReport.damageDealt * 1.5f);
+                        break;
+                    case DotController.DotIndex.Burn:
+                        currentMl += Mathf.RoundToInt(damageReport.damageDealt);
+                        break;
+                    case DotController.DotIndex.Helfire:
+                        currentMl += Mathf.RoundToInt(damageReport.damageDealt / 2);
+                        break;
+                    case DotController.DotIndex.PercentBurn:
+                        currentMl += Mathf.RoundToInt(damageReport.damageDealt);
+                        break;
+                    case DotController.DotIndex.Poison:
+                        currentMl += Mathf.RoundToInt(damageReport.damageDealt);
+                        break;
+                    case DotController.DotIndex.Blight:
                         currentMl += Mathf.RoundToInt(damageReport.damageDealt);
                         break;
                     case DotController.DotIndex.SuperBleed:
+                        currentMl += Mathf.RoundToInt(damageReport.damageDealt * 1.5f);
+                        break;
+                    default:
                         currentMl += Mathf.RoundToInt(damageReport.damageDealt);
                         break;
                 }

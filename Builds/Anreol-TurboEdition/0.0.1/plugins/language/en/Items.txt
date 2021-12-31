@@ -1,0 +1,79 @@
+{
+	strings:
+	{
+	"ITEM_ADDTELEPORTERRADIUS_NAME": "Chromatic Lenses",
+	"ITEM_ADDTELEPORTERRADIUS_PICKUP": "Increase Teleporter charging radius.",
+	"ITEM_ADDTELEPORTERRADIUS_DESC": "Increase Teleporter charging radius by <style=cIsUtility>+8m</style> <style=cStack>(+4m per stack)</style>",
+	"ITEM_ADDTELEPORTERRADIUS_LORE": "",
+	
+	"ITEM_BANEMASK_NAME": "Voice Modulator",
+	"ITEM_BANEMASK_PICKUP": "Shriek each time you enter combat, weakening nearby enemies.",
+	"ITEM_BANEMASK_DESC": "Weaken enemies within <style=cIsUtility>+10m</style> <style=cStack>(+2m per stack)</style> upon entering combat.",
+	"ITEM_BANEMASK_LORE": "",
+	
+	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
+	"ITEM_BLOODECONOMY_PICKUP": "Gain money by getting hurt by damage over time or when near death.",
+	"ITEM_BLOODECONOMY_DESC": "Fill blood bags by getting hurt by damage over time or when near death, filling a bag grants <style=cIsUtility>$25</style> <style=cStack>(+$15 per stack)</style>. <style=cIsUtility>Scales over time.</style>",
+	"ITEM_BLOODECONOMY_LORE": "",
+
+	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
+	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
+	"ITEM_DROPLETDUPE_DESC": "8% chance <style=cStack>(+2.5% per stack)</style> to duplicate items that fall. 3% chance <style=cStack>(+1% per stack)</style> to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
+	"ITEM_DROPLETDUPE_LORE": "",
+	
+	"ITEM_ENVBONUS_NAME": "UVB-51 Radio",
+	"ITEM_ENVBONUS_PICKUP": "Gain a buff that changes with enviroment upon entering a stage.",
+	"ITEM_ENVBONUS_DESC": "Gain a buff upon entering a stage for <style=cIsUtility>15 seconds</style> <style=cStack>(+10s per stack)</style>. Bonuses depends on enviroment. <style=cIsUtility>Scales over time.</style>",
+	"ITEM_ENVBONUS_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
+	
+	"ITEM_GRACEPERIOD_NAME": "PLACEHOLDER",
+	"ITEM_GRACEPERIOD_PICKUP": "Be able to get <style=cIsUtility>assists</style> from enemy deaths, activating <style=cIsDamage>On Kill</style> effects... <color=#FF7F7F>BUT it also activates negative effects</color>.",
+	"ITEM_GRACEPERIOD_DESC": "Enemies not directly killed by you, but that <style=cIsDamage>you've hurt</style> in the last 1 second <style=cStack>(+1s per stack)</style> will activate all <style=cIsDamage>On Kill effects</style>, <color=#FF7F7F>including negative ones</style>.",
+	"ITEM_GRACEPERIOD_LORE": "",
+	
+	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
+	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage.",
+	"ITEM_HITLAG_DESC": "Delay all incoming normal damage by 1 second <style=cStack>(+0.5s per stack)</style>. Affected by armor bypasses.",
+	"ITEM_HITLAG_LORE": "",
+	
+	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",
+	"ITEM_ITEMDEPLOYER_PICKUP": "Copy one of your items to a drone.",
+	"ITEM_ITEMDEPLOYER_DESC": "Give 1 <style=cStack>(+1 per stack)</style> item(s) to a drone. Give up this <style=cIsUtility>item's stack by two</style> of the chosen item to give.",
+	"ITEM_ITEMDEPLOYER_LORE": "",
+	
+	"ITEM_KNIFEFAN_NAME": "Fan of Blades",
+	"ITEM_KNIFEFAN_PICKUP": "Throw knifes upon using your utility skill.",
+	"ITEM_KNIFEFAN_DESC": "Throw 2 knifes <style=cStack>(+1 per stack)</style> around you on Utility skill use, dealing <style=cIsDamage>250% damage</style> each.",
+	"ITEM_KNIFEFAN_LORE": "",
+	
+	"ITEM_MELEEARMOR_NAME": "Nanomachines",
+	"ITEM_MELEEARMOR_PICKUP": "Gain armor in response to physical trauma.",
+	"ITEM_MELEEARMOR_DESC": "Getting hurt by a enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to 1 time <style=cStack>(+1 per stack)</style>.",
+	"ITEM_MELEEARMOR_LORE": "",
+	
+	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
+	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>8m</style> <style=cStack>(+4 m per stack)</style> with a 0.5% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+0.04% per stack)</style>",
+	"ITEM_PACKMAGNET_LORE": "",
+	
+	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
+	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>50</style> <style=cStack>(+25 per stack)</style> each time you hit an enemy that is under 25% HP, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_LORE": "",
+
+	"ITEM_STANDBONUS_NAME": "Punching Bag",
+	"ITEM_STANDBONUS_PICKUP": "Gain massive armor and weight after standing still. Armor decreases as you take damage.",
+	"ITEM_STANDBONUS_DESC": "Gain <style=cIsUtility>500 armor</style> and <style=cIsUtility>10kg</style> <style=cStack>(+5kg per stack)</style> after standing still.\nBuff decreases as you take 25% <style=cStack>(+25% per stack)</style> damage of your combined maximum HP.",
+	"ITEM_STANDBONUS_LORE": "",
+
+	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
+	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
+	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on sticky bomb proc to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>180%x3</style><style=cStack>(+ x1 per stack)</style> TOTAL damage.",
+	"ITEM_SUPERSTICKIES_LORE": "",
+
+	"ITEM_TYPEWRITER_NAME": "Typewriter",
+	"ITEM_TYPEWRITER_PICKUP": "Performing actions types a letter, forming up words creates unique effects.",
+	"ITEM_TYPEWRITER_DESC": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
+	"ITEM_TYPEWRITER_LORE": "",
+	}
+}
