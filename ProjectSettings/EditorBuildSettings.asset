@@ -2,108 +2,106 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1045 &1
 EditorBuildSettings:
+  m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/RoR2/Scenes/loadingbasic.unity
-    guid: 903d74478a2841d5a98b89d98de0b323
-  - enabled: 1
-    path: Assets/RoR2/Scenes/splash.unity
-    guid: 673aee0370c242e0b947ce13dd6f9a80
-  - enabled: 1
-    path: Assets/RoR2/Scenes/intro.unity
-    guid: 67b8d63aa82e49ed990c837a7dd0e3b9
-  - enabled: 1
-    path: Assets/RoR2/Scenes/title.unity
-    guid: f222548fc3a24683969598a4b379c2c8
-  - enabled: 1
-    path: Assets/RoR2/Scenes/lobby.unity
-    guid: fcbf104f322c401489ffe931af0a26fc
-  - enabled: 1
-    path: Assets/RoR2/Scenes/blackbeach.unity
-    guid: 7923c1f042370d64dae4591d16754a1b
-  - enabled: 1
-    path: Assets/RoR2/Scenes/logbook.unity
-    guid: 9d5c23c9d3f54097b648793d3b139741
-  - enabled: 1
-    path: Assets/RoR2/Scenes/testscene.unity
-    guid: d7bddd8ff22d4afeb6d1317e3ff31910
-  - enabled: 1
-    path: Assets/RoR2/Scenes/goolake.unity
-    guid: 3bf28b128ef9036448dedbd7d8378e69
-  - enabled: 1
-    path: Assets/RoR2/Scenes/bazaar.unity
-    guid: ea3d2912d30f4bfba172423cab1919ae
-  - enabled: 1
-    path: Assets/RoR2/Scenes/frozenwall.unity
-    guid: fbd0fe7fe14e4ecfbe312f628ba4ba88
-  - enabled: 1
-    path: Assets/RoR2/Scenes/crystalworld.unity
-    guid: 511521a7e4c4440c87183a5d75b15b1f
-  - enabled: 1
-    path: Assets/RoR2/Scenes/goldshores.unity
-    guid: 7ae90a64a39c4ee8ad2d7066de4051f6
-  - enabled: 1
-    path: Assets/RoR2/Scenes/dampcave.unity
-    guid: d64c39a530da4ac4a204f0ae742fe49c
-  - enabled: 1
-    path: Assets/RoR2/Scenes/golemplains.unity
-    guid: cfaa9d92367dc0d41a6ab468607b1a5b
-  - enabled: 1
-    path: Assets/RoR2/Scenes/dampcavesimple.unity
-    guid: 89d21c13f79b8b9418bb8d35311f9ce1
-  - enabled: 1
-    path: Assets/RoR2/Scenes/foggyswamp.unity
-    guid: b28da714b4d71ed499ff23891363c7d2
-  - enabled: 1
-    path: Assets/RoR2/Scenes/mysteryspace.unity
-    guid: 2a1ffab129524f7993f79933feefedf0
-  - enabled: 1
-    path: Assets/RoR2/Scenes/blackbeachTest.unity
-    guid: 7923c1f042370d64dae4591d16754a1b
-  - enabled: 1
-    path: Assets/RoR2/Scenes/golemplains_trailer.unity
-    guid: 97fd16c6ad9c42959cfc7d1e1e24a54c
-  - enabled: 1
-    path: Assets/RoR2/Scenes/wispgraveyard.unity
-    guid: 3514e1ade5167f54f92bb3449595c4be
-  - enabled: 1
-    path: Assets/RoR2/Scenes/shipgraveyard.unity
-    guid: 2d3c7cf8eb86e134d92a80b2713e5840
-  - enabled: 1
-    path: Assets/RoR2/Scenes/arena.unity
-    guid: cd55221be3d3e4542a46b14e27e7e2f5
-  - enabled: 1
-    path: Assets/RoR2/Scenes/golemplains2.unity
-    guid: ed37018179769f446bcaf187c67992ec
-  - enabled: 1
-    path: Assets/RoR2/Scenes/blackbeach2.unity
-    guid: 1b79a8290425e994289f3b6c5fd2a0d2
-  - enabled: 1
-    path: Assets/RoR2/Scenes/limbo.unity
-    guid: b8aa006f59084fa49ba2fc0762202477
-  - enabled: 1
-    path: Assets/RoR2/Scenes/artifactworld.unity
-    guid: 46e5effa65b3406f842b143a5558cdfb
-  - enabled: 1
-    path: Assets/RoR2/Scenes/rootjungle.unity
-    guid: 87118fc61aa299447859e2f95ac018de
-  - enabled: 1
-    path: Assets/RoR2/Scenes/skymeadow.unity
-    guid: 85844fc8cda02b74480de96e69d49445
-  - enabled: 1
-    path: Assets/RoR2/Scenes/moon.unity
-    guid: f83a6302dc808824c89c519f124a6938
-  - enabled: 1
-    path: Assets/RoR2/Scenes/outro.unity
-    guid: 15e281bf761a4012b5d6210d6f2543ea
-  - enabled: 1
-    path: Assets/RoR2/Scenes/eclipseworld.unity
-    guid: 17ab0516079a434ead8757eded3a3079
-  - enabled: 1
-    path: Assets/RoR2/Scenes/ai_test.unity
-    guid: d25f112e9004402fb89facdfd8fef883
-  - enabled: 1
-    path: Assets/RoR2/Scenes/moon2.unity
-    guid: 2877eb890bc1f284fbb86f14efa82a0a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

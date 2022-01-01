@@ -13,7 +13,7 @@
 	
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
 	"ITEM_BLOODECONOMY_PICKUP": "Gain money by getting hurt by damage over time or when near death.",
-	"ITEM_BLOODECONOMY_DESC": "Fill blood bags by getting hurt by damage over time or when near death, filling a bag grants <style=cIsUtility>$25</style> <style=cStack>(+$15 per stack)</style>. <style=cIsUtility>Scales over time.</style>",
+	"ITEM_BLOODECONOMY_DESC": "Fill blood bags by <style=cIsHealth>getting hurt</style> by <style=cIsDamage>damage over time</style> or <style=cIsHealth>under 25% hp</style>, filling a bag grants you <style=cIsUtility>$25</style> <style=cStack>(+$15 per stack)</style>. <style=cIsUtility>Scales over time.</style>",
 	"ITEM_BLOODECONOMY_LORE": "",
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
@@ -67,9 +67,9 @@
 	"ITEM_STANDBONUS_LORE": "",
 
 	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
-	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
+	"ITEM_SUPERSTICKIES_PICKUP": "<sprite name=\"WIP\">Sticky bombs have a chance to attach a super sticky bomb to enemies.<sprite name=\"WIP\">",
 	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on sticky bomb proc to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>180%x3</style><style=cStack>(+ x1 per stack)</style> TOTAL damage.",
-	"ITEM_SUPERSTICKIES_LORE": "",
+	"ITEM_SUPERSTICKIES_LORE": "Unfinished item! It just procs a normal sticky bomb after proccing a sticky bomb!",
 
 	"ITEM_TYPEWRITER_NAME": "Typewriter",
 	"ITEM_TYPEWRITER_PICKUP": "Performing actions types a letter, forming up words creates unique effects.",

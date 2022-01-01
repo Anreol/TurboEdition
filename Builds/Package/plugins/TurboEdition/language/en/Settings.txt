@@ -1,0 +1,10 @@
+{
+	"strings":
+	{
+		"OPTION_HEADER_TURBO": "TURBO EDITION",
+
+		//[TURBO]
+		"OPTION_MENURANDOM": "Main Menu Background:",
+		"OPTION_MENURANDOM_DESCRIPTION": "Randomizes the Main Menu's background to use one of the Early Access' backgrounds",
+	}
+}
