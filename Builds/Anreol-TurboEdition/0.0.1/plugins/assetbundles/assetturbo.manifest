@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3949011851
+CRC: 602383613
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 55825271d9f64416eb28b84051054d03
+    Hash: de9a0a7d06e9e761fcac4bfe69d64fea
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 59f71a68e9eeb27d1c5cf6d529fe22d2
+    Hash: d76aec56a0e7299a03294b6393ec4de5
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -148,6 +148,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1699741063, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: -1864444436, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -103623725, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 1985007777, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -262,6 +264,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: d3b44e7d35805b843b38f505092d2aad, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 6d831f1e55511dc43902223adeaa512f, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: ef2a123f517c6464c9503cf474018e5f, type: 3}
@@ -281,6 +285,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 199
   Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 - Class: 222
@@ -291,15 +297,19 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 225
   Script: {instanceID: 0}
+- Class: 331
+  Script: {instanceID: 0}
 Assets:
+- Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Hopoo/materials/matUIPaintStreakFlash.mat
 - Assets/ContentPack/AssetTurbo/ItemDefs/MeleeArmor.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/KnifeFan.asset
 - Assets/Materials/matVFXLightshaft.mat
 - Assets/Textures/Ramps/texRampWhiteAlphaOnly.png
+- Assets/Materials/matIcosphereCage.mat
 - Assets/ContentPack/AssetTurbo/ItemDefs/BaneMask.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/DropletDupe.asset
-- Assets/Textures/texKumo0101_under00.png
+- Assets/Textures/texBlackKumo0101_under00.png
 - Assets/Materials/matInvisibleOutlineMeshHolder.mat
 - Assets/Hopoo/materials/matOmniRing2.mat
 - Assets/Textures/texHellLinkedBuffOverlay.png
@@ -338,8 +348,10 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
 - Assets/Textures/texSandbagNormal.png
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/SettingsSubPanel, Turbo.prefab
+- Assets/Textures/texBlackKumo0104_00.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormArtifact.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/PlaceholderSphere1Prefab.prefab
 - Assets/Materials/matOilDecal.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/Hopoo/materials/matBrotherSwingDistortion.mat
@@ -367,6 +379,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ContentPack.asset
 - Assets/Hopoo/materials/physmatSuperFriction.asset
 - Assets/Mesh/Items/meshKnifeBase.mesh
+- Assets/Mesh/Items/meshIcosphereCage.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Uncommon.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_SoulDevourer.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
@@ -386,7 +399,7 @@ Assets:
 - Assets/Materials/matKnife.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStripOld.prefab
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
-- Assets/Textures/texKumo0101_00.png
+- Assets/Textures/texBlackKumo0101_00.png
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/Hopoo/materials/matDeathProjectileFlare.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/SuperStickyBombProjectile.prefab
@@ -409,10 +422,13 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniImpactVFXHellchain.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTextEffect.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/GenericHeaderButton (Turbo).prefab
+- Assets/Hopoo/shaders/fx/hgintersectioncloudremap.shader
 - Assets/Hopoo/materials/matMercExposedBackdrop.mat
 - Assets/ContentPack/AssetTurbo/icon.png
+- Assets/Mesh/Items/meshIcosphere.mesh
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
+- Assets/Textures/texKumo0101_00.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lunar.png
 - Assets/Materials/matSandbag.mat
 - Assets/ContentPack/AssetTurbo/ItemDefs/BloodEconomy.asset
@@ -440,6 +456,7 @@ Assets:
 - Assets/Hopoo/sprites/texUIPopupRect.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
 - Assets/Le Tai's Asset/TranslucentImage/Resources/TranslucentImage.shader
+- Assets/Materials/matGlassWhite.mat
 - Assets/Hopoo/shaders/CopyFromRoR2.shader
 - Assets/ContentPack/AssetTurbo/ItemDefs/EnvBonus.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
@@ -455,6 +472,7 @@ Assets:
 - Assets/Hopoo/sprites/texUIHighlightBoxOutline.png
 - Assets/Textures/texCardTest.png
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/128x128Square.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/Hitlag.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png

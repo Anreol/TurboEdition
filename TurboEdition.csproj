@@ -79,6 +79,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GetDamageFromHurtVictimBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestComponent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestMissionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTimer.cs" />

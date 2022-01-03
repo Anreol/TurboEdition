@@ -73,7 +73,7 @@
 
 	"ITEM_TYPEWRITER_NAME": "Typewriter",
 	"ITEM_TYPEWRITER_PICKUP": "Performing actions types a letter, forming up words creates unique effects.",
-	"ITEM_TYPEWRITER_DESC": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
-	"ITEM_TYPEWRITER_LORE": "",
+	"ITEM_TYPEWRITER_DESC": "Type <style=cIsUtility>one letter</style> <style=cStack>(+1 per stack)</style> after using skills or walking. Getting the name of an item or a character will <style=cIsUtility>spawn</style> it.",
+	"ITEM_TYPEWRITER_LORE": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
 	}
 }

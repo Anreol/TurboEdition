@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 1512808244, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: LeaveStage
   m_EditorClassIdentifier: 
-  pickupModelPrefab: {fileID: 553121620005174921, guid: 4181551b7a3547146aa8deed8a77cfd9,
+  pickupModelPrefab: {fileID: 5004284487608745642, guid: 62cf4b451dc824948805a23cf6311b2e,
     type: 3}
   cooldown: 90
   nameToken: EQUIPMENT_LEAVESTAGE_NAME

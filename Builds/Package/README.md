@@ -38,7 +38,22 @@ Unfinished content will be marked with a WIP icon, but keep in mind that with mo
 I'm open to contributions, specifically models, as they take me more time than what I wished. You can contact me on your platform of choice, but if you choose Steam, and you have a suspicious profile, I'll probably reject you.
 
 ## Changelog
-`0.0.1.0`
+`0.0.4`
+- Hotfix
+	- Added the new placeholder model to items that I accidentally skipped over
+	
+`0.0.3`
+- Misc changes
+	- Added a better placeholder model for the items that need it, it might be a little small in-game
+	- Added camera parameters to the sandbag
+	- Removed comment from Typewriter and added it to its lore. Item description now indicates what it does.
+
+`0.0.2`
+- Fast patch
+	- Removed the color changing from Chromatic Lenses for now
+	- Removed placeholder tokens in the Spanish localization
+
+`0.0.1`
 - Initial Release
 	- Happy New Years!
 

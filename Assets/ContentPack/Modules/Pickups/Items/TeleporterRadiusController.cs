@@ -53,12 +53,12 @@ namespace TurboEdition.Items
             {
                 this.enabledTime = Run.FixedTimeStamp.now;
                 this.holdoutZoneController.calcRadius += this.ApplyRadius;
-                this.holdoutZoneController.calcColor += this.ApplyColor;
+                //this.holdoutZoneController.calcColor += this.ApplyColor;
             }
 
             private void OnDisable()
             {
-                this.holdoutZoneController.calcColor -= this.ApplyColor;
+                //this.holdoutZoneController.calcColor -= this.ApplyColor;
                 this.holdoutZoneController.calcRadius -= this.ApplyRadius;
             }
 
