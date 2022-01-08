@@ -23,7 +23,7 @@
 	
 	"ITEM_ENVBONUS_NAME": "UVB-51 Radio",
 	"ITEM_ENVBONUS_PICKUP": "Gain a buff that changes with enviroment upon entering a stage.",
-	"ITEM_ENVBONUS_DESC": "Gain a buff upon entering a stage for <style=cIsUtility>15 seconds</style> <style=cStack>(+10s per stack)</style>. Bonuses depends on enviroment. <style=cIsUtility>Scales over time.</style>",
+	"ITEM_ENVBONUS_DESC": "Gain a buff upon entering a stage for <style=cIsUtility>45 seconds</style> <style=cStack>(+30s per stack)</style>. Bonuses depends on enviroment. <style=cIsUtility>Scales over time.</style>",
 	"ITEM_ENVBONUS_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
 	
 	"ITEM_GRACEPERIOD_NAME": "PLACEHOLDER",
@@ -53,7 +53,7 @@
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
-	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>8m</style> <style=cStack>(+4 m per stack)</style> with a 0.5% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+0.04% per stack)</style>",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 0.5% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+0.04% per stack)</style>",
 	"ITEM_PACKMAGNET_LORE": "",
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",

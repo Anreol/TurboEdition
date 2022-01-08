@@ -78,6 +78,7 @@ namespace TurboEdition
 
         private static void AddItemManager(CharacterBody body)
         {
+            //Sure masterless its fine...? I mean we are adding it to the body... bodies can have inventories, too.
             if (!body.bodyFlags.HasFlag(CharacterBody.BodyFlags.Masterless) && body.master.inventory)
             {
                 var itemManager = body.gameObject.AddComponent<TurboItemManager>();

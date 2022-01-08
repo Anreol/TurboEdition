@@ -23,7 +23,7 @@ namespace TurboEdition.Items
                 //if (body.hasEffectiveAuthority)
                 {
                     if (Stage.instance.entryTime.timeSince <= activationWindow && body)
-                        body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffEnvBonus"), 15 + ((stack - 1) * 10));
+                        body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffEnvBonus"), 45 + ((stack - 1) * 30));
                 }
                 Destroy(this);
             }

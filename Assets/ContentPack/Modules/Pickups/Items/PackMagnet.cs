@@ -40,7 +40,7 @@ namespace TurboEdition.Items
                     return;
                 }
                 sphereSearch.origin = body.transform.position;
-                sphereSearch.radius = 8f + ((stack - 1) * 4f);
+                sphereSearch.radius = 16f + ((stack - 1) * 8f);
                 //GravitationControllers have sphere colliders to check whenever a player is in radius no matter what...
                 colliders.Clear();
                 sphereSearch.RefreshCandidates().OrderCandidatesByDistance().GetColliders(colliders);
@@ -49,7 +49,7 @@ namespace TurboEdition.Items
                     if (item == null)
                         return; //How did we get here
                     GravitatePickup gravitatePickup = item.gameObject.GetComponent<GravitatePickup>();
-                    if (gravitatePickup && gravitatePickup.gravitateTarget == null)
+                    if (gravitatePickup && gravitatePickup.gravitateTarget == null) //It does not have a gravitation target, lets take it.
                     {
                         if (body.gameObject.GetComponent<Collider>())
                         {
@@ -65,14 +65,16 @@ namespace TurboEdition.Items
 
             private void DuplicateGameObject(GameObject gameObject, Transform transform)
             {
-                float rawChance = Mathf.Min(stack / 25, 0.5f);
+                float rawChance = 1f + ((stack - 1) * 0.05f);
                 if (Util.CheckRoll(rawChance, body.master.luck))
                 {
-                    Debug.LogWarning("Passed luck check, duplicating.");
+                    TELog.LogI("Passed luck check, duplicating.");
                     GameObject pickup = UnityEngine.Object.Instantiate<GameObject>(gameObject, transform);
                     GravitatePickup clonedGravitator = pickup.GetComponentInChildren<GravitatePickup>();
                     clonedGravitator.gravitateTarget = body.transform;
                     //Duplicates pickup and makes it gravitate towards you right away, blocking it from getting magnetized and duplicated yet again
+                    clonedGravitator.acceleration *= 2f;
+                    clonedGravitator.maxSpeed *= 2f;
                 }
             }
         }

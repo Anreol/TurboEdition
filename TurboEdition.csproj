@@ -109,6 +109,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\IdleQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\QuestObjectiveProvider.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\UIExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Orbs\HellOrb.cs" />

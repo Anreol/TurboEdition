@@ -38,6 +38,35 @@ Unfinished content will be marked with a WIP icon, but keep in mind that with mo
 I'm open to contributions, specifically models, as they take me more time than what I wished. You can contact me on your platform of choice, but if you choose Steam, and you have a suspicious profile, I'll probably reject you.
 
 ## Changelog
+`0.0.5`
+- Plugin should no longer report debug logs to console unless its a debug assembly
+- Plugin now marks the game as modded
+- Balance changes
+	- UVB-51 Radio
+		- Removed time of day of the current stage as buff requirement, now any kind of stage gives off both armor and health regen bonuses
+		- Initial stack 15s -> 45s
+		- Later stacks 10s -> 30s
+		- Now grants +0.05 sprint bonus per stage.
+		- Now grants +0.025 attack speed bonus per stage.
+		- Final stage bonus x1.25 -> x1.15
+		> Changes meant to make the item more reliable, and to aid the player in scouting the stage at arrival.
+		> Sprint and attack speed bonuses are minimal as to not out weight right away the items they are based off (Soda and syringes), but should become pretty significant post-loop. Final stage bonus decreased as the buff gives more than just defense now.
+	- Magnetic Belt
+		- Initial stack radius 8m -> 16m
+		- Later stacks 4m -> 8m
+		- Initial stack duplication chance 0.5% -> 1%
+		- Later stack duplication chances 0.4% -> 0.5%
+		- Cloned pickups now have double acceleration and maximum speed.
+		> I initially took the radius values from the Warbanner but divided by half, as I thought it would be a good starting point, but as I played on my own, and as other players reported, the item struggles to be noticeable at all. 
+		> It now should grab monster tooths for melee and ranged survivors alike. Duplication chance increased as I thought it could be nice to have, but mostly remains for clover purposes, speed increased to guarantee that the player that duplicated them gets them.
+- Artifacts
+	- Artifact of Worms
+		- 🌧 Elite Worms if Honor is active can now be enabled/disabled with a newly added rule
+		- Each worm segment will now spawn half less meatballs as the default worms.
+		- Each worm segment now has a extra second of impact cooldown.
+		> This change mainly aims to make worms not melt your performance by stage 3 due to the ridiculous high amount of worms spawning. You could also say it also helps a bit with players getting 12 fire stacks out of nowhere and dying.
+		> Worms will keep spawning post-teleporter event for now, but I'd like to know the general consensus on this.
+
 `0.0.4`
 - Hotfix
 	- Added the new placeholder model to items that I accidentally skipped over

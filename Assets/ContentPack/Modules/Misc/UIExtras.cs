@@ -130,9 +130,11 @@ namespace TurboEdition.Misc
         private static IEnumerator AwaitForHUDCreationAndAppend(CameraRigController camera, GameObject objectToInstantiate = null, string parent = null) //Me getting trolled by one single line of code
         {
             yield return new WaitForEndOfFrame();
+            if (SceneCatalog.mostRecentSceneDef.baseSceneName == "lobby")
+                yield break;
             if (camera.hud == null && !SceneCatalog.mostRecentSceneDef.isOfflineScene)
-                TELog.logger.LogWarning("Something went wrong when awaiting for the Camera's HUD creation on a Non-Offline Scene.");
-            else if (!SceneCatalog.mostRecentSceneDef.isOfflineScene && SceneCatalog.mostRecentSceneDef.baseSceneName != "lobby")
+                TELog.LogW("Something went wrong when awaiting for the Camera's HUD creation on a Non-Offline Scene.");
+            else if (!SceneCatalog.mostRecentSceneDef.isOfflineScene)
                 AssignHUDElement(camera.hud, objectToInstantiate, parent);
         }
 
@@ -140,7 +142,7 @@ namespace TurboEdition.Misc
         {
             yield return new WaitForEndOfFrame();
             if (trolled == null)
-                TELog.logger.LogWarning("Something went wrong when getting SubmenuMainMenuScreen");
+                TELog.LogW("Something went wrong when getting SubmenuMainMenuScreen");
             else
                 AssignMenu(trolled.submenuPanelInstance);
         }
@@ -149,7 +151,7 @@ namespace TurboEdition.Misc
         {
             yield return new WaitForEndOfFrame();
             if (trolled == null)
-                TELog.logger.LogWarning("Something went wrong when getting PauseScreenController");
+                TELog.LogW("Something went wrong when getting PauseScreenController");
             else
                 AssignMenu(trolled.submenuObject);
         }

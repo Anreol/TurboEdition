@@ -10,7 +10,8 @@ namespace TurboEdition.Buffs
 
         private float regenBonus = 0;
         private float armorBonus = 0;
-
+        private float sprintBonus = 0;
+        private float attackSpeedBonus = 0;
         public override void Initialize()
         {
         }
@@ -22,41 +23,47 @@ namespace TurboEdition.Buffs
 
         public override void OnBuffFirstStackGained(ref CharacterBody body)
         {
+            ClearAll();
             CalculateBonuses();
         }
         public override void OnBuffLastStackLost(ref CharacterBody body)
         {
             //Clearing just in case
-            regenBonus = 0;
-            armorBonus = 0;
+            ClearAll();
         }
         private void CalculateBonuses()
         {
-            regenBonus = 0;
-            armorBonus = 0;
+            ClearAll();
 
             if (SceneCatalog.mostRecentSceneDef.sceneType == SceneType.Stage)
             {
-                if (scenesDay.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
+                //if (scenesDay.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
                     regenBonus += (Run.instance.stageClearCount + 1);
-                if (scenesNight.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
+                //if (scenesNight.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
                     armorBonus += 2 * (Run.instance.stageClearCount + 1);
+                sprintBonus += 0.05f * (Run.instance.stageClearCount + 1); //0.20 less than a soda
+                attackSpeedBonus += 0.025f * (Run.instance.stageClearCount + 1); //0.125 less than a syringe
             }
             if (SceneCatalog.mostRecentSceneDef.sceneType == SceneType.Intermission || SceneCatalog.mostRecentSceneDef.baseSceneName == "moon2") //Hidden realms and moon will add a bonus no matter what. Original moon counts as HR
             {
                 regenBonus += (Run.instance.stageClearCount + 1);
                 armorBonus += 2 * (Run.instance.stageClearCount + 1);
+                sprintBonus += 0.05f * (Run.instance.stageClearCount + 1); //0.20 less than a soda
+                attackSpeedBonus += 0.025f * (Run.instance.stageClearCount + 1); //0.125 less than a syringe
             }
             if (SceneCatalog.mostRecentSceneDef.isFinalStage)
             {
-                regenBonus *= 1.25f;
-                armorBonus *= 1.25f;
+                regenBonus *= 1.15f;
+                armorBonus *= 1.15f;
+                sprintBonus *= 1.15f;
+                attackSpeedBonus *= 1.15f;
             }
             //TODO: Add Starstorm storm events bonus
         }
 
+        /*
         public static String[] scenesDay = new String[]
-{
+        {
             "blackbeach",
             "foggyswamp",
             "golemplains",
@@ -65,7 +72,8 @@ namespace TurboEdition.Buffs
             "rootjungle",
             "shipgraveyard",
             "skymeadow",
-            "wispgraveyard"
+            "wispgraveyard",
+
         };
 
         public static String[] scenesNight = new String[]
@@ -82,12 +90,20 @@ namespace TurboEdition.Buffs
             "goldshores",
             "limbo",
             "mysteryspace"
-        };
-
+        };*/
+        private void ClearAll()
+        {
+            regenBonus = 0;
+            armorBonus = 0;
+            sprintBonus = 0;
+            attackSpeedBonus = 0;
+        }
         public override void RecalcStatsEnd(ref CharacterBody body)
         {
             body.armor += armorBonus;
             body.regen += regenBonus;
+            body.sprintingSpeedMultiplier += sprintBonus;
+            body.attackSpeed += attackSpeedBonus;
         }
     }
 }

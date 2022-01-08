@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 602383613
+CRC: 1044134385
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: de9a0a7d06e9e761fcac4bfe69d64fea
+    Hash: 746060b7e34dc15a24e382bc1f321a26
   TypeTreeHash:
     serializedVersion: 2
     Hash: d76aec56a0e7299a03294b6393ec4de5
@@ -428,6 +428,7 @@ Assets:
 - Assets/Mesh/Items/meshIcosphere.mesh
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
+- Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormNonEliteArtifact.asset
 - Assets/Textures/texKumo0101_00.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lunar.png
 - Assets/Materials/matSandbag.mat

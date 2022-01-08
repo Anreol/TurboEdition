@@ -24,7 +24,7 @@ namespace TurboEdition
 #if DEBUG
             "9999." +
 #endif
-            "0.0.4";
+            "0.0.5";
 
         internal const string ModIdentifier = "TurboEdition";
         internal const string ModGuid = "com.Anreol." + ModIdentifier;
@@ -44,8 +44,8 @@ namespace TurboEdition
 
         public void Awake()
         {
-            TELog.logger = Logger;
 #if DEBUG
+            TELog.logger = Logger;
             TELog.LogW("Running TurboEdition DEBUG build. PANIC!");
 #endif
             pluginInfo = Info;
@@ -120,6 +120,9 @@ namespace TurboEdition
                 };
                 Misc.MiscLanguage.AddDeathMessages();
             }
+
+            //Since hopoo wants this to be this way....
+            RoR2Application.isModded = true; 
 
             args.ReportProgress(1f);
             yield break;
