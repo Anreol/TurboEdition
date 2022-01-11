@@ -2,7 +2,7 @@
 	"strings":
 	{
 		"ARTIFACT_WORMS_NAME": "Artifact of Worms",
-		"ARTIFACT_WORMS_DESCRIPTION" : "Worm Party. Worms will spawn in all stages, with less health but in higher counts. Worms can be elite if Honor is active.",
+		"ARTIFACT_WORMS_DESCRIPTION" : "Worm Party. Worms will spawn in all stages, weaker, but in higher counts.",
 
 		"ARTIFACT_SPITE2_NAME" : "Artifact of Revenge",
 		"ARTIFACT_SPITE2_DESCRIPTION" : "Enemies drop multiple exploding bombs on hit, and players drop bombs on death. All characters drop bombs on death if Spite is active.",

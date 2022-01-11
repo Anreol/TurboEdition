@@ -53,7 +53,7 @@
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
-	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 0.5% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+0.04% per stack)</style>",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 1% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+0.05% per stack)</style>",
 	"ITEM_PACKMAGNET_LORE": "",
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",

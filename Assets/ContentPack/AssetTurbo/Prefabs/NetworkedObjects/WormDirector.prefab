@@ -95,7 +95,7 @@ MonoBehaviour:
   targetPlayers: 1
   skipSpawnIfTooCheap: 0
   resetMonsterCardIfFailed: 1
-  maximumNumberToSpawnBeforeSkipping: 6
+  maximumNumberToSpawnBeforeSkipping: 3
   eliteBias: 1
   onSpawnedServer:
     m_PersistentCalls:
@@ -125,17 +125,17 @@ MonoBehaviour:
   normalDifficultyScale: 2
   hardDifficultyScale: 3
   baseIntervalApplyTimer: 120
-  baseMinIntervalApplyTimer: 15
+  baseMinIntervalApplyTimer: 20
   intervalDecreaseTime: 5
-  intervalDecreaseApplyTimer: 30
+  intervalDecreaseApplyTimer: 40
   intervalDecreaseApplySpeedUpWithDifficulty: 1
   useMoneyWaveGenerator: 1
-  moneyWaveNumberToGenerate: -1
+  moneyWaveNumberToGenerate: 30
   moneyWaveTimerMin: 1
-  moneyWaveTimerMax: 30
+  moneyWaveTimerMax: 60
   useSpeedUpRerolls: 1
-  modMinRerollInterval: -1
-  modMaxRerollInterval: -1
+  modMinRerollInterval: -0.5
+  modMaxRerollInterval: -0.5
   minimumMinCombatRerollSpawn: 10
   minimumMaxCombatRerollSpawn: 10
   modCreditAdd: 400

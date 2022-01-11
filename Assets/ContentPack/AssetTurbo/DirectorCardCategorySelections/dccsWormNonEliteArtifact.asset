@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: Champions
     cards:
     - spawnCard: {fileID: 0}
-      selectionWeight: 2
+      selectionWeight: 3
       spawnDistance: 2
       allowAmbushSpawn: 1
       preventOverhead: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
       requiredUnlockableDef: {fileID: 0}
       forbiddenUnlockableDef: {fileID: 0}
     - spawnCard: {fileID: 0}
-      selectionWeight: 2
+      selectionWeight: 1
       spawnDistance: 2
       allowAmbushSpawn: 1
       preventOverhead: 0

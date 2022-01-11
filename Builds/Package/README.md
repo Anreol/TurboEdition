@@ -49,23 +49,34 @@ I'm open to contributions, specifically models, as they take me more time than w
 		- Now grants +0.05 sprint bonus per stage.
 		- Now grants +0.025 attack speed bonus per stage.
 		- Final stage bonus x1.25 -> x1.15
-		> Changes meant to make the item more reliable, and to aid the player in scouting the stage at arrival.
-		> Sprint and attack speed bonuses are minimal as to not out weight right away the items they are based off (Soda and syringes), but should become pretty significant post-loop. Final stage bonus decreased as the buff gives more than just defense now.
+		
+*Changes meant to make the item more reliable, and to aid the player in scouting the stage at arrival.*
+*Sprint and attack speed bonuses are minimal as to not out-weight right away the items they are based off (Soda and syringes), but should become pretty significant post-loop. Final stage bonus decreased as the buff gives more than just defense now.*
 	- Magnetic Belt
 		- Initial stack radius 8m -> 16m
 		- Later stacks 4m -> 8m
 		- Initial stack duplication chance 0.5% -> 1%
 		- Later stack duplication chances 0.4% -> 0.5%
-		- Cloned pickups now have double acceleration and maximum speed.
-		> I initially took the radius values from the Warbanner but divided by half, as I thought it would be a good starting point, but as I played on my own, and as other players reported, the item struggles to be noticeable at all. 
-		> It now should grab monster tooths for melee and ranged survivors alike. Duplication chance increased as I thought it could be nice to have, but mostly remains for clover purposes, speed increased to guarantee that the player that duplicated them gets them.
+		- Cloned pickups now have doubled acceleration and maximum speed.
+
+*I initially took the radius values from the Warbanner but divided by half, as I thought it would be a good starting point, but as I played on my own, and as other players reported, the item struggles to be noticeable at all.*
+*It now should grab monster tooths for melee and ranged survivors alike. Duplication chance increased as I thought it could be nice to have, but mostly remains for clover purposes, speed increased to guarantee that the player that duplicated them gets them.*
 - Artifacts
 	- Artifact of Worms
 		- 🌧 Elite Worms if Honor is active can now be enabled/disabled with a newly added rule
-		- Each worm segment will now spawn half less meatballs as the default worms.
-		- Each worm segment now has a extra second of impact cooldown.
-		> This change mainly aims to make worms not melt your performance by stage 3 due to the ridiculous high amount of worms spawning. You could also say it also helps a bit with players getting 12 fire stacks out of nowhere and dying.
-		> Worms will keep spawning post-teleporter event for now, but I'd like to know the general consensus on this.
+		- Each worm segment will now spawn half less meatballs than the default worms.
+		- Each worm segment now has a extra second of impact cooldown than the default worms.
+		- Director maximum number to spawn in a wave 6 -> 3
+		- Now scales slightly less over time.
+		- Minimum and maximum combat rerolls interval modifications -1 -> -0.5. Minimum reroll minimum and minimum reroll maximum stay at 10.
+		- Can now have up to 30 additional money waves. Previously it kept generating new money waves infinitely.
+
+*I've modified the way that worms spawn, so it might not beheave the same way as it did before. For example, the director maximum number in a wave change, was because of that*
+*Other than that, this mainly aims to make worms not melt your performance by stage 3 due to the ridiculous high amount of them spawning. You could also say it also helps a bit with players getting 12 fire stacks out of nowhere and dying.*
+*Worms will keep spawning post-teleporter event for now, but I'd like to know the general consensus on this.*
+- Fixes
+	- Fixed Artifact of Worms modifying the original worm character spawn cards
+	
 
 `0.0.4`
 - Hotfix

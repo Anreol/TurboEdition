@@ -6,23 +6,13 @@ namespace TurboEdition.Misc
 {
     internal class RulebookExtras
     {
-        protected static readonly RuleDef wormEliteHonorRule = RuleCatalog.FindRuleDef("Misc.WormArtifactEliteHonor");
         public static bool runWormEliteHonor
         {
             get
             {
                 if (Run.instance != null)
                 {
-                    Debug.LogWarning(wormEliteHonorRule);
-                    Debug.LogWarning(RuleCatalog.FindRuleDef("Misc.WormArtifactEliteHonor"));
-                    Debug.LogWarning(wormEliteHonorRule.globalName);
-                    foreach (var item in wormEliteHonorRule.choices)
-                    {
-                        Debug.LogWarning(item);
-                        Debug.LogWarning(item.globalName);
-                    }
-                    Debug.LogWarning(Run.instance.ruleBook.ruleValues[wormEliteHonorRule.globalIndex]);
-                    return (bool)Run.instance.ruleBook.GetRuleChoice(wormEliteHonorRule).extraData;
+                    return (bool)Run.instance.ruleBook.GetRuleChoice(RuleCatalog.FindRuleDef("Misc.WormArtifactEliteHonor")).extraData;
                 }
                 return false;
             }
@@ -56,9 +46,6 @@ namespace TurboEdition.Misc
 
             wormEliteHonorRule.MakeNewestChoiceDefault();
             RuleCatalog_PatchedAddRule(wormEliteHonorRule, 4);
-
-            Debug.LogWarning(wormEliteHonorRule);
-
         }
 
         //Categories as of pre-survivors of the void

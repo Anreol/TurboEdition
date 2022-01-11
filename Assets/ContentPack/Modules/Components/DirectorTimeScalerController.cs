@@ -51,9 +51,9 @@ namespace TurboEdition.Components
         public float modMinRerollInterval = -1f;
         [Tooltip("Amount of time to modify the Max Reroll Spawn Interval for. Negative speeds up.")]
         public float modMaxRerollInterval = -1f;
-        [Tooltip("Minimum amount of seconds the Combat Director's min reroll timer can have. This component won't decrease it past this value.")]
+        [Tooltip("Minimum amount of seconds the Combat Director's MIN reroll timer can have. This component won't decrease it past this value.")]
         public float minimumMinCombatRerollSpawn = 10f;
-        [Tooltip("Minimum amount of seconds the Combat Director's max reroll timer can have. This component won't decrease it past this value.")]
+        [Tooltip("Minimum amount of seconds the Combat Director's MAX reroll timer can have. This component won't decrease it past this value.")]
         public float minimumMaxCombatRerollSpawn = 15f;
 
         [Header("Misc Options")]
