@@ -46,12 +46,20 @@ namespace TurboEdition.Items
                     TELog.LogW("Skill was utility!");
                     float y = Quaternion.LookRotation(body.inputBank.GetAimRay().direction).eulerAngles.y;
                     float distance = 1f; //How away it will spawn from the body
-                    foreach (float num2 in new DegreeSlices(2 + (stack - 1), 5f))
+
+                    Vector3 crossVector = body.inputBank.GetAimRay().direction == Vector3.up ? Vector3.down : Vector3.up;
+                    //Get the perpendicular (Cross) Vector to our aimRay, as it's against Up or Down, it will be to our left / right.
+                    Vector3 rightOrLeft = Vector3.Cross(crossVector, body.inputBank.GetAimRay().direction);
+                    //Get the perpendicular (Cross) Vector to the previous vector we got, which along with the aimray, will give us a tilted vector that (most of the time) will go up
+                    Vector3 relativeUp = Vector3.Cross(rightOrLeft, body.inputBank.GetAimRay().direction);
+                    foreach (float num2 in new DegreeSlices(stack + 1, 5f))
                     {
                         TELog.LogW("Spawning a knife.");
+
                         Quaternion rotationFromBody = Quaternion.Euler(0f, y + num2, 0f);
                         Quaternion rotation2 = Quaternion.Euler(0f, y + num2 + 180f, 0f); //Default is (0f, y + num2 + 180f, 0f)
                         Vector3 origin = transform.position + rotationFromBody * (Vector3.forward * distance);
+
                         FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                         {
                             projectilePrefab = projectilePrefab,

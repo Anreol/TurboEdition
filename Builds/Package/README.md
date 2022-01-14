@@ -42,6 +42,12 @@ I'm open to contributions, specifically models, as they take me more time than w
 - Plugin should no longer report debug logs to console unless its a debug assembly
 - Plugin now marks the game as modded
 - Balance changes
+	- Fan of Blades
+		- Projectile speed 100 -> 250
+		- Lifetime 10s -> 5s
+		- Capsule radius 0.4 -> 0.6
+		- Increased gravity
+
 	- UVB-51 Radio
 		- Removed time of day of the current stage as buff requirement, now any kind of stage gives off both armor and health regen bonuses
 		- Initial stack 15s -> 45s
@@ -71,7 +77,7 @@ I'm open to contributions, specifically models, as they take me more time than w
 		- Minimum and maximum combat rerolls interval modifications -1 -> -0.5. Minimum reroll minimum and minimum reroll maximum stay at 10.
 		- Can now have up to 30 additional money waves. Previously it kept generating new money waves infinitely.
 
-*I've modified the way that worms spawn, so it might not beheave the same way as it did before. For example, the director maximum number in a wave change, was because of that*
+*I've modified the way that worms spawn, so it might not behave the same way as it did before. For example, the director maximum number in a wave change, was because of that*
 *Other than that, this mainly aims to make worms not melt your performance by stage 3 due to the ridiculous high amount of them spawning. You could also say it also helps a bit with players getting 12 fire stacks out of nowhere and dying.*
 *Worms will keep spawning post-teleporter event for now, but I'd like to know the general consensus on this.*
 - Fixes
