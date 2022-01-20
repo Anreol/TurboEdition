@@ -40,7 +40,7 @@ namespace TurboEdition
                 TemporaryVFX vfx = (TemporaryVFX)System.Activator.CreateInstance(item);
                 if (!vfx.tempVfxRootGO)
                 {
-                    Debug.LogError("TempVFX " + vfx + " is missing the visual effect root GameObject. Check Unity Project. Skipping.");
+                    TELog.LogE("TempVFX " + vfx + " is missing the visual effect root GameObject. Check Unity Project. Skipping.");
                     continue;
                 }
                 vfx.Initialize();

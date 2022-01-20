@@ -9,6 +9,7 @@ using UnityEngine;
 using Zio;
 using Zio.FileSystems;
 using EntityStates;
+using System;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!

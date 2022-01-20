@@ -74,8 +74,10 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffEnvBonus.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffHellLinked.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffMeleeArmor.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffPanicked.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\BaseAINumb.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GetDamageFromHurtVictimBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\WeaveTest.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\AI\ForceFlee.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />

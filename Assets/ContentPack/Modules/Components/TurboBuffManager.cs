@@ -40,6 +40,7 @@ namespace TurboEdition
             statBuffBehaviors = GetComponents<IStatBuffBehavior>();
         }
 
+        //Calculation done in pickups to avoid rehooking
         public void RunStatRecalculationsStart(CharacterBody self)
         {
             foreach (var statBehavior in statBuffBehaviors)

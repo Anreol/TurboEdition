@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e4004db3ae50604f8e3b6fbabdf39f3, type: 2}
   - {fileID: 11400000, guid: 26d9d65feaa32f8458921eb64400be64, type: 2}
   - {fileID: 11400000, guid: 38f9af9ff75b2614d8cbef1ecf2c724c, type: 2}
+  - {fileID: 11400000, guid: fc870f30f90351e4bb50b1af97fe16f2, type: 2}
   eliteDefs: []
   unlockableDefs: []
   survivorDefs: []
@@ -64,11 +65,6 @@ MonoBehaviour:
   networkSoundEventDefs: []
   musicTrackDefs: []
   gameEndingDefs: []
-  entityStateConfigurations: []
-  entityStateTypes:
-  - _typeName: TurboEdition.States.Pickups.HellchainBaseState, TurboEdition, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - _typeName: TurboEdition.States.Pickups.HellchainEnterState, TurboEdition, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  - _typeName: TurboEdition.States.Pickups.HellchainIdleState, TurboEdition, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  entityStateConfigurations:
+  - {fileID: 11400000, guid: 8bfe9b67d27c34948be0529fd3ca973b, type: 2}
+  entityStateTypes: []

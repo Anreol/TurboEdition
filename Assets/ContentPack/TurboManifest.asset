@@ -32,6 +32,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   StagingPaths:
   - <BuildPath>
   definitions:
@@ -50,11 +51,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   StagingPaths:
   - <ManifestPluginStaging>
   Author: Anreol
   Name: Anreol-TurboEdition
-  Icon: {fileID: 2800000, guid: b1b68ecae957b164ea72e113d1204411, type: 3}
   Description: Test
   Version: 0.0.1
   Dependencies:
@@ -73,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   StagingPaths:
   - <BuildPathLang>
   files:
@@ -92,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Errored: 0
   ErrorMessage: 
+  ErrorStacktrace: 
   StagingPaths:
   - <BuildPathAssets>
   assetBundles:

@@ -1,0 +1,194 @@
+﻿using EntityStates.AI;
+using EntityStates.AI.Walker;
+using RoR2;
+using RoR2.CharacterAI;
+using RoR2.Navigation;
+using System.Collections.Generic;
+using TurboEdition.Components;
+using UnityEngine;
+
+namespace TurboEdition.States.AI.Walker
+{
+    public class ForceFlee : BaseAIState
+    {
+        public float fleeDuration; //Fleeing duration, wont find a new enemy target and will move the opposite direction from the desired as long as this lasts.
+        public float minimumDistance = -1; //Minimum distance the enemy has to travel to exit this state automatically
+        public bool numb = false;
+
+        private Vector3? targetPosition;
+        private Vector3 startPosition;
+        private Vector3 bodyFeetPos;
+
+        private float aiUpdateTimer;
+        private float lastPathUpdate;
+        private float fallbackNodeStartAge;
+        private readonly float fallbackNodeDuration = 4f;
+
+        private BaseAI originalAI = null;
+        private BaseAINumb numbAI = null;
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            startPosition = this.transform.position;
+
+            if (base.ai && base.body)
+            {
+                BroadNavigationSystem.Agent broadNavigationAgent = base.ai.broadNavigationAgent;
+                this.targetPosition = base.PickRandomNearbyReachablePosition(); //Let's use the default one at the start.
+                if (this.targetPosition != null)
+                {
+                    broadNavigationAgent.goalPosition = new Vector3?(this.targetPosition.Value);
+                    broadNavigationAgent.InvalidatePath();
+                }
+
+                if ((base.ai.GetType() != typeof(BaseAINumb)) && numb)
+                {
+                    numbAI = outer.gameObject.AddComponent<BaseAINumb>();
+                    originalAI = base.ai;
+                    base.ai = numbAI;
+                }
+
+                LoseAllFocus(fleeDuration, fleeDuration);
+            }
+            base.body.CallRpcBark();
+            this.aiUpdateTimer = 0.5f;
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            if (base.ai && numbAI != null)
+            {
+                base.ai = originalAI;
+                Destroy(numbAI);
+            }
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            if (base.ai && base.body)
+            {
+                //If AI is ready to enter combat again or be busy
+                if (Vector3.Distance(startPosition, bodyFeetPos) >= minimumDistance)
+                {
+                    if (base.ai.skillDriverEvaluation.dominantSkillDriver)
+                        this.outer.SetNextState(new Combat());
+                    else
+                        this.outer.SetNextState(new LookBusy());
+                }
+                this.fleeDuration -= Time.fixedDeltaTime;
+                this.aiUpdateTimer -= Time.fixedDeltaTime;
+                this.UpdateFootPosition();
+                if (this.aiUpdateTimer <= 0f)
+                {
+                    this.aiUpdateTimer = BaseAIState.cvAIUpdateInterval.value;
+                    this.UpdateAI(BaseAIState.cvAIUpdateInterval.value);
+                }
+            }
+        }
+
+        protected void UpdateAI(float deltaTime)
+        {
+            BaseAI.SkillDriverEvaluation skillDriverEvaluation = base.ai.skillDriverEvaluation;
+            this.bodyInputs.moveVector = Vector3.zero;
+            float d = 1f; //moveInputScale, 1f by default
+            if (!base.body || !base.bodyInputBank)
+            {
+                return;
+            }
+            Vector3 position = base.bodyTransform.position;
+            BroadNavigationSystem.Agent broadNavigationAgent = base.ai.broadNavigationAgent;
+            BroadNavigationSystem.AgentOutput output = broadNavigationAgent.output;
+            BaseAI.Target target = skillDriverEvaluation.target;
+            if ((target != null) ? target.gameObject : null)
+            {
+                if (this.fallbackNodeStartAge + this.fallbackNodeDuration < base.fixedAge)
+                {
+                    base.ai.SetGoalPosition(target);
+                }
+                Vector3 vector3 = position;
+                Vector3 a = output.nextPosition ?? this.bodyFeetPos;
+                Vector3 vector4 = (a - this.bodyFeetPos).normalized * 10f;
+
+                if (fleeDuration >= 0f)
+                {
+                    vector3 -= vector4;
+                }
+
+                base.ai.localNavigator.targetPosition = vector3;
+                base.ai.localNavigator.allowWalkOffCliff = UnityEngine.Random.Range(-2, 1) >= 1; //1/4 chance to run off cliffs lol.
+                base.ai.localNavigator.Update(deltaTime);
+
+                this.bodyInputs.moveVector = base.ai.localNavigator.moveVector;
+                this.bodyInputs.moveVector = this.bodyInputs.moveVector * d;
+            }
+            if (output.lastPathUpdate > this.lastPathUpdate && !output.targetReachable && this.fallbackNodeStartAge + this.fallbackNodeDuration < base.fixedAge)
+            {
+                broadNavigationAgent.goalPosition = PickRandomNearbyReachablePositionInRange(5, 20);
+                broadNavigationAgent.InvalidatePath();
+            }
+            this.lastPathUpdate = output.lastPathUpdate;
+        }
+
+        private void UpdateFootPosition()
+        {
+            this.bodyFeetPos = base.body.footPosition;
+            BroadNavigationSystem.Agent broadNavigationAgent = base.ai.broadNavigationAgent;
+            broadNavigationAgent.currentPosition = new Vector3?(this.bodyFeetPos);
+        }
+
+        public override BaseAI.BodyInputs GenerateBodyInputs(in BaseAI.BodyInputs previousBodyInputs)
+        {
+            this.bodyInputs.pressSprint = true; //Make it sprint, im pretty sure no AI normally sprints.
+            base.AimInDirection(ref this.bodyInputs, this.bodyInputs.moveVector); //Make it aim in its direction no matter what.
+            base.ModifyInputsForJumpIfNeccessary(ref this.bodyInputs); //A must if we want to make it jump
+            return this.bodyInputs;
+        }
+
+        private void LoseAllFocus(float targetRefreshTimer, float busyTimer)
+        {
+            this.ai.currentEnemy.Reset(); //Reset Enemy Target
+            this.ai.targetRefreshTimer = targetRefreshTimer; //Avoids searching for a new enemy until its done fleeing
+            this.ai.enemyAttention = busyTimer; //Will distract the enemy with something else. Wont do much as we are resetting the current enemy anyways
+                                                //logic goes as: on hurt -> if it doesnt have enemy or enemy has no attention -> enemy is now the one that dealt damage
+                                                //AKA enemy attention is how long it will get fixated on the same target
+
+            //enemies are set through: Doppleganger spawn (Enemy forcefully set to the originator), body damaged, teleporter boss (?).
+            //Arena enemies will forcefully get the closest enemy available as target, ignoring range, view, and LoS
+
+            //Enemies (Game Object) will ALWAYS be the health component, not the actual body.
+            //To target something else, use CustomTarget, only used by the emergency drone. The target type of the ai skill driver will have to be changed.
+            //Target can be probably forcefully set as a CustomTarget.
+        }
+
+        protected Vector3? PickRandomNearbyReachablePositionInRange(float minRange, float maxRange, int nodeCount = 6)
+        {
+            if (!this.ai || !this.body)
+            {
+                return null;
+            }
+            NodeGraph nodeGraph = SceneInfo.instance.GetNodeGraph(this.body.isFlying ? MapNodeGroup.GraphType.Air : MapNodeGroup.GraphType.Ground);
+            NodeGraphSpider nodeGraphSpider = new NodeGraphSpider(nodeGraph, (HullMask)(1 << (int)this.body.hullClassification));
+            List<NodeGraph.NodeIndex> nodeList = nodeGraph.FindNodesInRange(this.bodyTransform.position, minRange, maxRange, (HullMask)(1 << (int)this.body.hullClassification));
+            for (int i = 0; i < nodeCount; i++)
+            {
+                nodeGraphSpider.AddNodeForNextStep(nodeList[i]);
+            }
+            for (int i = 0; i < nodeCount; i++)
+            {
+                nodeGraphSpider.PerformStep(); //Transforms nodes into collected steps. Does a bunch of shit like hull checking and getting link end nodes
+            }
+            List<NodeGraphSpider.StepInfo> collectedSteps = nodeGraphSpider.collectedSteps;
+            if (collectedSteps.Count == 0)
+                return null;
+            int index = UnityEngine.Random.Range(0, collectedSteps.Count);
+            NodeGraph.NodeIndex node = collectedSteps[index].node;
+            Vector3 value;
+            if (nodeGraph.GetNodePosition(node, out value))
+                return new Vector3?(value);
+            return null;
+        }
+    }
+}

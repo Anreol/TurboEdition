@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3915307002
+CRC: 3957093079
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7741a4ac840c7a3d3cff66f531688455
+    Hash: 472464eace85bc1f8c1daadd0cbc8f7e
   TypeTreeHash:
     serializedVersion: 2
     Hash: d76aec56a0e7299a03294b6393ec4de5
@@ -302,6 +302,7 @@ ClassTypes:
 Assets:
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/Hopoo/materials/matUIPaintStreakFlash.mat
+- Assets/ContentPack/AssetTurbo/BuffDefs/BuffPanicked.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/MeleeArmor.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/KnifeFan.asset
 - Assets/Materials/matVFXLightshaft.mat
@@ -385,6 +386,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
 - Assets/Textures/texKnifeUV.png
 - Assets/Materials/matUIBlur.mat
+- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/States.AI.Walker.ForceFlee.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/WormDirector.prefab
 - Assets/Mesh/VFXLightShaft.asset
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/CursedScythe.asset

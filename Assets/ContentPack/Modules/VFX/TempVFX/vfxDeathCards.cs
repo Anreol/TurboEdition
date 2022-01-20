@@ -9,9 +9,9 @@ namespace TurboEdition.TempVFX
 
         public override bool IsEnabled(ref CharacterBody body)
         {
-            if (body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("DropletDupe")) > 0 && body.GetComponent<Items.DropletDupe.DropletDupeBehavior>().suicideReady)
+            if (body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("DropletDupe")) > 0 && body.GetComponent<Items.DropletDupe.DropletDupeBehaviorServer>().suicideReady)
             {
-                Debug.LogWarning("Started spewing cards... or should.");
+                TELog.LogW("Started spewing cards... or should.");
                 return true;
             }
             return false;

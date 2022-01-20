@@ -53,8 +53,8 @@ namespace TurboEdition.Items
                     origin = body.transform.position,
                 };
 
-                component.finalRadius += ((stack - 1) * 2);
-                component.duration += (stack * 0.1f); //Artificially increase duration because in higher radius its almost instant
+                component.finalRadius += (10f + ((stack - 1) * 5f));
+                component.duration = (component.finalRadius / 8); //Artificially increase duration because in higher radius its almost instant
                 component.performSearch += Component_performSearch;
                 component.onPulseHit += Component_onPulseHit;
                 component.StartPulseServer();
@@ -96,7 +96,7 @@ namespace TurboEdition.Items
                             hc.body.AddTimedBuff(BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffFear")), (4 + stack) * hitInfo.hitSeverity);
                             return;
                         }*/
-                        hc.body.AddTimedBuff(RoR2Content.Buffs.Cripple, (4 + stack) * hitInfo.hitSeverity);
+                        hc.body.AddTimedBuff(BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffPanicked")), (4 + stack) * hitInfo.hitSeverity);
                         return;
                     }
                 }

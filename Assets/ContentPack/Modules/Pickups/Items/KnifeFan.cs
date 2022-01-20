@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using RoR2.Projectile;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -26,7 +27,7 @@ namespace TurboEdition.Items
             {
                 if (!body)
                 {
-                    Debug.LogWarning("Body not available or does not exist.");
+                    TELog.LogW("Body not available or does not exist.");
                     return;
                 }
                 base.body.onSkillActivatedServer += Body_onSkillActivatedServer;
@@ -43,37 +44,30 @@ namespace TurboEdition.Items
                 if (projectilePrefab == null) return;
                 if (body.GetComponent<SkillLocator>().utility == obj)
                 {
-                    TELog.LogW("Skill was utility!");
+                    
                     float y = Quaternion.LookRotation(body.inputBank.GetAimRay().direction).eulerAngles.y;
                     float distance = 1f; //How away it will spawn from the body
-
-                    Vector3 crossVector = body.inputBank.GetAimRay().direction == Vector3.up ? Vector3.down : Vector3.up;
-                    //Get the perpendicular (Cross) Vector to our aimRay, as it's against Up or Down, it will be to our left / right.
-                    Vector3 rightOrLeft = Vector3.Cross(crossVector, body.inputBank.GetAimRay().direction);
-                    //Get the perpendicular (Cross) Vector to the previous vector we got, which along with the aimray, will give us a tilted vector that (most of the time) will go up
-                    Vector3 relativeUp = Vector3.Cross(rightOrLeft, body.inputBank.GetAimRay().direction);
-                    foreach (float num2 in new DegreeSlices(stack + 1, 5f))
+                    
+                    Vector3 aimDirection = body.inputBank.aimDirection;
+                    Vector3 crossVector = aimDirection == Vector3.up ? Vector3.down : Vector3.up;
+                    Vector3 up = Vector3.Cross(Vector3.Cross(aimDirection, crossVector), aimDirection);
+                    foreach (float angleSlice in new DegreeSlices(stack + 1, 0f))
                     {
-                        TELog.LogW("Spawning a knife.");
-
-                        Quaternion rotationFromBody = Quaternion.Euler(0f, y + num2, 0f);
-                        Quaternion rotation2 = Quaternion.Euler(0f, y + num2 + 180f, 0f); //Default is (0f, y + num2 + 180f, 0f)
-                        Vector3 origin = transform.position + rotationFromBody * (Vector3.forward * distance);
-
+                        var angleAxisRot = Quaternion.AngleAxis(angleSlice, up) * aimDirection;
+                        Vector3 origin = body.corePosition + Util.QuaternionSafeLookRotation(angleAxisRot) * (Vector3.forward * distance);
                         FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                         {
                             projectilePrefab = projectilePrefab,
                             position = origin,
-                            rotation = rotation2,
+                            rotation = Util.QuaternionSafeLookRotation(angleAxisRot),
                             owner = body.gameObject,
-                            damage = body.damage * 2.5f,
-                            force = 15,
+                            damage = body.damage * 2.85f,
+                            force = 5,
                             crit = body.RollCrit(),
-                            damageColorIndex = DamageColorIndex.Bleed
+                            damageColorIndex = DamageColorIndex.Item
                         };
                         ProjectileManager.instance.FireProjectile(fireProjectileInfo);
                     }
-                    TELog.LogW("Done.");
                 }
             }
 

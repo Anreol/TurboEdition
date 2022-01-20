@@ -10,10 +10,13 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<DropletDupeBehavior>(stack);
+            if (NetworkServer.active)
+            {
+                body.AddItemBehavior<DropletDupeBehaviorServer>(stack);
+            }
         }
 
-        internal class DropletDupeBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
+        internal class DropletDupeBehaviorServer : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
             //If anybody else gets this item it will subscribe as well, letting the % stack in one way or another
             //However this can lead to a single item being duplicated more than once
@@ -64,7 +67,7 @@ namespace TurboEdition.Items
                         body.master.gameObject.AddComponent<MasterSuicideOnTimer>().lifeTimer = 10 + UnityEngine.Random.Range(0f, 8f);
                     }
                     else
-                        body.healthComponent.Suicide(damageReport.attacker, damageReport.attacker, DamageType.VoidDeath);
+                        body.healthComponent.Suicide(damageReport.attacker, damageReport.attacker, DamageType.Generic);
                 }
             }
 

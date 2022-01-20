@@ -42,14 +42,26 @@ I'm open to contributions, specifically models, as they take me more time than w
 - Plugin should no longer report debug logs to console unless its a debug assembly
 - Plugin now marks the game as modded
 - Balance changes
+	- Voice Modulator
+		- Now panics enemies
+			- Panic forces enemies to run around and no longer attack you.
+			- Increases afflicted enemies' cooldowns by x0.5
+			- Forces them to sprint.
+			- Adds movement speed bonus.
+			- Won't attack as long as they are panicked.
+		- Initial radius should now be fixed.
+		- Stack radius 2m -> 5m
 	- Fan of Blades
 		- Projectile speed 100 -> 250
 		- Lifetime 10s -> 5s
 		- Capsule radius 0.4 -> 0.6
-		- Increased gravity
-
+		- Increased gravity & decreased force.
+		- Damage 250% -> 285%
+		- Now affected by aim direction.
+		
+*Still most useful at point blank angle, but now at least your knives wont instantly be stuck in the ground. Lets pretty much anybody snipe any enemy on utility skill use, even melee*
 	- UVB-51 Radio
-		- Removed time of day of the current stage as buff requirement, now any kind of stage gives off both armor and health regen bonuses
+		- Removed time of day of the current stage as buff requirement, now any kind of stage gives off both armor and health regen bonuses.
 		- Initial stack 15s -> 45s
 		- Later stacks 10s -> 30s
 		- Now grants +0.05 sprint bonus per stage.
@@ -82,7 +94,8 @@ I'm open to contributions, specifically models, as they take me more time than w
 *Worms will keep spawning post-teleporter event for now, but I'd like to know the general consensus on this.*
 - Fixes
 	- Fixed Artifact of Worms modifying the original worm character spawn cards
-	
+	- Fixed Fan of Blades not having ghosts
+	- Playing Cards is now server only. Should fix unintended behavior.
 
 `0.0.4`
 - Hotfix
