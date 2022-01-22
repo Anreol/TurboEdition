@@ -153,6 +153,7 @@
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDeathCards.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDummy1.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxHellchainLocked.cs" />
+    <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxPanicDrops.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <None Include="Assets\ContentPack\TurboEdition.asmdef" />
     <Reference Include="Unity.TextMeshPro">

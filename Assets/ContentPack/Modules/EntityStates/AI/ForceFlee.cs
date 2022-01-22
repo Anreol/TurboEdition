@@ -46,13 +46,12 @@ namespace TurboEdition.States.AI.Walker
                 {
                     numbAI = outer.gameObject.AddComponent<BaseAINumb>();
                     originalAI = base.ai;
+                    CloneData(originalAI, ref numbAI);
                     base.ai = numbAI;
                 }
-
-                LoseAllFocus(fleeDuration, fleeDuration);
             }
             base.body.CallRpcBark();
-            this.aiUpdateTimer = 0.5f;
+            this.aiUpdateTimer = 0.0f; //Default is 0.5, but they seem to stand still when afflicted and take a bit til they react, so im making this zero
         }
 
         public override void OnExit()
@@ -83,12 +82,14 @@ namespace TurboEdition.States.AI.Walker
                 this.UpdateFootPosition();
                 if (this.aiUpdateTimer <= 0f)
                 {
+                    this.LoseAllFocus(fleeDuration, fleeDuration);
                     this.aiUpdateTimer = BaseAIState.cvAIUpdateInterval.value;
                     this.UpdateAI(BaseAIState.cvAIUpdateInterval.value);
                 }
             }
         }
 
+        
         protected void UpdateAI(float deltaTime)
         {
             BaseAI.SkillDriverEvaluation skillDriverEvaluation = base.ai.skillDriverEvaluation;
@@ -126,7 +127,7 @@ namespace TurboEdition.States.AI.Walker
             }
             if (output.lastPathUpdate > this.lastPathUpdate && !output.targetReachable && this.fallbackNodeStartAge + this.fallbackNodeDuration < base.fixedAge)
             {
-                broadNavigationAgent.goalPosition = PickRandomNearbyReachablePositionInRange(5, 20);
+                broadNavigationAgent.goalPosition = PickRandomNearbyReachablePositionInRange(10, 20);
                 broadNavigationAgent.InvalidatePath();
             }
             this.lastPathUpdate = output.lastPathUpdate;
@@ -163,6 +164,50 @@ namespace TurboEdition.States.AI.Walker
             //Target can be probably forcefully set as a CustomTarget.
         }
 
+        //dumb as fuck but who cares, playing safe.
+        private void CloneData(BaseAI bai, ref BaseAINumb bain)
+        {
+            bain.aimVectorDampTime = bai.aimVectorDampTime;
+            bain.aimVectorMaxSpeed = bai.aimVectorMaxSpeed;
+            bain.aimVelocity = bai.aimVelocity;
+            bain.body = bai.body;
+            bain.bodyCharacterDirection = bai.bodyCharacterDirection;
+            bain.bodyCharacterMotor = bai.bodyCharacterMotor;
+            bain.bodyHealthComponent = bai.bodyHealthComponent;
+            bain.bodyInputBank = bai.bodyInputBank;
+            bain.bodyInputs = bai.bodyInputs;
+            bain.bodySkillLocator = bai.bodySkillLocator;
+            bain.bodyTransform = bai.bodyTransform;
+            bain._broadNavigationAgent = bai.broadNavigationAgent;
+            bain.broadNavigationSystem = bai.broadNavigationSystem;
+            bain.buddy = bai.buddy;
+            bain.buddySearch = bai.buddySearch;
+            bain.currentEnemy = bai.currentEnemy;
+            bain.customTarget = bai.customTarget;
+            bain.debugEnemyHurtBox = bai.debugEnemyHurtBox;
+            bain.desiredSpawnNodeGraphType = bai.desiredSpawnNodeGraphType;
+            bain.enabled = bai.enabled;
+            bain.enemyAttention = bai.enemyAttention;
+            bain.enemyAttentionDuration = bai.enemyAttentionDuration;
+            bain.enemySearch = bai.enemySearch;
+            bain.fullVision = bai.fullVision;
+            bain.hasAimConfirmation = bai.hasAimConfirmation;
+            bain.hideFlags = bai.hideFlags;
+            //bain.isActiveAndEnabled = bai.isActiveAndEnabled;
+            bain.isHealer = bai.isHealer;
+            bain.leader = bai.leader;
+            bain.localNavigator = bai.localNavigator;
+            bain.master = bai.master;
+            //bain.networkIdentity = bai.networkIdentity; set on awake, should be fine
+            bain.neverRetaliateFriendlies = bai.neverRetaliateFriendlies;
+            bain.scanState = bai.scanState;
+            bain.selectedSkilldriverName = bai.selectedSkilldriverName;
+            bain.skillDriverEvaluation = bai.skillDriverEvaluation;
+            bain.skillDrivers = bai.skillDrivers;
+            bain.skillDriverUpdateTimer = bai.skillDriverUpdateTimer;
+            bain.stateMachine = bai.stateMachine;
+            bain.targetRefreshTimer = bai.targetRefreshTimer;
+        }
         protected Vector3? PickRandomNearbyReachablePositionInRange(float minRange, float maxRange, int nodeCount = 6)
         {
             if (!this.ai || !this.body)
