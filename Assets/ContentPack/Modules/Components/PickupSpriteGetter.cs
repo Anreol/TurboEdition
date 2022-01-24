@@ -51,6 +51,15 @@ namespace TurboEdition.Components
                     Destroy(this);
                 }
             }
+
+            ChestBehavior chestBehavior = GetComponentInParent<ChestBehavior>();
+            if (chestBehavior)
+            {
+                if (AssignFromPickupDef(PickupCatalog.GetPickupDef(chestBehavior.dropPickup)))
+                {
+                    Destroy(this);
+                }
+            }
         }
 
         private bool AssignFromPickupDef(PickupDef pickupDef)

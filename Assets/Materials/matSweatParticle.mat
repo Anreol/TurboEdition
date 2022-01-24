@@ -76,9 +76,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0
-    - _AlphaBoost: 0.99
-    - _Boost: 1
+    - _AlphaBias: 0.152
+    - _AlphaBoost: 6.8
+    - _Boost: 1.7
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CharacterLimit: 3
@@ -107,7 +107,7 @@ Material:
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
     - _IntersectionStrength: 0
-    - _InvFade: 2
+    - _InvFade: 0.1
     - _Metallic: 0
     - _Mode: 0
     - _NormalStrength: 1

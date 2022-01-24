@@ -50,7 +50,8 @@ namespace TurboEdition.Items
             CharacterBody characterBody = damageInfo.attacker.GetComponent<CharacterBody>();
             if (characterBody)
             {
-                if (characterBody.inventory.GetItemCount(ItemCatalog.FindItemIndex("SuperStickies")) > 0 && Util.CheckRoll(15f * damageInfo.procCoefficient))
+                int stack = characterBody.inventory.GetItemCount(ItemCatalog.FindItemIndex("SuperStickies"));
+                if (stack > 0 && Util.CheckRoll(15f * damageInfo.procCoefficient, characterBody.master))
                 {
                     bool alive = characterBody.healthComponent.alive;
                     float num4 = 5f;
@@ -58,9 +59,22 @@ namespace TurboEdition.Items
                     Vector3 forward = characterBody.corePosition - position;
                     float magnitude = forward.magnitude;
                     Quaternion rotation = (magnitude != 0f) ? Util.QuaternionSafeLookRotation(forward) : UnityEngine.Random.rotationUniform;
-                    float damageCoefficient4 = 1.8f;
+                    float damageCoefficient4 = 5.4f + (1.8f * (stack - 1));
                     float damage = Util.OnHitProcDamage(damageInfo.damage, characterBody.damage, damageCoefficient4);
-                    ProjectileManager.instance.FireProjectile(Resources.Load<GameObject>("Prefabs/Projectiles/StickyBomb"), position, rotation, damageInfo.attacker, damage, 100f, damageInfo.crit, DamageColorIndex.Item, null, alive ? (magnitude * num4) : -1f);
+                    //ProjectileManager.instance.FireProjectile(Resources.Load<GameObject>("Prefabs/Projectiles/StickyBomb"), position, rotation, damageInfo.attacker, damage, 100f, damageInfo.crit, DamageColorIndex.Item, null, alive ? (magnitude * num4) : -1f);
+                    ProjectileManager.instance.FireProjectile(new FireProjectileInfo
+                    {
+                        projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("SuperStickyBombProjectile"),
+                        crit = damageInfo.crit,
+                        damage = damage,
+                        damageColorIndex = DamageColorIndex.Item,
+                        force = 100f,
+                        owner = damageInfo.attacker,
+                        position = position,
+                        rotation = rotation,
+                        target = null,
+                        speedOverride = alive ? (magnitude * num4) : -1f
+                    });
                 }
             }
         }

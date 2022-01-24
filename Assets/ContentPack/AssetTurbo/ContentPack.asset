@@ -17,6 +17,7 @@ MonoBehaviour:
   projectilePrefabs:
   - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
   - {fileID: 5362953076993711961, guid: ab21e409a4590454dbe48729bf59a1b3, type: 3}
+  - {fileID: 5927682615679395250, guid: 2f4e77b8486cca54c9f46200c5516d76, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs:
   - {fileID: 1509333923836609831, guid: fda7bcbc6de05124988c21bebcbef3af, type: 3}

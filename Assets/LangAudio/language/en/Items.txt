@@ -21,10 +21,10 @@
 	"ITEM_DROPLETDUPE_DESC": "8% chance <style=cStack>(+2.5% per stack)</style> to duplicate items that fall. 3% chance <style=cStack>(+1% per stack)</style> to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
 	"ITEM_DROPLETDUPE_LORE": "",
 	
-	"ITEM_ENVBONUS_NAME": "UVB-51 Radio",
-	"ITEM_ENVBONUS_PICKUP": "Gain a buff that changes with enviroment upon entering a stage.",
-	"ITEM_ENVBONUS_DESC": "Gain a buff upon entering a stage for <style=cIsUtility>45 seconds</style> <style=cStack>(+30s per stack)</style>. Bonuses depends on enviroment. <style=cIsUtility>Scales over time.</style>",
-	"ITEM_ENVBONUS_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
+	"ITEM_RADIOSEARCH_NAME": "UVB-51 Radio",
+	"ITEM_RADIOSEARCH_PICKUP": "Upon reaching a stage, receive the position for relevant interactables for one minute. Chance to reveal the contents of scanned objects.",
+	"ITEM_RADIOSEARCH_DESC": "Upon <style=cIsUtility>reaching a stage</style>, <style=cIsUtility>reveal</style> 10% of the stage's interactables <style=cStack>(+5 per stack)</style> for one minute. Getting close to a <style=cIsDamage>revealed</style> interactable has a 25% <style=cStack>(+5% per stack)</style> chance of <style=cIsUtility>revealing its contents.</style>",
+	"ITEM_RADIOSEARCH_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
 	
 	"ITEM_GRACEPERIOD_NAME": "PLACEHOLDER",
 	"ITEM_GRACEPERIOD_PICKUP": "Be able to get <style=cIsUtility>assists</style> from enemy deaths, activating <style=cIsDamage>On Kill</style> effects... <color=#FF7F7F>BUT it also activates negative effects</color>.",
@@ -48,7 +48,7 @@
 	
 	"ITEM_MELEEARMOR_NAME": "Nanomachines",
 	"ITEM_MELEEARMOR_PICKUP": "Gain armor in response to physical trauma.",
-	"ITEM_MELEEARMOR_DESC": "Getting hurt by a enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to 1 time <style=cStack>(+1 per stack)</style>.",
+	"ITEM_MELEEARMOR_DESC": "Getting hurt by a enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to 2 times <style=cStack>(+1 per stack)</style>.",
 	"ITEM_MELEEARMOR_LORE": "",
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
@@ -67,13 +67,19 @@
 	"ITEM_STANDBONUS_LORE": "",
 
 	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
-	"ITEM_SUPERSTICKIES_PICKUP": "<sprite name=\"WIP\">Sticky bombs have a chance to attach a super sticky bomb to enemies.<sprite name=\"WIP\">",
-	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on sticky bomb proc to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>180%x3</style><style=cStack>(+ x1 per stack)</style> TOTAL damage.",
-	"ITEM_SUPERSTICKIES_LORE": "Unfinished item! It just procs a normal sticky bomb after proccing a sticky bomb!",
+	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
+	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on <style=cIsUtility>sticky bomb proc</style> to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>540%</style> <style=cStack>(+180% per stack)</style> TOTAL damage.",
+	"ITEM_SUPERSTICKIES_LORE": "",
 
 	"ITEM_TYPEWRITER_NAME": "Typewriter",
 	"ITEM_TYPEWRITER_PICKUP": "Performing actions types a letter, forming up words creates unique effects.",
 	"ITEM_TYPEWRITER_DESC": "Type <style=cIsUtility>one letter</style> <style=cStack>(+1 per stack)</style> after using skills or walking. Getting the name of an item or a character will <style=cIsUtility>spawn</style> it.",
 	"ITEM_TYPEWRITER_LORE": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
+	
+	"ITEM_VOIDWARBANNER_NAME": "",
+	"ITEM_VOIDWARBANNER_PICKUP": "",
+	"ITEM_VOIDWARBANNER_DESC": "",
+	"ITEM_VOIDWARBANNER_LORE": "",
+	
 	}
 }

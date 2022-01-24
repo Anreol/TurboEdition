@@ -28,7 +28,6 @@ namespace TurboEdition.Buffs
                     {
                         ForceFlee forceFlee = new ForceFlee();
                         forceFlee.fleeDuration = body.timedBuffs[i].timer;
-                        forceFlee.minimumDistance = 5f;
                         baseAI.stateMachine.SetNextState(forceFlee);
                         
                         //Get ALL skills on cooldown

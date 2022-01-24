@@ -10,10 +10,11 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<MeleeArmorBehavior>(stack);
+            if (NetworkServer.active)
+                body.AddItemBehavior<MeleeArmorBehaviorServer>(stack);
         }
 
-        internal class MeleeArmorBehavior : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
+        internal class MeleeArmorBehaviorServer : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
             private float detectRadius = 21f;
 
@@ -29,7 +30,7 @@ namespace TurboEdition.Items
                 if (damageReport.attackerBody)
                 {
                     float distance = Vector3.Distance(damageReport.victimBody.transform.position, damageReport.attackerBody.transform.position);
-                    if (distance <= detectRadius && stack > body.GetBuffCount(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffMeleeArmor")))
+                    if (distance <= detectRadius && stack + 1 > body.GetBuffCount(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffMeleeArmor")))
                     {
                         body.AddTimedBuff(Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffMeleeArmor"), 10);
                     }

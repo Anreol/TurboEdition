@@ -12,11 +12,9 @@ namespace TurboEdition.States.AI.Walker
     public class ForceFlee : BaseAIState
     {
         public float fleeDuration; //Fleeing duration, wont find a new enemy target and will move the opposite direction from the desired as long as this lasts.
-        public float minimumDistance = -1; //Minimum distance the enemy has to travel to exit this state automatically
         public bool numb = false;
 
         private Vector3? targetPosition;
-        private Vector3 startPosition;
         private Vector3 bodyFeetPos;
 
         private float aiUpdateTimer;
@@ -30,18 +28,9 @@ namespace TurboEdition.States.AI.Walker
         public override void OnEnter()
         {
             base.OnEnter();
-            startPosition = this.transform.position;
 
             if (base.ai && base.body)
             {
-                BroadNavigationSystem.Agent broadNavigationAgent = base.ai.broadNavigationAgent;
-                this.targetPosition = base.PickRandomNearbyReachablePosition(); //Let's use the default one at the start.
-                if (this.targetPosition != null)
-                {
-                    broadNavigationAgent.goalPosition = new Vector3?(this.targetPosition.Value);
-                    broadNavigationAgent.InvalidatePath();
-                }
-
                 if ((base.ai.GetType() != typeof(BaseAINumb)) && numb)
                 {
                     numbAI = outer.gameObject.AddComponent<BaseAINumb>();
@@ -49,9 +38,16 @@ namespace TurboEdition.States.AI.Walker
                     CloneData(originalAI, ref numbAI);
                     base.ai = numbAI;
                 }
+                BroadNavigationSystem.Agent broadNavigationAgent = base.ai.broadNavigationAgent;
+                this.targetPosition = base.PickRandomNearbyReachablePosition(); //Let's use the default one at the start.
+                if (this.targetPosition != null)
+                {
+                    broadNavigationAgent.goalPosition = new Vector3?(this.targetPosition.Value);
+                    broadNavigationAgent.InvalidatePath();
+                }
             }
             base.body.CallRpcBark();
-            this.aiUpdateTimer = 0.0f; //Default is 0.5, but they seem to stand still when afflicted and take a bit til they react, so im making this zero
+            this.aiUpdateTimer = -1.0f; //Default is 0.5, but they seem to stand still when afflicted and take a bit til they react, so im making this zero
         }
 
         public override void OnExit()
@@ -70,7 +66,7 @@ namespace TurboEdition.States.AI.Walker
             if (base.ai && base.body)
             {
                 //If AI is ready to enter combat again or be busy
-                if (Vector3.Distance(startPosition, bodyFeetPos) >= minimumDistance)
+                if (!body.HasBuff(BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffPanicked"))))
                 {
                     if (base.ai.skillDriverEvaluation.dominantSkillDriver)
                         this.outer.SetNextState(new Combat());
@@ -82,49 +78,35 @@ namespace TurboEdition.States.AI.Walker
                 this.UpdateFootPosition();
                 if (this.aiUpdateTimer <= 0f)
                 {
+                    this.UpdateAI(BaseAIState.cvAIUpdateInterval.value);
                     this.LoseAllFocus(fleeDuration, fleeDuration);
                     this.aiUpdateTimer = BaseAIState.cvAIUpdateInterval.value;
-                    this.UpdateAI(BaseAIState.cvAIUpdateInterval.value);
                 }
             }
         }
 
-        
         protected void UpdateAI(float deltaTime)
         {
-            BaseAI.SkillDriverEvaluation skillDriverEvaluation = base.ai.skillDriverEvaluation;
-            this.bodyInputs.moveVector = Vector3.zero;
-            float d = 1f; //moveInputScale, 1f by default
-            if (!base.body || !base.bodyInputBank)
-            {
-                return;
-            }
-            Vector3 position = base.bodyTransform.position;
+            if (this.fallbackNodeStartAge + this.fallbackNodeDuration < base.fixedAge)
+                base.ai.SetGoalPosition(this.targetPosition);
+
             BroadNavigationSystem.Agent broadNavigationAgent = base.ai.broadNavigationAgent;
             BroadNavigationSystem.AgentOutput output = broadNavigationAgent.output;
-            BaseAI.Target target = skillDriverEvaluation.target;
-            if ((target != null) ? target.gameObject : null)
-            {
-                if (this.fallbackNodeStartAge + this.fallbackNodeDuration < base.fixedAge)
-                {
-                    base.ai.SetGoalPosition(target);
-                }
-                Vector3 vector3 = position;
-                Vector3 a = output.nextPosition ?? this.bodyFeetPos;
-                Vector3 vector4 = (a - this.bodyFeetPos).normalized * 10f;
 
-                if (fleeDuration >= 0f)
-                {
-                    vector3 -= vector4;
-                }
+            Vector3 vector3 = base.bodyTransform.position;
+            Vector3 a = output.nextPosition ?? this.bodyFeetPos;
+            Vector3 vector4 = (a - this.bodyFeetPos).normalized * 10f;
 
-                base.ai.localNavigator.targetPosition = vector3;
-                base.ai.localNavigator.allowWalkOffCliff = UnityEngine.Random.Range(-2, 1) >= 1; //1/4 chance to run off cliffs lol.
-                base.ai.localNavigator.Update(deltaTime);
+            if (fleeDuration >= 0f && !body.isFlying) //Wisps tend to facepunch themselves into the ground, so yea
+                vector3 -= vector4;
 
-                this.bodyInputs.moveVector = base.ai.localNavigator.moveVector;
-                this.bodyInputs.moveVector = this.bodyInputs.moveVector * d;
-            }
+            base.ai.localNavigator.targetPosition = vector3;
+            base.ai.localNavigator.allowWalkOffCliff = UnityEngine.Random.Range(-2, 1) >= 1; //1/4 chance to run off cliffs lol.
+            base.ai.localNavigator.Update(deltaTime);
+
+            if (base.bodyInputBank)
+                this.bodyInputs.moveVector = base.ai.localNavigator.moveVector * 2f;
+
             if (output.lastPathUpdate > this.lastPathUpdate && !output.targetReachable && this.fallbackNodeStartAge + this.fallbackNodeDuration < base.fixedAge)
             {
                 broadNavigationAgent.goalPosition = PickRandomNearbyReachablePositionInRange(10, 20);
@@ -208,6 +190,7 @@ namespace TurboEdition.States.AI.Walker
             bain.stateMachine = bai.stateMachine;
             bain.targetRefreshTimer = bai.targetRefreshTimer;
         }
+
         protected Vector3? PickRandomNearbyReachablePositionInRange(float minRange, float maxRange, int nodeCount = 6)
         {
             if (!this.ai || !this.body)
@@ -217,11 +200,12 @@ namespace TurboEdition.States.AI.Walker
             NodeGraph nodeGraph = SceneInfo.instance.GetNodeGraph(this.body.isFlying ? MapNodeGroup.GraphType.Air : MapNodeGroup.GraphType.Ground);
             NodeGraphSpider nodeGraphSpider = new NodeGraphSpider(nodeGraph, (HullMask)(1 << (int)this.body.hullClassification));
             List<NodeGraph.NodeIndex> nodeList = nodeGraph.FindNodesInRange(this.bodyTransform.position, minRange, maxRange, (HullMask)(1 << (int)this.body.hullClassification));
-            for (int i = 0; i < nodeCount; i++)
+            int count = Mathf.Min(nodeList.Count, nodeCount);
+            for (int i = 0; i < count; i++)
             {
                 nodeGraphSpider.AddNodeForNextStep(nodeList[i]);
             }
-            for (int i = 0; i < nodeCount; i++)
+            for (int i = 0; i < count; i++)
             {
                 nodeGraphSpider.PerformStep(); //Transforms nodes into collected steps. Does a bunch of shit like hull checking and getting link end nodes
             }

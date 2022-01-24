@@ -46,11 +46,18 @@ I'm open to contributions, specifically models, as they take me more time than w
 		- Now panics enemies
 			- Panic forces enemies to run around and no longer attack you.
 			- Increases afflicted enemies' cooldowns by x0.5
+			- Removes a stack from all their abilities when afflicted.
 			- Forces them to sprint.
 			- Adds movement speed bonus.
 			- Won't attack as long as they are panicked.
-		- Initial radius should now be fixed.
 		- Stack radius 2m -> 5m
+		- Initial debuff duration 6 -> 10
+			- Debuff duration no longer increases with stacks.
+			- Champions and bosses no longer candidates for debuff.
+			- Additionally, bigger enemies have less chances of getting afflicted by the debuff.
+		
+*This shifts the behavior into a slightly more defense-wise item: Safety instead of combat makes triggering easier for range characters as they no longer have to wait to be next to the enemy to start shooting, and as a bonus, it triggers when taking heavy damage.*
+*As this makes enemies ignore you completely, bosses won't be affected and bigger enemies have less chance of affliction, it might help with any kind trash mob and wisp, but no way it will give you a free pass for all those titans and vagrants*
 	- Fan of Blades
 		- Projectile speed 100 -> 250
 		- Lifetime 10s -> 5s
@@ -59,17 +66,21 @@ I'm open to contributions, specifically models, as they take me more time than w
 		- Damage 250% -> 285%
 		- Now affected by aim direction.
 		
-*Still most useful at point blank angle, but now at least your knives wont instantly be stuck in the ground. Lets pretty much anybody snipe any enemy on utility skill use, even melee*
+*Still most useful at point blank angle, but now at least your knives wont instantly be stuck in the ground. Allows pretty much anybody to snipe any enemy on utility skill use, even melee survivors.*
 	- UVB-51 Radio
-		- Removed time of day of the current stage as buff requirement, now any kind of stage gives off both armor and health regen bonuses.
-		- Initial stack 15s -> 45s
-		- Later stacks 10s -> 30s
-		- Now grants +0.05 sprint bonus per stage.
-		- Now grants +0.025 attack speed bonus per stage.
-		- Final stage bonus x1.25 -> x1.15
+		- Item entirely reworked
+		- Reveals 10% of the stage's interactables, +5 interactables per additional item stack for one minute when entering the stage.
+			- Team Wide stacking.
+			- Wont reveal teleporter, barrels, vehicles, bazaar upgrades and proxy interactions.
+		- Revealed things (From this item or radars) have a 25% chance of revealing the contents inside, +5% per stack.
+			- Depending on each player.
+			- You have to be within 12 meters of the interactor, and it scans for them every 10 seconds.
+			- Succesfully revealing the contents extends the indicator for 30 more seconds.
+			- Affected by luck
+		- Radio towers should now scan the whole map like the Scanner equipment if whoever uses it has the radio.
 		
-*Changes meant to make the item more reliable, and to aid the player in scouting the stage at arrival.*
-*Sprint and attack speed bonuses are minimal as to not out-weight right away the items they are based off (Soda and syringes), but should become pretty significant post-loop. Final stage bonus decreased as the buff gives more than just defense now.*
+*The previous concept seemed unreliable for a green item, as its purpose was to aid the player in scouting the stage at the start, which the defense or attack buffs didn't help at all with*
+*The old concept will return in the future as a different item*
 	- Magnetic Belt
 		- Initial stack radius 8m -> 16m
 		- Later stacks 4m -> 8m
@@ -79,6 +90,14 @@ I'm open to contributions, specifically models, as they take me more time than w
 
 *I initially took the radius values from the Warbanner but divided by half, as I thought it would be a good starting point, but as I played on my own, and as other players reported, the item struggles to be noticeable at all.*
 *It now should grab monster tooths for melee and ranged survivors alike. Duplication chance increased as I thought it could be nice to have, but mostly remains for clover purposes, speed increased to guarantee that the player that duplicated them gets them.*
+	- Nanomachines
+		- Initial stack buffs 1 times -> 2 times
+	- Super Stickies
+		- Is now functional.
+		- Initial damage 180%x3 -> 540%
+		- Stacking changed from +1 explosion per stack to +180% damage
+
+*Changes made to don't stress as much on performance*
 - Artifacts
 	- Artifact of Worms
 		- 🌧 Elite Worms if Honor is active can now be enabled/disabled with a newly added rule
@@ -93,10 +112,15 @@ I'm open to contributions, specifically models, as they take me more time than w
 *Other than that, this mainly aims to make worms not melt your performance by stage 3 due to the ridiculous high amount of them spawning. You could also say it also helps a bit with players getting 12 fire stacks out of nowhere and dying.*
 *Worms will keep spawning post-teleporter event for now, but I'd like to know the general consensus on this.*
 - Fixes
-	- Fixed Artifact of Worms modifying the original worm character spawn cards
-	- Fixed Fan of Blades not having ghosts
+	- Fixed Artifact of Worms modifying the original worm character spawn cards.
+	- Fixed Fan of Blades not having ghosts.
 	- Playing Cards is now server only. Should fix unintended behavior.
-
+	- Nanomachines is now server only.
+	- Added an extra condition to the Ejection Lever, it now should let players trigger it if the teleporter is the state previous to stage exit.
+	- Disabled typewriter as I come up with a better concept.
+	- Initial radius of Voice Modulator should now be fixed.
+	- Super stickies should be now properly affected by luck.
+	
 `0.0.4`
 - Hotfix
 	- Added the new placeholder model to items that I accidentally skipped over

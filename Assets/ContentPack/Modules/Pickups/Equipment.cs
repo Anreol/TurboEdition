@@ -18,6 +18,11 @@ namespace TurboEdition.Equipments
         {
         }
 
+        /// <summary>
+        /// Only runs in the server.
+        /// </summary>
+        /// <param name="slot"></param>
+        /// <returns></returns>
         public virtual bool FireAction(EquipmentSlot slot)
         {
             return false;

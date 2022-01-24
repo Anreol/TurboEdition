@@ -29,7 +29,7 @@ namespace TurboEdition
             TELog.LogI("Subscribing to delegates related to Items and Equipments.");
             CharacterBody.onBodyStartGlobal += AddItemManager;
             On.RoR2.CharacterBody.RecalculateStats += OnRecalculateStats;
-            On.RoR2.EquipmentSlot.PerformEquipmentAction += FireTurboEqp;
+            On.RoR2.EquipmentSlot.PerformEquipmentAction += FireTurboEqp; //Reminder, SERVER ONLY!
         }
 
         public static IEnumerable<Item> InitializeItems()
@@ -99,15 +99,10 @@ namespace TurboEdition
 
         private static bool FireTurboEqp(On.RoR2.EquipmentSlot.orig_PerformEquipmentAction orig, EquipmentSlot self, EquipmentDef equipmentDef)
         {
-            if (!NetworkServer.active)
-            {
-                Debug.LogWarning("[Server] function 'System.Boolean RoR2.EquipmentSlot::PerformEquipmentAction(RoR2.EquipmentDef)' called on client");
-                return false;
-            }
             Equipment equipment;
             if (equipmentList.TryGetValue(equipmentDef, out equipment))
             {
-                var body = self.characterBody;
+                //var body = self.characterBody;
                 return equipment.FireAction(self);
             }
             return orig(self, equipmentDef);

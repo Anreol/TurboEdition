@@ -12,15 +12,18 @@ namespace TurboEdition.Equipments
 
         public override void Initialize()
         {
-            Stage.onStageStartGlobal += Stage_onStageStartGlobal;
+            Stage.onServerStageBegin += ServerStageStart;
             SceneExitController.onBeginExit += ListenToSceneExitController;
         }
 
-        private void Stage_onStageStartGlobal(Stage obj)
+        private void ServerStageStart(Stage obj)
         {
             canLeave = true;
         }
-
+        private void ListenToSceneExitController(SceneExitController obj)
+        {
+            canLeave = false;
+        }
         public override bool FireAction(EquipmentSlot slot)
         {
             if (canLeave)
@@ -34,49 +37,40 @@ namespace TurboEdition.Equipments
         {
             if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) //Is anniversary moon. Do not know how to get it in a better way.
             {
-                GameObject sceneExitGO = CreateSceneExitGameObject();
-                SceneExitController sceneExitController = sceneExitGO.GetComponent<SceneExitController>();
+                SceneExitController sceneExitController;
+                GameObject sceneExitGO = CreateSceneExitGameObject(out sceneExitController);
                 sceneExitController.useRunNextStageScene = false;
                 sceneExitController.destinationScene = SceneCatalog.GetSceneDefFromSceneName("moon");
                 NetworkServer.Spawn(sceneExitGO);
-                if (NetworkServer.active)
-                {
-                    sceneExitController.Begin();
-                }
+                sceneExitController.Begin();
                 return true;
             }
             if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) //Not a stage trololo
             {
                 return false;
             }
-            if (TeleporterInteraction.instance.chargeFraction >= 0.99 || TeleporterInteraction.instance.monstersCleared)
+            if (TeleporterInteraction.instance.chargeFraction >= 0.99f || TeleporterInteraction.instance.monstersCleared || (TeleporterInteraction.instance.currentState is TeleporterInteraction.ChargedState && TeleporterInteraction.instance.monstersCleared))
             {
-                GameObject sceneExitGO = CreateSceneExitGameObject();
-                SceneExitController sceneExitController = sceneExitGO.GetComponent<SceneExitController>();
+                SceneExitController sceneExitController;
+                GameObject sceneExitGO = CreateSceneExitGameObject(out sceneExitController);
                 NetworkServer.Spawn(sceneExitGO);
-                if (NetworkServer.active)
-                {
-                    sceneExitController.Begin();
-                }
+                sceneExitController.Begin();
                 return true;
             }
             return false;
         }
 
-        public GameObject CreateSceneExitGameObject()
+        public GameObject CreateSceneExitGameObject(out SceneExitController sceneExitController)
         {
             GameObject sceneExitGo = new GameObject("SceneExitLeaveStageEquip");
             sceneExitGo.AddComponent<SceneExitController>();
-            SceneExitController sceneExitController = sceneExitGo.GetComponent<SceneExitController>();
+            sceneExitController = sceneExitGo.GetComponent<SceneExitController>();
             //InstanceTracker.Add(sceneExitController); //Add it for the sake of consistency EDIT: It adds itself on Enable!!
             sceneExitController.useRunNextStageScene = true; //True by default
             sceneExitController.SetState(SceneExitController.ExitState.Idle); //Idle by default
             return sceneExitGo;
         }
 
-        private void ListenToSceneExitController(SceneExitController obj)
-        {
-            canLeave = false;
-        }
+
     }
 }
