@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3449991503
+CRC: 2321393189
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 73e097bd090f6e5ddfebd857f05d78c4
+    Hash: 98e089cad9660c3824d980cca00e7041
   TypeTreeHash:
     serializedVersion: 2
     Hash: d76aec56a0e7299a03294b6393ec4de5
@@ -326,7 +326,10 @@ Assets:
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD SDF.asset
 - Assets/Mesh/Items/meshKnifeHandle.mesh
 - Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Quests.Hunt.Common.Manager.asset
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bane.png
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD.OTF
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Belt.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Nanomachines.png
 - Assets/Materials/matHellLinkedBuffBillboard.mat
 - Assets/Hopoo/materials/matUIPaintStreakAnimated.mat
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2Artifact.asset
@@ -378,6 +381,7 @@ Assets:
 - Assets/Hopoo/materials/matGenericFlash.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Cards.png
 - Assets/Textures/Ramps/texRampRedcross.png
 - Assets/ScriptableObject/skinObjectivePanel.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
@@ -442,6 +446,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/icon.png
 - Assets/Mesh/Items/meshSuperSticky_.mesh
 - Assets/Mesh/Items/meshIcosphere.mesh
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lenses.png
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormNonEliteArtifact.asset
@@ -465,6 +470,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OrbEffects/OrbEffects.asset
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png
 - Assets/Textures/texSandbagRoughness.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/Typewriter.asset
 - Assets/Hopoo/sprites/texUIOutlineOnly.png
@@ -489,6 +495,7 @@ Assets:
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/Hopoo/sprites/texUICheckboxes.png
 - Assets/Hopoo/sprites/texUIHighlightBoxOutline.png
+- Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Tape.png
 - Assets/Textures/texCardTest.png
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/128x128Square.png

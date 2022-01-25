@@ -41,6 +41,7 @@ I'm open to contributions, specifically models, as they take me more time than w
 `0.0.5`
 - Plugin should no longer report debug logs to console unless its a debug assembly
 - Plugin now marks the game as modded
+- Added stock images to most items. Only the placeholder lunar and the placeholder equipment has the old ones.
 - Balance changes
 	- Voice Modulator
 		- Now panics enemies
@@ -50,11 +51,14 @@ I'm open to contributions, specifically models, as they take me more time than w
 			- Forces them to sprint.
 			- Adds movement speed bonus.
 			- Won't attack as long as they are panicked.
-		- Stack radius 2m -> 5m
+		- Stack radius 2m -> 3.5m
 		- Initial debuff duration 6 -> 10
 			- Debuff duration no longer increases with stacks.
 			- Champions and bosses no longer candidates for debuff.
 			- Additionally, bigger enemies have less chances of getting afflicted by the debuff.
+		- Guaranteed trigger On combat enter -> On safety exit
+		- Now can also trigger depending on % damage taken, similar to old stealthkit.
+			- Getting to safety recharges both triggers.
 		
 *This shifts the behavior into a slightly more defense-wise item: Safety instead of combat makes triggering easier for range characters as they no longer have to wait to be next to the enemy to start shooting, and as a bonus, it triggers when taking heavy damage.*
 *As this makes enemies ignore you completely, bosses won't be affected and bigger enemies have less chance of affliction, it might help with any kind trash mob and wisp, but no way it will give you a free pass for all those titans and vagrants*
@@ -81,6 +85,10 @@ I'm open to contributions, specifically models, as they take me more time than w
 		
 *The previous concept seemed unreliable for a green item, as its purpose was to aid the player in scouting the stage at the start, which the defense or attack buffs didn't help at all with*
 *The old concept will return in the future as a different item*
+	- Blood Economy
+		- Amount of damage accumulated needed to get rewarded 650 -> 250
+		
+*Too hard to pull off very early in the run and very unrewarding for a green, while the amount accumulated is still unknown to the player, I plan to address that sometime in the future when I get more assets*
 	- Magnetic Belt
 		- Initial stack radius 8m -> 16m
 		- Later stacks 4m -> 8m

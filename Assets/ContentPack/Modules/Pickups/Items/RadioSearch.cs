@@ -98,31 +98,24 @@ namespace TurboEdition.Items
         {
             currentRevealCount = 0;
             numberToReveal = Util.GetItemCountForTeam(TeamIndex.Player, ItemCatalog.FindItemIndex("RadioSearch"), true);
-            MonoBehaviour[][] things = new MonoBehaviour[trimmedTypesToCheck.Length][];
-            int totalCount = 0;
+            MonoBehaviour[] things = new MonoBehaviour[0];
             for (int i = 0; i < trimmedTypesToCheck.Length; i++)
             {
-                int x = 0;
                 foreach (MonoBehaviour monoBehaviour in InstanceTracker.FindInstancesEnumerable(trimmedTypesToCheck[i]))
                 {
                     if (((IInteractable)monoBehaviour).ShouldShowOnScanner())
                     {
-                        things[i][x] = monoBehaviour;
-                        totalCount++;
-                        x++;
+                        HG.ArrayUtils.ArrayAppend(ref things, monoBehaviour);
                     }
                 }
             }
-            numberToReveal += (int)(0.10 * totalCount);
+            numberToReveal += (int)(0.10 * things.Length);
             for (int i = 0; i < things.Length; i++)
             {
-                for (int x = 0; x < things[i].Length; x++)
-                {
-                    if (currentRevealCount > numberToReveal)
-                        continue;
-                    TryAddRevealer(things[i][x].gameObject.transform);
-                    currentRevealCount++;
-                }
+                if (currentRevealCount > numberToReveal)
+                    continue;
+                TryAddRevealer(things[i].gameObject.transform);
+                currentRevealCount++;
             }
         }
 
@@ -133,14 +126,15 @@ namespace TurboEdition.Items
                 item.gameObject.GetComponent<PurchaseInteraction>().onPurchase.AddListener(new UnityEngine.Events.UnityAction<Interactor>(CheckItem));
             }
         }
+
         private static void CheckItem(Interactor interactor)
         {
             if (interactor.GetComponent<CharacterBody>().inventory.GetItemCount(ItemCatalog.FindItemIndex("RadioSearch")) > 0)
             {
                 NetworkServer.Spawn(UnityEngine.Object.Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/NetworkedObjects/ChestScanner"), interactor.transform.position, Quaternion.identity));
             }
-            
         }
+
         private static void TryAddRevealer(Transform revealableTransform)
         {
             ChestRevealer.PendingReveal pendingReveal = new ChestRevealer.PendingReveal

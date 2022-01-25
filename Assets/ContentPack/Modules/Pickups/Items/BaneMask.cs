@@ -15,7 +15,7 @@ namespace TurboEdition.Items
             body.AddItemBehavior<BaneMaskBehaviorServer>(stack);
         }
 
-        internal class BaneMaskBehaviorServer : CharacterBody.ItemBehavior
+        internal class BaneMaskBehaviorServer : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
             public static GameObject pulsePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BaneMaskPulse");
 
@@ -24,9 +24,24 @@ namespace TurboEdition.Items
             //Destroy On Timer: 3 Seconds
             //Has Shaker Emiter
             private bool alreadyOut = true;
+            private bool percentTriggered = false;
 
             private SphereSearch sphereSearch;
-
+            private void Start()
+            {
+                if (body.healthComponent)
+                    HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
+            }
+            private void OnDestroy()
+            {
+                //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.
+                if (body.healthComponent)
+                {
+                    int i = System.Array.IndexOf(body.healthComponent.onIncomingDamageReceivers, this);
+                    if (i > -1)
+                        HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onIncomingDamageReceivers, body.healthComponent.onIncomingDamageReceivers.Length, i);
+                }
+            }
             private void FixedUpdate()
             {
                 if (!NetworkServer.active)
@@ -39,6 +54,7 @@ namespace TurboEdition.Items
                 else if (body.outOfDanger && !alreadyOut)
                 {
                     alreadyOut = true;
+                    percentTriggered = false;
                 }
             }
 
@@ -53,7 +69,7 @@ namespace TurboEdition.Items
                     origin = body.transform.position,
                 };
 
-                component.finalRadius = (10f + ((stack - 1) * 5f));
+                component.finalRadius = (10f + ((stack - 1) * 3.5f));
                 component.duration = Mathf.Min(stack, 3);
                 component.performSearch += Component_performSearch;
                 component.onPulseHit += Component_onPulseHit;
@@ -105,6 +121,17 @@ namespace TurboEdition.Items
                         return;
                     }
                 }
+            }
+
+            public void OnTakeDamageServer(DamageReport damageReport)
+            {
+                if (!damageReport.damageInfo.rejected)
+                    if (Util.CheckRoll(damageReport.damageDealt / body.healthComponent.fullCombinedHealth, body.master) && !percentTriggered)
+                    {
+                        GeneratePulse();
+                        percentTriggered = true;
+                    }
+                
             }
         }
     }

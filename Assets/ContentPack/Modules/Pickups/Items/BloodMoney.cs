@@ -21,15 +21,16 @@ namespace TurboEdition.Items
         internal class BloodMoneyBehaviorServer : CharacterBody.ItemBehavior, IOnTakeDamageServerReceiver
         {
             private int currentMl = 0;
+            private const int bagMlSize = 250;
             private bool shouldScale = true;
             private void FixedUpdate()
             {
-                if (currentMl >= 600)
+                if (currentMl >= bagMlSize)
                 {
                     int moneyReward = 25 + ((stack - 1) * 15);
                     moneyReward = shouldScale ? Run.instance.GetDifficultyScaledCost(moneyReward) : moneyReward;
                     body.master.GiveMoney((uint)moneyReward);
-                    currentMl =- 600;
+                    currentMl =- bagMlSize;
                 }
             }
             public void OnTakeDamageServer(DamageReport damageReport)
@@ -63,7 +64,7 @@ namespace TurboEdition.Items
                 }
                 if (body.healthComponent.isHealthLow)
                 {
-                    currentMl += Mathf.RoundToInt(damageReport.damageDealt / 4);
+                    currentMl += Mathf.RoundToInt(damageReport.damageDealt / 2);
                 }
             }
         }
