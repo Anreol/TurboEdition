@@ -1,4 +1,4 @@
-﻿using System;
+﻿using RoR2EditorKit;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -236,12 +236,13 @@ namespace Moonstorm.EditorUtils.Pipelines
             for (int i = 0; i < materials.Length; i++)
             {
                 var current = materials[i];
-                if (HopooShaderDictionary.realToStubbed.TryGetValue(current.shader, out Shader stubbed))
+                if (ShaderSwapDictionary.realToStubbed.TryGetValue(current.shader, out Shader stubbed))
                 {
                     count++;
                     current.shader = stubbed;
                 }
             }
+            AssetDatabase.SaveAssets();
             return count;
         }
 
@@ -277,12 +278,13 @@ namespace Moonstorm.EditorUtils.Pipelines
             for (int i = 0; i < materials.Length; i++)
             {
                 var current = materials[i];
-                if (HopooShaderDictionary.stubbedToReal.TryGetValue(current.shader, out Shader stubbed))
+                if (ShaderSwapDictionary.stubbedToReal.TryGetValue(current.shader, out Shader stubbed))
                 {
                     count++;
                     current.shader = stubbed;
                 }
             }
+            AssetDatabase.SaveAssets();
             return count;
         }
     }

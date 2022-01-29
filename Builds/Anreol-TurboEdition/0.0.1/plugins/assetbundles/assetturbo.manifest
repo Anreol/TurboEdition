@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2321393189
+CRC: 2027489084
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 98e089cad9660c3824d980cca00e7041
+    Hash: 10bf22a081f26cf8ac0a52a56905de77
   TypeTreeHash:
     serializedVersion: 2
     Hash: d76aec56a0e7299a03294b6393ec4de5
@@ -334,7 +334,8 @@ Assets:
 - Assets/Hopoo/materials/matUIPaintStreakAnimated.mat
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2Artifact.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxPanicDrops.prefab
-- Assets/Textures/texKnifeUVAlpha.png
+- Assets/Textures/texGlowDirty.png
+- Assets/Textures/texKnifeUVNormal.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/PackMagnet.asset
 - Assets/Textures/texOilSplatter.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/RadioConnect.prefab
@@ -348,7 +349,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
 - Assets/Textures/texSuperStickyEmMask.png
 - Assets/Mesh/DecalCube.asset
-- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/SandBag.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/PickupSandBag.prefab
 - Assets/Textures/Ramps/texRampBrightFire.png
 - Assets/Mesh/Items/meshKnifeBlade.mesh
 - Assets/ContentPack/AssetTurbo/EquipmentDefs/Hellchain.asset
@@ -369,6 +370,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_KnifeBlade.png
 - Assets/ScriptableObject/tsfRunStopwatch.asset
 - Assets/Hopoo/shaders/fx/hgcloudremap.shader
+- Assets/Mesh/Items/meshItemDeployer_.mesh
 - Assets/ContentPack/AssetTurbo/Spawncards/interactablespawncard/iscShrineQuest.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/SoulDevourer.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
@@ -394,10 +396,11 @@ Assets:
 - Assets/Mesh/Items/meshIcosphereCage.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Uncommon.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_SoulDevourer.png
-- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/SuperSticky.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/PickupSuperSticky.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
 - Assets/Textures/texKnifeUV.png
 - Assets/Materials/matUIBlur.mat
+- Assets/Textures/texItemDeployerNormal.png
 - Assets/ContentPack/AssetTurbo/EntityStateConfigurations/States.AI.Walker.ForceFlee.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/WormDirector.prefab
 - Assets/Mesh/VFXLightShaft.asset
@@ -414,6 +417,7 @@ Assets:
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Font Asset Icon.psd
 - Assets/Materials/matKnife.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStripOld.prefab
+- Assets/Materials/matSuperStickyLight.mat
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
 - Assets/Textures/texBlackKumo0101_00.png
 - Assets/Textures/texSuperSticky.png
@@ -428,12 +432,15 @@ Assets:
 - Assets/ScriptableObject/skinCleanHeaderButton.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bag.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
+- Assets/Textures/Ramps/texRampPurpleYellow.png
 - Assets/Hopoo/sprites/texUICutOffCorner.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
 - Assets/Textures/Ramps/texGenericDustRamp.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/CopyFromHopoo.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_deselected.png
+- Assets/Materials/matItemDeployer.mat
 - Assets/Hopoo/sprites/texUICleanButton.png
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/PickupItemDeployer.prefab
 - Assets/Shaders/HGShader-DONT-PUSH/DecaliciousDeferred Decal.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffCannotSprint.asset
 - Assets/Textures/texBBDecalMask1.png
@@ -447,6 +454,7 @@ Assets:
 - Assets/Mesh/Items/meshSuperSticky_.mesh
 - Assets/Mesh/Items/meshIcosphere.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lenses.png
+- Assets/Textures/texItemDeployer.png
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormNonEliteArtifact.asset
@@ -461,6 +469,7 @@ Assets:
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Text.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/StatArmorUP.prefab
+- Assets/Textures/texShockwaveMask.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/GracePeriod.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/SuperStickyGhost.prefab
 - Assets/Textures/Ramps/texRampLightblue.png
@@ -503,8 +512,9 @@ Assets:
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png
 - Assets/Mesh/donut2Mesh.asset
+- Assets/Textures/texItemDeployerFresnel.png
 - Assets/Mesh/Items/meshSandbag_.mesh
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffMeleeArmor.asset
-- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/KnifeFan.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/PickupKnifeFan.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/nanomachines.png
 Dependencies: []

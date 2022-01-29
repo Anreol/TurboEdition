@@ -3,7 +3,10 @@
     "references": [
         "Unity.TextMeshPro",
         "TurboEdition",
-        "ThunderKit.Core"
+        "ThunderKit.Core",
+        "ThunderKit.Common",
+        "RoR2EditorKit",
+        "ThunderKit.Thunderstore"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

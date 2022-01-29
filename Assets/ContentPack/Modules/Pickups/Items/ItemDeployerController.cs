@@ -19,8 +19,18 @@ namespace TurboEdition.Items
 
         private void MasterSummon_onServerMasterSummonGlobal(MasterSummon.MasterSummonReport obj)
         {
-            if (!NetworkServer.active || !obj.leaderMasterInstance || !obj.summonMasterInstance) return; //needs a master else it will NRE director spawns
-            ItemDeployerController.Activate(obj);
+            if (!obj.leaderMasterInstance || !obj.summonMasterInstance) return; //needs a master else it will NRE director spawns
+
+            foreach (var item in bannedBodies)
+            {
+                if (obj.summonMasterInstance.GetBody().bodyIndex == BodyCatalog.FindBodyIndex(item))
+                    return;
+            }
+
+            if ((obj.summonMasterInstance.GetBody().bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None)
+            {
+                ItemDeployerController.Activate(obj);
+            }
         }
 
         public static class ItemDeployerController
@@ -37,17 +47,16 @@ namespace TurboEdition.Items
                         ItemIndex itemIndex = msr.leaderMasterInstance.inventory.itemAcquisitionOrder[i];
                         int maxStackToGive = Mathf.Min(itemDeployCount * 2, msr.leaderMasterInstance.inventory.GetItemCount(itemIndex));
                         ItemDef itemdef = ItemCatalog.GetItemDef(itemIndex);
-                        if (itemdef.DoesNotContainTag(ItemTag.AIBlacklist) || itemdef.DoesNotContainTag(ItemTag.CannotCopy) || !itemdef.hidden || itemdef != Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeploys"))
-                        {
-                            ItemDeploysManager(itemIndex, maxStackToGive, msr, inFlightOrbs);
-                        }
+                        if ((itemdef.ContainsTag(ItemTag.AIBlacklist) || itemdef.ContainsTag(ItemTag.CannotCopy)) || itemdef.hidden || itemdef == Assets.mainAssetBundle.LoadAsset<ItemDef>("ItemDeployer"))
+                            continue;
+                        ItemDeploysManager(itemIndex, maxStackToGive, msr, inFlightOrbs);
                     }
                 }
             }
 
             private static void ItemDeploysManager(ItemIndex indexGive, int numGive, MasterSummon.MasterSummonReport msr, List<ItemTransferOrb> inFlightOrbs)
             {
-                if ((msr.summonMasterInstance.hasBody && (msr.summonMasterInstance.GetBody().bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None))
+                if ((msr.summonMasterInstance.hasBody))
                 {
                     ItemTransferOrb item = ItemTransferOrb.DispatchItemTransferOrb(msr.leaderMasterInstance.GetBody().transform.position, msr.summonMasterInstance.inventory, indexGive, numGive, delegate (ItemTransferOrb orb)
                     {
@@ -62,5 +71,11 @@ namespace TurboEdition.Items
                 }
             }
         }
+
+        private static string[] bannedBodies = new string[]
+        {
+            "EngiTurretBody",
+            "EngiWalkerTurretBody"
+        };
     }
 }

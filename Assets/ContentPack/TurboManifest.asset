@@ -56,10 +56,11 @@ MonoBehaviour:
   - <ManifestPluginStaging>
   Author: Anreol
   Name: Anreol-TurboEdition
-  Description: Test
-  Version: 0.0.1
+  Description: Very WIP
+  Version: 0.0.5
   Dependencies:
   - {fileID: 11400000, guid: bff73382628f698c89c1d9ae43c8f350, type: 2}
+  - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
 --- !u!114 &114338525782180936
 MonoBehaviour:
   m_ObjectHideFlags: 0

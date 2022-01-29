@@ -20,11 +20,12 @@ namespace Moonstorm.EditorUtils
 
             var id = GUIUtility.GetControlID(new GUIContent("Pick shader asset"), FocusType.Passive);
 
-            if ((materialEditor.target as Material).shader.name.StartsWith("StubbedShader"))
+            Shader shader = (materialEditor.target as Material).shader;
+            if (shader.name.StartsWith("Stubbed"))
             {
                 if (GUILayout.Button("Upgrade to Real Shader"))
                 {
-                    MaterialUpgrader.Upgrade((Material)materialEditor.target);
+                    MaterialShaderManager.Upgrade((Material)materialEditor.target);
                 }
             }
 

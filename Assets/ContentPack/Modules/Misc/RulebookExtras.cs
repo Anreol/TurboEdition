@@ -25,7 +25,7 @@ namespace TurboEdition.Misc
         private static void Init()
         {
             RuleDef wormEliteHonorRule = new RuleDef("Misc.WormArtifactEliteHonor", "RULE_MISC_WORMARTIFACT_ELITE_HONOR");
-            
+
             RuleChoiceDef wormEliteHonorChoiceOn = wormEliteHonorRule.AddChoice("On", true, false);
             wormEliteHonorChoiceOn.tooltipNameToken = "RULE_WORMARTIFACTELITEHONOR_CHOICE_ON_NAME";
             wormEliteHonorChoiceOn.tooltipBodyToken = "RULE_WORMARTIFACTELITEHONOR_CHOICE_ON_DESC";
@@ -34,7 +34,7 @@ namespace TurboEdition.Misc
             wormEliteHonorChoiceOn.onlyShowInGameBrowserIfNonDefault = true;
             wormEliteHonorChoiceOn.unlockable = RoR2Content.Artifacts.EliteOnly.unlockableDef;
             wormEliteHonorChoiceOn.excludeByDefault = false;
-            //wormEliteHonorChoiceOn.sprite =  
+            wormEliteHonorChoiceOn.sprite = Assets.mainAssetBundle.LoadAsset<Sprite>("texHonorWormRuleOn");
 
             RuleChoiceDef wormEliteHonorChoiceOff = wormEliteHonorRule.AddChoice("Off", false, false);
             wormEliteHonorChoiceOff.tooltipNameToken = "RULE_WORMARTIFACTELITEHONOR_CHOICE_OFF_NAME";
@@ -43,6 +43,7 @@ namespace TurboEdition.Misc
             //wormEliteHonorChoiceOff.tooltipBodyColor = ColorCatalog.GetColor(ColorCatalog.ColorIndex.BossItemDark); No rule does this
             wormEliteHonorChoiceOff.onlyShowInGameBrowserIfNonDefault = true;
             wormEliteHonorChoiceOff.excludeByDefault = false;
+            wormEliteHonorChoiceOff.sprite = Assets.mainAssetBundle.LoadAsset<Sprite>("texHonorWormRuleOff");
 
             wormEliteHonorRule.MakeNewestChoiceDefault();
             RuleCatalog_PatchedAddRule(wormEliteHonorRule, 4);

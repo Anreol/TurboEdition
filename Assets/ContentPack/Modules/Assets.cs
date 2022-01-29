@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using TurboEdition.Components;
 using TurboEdition.ScriptableObjects;
 using UnityEngine;
 using Path = System.IO.Path;
@@ -28,6 +30,11 @@ namespace TurboEdition
         private const string assetBundleFolderName = "assetbundles";
         internal static string mainAssetBundleName = "assetTurbo";
         public static ReadOnlyCollection<AssetBundle> assetBundles;
+
+        //Something something must keep it in memory with the changed values or some fucking shit
+        //god
+        public static Material[] matsWithDifferentMatProperties = new Material[0];
+        public static List<Material> MaterialsWithSwappedShaders { get; private set; } = new List<Material>();
 
         [RoR2.SystemInitializer] //look at putting it in FinalizeAsync
         public static void Init()
@@ -69,6 +76,16 @@ namespace TurboEdition
             for (int i = 0; i < assetBundleMaterials.Length; i++)
             {
                 var material = assetBundleMaterials[i];
+                if (material.shader.name.StartsWith("StubbedCalmWater"))
+                {
+                    material.shader = Shader.Find(material.shader.name.Substring(7));
+                    continue;
+                }
+                if (material.shader.name.StartsWith("StubbedDecalicious"))
+                {
+                    material.shader = Shader.Find(material.shader.name.Substring(8));
+                    continue;
+                }
                 // If it's stubbed, just switch out the shader unless it's fucking cloudremap
                 if (material.shader.name.StartsWith("StubbedShader"))
                 {
@@ -78,7 +95,10 @@ namespace TurboEdition
                         var cockSucker = new RuntimeCloudMaterialMapper(material);
                         material.CopyPropertiesFromMaterial(cloudMat);
                         cockSucker.SetMaterialValues(ref material);
+                        //HG.ArrayUtils.ArrayAppend(ref matsWithDifferentMatProperties, material);
+                        MaterialsWithSwappedShaders.Add(material);
                     }
+                    continue;
                 }
 
                 //If it's this shader it searches for a material with the same name and copies the properties
@@ -89,8 +109,11 @@ namespace TurboEdition
                         {
                             material.shader = gameMaterial.shader;
                             material.CopyPropertiesFromMaterial(gameMaterial);
+                            //HG.ArrayUtils.ArrayAppend(ref matsWithDifferentMatProperties, material);
+                            MaterialsWithSwappedShaders.Add(material);
                             break;
                         }
+                    continue;
                 }
                 assetBundleMaterials[i] = material;
             }

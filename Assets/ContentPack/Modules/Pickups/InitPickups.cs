@@ -27,6 +27,7 @@ namespace TurboEdition
         private static void HookInit()
         {
             TELog.LogI("Subscribing to delegates related to Items and Equipments.");
+
             CharacterBody.onBodyStartGlobal += AddItemManager;
             On.RoR2.CharacterBody.RecalculateStats += OnRecalculateStats;
             On.RoR2.EquipmentSlot.PerformEquipmentAction += FireTurboEqp; //Reminder, SERVER ONLY!
@@ -57,7 +58,7 @@ namespace TurboEdition
         public static IEnumerable<Equipment> InitializeEquipments()
         {
             TELog.LogD($"Getting the Equipments found inside {Assembly.GetExecutingAssembly()}...");
-            Assembly.GetExecutingAssembly().GetType().Assembly.GetTypes()
+            Assembly.GetExecutingAssembly().GetTypes()
                            .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)))
                            .Where(type => !type.GetCustomAttributes(true)
                                     .Select(obj => obj.GetType())
