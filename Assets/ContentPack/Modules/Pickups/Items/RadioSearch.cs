@@ -123,7 +123,7 @@ namespace TurboEdition.Items
         {
             foreach (NetworkBehaviour item in InstanceTracker.FindInstancesEnumerable(typeof(RadiotowerTerminal)))
             {
-                item.gameObject.GetComponent<PurchaseInteraction>().onPurchase.AddListener(new UnityEngine.Events.UnityAction<Interactor>(CheckItem));
+                item.gameObject.GetComponent<PurchaseInteraction>().onPurchase.AddListener((interactor) => CheckItem(interactor));
             }
         }
 

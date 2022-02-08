@@ -80,6 +80,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\BaseAINumb.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GetDamageFromHurtVictimBodyAttachment.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\GrenadierPassiveController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestComponent.cs" />
@@ -100,6 +101,19 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\WeaveTest.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\AI\ForceFlee.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReload.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLBase.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLPrimary.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLSecondaryAlt.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireSecondary.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\PrepSecondaryAlt.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\Reload.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeCurling.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeSatchels.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeThrowBase.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowBase.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowCurling.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowSatchels.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />

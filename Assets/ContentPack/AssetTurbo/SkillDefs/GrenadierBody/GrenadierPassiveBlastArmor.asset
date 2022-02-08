@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1391837873, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: GrenadierPassiveBlastArmor
+  m_EditorClassIdentifier: 
+  skillName: GrenadierPassiveBlastArmor
+  skillNameToken: GRENADIER_PASSIVE_NAME
+  skillDescriptionToken: GRENADIER_PASSIVE_DESCRIPTION
+  keywordTokens: []
+  icon: {fileID: 0}
+  activationStateMachineName: Weapon
+  activationState:
+    _typeName: EntityStates.Idle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  interruptPriority: 1
+  baseRechargeInterval: 0
+  baseMaxStock: 5
+  rechargeStock: 0
+  requiredStock: 1
+  stockToConsume: 1
+  resetCooldownTimerOnUse: 0
+  fullRestockOnAssign: 0
+  dontAllowPastMaxStocks: 0
+  beginSkillCooldownOnSkillEnd: 0
+  cancelSprintingOnActivation: 0
+  forceSprintDuringState: 0
+  canceledFromSprinting: 0
+  isCombatSkill: 0
+  mustKeyPress: 0
