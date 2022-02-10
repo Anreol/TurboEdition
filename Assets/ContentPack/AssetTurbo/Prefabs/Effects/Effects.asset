@@ -15,3 +15,5 @@ MonoBehaviour:
   effectPrefabs:
   - {fileID: 2634889137959156754, guid: 6df9d27a26f1af841930917a0eb5b3fa, type: 3}
   - {fileID: 7538539870988796341, guid: 28d908b334e10224ea826287a57751ae, type: 3}
+  - {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3, type: 3}
+  - {fileID: 1367687870407945083, guid: a7c6f3fafc8fca246966a0aaed395d47, type: 3}

@@ -21,6 +21,6 @@ MonoBehaviour:
   descriptionToken: GRENADIER_DESCRIPTION
   outroFlavorToken: GRENADIER_OUTRO_FLAVOR
   mainEndingEscapeFailureFlavorToken: GRENADIER_MAIN_ENDING_ESCAPE_FAILURE_FLAVOR
-  primaryColor: {r: 0.70980394, g: 0.5803922, b: 0.8980392, a: 1}
+  primaryColor: {r: 0.22352941, g: 0.41960785, b: 0.36862746, a: 1}
   desiredSortPosition: 13.4
   hidden: 0

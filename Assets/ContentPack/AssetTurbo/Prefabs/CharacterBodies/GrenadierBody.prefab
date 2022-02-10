@@ -539,6 +539,7 @@ GameObject:
   - component: {fileID: 7494377625262542546}
   - component: {fileID: 5621022985162316997}
   - component: {fileID: 3768546965871777247}
+  - component: {fileID: 6378433259991495200}
   m_Layer: 0
   m_Name: GrenadierBody
   m_TagString: Player
@@ -691,7 +692,7 @@ MonoBehaviour:
   aimOriginTransform: {fileID: 5175137636755833381}
   hullClassification: 0
   portraitIcon: {fileID: 0}
-  bodyColor: {r: 0.70980394, g: 0.5803922, b: 0.8980392, a: 1}
+  bodyColor: {r: 0.22352941, g: 0.41960785, b: 0.36862746, a: 1}
   isChampion: 0
   currentVehicle: {fileID: 0}
   preferredPodPrefab: {fileID: 0}
@@ -1181,3 +1182,23 @@ MonoBehaviour:
   canBeHitStunned: 0
   canBeStunned: 0
   canBeFrozen: 1
+--- !u!114 &6378433259991495200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196633835157065860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d497c989a6507d0409c8a1e22eeb2707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseBlastArmorRechargeTime: 8
+  passiveSkillSlot: {fileID: 4775533713091580501}
+  grenadierProjectiles:
+  - {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5, type: 3}
+  - {fileID: 7028506108066464535, guid: d8221bda00547fc43ae7da8a17691f35, type: 3}
+  PassiveBlastArmor: {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
+  PassiveBlastArmorBombletPrefab: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
+    type: 3}

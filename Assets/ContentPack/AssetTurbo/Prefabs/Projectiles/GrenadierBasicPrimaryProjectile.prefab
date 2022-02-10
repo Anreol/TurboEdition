@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 9195881915704691530}
   - component: {fileID: 1546852646074600187}
   - component: {fileID: 2929345596389720017}
-  - component: {fileID: 114092669105542782}
+  - component: {fileID: 6503306493459240982}
   m_Layer: 14
   m_Name: GrenadierBasicPrimaryProjectile
   m_TagString: Untagged
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredForwardSpeed: 80
-  lifetime: 3
+  lifetime: 12
   updateAfterFiring: 0
   enableVelocityOverLifetime: 0
   velocityOverLifetime:
@@ -212,7 +212,7 @@ MonoBehaviour:
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
   blastAttackerFiltering: 1
-  bonusBlastForce: {x: 0, y: 400, z: 0}
+  bonusBlastForce: {x: 25, y: 400, z: 25}
   fireChildren: 0
   childrenProjectilePrefab: {fileID: 0}
   childrenCount: 0
@@ -221,7 +221,8 @@ MonoBehaviour:
   maxAngleOffset: {x: 0, y: 0, z: 0}
   useLocalSpaceForChildren: 0
   projectileHealthComponent: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 1367687870407945083, guid: a7c6f3fafc8fca246966a0aaed395d47,
+    type: 3}
   impactEffect: {fileID: 0}
   lifetimeExpiredSoundString: 
   lifetimeExpiredSound: {fileID: 0}
@@ -230,10 +231,10 @@ MonoBehaviour:
   destroyOnWorld: 0
   timerAfterImpact: 0
   lifetime: 3
-  lifetimeAfterImpact: 0
+  lifetimeAfterImpact: 3
   lifetimeRandomOffset: 0
   transformSpace: 0
---- !u!114 &114092669105542782
+--- !u!114 &6503306493459240982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,12 +243,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7028506108066464535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 353067543, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1031dbad5d4023c47b89bf1afb88b290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  prefabEffect: {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3,
+    type: 3}
+  useSurfaceDefEffectToo: 1
 --- !u!1 &9086722933741340282
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1842046035829773162}
   - component: {fileID: 3007177841972640163}
-  - component: {fileID: 4264055448054124099}
+  - component: {fileID: 8232047741844181303}
   m_Layer: 14
   m_Name: StepDetonator
   m_TagString: Untagged
@@ -293,7 +294,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4264055448054124099
+--- !u!114 &8232047741844181303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,10 +303,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9086722933741340282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 707171152, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6375bf6d5f7d4a24e83219a0a8c826ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myTeamFilter: {fileID: 6243246625076868539}
+  projectileDotZone: {fileID: 0}
+  projectileExplosion: {fileID: 2929345596389720017}
   triggerEvents:
     m_PersistentCalls:
       m_Calls:

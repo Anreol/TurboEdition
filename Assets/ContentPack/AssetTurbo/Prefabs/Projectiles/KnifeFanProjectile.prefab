@@ -4730,7 +4730,7 @@ Transform:
   - {fileID: 2283682621587492257}
   - {fileID: 8590328065547856204}
   m_Father: {fileID: 1968541507833826153}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90.00001, y: -90, z: 0}
 --- !u!114 &2218349496207387046
 MonoBehaviour:
@@ -4775,7 +4775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1968541507833826153}
   - component: {fileID: 3287667738780972768}
-  - component: {fileID: 136557214944792214}
   - component: {fileID: 4819772373435510621}
   - component: {fileID: 7793130604741968538}
   - component: {fileID: 293564867086479104}
@@ -4786,6 +4785,8 @@ GameObject:
   - component: {fileID: 3646153217650156771}
   - component: {fileID: 2113502723925170140}
   - component: {fileID: 2670954072209047977}
+  - component: {fileID: 8464350349445342812}
+  - component: {fileID: 114781234759965580}
   m_Layer: 14
   m_Name: KnifeFanProjectile
   m_TagString: Untagged
@@ -4804,6 +4805,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 5118518074692650466}
   - {fileID: 3718544660207158664}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4824,20 +4826,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!136 &136557214944792214
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553861968085051080}
-  m_Material: {fileID: 13400000, guid: 76875017f177fda4699be54d0fd45266, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4819772373435510621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4886,7 +4874,7 @@ MonoBehaviour:
   catalogIndex: 0
   ghostPrefab: {fileID: 8202156028514425107, guid: 725f00eca56908449bea4232f470b126,
     type: 3}
-  ghostTransformAnchor: {fileID: 1968541507833826153}
+  ghostTransformAnchor: {fileID: 5118518074692650466}
   startSound: 
   flightSoundLoop: {fileID: 0}
   allowPrediction: 1
@@ -5079,6 +5067,33 @@ MonoBehaviour:
   m_Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &8464350349445342812
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553861968085051080}
+  m_Material: {fileID: 13400000, guid: 76875017f177fda4699be54d0fd45266, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.8
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114781234759965580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553861968085051080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1184802484, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 3287667738780972768}
+  antiGravityCoefficient: -1
 --- !u!1 &3459514225281977255
 GameObject:
   m_ObjectHideFlags: 0
@@ -9777,3 +9792,33 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &5633973439234987908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5118518074692650466}
+  m_Layer: 14
+  m_Name: Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5118518074692650466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633973439234987908}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1968541507833826153}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}

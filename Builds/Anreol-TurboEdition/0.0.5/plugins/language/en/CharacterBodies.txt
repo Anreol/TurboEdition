@@ -5,7 +5,7 @@
 	"GRENADIER_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
 	"GRENADIER_BODY_LORE" : "GRENADIER_BODY_LORE",
 	"GRENADIER_PASSIVE_NAME" : "Blast Armor",
-	"GRENADIER_PASSIVE_DESCRIPTION" : "Every <style=cIsHealth>15% health</style> lost, release from <style=cIsUtility>9 to 12</style> safe bomblets around you, dealing <style=cIsDamage>90% damage each.</style> They recharge when getting <style=cIsUtility>out of danger</style>. Gain <style=cIsUtility>50% resistance</style> against your own projectiles.",
+	"GRENADIER_PASSIVE_DESCRIPTION" : "Every <style=cIsHealth>20% health</style> lost, release from <style=cIsUtility>9 to 12</style> safe bomblets around you, dealing <style=cIsDamage>100% damage each.</style> They recharge when getting <style=cIsUtility>out of danger</style>. Gain <style=cIsUtility>50% resistance</style> against your own projectiles.",
 	"GRENADIER_PRIMARY_NAME": "Primary MGL",
 	"GRENADIER_PRIMARY_DESCRIPTION" : "Fire your weapon for <style=cIsDamage>300% damage</style>. Can hold up to 6 rounds.",
 	"GRENADIER_PRIMARY_ALT_NAME": "Primary MGL Alt",
