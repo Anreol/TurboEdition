@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace TurboEdition.Components
 {
+    [RequireComponent(typeof(ProjectileController))]
     public class ProjectileImpactEffect : MonoBehaviour, IProjectileImpactBehavior
     {
         public GameObject prefabEffect;
@@ -17,7 +18,9 @@ namespace TurboEdition.Components
 
         public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
         {
-            SurfaceDef surfaceDef = SurfaceDefProvider.GetObjectSurfaceDef(impactInfo.collider, impactInfo.estimatedImpactNormal);
+            Vector3 normal = (impactInfo.estimatedImpactNormal == new Vector3(0, 0, 0)) ? -base.gameObject.transform.forward : impactInfo.estimatedImpactNormal;
+            Vector3 position = (impactInfo.estimatedPointOfImpact == new Vector3(0, 0, 0)) ? base.gameObject.transform.position : impactInfo.estimatedPointOfImpact;
+            SurfaceDef surfaceDef = SurfaceDefProvider.GetObjectSurfaceDef(impactInfo.collider, position);
             if (surfaceDef)
             {
                 Color color = surfaceDef.approximateColor;
@@ -25,7 +28,10 @@ namespace TurboEdition.Components
                 {
                     EffectData effectData = new EffectData()
                     {
-                        origin = impactInfo.estimatedPointOfImpact
+                        color = color,
+                        origin = position,
+                        surfaceDefIndex = surfaceDef.surfaceDefIndex,
+                        rotation = Util.QuaternionSafeLookRotation(normal),
                     };
                     EffectManager.SpawnEffect(surfaceDef.impactEffectPrefab, effectData, false); //Will be local, we dont need to transmit
                     string impactSoundString = surfaceDef.impactSoundString;
@@ -39,9 +45,9 @@ namespace TurboEdition.Components
                     EffectData effectData = new EffectData()
                     {
                         color = color,
-                        origin = impactInfo.estimatedImpactNormal,
+                        origin = position,
                         surfaceDefIndex = surfaceDef.surfaceDefIndex,
-                        rotation = Util.QuaternionSafeLookRotation(impactInfo.estimatedImpactNormal)
+                        rotation = Util.QuaternionSafeLookRotation(normal)
                     };
                     EffectManager.SpawnEffect(prefabEffect, effectData, false);
                 }
@@ -49,7 +55,7 @@ namespace TurboEdition.Components
             }
             if (prefabEffect)
             {
-                EffectManager.SimpleImpactEffect(prefabEffect, impactInfo.estimatedPointOfImpact, impactInfo.estimatedImpactNormal, false);
+                EffectManager.SimpleImpactEffect(prefabEffect, position, normal, false);
             }
         }
     }

@@ -76,5 +76,9 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: selfForce
       fieldValue:
-        stringValue: 2000
+        stringValue: 3000
+        objectValue: {fileID: 0}
+    - fieldName: baseAnimDuration
+      fieldValue:
+        stringValue: 0
         objectValue: {fileID: 0}

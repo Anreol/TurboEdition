@@ -57,7 +57,7 @@ namespace TurboEdition
         {
             if (body && body.modelLocator)
             {
-                //var vfxManager = body.gameObject.AddComponent<TurboVFXManager>();
+                var vfxManager = body.gameObject.AddComponent<TurboVFXManager>();
             }
         }
     }

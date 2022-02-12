@@ -103,6 +103,9 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\WeaveTest.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\AI\ForceFlee.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRoll.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollEnter.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollExit.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReload.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLPrimary.cs" />
@@ -116,6 +119,9 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowCurling.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowSatchels.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRoll.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollEnter.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollExit.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />

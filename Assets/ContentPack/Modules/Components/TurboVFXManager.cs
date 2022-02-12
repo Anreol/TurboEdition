@@ -30,7 +30,10 @@ namespace TurboEdition
 
         private void Update()
         {
-            UpdateAllTemporaryVFX();
+            if (body)
+            {
+                UpdateAllTemporaryVFX();
+            }
         }
 
         private void OnDisable()
@@ -54,9 +57,9 @@ namespace TurboEdition
             for (int i = 0; i < tempVisualEffects.Length; i++)
             {
                 TemporaryVFX vFX = InitVFX.temporaryVfx.Keys.ElementAt(i);
-                Debug.LogWarning("Updating " + vFX);
+                TELog.LogW("Updating " + vFX);
                 UpdateSingleTemporaryVisualEffect(ref tempVisualEffects[i], InitVFX.temporaryVfx.Values.ElementAt(i), vFX.GetEffectRadius(ref body), vFX.IsEnabled(ref body), vFX.GetChildOverride(ref body));
-                Debug.LogWarning("Updated " + tempVisualEffects[i] + " " + InitVFX.temporaryVfx.Values.ElementAt(i) + " " + vFX.GetEffectRadius(ref body) + " " + vFX.IsEnabled(ref body) + " " + vFX.GetChildOverride(ref body) + " ");
+                TELog.LogW("Updated " + tempVisualEffects[i] + " " + InitVFX.temporaryVfx.Values.ElementAt(i) + " " + vFX.GetEffectRadius(ref body) + " " + vFX.IsEnabled(ref body) + " " + vFX.GetChildOverride(ref body) + " ");
             }
         }
 
@@ -68,7 +71,7 @@ namespace TurboEdition
             if (active)
             {
                 Material[] array = model.currentOverlays;
-                int num = model.activeOverlayCount;
+                int num = model.activeOverlayCount++;
                 model.activeOverlayCount = num + 1;
                 array[num] = overlayMaterial;
             }
@@ -77,17 +80,17 @@ namespace TurboEdition
         //Temporary VFX Updater, gets the state of the VFX (That's why is passed by ref + stored per component) and if it has to be active, instantiates the gameobject prefab.
         private void UpdateSingleTemporaryVisualEffect(ref TemporaryVisualEffect tempEffect, GameObject prefab, float effectRadius, bool active, string childLocatorOverride = "")
         {
-            Debug.LogWarning(tempEffect + " = tempEffect; " + prefab + " = Prefab; " + effectRadius + " = Radius; " + active + " = active; " + childLocatorOverride);
+            TELog.LogW(tempEffect + " = tempEffect; " + prefab + " = Prefab; " + effectRadius + " = Radius; " + active + " = active; " + childLocatorOverride);
             bool flag = tempEffect != null;
             if (flag != active)
             {
-                Debug.LogWarning("Passed check 1");
+                TELog.LogW("Passed check 1");
                 if (active)
                 {
-                    Debug.LogWarning("Passed check 2");
+                    TELog.LogW("Passed check 2");
                     if (!flag)
                     {
-                        Debug.LogWarning("Passed check 3");
+                        TELog.LogW("Passed check 3");
                         GameObject gameObject = UnityEngine.Object.Instantiate<GameObject>(prefab, body.corePosition, Quaternion.identity);
                         tempEffect = gameObject.GetComponent<TemporaryVisualEffect>();
                         tempEffect.parentTransform = body.coreTransform;

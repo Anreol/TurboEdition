@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEffect: {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3,
     type: 3}
-  useSurfaceDefEffectToo: 1
+  useSurfaceDefEffectToo: 0
 --- !u!1 &9086722933741340282
 GameObject:
   m_ObjectHideFlags: 0

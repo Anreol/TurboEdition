@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 89795172, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: EntityStates.Grenadier.UtilityBodyRoll
+  m_EditorClassIdentifier: 
+  targetType:
+    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.UtilityBodyRoll, TurboEdition,
+      Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: minimumBaseDuration
+      fieldValue:
+        stringValue: 2
+        objectValue: {fileID: 0}
+    - fieldName: smallHopVelocity
+      fieldValue:
+        stringValue: 100
+        objectValue: {fileID: 0}
+    - fieldName: rollingTimeExtensionWhenAttacking
+      fieldValue:
+        stringValue: 5
+        objectValue: {fileID: 0}
+    - fieldName: hitEffectPrefab
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: hitboxString
+      fieldValue:
+        stringValue: RollHitbox
+        objectValue: {fileID: 0}
+    - fieldName: baseAnimationPlaySpeed
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: hitSoundString
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: maximumRollDuration
+      fieldValue:
+        stringValue: 10
+        objectValue: {fileID: 0}
+    - fieldName: airControlOverride
+      fieldValue:
+        stringValue: 4.8
+        objectValue: {fileID: 0}
+    - fieldName: baseHitPauseDuration
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: baseOverlapAttackRefreshDelay
+      fieldValue:
+        stringValue: 10
+        objectValue: {fileID: 0}
+    - fieldName: baseOverlapAttackCoefficient
+      fieldValue:
+        stringValue: 2
+        objectValue: {fileID: 0}

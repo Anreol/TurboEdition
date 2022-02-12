@@ -92,6 +92,49 @@ Transform:
   m_Father: {fileID: 6015131782816111780}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2226285676303098084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4515714906455926214}
+  - component: {fileID: 2374248210442974592}
+  m_Layer: 0
+  m_Name: RollHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4515714906455926214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226285676303098084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_Children: []
+  m_Father: {fileID: 6015131782816111780}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2374248210442974592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226285676303098084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1783796254, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3419860812166096087
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +245,7 @@ GameObject:
   - component: {fileID: 2578185049154596930}
   - component: {fileID: 2910598861095313098}
   - component: {fileID: 2885110246537395381}
+  - component: {fileID: 8413216178746677724}
   - component: {fileID: 1522105659404339129}
   - component: {fileID: 5337853867428514636}
   m_Layer: 0
@@ -225,6 +269,7 @@ Transform:
   - {fileID: 8333984603216392663}
   - {fileID: 1330725512812688743}
   - {fileID: 2358648071904028984}
+  - {fileID: 4515714906455926214}
   m_Father: {fileID: 3026287713785689126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -377,6 +422,21 @@ MonoBehaviour:
   - {fileID: 2943237448046199713}
   mainHurtBox: {fileID: 2943237448046199713}
   bullseyeCount: 1
+--- !u!114 &8413216178746677724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931545290462054027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1294804675, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groupName: RollHitbox
+  hitBoxes:
+  - {fileID: 2374248210442974592}
 --- !u!114 &1522105659404339129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +600,7 @@ GameObject:
   - component: {fileID: 5621022985162316997}
   - component: {fileID: 3768546965871777247}
   - component: {fileID: 6378433259991495200}
+  - component: {fileID: 114989553434124176}
   m_Layer: 0
   m_Name: GrenadierBody
   m_TagString: Player
@@ -1194,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d497c989a6507d0409c8a1e22eeb2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  netIsOutOfDanger: 0
   baseBlastArmorRechargeTime: 8
   passiveSkillSlot: {fileID: 4775533713091580501}
   grenadierProjectiles:
@@ -1202,3 +1264,22 @@ MonoBehaviour:
   PassiveBlastArmor: {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
   PassiveBlastArmorBombletPrefab: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
     type: 3}
+--- !u!114 &114989553434124176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196633835157065860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1468520491, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothingParameters:
+    walkMagnitudeSmoothDamp: 0.2
+    walkAngleSmoothDamp: 0.2
+    forwardSpeedSmoothDamp: 0.1
+    rightSpeedSmoothDamp: 0.1
+    intoJumpTransitionTime: 0.05
+    turnAngleSmoothDamp: 0.5

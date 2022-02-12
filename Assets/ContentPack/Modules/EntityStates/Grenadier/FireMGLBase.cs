@@ -5,6 +5,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
     public class FireMGLBase : GenericProjectileBaseState
     {
+        [SerializeField]
         public float baseAnimDuration = 1f;
         [SerializeField]
         public float baseMinDuration = 0f;

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 517647464
+CRC: 4055259550
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6eaaa493df27f68eb57c8a842c250210
+    Hash: d352964d9e2af179c70281f8d90595f5
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e94d256ec24a8aa1093ec778c993f480
+    Hash: a3aea3eb17e4d4133e33ef6acf26ad8a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -73,6 +73,8 @@ ClassTypes:
   Script: {fileID: -354346302, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 422384671, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 1468520491, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1783169300, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -230,8 +232,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 678291247, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
-  Script: {fileID: 353067543, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: -317677761, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -270136354, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -359,6 +359,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 68b09e9f07410cb4ca4b7feb5675ef18, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 120
+  Script: {instanceID: 0}
 - Class: 128
   Script: {instanceID: 0}
 - Class: 134
@@ -423,6 +425,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Nanomachines.png
 - Assets/Materials/matHellLinkedBuffBillboard.mat
 - Assets/Hopoo/materials/matUIPaintStreakAnimated.mat
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/ThrowableVisualizerArea.prefab
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2Artifact.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxPanicDrops.prefab
 - Assets/Textures/texGlowDirty.png
@@ -435,6 +438,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/WormArtifactSpawnEffect.prefab
 - Assets/ContentPack/AssetTurbo/SkillDefs/GrenadierBody/GrenadierPrimaryBomb.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BloodPackHeal.prefab
+- Assets/Textures/Ramps/texRampMaroonToYellow.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_selected.png
 - Assets/Mesh/Items/meshKnifeGuard.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
@@ -451,6 +455,7 @@ Assets:
 - Assets/Textures/texSuperStickyFresnel.png
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/SettingsSubPanel, Turbo.prefab
 - Assets/Textures/texBlackKumo0104_00.png
+- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Grenadier.UtilityBodyRollEnter.asset
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormArtifact.asset
 - Assets/Textures/texImpactPillar.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
@@ -478,6 +483,7 @@ Assets:
 - Assets/Hopoo/prefabs/OmniImpactVFXSlash.prefab
 - Assets/Hopoo/materials/matGenericFlash.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
+- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Grenadier.UtilityBodyRollExit.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Cards.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPrimaryProjectile.prefab
@@ -537,7 +543,9 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bag.png
 - Assets/ContentPack/AssetTurbo/ItemDefs/ItemDeployer.asset
 - Assets/Textures/Ramps/texRampPurpleYellow.png
+- Assets/Mesh/donut3Mesh.asset
 - Assets/Hopoo/sprites/texUICutOffCorner.png
+- Assets/Textures/texCloudDifferenceBW2.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
 - Assets/Textures/Ramps/texGenericDustRamp.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/CopyFromHopoo.asset
@@ -564,6 +572,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/icon.png
 - Assets/Mesh/Items/meshSuperSticky_.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicSecondaryProjectile.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/ThrowableVisualizerLine.prefab
 - Assets/Mesh/Items/meshIcosphere.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lenses.png
 - Assets/Textures/texItemDeployer.png
@@ -584,6 +593,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Text.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/StatArmorUP.prefab
 - Assets/Textures/texShockwaveMask.png
+- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Grenadier.UtilityBodyRoll.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/GracePeriod.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/SuperStickyGhost.prefab
 - Assets/Textures/Ramps/texRampLightblue.png
@@ -631,6 +641,7 @@ Assets:
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd
 - Assets/ContentPack/AssetTurbo/SkillDefs/GrenadierBody/GrenadierSecondaryQuickshotAlt.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/128x128Square.png
+- Assets/Materials/matAreaIndicatorRim.mat
 - Assets/ContentPack/AssetTurbo/ItemDefs/Hitlag.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png

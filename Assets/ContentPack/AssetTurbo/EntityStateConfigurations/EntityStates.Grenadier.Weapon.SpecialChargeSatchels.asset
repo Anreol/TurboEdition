@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 8
         objectValue: {fileID: 0}
     - fieldName: crosshairOverridePrefab
       fieldValue:
@@ -29,23 +29,42 @@ MonoBehaviour:
       fieldValue:
         stringValue: 
         objectValue: {fileID: 0}
-    - fieldName: minChargeDuration
+    - fieldName: maxDistance
       fieldValue:
-        stringValue: 0.2
+        stringValue: 100
         objectValue: {fileID: 0}
-    - fieldName: targetAngles
-      fieldValue:
-        stringValue: 45
-        objectValue: {fileID: 0}
-    - fieldName: anglesEffectPrefab
-      fieldValue:
-        stringValue: 
-        objectValue: {fileID: 0}
-    - fieldName: minBloomRadius
+    - fieldName: rayRadius
       fieldValue:
         stringValue: 0
         objectValue: {fileID: 0}
-    - fieldName: maxBloomRadius
+    - fieldName: arcVisualizerPrefab
       fieldValue:
-        stringValue: 10
+        stringValue: 
+        objectValue: {fileID: 2083859189309729871, guid: 547f3bda4f85b5b498c1721edd18fa22,
+          type: 3}
+    - fieldName: projectilePrefab
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
+          type: 3}
+    - fieldName: endpointVisualizerPrefab
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 2083859189309729871, guid: 4e67f4b212999904e914aeb522b20d24,
+          type: 3}
+    - fieldName: endpointVisualizerRadiusScale
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: setFuse
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: damageCoefficient
+      fieldValue:
+        stringValue: 5
+        objectValue: {fileID: 0}
+    - fieldName: baseMinimumDuration
+      fieldValue:
+        stringValue: 0.5
         objectValue: {fileID: 0}

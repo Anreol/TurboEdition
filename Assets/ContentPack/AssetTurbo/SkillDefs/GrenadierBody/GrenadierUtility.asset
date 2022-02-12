@@ -20,7 +20,8 @@ MonoBehaviour:
   icon: {fileID: 0}
   activationStateMachineName: Roll
   activationState:
-    _typeName: 
+    _typeName: TurboEdition.EntityStates.Grenadier.UtilityBodyRollEnter, TurboEdition,
+      Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
   baseRechargeInterval: 8
   baseMaxStock: 2

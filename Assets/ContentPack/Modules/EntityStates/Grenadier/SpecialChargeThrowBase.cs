@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using RoR2;
+using RoR2.Projectile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,15 @@ using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
-    public abstract class SpecialChargeThrowBase : BaseSkillState
+    public abstract class SpecialChargeThrowBase : AimThrowableBase
     {
         private float duration;
         private uint loopSoundInstanceId;
         private GameObject defaultCrosshairPrefab;
-        private GameObject anglesEffectInstance;
+
+        //Base values that get modified with charge
+        private float trueBaseProjectileSpeed;
+        private float trueMaxDistance;
 
         [SerializeField]
         public GameObject crosshairOverridePrefab;
@@ -22,16 +26,6 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public string chargeSoundString;
         [SerializeField]
         public float baseDuration;
-        [SerializeField]
-        public float minChargeDuration;
-        [SerializeField]
-        public float targetAngles;
-        [SerializeField]
-        public GameObject anglesEffectPrefab;
-        [SerializeField]
-        public float minBloomRadius;
-        [SerializeField]
-        public float maxBloomRadius;
 
         public override void OnEnter()
         {
@@ -39,18 +33,16 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             this.duration = this.baseDuration / this.attackSpeedStat;
             this.PlayChargeAnimation();
             this.loopSoundInstanceId = Util.PlayAttackSpeedSound(this.chargeSoundString, base.gameObject, this.attackSpeedStat);
-            this.defaultCrosshairPrefab = base.characterBody.crosshairPrefab;
+            this.defaultCrosshairPrefab = base.characterBody.crosshairPrefab; //Store for later restoring
+            base.characterBody.hideCrosshair = false; //Undo base
+            this.trueBaseProjectileSpeed = base.projectileBaseSpeed;
+            this.trueMaxDistance = base.maxDistance;
+            projectileBaseSpeed = 0;
+            maxDistance = 0;
+
             if (this.crosshairOverridePrefab)
             {
                 base.characterBody.crosshairPrefab = this.crosshairOverridePrefab;
-            }
-            if (transform && this.anglesEffectPrefab)
-            {
-                this.anglesEffectInstance = UnityEngine.Object.Instantiate<GameObject>(this.anglesEffectPrefab, transform.position, transform.rotation);
-                this.anglesEffectInstance.transform.parent = transform;
-                ScaleParticleSystemDuration component = this.anglesEffectInstance.GetComponent<ScaleParticleSystemDuration>();
-                if (component)
-                    component.newDuration = this.duration;
             }
         }
         protected float CalcCharge()
@@ -59,37 +51,44 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         }
         public override void FixedUpdate()
         {
-            base.FixedUpdate();
+            this.fixedAge += Time.fixedDeltaTime;
             float charge = this.CalcCharge();
-            if (anglesEffectInstance)
-            {
-                ChildLocator childrenLocated = anglesEffectInstance.GetComponent<ChildLocator>();
-                if (childrenLocated)
-                {
-                    //Copy pasted from knife fan because i cannot be fucking bothered to do angles again
-                    Vector3 aimDirection = base.characterBody.inputBank.aimDirection;
-                    Vector3 crossVector = aimDirection == Vector3.up ? Vector3.down : Vector3.up;
-                    Vector3 up = Vector3.Cross(Vector3.Cross(aimDirection, crossVector), aimDirection);
+            this.projectileBaseSpeed = trueBaseProjectileSpeed * charge;
+            this.maxDistance = trueMaxDistance * charge;
 
-                    childrenLocated.transformPairs[1].transform.rotation = Util.QuaternionSafeLookRotation(Quaternion.AngleAxis(-targetAngles * charge, up) * aimDirection);
-                    childrenLocated.transformPairs[2].transform.rotation = Util.QuaternionSafeLookRotation(Quaternion.AngleAxis(targetAngles * charge, up) * aimDirection);
-                }
-            }
-            base.characterBody.SetSpreadBloom(Util.Remap(this.CalcCharge(), 0f, 1f, this.minBloomRadius, this.maxBloomRadius), true);
-
-            if (base.isAuthority && ((!base.IsKeyDownAuthority() && base.fixedAge >= this.minChargeDuration) || base.fixedAge >= this.duration))
+            if (base.isAuthority && ((!base.IsKeyDownAuthority() && base.fixedAge >= this.minimumDuration) || base.fixedAge >= this.duration))
             {
+                this.UpdateTrajectoryInfo(out this.currentTrajectoryInfo);
                 int count = base.skillLocator.special.stock;
+                FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
+                {
+                    crit = base.RollCrit(),
+                    owner = base.gameObject,
+                    position = this.currentTrajectoryInfo.finalRay.origin,
+                    projectilePrefab = this.projectilePrefab,
+                    rotation = Util.QuaternionSafeLookRotation(this.currentTrajectoryInfo.finalRay.direction, Vector3.up),
+                    speedOverride = this.currentTrajectoryInfo.speedOverride,
+                    damage = this.damageCoefficient * this.damageStat
+                };
+                if (setFuse)
+                {
+                    fireProjectileInfo.fuseOverride = this.currentTrajectoryInfo.travelTime;
+                }
                 SpecialThrowBase nextState = this.GetNextState();
-                nextState.charge = charge;
-                nextState.projectileCount = count;
-                base.skillLocator.special.DeductStock(count);
-                this.outer.SetNextState(nextState);
+                if (nextState != null)
+                {
+                    nextState.fireProjectileInfo = fireProjectileInfo;
+                    base.skillLocator.special.DeductStock(count);
+                    this.outer.SetNextState(nextState);
+                    return;
+                }
+                this.outer.SetNextStateToMain();
+                return;
             }
         }
         protected virtual void PlayChargeAnimation()
         {
-            base.PlayAnimation("Gesture, Additive", "ChargeNovaBomb", "ChargeNovaBomb.playbackRate", this.duration);
+            base.PlayAnimation("Gesture, Additive", "ChargeTODO", "ChargeTODO.playbackRate", this.duration);
         }
         public override InterruptPriority GetMinimumInterruptPriority()
         {
@@ -106,9 +105,9 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             {
                 base.PlayAnimation("Gesture, Additive", "Empty");
             }
-            EntityState.Destroy(this.anglesEffectInstance);
             base.OnExit();
         }
+        public override void FireProjectile() { } //fuck off lol
         public abstract SpecialThrowBase GetNextState();
     }
 }

@@ -15,11 +15,14 @@ namespace TurboEdition.TempVFX
         }
         public override bool IsEnabled(ref CharacterBody body)
         {
-            foreach (var item in body.master.aiComponents)
+            if (body.master)
             {
-                if (item.stateMachine.state as ForceFlee != null)
+                foreach (var item in body.master.aiComponents)
                 {
-                    return true;
+                    if (item.stateMachine.state as ForceFlee != null)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
