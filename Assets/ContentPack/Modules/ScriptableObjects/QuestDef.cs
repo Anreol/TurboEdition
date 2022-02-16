@@ -1,9 +1,5 @@
 ﻿using EntityStates;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TurboEdition.Quests;
 using UnityEngine;
 
@@ -13,13 +9,14 @@ namespace TurboEdition.ScriptableObjects
     public class QuestDef : ScriptableObject
     {
         [Obsolete("Accessing UnityEngine.Object.Name causes allocations on read. Look up the name from the catalog instead. If absolutely necessary to perform direct access, cast to ScriptableObject first.")]
-		public new string name
-		{
-			get
-			{
-				return null;
-			}
-		}
+        public new string name
+        {
+            get
+            {
+                return null;
+            }
+        }
+
         public bool isNegative
         {
             get
@@ -27,6 +24,7 @@ namespace TurboEdition.ScriptableObjects
                 return ContainsTag(QuestCatalog.QuestTag.Negative);
             }
         }
+
         public bool isTeamWide
         {
             get
@@ -34,6 +32,7 @@ namespace TurboEdition.ScriptableObjects
                 return ContainsTag(QuestCatalog.QuestTag.TeamWide);
             }
         }
+
         public QuestCatalog.QuestIndex questIndex { get; set; } = 0;
 
         [ContextMenu("Auto Populate Tokens")]
@@ -44,6 +43,7 @@ namespace TurboEdition.ScriptableObjects
             this.questNameToken = string.Format("QUEST_{0}_NAME", arg);
             //this.questDescriptionToken = string.Format("QUEST_{0}_OBJECTIVE", arg);
         }
+
         public bool ContainsTag(QuestCatalog.QuestTag tag)
         {
             return tag == QuestCatalog.QuestTag.Any || Array.IndexOf<QuestCatalog.QuestTag>(this.tags, tag) != -1;

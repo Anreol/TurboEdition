@@ -1,5 +1,4 @@
-﻿using RoR2EditorKit;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,12 +21,14 @@ namespace Moonstorm.EditorUtils.Pipelines
     {
         [EnumFlag]
         public BuildAssetBundleOptions AssetBundleBuildOptions = BuildAssetBundleOptions.UncompressedAssetBundle;
+
         public BuildTarget buildTarget = BuildTarget.StandaloneWindows;
         public bool recurseDirectories;
         public bool simulate;
 
         [PathReferenceResolver]
         public string BundleArtifactPath = "<AssetBundleStaging>";
+
         public override Task Execute(Pipeline pipeline)
         {
             var excludedExtensions = new[] { ".dll", ".cs", ".meta" };
@@ -59,7 +60,6 @@ namespace Moonstorm.EditorUtils.Pipelines
 
             var bundleArtifactPath = BundleArtifactPath.Resolve(pipeline, this);
             Directory.CreateDirectory(bundleArtifactPath);
-
 
             var materials = GetAllMaterialsWithRealShaders();
 
@@ -169,7 +169,6 @@ namespace Moonstorm.EditorUtils.Pipelines
                                 string destFileName = filePath.Replace(bundleArtifactPath, outputPath);
                                 Directory.CreateDirectory(Path.GetDirectoryName(destFileName));
                                 FileUtil.ReplaceFile(filePath, destFileName);
-
                             }
 
                             var manifestSource = Path.Combine(bundleArtifactPath, $"{Path.GetFileName(bundleArtifactPath)}.manifest");
@@ -230,6 +229,7 @@ namespace Moonstorm.EditorUtils.Pipelines
                                        .Where(material => material.shader.name.StartsWith("StubbedDecalicious")))
                             .ToArray();
         }
+
         private int SwapRealShadersForStubbed(Material[] materials)
         {
             var count = 0;

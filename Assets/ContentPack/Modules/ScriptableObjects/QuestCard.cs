@@ -116,6 +116,7 @@ namespace TurboEdition.ScriptableObjects
 
         [Tooltip("You shove everything else that your specific quest needs to function here.")]
         public string extraData;
+
         //public object[] extraData = Array.Empty<object>();
 
         [Tooltip("Whenever it should not appear in the UI.")]

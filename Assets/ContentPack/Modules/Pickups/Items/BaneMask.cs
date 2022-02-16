@@ -24,14 +24,17 @@ namespace TurboEdition.Items
             //Destroy On Timer: 3 Seconds
             //Has Shaker Emiter
             private bool alreadyOut = true;
+
             private bool percentTriggered = false;
 
             private SphereSearch sphereSearch;
+
             private void Start()
             {
                 if (body.healthComponent)
                     HG.ArrayUtils.ArrayAppend(ref body.healthComponent.onTakeDamageReceivers, this);
             }
+
             private void OnDestroy()
             {
                 //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.
@@ -42,6 +45,7 @@ namespace TurboEdition.Items
                         HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onIncomingDamageReceivers, body.healthComponent.onIncomingDamageReceivers.Length, i);
                 }
             }
+
             private void FixedUpdate()
             {
                 if (!NetworkServer.active)
@@ -116,7 +120,7 @@ namespace TurboEdition.Items
                             return;
                         float num2 = UnityEngine.Random.Range(20f, 100f); //Guarantees enemies like lemurians and beetles never pass
                         if (num2 <= Mathf.Pow(3.5f, hc.body.bestFitRadius)) //Best fit radius: Golems are 7.5, beetles are 1.82
-                            return; 
+                            return;
                         hc.body.AddTimedBuff(BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffPanicked")), (10) * hitInfo.hitSeverity);
                         return;
                     }
@@ -131,7 +135,6 @@ namespace TurboEdition.Items
                         GeneratePulse();
                         percentTriggered = true;
                     }
-                
             }
         }
     }

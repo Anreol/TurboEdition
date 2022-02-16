@@ -11,7 +11,7 @@ namespace TurboEdition.Misc
         public static void AddDeathMessages()
         {
             //HG.ArrayUtils.CloneTo(standardTurboDeathQuoteTokens, ref GlobalEventManager.standardDeathQuoteTokens); //Thanks bubbet for pointing this out lol
-            GlobalEventManager.standardDeathQuoteTokens = standardTurboDeathQuoteTokens.Union(GlobalEventManager.standardDeathQuoteTokens).ToArray(); 
+            GlobalEventManager.standardDeathQuoteTokens = standardTurboDeathQuoteTokens.Union(GlobalEventManager.standardDeathQuoteTokens).ToArray();
         }
     }
 }

@@ -50,7 +50,7 @@ namespace TurboEdition
 
         private static string logString(object data, [CallerLineNumber] int i = 0, [CallerMemberName] string member = "")
         {
-                return string.Format("{0} :: Line: {1}, Method {2}", data, i, member);
+            return string.Format("{0} :: Line: {1}, Method {2}", data, i, member);
         }
     }
 }

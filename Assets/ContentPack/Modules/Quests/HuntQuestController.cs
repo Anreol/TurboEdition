@@ -27,14 +27,15 @@ namespace TurboEdition.Quests
             ObjectivePanelController.collectObjectiveSources -= ReportObjective;
             GlobalEventManager.onCharacterDeathGlobal -= GlobalEventManager_onCharacterDeathGlobal;
         }
+
         public override void GenerateObjective()
         {
-
         }
+
         private void ReportObjective(CharacterMaster characterMaster, List<ObjectivePanelController.ObjectiveSourceDescriptor> output)
         {
             //if (QuestCatalog.GetQuestDef(base.questIndexSpawner).hidden)
-                return;
+            return;
             if (base.teamIndex != TeamIndex.None && characterMaster.teamIndex == base.teamIndex)
             {
                 output.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
@@ -79,11 +80,10 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
 
         if (this.rewardMoney && !this.inventoryDisplay.inventoryWasValid)
         {
-            rewardMoney.text = GetInt().ToString(); 
+            rewardMoney.text = GetInt().ToString();
         }
         if (this.inventoryDisplay.inventoryWasValid)
         {
-
         }
         if (this.expireCountdown && IsDirty())
         {
@@ -94,6 +94,7 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
             }
         }
     }
+
     public void FixStrip()
     {
         changed = true;
@@ -117,19 +118,22 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
 
         //this.inventoryDisplay.itemIconPrefab = HUD.instancesList[0].itemInventoryDisplay.itemIconPrefab; //jej
     }
+
     private void SwitchRewardPanels(bool toInventory)
     {
         ChildLocator childLocator = this.stripObject.GetComponent<ChildLocator>();
         childLocator.FindChild("MoneyRoot").transform.gameObject.SetActive(!toInventory);
         childLocator.FindChild("InventoryProvider").transform.gameObject.SetActive(toInventory);
     }
+
     public void AssignInventory()
     {
         if (((HuntQuestController)this.sourceDescriptor.source).rewardInventory != null)
         {
             this.inventoryDisplay.SetSubscribedInventory(((HuntQuestController)this.sourceDescriptor.source).rewardInventory);
-        }  
+        }
     }
+
     public int GetInt()
     {
         if (this.IsMoneyDirty())
@@ -138,6 +142,7 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
         }
         return cachedInt;
     }
+
     public string GetCountdown()
     {
         if (this.IsDirty())
@@ -150,6 +155,7 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
         }
         return Language.GetStringFormatted("QUEST_PANELUI_EXPIRESTAGE", this.numTilExpiration);
     }
+
     public override string GenerateString()
     {
         HuntQuestController huntQuestController = (HuntQuestController)this.sourceDescriptor.source;
@@ -161,10 +167,12 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
     {
         return ((HuntQuestController)this.sourceDescriptor.source).numCurrentCount != this.numCurrentCount || ((HuntQuestController)this.sourceDescriptor.source).numTilExpiration != this.numTilExpiration;
     }
+
     private bool IsMoneyDirty()
     {
         return ((HuntQuestController)this.sourceDescriptor.source).rewardAmount != this.cachedInt;
     }
+
     private int numCurrentCount = -1;
     private int numTilExpiration = -1;
     private string questTarget = null;
@@ -175,6 +183,7 @@ public class HuntQuestObjectiveTracker : ObjectivePanelController.ObjectiveTrack
 
     //protected TextMeshProUGUI expireLabel;
     protected RawImage expirePanelBG;
+
     protected TextMeshProUGUI expireCountdown;
     protected TextMeshProUGUI rewardMoney;
     protected ItemInventoryDisplay inventoryDisplay;

@@ -2,48 +2,47 @@
 using RoR2.UI;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace TurboEdition.Misc
 {
-    class QuestObjectiveProvider : MonoBehaviour
+    internal class QuestObjectiveProvider : MonoBehaviour
     {
-		private void OnEnable()
-		{
-			if (!InstanceTracker.Any<QuestObjectiveProvider>())
-			{
-				ObjectivePanelController.collectObjectiveSources += QuestObjectiveProvider.collectObjectiveSourcesDelegate;
-			}
-			InstanceTracker.Add<QuestObjectiveProvider>(this);
-		}
+        private void OnEnable()
+        {
+            if (!InstanceTracker.Any<QuestObjectiveProvider>())
+            {
+                ObjectivePanelController.collectObjectiveSources += QuestObjectiveProvider.collectObjectiveSourcesDelegate;
+            }
+            InstanceTracker.Add<QuestObjectiveProvider>(this);
+        }
 
-		private void OnDisable()
-		{
-			InstanceTracker.Remove<QuestObjectiveProvider>(this);
-			if (!InstanceTracker.Any<QuestObjectiveProvider>())
-			{
-				ObjectivePanelController.collectObjectiveSources -= QuestObjectiveProvider.collectObjectiveSourcesDelegate;
-			}
-		}
-		private static void CollectObjectiveSources(CharacterMaster viewer, List<ObjectivePanelController.ObjectiveSourceDescriptor> dest)
-		{
-			foreach (QuestObjectiveProvider source in InstanceTracker.GetInstancesList<QuestObjectiveProvider>())
-			{
-				dest.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
-				{
-					master = viewer,
-					objectiveType = typeof(QuestObjectiveProvider.QuestObjectiveTracker),
-					source = source
-				});
-			}
-		}
-		public string objectiveToken;
-		
+        private void OnDisable()
+        {
+            InstanceTracker.Remove<QuestObjectiveProvider>(this);
+            if (!InstanceTracker.Any<QuestObjectiveProvider>())
+            {
+                ObjectivePanelController.collectObjectiveSources -= QuestObjectiveProvider.collectObjectiveSourcesDelegate;
+            }
+        }
+
+        private static void CollectObjectiveSources(CharacterMaster viewer, List<ObjectivePanelController.ObjectiveSourceDescriptor> dest)
+        {
+            foreach (QuestObjectiveProvider source in InstanceTracker.GetInstancesList<QuestObjectiveProvider>())
+            {
+                dest.Add(new ObjectivePanelController.ObjectiveSourceDescriptor
+                {
+                    master = viewer,
+                    objectiveType = typeof(QuestObjectiveProvider.QuestObjectiveTracker),
+                    source = source
+                });
+            }
+        }
+
+        public string objectiveToken;
+
         public bool markCompletedOnRetired = true;
         private Inventory rewardInventory;
         private int rewardAmount;
@@ -51,8 +50,9 @@ namespace TurboEdition.Misc
         private int numCurrentCount;
         private object numRequiredCount;
         private static readonly Action<CharacterMaster, List<ObjectivePanelController.ObjectiveSourceDescriptor>> collectObjectiveSourcesDelegate = new Action<CharacterMaster, List<ObjectivePanelController.ObjectiveSourceDescriptor>>(QuestObjectiveProvider.CollectObjectiveSources);
-		private class QuestObjectiveTracker : ObjectivePanelController.ObjectiveTracker
-		{
+
+        private class QuestObjectiveTracker : ObjectivePanelController.ObjectiveTracker
+        {
             private UnityEngine.GameObject gameObjectPrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("QuestObjectiveStrip");
             private bool changed = false;
 
@@ -72,7 +72,6 @@ namespace TurboEdition.Misc
                 }
                 if (this.inventoryDisplay.inventoryWasValid)
                 {
-
                 }
                 if (this.expireCountdown && IsDirty())
                 {
@@ -83,6 +82,7 @@ namespace TurboEdition.Misc
                     }
                 }
             }
+
             public void FixStrip()
             {
                 changed = true;
@@ -106,12 +106,14 @@ namespace TurboEdition.Misc
 
                 //this.inventoryDisplay.itemIconPrefab = HUD.instancesList[0].itemInventoryDisplay.itemIconPrefab; //jej
             }
+
             private void SwitchRewardPanels(bool toInventory)
             {
                 ChildLocator childLocator = this.stripObject.GetComponent<ChildLocator>();
                 childLocator.FindChild("MoneyRoot").transform.gameObject.SetActive(!toInventory);
                 childLocator.FindChild("InventoryProvider").transform.gameObject.SetActive(toInventory);
             }
+
             public void AssignInventory()
             {
                 if (((QuestObjectiveProvider)this.sourceDescriptor.source).rewardInventory != null)
@@ -119,6 +121,7 @@ namespace TurboEdition.Misc
                     this.inventoryDisplay.SetSubscribedInventory(((QuestObjectiveProvider)this.sourceDescriptor.source).rewardInventory);
                 }
             }
+
             public int GetInt()
             {
                 if (this.IsMoneyDirty())
@@ -127,6 +130,7 @@ namespace TurboEdition.Misc
                 }
                 return cachedInt;
             }
+
             public string GetCountdown()
             {
                 if (this.IsDirty())
@@ -139,6 +143,7 @@ namespace TurboEdition.Misc
                 }
                 return Language.GetStringFormatted("QUEST_PANELUI_EXPIRESTAGE", this.numTilExpiration);
             }
+
             public override string GenerateString()
             {
                 QuestObjectiveProvider questObjectiveProvider = (QuestObjectiveProvider)this.sourceDescriptor.source;
@@ -151,10 +156,12 @@ namespace TurboEdition.Misc
             {
                 return ((QuestObjectiveProvider)this.sourceDescriptor.source).numCurrentCount != this.numCurrentCount || ((QuestObjectiveProvider)this.sourceDescriptor.source).numTilExpiration != this.numTilExpiration;
             }
+
             private bool IsMoneyDirty()
             {
                 return ((QuestObjectiveProvider)this.sourceDescriptor.source).rewardAmount != this.cachedInt;
             }
+
             private int numCurrentCount = -1;
             private int numTilExpiration = -1;
             private string questTarget = null;
@@ -165,6 +172,7 @@ namespace TurboEdition.Misc
 
             //protected TextMeshProUGUI expireLabel;
             protected RawImage expirePanelBG;
+
             protected TextMeshProUGUI expireCountdown;
             protected TextMeshProUGUI rewardMoney;
             protected ItemInventoryDisplay inventoryDisplay;
@@ -173,14 +181,12 @@ namespace TurboEdition.Misc
             private string previousToken;
 
             public override bool shouldConsiderComplete
-			{
-				get
-				{
-					return this.retired && ((GenericObjectiveProvider)this.sourceDescriptor.source).markCompletedOnRetired;
-				}
-			}
-
-			
-		}
-	}
+            {
+                get
+                {
+                    return this.retired && ((GenericObjectiveProvider)this.sourceDescriptor.source).markCompletedOnRetired;
+                }
+            }
+        }
+    }
 }

@@ -10,9 +10,11 @@ namespace TurboEdition.Buffs
         public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffPanicked");
 
         private bool forceStateExitOnBuffLose = false;
+
         public override void Initialize()
         {
         }
+
         public override void BuffStep(ref CharacterBody body, int stack)
         {
         }
@@ -29,7 +31,7 @@ namespace TurboEdition.Buffs
                         ForceFlee forceFlee = new ForceFlee();
                         forceFlee.fleeDuration = body.timedBuffs[i].timer;
                         baseAI.stateMachine.SetNextState(forceFlee);
-                        
+
                         //Get ALL skills on cooldown
                         if (body.skillLocator.primary)
                             body.skillLocator.primary.DeductStock(1);
@@ -45,6 +47,7 @@ namespace TurboEdition.Buffs
             }
             body.RemoveBuff(buffDef.buffIndex);
         }
+
         public override void OnBuffLastStackLost(ref CharacterBody body)
         {
             BaseAI baseAI = body.master.GetComponent<BaseAI>();
@@ -53,6 +56,7 @@ namespace TurboEdition.Buffs
                 baseAI.stateMachine.SetNextState(new LookBusy());
             }
         }
+
         public override void RecalcStatsEnd(ref CharacterBody body)
         {
             body.moveSpeed += 1f;

@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace TurboEdition.UI
@@ -59,6 +58,7 @@ namespace TurboEdition.UI
                 hudElement.targetCharacterBody.onInventoryChanged -= onInventoryChanged;
             }
         }
+
         private void SetSubscribedBody(CharacterBody newCharacter)
         {
             if (newCharacter == this._characterBody) return;
@@ -108,7 +108,7 @@ namespace TurboEdition.UI
 
                 float maxValue = statBarProviders[i].GetStatBarData().maxData;
                 float currentValue = statBarProviders[i].GetStatBarData().currentData;
-                float representedValue = currentValue/maxValue;
+                float representedValue = currentValue / maxValue;
 
                 if (fillRectTransform)
                 {
@@ -121,7 +121,6 @@ namespace TurboEdition.UI
 
                 if (tooltipProvider.overrideBodyText != statBarProviders[i].GetStatBarData().tooltipContent.overrideBodyText)
                     tooltipProvider.SetContent(statBarProviders[i].GetStatBarData().tooltipContent);
-
             }
         }
     }

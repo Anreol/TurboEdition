@@ -20,10 +20,10 @@ MonoBehaviour:
   icon: {fileID: 0}
   activationStateMachineName: Roll
   activationState:
-    _typeName: TurboEdition.EntityStates.Grenadier.UtilityBodyRollEnter, TurboEdition,
+    _typeName: TurboEdition.EntityStates.Grenadier.UtilityBodyRollSingle, TurboEdition,
       Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
-  baseRechargeInterval: 8
+  baseRechargeInterval: 9
   baseMaxStock: 2
   rechargeStock: 1
   requiredStock: 1
@@ -33,7 +33,7 @@ MonoBehaviour:
   dontAllowPastMaxStocks: 0
   beginSkillCooldownOnSkillEnd: 1
   cancelSprintingOnActivation: 0
-  forceSprintDuringState: 0
+  forceSprintDuringState: 1
   canceledFromSprinting: 0
   isCombatSkill: 0
-  mustKeyPress: 0
+  mustKeyPress: 1

@@ -10,7 +10,6 @@ namespace TurboEdition.Components
     [RequireComponent(typeof(NetworkedBodyAttachment))]
     public class GetDamageFromHurtVictimBodyAttachment : NetworkBehaviour, INetworkedBodyAttachmentListener
     {
-
         [HideInInspector]
         public NetworkedBodyAttachment nba;
 

@@ -12,6 +12,7 @@ namespace TurboEdition.Components
     {
         [HideInInspector]
         public NetworkedBodyAttachment nba;
+
         private StandBonus.ServerListener serverListener;
 
         private CharacterMotor _motor; //brrrrum brrum
@@ -74,7 +75,5 @@ namespace TurboEdition.Components
                 }
             };
         }
-
-
     }
 }

@@ -17,11 +17,11 @@ MonoBehaviour:
   skillDescriptionToken: GRENADIER_PASSIVE_DESCRIPTION
   keywordTokens: []
   icon: {fileID: 0}
-  activationStateMachineName: Weapon
+  activationStateMachineName: 
   activationState:
     _typeName: EntityStates.Idle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  interruptPriority: 1
+  interruptPriority: 0
   baseRechargeInterval: 0
   baseMaxStock: 5
   rechargeStock: 0

@@ -9,10 +9,19 @@ namespace TurboEdition.TempVFX
 
         public override bool IsEnabled(ref CharacterBody body)
         {
-            if (body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("DropletDupe")) > 0 && body.GetComponent<Items.DropletDupe.DropletDupeBehaviorServer>().suicideReady)
+            if (!body.inventory)
+                return false;
+            if (body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("DropletDupe")) > 0)
             {
-                TELog.LogW("Started spewing cards... or should.");
-                return true;
+                Items.DropletDupe.DropletDupeBehaviorServer dropletDupeBehaviorServer = body.GetComponent<Items.DropletDupe.DropletDupeBehaviorServer>();
+                if (dropletDupeBehaviorServer)
+                {
+                    if (dropletDupeBehaviorServer.suicideReady)
+                    {
+                        TELog.LogW("Started spewing cards... or should.");
+                        return true;
+                    }
+                }
             }
             return false;
         }

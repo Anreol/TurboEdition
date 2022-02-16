@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1546852646074600187}
   - component: {fileID: 2929345596389720017}
   - component: {fileID: 6503306493459240982}
+  - component: {fileID: 1782425723763529551}
   m_Layer: 14
   m_Name: GrenadierBasicPrimaryProjectile
   m_TagString: Untagged
@@ -212,7 +213,7 @@ MonoBehaviour:
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
   blastAttackerFiltering: 1
-  bonusBlastForce: {x: 25, y: 400, z: 25}
+  bonusBlastForce: {x: 200, y: 300, z: 200}
   fireChildren: 0
   childrenProjectilePrefab: {fileID: 0}
   childrenCount: 0
@@ -249,6 +250,18 @@ MonoBehaviour:
   prefabEffect: {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3,
     type: 3}
   useSurfaceDefEffectToo: 0
+--- !u!114 &1782425723763529551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028506108066464535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf39fc0812dbdd4ba71529646b5902e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9086722933741340282
 GameObject:
   m_ObjectHideFlags: 0

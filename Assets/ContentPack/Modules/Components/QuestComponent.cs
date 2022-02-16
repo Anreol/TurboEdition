@@ -3,7 +3,6 @@ using System;
 using TurboEdition.Quests;
 using UnityEngine;
 using UnityEngine.Networking;
-using QuestCard = TurboEdition.ScriptableObjects.QuestCard;
 
 namespace TurboEdition.Components
 {

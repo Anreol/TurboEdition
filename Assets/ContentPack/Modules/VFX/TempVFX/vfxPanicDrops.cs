@@ -1,5 +1,4 @@
-﻿using IL.RoR2.CharacterAI;
-using RoR2;
+﻿using RoR2;
 using TurboEdition.States.AI.Walker;
 using UnityEngine;
 
@@ -13,6 +12,7 @@ namespace TurboEdition.TempVFX
         {
             return "Head";
         }
+
         public override bool IsEnabled(ref CharacterBody body)
         {
             if (body.master)

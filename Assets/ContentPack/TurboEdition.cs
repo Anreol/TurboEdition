@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using EntityStates;
 using RoR2;
 using RoR2.ContentManagement;
 using System.Collections;
@@ -8,8 +9,6 @@ using System.Linq;
 using UnityEngine;
 using Zio;
 using Zio.FileSystems;
-using EntityStates;
-using System;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
@@ -123,7 +122,7 @@ namespace TurboEdition
             }
 
             //Since hopoo wants this to be this way....
-            RoR2Application.isModded = true; 
+            RoR2Application.isModded = true;
 
             args.ReportProgress(1f);
             yield break;

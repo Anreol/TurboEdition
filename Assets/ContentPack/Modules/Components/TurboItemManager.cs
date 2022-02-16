@@ -42,7 +42,7 @@ namespace TurboEdition
         {
             yield return new WaitForEndOfFrame();
             statItemBehaviors = GetComponents<IStatItemBehavior>();
-            body.healthComponent.onIncomingDamageReceivers = GetComponents<IOnIncomingDamageServerReceiver>(); 
+            body.healthComponent.onIncomingDamageReceivers = GetComponents<IOnIncomingDamageServerReceiver>();
             body.healthComponent.onTakeDamageReceivers = GetComponents<IOnTakeDamageServerReceiver>();
         }
 

@@ -1,14 +1,9 @@
 ﻿using RoR2;
 using RoR2.CharacterAI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TurboEdition.Components
 {
-    class BaseAINumb : BaseAI
+    internal class BaseAINumb : BaseAI
     {
         public override void OnBodyDamaged(DamageReport damageReport)
         {

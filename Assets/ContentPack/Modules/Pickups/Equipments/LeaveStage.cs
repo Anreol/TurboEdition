@@ -1,6 +1,5 @@
 ﻿using RoR2;
 using RoR2.EntityLogic;
-using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -11,6 +10,7 @@ namespace TurboEdition.Equipments
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("LeaveStage");
 
         private static bool canLeave = true;
+
         public override void Initialize()
         {
             Stage.onServerStageBegin += ServerStageStart;
@@ -31,10 +31,12 @@ namespace TurboEdition.Equipments
                 phase4Controller.GetComponent<CombatSquad>().onDefeatedServerLogicEvent.AddListener(() => { delayedEvent.CallDelayed(5); }); //Phases advance when the combat squad is dead. After Phase 4 it goes to Boss Death, which instantly goes to Encounter Finished, so this should do it.
             }
         }
+
         private void ListenToSceneExitController(SceneExitController obj)
         {
             canLeave = false;
         }
+
         public override bool FireAction(EquipmentSlot slot)
         {
             if (canLeave)
@@ -78,7 +80,5 @@ namespace TurboEdition.Equipments
             SceneExitController sceneExitController = sceneExitGO.GetComponent<SceneExitController>();
             sceneExitController.SetState(SceneExitController.ExitState.Idle); //Idle by default
         }
-
-
     }
 }

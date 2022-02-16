@@ -1,19 +1,14 @@
-﻿using RoR2;
-using RoR2.UI;
+﻿using EntityStates;
+using RoR2;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.Networking;
 using TurboEdition.Misc;
 using TurboEdition.Quests;
-using TurboEdition.EntityStates.Quests;
-using EntityStates;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Components
 {
-    class QuestMissionController : NetworkBehaviour
+    internal class QuestMissionController : NetworkBehaviour
     {
         public static QuestMissionController instance { get; private set; }
 
@@ -21,7 +16,7 @@ namespace TurboEdition.Components
         private EntityStateMachine[] questStateMachines;
         private GenericOwnership[] ownerships;
         public Dictionary<QuestObjectiveProvider, EntityStateMachine> questProviderToMachine;
-        
+
         public static event Action<EntityStateMachine> onQuestAdded;
 
         private void Awake()
@@ -30,15 +25,17 @@ namespace TurboEdition.Components
             this.questStateMachines = new EntityStateMachine[questProviderToMachine.Count];
             this.ownerships = new GenericOwnership[questProviderToMachine.Count];
         }
+
         private void OnEnable()
         {
             QuestMissionController.instance = SingletonHelper.Assign<QuestMissionController>(QuestMissionController.instance, this);
         }
+
         private void OnDisable()
         {
             QuestMissionController.instance = SingletonHelper.Unassign<QuestMissionController>(QuestMissionController.instance, this);
         }
-        
+
         [Server]
         public override void OnStartServer()
         {
@@ -56,7 +53,7 @@ namespace TurboEdition.Components
                 if (Run.instance.stageClearCount > ((EntityStates.Quests.BaseQuestState)item.Value.state).stageNumExpiration)
                 {
                     item.Value.SetNextState(new EntityStates.Quests.ExpiredQuestState()); //get expirationstate from quest def
-                } 
+                }
             }
         }
 
@@ -69,6 +66,7 @@ namespace TurboEdition.Components
             }
             AddQuest(questIndex);
         }
+
         private void AddQuest(QuestCatalog.QuestIndex questIndex)
         {
             QuestObjectiveProvider newProvider = this.gameObject.AddComponent<QuestObjectiveProvider>();
@@ -83,7 +81,6 @@ namespace TurboEdition.Components
             }
 
             questProviderToMachine.Add(newProvider, newMachine);
-
         }
     }
 }

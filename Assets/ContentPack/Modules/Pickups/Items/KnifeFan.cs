@@ -1,6 +1,5 @@
 ﻿using RoR2;
 using RoR2.Projectile;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -44,10 +43,9 @@ namespace TurboEdition.Items
                 if (projectilePrefab == null) return;
                 if (body.GetComponent<SkillLocator>().utility == obj)
                 {
-                    
                     float y = Quaternion.LookRotation(body.inputBank.GetAimRay().direction).eulerAngles.y;
                     float distance = 1f; //How away it will spawn from the body
-                    
+
                     Vector3 aimDirection = body.inputBank.aimDirection;
                     Vector3 crossVector = aimDirection == Vector3.up ? Vector3.down : Vector3.up;
                     Vector3 up = Vector3.Cross(Vector3.Cross(aimDirection, crossVector), aimDirection);

@@ -17,7 +17,9 @@ GameObject:
   - component: {fileID: 8896665261586244783}
   - component: {fileID: 9195881915704691530}
   - component: {fileID: 1546852646074600187}
+  - component: {fileID: 3387088757089728484}
   - component: {fileID: 2929345596389720017}
+  - component: {fileID: 8710313284497637358}
   m_Layer: 14
   m_Name: GrenadierBasicSecondaryProjectile
   m_TagString: Untagged
@@ -35,8 +37,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1842046035829773162}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredForwardSpeed: 160
-  lifetime: 3
+  lifetime: 9
   updateAfterFiring: 0
   enableVelocityOverLifetime: 0
   velocityOverLifetime:
@@ -193,7 +194,7 @@ MonoBehaviour:
   force: 0
   damageColorIndex: 0
   damageType: 0
---- !u!114 &2929345596389720017
+--- !u!114 &3387088757089728484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,6 +202,23 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028506108066464535}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1952984350, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyWhenNotAlive: 1
+  destroyOnWorld: 1
+  impactEffect: {fileID: 0}
+  hitSoundString: 
+  enemyHitSoundString: 
+--- !u!114 &2929345596389720017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028506108066464535}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -317677761, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
@@ -211,7 +229,7 @@ MonoBehaviour:
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
   blastAttackerFiltering: 1
-  bonusBlastForce: {x: 0, y: 400, z: 0}
+  bonusBlastForce: {x: 200, y: 300, z: 200}
   fireChildren: 0
   childrenProjectilePrefab: {fileID: 0}
   childrenCount: 0
@@ -226,81 +244,21 @@ MonoBehaviour:
   lifetimeExpiredSound: {fileID: 0}
   offsetForLifetimeExpiredSound: 0
   destroyOnEnemy: 1
-  destroyOnWorld: 0
+  destroyOnWorld: 1
   timerAfterImpact: 0
   lifetime: 3
   lifetimeAfterImpact: 0
   lifetimeRandomOffset: 0
   transformSpace: 0
---- !u!1 &9086722933741340282
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1842046035829773162}
-  - component: {fileID: 3007177841972640163}
-  - component: {fileID: 4264055448054124099}
-  m_Layer: 14
-  m_Name: StepDetonator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1842046035829773162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9086722933741340282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3236676104841737270}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3007177841972640163
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9086722933741340282}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.8
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4264055448054124099
+--- !u!114 &8710313284497637358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9086722933741340282}
+  m_GameObject: {fileID: 7028506108066464535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 707171152, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 11500000, guid: cdf39fc0812dbdd4ba71529646b5902e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTeamFilter: {fileID: 6243246625076868539}
-  triggerEvents:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2929345596389720017}
-        m_MethodName: SetAlive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

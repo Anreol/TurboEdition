@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matDustTrail
   m_Shader: {fileID: 4800000, guid: ef6eeef384c6437ba001b48e927ed2af, type: 2}
-  m_ShaderKeywords: USE_CLOUDS
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

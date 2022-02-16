@@ -1,10 +1,5 @@
 ﻿using EntityStates;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
@@ -19,6 +14,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public static float exitSoundPitch;
         public static string reloadEffectMuzzleString;
         private bool hasGivenStock;
+
         private float duration
         {
             get
@@ -26,6 +22,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 return PrepSecondaryAlt.baseDuration / this.attackSpeedStat;
             }
         }
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -33,6 +30,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             Util.PlayAttackSpeedSound(PrepSecondaryAlt.enterSoundString, base.gameObject, PrepSecondaryAlt.enterSoundPitch);
             EffectManager.SimpleMuzzleFlash(PrepSecondaryAlt.reloadEffectPrefab, base.gameObject, PrepSecondaryAlt.reloadEffectMuzzleString, false);
         }
+
         public override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -48,10 +46,12 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             Util.PlayAttackSpeedSound(Reload.exitSoundString, base.gameObject, Reload.exitSoundPitch);
             this.outer.SetNextStateToMain();
         }
+
         public override void OnExit()
         {
             base.OnExit();
         }
+
         private void GiveStock()
         {
             if (this.hasGivenStock)
@@ -64,6 +64,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             }
             this.hasGivenStock = true;
         }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.PrioritySkill;

@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
-using UnityEngine.Networking;
 using Equipment = TurboEdition.Equipments.Equipment;
 using Item = TurboEdition.Items.Item;
 

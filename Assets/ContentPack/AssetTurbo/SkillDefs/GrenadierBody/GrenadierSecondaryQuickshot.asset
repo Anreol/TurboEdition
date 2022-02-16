@@ -22,7 +22,7 @@ MonoBehaviour:
     _typeName: TurboEdition.EntityStates.Grenadier.Weapon.FireSecondary, TurboEdition,
       Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 2
-  baseRechargeInterval: 8
+  baseRechargeInterval: 7
   baseMaxStock: 1
   rechargeStock: 1
   requiredStock: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
   beginSkillCooldownOnSkillEnd: 0
-  cancelSprintingOnActivation: 0
+  cancelSprintingOnActivation: 1
   forceSprintDuringState: 0
   canceledFromSprinting: 0
   isCombatSkill: 1

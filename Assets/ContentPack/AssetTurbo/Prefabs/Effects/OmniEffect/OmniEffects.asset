@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef2a123f517c6464c9503cf474018e5f, type: 3}
   m_Name: OmniEffects
   m_EditorClassIdentifier: 
-  effectPrefabs:
-  - {fileID: 1957254823704884, guid: 08d3475a136f34c439bc67cb4393e58c, type: 3}
+  effectPrefabs: []

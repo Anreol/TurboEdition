@@ -81,7 +81,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GetDamageFromHurtVictimBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GrenadierPassiveController.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\HellchainController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\MarkReducedSelfDamage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\MineProximityDetonatorAttackerFiltering.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ProjectileImpactEffect.cs" />
@@ -94,7 +94,6 @@
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\RuntimeCloudMaterialMapper.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShrineQuestBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\SimpleListTether.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboBuffManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboItemManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\TurboVFXManager.cs" />
@@ -103,9 +102,8 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\WeaveTest.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\AI\ForceFlee.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRoll.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollEnter.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollExit.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollLoop.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollSingle.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReload.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLPrimary.cs" />
@@ -119,12 +117,8 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowCurling.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowSatchels.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRoll.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollEnter.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollExit.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainBaseState.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainEnterState.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Pickups\HellchainIdleState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollLoop.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollSingle.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\AfterQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\BaseQuestState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\BeforeQuestState.cs" />
@@ -138,7 +132,6 @@
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\UIExtras.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Orbs\HellOrb.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\Hellchain.cs" />
@@ -175,7 +168,6 @@
     <Compile Include="Assets\ContentPack\Modules\VFX\TemporaryVFX.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDeathCards.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDummy1.cs" />
-    <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxHellchainLocked.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxPanicDrops.cs" />
     <Compile Include="Assets\ContentPack\TurboEdition.cs" />
     <None Include="Assets\ContentPack\TurboEdition.asmdef" />

@@ -26,6 +26,7 @@ namespace TurboEdition.Artifacts
             RunArtifactManager.onArtifactEnabledGlobal += RunArtifactManager_onArtifactEnabledGlobal;
             RunArtifactManager.onArtifactDisabledGlobal += RunArtifactManager_onArtifactDisabledGlobal;
         }
+
         private static void RunArtifactManager_onArtifactDisabledGlobal([JetBrains.Annotations.NotNull] RunArtifactManager runArtifactManager, [JetBrains.Annotations.NotNull] ArtifactDef artifactDef)
         {
             if (artifactDef != artifact)
@@ -86,6 +87,7 @@ namespace TurboEdition.Artifacts
                 Bomb2ArtifactManager.bombRequestQueue.Enqueue(item);
             }
         }
+
         private static void ProcessBombQueue()
         {
             if (Bomb2ArtifactManager.bombRequestQueue.Count > 0)

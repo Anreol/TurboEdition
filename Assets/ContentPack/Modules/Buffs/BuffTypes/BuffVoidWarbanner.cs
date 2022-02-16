@@ -1,6 +1,4 @@
 ﻿using RoR2;
-using System;
-using System.Linq;
 
 namespace TurboEdition.Buffs
 {
@@ -12,6 +10,7 @@ namespace TurboEdition.Buffs
         private float armorBonus = 0;
         private float sprintBonus = 0;
         private float attackSpeedBonus = 0;
+
         public override void Initialize()
         {
         }
@@ -26,11 +25,13 @@ namespace TurboEdition.Buffs
             ClearAll();
             CalculateBonuses();
         }
+
         public override void OnBuffLastStackLost(ref CharacterBody body)
         {
             //Clearing just in case
             ClearAll();
         }
+
         private void CalculateBonuses()
         {
             ClearAll();
@@ -38,9 +39,9 @@ namespace TurboEdition.Buffs
             if (SceneCatalog.mostRecentSceneDef.sceneType == SceneType.Stage)
             {
                 //if (scenesDay.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
-                    regenBonus += (Run.instance.stageClearCount + 1);
+                regenBonus += (Run.instance.stageClearCount + 1);
                 //if (scenesNight.Contains(SceneCatalog.mostRecentSceneDef.baseSceneName))
-                    armorBonus += 2 * (Run.instance.stageClearCount + 1);
+                armorBonus += 2 * (Run.instance.stageClearCount + 1);
                 sprintBonus += 0.05f * (Run.instance.stageClearCount + 1); //0.20 less than a soda
                 attackSpeedBonus += 0.025f * (Run.instance.stageClearCount + 1); //0.125 less than a syringe
             }
@@ -73,7 +74,6 @@ namespace TurboEdition.Buffs
             "shipgraveyard",
             "skymeadow",
             "wispgraveyard",
-
         };
 
         public static String[] scenesNight = new String[]
@@ -91,6 +91,7 @@ namespace TurboEdition.Buffs
             "limbo",
             "mysteryspace"
         };*/
+
         private void ClearAll()
         {
             regenBonus = 0;
@@ -98,6 +99,7 @@ namespace TurboEdition.Buffs
             sprintBonus = 0;
             attackSpeedBonus = 0;
         }
+
         public override void RecalcStatsEnd(ref CharacterBody body)
         {
             body.armor += armorBonus;

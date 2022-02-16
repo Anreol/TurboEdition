@@ -1,10 +1,4 @@
-﻿using RoR2;
-using RoR2.UI;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-namespace TurboEdition.UI
+﻿namespace TurboEdition.UI
 {
     /*
     [RequireComponent(typeof(Canvas))]
@@ -109,8 +103,6 @@ namespace TurboEdition.UI
             }
             foreach (IStatBarProvider item in statBarProviders)
             {
-
-
                 HealthComponent.HealthBarValues healthBarValues = item.GetData();
                 float fullCombinedHealth = healthBarValues.maxHealthDisplayValue;
                 float num = 1f / fullCombinedHealth;

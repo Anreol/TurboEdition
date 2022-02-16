@@ -28,8 +28,10 @@ namespace TurboEdition.Misc
 
         public static GameObject panel = Assets.mainAssetBundle.LoadAsset<GameObject>("SettingsSubPanel, Turbo");
         public static GameObject headerButton = Assets.mainAssetBundle.LoadAsset<GameObject>("GenericHeaderButton (Turbo)");
+
         //public static GameObject statBarContainer = Assets.mainAssetBundle.LoadAsset<GameObject>("StatBarsContainer");
         public static GameObject scoreboardLeftSidePanel = Assets.mainAssetBundle.LoadAsset<GameObject>("ScoreboardLeftSidePanel");
+
         private static void onCameraEnabledGlobal(CameraRigController obj)
         {
             if (obj)
@@ -127,6 +129,7 @@ namespace TurboEdition.Misc
             Vector2 panel2UpperLeftCorner = new Vector2((rightPanel.anchorMax.x - rightPanel.rect.width), (rightPanel.anchorMax.y - rightPanel.rect.height));
             Vector2.Distance(leftPanel.anchorMax, panel2UpperLeftCorner);
         }
+
         private static IEnumerator AwaitForHUDCreationAndAppend(CameraRigController camera, GameObject objectToInstantiate = null, string parent = null) //Me getting trolled by one single line of code
         {
             yield return new WaitForEndOfFrame();

@@ -34,6 +34,7 @@ namespace TurboEdition
         //Something something must keep it in memory with the changed values or some fucking shit
         //god
         public static Material[] matsWithDifferentMatProperties = new Material[0];
+
         public static List<Material> MaterialsWithSwappedShaders { get; private set; } = new List<Material>();
 
         [RoR2.SystemInitializer] //look at putting it in FinalizeAsync

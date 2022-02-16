@@ -1,11 +1,6 @@
 ﻿using EntityStates;
 using RoR2;
 using RoR2.Projectile;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
@@ -18,12 +13,15 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
 
         //Base values that get modified with charge
         private float trueBaseProjectileSpeed;
+
         private float trueMaxDistance;
 
         [SerializeField]
         public GameObject crosshairOverridePrefab;
+
         [SerializeField]
         public string chargeSoundString;
+
         [SerializeField]
         public float baseDuration;
 
@@ -31,7 +29,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         {
             base.OnEnter();
             this.duration = this.baseDuration / this.attackSpeedStat;
-            this.PlayChargeAnimation();
+            //this.PlayChargeAnimation();
             this.loopSoundInstanceId = Util.PlayAttackSpeedSound(this.chargeSoundString, base.gameObject, this.attackSpeedStat);
             this.defaultCrosshairPrefab = base.characterBody.crosshairPrefab; //Store for later restoring
             base.characterBody.hideCrosshair = false; //Undo base
@@ -45,10 +43,12 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 base.characterBody.crosshairPrefab = this.crosshairOverridePrefab;
             }
         }
+
         protected float CalcCharge()
         {
             return Mathf.Clamp01(base.fixedAge / this.duration);
         }
+
         public override void FixedUpdate()
         {
             this.fixedAge += Time.fixedDeltaTime;
@@ -74,7 +74,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 {
                     fireProjectileInfo.fuseOverride = this.currentTrajectoryInfo.travelTime;
                 }
-                SpecialThrowBase nextState = this.GetNextState();
+                SpecialThrowBase nextState = GetNextState();
                 if (nextState != null)
                 {
                     nextState.fireProjectileInfo = fireProjectileInfo;
@@ -86,14 +86,17 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 return;
             }
         }
+
         protected virtual void PlayChargeAnimation()
         {
             base.PlayAnimation("Gesture, Additive", "ChargeTODO", "ChargeTODO.playbackRate", this.duration);
         }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.PrioritySkill;
         }
+
         public override void OnExit()
         {
             if (base.characterBody)
@@ -107,7 +110,10 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             }
             base.OnExit();
         }
-        public override void FireProjectile() { } //fuck off lol
+
+        public override void FireProjectile()
+        { } //fuck off lol
+
         public abstract SpecialThrowBase GetNextState();
     }
 }

@@ -160,7 +160,6 @@ namespace TurboEdition.Components
                 QuestDef questCard = QuestCatalog.GetQuestDef((QuestCatalog.QuestIndex)UnityEngine.Random.Range(0, QuestCatalog.questCount));
                 weightedSelection.AddChoice(questCard, questCard.selectionWeight);
             }
-
         }
 
         public void FixedUpdate()

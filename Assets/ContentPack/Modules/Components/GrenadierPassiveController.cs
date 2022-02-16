@@ -16,7 +16,13 @@ namespace TurboEdition.Components
                 return this.characterBody.hasEffectiveAuthority;
             }
         }
-
+        private bool isRolling
+        {
+            get
+            {
+                return resolvedRollMachine.state.GetType() != resolvedRollMachine.mainStateType.stateType;
+            }
+        }
         //TODO: run on the client, check for body auth, doesn't have to be networked, bomblets will be projectiles so we let the projectile manager take care of networking.
         private CharacterBody characterBody;
 
@@ -24,16 +30,15 @@ namespace TurboEdition.Components
         [SyncVar]
         public bool netIsOutOfDanger;
 
+        private EntityStateMachine resolvedRollMachine;
         private bool[] authBlastArmorStates;
-
-        public float baseBlastArmorRechargeTime;
         private float blastArmorRechargeTime;
+
+        [Tooltip("Time in seconds for a armor fraction to recharge.")]
+        public float baseBlastArmorRechargeTime;
 
         [Header("Referenced Components")]
         public GenericSkill passiveSkillSlot;
-
-        [Tooltip("The projectiles that Grenadier will have resistance against.")]
-        public GameObject[] grenadierProjectiles;
 
         [Header("Skill Defs")]
         public SkillDef PassiveBlastArmor;
@@ -48,6 +53,7 @@ namespace TurboEdition.Components
             {
                 authBlastArmorStates[i] = true;
             }
+            resolvedRollMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Roll");
         }
 
         private void FixedUpdate()
@@ -65,7 +71,7 @@ namespace TurboEdition.Components
                     if (!netIsOutOfDanger)
                     {
                         //Inside NOT isOutOfDanger because we don't want to trigger if regenerating hp
-                        for (int i = authBlastArmorStates.Length - 1; i >= 0 && baseIntervals * i > 0f; i--) 
+                        for (int i = authBlastArmorStates.Length - 1; i >= 0 && baseIntervals * i > 0f; i--)
                         {
                             if (authBlastArmorStates[i] && characterBody.healthComponent.combinedHealthFraction < baseIntervals * i)
                             {
@@ -124,25 +130,21 @@ namespace TurboEdition.Components
         {
             if (passiveSkillSlot)
             {
-                if (passiveSkillSlot.skillDef == PassiveBlastArmor && !damageInfo.rejected)
+                if (passiveSkillSlot.skillDef == PassiveBlastArmor && !damageInfo.rejected && damageInfo.inflictor && damageInfo.attacker == this.characterBody.gameObject)
                 {
-                    if (damageInfo.inflictor)
+                    if (damageInfo.inflictor.GetComponent<MarkReducedSelfDamage>())
                     {
-                        Debug.LogWarning("Inflictor: " + damageInfo.inflictor + " n: " + damageInfo.inflictor.name);
-                        foreach (GameObject prefab in grenadierProjectiles)
+                        damageInfo.attacker = null;
+                        damageInfo.damage /= 2;
+                        damageInfo.crit = false;
+                        damageInfo.damageColorIndex = DamageColorIndex.Default;
+                        damageInfo.dotIndex = DotController.DotIndex.None;
+                        damageInfo.damageType = DamageType.NonLethal;
+                        damageInfo.procCoefficient = -255;
+                        damageInfo.procChainMask = default(ProcChainMask);
+                        if (isRolling)
                         {
-                            Debug.LogWarning("Prefab thing: " + prefab + " n: " + prefab.name);
-                            if (prefab ==  damageInfo.inflictor.gameObject)
-                            {
-                                Debug.LogError("Passed");
-                                damageInfo.damage /= 2;
-                                if (characterBody.healthComponent.isHealthLow)
-                                    damageInfo.damage /= 2;
-                                damageInfo.crit = false;
-                                damageInfo.dotIndex = DotController.DotIndex.None;
-                                damageInfo.damageType = DamageType.NonLethal;
-                                damageInfo.procCoefficient = -255;
-                            }
+                            damageInfo.force *= 16f;
                         }
                     }
                 }

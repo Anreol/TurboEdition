@@ -1,18 +1,18 @@
 ﻿using EntityStates;
 using RoR2;
-using RoR2.Skills;
 using System;
 using TurboEdition.Components;
-using UnityEngine.Networking;
 using TurboEdition.Misc;
+using UnityEngine.Networking;
 
 namespace TurboEdition.EntityStates.Quests
 {
-    class BaseQuestState : EntityState
+    internal class BaseQuestState : EntityState
     {
         private NetworkInstanceId _masterNetIdOrigin;
         private QuestObjectiveProvider _objectiveProvider;
         private int _stageNumExpiration;
+
         protected QuestMissionController questMissionController
         {
             get
@@ -20,6 +20,7 @@ namespace TurboEdition.EntityStates.Quests
                 return QuestMissionController.instance;
             }
         }
+
         protected QuestObjectiveProvider objectiveProvider
         {
             get
@@ -37,7 +38,7 @@ namespace TurboEdition.EntityStates.Quests
                 return _objectiveProvider;
             }
         }
-            
+
         public NetworkInstanceId masterNetIdOrigin //Could also use CharacterMaster..?
         {
             get
@@ -49,6 +50,7 @@ namespace TurboEdition.EntityStates.Quests
                 this._masterNetIdOrigin = value;
             }
         }
+
         public int stageNumExpiration
         {
             get
@@ -60,6 +62,7 @@ namespace TurboEdition.EntityStates.Quests
                 this._stageNumExpiration = (int)value;
             }
         }
+
         protected virtual bool shouldRewardOnStepFinish
         {
             get
@@ -67,6 +70,7 @@ namespace TurboEdition.EntityStates.Quests
                 return false;
             }
         }
+
         protected virtual bool shouldRecalcRewardOnStepEnter
         {
             get
@@ -74,19 +78,20 @@ namespace TurboEdition.EntityStates.Quests
                 return false;
             }
         }
+
         public virtual Type GetNextStateType()
         {
             throw new NotImplementedException();
         }
+
         public override void OnEnter()
         {
             base.OnEnter();
-
         }
+
         public override void OnExit()
         {
             base.OnExit();
-
         }
 
         public CharacterBody RollEnemy()
@@ -131,7 +136,5 @@ namespace TurboEdition.EntityStates.Quests
             weightedSelection.AddChoice(value6, tierBossWeight);
             return weightedSelection.Evaluate(Run.instance.treasureRng.nextNormalizedFloat); //uses treasure rng instead of this's rng to avoid fucking up
         }
-
-
     }
 }

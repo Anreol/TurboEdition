@@ -11,6 +11,7 @@ namespace TurboEdition.Quests
     public static class QuestCatalog
     {
         public static event Action<QuestDef[]> onPreLoadQuestCards;
+
         public static int questCount
         {
             get
@@ -80,6 +81,7 @@ namespace TurboEdition.Quests
             } while (selection.isNegative || selection == null);
             return selection;
         }
+
         public static int GetQuestCount(CharacterBody cb)
         {
             int count = 0;
@@ -95,6 +97,7 @@ namespace TurboEdition.Quests
             }
             return count;
         }
+
         [SystemInitializer(new Type[]
         {
             typeof(ItemCatalog),
