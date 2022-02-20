@@ -74,7 +74,7 @@ namespace TurboEdition
                 num = i + 1;
                 loadedBundles.Add(bundleLoadRequest.assetBundle);
             }
-            Assets.assetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
+            Assets.loadedAssetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
 
             serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
             //Assets.Init();

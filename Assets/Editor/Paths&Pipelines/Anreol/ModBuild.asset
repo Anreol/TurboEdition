@@ -14,26 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
   - {fileID: 114609266966800418}
-  - {fileID: 114144958465600800}
+  - {fileID: 114812885983779490}
   manifest: {fileID: 11400000, guid: 2c1262962c6f2bd16ef910d2862a0880, type: 2}
---- !u!114 &114144958465600800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50df4f9027e15e04b931a8d460fb22c5, type: 3}
-  m_Name: ExecutePipeline
-  m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
-  Active: 1
-  OverrideManifest: 1
-  targetpipeline: {fileID: 11400000, guid: 7d827ab859039b640bb56b10ae68f849, type: 2}
 --- !u!114 &114609266966800418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,4 +33,29 @@ MonoBehaviour:
   ErrorStacktrace: 
   Active: 1
   OverrideManifest: 1
-  targetpipeline: {fileID: 11400000, guid: 270a575b1e505034f9bea4312e48f536, type: 2}
+  targetpipeline: {fileID: 11400000, guid: b5ad8b3dbd621b14e9598d75e60028a9, type: 2}
+--- !u!114 &114812885983779490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03063c7a6ec04cc4c82c75cf9bcc8db8, type: 3}
+  m_Name: Copy
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  ErrorStacktrace: 
+  Active: 1
+  PerManifest: 1
+  ExcludedManifests:
+  - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
+  - {fileID: 11400000, guid: bff73382628f698c89c1d9ae43c8f350, type: 2}
+  Recursive: 1
+  SourceRequired: 1
+  EstablishDestination: 1
+  Source: <BuildPath>
+  Destination: <FDriveGang>

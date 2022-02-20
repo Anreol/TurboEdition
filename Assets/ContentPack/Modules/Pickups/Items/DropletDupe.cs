@@ -22,11 +22,11 @@ namespace TurboEdition.Items
             //However this can lead to a single item being duplicated more than once
             private float dropUpStrength = 20f; //Default is 20 in chests but seems that its too strong
 
-            private float dupeDelay = 30f;
+            private const float baseDupeDelay = 15f;
+            private float dupeDelay;
             private float dropForwardStrength = 2f; //Default is 2
-            private bool dupeReady = true;
             public bool suicideReady = false;
-
+            MasterSuicideOnTimer masterSuicideOnTimer;
             private void Start()
             {
                 if (body.healthComponent)
@@ -47,11 +47,6 @@ namespace TurboEdition.Items
             private void FixedUpdate() //I hate fixed updates but i want to nerf the item so be it
             {
                 this.dupeDelay -= Time.fixedDeltaTime;
-                if (this.dupeDelay <= 0)
-                {
-                    dupeReady = true;
-                    this.dupeDelay = 30f;
-                }
             }
 
             public void OnTakeDamageServer(DamageReport damageReport)
@@ -62,9 +57,10 @@ namespace TurboEdition.Items
                 {
                     TELog.LogW("Rolled for death");
                     suicideReady = true;
-                    if (body.master)
+                    if (body.master && masterSuicideOnTimer == null)
                     {
-                        body.master.gameObject.AddComponent<MasterSuicideOnTimer>().lifeTimer = 10 + UnityEngine.Random.Range(0f, 8f);
+                        masterSuicideOnTimer = (body.master.gameObject.AddComponent<MasterSuicideOnTimer>());
+                        masterSuicideOnTimer.lifeTimer = 10 + UnityEngine.Random.Range(0f, 10f);
                     }
                     else
                         body.healthComponent.Suicide(damageReport.attacker, damageReport.attacker, DamageType.Generic);
@@ -73,12 +69,11 @@ namespace TurboEdition.Items
 
             private void PickupDropletController_onDropletHitGroundServer(ref GenericPickupController.CreatePickupInfo createPickupInfo, ref bool shouldSpawn)
             {
-                if (!NetworkServer.active || !dupeReady) return;
+                if (dupeDelay >= 0) return;
                 if (!createPickupInfo.pickupIndex.isValid || !shouldSpawn || createPickupInfo.pickupIndex.pickupDef.itemIndex == RoR2Content.Items.ScrapWhite.itemIndex || createPickupInfo.pickupIndex.pickupDef.itemIndex == RoR2Content.Items.ScrapGreen.itemIndex || createPickupInfo.pickupIndex.pickupDef.itemIndex == RoR2Content.Items.ScrapRed.itemIndex || createPickupInfo.pickupIndex.pickupDef.itemIndex == RoR2Content.Items.ScrapYellow.itemIndex) return;
                 if (createPickupInfo.pickupIndex.pickupDef.isBoss || createPickupInfo.pickupIndex.pickupDef.isLunar || createPickupInfo.pickupIndex.pickupDef.artifactIndex != ArtifactIndex.None || createPickupInfo.pickupIndex.pickupDef.equipmentIndex != EquipmentIndex.None) return;
                 if (Util.CheckRoll(8f + ((stack - 1) * 2.5f)))
                 {
-                    dupeReady = false;
                     EffectData effectData = new EffectData
                     {
                         origin = createPickupInfo.position,
@@ -86,6 +81,7 @@ namespace TurboEdition.Items
                     };
                     //EffectManager.SpawnEffect(effectPrefab, effectData, true);
                     PickupDropletController.CreatePickupDroplet(createPickupInfo.pickupIndex, createPickupInfo.position + Vector3.up * dropForwardStrength, Vector3.up * dropUpStrength);
+                    dupeDelay = baseDupeDelay;
                 }
             }
 
@@ -93,7 +89,6 @@ namespace TurboEdition.Items
             {
                 if (time > 0)
                 {
-                    dupeReady = false;
                     if (additive)
                     {
                         dupeDelay += time;
@@ -105,6 +100,15 @@ namespace TurboEdition.Items
 
             private void OnDestroy()
             {
+                PickupDropletController.onDropletHitGroundServer -= PickupDropletController_onDropletHitGroundServer;
+                PurchaseInteraction.onItemSpentOnPurchase -= PurchaseInteraction_onItemSpentOnPurchase;
+                if (body)
+                {
+                    if (body.master && masterSuicideOnTimer)
+                    {
+                        Object.Destroy(masterSuicideOnTimer);
+                    }
+                }
                 //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.
                 if (body.healthComponent)
                 {

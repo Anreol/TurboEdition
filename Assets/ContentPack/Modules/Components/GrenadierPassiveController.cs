@@ -130,7 +130,7 @@ namespace TurboEdition.Components
         {
             if (passiveSkillSlot)
             {
-                if (passiveSkillSlot.skillDef == PassiveBlastArmor && !damageInfo.rejected && damageInfo.inflictor && damageInfo.attacker == this.characterBody.gameObject)
+                if (passiveSkillSlot.skillDef == PassiveBlastArmor && damageInfo.inflictor && damageInfo.attacker == this.characterBody.gameObject)
                 {
                     if (damageInfo.inflictor.GetComponent<MarkReducedSelfDamage>())
                     {
@@ -145,6 +145,10 @@ namespace TurboEdition.Components
                         if (isRolling)
                         {
                             damageInfo.force *= 16f;
+                        }
+                        if (damageInfo.rejected)
+                        {
+                            characterBody.healthComponent.TakeDamageForce(damageInfo, false, false);
                         }
                     }
                 }

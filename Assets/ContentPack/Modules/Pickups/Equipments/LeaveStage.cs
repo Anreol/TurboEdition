@@ -13,11 +13,11 @@ namespace TurboEdition.Equipments
 
         public override void Initialize()
         {
-            Stage.onServerStageBegin += ServerStageStart;
+            Stage.onStageStartGlobal += GlobalStageStart;
             SceneExitController.onBeginExit += ListenToSceneExitController;
         }
 
-        private void ServerStageStart(Stage obj)
+        private void GlobalStageStart(Stage obj)
         {
             canLeave = true;
             if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon"))

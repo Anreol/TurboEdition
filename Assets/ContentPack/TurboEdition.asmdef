@@ -1,7 +1,8 @@
 {
     "name": "TurboEdition",
     "references": [
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "Wwise"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
@@ -13,7 +14,6 @@
         "0Harmony.dll",
         "BepInEx.Harmony.dll",
         "HGCSharpUtils.dll",
-        "Wwise.dll",
         "Mono.Cecil.dll",
         "MonoMod.RuntimeDetour.dll",
         "MonoMod.Utils.dll",

@@ -52,7 +52,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: attackSoundString
       fieldValue:
-        stringValue: 
+        stringValue: Play_GrenadierSecondaryFire
         objectValue: {fileID: 0}
     - fieldName: projectilePitchBonus
       fieldValue:

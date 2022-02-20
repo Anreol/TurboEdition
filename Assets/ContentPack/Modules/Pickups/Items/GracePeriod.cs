@@ -11,11 +11,15 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<GracePeriodBehavior>(stack);
+            if (NetworkServer.active)
+            {
+                body.AddItemBehavior<GracePeriodBehaviorServer>(stack);
+
+            }
         }
 
         //Code slightly based on Moffein's solution
-        internal class GracePeriodBehavior : CharacterBody.ItemBehavior
+        internal class GracePeriodBehaviorServer : CharacterBody.ItemBehavior
         {
             private List<GraceBufferHit> hitList = new List<GraceBufferHit>();
             private List<GraceBufferHit> buffer = new List<GraceBufferHit>();
@@ -32,7 +36,6 @@ namespace TurboEdition.Items
 
             private void GlobalEventManager_onServerDamageDealt(DamageReport obj)
             {
-                if (!NetworkServer.active) return; //Shouldnt be needed, lol
                 bool gotcha = false; //Keep it simple
                 foreach (GraceBufferHit item in hitList)
                 {

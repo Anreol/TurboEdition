@@ -103,7 +103,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             {
                 base.characterBody.crosshairPrefab = this.defaultCrosshairPrefab;
             }
-            AkSoundEngine.StopPlayingID(this.loopSoundInstanceId);
+            //AkSoundEngine.StopPlayingID(this.loopSoundInstanceId);
             if (!this.outer.destroying)
             {
                 base.PlayAnimation("Gesture, Additive", "Empty");

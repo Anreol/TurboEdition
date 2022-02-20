@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a86a6324a0207848a05d939d044cbd1, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: af94d613faf72f40be5f848e4807af1b
+    GuidInternal: 
+    m_lastTime: -8585565901595017754
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 197209c57a646240aab75eaca2b7c5b0
+    GuidInternal: 
+    m_lastTime: -8585565901596196354
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: ff69bd0cb0472246bf85651c36cdcb1d
+    GuidInternal: 
+    m_lastTime: -8585563005363915492
+    List:
+    - name: TurboBank
+      guid: 17de7e2c48388444a1e209fca9afe8f3
+      id: 34081325
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: TurboBank
+        ObjectType: 7
+      Path: Default Work Unit\TurboBank
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: f9aeee3adff9124fa97c10655bacd25f
+    GuidInternal: 
+    m_lastTime: -8585563005363735579
+    List:
+    - name: Play_GrenadierPrimaryFire
+      guid: 69fe587b71af4e489e618b14ae5f6f9b
+      id: 3965566729
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_GrenadierPrimaryFire
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_GrenadierPrimaryFire
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_GrenadierSecondaryFire
+      guid: e15892a68b867c4d826dd74ad22c5a36
+      id: 241865965
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_GrenadierSecondaryFire
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_GrenadierSecondaryFire
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 1aede29b1eb9a3468100f50120ccff6a
+    GuidInternal: 
+    m_lastTime: -8585563694612636289
+    List:
+    - name: SFX_VolumeIn
+      guid: 3fe4fff1c8f76f42993fbbf7c32732d9
+      id: 1278074206
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX_VolumeIn
+        ObjectType: 13
+      Path: Default Work Unit\SFX_VolumeIn
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 6dcf724cba3b374197530a2398b4a8ae
+    GuidInternal: 
+    m_lastTime: -8585565901595256837
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 3dd9046315c1c94abc184ed75163628f
+    GuidInternal: 
+    m_lastTime: -8585565901595536343
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 65aa0529e70fd14f9964a1f87b68a830
+    GuidInternal: 
+    m_lastTime: -8585565901595876931
+    List: []
+  ExpandedItems:
+  - /TurboEdition_WwiseProject
+  - /TurboEdition_WwiseProject/Events
+  - /TurboEdition_WwiseProject/Events/Default Work Unit
+  - /TurboEdition_WwiseProject/Events/Default Work Unit/Grenadier
+  - /TurboEdition_WwiseProject/SoundBanks
+  - /TurboEdition_WwiseProject/SoundBanks/Default Work Unit
+  autoPopulateEnabled: 1
+  CurrentPluginConfig: 

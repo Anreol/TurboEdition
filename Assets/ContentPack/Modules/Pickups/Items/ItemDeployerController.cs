@@ -27,7 +27,7 @@ namespace TurboEdition.Items
                     return;
             }
 
-            if ((obj.summonMasterInstance.GetBody().bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None)
+            //if ((obj.summonMasterInstance.GetBody().bodyFlags & CharacterBody.BodyFlags.Mechanical) > CharacterBody.BodyFlags.None)
             {
                 ItemDeployerController.Activate(obj);
             }

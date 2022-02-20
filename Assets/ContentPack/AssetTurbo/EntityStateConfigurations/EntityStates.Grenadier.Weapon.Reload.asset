@@ -23,7 +23,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: enterSoundString
       fieldValue:
-        stringValue: 
+        stringValue: Play_GrenadierReload
         objectValue: {fileID: 0}
     - fieldName: exitSoundString
       fieldValue:

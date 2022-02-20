@@ -13,6 +13,7 @@ namespace TurboEdition.Buffs
         public override void RecalcStatsEnd(ref CharacterBody body)
         {
             body.armor += 35 * body.GetBuffCount(buffDef);
+            body.damage += body.baseDamage / 25f;
         }
     }
 }

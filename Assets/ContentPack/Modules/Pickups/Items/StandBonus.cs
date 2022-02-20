@@ -18,7 +18,7 @@ namespace TurboEdition.Items
             body.AddItemBehavior<Sandbag>(stack);
         }
 
-        internal class Sandbag : CharacterBody.ItemBehavior, IStatItemBehavior, IStatBarProvider
+        internal class Sandbag : CharacterBody.ItemBehavior, IStatBarProvider
         {
             private NetworkedBodyAttachment attachment;
             public SandbagBodyAttachment sandbagBodyAttachment;
@@ -60,16 +60,6 @@ namespace TurboEdition.Items
                 }
             }
 
-            public void RecalculateStatsEnd()
-            {
-                if (sandbagBodyAttachment)
-                    sandbagBodyAttachment.RecalculateStatsEnd();
-            }
-
-            public void RecalculateStatsStart()
-            {
-            }
-
             public StatBarData GetStatBarData()
             {
                 if (sandbagBodyAttachment)
@@ -93,18 +83,20 @@ namespace TurboEdition.Items
             }
         }
 
-        internal class ServerListener : MonoBehaviour, IOnTakeDamageServerReceiver
+        internal class ServerListener : MonoBehaviour, IOnIncomingDamageServerReceiver
         {
             public SandbagBodyAttachment attachment;
 
-            public void OnTakeDamageServer(DamageReport damageReport)
+            public void OnIncomingDamageServer(DamageInfo damageInfo)
             {
-                if (!damageReport.damageInfo.rejected)
+                if (!damageInfo.rejected)
                 {
-                    attachment.accumulatedDamage += damageReport.damageDealt;
+                    attachment.accumulatedDamage += damageInfo.damage;
+                    if (attachment.syncLerp <= 0) return;
+                    damageInfo.damage /= 2 * attachment.syncLerp;
+                    damageInfo.force *= 0;
                 }
             }
-
             private void FixedUpdate()
             {
                 if (!attachment.nba.attachedBody.GetNotMoving())
@@ -113,7 +105,7 @@ namespace TurboEdition.Items
                     attachment.syncLerp = 0f;
                     return;
                 }
-                attachment.syncLerp = Mathf.InverseLerp(((float)attachment.stack / 4f) * (float)attachment.nba.attachedBody.healthComponent.fullCombinedHealth, 0f, (float)attachment.accumulatedDamage);
+                attachment.syncLerp = Mathf.InverseLerp(((float)attachment.stack / 2f) * (float)attachment.nba.attachedBody.healthComponent.fullCombinedHealth, 0f, (float)attachment.accumulatedDamage);
             }
         }
     }

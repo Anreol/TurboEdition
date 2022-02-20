@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="34081325" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
+			<ShortName>TurboBank</ShortName>
+			<Path>TurboBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3965566729" Name="Play_GrenadierPrimaryFire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierPrimaryFire"/>
+				<Event Id="241865965" Name="Play_GrenadierSecondaryFire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSecondaryFire"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="319372512" Language="SFX">
+					<ShortName>Milkor_Fire2.wav</ShortName>
+					<Path>SFX\Milkor_Fire2_56D34C19.wem</Path>
+				</File>
+				<File Id="464783086" Language="SFX">
+					<ShortName>M79_fire01.wav</ShortName>
+					<Path>SFX\M79_fire01_56D34C19.wem</Path>
+				</File>
+				<File Id="849916099" Language="SFX">
+					<ShortName>Milkor_Fire.wav</ShortName>
+					<Path>SFX\Milkor_Fire_56D34C19.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

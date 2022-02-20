@@ -4920,10 +4920,10 @@ MonoBehaviour:
   m_Script: {fileID: -1819008361, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredForwardSpeed: 100
+  desiredForwardSpeed: 200
   lifetime: 5
   updateAfterFiring: 0
-  enableVelocityOverLifetime: 1
+  enableVelocityOverLifetime: 0
   velocityOverLifetime:
     serializedVersion: 2
     m_Curve:
@@ -4967,7 +4967,7 @@ MonoBehaviour:
   crit: 0
   force: 0
   damageColorIndex: 0
-  damageType: 0
+  damageType: 2
 --- !u!114 &3314494678060108805
 MonoBehaviour:
   m_ObjectHideFlags: 0

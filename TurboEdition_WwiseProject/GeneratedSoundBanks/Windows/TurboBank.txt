@@ -1,0 +1,12 @@
+Event	ID	Name			Wwise Object Path	Notes
+	241865965	Play_GrenadierSecondaryFire			\Default Work Unit\Grenadier\Play_GrenadierSecondaryFire	
+	3965566729	Play_GrenadierPrimaryFire			\Default Work Unit\Grenadier\Play_GrenadierPrimaryFire	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1278074206	SFX_VolumeIn			\Default Work Unit\SFX_VolumeIn	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	319372512	Milkor_Fire2	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Milkor_Fire2_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX-MIXER\Grenadier\GrenadierPrimaryFire\Milkor_Fire2		37680
+	464783086	GrenadierSecondaryFire	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\M79_fire01_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX-MIXER\Grenadier\GrenadierSecondaryFire		130962
+	849916099	Milkor_Fire	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Milkor_Fire_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX-MIXER\Grenadier\GrenadierPrimaryFire\Milkor_Fire		52448
+

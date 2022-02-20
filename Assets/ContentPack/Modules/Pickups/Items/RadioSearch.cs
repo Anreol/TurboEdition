@@ -109,7 +109,7 @@ namespace TurboEdition.Items
                     }
                 }
             }
-            numberToReveal += (int)(0.10 * things.Length);
+            numberToReveal += (int)(things.Length * 0.15);
             for (int i = 0; i < things.Length; i++)
             {
                 if (currentRevealCount > numberToReveal)

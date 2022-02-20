@@ -15,8 +15,6 @@ namespace TurboEdition.Components
 
         private StandBonus.ServerListener serverListener;
 
-        private CharacterMotor _motor; //brrrrum brrum
-
         [HideInInspector]
         public int stack;
 
@@ -28,10 +26,6 @@ namespace TurboEdition.Components
         private void Start()
         {
             this.nba = base.GetComponent<NetworkedBodyAttachment>();
-            if (nba && nba.attachedBody.hasEffectiveAuthority)
-            {
-                this._motor = nba.attachedBody.GetComponent<CharacterMotor>();
-            }
         }
 
         public void OnAttachedBodyDiscovered(NetworkedBodyAttachment networkedBodyAttachment, CharacterBody attachedBody)
@@ -45,15 +39,6 @@ namespace TurboEdition.Components
             {
                 attachedBody.GetComponent<StandBonus.Sandbag>().sandbagBodyAttachment = this;
             }
-        }
-
-        //Body auth. Not server.
-        public void RecalculateStatsEnd()
-        {
-            if (syncLerp <= 0) return;
-            if (_motor)
-                _motor.mass += (10 + ((stack - 1) * 5)); //[body] IS FAT
-            nba.attachedBody.armor += Mathf.RoundToInt(500f * this.syncLerp);
         }
 
         public StatBarData GetStatBarData()

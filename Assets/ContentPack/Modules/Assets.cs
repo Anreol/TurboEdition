@@ -11,30 +11,12 @@ namespace TurboEdition
 {
     public static class Assets
     {
-        public static AssetBundle mainAssetBundle
-        {
-            get
-            {
-                return assetBundles[0];
-            }
-        }
-
-        internal static string assemblyDir
-        {
-            get
-            {
-                return Path.GetDirectoryName(TurboEdition.pluginInfo.Location);
-            }
-        }
+        public static AssetBundle mainAssetBundle => loadedAssetBundles[0];
+        internal static string assemblyDir => Path.GetDirectoryName(TurboEdition.pluginInfo.Location);
 
         private const string assetBundleFolderName = "assetbundles";
         internal static string mainAssetBundleName = "assetTurbo";
-        public static ReadOnlyCollection<AssetBundle> assetBundles;
-
-        //Something something must keep it in memory with the changed values or some fucking shit
-        //god
-        public static Material[] matsWithDifferentMatProperties = new Material[0];
-
+        public static ReadOnlyCollection<AssetBundle> loadedAssetBundles;
         public static List<Material> MaterialsWithSwappedShaders { get; private set; } = new List<Material>();
 
         [RoR2.SystemInitializer] //look at putting it in FinalizeAsync
@@ -42,9 +24,10 @@ namespace TurboEdition
         {
             if (RoR2.RoR2Application.isDedicatedServer || Application.isBatchMode) //We dont need graphics
                 return;
-            var gameMaterials = Resources.FindObjectsOfTypeAll<Material>();
-            foreach (var assetBundle in assetBundles)
-                MapMaterials(assetBundle, gameMaterials);
+            foreach (var assetBundle in loadedAssetBundles)
+            {
+                MapMaterials(assetBundle);
+            }
         }
 
         public static string[] GetAssetBundlePaths()
@@ -64,15 +47,15 @@ namespace TurboEdition
                     HG.ArrayUtils.ArrayAppend(ref TurboEdition.serializableContentPack.effectDefs, EffectDefHolder.ToEffectDef(effectPrefab));
         }
 
-        internal static void MapMaterials(AssetBundle assetBundle, Material[] gameMaterials)
+        internal static void MapMaterials(AssetBundle assetBundle)
         {
             if (assetBundle.isStreamedSceneAssetBundle)
                 return;
-            //The absolute fucking state of having to do shaders in RoR2
-            //SHADERS NEVER FUCKING EVER
-            var cloudMat = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
+
+            var cloudRemapReference = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
 
             Material[] assetBundleMaterials = assetBundle.LoadAllAssets<Material>();
+            Material[] assetBundleMaterialObjects = Resources.FindObjectsOfTypeAll<Material>();
 
             for (int i = 0; i < assetBundleMaterials.Length; i++)
             {
@@ -80,11 +63,15 @@ namespace TurboEdition
                 if (material.shader.name.StartsWith("StubbedCalmWater"))
                 {
                     material.shader = Shader.Find(material.shader.name.Substring(7));
+                    MaterialsWithSwappedShaders.Add(material);
                     continue;
                 }
                 if (material.shader.name.StartsWith("StubbedDecalicious"))
                 {
+                    Debug.Log(material.shader.name);
+                    Debug.Log(material.shader.name.Substring(7));
                     material.shader = Shader.Find(material.shader.name.Substring(8));
+                    MaterialsWithSwappedShaders.Add(material);
                     continue;
                 }
                 // If it's stubbed, just switch out the shader unless it's fucking cloudremap
@@ -93,30 +80,27 @@ namespace TurboEdition
                     material.shader = Resources.Load<Shader>("shaders" + material.shader.name.Substring(13));
                     if (material.shader.name.Contains("Cloud Remap"))
                     {
-                        var cockSucker = new RuntimeCloudMaterialMapper(material);
-                        material.CopyPropertiesFromMaterial(cloudMat);
-                        cockSucker.SetMaterialValues(ref material);
-                        //HG.ArrayUtils.ArrayAppend(ref matsWithDifferentMatProperties, material);
-                        MaterialsWithSwappedShaders.Add(material);
+                        var eatShit = new RuntimeCloudMaterialMapper(material);
+                        material.CopyPropertiesFromMaterial(cloudRemapReference);
+                        eatShit.SetMaterialValues(ref material);
                     }
+                    MaterialsWithSwappedShaders.Add(material);
                     continue;
                 }
 
                 //If it's this shader it searches for a material with the same name and copies the properties
                 if (material.shader.name.Equals("CopyFromRoR2"))
                 {
-                    foreach (var gameMaterial in gameMaterials)
+                    foreach (var gameMaterial in assetBundleMaterialObjects)
                         if (material.name.Equals(gameMaterial.name))
                         {
                             material.shader = gameMaterial.shader;
                             material.CopyPropertiesFromMaterial(gameMaterial);
-                            //HG.ArrayUtils.ArrayAppend(ref matsWithDifferentMatProperties, material);
                             MaterialsWithSwappedShaders.Add(material);
                             break;
                         }
                     continue;
                 }
-                assetBundleMaterials[i] = material;
             }
         }
     }

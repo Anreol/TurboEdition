@@ -73,7 +73,7 @@ namespace TurboEdition.Items
                     origin = body.transform.position,
                 };
 
-                component.finalRadius = (10f + ((stack - 1) * 3.5f));
+                component.finalRadius = (16f + ((stack - 1) * 5f));
                 component.duration = Mathf.Min(stack, 3);
                 component.performSearch += Component_performSearch;
                 component.onPulseHit += Component_onPulseHit;

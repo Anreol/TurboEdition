@@ -38,6 +38,54 @@ Unfinished content will be marked with a WIP icon, but keep in mind that with mo
 I'm open to contributions, specifically models, as they take me more time than what I wished. You can contact me on your platform of choice, but if you choose Steam, and you have a suspicious profile, I'll probably reject you.
 
 ## Changelog
+`0.0.6`
+
+Update for Survivors of the Void
+- Now with sounds! Taken from SSBB, SSBU, P5, KF, CTR:NF, and real life!
+
+### Balance Changes
+- Red Tape Roll
+	- Now gives items to any summon, and not just mechanical allies.
+	
+* Beedl and Squid users rejoice, as now there's more use to this item than just being Captain*
+
+- Fan of Blades
+	- Removed acceleration over lifetime as it was too awkward to use.
+	- Damage now bypasses armor.
+
+- Voice Modulator
+	- Inital radius 10m -> 16m
+	- Stack radius 3.5m -> 5m
+
+- Nanomachines
+	- Buff now increases your damage by 25%, based on your base damage (so not much, but heavy hitters like Loader, Sniper, and Railgunner should get a noticeable boost).
+
+* Nanomachines should also strengthen your body, son*
+
+- Punching Bag
+	- 500 armor bonus -> flat 50% damage reduction.
+	- Weight increase -> Now inmune to all knockback
+	- Full combined HP 25% -> 50%
+
+* While this seems broken as hell, the damage accumulation that reduces the bonus being given is now based on incoming damage before all reductions are applied (even vanilla ones), and before the 50% damage reduction, so raw damage. You'll need more stacks than before.*
+
+- Playing Cards
+	- Internal hidden delay timer before it can duplicate more items 30s -> 15s
+	- Internal hidden delay will now only start once the duplication has been consumed, instead of constantly resetting its availability timer
+	
+* If you are playing dangerously, you should be rewarded*
+- UVB-51 Radio
+	- Base reveal % 10% -> 15%
+
+- Broken Fiber Cable
+	- Stack delay 0.5s -> 1s
+
+- Fixes
+	- Fixed the patch on the old moon's arena forcefield not working for clients.
+	- Playing Cards SHOULD no longer schedule for death a player that has already died, or that no longer has the item.
+	- Playing Cards now should duplicate items accordingly, if the player that has the item is dead, it won't duplicate any more.
+	- The radio should now properly attach itself to map scanners to reveal the whole map.
+
 `0.0.5`
 
 And like that, January is gone.

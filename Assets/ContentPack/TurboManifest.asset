@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 114107831304456238}
   - {fileID: 114431642618062350}
   - {fileID: 114338525782180936}
+  - {fileID: 114364032661763054}
   identity: {fileID: 114211852988908172}
 --- !u!114 &114107831304456238
 MonoBehaviour:
@@ -57,7 +58,7 @@ MonoBehaviour:
   Author: Anreol
   Name: Anreol-TurboEdition
   Description: Very WIP
-  Version: 0.0.5
+  Version: 0.0.6
   Dependencies:
   - {fileID: 11400000, guid: bff73382628f698c89c1d9ae43c8f350, type: 2}
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
@@ -81,6 +82,26 @@ MonoBehaviour:
   files:
   - {fileID: 102900000, guid: 4870c48caece70542b94265b8f0168e6, type: 3}
   - {fileID: 102900000, guid: f517a910ba92e5941afa761c4df805b5, type: 3}
+--- !u!114 &114364032661763054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  Errored: 0
+  ErrorMessage: 
+  ErrorStacktrace: 
+  StagingPaths:
+  - <BuildPathSoundbanks>
+  files:
+  - {fileID: 102900000, guid: f017c249e60d5b144ae795e8156c96ad, type: 3}
+  - {fileID: 102900000, guid: febed138bc9b5d1498af5ab758a1fb3f, type: 3}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1
