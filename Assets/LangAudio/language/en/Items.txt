@@ -33,7 +33,7 @@
 	
 	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
 	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage.",
-	"ITEM_HITLAG_DESC": "Delay all incoming normal damage by 1 second <style=cStack>(+1s per stack)</style>. <style=cSub>Affected by armor bypasses</style>.",
+	"ITEM_HITLAG_DESC": "Delay all incoming normal damage by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>Healing</style> reduces damage being delayed up to a 50%. <style=cSub>Affected by armor bypasses</style>.",
 	"ITEM_HITLAG_LORE": "",
 	
 	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",

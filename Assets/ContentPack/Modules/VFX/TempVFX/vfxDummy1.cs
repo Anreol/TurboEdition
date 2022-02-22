@@ -9,11 +9,10 @@ namespace TurboEdition.TempVFX
 
         public override bool IsEnabled(ref CharacterBody body)
         {
-            if (body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("Hitlag")) > 0)
+            /*if (body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("Hitlag")) > 0)
             {
-                Debug.LogWarning("FUCK <- YOU ->.");
                 return true;
-            }
+            }*/
             return false;
         }
     }

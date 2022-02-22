@@ -5,8 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="TurboBank" ID="{2C7EDE17-3848-4484-A1E2-09FCA9AFE8F3}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_GrenadierPrimaryFire" ID="{7B58FE69-AF71-484E-9E61-8B14AE5F6F9B}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
-						<ObjectRef Name="Play_GrenadierPrimaryFireStrong" ID="{5613FB19-948F-4C87-9CAC-B9D2871170A1}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_GrenadierSpecialGainExtraCharge" ID="{1DA97B05-BE79-4174-B197-39A3A215C417}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_GrenadierSpecialReady" ID="{89947CFA-6626-41F7-B7B4-63BE7078989E}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_GrenadierSpecialCharge" ID="{9F164E68-0BF6-494E-8D07-A63091E7A003}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Play_GrenadierPrimaryFire" ID="{5613FB19-948F-4C87-9CAC-B9D2871170A1}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_GrenadierSecondaryFire" ID="{A69258E1-868B-4D7C-826D-D74AD22C5A36}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Play_GrenadierReload" ID="{616C6F35-06C6-4DA7-BDE1-B135B2D72996}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>

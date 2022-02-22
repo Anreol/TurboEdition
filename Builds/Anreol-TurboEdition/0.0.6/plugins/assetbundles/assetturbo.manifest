@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2342873549
+CRC: 1245163379
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 32f28e253b17c80d01cc9c27b5b07d91
+    Hash: 78a82a46bae07ef298629797a7ea864b
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1bb928a6ddd0ee54e9e874fa71c2f113
+    Hash: ad3357d85cd8643f3b79e384fc1087f6
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -385,6 +385,7 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Textures/Ramps/texRampTwotone.png
+- Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/pain_selected.png
 - Assets/Hopoo/materials/matUIPaintStreakFlash.mat
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffPanicked.asset
 - Assets/ContentPack/AssetTurbo/ItemDefs/MeleeArmor.asset
@@ -543,7 +544,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Grenadier.Weapon.FireSecondary.asset
 - Assets/Materials/matItemDeployer.mat
 - Assets/Hopoo/sprites/texUICleanButton.png
-- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Grenadier.Weapon.SpecialThrowSatchels.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/PickupItemDeployer.prefab
 - Assets/Shaders/HGShader-DONT-PUSH/DecaliciousDeferred Decal.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffCannotSprint.asset
@@ -594,6 +594,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/Shrines/ShrineQuest.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
+- Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/pain_deselected.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OrbEffects/OrbEffects.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png
 - Assets/ContentPack/AssetTurbo/SkillDefs/GrenadierBody/GrenadierUtility.asset
@@ -601,7 +602,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ItemDefs/Typewriter.asset
 - Assets/Hopoo/sprites/texUIOutlineOnly.png
 - Assets/Textures/Ramps/texRampVerticalAlphaWhite.png
-- Assets/ContentPack/AssetTurbo/EntityStateConfigurations/EntityStates.Grenadier.Weapon.SpecialThrowCurling.asset
 - Assets/ScriptableObject/skinCleanButton.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab
 - Assets/ContentPack/AssetTurbo/QuestDefs/EnemyHuntQuest.asset
@@ -639,6 +639,7 @@ Assets:
 - Assets/Mesh/donut2Mesh.asset
 - Assets/Textures/texItemDeployerFresnel.png
 - Assets/Mesh/Items/meshSandbag_.mesh
+- Assets/ContentPack/AssetTurbo/ArtifactDefs/MeltdownArtifact.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/BuffMeleeArmor.asset
 - Assets/Materials/matDustTrail.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/PickupModels/PickupKnifeFan.prefab

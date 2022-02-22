@@ -8,9 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
-    <ProjectGuid>{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Wwise.editor</AssemblyName>

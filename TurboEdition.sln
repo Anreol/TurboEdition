@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31727.386
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwise", "Wwise.csproj", "{CA3180B0-15F7-26EF-9A90-EB041B971007}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurboEdition", "TurboEdition.csproj", "{889E8141-CA38-8809-3C00-1BBF54EC217D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoR2EditorKit", "RoR2EditorKit.csproj", "{516BE7C0-F6AA-508A-EF14-46FB242403AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwise.editor", "Wwise.editor.csproj", "{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wwise.editor", "Wwise.editor.csproj", "{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditorUtils", "EditorUtils.csproj", "{3E2814BE-4557-36DC-FE9C-10AEA7664F54}"
 EndProject
@@ -31,10 +29,10 @@ Global
 		{516BE7C0-F6AA-508A-EF14-46FB242403AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{516BE7C0-F6AA-508A-EF14-46FB242403AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{516BE7C0-F6AA-508A-EF14-46FB242403AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E2814BE-4557-36DC-FE9C-10AEA7664F54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E2814BE-4557-36DC-FE9C-10AEA7664F54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E2814BE-4557-36DC-FE9C-10AEA7664F54}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,9 +40,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C7275FCF-6C22-43FC-9C17-EBD132C59C2C}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj

@@ -4,6 +4,17 @@
 		<WorkUnit Name="Default Work Unit" ID="{9BE2ED1A-B91E-46A3-8100-F50120CCFF6A}" PersistMode="Standalone">
 			<ChildrenList>
 				<GameParameter Name="SFX_VolumeIn" ID="{F1FFE43F-F7C8-426F-993F-BBF7C32732D9}"/>
+				<Folder Name="Grenadier" ID="{B22191DA-DD48-45C9-9A30-94F05425918F}" ShortID="950519353">
+					<ChildrenList>
+						<GameParameter Name="GrenadierSpecial_ChargeAmount" ID="{AF3E558C-5154-46AB-BDEE-96532139A669}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="66"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="31"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

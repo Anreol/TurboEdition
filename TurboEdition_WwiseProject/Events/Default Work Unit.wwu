@@ -5,20 +5,6 @@
 			<ChildrenList>
 				<Folder Name="Grenadier" ID="{178DC00F-FFEB-402E-97D0-F61FDA5E47C2}" ShortID="80358572">
 					<ChildrenList>
-						<Event Name="Play_GrenadierPrimaryFire" ID="{7B58FE69-AF71-484E-9E61-8B14AE5F6F9B}">
-							<ChildrenList>
-								<Action Name="" ID="{263D5342-CA19-4A1C-BAF3-C31E22995019}" ShortID="41889252">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="GrenadierPrimaryFire" ID="{FA66CD18-B98F-40B1-9AD2-AB1E8F1FD1EE}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_GrenadierSecondaryFire" ID="{A69258E1-868B-4D7C-826D-D74AD22C5A36}">
 							<ChildrenList>
 								<Action Name="" ID="{328D3FEA-900B-4497-8978-390228266D09}" ShortID="646105834">
@@ -33,7 +19,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_GrenadierPrimaryFireStrong" ID="{5613FB19-948F-4C87-9CAC-B9D2871170A1}">
+						<Event Name="Play_GrenadierPrimaryFire" ID="{5613FB19-948F-4C87-9CAC-B9D2871170A1}">
 							<ChildrenList>
 								<Action Name="" ID="{1EE5EE7F-699C-4740-A0A3-5B168992B925}" ShortID="31728987">
 									<PropertyList>
@@ -41,7 +27,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="GrenadierPrimaryFireStrong" ID="{56D5C4C3-C2E0-4C83-8072-DA91FE653B40}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+											<ObjectRef Name="GrenadierPrimaryFire" ID="{56D5C4C3-C2E0-4C83-8072-DA91FE653B40}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -56,6 +42,48 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="GrenadierReload" ID="{8C5269C4-2706-4218-9976-4C25B1B08F19}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_GrenadierSpecialCharge" ID="{9F164E68-0BF6-494E-8D07-A63091E7A003}">
+							<ChildrenList>
+								<Action Name="" ID="{C7AD6A1F-79A0-4269-82DE-0E7E7009C4F8}" ShortID="559529125">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GrenadierSpecialCharge" ID="{0A247F6D-FEFF-4F4A-A918-28123C93DC66}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_GrenadierSpecialReady" ID="{89947CFA-6626-41F7-B7B4-63BE7078989E}">
+							<ChildrenList>
+								<Action Name="" ID="{7C1865F5-3B32-4470-BDE0-196C99F1E86C}" ShortID="50729584">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GrenadierSpecialReady" ID="{72829B68-1120-4FB0-A16B-FF0A2F0AFDD5}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_GrenadierSpecialGainExtraCharge" ID="{1DA97B05-BE79-4174-B197-39A3A215C417}">
+							<ChildrenList>
+								<Action Name="" ID="{7B8A57D0-A04A-4D17-8667-E9E5D7359512}" ShortID="375786476">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GrenadierSpecialGainExtraCharge" ID="{A6E2CA13-85C6-4FB3-8564-A3DCAA1B2F5B}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

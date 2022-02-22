@@ -35,4 +35,4 @@ MonoBehaviour:
   forceSprintDuringState: 0
   canceledFromSprinting: 1
   isCombatSkill: 1
-  mustKeyPress: 0
+  mustKeyPress: 1

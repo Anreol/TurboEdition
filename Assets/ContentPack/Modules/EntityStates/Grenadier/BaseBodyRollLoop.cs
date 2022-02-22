@@ -70,29 +70,9 @@ namespace TurboEdition.EntityStates.Grenadier
         private Vector3 idealDirection;
         private bool exitNextFrame;
 
-        private float minimumDuration
-        {
-            get
-            {
-                return minimumBaseDuration / this.attackSpeedStat;
-            }
-        }
-
-        private float hitLagDuration
-        {
-            get
-            {
-                return baseHitPauseDuration / this.attackSpeedStat;
-            }
-        }
-
-        private float resetFrequency
-        {
-            get
-            {
-                return overlapAttackResetFrequency * attackSpeedStat;
-            }
-        }
+        private float minimumDuration => minimumBaseDuration / this.attackSpeedStat;
+        private float hitLagDuration => baseHitPauseDuration / this.attackSpeedStat;
+        private float resetFrequency => overlapAttackResetFrequency * attackSpeedStat;
 
         public override void OnEnter()
         {
@@ -122,6 +102,7 @@ namespace TurboEdition.EntityStates.Grenadier
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            characterBody.isSprinting = true;
             this.totalStopwatch += Time.fixedDeltaTime;
             this.resetStopwatch += Time.fixedDeltaTime;
             buttonReleased = !buttonReleased && !(base.inputBank && base.inputBank.skill1.down);

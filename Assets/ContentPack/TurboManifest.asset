@@ -101,7 +101,7 @@ MonoBehaviour:
   - <BuildPathSoundbanks>
   files:
   - {fileID: 102900000, guid: f017c249e60d5b144ae795e8156c96ad, type: 3}
-  - {fileID: 102900000, guid: febed138bc9b5d1498af5ab758a1fb3f, type: 3}
+  - {fileID: 102900000, guid: 5723deb30e77f6841b51b7735829bd4c, type: 3}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1

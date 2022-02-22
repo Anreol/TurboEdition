@@ -15,9 +15,9 @@ MonoBehaviour:
   nameToken: ARTIFACT_PAIN_NAME
   descriptionToken: ARTIFACT_PAIN_DESCRIPTION
   unlockableDef: {fileID: 0}
-  smallIconSelectedSprite: {fileID: 21300000, guid: 8c2052b3b976372439fa4d10db138bcc,
+  smallIconSelectedSprite: {fileID: 21300000, guid: 5642e51059bb51a40b8681bf12c2b8d4,
     type: 3}
-  smallIconDeselectedSprite: {fileID: 21300000, guid: bb2937dd4ece6164798a5df52cbeb4bb,
+  smallIconDeselectedSprite: {fileID: 21300000, guid: 422722ec00eb5914d98196b2f003aaf2,
     type: 3}
   pickupModelPrefab: {fileID: 553121620005174921, guid: 4181551b7a3547146aa8deed8a77cfd9,
     type: 3}

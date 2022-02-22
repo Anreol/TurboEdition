@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.Networking;
 
 namespace TurboEdition.Items
@@ -10,160 +11,118 @@ namespace TurboEdition.Items
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {
-            body.AddItemBehavior<HitlagBehavior>(stack);
+            if (NetworkServer.active)
+            {
+                body.AddItemBehavior<HitlagBehaviorServer>(stack);
+            }
         }
 
         public override void Initialize()
         {
-            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            HealthComponent.onCharacterHealServer += onCharacterHealServer;
         }
 
-        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        private void onCharacterHealServer(HealthComponent arg1, float arg2)
         {
-            if (damageInfo.rejected)
-            {
-                orig(self, damageInfo);
-                return;
-            }
-            if (damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassOneShotProtection)
-            {
-                orig(self, damageInfo);
-                return;
-            }
-            if (damageInfo.dotIndex != DotController.DotIndex.None) //If damage applies any kind of DoT
-            {
-                orig(self, damageInfo);
-                return;
-            }
-            HitlagBehavior itemshit = self.body.GetComponent<HitlagBehavior>();
-            if (itemshit)
-            {
-                itemshit.StoreDamage(orig, self, damageInfo);
-                return;
-            }
-            orig(self, damageInfo);
-            return;
+            arg1.body.GetComponent<HitlagBehaviorServer>()?.Heal(arg1, arg2);
         }
 
-        internal class HitlagBehavior : CharacterBody.ItemBehavior//, IOnIncomingDamageServerReceiver
+        internal class HitlagBehaviorServer : CharacterBody.ItemBehavior, IOnIncomingDamageServerReceiver
         {
-            public List<HitlagInstance> instanceLists = new List<HitlagInstance>();
-            public List<DamageInfo> damageInfos = new List<DamageInfo>();
+            public List<DelayedDamageInfo> damageInfos = new List<DelayedDamageInfo>();
 
-            /*public void OnIncomingDamageServer(DamageInfo damageInfo)
+            public void OnIncomingDamageServer(DamageInfo damageInfo)
             {
                 if (damageInfo.rejected)
-                {
                     return;
-                }
-                if (damageInfo.dotIndex != DotController.DotIndex.None || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.BypassOneShotProtection)
-                {
+                if (damageInfo.dotIndex != DotController.DotIndex.None || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.BypassOneShotProtection || damageInfo.procChainMask.HasProc(ProcType.AACannon))
                     return;
-                }
-                //StartCoroutine(DelayShit(1 + ((stack - 1) * 0.5f)));
-                //damageInfos.Add(damageInfo);
-                //damageInfo.
+                damageInfo.rejected = true;
+                DelayedDamageInfo delayedDamageInfo = new DelayedDamageInfo
+                {
+                    ogDamageInfoDamage = damageInfo.damage,
+                    ReducedDamageInfo = new DamageInfo
+                    {
+                        attacker = damageInfo.attacker,
+                        crit = damageInfo.crit,
+                        damage = damageInfo.damage,
+                        damageColorIndex = damageInfo.damageColorIndex,
+                        damageType = damageInfo.damageType,
+                        dotIndex = damageInfo.dotIndex,
+                        force = damageInfo.force,
+                        inflictor = damageInfo.inflictor,
+                        position = damageInfo.position,
+                        procChainMask = damageInfo.procChainMask,
+                        procCoefficient = damageInfo.procCoefficient,
+                        rejected = false,
+                    },
+                    FixedTimeStamp = Run.FixedTimeStamp.now
+                };
+                delayedDamageInfo.ReducedDamageInfo.procChainMask.AddProc(ProcType.AACannon); //l o l
+                damageInfos.Add(delayedDamageInfo);
             }
-
-            /*private IEnumerator DelayShit(float time)
-            {
-                yield return new WaitForSeconds(time);
-            }*/
 
             private void FixedUpdate()
             {
-                if (!NetworkServer.active)
+                List<DelayedDamageInfo> buffer = new List<DelayedDamageInfo>();
+                for (int i = 0; i < damageInfos.Count; i++)
                 {
-                    return;
-                }
-                if (base.body.healthComponent)
-                {
-                    var instanceBuffer = instanceLists;
-                    foreach (var item in instanceBuffer)
+                    if (damageInfos[i].FixedTimeStamp.timeSince >= (float)stack)
                     {
-                        if (item.FixedTimeStamp.timeSince >= 1 + ((stack - 1) / 2))
-                        {
-                            item.CmpOrig(item.CmpSelf, item.CmpDI);
-                            instanceLists.Remove(item);
-                        }
+                        body.healthComponent.TakeDamage(damageInfos[i].ReducedDamageInfo);
+                        buffer.Add(damageInfos[i]);
                     }
-                    /*foreach (var hitlag in instanceLists)
-                    {
-                        if (hitlag.FixedTimeStamp.timeSince >= stack + ((stack - 1) * 0.5))
-                        {
-                            hitlag.CmpOrig(hitlag.CmpSelf, hitlag.CmpDI);
-                            instanceLists.Remove(hitlag);
-                        }
-                    }*/
                 }
+                damageInfos = damageInfos.Except(buffer).ToList();
             }
 
             private void OnDestroy()
             {
-                //On.RoR2.HealthComponent.TakeDamage -= StoreDamage; I dont know the sideeffects of this so dont do it for now.
                 if (base.body.healthComponent)
                 {
-                    var instanceBuffer = instanceLists;
-                    foreach (var item in instanceBuffer)
-                    {
-                        item.CmpOrig(item.CmpSelf, item.CmpDI);
-                        instanceLists.Remove(item);
-                    }
-                    /*foreach (var hitlag in instanceLists)
-                    {
-                        hitlag.CmpOrig(hitlag.CmpSelf, hitlag.CmpDI);
-                        instanceLists.Remove(hitlag);
-                    }*/
+                    Cleanse();
                 }
             }
 
-            //Special method that can be called whenever, is the same as OnDestroy, but doesn't destroy the object (duh)
+            public void Heal(HealthComponent hc, float amount)
+            {
+                amount /= 4;
+                foreach (DelayedDamageInfo hitlag in damageInfos)
+                {
+                    if (hitlag.ReducedDamageInfo.damage > hitlag.ogDamageInfoDamage / 2)
+                    {
+                        hitlag.ReducedDamageInfo.damage -= amount;
+                        amount = 0f;
+                        if (hitlag.ReducedDamageInfo.damage < hitlag.ogDamageInfoDamage / 2)
+                        {
+                            amount += (hitlag.ogDamageInfoDamage / 2) - hitlag.ReducedDamageInfo.damage; //Refund
+                            hitlag.ReducedDamageInfo.damage = hitlag.ogDamageInfoDamage / 2;
+                        }
+                        if (amount <= 0)
+                            break;
+                    }
+                }
+            }
+
+            //Special method that can be called whenever
             public void Cleanse()
             {
                 if (base.body.healthComponent)
                 {
-                    int instanceCount = instanceLists.Count;
-                    for (int i = 0; i < instanceCount; i++)
+                    foreach (DelayedDamageInfo hitlag in damageInfos)
                     {
-                        instanceLists[i].CmpOrig(instanceLists[i].CmpSelf, instanceLists[i].CmpDI);
-                        instanceLists.RemoveAt(i);
+                        body.healthComponent.TakeDamage(hitlag.ReducedDamageInfo);
                     }
-                    /*foreach (var hitlag in instanceLists)
-                    {
-                        hitlag.CmpOrig(hitlag.CmpSelf, hitlag.CmpDI);
-                        instanceLists.Remove(hitlag);
-                    }*/
+                    damageInfos.Clear();
                 }
-            }
-
-            public void StoreDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
-            {
-                if (body.healthComponent)
-                {
-                    HitlagInstance hitlagInstance = new HitlagInstance
-                    {
-                        CmpOrig = orig,
-                        CmpSelf = self,
-                        CmpDI = damageInfo,
-                        FixedTimeStamp = RoR2.Run.FixedTimeStamp.now
-                    };
-                    instanceLists.Add(hitlagInstance);
-                    return;
-                }
-                orig(self, damageInfo);
             }
         }
 
-        public class HitlagInstance
+        public struct DelayedDamageInfo
         {
-            private On.RoR2.HealthComponent.orig_TakeDamage cmpOrig; //Orig
-            private HealthComponent cmpSelf; //self
-            private DamageInfo cmpDI; //DamageInfo
-            private Run.FixedTimeStamp fixedTimeStamp;
-            public On.RoR2.HealthComponent.orig_TakeDamage CmpOrig { get => cmpOrig; set => cmpOrig = value; }
-            public HealthComponent CmpSelf { get => cmpSelf; set => cmpSelf = value; }
-            public DamageInfo CmpDI { get => cmpDI; set => cmpDI = value; }
-            public Run.FixedTimeStamp FixedTimeStamp { get => fixedTimeStamp; set => fixedTimeStamp = value; }
+            public float ogDamageInfoDamage;
+            public DamageInfo ReducedDamageInfo;
+            public Run.FixedTimeStamp FixedTimeStamp;
         }
     }
 }

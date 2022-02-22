@@ -93,8 +93,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7382c36c8b6687d45b23beff588108b2, type: 2}
   - {fileID: 11400000, guid: a3780b33284661743ba00e9d029837d0, type: 2}
   - {fileID: 11400000, guid: 1a73ff094c2b2db4ca858a5696afd2cf, type: 2}
-  - {fileID: 11400000, guid: 8891447de9e11aa45a238d663d38c54b, type: 2}
-  - {fileID: 11400000, guid: cf9ddbe9248a5f9498c919a6fb562c81, type: 2}
   - {fileID: 11400000, guid: 0038863cf28019d4293c9cf7510b8133, type: 2}
   - {fileID: 11400000, guid: c77c1625e6415ae498bdfff13426d3e2, type: 2}
   entityStateTypes: []

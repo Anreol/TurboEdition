@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 8
+        stringValue: 7
         objectValue: {fileID: 0}
     - fieldName: crosshairOverridePrefab
       fieldValue:
@@ -27,11 +27,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: chargeSoundString
       fieldValue:
-        stringValue: 
+        stringValue: Play_GrenadierSpecialCharge
         objectValue: {fileID: 0}
     - fieldName: maxDistance
       fieldValue:
-        stringValue: 100
+        stringValue: 75
         objectValue: {fileID: 0}
     - fieldName: rayRadius
       fieldValue:
@@ -54,7 +54,7 @@ MonoBehaviour:
           type: 3}
     - fieldName: endpointVisualizerRadiusScale
       fieldValue:
-        stringValue: 0
+        stringValue: 1
         objectValue: {fileID: 0}
     - fieldName: setFuse
       fieldValue:
@@ -67,4 +67,12 @@ MonoBehaviour:
     - fieldName: baseMinimumDuration
       fieldValue:
         stringValue: 0.5
+        objectValue: {fileID: 0}
+    - fieldName: graceDuration
+      fieldValue:
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: baseFireFrequency
+      fieldValue:
+        stringValue: 1.25
         objectValue: {fileID: 0}

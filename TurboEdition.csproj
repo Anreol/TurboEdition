@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Artifact\PainArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\WormsArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\AssemblyInfo.cs" />
     <Compile Include="Assets\ContentPack\Modules\Assets.cs" />
@@ -81,10 +82,14 @@
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GetDamageFromHurtVictimBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GrenadierPassiveController.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\MarkReducedSelfDamage.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\MineProximityDetonatorAttackerFiltering.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboBuffManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboItemManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboVFXManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\PainArtifactServerListener.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\ProjectileImpactEffect.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MarkReducedSelfDamage.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MineProximityDetonatorAttackerFiltering.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileImpactEffect.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestComponent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestMissionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTimer.cs" />
@@ -94,9 +99,6 @@
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\RuntimeCloudMaterialMapper.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShrineQuestBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\TurboBuffManager.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\TurboItemManager.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\TurboVFXManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\IStatBarProvider.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
@@ -114,9 +116,6 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeCurling.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeSatchels.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeThrowBase.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowBase.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowCurling.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialThrowSatchels.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollLoop.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollSingle.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Quests\AfterQuestState.cs" />

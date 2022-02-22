@@ -14,13 +14,16 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_GRENADIERPRIMARYFIRE = 3965566729U;
-        static const AkUniqueID PLAY_GRENADIERPRIMARYFIRESTRONG = 3566487244U;
         static const AkUniqueID PLAY_GRENADIERRELOAD = 1186468370U;
         static const AkUniqueID PLAY_GRENADIERSECONDARYFIRE = 241865965U;
+        static const AkUniqueID PLAY_GRENADIERSPECIALCHARGE = 3039812538U;
+        static const AkUniqueID PLAY_GRENADIERSPECIALGAINEXTRACHARGE = 2217609107U;
+        static const AkUniqueID PLAY_GRENADIERSPECIALREADY = 2141728575U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID GRENADIERSPECIAL_CHARGEAMOUNT = 1612634724U;
         static const AkUniqueID SFX_VOLUMEIN = 1278074206U;
     } // namespace GAME_PARAMETERS
 

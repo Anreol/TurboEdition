@@ -1256,11 +1256,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netIsOutOfDanger: 0
+  primaryFullyDepleted: 0
+  specialBonusStockFromBody: 0
+  maxSpecialBonusStockFromBody: 3
   baseBlastArmorRechargeTime: 8
   passiveSkillSlot: {fileID: 4775533713091580501}
-  grenadierProjectiles:
-  - {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5, type: 3}
-  - {fileID: 7028506108066464535, guid: d8221bda00547fc43ae7da8a17691f35, type: 3}
   PassiveBlastArmor: {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
   PassiveBlastArmorBombletPrefab: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
     type: 3}

@@ -41,7 +41,14 @@ I'm open to contributions, specifically models, as they take me more time than w
 `0.0.6`
 
 Update for Survivors of the Void
-- Now with sounds! Taken from SSBB, SSBU, P5, KF, CTR:NF, and real life!
+- Now with sounds!
+
+- Artifacts
+	- Artifact of Pain
+		- Now implemented!
+		- All players share the same health bar -> all players share the pain.
+
+* Reevaluating the code, making all characters share the same health bar was a bit of an stupid idea, while possible, I'd rather not deal with that bag of worms*
 
 ### Balance Changes
 - Red Tape Roll
@@ -56,6 +63,7 @@ Update for Survivors of the Void
 - Voice Modulator
 	- Inital radius 10m -> 16m
 	- Stack radius 3.5m -> 5m
+	- Middle-sized enemies (golems and similar) now have a chance to be afflicted.
 
 - Nanomachines
 	- Buff now increases your damage by 25%, based on your base damage (so not much, but heavy hitters like Loader, Sniper, and Railgunner should get a noticeable boost).
@@ -65,26 +73,29 @@ Update for Survivors of the Void
 - Punching Bag
 	- 500 armor bonus -> flat 50% damage reduction.
 	- Weight increase -> Now inmune to all knockback
-	- Full combined HP 25% -> 50%
+	- Buff duration based on full combined HP 25% -> 50%
 
 * While this seems broken as hell, the damage accumulation that reduces the bonus being given is now based on incoming damage before all reductions are applied (even vanilla ones), and before the 50% damage reduction, so raw damage. You'll need more stacks than before.*
 
 - Playing Cards
 	- Internal hidden delay timer before it can duplicate more items 30s -> 15s
-	- Internal hidden delay will now only start once the duplication has been consumed, instead of constantly resetting its availability timer
+	- Internal hidden delay will now only start once the duplication has been consumed, instead of constantly resetting its availability timer.
 	
 * If you are playing dangerously, you should be rewarded*
 - UVB-51 Radio
-	- Base reveal % 10% -> 15%
+	- Base map interactables reveal % 10% -> 15%
 
 - Broken Fiber Cable
+	- Entirely rewrote the item, so it should be more stable.
+	- 25% of incoming healing can heal up to a 50% of delayed damage.
 	- Stack delay 0.5s -> 1s
 
 - Fixes
 	- Fixed the patch on the old moon's arena forcefield not working for clients.
 	- Playing Cards SHOULD no longer schedule for death a player that has already died, or that no longer has the item.
 	- Playing Cards now should duplicate items accordingly, if the player that has the item is dead, it won't duplicate any more.
-	- The radio should now properly attach itself to map scanners to reveal the whole map.
+	- Broken Fiber Cable no longer swallows damage instances taken in the same frame. No more console spam. This also means that players will be PROPERLY damaged.
+	- UVB-51 Radio should now properly attach itself to map scanners to reveal the whole map.
 
 `0.0.5`
 
