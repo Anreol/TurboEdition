@@ -111,6 +111,9 @@ namespace TurboEdition.EntityStates.Grenadier
                 {
                     HitSuccessful(victims);
                     BaseBodyRollLoop baseBodyRoll = GetNextState();
+                    baseBodyRoll.ResetOverlap();
+                    baseBodyRoll.overlapAttack.ignoredHealthComponentList = this.overlapAttack.ignoredHealthComponentList;
+
                     this.outer.SetNextState(baseBodyRoll);
                 }
             }

@@ -2,7 +2,8 @@
     "name": "TurboEdition",
     "references": [
         "Unity.TextMeshPro",
-        "Wwise"
+        "Wwise",
+        "ThunderKit.Core"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

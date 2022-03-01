@@ -10,6 +10,7 @@ namespace TurboEdition.Components
     {
         public GameObject prefabEffect;
         public bool useSurfaceDefEffectToo;
+        public bool tryToNormalize;
 
         public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
         {
@@ -25,9 +26,12 @@ namespace TurboEdition.Components
                     {
                         color = color,
                         origin = position,
-                        surfaceDefIndex = surfaceDef.surfaceDefIndex,
-                        rotation = Util.QuaternionSafeLookRotation(normal),
+                        surfaceDefIndex = surfaceDef.surfaceDefIndex
                     };
+                    if (tryToNormalize)
+                    {
+                        effectData.rotation = Util.QuaternionSafeLookRotation(normal);
+                    }
                     EffectManager.SpawnEffect(surfaceDef.impactEffectPrefab, effectData, false); //Will be local, we dont need to transmit
                     string impactSoundString = surfaceDef.impactSoundString;
                     if (!string.IsNullOrEmpty(impactSoundString))
@@ -41,9 +45,12 @@ namespace TurboEdition.Components
                     {
                         color = color,
                         origin = position,
-                        surfaceDefIndex = surfaceDef.surfaceDefIndex,
-                        rotation = Util.QuaternionSafeLookRotation(normal)
+                        surfaceDefIndex = surfaceDef.surfaceDefIndex
                     };
+                    if (tryToNormalize)
+                    {
+                        effectData.rotation = Util.QuaternionSafeLookRotation(normal);
+                    }
                     EffectManager.SpawnEffect(prefabEffect, effectData, false);
                 }
                 return;

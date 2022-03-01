@@ -65,7 +65,7 @@ namespace TurboEdition.Items
 
             private void DuplicateGameObject(GameObject gameObject, Transform transform)
             {
-                float rawChance = 1f + ((stack - 1) * 0.05f);
+                float rawChance = 5f + ((stack - 1));
                 if (Util.CheckRoll(rawChance, body.master.luck))
                 {
                     TELog.LogI("Passed luck check, duplicating.");

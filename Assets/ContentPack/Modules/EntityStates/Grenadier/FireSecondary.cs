@@ -2,7 +2,7 @@
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
-    internal class FireSecondary : GenericProjectileBaseState
+    internal class FireSecondaryAlt : GenericProjectileBaseState
     {
         public static float selfForce;
 

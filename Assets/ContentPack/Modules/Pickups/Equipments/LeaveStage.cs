@@ -1,4 +1,5 @@
 ﻿using RoR2;
+using RoR2.Audio;
 using RoR2.EntityLogic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,6 +9,7 @@ namespace TurboEdition.Equipments
     public class LeaveStage : Equipment
     {
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("LeaveStage");
+        private static NetworkSoundEventDef networkSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseLeaveStageError");
 
         private static bool canLeave = true;
 
@@ -43,6 +45,7 @@ namespace TurboEdition.Equipments
             {
                 return UseThingie();
             }
+            PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
             return false;
         }
 

@@ -55,8 +55,8 @@ namespace TurboEdition.EntityStates.Grenadier
         [SerializeField]
         public float hitRecoilAmplitude;
 
+        public OverlapAttack overlapAttack;
         private Animator animator;
-        private OverlapAttack overlapAttack;
         private float totalStopwatch = 0f;
 
         private float previousAirControl;
@@ -77,8 +77,9 @@ namespace TurboEdition.EntityStates.Grenadier
         public override void OnEnter()
         {
             base.OnEnter();
-            ResetOverlap();
+            //ResetOverlap();
             PlayAnim();
+
             if (base.isAuthority)
             {
                 characterMotor.onMovementHit += onMovementHit;
@@ -95,7 +96,7 @@ namespace TurboEdition.EntityStates.Grenadier
             }
             this.animator = base.GetModelAnimator();
             //Very important to do
-            resetStopwatch -= 1f / this.resetFrequency;
+            //resetStopwatch -= 1f / this.resetFrequency;
             previousAirControl = characterMotor.airControl;
         }
 
@@ -158,14 +159,14 @@ namespace TurboEdition.EntityStates.Grenadier
                 characterMotor.onMovementHit -= onMovementHit;
             }
         }
-        private void onMovementHit(ref CharacterMotor.MovementHitInfo movementHitInfo)
+        public virtual void onMovementHit(ref CharacterMotor.MovementHitInfo movementHitInfo)
         {
             this.exitNextFrame = true;
         }
 
         public virtual void ModifyOverlapAttack(OverlapAttack overlapAttack)
         {
-            float damage = isInHitPause ? damageStat * baseOverlapAttackCoefficient : Mathf.Max(damageStat * baseOverlapAttackCoefficient, damageStat * (baseOverlapAttackCoefficient * GetDamageBoostFromSpeed()));
+            float damage = Mathf.Max(damageStat * baseOverlapAttackCoefficient, damageStat * (baseOverlapAttackCoefficient * GetDamageBoostFromSpeed()));
             overlapAttack.damage = damage;
             this.overlapAttack.forceVector = new Vector3(0, Mathf.Min(Vector3.down.y, characterBody.characterMotor.velocity.y), 0) * overlapAttackDownwardsForce;
         }

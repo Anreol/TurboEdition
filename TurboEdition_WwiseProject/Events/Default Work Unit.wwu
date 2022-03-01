@@ -91,6 +91,38 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Equipment" ID="{AD1620A5-50C7-4EBC-9DDD-D5A5E47C93F3}" ShortID="793425364">
+					<ChildrenList>
+						<Event Name="Play_LeaveStageError" ID="{8C0BB174-C37A-4DE6-A33E-B5C915848108}">
+							<ChildrenList>
+								<Action Name="" ID="{FEDAEF25-300F-46CE-93C6-6260B6F82753}" ShortID="635465460">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LeaveStageError" ID="{0CC23CEE-A6A0-4467-B627-08C886E48677}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_BigScytheSwing" ID="{2F72BB4B-25F9-4045-A855-C7B5D4161606}">
+							<ChildrenList>
+								<Action Name="" ID="{68397F50-6454-44D3-B0E3-66100F11DE55}" ShortID="581607963">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="BigScytheSwing" ID="{3AC199EE-F9BC-42F1-9BDF-02CC2DA57D43}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

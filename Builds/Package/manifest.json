@@ -1,8 +1,8 @@
 ﻿{
 	"name": "TurboEdition",
-	"version_number": "0.0.5",
+	"version_number": "0.0.6",
 	"website_url": "https://github.com/Anreol/TurboEdition",
-	"description": "WIP Content pack mod that adds items, equipment, artifacts, and anything else to ruin your host with!",
+	"description": "WIP Content pack mod that adds items, equipment, and artifacts, to ruin your host with! Updated for Survivors of the Void",
 	"dependencies": [
         "bbepis-BepInExPack-5.4.9",
 		"RiskofThunder-HookGenPatcher-1.2.1"

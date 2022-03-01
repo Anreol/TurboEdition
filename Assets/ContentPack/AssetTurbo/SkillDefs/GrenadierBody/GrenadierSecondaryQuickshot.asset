@@ -15,7 +15,8 @@ MonoBehaviour:
   skillName: GrenadierSecondaryQuickshot
   skillNameToken: GRENADIER_SECONDARY_NAME
   skillDescriptionToken: GRENADIER_SECONDARY_DESCRIPTION
-  keywordTokens: []
+  keywordTokens:
+  - KEYWORD_SNIPERCLASSIC_MORTAR
   icon: {fileID: 0}
   activationStateMachineName: Weapon
   activationState:

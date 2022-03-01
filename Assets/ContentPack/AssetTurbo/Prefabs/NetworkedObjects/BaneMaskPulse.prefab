@@ -2555,7 +2555,6 @@ GameObject:
   - component: {fileID: 114502389018008591}
   - component: {fileID: 114502279732382788}
   - component: {fileID: 114076067591869958}
-  - component: {fileID: 114746736077311324}
   - component: {fileID: 54581038661374730}
   - component: {fileID: 114773647179258327}
   m_Layer: 0
@@ -2673,28 +2672,6 @@ MonoBehaviour:
   radius: 60
   scaleShakeRadiusWithLocalScale: 0
   amplitudeTimeDecay: 1
---- !u!114 &114746736077311324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918061013436419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -130519023, guid: b2ac317a67c468eb8fd6ed06da7572d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_listeners:
-    initialListenerList: []
-    useDefaultListeners: 1
-  isEnvironmentAware: 1
-  isStaticObject: 0
-  m_positionOffsetData:
-    KeepMe: 0
-    positionOffset: {x: 0, y: 0, z: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!54 &54581038661374730
 Rigidbody:
   m_ObjectHideFlags: 0

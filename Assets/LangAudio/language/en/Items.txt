@@ -12,9 +12,9 @@
 	"ITEM_BANEMASK_LORE": "",
 	
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
-	"ITEM_BLOODECONOMY_PICKUP": "Gain money by getting hurt by damage over time or when near death.",
-	"ITEM_BLOODECONOMY_DESC": "Fill blood bags by <style=cIsHealth>getting hurt</style> by <style=cIsDamage>damage over time</style> or <style=cIsHealth>under 25% hp</style>, filling a bag grants you <style=cIsUtility>$25</style> <style=cStack>(+$15 per stack)</style>. <style=cIsUtility>Scales over time.</style>",
-	"ITEM_BLOODECONOMY_LORE": "",
+	"ITEM_BLOODECONOMY_PICKUP": "Discount interactables that you cannot afford by paying with your blood.",
+	"ITEM_BLOODECONOMY_DESC": "<style=cIsUtility>Decrease the cost</style> by <style=cIsDamage>2$</style> of an interacteable you cannot afford by <color=#FF7F7F>damaging yourself by 35% HP</color> up to one time <style=cStack>(+1 per stack)</style> <style=cIsUtility>Scales over time</style>.",
+	"ITEM_BLOODECONOMY_LORE": ""
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
 	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
@@ -26,14 +26,14 @@
 	"ITEM_RADIOSEARCH_DESC": "Upon <style=cIsUtility>reaching a stage</style>, <style=cIsUtility>reveal</style> 15% of the stage's interactables <style=cStack>(+5 per stack)</style> for one minute. Getting close to a <style=cIsDamage>revealed</style> interactable has a 25% <style=cStack>(+5% per stack)</style> chance of <style=cIsUtility>revealing its contents.</style>",
 	"ITEM_RADIOSEARCH_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
 	
-	"ITEM_GRACEPERIOD_NAME": "PLACEHOLDER",
+	"ITEM_GRACEPERIOD_NAME": "Songs from the Past",
 	"ITEM_GRACEPERIOD_PICKUP": "Be able to get <style=cIsUtility>assists</style> from enemy deaths, activating <style=cIsDamage>On Kill</style> effects... <color=#FF7F7F>BUT it also activates negative effects</color>.",
 	"ITEM_GRACEPERIOD_DESC": "Enemies not directly killed by you, but that <style=cIsDamage>you've hurt</style> in the last 1 second <style=cStack>(+1s per stack)</style> will activate all <style=cIsDamage>On Kill effects</style>, <color=#FF7F7F>including negative ones</style>.",
 	"ITEM_GRACEPERIOD_LORE": "",
 	
 	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
 	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage.",
-	"ITEM_HITLAG_DESC": "Delay all incoming normal damage by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>Healing</style> reduces damage being delayed up to a 50%. <style=cSub>Affected by armor bypasses</style>.",
+	"ITEM_HITLAG_DESC": "Delay all incoming normal damage by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>Healing</style> reduces damage being delayed up to a 50%. <style=cSub>Affected by armor bypasses and freezes.</style>.",
 	"ITEM_HITLAG_LORE": "",
 	
 	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",
@@ -53,7 +53,7 @@
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
-	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 1% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+0.05% per stack)</style>",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 5% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+1% per stack)</style>",
 	"ITEM_PACKMAGNET_LORE": "",
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",

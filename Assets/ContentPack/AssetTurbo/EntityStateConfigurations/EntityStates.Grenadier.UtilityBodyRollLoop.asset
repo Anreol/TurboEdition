@@ -67,7 +67,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: overlapAttackSmallHopVelocity
       fieldValue:
-        stringValue: 35
+        stringValue: 45
         objectValue: {fileID: 0}
     - fieldName: overlapAttackResetFrequency
       fieldValue:

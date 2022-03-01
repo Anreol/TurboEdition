@@ -78,11 +78,11 @@ namespace TurboEdition.Items
             private void FixedUpdate()
             {
                 //this.currentCalculatedRadius = Mathf.Min(this.currentCalculatedRadius, itemCap);
-                var chargingTeam = TeamComponent.GetTeamMembers(this.holdoutZoneController.chargingTeam);
+                var chargingTeamMembers = TeamComponent.GetTeamMembers(this.holdoutZoneController.chargingTeam);
                 this.uniqueItemCount = 0;
-                foreach (var teamMember in chargingTeam)
+                foreach (var teamMember in chargingTeamMembers)
                 {
-                    if (teamMember.body.healthComponent.alive && teamMember.body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("AddTeleporterRadius")) > 0)
+                    if (teamMember.body.healthComponent.alive && teamMember.body.inventory && teamMember.body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("AddTeleporterRadius")) > 0)
                     {
                         this.uniqueItemCount++; //Basically count that tracks bodies that are alive and have at least one item
                     }
@@ -94,7 +94,7 @@ namespace TurboEdition.Items
                     this.itemCount = 0;
                     return; //we do not want to do anything else as long as the start up delay hasnt passed
                 }
-                float target = (this.itemCount > 0f) ? 1f : 0f; //FIXME: Wont change if players pick up new items / lose em, meaning color changes will be sharp and sound wont play
+                float target = (this.itemCount > 0f) ? 1f : 0f; //NOT REALLY A FIXME, MORE LIKE NOTE: Wont change if players pick up new items / lose em, meaning color changes will be sharp and sound wont play
                 float prevValue = Mathf.MoveTowards(this.currentValue, target, rampUpTime * Time.fixedDeltaTime);
                 if (currentValue <= 0f && prevValue > 0f)
                 {

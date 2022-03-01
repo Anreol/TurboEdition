@@ -15,11 +15,12 @@ MonoBehaviour:
   skillName: GrenadierSecondaryQuickshotAlt
   skillNameToken: GRENADIER_SECONDARY_ALT_NAME
   skillDescriptionToken: GRENADIER_SECONDARY_ALT_DESCRIPTION
-  keywordTokens: []
+  keywordTokens:
+  - KEYWORD_SNIPERCLASSIC_MORTAR
   icon: {fileID: 0}
   activationStateMachineName: Weapon
   activationState:
-    _typeName: TurboEdition.EntityStates.Grenadier.Weapon.PrepSecondaryAlt, TurboEdition,
+    _typeName: TurboEdition.EntityStates.Grenadier.Weapon.FireSecondaryAlt, TurboEdition,
       Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 2
   baseRechargeInterval: 8

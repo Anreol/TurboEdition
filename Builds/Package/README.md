@@ -17,8 +17,8 @@ I also find *"Turbo"* a funny word that goes along pretty well with a lot of oth
 
 ## Features
 - 15 Awful items to ruin your host with.
-- 1 Equipment that probably do something useful.
-- 2 Artifacts to make your run harder, for some reason.
+- 2 Equipments that probably do something useful.
+- 3 Artifacts to make your run harder, for some reason.
 
 Unfinished content will be marked with a WIP icon, but keep in mind that with mods, anything can go wrong anytime, especially when you are loading 500 different mods at once!
 
@@ -35,20 +35,26 @@ Unfinished content will be marked with a WIP icon, but keep in mind that with mo
 - Special thanks to Gnome, for introducing me to modding.
 - Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!
 
-I'm open to contributions, specifically models, as they take me more time than what I wished. You can contact me on your platform of choice, but if you choose Steam, and you have a suspicious profile, I'll probably reject you.
+### Contact
+I'm open to contributions, specifically models, as they take me more time than what I wished. 
+You can contact me by messaging to Anreol#8231 or @anreol:poa.st
 
 ## Changelog
 `0.0.6`
 
 Update for Survivors of the Void
 - Now with sounds!
-
+- Tweaked pickup models of items that do have them.
 - Artifacts
 	- Artifact of Pain
 		- Now implemented!
 		- All players share the same health bar -> all players share the pain.
-
+		
 * Reevaluating the code, making all characters share the same health bar was a bit of an stupid idea, while possible, I'd rather not deal with that bag of worms*
+
+- Equipment
+	- Implemented Big Scythe
+
 
 ### Balance Changes
 - Red Tape Roll
@@ -56,14 +62,32 @@ Update for Survivors of the Void
 	
 * Beedl and Squid users rejoice, as now there's more use to this item than just being Captain*
 
+- Blood Economy
+	- Removed money on low hp bonus and money on DoT.
+	- Now discounts interactables that are too expensive for you to afford.
+	- Take 35% of your maximum combined hp as damage to decrease an interacteable's cost by 2$, which increases over time.
+		- Psst, you only need 12 stacks of this item for small chests to be essentially free.
+	- It will also afflict bleed for 3 seconds, if you are above 25% hp.
+	- The initial hit won't kill you, but the bleed can, don't get too cocky.
+	
+* Another balance change as Hopoo is introducing Roll of Pennies with DLC, which is a common item.*
+
 - Fan of Blades
 	- Removed acceleration over lifetime as it was too awkward to use.
 	- Damage now bypasses armor.
+
+- Magnetic Belt
+	- Initial duplication chance 1% -> 5%
+	- Stack duplication chance 0.05% -> 1%
+
+* If you are stacking this item past the first few stacks it's for a reason. This should give players a boost in packs they are lacking because they might have sacrificed them for these*
 
 - Voice Modulator
 	- Inital radius 10m -> 16m
 	- Stack radius 3.5m -> 5m
 	- Middle-sized enemies (golems and similar) now have a chance to be afflicted.
+
+* Item fell off late game when there's a ton of bruisers and golems spawning, so this should address that*
 
 - Nanomachines
 	- Buff now increases your damage by 25%, based on your base damage (so not much, but heavy hitters like Loader, Sniper, and Railgunner should get a noticeable boost).
@@ -78,23 +102,30 @@ Update for Survivors of the Void
 * While this seems broken as hell, the damage accumulation that reduces the bonus being given is now based on incoming damage before all reductions are applied (even vanilla ones), and before the 50% damage reduction, so raw damage. You'll need more stacks than before.*
 
 - Playing Cards
-	- Internal hidden delay timer before it can duplicate more items 30s -> 15s
+	- Internal hidden delay timer before it can duplicate items again 30s -> 15s
 	- Internal hidden delay will now only start once the duplication has been consumed, instead of constantly resetting its availability timer.
 	
-* If you are playing dangerously, you should be rewarded*
+* Originally made the delay so players couldn't be flooded with items if they were using mods that added a chance for item drop on elite kill. *
+* But if you are playing dangerously, you should be rewarded *
+
 - UVB-51 Radio
-	- Base map interactables reveal % 10% -> 15%
+	- Base map interactables reveal 10% -> 15%
 
 - Broken Fiber Cable
 	- Entirely rewrote the item, so it should be more stable.
-	- 25% of incoming healing can heal up to a 50% of delayed damage.
+	- 25% of incoming healing can heal up to a 50% of the closest delayed damage.
+	- Will no longer delay freeze damage, silent damage or nullify damage.
 	- Stack delay 0.5s -> 1s
+
+* Weird item that many avoid as it didn't do much other than giving you time to heal up for incoming damage. Now, healing will let you do that AND reduce it while it's being delayed. 
+* In exchange, it will no longer block "instant" damage such as freeze and nullify. Silent was added because a lot of internal things in the game use it to kill players (ie. moon escape sequence)*
 
 - Fixes
 	- Fixed the patch on the old moon's arena forcefield not working for clients.
 	- Playing Cards SHOULD no longer schedule for death a player that has already died, or that no longer has the item.
 	- Playing Cards now should duplicate items accordingly, if the player that has the item is dead, it won't duplicate any more.
 	- Broken Fiber Cable no longer swallows damage instances taken in the same frame. No more console spam. This also means that players will be PROPERLY damaged.
+	- Fan of Blades should now have a proper ghost.
 	- UVB-51 Radio should now properly attach itself to map scanners to reveal the whole map.
 
 `0.0.5`

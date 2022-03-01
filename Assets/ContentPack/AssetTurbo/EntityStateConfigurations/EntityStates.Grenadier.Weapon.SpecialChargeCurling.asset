@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 7
+        stringValue: 5
         objectValue: {fileID: 0}
     - fieldName: crosshairOverridePrefab
       fieldValue:
@@ -70,7 +70,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: graceDuration
       fieldValue:
-        stringValue: 3
+        stringValue: 4
         objectValue: {fileID: 0}
     - fieldName: baseFireFrequency
       fieldValue:

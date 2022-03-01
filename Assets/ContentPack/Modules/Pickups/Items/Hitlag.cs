@@ -35,7 +35,7 @@ namespace TurboEdition.Items
             {
                 if (damageInfo.rejected)
                     return;
-                if (damageInfo.dotIndex != DotController.DotIndex.None || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.BypassOneShotProtection || damageInfo.procChainMask.HasProc(ProcType.AACannon))
+                if (damageInfo.dotIndex != DotController.DotIndex.None || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.Freeze2s || damageInfo.damageType == DamageType.Nullify || damageInfo.damageType == DamageType.Silent || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.BypassOneShotProtection || damageInfo.procChainMask.HasProc(ProcType.AACannon))
                     return;
                 damageInfo.rejected = true;
                 DelayedDamageInfo delayedDamageInfo = new DelayedDamageInfo

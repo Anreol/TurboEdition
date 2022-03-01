@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 89795172, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Name: EntityStates.Grenadier.Weapon.FireSecondaryAlt
+  m_EditorClassIdentifier: 
+  targetType:
+    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Weapon.FireSecondaryAlt,
+      TurboEdition, Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: effectPrefab
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: projectilePrefab
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 7028506108066464535, guid: d8221bda00547fc43ae7da8a17691f35,
+          type: 3}
+    - fieldName: damageCoefficient
+      fieldValue:
+        stringValue: 2.5
+        objectValue: {fileID: 0}
+    - fieldName: force
+      fieldValue:
+        stringValue: 700
+        objectValue: {fileID: 0}
+    - fieldName: minSpread
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: maxSpread
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: baseDuration
+      fieldValue:
+        stringValue: 0.75
+        objectValue: {fileID: 0}
+    - fieldName: recoilAmplitude
+      fieldValue:
+        stringValue: 1.3
+        objectValue: {fileID: 0}
+    - fieldName: attackSoundString
+      fieldValue:
+        stringValue: Play_GrenadierSecondaryFire
+        objectValue: {fileID: 0}
+    - fieldName: projectilePitchBonus
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: baseDelayBeforeFiringProjectile
+      fieldValue:
+        stringValue: 0.1
+        objectValue: {fileID: 0}
+    - fieldName: targetMuzzle
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: bloom
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: selfForce
+      fieldValue:
+        stringValue: 3000
+        objectValue: {fileID: 0}

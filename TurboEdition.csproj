@@ -79,8 +79,10 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\BaseAINumb.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\BodyAttachments\GetDamageFromHurtVictimBodyAttachment.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\BodyAttachments\HellchainBodyAttachment.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\BodyAttachments\SandbagBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\GetDamageFromHurtVictimBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GrenadierPassiveController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboBuffManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboItemManager.cs" />
@@ -94,7 +96,6 @@
     <Compile Include="Assets\ContentPack\Modules\Components\QuestMissionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTimer.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\QuestTracker.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\SandbagBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\RuntimeCloudMaterialMapper.cs" />
@@ -109,9 +110,8 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReload.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLPrimary.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLSecondaryAlt.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireSecondary.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\PrepSecondaryAlt.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireSecondaryAlt.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\Reload.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeCurling.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeSatchels.cs" />
@@ -173,6 +173,9 @@
     <None Include="Assets\ContentPack\TurboEdition.asmdef" />
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="ThunderKit.Core">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Core.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.16f/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
