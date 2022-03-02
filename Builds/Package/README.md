@@ -24,7 +24,7 @@ Unfinished content will be marked with a WIP icon, but keep in mind that with mo
 
 ## Planned Features
 
-- Finish currently shipped content. That is the equipments and one artifact, along with probably models.
+- Finish currently shipped content. That is one equipments and one common item, along with models.
 - Add a new Shrine, this turned out to have a very heavy refactoring so I didn't end up finishing it in time, maybe you know what it is about already!
 - Survivors. I have up to 5 in mind, but the first one will probably be a simple one.
 - More worthwhile items and equipment: Hopoo is adding over 40 items at once with the DLC, and there's countless mods already out there, meaning that items aren't really attracting me, so coming up with good items will be harder!
@@ -49,7 +49,7 @@ Update for Survivors of the Void
 	- Artifact of Pain
 		- Now implemented!
 		- All players share the same health bar -> all players share the pain.
-		
+
 * Reevaluating the code, making all characters share the same health bar was a bit of an stupid idea, while possible, I'd rather not deal with that bag of worms*
 
 - Equipment
@@ -59,7 +59,7 @@ Update for Survivors of the Void
 ### Balance Changes
 - Red Tape Roll
 	- Now gives items to any summon, and not just mechanical allies.
-	
+
 * Beedl and Squid users rejoice, as now there's more use to this item than just being Captain*
 
 - Blood Economy
@@ -69,7 +69,7 @@ Update for Survivors of the Void
 		- Psst, you only need 12 stacks of this item for small chests to be essentially free.
 	- It will also afflict bleed for 3 seconds, if you are above 25% hp.
 	- The initial hit won't kill you, but the bleed can, don't get too cocky.
-	
+
 * Another balance change as Hopoo is introducing Roll of Pennies with DLC, which is a common item.*
 
 - Fan of Blades
@@ -91,20 +91,20 @@ Update for Survivors of the Void
 
 - Nanomachines
 	- Buff now increases your damage by 25%, based on your base damage (so not much, but heavy hitters like Loader, Sniper, and Railgunner should get a noticeable boost).
-
+	
 * Nanomachines should also strengthen your body, son*
 
 - Punching Bag
 	- 500 armor bonus -> flat 50% damage reduction.
 	- Weight increase -> Now inmune to all knockback
 	- Buff duration based on full combined HP 25% -> 50%
-
+	
 * While this seems broken as hell, the damage accumulation that reduces the bonus being given is now based on incoming damage before all reductions are applied (even vanilla ones), and before the 50% damage reduction, so raw damage. You'll need more stacks than before.*
 
 - Playing Cards
 	- Internal hidden delay timer before it can duplicate items again 30s -> 15s
 	- Internal hidden delay will now only start once the duplication has been consumed, instead of constantly resetting its availability timer.
-	
+
 * Originally made the delay so players couldn't be flooded with items if they were using mods that added a chance for item drop on elite kill. *
 * But if you are playing dangerously, you should be rewarded *
 
