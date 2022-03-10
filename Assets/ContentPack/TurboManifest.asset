@@ -81,7 +81,7 @@ MonoBehaviour:
   - <BuildPathLang>
   files:
   - {fileID: 102900000, guid: 4870c48caece70542b94265b8f0168e6, type: 3}
-  - {fileID: 102900000, guid: f517a910ba92e5941afa761c4df805b5, type: 3}
+  - {fileID: 102900000, guid: d87876bf971b36e45850f58b9f3cd148, type: 3}
 --- !u!114 &114364032661763054
 MonoBehaviour:
   m_ObjectHideFlags: 0

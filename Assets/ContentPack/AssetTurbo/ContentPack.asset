@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -281164913, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -281164913, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: ContentPack
   m_EditorClassIdentifier: 
   bodyPrefabs:
@@ -22,13 +22,14 @@ MonoBehaviour:
   - {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs:
-  - {fileID: 1509333923836609831, guid: fda7bcbc6de05124988c21bebcbef3af, type: 3}
-  - {fileID: 3944396783361593712, guid: 56e398b715db7c845ac9c950fb8161c2, type: 3}
-  - {fileID: 1918061013436419, guid: ff8a7375923956040b7e09f90304fc9e, type: 3}
-  - {fileID: 3920638942587432995, guid: b15bd4412c0604c47b4c74db3ffb3169, type: 3}
   - {fileID: 3920638942587432995, guid: ae313ba9facc51e4cbcc48d5f687d2fe, type: 3}
+  - {fileID: 3920638942587432995, guid: c9c9dfac6aa642e4786ab15b63150d9b, type: 3}
+  - {fileID: 3920638942587432995, guid: b15bd4412c0604c47b4c74db3ffb3169, type: 3}
+  - {fileID: 1918061013436419, guid: ff8a7375923956040b7e09f90304fc9e, type: 3}
+  - {fileID: 8321067140481484799, guid: a753f8e38b98bd741b38562118aa57d6, type: 3}
   - {fileID: 5902242083141093317, guid: 0d39d1d5fd339bf4ca94cecfe95ec832, type: 3}
   - {fileID: 5819360341333742186, guid: 2e0112021406d1e48aadd4c1a8353517, type: 3}
+  - {fileID: 7399638598008387699, guid: 78ed9177a4c28a245abd097636fd9d77, type: 3}
   skillDefs:
   - {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
   - {fileID: 11400000, guid: 31665fd3da814fb44924e9b02007ee11, type: 2}
@@ -81,6 +82,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09dec09dc17766b46b38d41a6089551b, type: 2}
   - {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}
   - {fileID: 11400000, guid: 55f7519b8d49e694d9036a31bc141dfd, type: 2}
+  effectDefs: []
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}

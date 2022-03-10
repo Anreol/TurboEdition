@@ -195,13 +195,13 @@ namespace TurboEdition.Artifacts
             }
             if (eliteTierDef == null) //Enemy was not a combat director elite, we do not want to do anything else as it might have items or something else given or modified by a third-party
                 return;
-            float boostHP = eliteTierDef.healthBoostCoefficient;
+            float boostHP = eliteTierDef.eliteTypes[0].healthBoostCoefficient;
             if (characterBody.isChampion) //or master is boss?
             {
                 boostHP *= Mathf.Pow((float)Run.instance.livingPlayerCount, 1f);
             }
             characterBody.inventory.RemoveItem(RoR2Content.Items.BoostHp.itemIndex, Mathf.RoundToInt((boostHP - 1f) * 10f));
-            characterBody.inventory.RemoveItem(RoR2Content.Items.BoostDamage.itemIndex, Mathf.RoundToInt((eliteTierDef.damageBoostCoefficient - 1f) * 10f));
+            characterBody.inventory.RemoveItem(RoR2Content.Items.BoostDamage.itemIndex, Mathf.RoundToInt((eliteTierDef.eliteTypes[0].damageBoostCoefficient - 1f) * 10f));
 
             if (!directorInstance)
                 return;

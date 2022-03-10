@@ -1,11 +1,10 @@
 {
     "name": "TurboEdition",
     "references": [
-        "Unity.TextMeshPro",
+        "ThunderKit.Core",
         "Wwise",
-        "ThunderKit.Core"
+        "Unity.TextMeshPro"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
@@ -18,11 +17,15 @@
         "Mono.Cecil.dll",
         "MonoMod.RuntimeDetour.dll",
         "MonoMod.Utils.dll",
-        "MMHOOK_Assembly-CSharp.dll",
-        "Assembly-Stubbed.dll",
-        "Zio.dll",
-        "Rewired_Core.dll"
+        "Rewired_Core.dll",
+        "MMHOOK_RoR2.dll",
+        "RoR2-Stubbed.dll",
+        "com.unity.multiplayer-hlapi.Runtime.dll",
+        "Assembly-CSharp.dll",
+        "KinematicCharacterController.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": []
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

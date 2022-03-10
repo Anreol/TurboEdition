@@ -5,10 +5,9 @@
         "TurboEdition",
         "ThunderKit.Core",
         "ThunderKit.Common",
-        "RoR2EditorKit",
-        "ThunderKit.Thunderstore"
+        "ThunderKit.Thunderstore",
+        "RoR2EditorKit"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
     ],
@@ -36,10 +35,12 @@
         "HGCSharpUtils.dll",
         "HGUnityUtils.dll",
         "BepInEx.dll",
-        "Assembly-Stubbed.dll"
+        "RoR2-Stubbed.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [
         "UNITY_EDITOR"
-    ]
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

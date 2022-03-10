@@ -32,7 +32,7 @@ namespace TurboEdition.Misc
             wormEliteHonorChoiceOn.tooltipNameColor = ColorCatalog.GetColor(ColorCatalog.ColorIndex.Artifact);
             //wormEliteHonorChoiceOn.tooltipBodyColor = ColorCatalog.GetColor(ColorCatalog.ColorIndex.BossItemDark); No rule does this
             wormEliteHonorChoiceOn.onlyShowInGameBrowserIfNonDefault = true;
-            wormEliteHonorChoiceOn.unlockable = RoR2Content.Artifacts.EliteOnly.unlockableDef;
+            wormEliteHonorChoiceOn.requiredUnlockable = RoR2Content.Artifacts.EliteOnly.unlockableDef;
             wormEliteHonorChoiceOn.excludeByDefault = false;
             wormEliteHonorChoiceOn.sprite = Assets.mainAssetBundle.LoadAsset<Sprite>("texHonorWormRuleOn");
 
@@ -46,11 +46,11 @@ namespace TurboEdition.Misc
             wormEliteHonorChoiceOff.sprite = Assets.mainAssetBundle.LoadAsset<Sprite>("texHonorWormRuleOff");
 
             wormEliteHonorRule.MakeNewestChoiceDefault();
-            RuleCatalog_PatchedAddRule(wormEliteHonorRule, 4);
+            RuleCatalog_PatchedAddRule(wormEliteHonorRule, 5);
         }
 
         //Categories as of pre-survivors of the void
-        //0 - Difficulty, 1 - Artifacts, 2 - Items, 3 - Equipment, 4 - Misc
+        //0 - Difficulty, 1 - Expansions 2 - Artifacts, 3 - Items, 4 - Equipment, 5 - Misc
         private static void RuleCatalog_PatchedAddRule(RuleDef ruleDef, int RuleCategoryDefIndex) //Meant to be used post Init
         {
             ruleDef.category = RuleCatalog.GetCategoryDef(RuleCategoryDefIndex);

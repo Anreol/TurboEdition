@@ -7,15 +7,15 @@ namespace TurboEdition.Components
     /// </summary>
     public class HGControllerFinder : MonoBehaviour
     {
-        public Renderer renderer;
+        public Renderer newRenderer;
         public Material material;
 
         public void OnEnable()
         {
-            if (renderer && material)
+            if (newRenderer && material)
             {
-                renderer.material = material;
-                renderer.sharedMaterials[0] = material;
+                newRenderer.material = material;
+                newRenderer.sharedMaterials[0] = material;
                 MaterialControllerComponents.MaterialController materialController = null;
                 switch (material.shader.name)
                 {
@@ -46,7 +46,7 @@ namespace TurboEdition.Components
                 if (materialController)
                 {
                     materialController.material = material;
-                    materialController.renderer = renderer;
+                    materialController.renderer = newRenderer;
                     materialController.MaterialName = material.name;
                     Destroy(this);
                 }

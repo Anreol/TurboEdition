@@ -121,7 +121,7 @@ namespace TurboEdition.Misc
 
         private static void FixBlurShader(GameObject panel)
         {
-            panel.GetComponent<TranslucentImage>().material.shader = Shader.Find("UI/TranslucentImage");
+            panel.GetComponent<LeTai.Asset.TranslucentImage.TranslucentImage>().material.shader = Shader.Find("UI/TranslucentImage");
         }
 
         private void GetGapBetweenPanels(RectTransform leftPanel, RectTransform rightPanel)

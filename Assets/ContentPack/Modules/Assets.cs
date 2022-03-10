@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using TurboEdition.Components;
-using TurboEdition.ScriptableObjects;
 using UnityEngine;
 using Path = System.IO.Path;
 
@@ -36,15 +35,6 @@ namespace TurboEdition
                .Where(filePath => !filePath.EndsWith(".manifest"))
                .OrderByDescending(path => Path.GetFileName(path).Equals(mainAssetBundleName))
                .ToArray();
-        }
-
-        //This one is the one for actually loading effects into the contentpack
-        internal static void LoadEffects()
-        {
-            var effectHolders = mainAssetBundle.LoadAllAssets<EffectDefHolder>();
-            foreach (var effectHolder in effectHolders)
-                foreach (var effectPrefab in effectHolder.effectPrefabs)
-                    HG.ArrayUtils.ArrayAppend(ref TurboEdition.serializableContentPack.effectDefs, EffectDefHolder.ToEffectDef(effectPrefab));
         }
 
         internal static void MapMaterials(AssetBundle assetBundle)

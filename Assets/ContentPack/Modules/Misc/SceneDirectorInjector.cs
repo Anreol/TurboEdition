@@ -41,7 +41,6 @@ namespace TurboEdition.Misc
             questShrineDirectorCard.spawnCard = Assets.mainAssetBundle.LoadAsset<InteractableSpawnCard>("iscShrineQuest");
             questShrineDirectorCard.selectionWeight = 4; //Same as chance.
             questShrineDirectorCard.spawnDistance = DirectorCore.MonsterSpawnDistance.Standard; //Dont think it matters in interacteables
-            questShrineDirectorCard.allowAmbushSpawn = true; //I think its unused, though the code that would've used it is pretty much functional...
             questShrineDirectorCard.preventOverhead = false; //only used in the combat director
             questShrineDirectorCard.minimumStageCompletions = 0; //Could be fun to toy with
         }

@@ -1,6 +1,7 @@
 ﻿using EntityStates;
 using RoR2;
 using RoR2.Projectile;
+using RoR2.UI;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
@@ -34,6 +35,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public float baseFireFrequency;
 
         private float fireStopwatch;
+        private CrosshairUtils.OverrideRequest crosshairOverrideRequest;
 
         private float fireFrequency => baseFireFrequency * attackSpeedStat;
         private float duration => this.baseDuration / this.attackSpeedStat;
@@ -42,7 +44,6 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         {
             base.OnEnter();
             //this.PlayChargeAnimation();
-            this.defaultCrosshairPrefab = base.characterBody.crosshairPrefab; //Store for later restoring
             base.characterBody.hideCrosshair = false; //Undo base
             this.trueBaseProjectileSpeed = base.projectileBaseSpeed;
             this.trueMaxDistance = base.maxDistance;
@@ -51,7 +52,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             fireStopwatch = 1f;
             if (this.crosshairOverridePrefab)
             {
-                base.characterBody.crosshairPrefab = this.crosshairOverridePrefab;
+                this.crosshairOverrideRequest = CrosshairUtils.RequestOverrideForBody(base.characterBody, this.crosshairOverridePrefab, CrosshairUtils.OverridePriority.Skill);
             }
         }
 
@@ -134,9 +135,10 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
 
         public override void OnExit()
         {
-            if (base.characterBody)
+            CrosshairUtils.OverrideRequest overrideRequest = this.crosshairOverrideRequest;
+            if (overrideRequest != null)
             {
-                base.characterBody.crosshairPrefab = this.defaultCrosshairPrefab;
+                overrideRequest.Dispose();
             }
             AkSoundEngine.StopPlayingID(loopSoundInstanceId);
             if (!this.outer.destroying)

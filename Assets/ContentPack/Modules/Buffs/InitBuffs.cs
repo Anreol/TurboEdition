@@ -18,7 +18,7 @@ namespace TurboEdition
             InitializeBuffs();
 
             CharacterBody.onBodyStartGlobal += AddBuffManager;
-            On.RoR2.CharacterBody.OnClientBuffsChanged += CheckForBuffs;
+            On.RoR2.CharacterBody.OnClientBuffsChanged += OnClientBuffsChanged;
         }
 
         public static void InitializeBuffs()
@@ -46,7 +46,7 @@ namespace TurboEdition
             }
         }
 
-        private static void CheckForBuffs(On.RoR2.CharacterBody.orig_OnClientBuffsChanged orig, CharacterBody self)
+        private static void OnClientBuffsChanged(On.RoR2.CharacterBody.orig_OnClientBuffsChanged orig, CharacterBody self)
         {
             orig(self);
             if (Util.HasEffectiveAuthority(self.networkIdentity)) //This only should be running in the client... but still

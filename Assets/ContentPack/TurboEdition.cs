@@ -5,10 +5,9 @@ using RoR2.ContentManagement;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using UnityEngine;
-using Zio;
-using Zio.FileSystems;
 
 //Dumbfuck's first (not really) ror2 mod
 //Programming is fun!
@@ -32,7 +31,6 @@ namespace TurboEdition
         public static TurboEdition instance;
         public static PluginInfo pluginInfo;
         public static SerializableContentPack serializableContentPack;
-        public static FileSystem fileSystem { get; private set; }
 
         public string identifier
         {
@@ -44,6 +42,7 @@ namespace TurboEdition
 
         public void Awake()
         {
+            Debug.Log("Running Turbo Edition!");
 #if DEBUG
             TELog.logger = Logger;
             TELog.LogW("Running TurboEdition DEBUG build. PANIC!");
@@ -81,7 +80,6 @@ namespace TurboEdition
             InitPickups.Init();
             InitBuffs.Init();
             InitVFX.Init();
-            Assets.LoadEffects();
             GetType().Assembly.GetTypes()
                               .Where(type => typeof(EntityState).IsAssignableFrom(type))
                               .ToList()
@@ -109,21 +107,28 @@ namespace TurboEdition
 
         public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
         {
-            PhysicalFileSystem physicalFileSystem = new PhysicalFileSystem();
-            TurboEdition.fileSystem = new SubFileSystem(physicalFileSystem, physicalFileSystem.ConvertPathFromInternal(Assets.assemblyDir), true);
-            if (TurboEdition.fileSystem.DirectoryExists("/language/")) //Uh, it exists and we make sure to not shit up R2Api
+            //fucking BROKEN
+            /*if (Directory.Exists("/language/")) //Uh, it exists and we make sure to not shit up R2Api
             {
-                Language.collectLanguageRootFolders += delegate (List<DirectoryEntry> list)
+                Language.collectLanguageRootFolders += delegate (List<string> list)
                 {
-                    TELog.LogI("Adding in TurboEdition's language directory... " + list);
-                    list.Add(TurboEdition.fileSystem.GetDirectoryEntry("/language/"));
+                    list.Add(System.IO.Path.Combine(Assets.assemblyDir, "language").Replace("\\", "/"));
                 };
                 Misc.MiscLanguage.AddDeathMessages();
-            }
+            }*/
+
+            RoR2Application.onLoad += (delegate ()
+            {
+                string rootfolder = System.IO.Path.Combine(Assets.assemblyDir, "language");
+                if (Directory.Exists(rootfolder))
+                {
+                    Misc.MiscLanguage.FixLanguageFolders(rootfolder);
+                    Misc.MiscLanguage.AddDeathMessages();
+                }
+            });
 
             //Since hopoo wants this to be this way....
             RoR2Application.isModded = true;
-
             args.ReportProgress(1f);
             yield break;
         }

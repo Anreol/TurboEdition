@@ -129,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2832924789459089662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1343443687, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1343443687, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 8390171021996942598}
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5912417373304488935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 3143073, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 3143073, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseObject: {fileID: 8321067140481484799}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321067140481484799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 372142912, guid: d382a022563c7517aadbc92ca1060016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SceneId:
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321067140481484799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTeam: -1
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321067140481484799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1788389205, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 30
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321067140481484799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2108948543, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -2108948543, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blinkFrequency: 20
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321067140481484799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: -1768714887, guid: d382a022563c7517aadbc92ca1060016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8321067140481484799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1466055214, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 10

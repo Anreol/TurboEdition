@@ -22,9 +22,9 @@ namespace TurboEdition.Items
             HealthComponent.onCharacterHealServer += onCharacterHealServer;
         }
 
-        private void onCharacterHealServer(HealthComponent arg1, float arg2)
+        private void onCharacterHealServer(HealthComponent arg1, float arg2, ProcChainMask procChainMask)
         {
-            arg1.body.GetComponent<HitlagBehaviorServer>()?.Heal(arg1, arg2);
+            arg1.body.GetComponent<HitlagBehaviorServer>()?.Heal(arg1, arg2, procChainMask);
         }
 
         internal class HitlagBehaviorServer : CharacterBody.ItemBehavior, IOnIncomingDamageServerReceiver
@@ -84,7 +84,7 @@ namespace TurboEdition.Items
                 }
             }
 
-            public void Heal(HealthComponent hc, float amount)
+            public void Heal(HealthComponent hc, float amount, ProcChainMask procChainMask)
             {
                 amount /= 4;
                 foreach (DelayedDamageInfo hitlag in damageInfos)
