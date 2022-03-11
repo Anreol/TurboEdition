@@ -12,6 +12,7 @@ namespace TurboEdition
     {
         public static AssetBundle mainAssetBundle => loadedAssetBundles[0];
         internal static string assemblyDir => Path.GetDirectoryName(TurboEdition.pluginInfo.Location);
+        internal static string languageRoot => System.IO.Path.Combine(Assets.assemblyDir, "language");
 
         private const string assetBundleFolderName = "assetbundles";
         internal static string mainAssetBundleName = "assetTurbo";

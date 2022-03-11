@@ -74,7 +74,7 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffElectrostatic.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffHellLinked.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffMeleeArmor.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffPanicked.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffPanic.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffVoidWarbanner.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
@@ -141,7 +141,8 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\SuperStickies.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Typewriter.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\VoidWarbanner.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\WarbannerVoid.cs" />
+    <Compile Include="Assets\ContentPack\Modules\SerializableContentPackExpanded.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\TELog.cs" />

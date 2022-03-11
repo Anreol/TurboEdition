@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: VoidWarbanner
+  m_Name: WarbannerVoid
   m_EditorClassIdentifier: 
-  tier: 5
-  nameToken: ITEM_VOIDWARBANNER_NAME
-  pickupToken: ITEM_VOIDWARBANNER_PICKUP
-  descriptionToken: ITEM_VOIDWARBANNER_DESC
-  loreToken: ITEM_VOIDWARBANNER_LORE
+  _itemIndex: -1
+  tier: 6
+  nameToken: ITEM_WARBANNERVOID_NAME
+  pickupToken: ITEM_WARBANNERVOID_PICKUP
+  descriptionToken: ITEM_WARBANNERVOID_DESC
+  loreToken: ITEM_WARBANNERVOID_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
   pickupIconSprite: {fileID: 0}
   hidden: 1
   canRemove: 1
   tags: 
+  requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}

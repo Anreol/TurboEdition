@@ -5,7 +5,7 @@ namespace TurboEdition.Items
 {
     public class VoidWarbanner : Item
     {
-        public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("VoidWarbanner");
+        public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("WarbannerVoid");
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

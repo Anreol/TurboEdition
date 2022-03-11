@@ -5,9 +5,7 @@ namespace TurboEdition.Buffs
 {
     public class BuffHellLinked : Buff
     {
-        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffHellLinked");
-        public static GameObject prefab = Assets.mainAssetBundle.LoadAsset<GameObject>("HellchainBodyAttachment");
-
+        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("bdHellLinked");
         public override void Initialize()
         {
         }
@@ -18,8 +16,7 @@ namespace TurboEdition.Buffs
 
         public override void OnBuffFirstStackGained(ref CharacterBody body)
         {
-            GameObject instance = UnityEngine.Object.Instantiate<GameObject>(prefab);
-            instance.GetComponent<NetworkedBodyAttachment>().AttachToGameObjectAndSpawn(body.gameObject);
+            
         }
 
         public override void OnBuffLastStackLost(ref CharacterBody body)

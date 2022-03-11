@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: BuffElectrostatic
+  m_Name: bdPanic
   m_EditorClassIdentifier: 
-  iconPath: Textures/ItemIcons/texNullIcon
+  <buffIndex>k__BackingField: -1
+  iconPath: 
   iconSprite: {fileID: 0}
-  buffColor: {r: 0.9622642, g: 0.73727125, b: 0, a: 1}
+  buffColor: {r: 1, g: 1, b: 1, a: 0}
   canStack: 0
   eliteDef: {fileID: 0}
-  isDebuff: 1
+  isDebuff: 0
+  isCooldown: 0
+  isHidden: 0
   startSfx: {fileID: 0}

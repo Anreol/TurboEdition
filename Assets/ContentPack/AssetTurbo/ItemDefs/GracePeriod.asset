@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: GracePeriod
   m_EditorClassIdentifier: 
+  _itemIndex: -1
   tier: 3
   nameToken: ITEM_GRACEPERIOD_NAME
   pickupToken: ITEM_GRACEPERIOD_PICKUP
@@ -24,3 +25,4 @@ MonoBehaviour:
   hidden: 0
   canRemove: 1
   tags: 0100000003000000
+  requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}

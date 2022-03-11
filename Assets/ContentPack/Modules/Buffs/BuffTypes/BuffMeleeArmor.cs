@@ -4,7 +4,7 @@ namespace TurboEdition.Buffs
 {
     public class BuffMeleeArmor : Buff
     {
-        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("BuffMeleeArmor");
+        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("bdMeleeArmor");
 
         public override void Initialize()
         {

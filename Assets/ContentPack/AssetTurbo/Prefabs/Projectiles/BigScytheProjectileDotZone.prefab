@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1168218208636712236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -306948816, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -306948816, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   teamComponent: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1168218208636712236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 488236779, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   useOverallCurveOnly: 1
@@ -119,6 +119,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   timeMax: 1
+  <time>k__BackingField: 0
+  <baseScale>k__BackingField: {x: 0, y: 0, z: 0}
 --- !u!1 &2074815300407172818
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 372142912, guid: d382a022563c7517aadbc92ca1060016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SceneId:
@@ -200,9 +202,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamIndexInternal: 0
   defaultTeam: -1
 --- !u!114 &2201247224099780079
 MonoBehaviour:
@@ -213,17 +216,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1848696948, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   catalogIndex: -1
   ghostPrefab: {fileID: 0}
   ghostTransformAnchor: {fileID: 0}
   startSound: 
+  cannotBeDeleted: 0
   flightSoundLoop: {fileID: 0}
+  rigidbody: {fileID: 0}
+  <teamFilter>k__BackingField: {fileID: 0}
+  <ghost>k__BackingField: {fileID: 0}
+  <isPrediction>k__BackingField: 0
+  canImpactOnTrigger: 0
+  <shouldPlaySounds>k__BackingField: 0
   allowPrediction: 1
   owner: {fileID: 0}
+  <procChainMask>k__BackingField:
+    mask: 0
   procCoefficient: 1
+  myColliders: []
 --- !u!114 &1865008693603012331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,13 +246,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1294804675, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1294804675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groupName: 
   hitBoxes:
-  - {fileID: 4159293031311767306}
-  - {fileID: 7216699798250550628}
+  - {fileID: 838394082621586943}
+  - {fileID: 6140018172903953013}
 --- !u!114 &2642927678208082813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,9 +262,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: -848926067, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -848926067, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileController: {fileID: 0}
+  projectileDamage: {fileID: 0}
   damageCoefficient: 100
   attackerFiltering: 2
   impactEffect: {fileID: 0}
@@ -288,6 +303,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  fireStopwatch: 0
+  resetStopwatch: 0
+  totalStopwatch: 0
   soundLoopString: 
   soundLoopStopString: Play_BigScytheSwing
 --- !u!114 &2161665902623151563
@@ -299,7 +317,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1790887305, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
@@ -307,6 +325,8 @@ MonoBehaviour:
   force: 0
   damageColorIndex: 0
   damageType: 32
+  useDotMaxStacksFromAttacker: 0
+  dotMaxStacksFromAttacker: 4294967295
 --- !u!114 &3133565845088894363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +336,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1630511094, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 760127866, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   action:
@@ -353,7 +373,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2074815300407172818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 924743675, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 924743675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   action:
@@ -416,7 +436,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4443162988054691262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2119659324, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -2119659324, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 7
@@ -431,7 +451,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4443162988054691262}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2051541306, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -2051541306, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   alphaCurve:
@@ -458,11 +478,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  targetRenderer: {fileID: 0}
+  materials: []
   timeMax: 1
   decal: {fileID: 0}
+  pauseTime: 0
   destroyOnEnd: 0
   disableOnEnd: 0
   time: 0
+  initialFade: 0
 --- !u!1 &4519512415695749248
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7467631082564046269}
-  - component: {fileID: 4159293031311767306}
+  - component: {fileID: 838394082621586943}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -494,7 +518,7 @@ Transform:
   m_Father: {fileID: 8150790489873025359}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4159293031311767306
+--- !u!114 &838394082621586943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -503,7 +527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4519512415695749248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1783796254, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5172693249267021234
@@ -1951,6 +1975,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   UVModule:
+    serializedVersion: 2
     enabled: 0
     mode: 0
     timeMode: 0
@@ -2068,7 +2093,7 @@ ParticleSystem:
     rowIndex: 0
     cycles: 1
     uvChannelMask: -1
-    randomRow: 1
+    rowMode: 1
     sprites:
     - sprite: {fileID: 0}
     flipU: 0
@@ -2879,8 +2904,61 @@ ParticleSystem:
     inWorldSpace: 0
     randomizePerFrame: 0
   ExternalForcesModule:
+    serializedVersion: 2
     enabled: 0
-    multiplier: 1
+    multiplierCurve:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
     influenceFilter: 0
     influenceMask:
       serializedVersion: 2
@@ -5242,11 +5320,11 @@ ParticleSystemRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f33a1a7dcb94be54881d87ff11e53ff4, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5254,6 +5332,7 @@ ParticleSystemRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -5298,7 +5377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636347686331916549}
-  - component: {fileID: 7216699798250550628}
+  - component: {fileID: 6140018172903953013}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -5320,7 +5399,7 @@ Transform:
   m_Father: {fileID: 8150790489873025359}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!114 &7216699798250550628
+--- !u!114 &6140018172903953013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5329,7 +5408,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5518896592556653249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1783796254, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7242092694328905901
@@ -5387,6 +5466,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5398,6 +5478,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -5419,7 +5500,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7242092694328905901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2051541306, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -2051541306, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   alphaCurve:
@@ -5446,11 +5527,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  targetRenderer: {fileID: 0}
+  materials: []
   timeMax: 1
   decal: {fileID: 0}
+  pauseTime: 0
   destroyOnEnd: 0
   disableOnEnd: 0
   time: 0
+  initialFade: 0
 --- !u!1 &8395389267014264587
 GameObject:
   m_ObjectHideFlags: 0

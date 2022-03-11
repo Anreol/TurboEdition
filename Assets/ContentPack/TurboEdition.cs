@@ -75,7 +75,7 @@ namespace TurboEdition
             }
             Assets.loadedAssetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
 
-            serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPack");
+            serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPackV2");
             //Assets.Init();
             InitPickups.Init();
             InitBuffs.Init();
@@ -108,21 +108,19 @@ namespace TurboEdition
         public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
         {
             //fucking BROKEN
-            /*if (Directory.Exists("/language/")) //Uh, it exists and we make sure to not shit up R2Api
+            /*if (Directory.Exists(Assets.languageRoot)) //Uh, it exists and we make sure to not shit up R2Api
             {
                 Language.collectLanguageRootFolders += delegate (List<string> list)
                 {
-                    list.Add(System.IO.Path.Combine(Assets.assemblyDir, "language").Replace("\\", "/"));
+                    list.Add(Assets.languageRoot);
                 };
                 Misc.MiscLanguage.AddDeathMessages();
             }*/
-
             RoR2Application.onLoad += (delegate ()
             {
-                string rootfolder = System.IO.Path.Combine(Assets.assemblyDir, "language");
-                if (Directory.Exists(rootfolder))
+                if (Directory.Exists(Assets.languageRoot))
                 {
-                    Misc.MiscLanguage.FixLanguageFolders(rootfolder);
+                    Misc.MiscLanguage.FixLanguageFolders(Assets.languageRoot);
                     Misc.MiscLanguage.AddDeathMessages();
                 }
             });

@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b81f21ac9f7a6418053eaf8960edb2, type: 3}
+  m_Name: ContentPackV2
+  m_EditorClassIdentifier: 
+  bodyPrefabs:
+  - {fileID: 9196633835157065860, guid: e537a47cc4f457a4a972bf028141c065, type: 3}
+  masterPrefabs: []
+  projectilePrefabs:
+  - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
+  - {fileID: 2074815300407172818, guid: 5a2d61750beb9e24d9a179e83d0bdd18, type: 3}
+  - {fileID: 5927682615679395250, guid: 2f4e77b8486cca54c9f46200c5516d76, type: 3}
+  - {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5, type: 3}
+  gameModePrefabs: []
+  networkedObjectPrefabs:
+  - {fileID: 5819360341333742186, guid: 2e0112021406d1e48aadd4c1a8353517, type: 3}
+  - {fileID: 3920638942587432995, guid: c9c9dfac6aa642e4786ab15b63150d9b, type: 3}
+  - {fileID: 3920638942587432995, guid: b15bd4412c0604c47b4c74db3ffb3169, type: 3}
+  - {fileID: 1918061013436419, guid: ff8a7375923956040b7e09f90304fc9e, type: 3}
+  - {fileID: 8321067140481484799, guid: a753f8e38b98bd741b38562118aa57d6, type: 3}
+  - {fileID: 5902242083141093317, guid: 0d39d1d5fd339bf4ca94cecfe95ec832, type: 3}
+  - {fileID: 7399638598008387699, guid: 78ed9177a4c28a245abd097636fd9d77, type: 3}
+  skillDefs:
+  - {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
+  - {fileID: 11400000, guid: 31665fd3da814fb44924e9b02007ee11, type: 2}
+  - {fileID: 11400000, guid: 1b6681587d1762e46b813344c3a55bcf, type: 2}
+  - {fileID: 11400000, guid: dfe9f697eaa9bad42b185330096ae34c, type: 2}
+  - {fileID: 11400000, guid: deab2f1f1b1cfb040956016b016bb920, type: 2}
+  - {fileID: 11400000, guid: aada58ba31992a04a9756408f3b9a3e0, type: 2}
+  - {fileID: 11400000, guid: 235f32f8ce7ffef408098ae211f5a693, type: 2}
+  - {fileID: 11400000, guid: f0c31e0d62ddc9247bae4e8a8bb76dcd, type: 2}
+  - {fileID: 11400000, guid: 30d47a8300215cf498d24881d884192c, type: 2}
+  skillFamilies:
+  - {fileID: 11400000, guid: d0b80a62a8dce2340ab71c7100a460fc, type: 2}
+  - {fileID: 11400000, guid: 601d4f900a561914a8782f9de70b57cd, type: 2}
+  - {fileID: 11400000, guid: 3cce2c6e289458b4986c38dcde5c8194, type: 2}
+  - {fileID: 11400000, guid: d9d4cf6f3e11a6947b804606a2353c4f, type: 2}
+  - {fileID: 11400000, guid: cef7f0ba9ccb12a418cbbb4428780b29, type: 2}
+  sceneDefs: []
+  itemDefs:
+  - {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
+  - {fileID: 11400000, guid: d2baa190849934b42918cafaefa38084, type: 2}
+  - {fileID: 11400000, guid: a113d78be0c779243b35f58fc72fca16, type: 2}
+  - {fileID: 11400000, guid: 316652a0f390cfe489524dedaa60a90c, type: 2}
+  - {fileID: 11400000, guid: 32e6075c127f2494e9638d9281349f29, type: 2}
+  - {fileID: 11400000, guid: a760ff4f0d4eb14419b43e97d1d7e7df, type: 2}
+  - {fileID: 11400000, guid: cf1407890f7341b428d93b2f619db61c, type: 2}
+  - {fileID: 11400000, guid: b43c64807a5e3a1498321fa7a0ebf4da, type: 2}
+  - {fileID: 11400000, guid: 6f26a54020669b047a113dcbe0fcbde2, type: 2}
+  - {fileID: 11400000, guid: 14b46053aaea12a41aa154aeaaa072c2, type: 2}
+  - {fileID: 11400000, guid: 1d3dd72e3b25fc449a408424b08a17f4, type: 2}
+  - {fileID: 11400000, guid: 909c95e53da82894fb312688494a7f6a, type: 2}
+  - {fileID: 11400000, guid: 3e7ec56cec60a0a47846c86c30f18eb2, type: 2}
+  - {fileID: 11400000, guid: 299e4e4152716bf4caf65d885af0b391, type: 2}
+  - {fileID: 11400000, guid: 8579b21d89c54e445bb851aaac16fda2, type: 2}
+  - {fileID: 11400000, guid: 0a18c326e9746e9479f942a8bf7a7937, type: 2}
+  equipmentDefs:
+  - {fileID: 11400000, guid: db5f8f8735505d440aad0e7b540c4933, type: 2}
+  - {fileID: 11400000, guid: 2b525fa417a5d5c4d9b9b424ac22d29c, type: 2}
+  - {fileID: 11400000, guid: 6dd507f5f16ba154aa4def91e95b105c, type: 2}
+  buffDefs:
+  - {fileID: 11400000, guid: 6fa3762a9e31b3e458e30f7c36e28813, type: 2}
+  - {fileID: 11400000, guid: 8ffd5c6e050f00c479b5cf8fe098c8cb, type: 2}
+  - {fileID: 11400000, guid: 26d9d65feaa32f8458921eb64400be64, type: 2}
+  - {fileID: 11400000, guid: 38f9af9ff75b2614d8cbef1ecf2c724c, type: 2}
+  - {fileID: 11400000, guid: fc870f30f90351e4bb50b1af97fe16f2, type: 2}
+  - {fileID: 11400000, guid: 0e4004db3ae50604f8e3b6fbabdf39f3, type: 2}
+  eliteDefs: []
+  unlockableDefs: []
+  survivorDefs:
+  - {fileID: 11400000, guid: ef6f20ca21428c94d923309ee0bf9e5c, type: 2}
+  artifactDefs:
+  - {fileID: 11400000, guid: 09dec09dc17766b46b38d41a6089551b, type: 2}
+  - {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}
+  - {fileID: 11400000, guid: 55f7519b8d49e694d9036a31bc141dfd, type: 2}
+  effectDefs: []
+  surfaceDefs: []
+  networkSoundEventDefs: []
+  musicTrackDefs: []
+  gameEndingDefs: []
+  entityStateConfigurations:
+  - {fileID: 11400000, guid: 8bfe9b67d27c34948be0529fd3ca973b, type: 2}
+  - {fileID: 11400000, guid: a00fe1baac905044086a5089c8aa79fb, type: 2}
+  - {fileID: 11400000, guid: 7382c36c8b6687d45b23beff588108b2, type: 2}
+  - {fileID: 11400000, guid: b1e606f02e636f247ae443807434d587, type: 2}
+  - {fileID: 11400000, guid: 0b84e5e9b19705d45833c3f6fe6747c5, type: 2}
+  - {fileID: 11400000, guid: 08d26155d954b8949bf0f44f4c800b21, type: 2}
+  - {fileID: 11400000, guid: a3780b33284661743ba00e9d029837d0, type: 2}
+  - {fileID: 11400000, guid: 1a73ff094c2b2db4ca858a5696afd2cf, type: 2}
+  - {fileID: 11400000, guid: 0038863cf28019d4293c9cf7510b8133, type: 2}
+  - {fileID: 11400000, guid: c77c1625e6415ae498bdfff13426d3e2, type: 2}
+  entityStateTypes: []
+  itemTierDefs: []
+  itemRelationshipProviders: []
+  itemRelationshipTypes: []
+  expansionDefs:
+  - {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}
+  entitlementDefs: []
+  miscPickupDefs: []

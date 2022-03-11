@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 1032072274, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: MeltdownArtifact
   m_EditorClassIdentifier: 
+  <artifactIndex>k__BackingField: 0
   nameToken: ARTIFACT_MELTDOWN_NAME
   descriptionToken: ARTIFACT_MELTDOWN_DESCRIPTION
   unlockableDef: {fileID: 0}
+  requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}
   smallIconSelectedSprite: {fileID: 0}
   smallIconDeselectedSprite: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
+  _cachedName: MeltdownArtifact

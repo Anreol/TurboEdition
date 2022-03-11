@@ -4759,7 +4759,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 697220461533247438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -455717551, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -455717551, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   setRandomXRotation: 1
@@ -4835,7 +4835,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 372142912, guid: d382a022563c7517aadbc92ca1060016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SceneId:
@@ -4868,7 +4868,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1848696948, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   catalogIndex: 0
@@ -4889,7 +4889,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1895344032, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTeam: -1
@@ -4902,7 +4902,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -270136354, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   positionTransmitInterval: 0.033333335
@@ -4917,7 +4917,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1819008361, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   desiredForwardSpeed: 200
@@ -4960,7 +4960,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1790887305, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1952984350, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 1952984350, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destroyWhenNotAlive: 0
@@ -4995,7 +4995,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 664490745, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 664490745, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stickSoundString: 
@@ -5037,7 +5037,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 924743675, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 924743675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   action:
@@ -5064,7 +5064,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 733712478, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: 733712478, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &8464350349445342812
@@ -5089,7 +5089,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553861968085051080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1184802484, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+  m_Script: {fileID: -1184802484, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3287667738780972768}
