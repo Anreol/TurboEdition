@@ -10,9 +10,11 @@ namespace TurboEdition.Skills
     internal class GrenadierSpecialSkillDef : SkillDef
     {
         public int maxExtraStocksFromReloading;
+
         [Tooltip("Description Token used whenever the user has its extra stocks full.")]
         public string holdingFullStocksDescriptionToken;
-        public override SkillDef.BaseSkillInstanceData OnAssigned(GenericSkill skillSlot)
+
+        public override SkillDef.BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
         {
             return new GrenadierSpecialSkillDef.InstanceData(skillSlot, maxExtraStocksFromReloading);
         }
@@ -58,10 +60,14 @@ namespace TurboEdition.Skills
         public override int GetMaxStock([NotNull] GenericSkill skillSlot)
         {
             GrenadierSpecialSkillDef.InstanceData instanceData = (GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData;
-            return this.baseMaxStock + instanceData.skillStocksExtra;
+            if (instanceData != null)
+            {
+                return this.baseMaxStock + instanceData.skillStocksExtra;
+            }
+            return this.baseMaxStock;
         }
 
-        protected class InstanceData : SkillDef.BaseSkillInstanceData, IDisposable
+        public class InstanceData : SkillDef.BaseSkillInstanceData, IDisposable
         {
             public GenericSkill primarySkillSlot; //Assigned by instance data itself
             public GenericSkill runningSkillSlot; //Assigned on ctor
@@ -69,21 +75,19 @@ namespace TurboEdition.Skills
             public int maxSkillStockExtra; //Asigned on ctor
             public int skillStocksExtra; //Updated on stock deducted
             public int skillStocks; //Automatically updated
-
-            public InstanceData(GenericSkill skillSlot, int maxSkillSlotExtra)
+            public InstanceData(GenericSkill currentSkill, int maxStockFromReloading)
             {
-                runningSkillSlot = skillSlot;
-                primarySkillSlot = skillSlot.characterBody.skillLocator.primary;
+                primarySkillSlot = currentSkill.characterBody.skillLocator.primary;
+                runningSkillSlot = currentSkill;
                 hasFullyUnloadedPrimary = false;
-                maxSkillStockExtra = maxSkillSlotExtra;
+                maxSkillStockExtra = maxStockFromReloading;
                 skillStocksExtra = 0;
                 skillStocks = 0;
             }
-
             public void Dispose()
             {
-                runningSkillSlot = null;
                 primarySkillSlot = null;
+                runningSkillSlot = null;
                 hasFullyUnloadedPrimary = false;
                 maxSkillStockExtra = 0;
                 skillStocksExtra = 0;
@@ -96,8 +100,11 @@ namespace TurboEdition.Skills
                 {
                     if (runningSkillSlot.stock < skillStocks && runningSkillSlot.stock > 0) //Means it lost a stock since last updated
                     {
-                        skillStocksExtra = skillStocksExtra > 0 ? skillStocksExtra-- : 0;
-                        runningSkillSlot.RecalculateValues(); //Refresh to remove lost stock
+                        if (skillStocksExtra > 0)
+                        {
+                            skillStocksExtra--;
+                            runningSkillSlot.RecalculateValues(); //Refresh to remove lost stock
+                        }
                         if (runningSkillSlot.characterBody)
                             runningSkillSlot.characterBody.OnSkillActivated(runningSkillSlot);
                     }

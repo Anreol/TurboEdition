@@ -37,17 +37,6 @@ namespace TurboEdition.Components
         private bool[] authBlastArmorStates;
         private float blastArmorRechargeTime;
 
-        [HideInInspector]
-        [Tooltip("Controls the Special skill unique attribute, changed through entity state code.")]
-        public bool primaryFullyDepleted;
-
-        [Header("Skill Trackers")]
-        [Tooltip("Maximum Special skill extra stocks to give.")]
-        public int maxSpecialBonusStockFromBody;
-
-        [Tooltip("Time in seconds for a armor fraction to recharge.")]
-        public float baseBlastArmorRechargeTime;
-
         [Header("Referenced Components")]
         public GenericSkill passiveSkillSlot;
 
@@ -91,7 +80,7 @@ namespace TurboEdition.Components
                                 break;
                             }
                         }
-                        blastArmorRechargeTime = baseBlastArmorRechargeTime;
+                        blastArmorRechargeTime = PassiveBlastArmor.baseRechargeInterval;
                         return;
                     }
                     if (netIsOutOfDanger)
@@ -104,7 +93,7 @@ namespace TurboEdition.Components
                                 if (!authBlastArmorStates[i] && baseIntervals * i > characterBody.healthComponent.combinedHealthFraction) //Require to be above breaker to recharge it
                                 {
                                     authBlastArmorStates[i] = true;
-                                    blastArmorRechargeTime = baseBlastArmorRechargeTime;
+                                    blastArmorRechargeTime = PassiveBlastArmor.baseRechargeInterval;
                                     break;
                                 }
                             }

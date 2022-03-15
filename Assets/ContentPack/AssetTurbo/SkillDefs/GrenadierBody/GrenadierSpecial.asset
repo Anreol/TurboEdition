@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GrenadierSpecial
   m_EditorClassIdentifier: 
   <skillIndex>k__BackingField: 0
-  skillName: GrenadierSpecialNew
+  skillName: GrenadierSpecial
   skillNameToken: GRENADIER_SPECIAL_NAME
   skillDescriptionToken: GRENADIER_SPECIAL_DESCRIPTION
   keywordTokens: []
   icon: {fileID: 0}
-  activationStateMachineName: 
+  activationStateMachineName: Weapon
   activationState:
     _typeName: TurboEdition.EntityStates.Grenadier.Weapon.SpecialChargeSatchels,
       TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null

@@ -11,14 +11,6 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
 
         public override void OnExit()
         {
-            if (skillLocator.primary.stock <= 0)
-            {
-                GrenadierPassiveController grenadierPassiveController = characterBody.GetComponent<GrenadierPassiveController>();
-                if (grenadierPassiveController)
-                {
-                    grenadierPassiveController.primaryFullyDepleted = true;
-                }
-            }
             base.OnExit();
         }
     }
