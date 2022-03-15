@@ -31,6 +31,7 @@ Unfinished content will be marked with a WIP icon, but keep in mind that with mo
 
 ## Credits
 - Bubbet & Moffein for giving me a hand in a few things and showing me how dumb some of my practices are.
+- SOM for icons and cool graphics, including the expansion's icon.
 - Kevin from HP support, learned a awful ton of Unity and proper practices thanks to my time spent in the SS2 team. Also, how the mod loads items is taken from there!
 - Special thanks to Gnome, for introducing me to modding.
 - Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!

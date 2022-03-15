@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: -1627637702, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: GrenadierBodySpecialFamily
   m_EditorClassIdentifier: 
+  <catalogIndex>k__BackingField: 0
   variants:
-  - skillDef: {fileID: 11400000, guid: aada58ba31992a04a9756408f3b9a3e0, type: 2}
+  - skillDef: {fileID: 11400000, guid: 2fbd163a7a0f8b04b8622c08a4f04de3, type: 2}
     unlockableName: 
     unlockableDef: {fileID: 0}
-  - skillDef: {fileID: 11400000, guid: 235f32f8ce7ffef408098ae211f5a693, type: 2}
+  - skillDef: {fileID: 11400000, guid: 2e370b50a2eb2b64ca7efd3147a29a4b, type: 2}
     unlockableName: 
     unlockableDef: {fileID: 0}
   defaultVariantIndex: 0

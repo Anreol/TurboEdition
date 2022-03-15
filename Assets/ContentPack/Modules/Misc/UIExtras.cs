@@ -37,7 +37,7 @@ namespace TurboEdition.Misc
             if (obj)
             {
                 //TurboEdition.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, statBarContainer, "MainContainer/MainUIArea/SpringCanvas/LeftCluster"));
-                TurboEdition.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, scoreboardLeftSidePanel, "MainContainer/MainUIArea/SpringCanvas"));
+                // TODO: FIX FIX FIX FIX FIX TurboUnityPlugin.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, scoreboardLeftSidePanel, "MainContainer/MainUIArea/SpringCanvas"));
             }
         }
 
@@ -51,7 +51,7 @@ namespace TurboEdition.Misc
                 {
                     mmc.settingsMenuScreen.onEnter.AddListener(new UnityAction(delegate ()
                     {
-                        TurboEdition.instance.StartCoroutine(AddSettingsMenuCoroutine(mmc.settingsMenuScreen.GetComponent<RoR2.UI.MainMenu.SubmenuMainMenuScreen>()));
+                        TurboUnityPlugin.instance.StartCoroutine(AddSettingsMenuCoroutine(mmc.settingsMenuScreen.GetComponent<RoR2.UI.MainMenu.SubmenuMainMenuScreen>()));
                     }));
                 }
             }
@@ -63,7 +63,7 @@ namespace TurboEdition.Misc
                 return;
             PauseManager.pauseScreenInstance.transform.Find("Blur + Background Panel/ValidScreenspacePanel/MainPanel/OptionsPanel (JUICED)/GenericMenuButton (Settings)").GetComponent<RoR2.UI.HGButton>().onClick.AddListener(delegate ()
             {
-                TurboEdition.instance.StartCoroutine(AddSettingsMenuCoroutine(PauseManager.pauseScreenInstance.GetComponent<PauseScreenController>()));
+                TurboUnityPlugin.instance.StartCoroutine(AddSettingsMenuCoroutine(PauseManager.pauseScreenInstance.GetComponent<PauseScreenController>()));
             });
             return;
         }

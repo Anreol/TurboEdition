@@ -11,19 +11,15 @@ namespace TurboEdition
 {
     public class InitPickups
     {
-        public static Dictionary<ItemDef, Item> itemList = new Dictionary<ItemDef, Item>();
+        public static Dictionary<ItemDef, Item> itemBehaviourList = new Dictionary<ItemDef, Item>();
         public static Dictionary<EquipmentDef, Equipment> equipmentList = new Dictionary<EquipmentDef, Equipment>();
-        public static SerializableContentPack contentPack { get; set; } = TurboEdition.serializableContentPack;
-
-        public static void Init()
-        {
-            InitializeEquipments();
-            InitializeItems();
-        }
 
         [SystemInitializer(typeof(PickupCatalog))]
         private static void HookInit()
         {
+            InitializeEquipments();
+            InitializeItems();
+
             TELog.LogI("Subscribing to delegates related to Items and Equipments.");
 
             CharacterBody.onBodyStartGlobal += AddItemManager;
@@ -39,18 +35,16 @@ namespace TurboEdition
                            .Where(type => !type.GetCustomAttributes(true)
                                     .Select(obj => obj.GetType())
                                     .Contains(typeof(DisabledContent)))
-                           .Select(itemType => (Item)Activator.CreateInstance(itemType)).ToList().ForEach(item => AddItem(item, contentPack));
+                           .Select(itemType => (Item)Activator.CreateInstance(itemType)).ToList().ForEach(item => TrackItem(item));
             return null;
         }
 
-        public static void AddItem(Item item, SerializableContentPack contentPack, Dictionary<ItemDef, Item> itemDictionary = null)
+        public static void TrackItem(Item item, Dictionary<ItemDef, Item> itemDictionary = null)
         {
             item.Initialize();
-            //HG.ArrayUtils.ArrayAppend(ref TurboEdition.serializableContentPack.itemDefs, item.itemDef);
-            itemList.Add(item.itemDef, item);
+            itemBehaviourList.Add(item.itemDef, item);
             if (itemDictionary != null)
                 itemDictionary.Add(item.itemDef, item);
-            TELog.LogD($"Item {item.itemDef} added to {contentPack.name}");
         }
 
         public static IEnumerable<Equipment> InitializeEquipments()
@@ -61,18 +55,16 @@ namespace TurboEdition
                            .Where(type => !type.GetCustomAttributes(true)
                                     .Select(obj => obj.GetType())
                                     .Contains(typeof(DisabledContent)))
-                           .Select(eqpType => (Equipment)Activator.CreateInstance(eqpType)).ToList().ForEach(eqp => AddEquipment(eqp, contentPack));
+                           .Select(eqpType => (Equipment)Activator.CreateInstance(eqpType)).ToList().ForEach(eqp => TrackEquipment(eqp));
             return null;
         }
 
-        public static void AddEquipment(Equipment equip, SerializableContentPack contentPack, Dictionary<EquipmentDef, Equipment> equipDictionary = null)
+        public static void TrackEquipment(Equipment equip, Dictionary<EquipmentDef, Equipment> equipDictionary = null)
         {
             equip.Initialize();
-            //HG.ArrayUtils.ArrayAppend(ref contentPack.equipmentDefs, equip.equipmentDef);
             equipmentList.Add(equip.equipmentDef, equip);
             if (equipDictionary != null)
                 equipDictionary.Add(equip.equipmentDef, equip);
-            TELog.LogD($"Equipment {equip.equipmentDef} added to {contentPack.name}");
         }
 
         private static void AddItemManager(CharacterBody body)

@@ -15,7 +15,6 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         {
             base.FireOnce(wasForced);
             shotOnce = true;
-            characterBody.GetComponent<GrenadierPassiveController>()?.DeductOneSpecialStack();
         }
     }
 }

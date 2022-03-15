@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType:
     assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.UtilityBodyRollSingle,
-      TurboEdition, Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
+      TurboEdition, Version=0.0.6, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
     - fieldName: baseDuration

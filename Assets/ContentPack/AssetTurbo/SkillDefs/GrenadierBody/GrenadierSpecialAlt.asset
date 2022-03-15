@@ -9,18 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1391837873, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: 11500000, guid: a958c722193d47443a969c2ad392f330, type: 3}
   m_Name: GrenadierSpecialAlt
   m_EditorClassIdentifier: 
-  skillName: GrenadierSpecialAlt
+  <skillIndex>k__BackingField: 0
+  skillName: GrenadierSpecialNewAlt
   skillNameToken: GRENADIER_SPECIAL_ALT_NAME
   skillDescriptionToken: GRENADIER_SPECIAL_ALT_DESCRIPTION
   keywordTokens: []
   icon: {fileID: 0}
-  activationStateMachineName: Weapon
+  activationStateMachineName: 
   activationState:
     _typeName: TurboEdition.EntityStates.Grenadier.Weapon.SpecialChargeCurling, TurboEdition,
-      Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
+      Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
   baseRechargeInterval: 15
   baseMaxStock: 3
@@ -33,6 +34,8 @@ MonoBehaviour:
   beginSkillCooldownOnSkillEnd: 1
   cancelSprintingOnActivation: 1
   forceSprintDuringState: 0
-  canceledFromSprinting: 1
+  canceledFromSprinting: 0
   isCombatSkill: 1
   mustKeyPress: 1
+  maxExtraStocksFromReloading: 5
+  holdingFullStocksDescriptionToken: GRENADIER_SPECIAL_ALT_FULL_DESCRIPTION

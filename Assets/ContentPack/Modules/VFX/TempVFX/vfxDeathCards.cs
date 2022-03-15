@@ -11,9 +11,9 @@ namespace TurboEdition.TempVFX
         {
             if (!body.inventory)
                 return false;
-            if (body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("DropletDupe")) > 0)
+            if (body.inventory.GetItemCount(TEContent.Items.DropletDupe) > 0)
             {
-                Items.DropletDupe.DropletDupeBehaviorServer dropletDupeBehaviorServer = body.GetComponent<Items.DropletDupe.DropletDupeBehaviorServer>();
+                Items.DropletDupeBodyBehavior dropletDupeBehaviorServer = body.GetComponent<Items.DropletDupeBodyBehavior>();
                 if (dropletDupeBehaviorServer)
                 {
                     if (dropletDupeBehaviorServer.suicideReady)

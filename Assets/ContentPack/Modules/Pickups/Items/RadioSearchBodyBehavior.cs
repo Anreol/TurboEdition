@@ -1,4 +1,5 @@
 ﻿using RoR2;
+using RoR2.Items;
 using RoR2.UI;
 using System;
 using System.Linq;
@@ -8,30 +9,52 @@ using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
-    internal class RadioSearch : Item
+    public class RadioSearchBodyBehavior : BaseItemBodyBehavior
     {
-        public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("RadioSearch");
-
-        public override void AddBehavior(ref CharacterBody body, int stack)
+        [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = false, useOnClient = true)]
+        private static ItemDef GetItemDef()
         {
-            body.AddItemBehavior<RadioSearchBehavior>(stack);
+            return TEContent.Items.RadioSearch;
         }
 
-        [SystemInitializer(new Type[]
+        private GameObject[] alreadyCheckedChests = new GameObject[0]; //Should clean itself every stage change
+        private float updateTimer;
+        private const float updateInterval = 10f;
+
+        private void FixedUpdate()
         {
-            typeof(ItemCatalog),
-            typeof(EquipmentCatalog),
-        })]
-        private static void Init()
-        {
-            RoR2.Stage.onStageStartGlobal += StageStartGlobal;
-            /*foreach (var item in ChestRevealer.typesToCheck)
+            this.updateTimer -= Time.fixedDeltaTime;
+            if (updateTimer <= 0f)
             {
-                if (!bannedTypes.Contains(item))
+                this.updateTimer = updateInterval;
+                CheckForNearbyContent();
+            }
+        }
+
+        private void CheckForNearbyContent()
+        {
+            foreach (var item in ChestRevealer.RevealedObject.currentlyRevealedObjects)
+            {
+                if (Vector3.Distance(body.transform.position, item.Key.transform.position) <= 12 && !alreadyCheckedChests.Contains(item.Key))
                 {
-                    HG.ArrayUtils.ArrayAppend(ref trimmedTypesToCheck, item);
+                    HG.ArrayUtils.ArrayAppend(ref alreadyCheckedChests, item.Key);
+                    if (Util.CheckRoll(25 + (stack - 1) * 5, body.master))
+                    {
+                        SpriteRenderer sprote = item.Value.positionIndicator.insideViewObject.GetComponent<SpriteRenderer>();
+                        if (sprote && sprote.sprite == PingIndicator.GetInteractableIcon(item.Key.gameObject))
+                        {
+                            item.Key.AddComponent<PickupSpriteGetter>().spriteComponent = sprote;
+                            item.Value.lifetime += 30;
+                        }
+                    }
                 }
-            }*/
+            }
+        }
+
+        [SystemInitializer(typeof(PickupCatalog))]
+        public static void Initialize()
+        {
+            RoR2.Stage.onStageStartGlobal += StageStartGlobal; // RadioSearch
             RoR2.Run.onRunStartGlobal += PrepareTypes;
         }
 
@@ -49,7 +72,7 @@ namespace TurboEdition.Items
 
         private static void StageStartGlobal(Stage obj)
         {
-            if (Util.GetItemCountForTeam(TeamIndex.Player, ItemCatalog.FindItemIndex("RadioSearch"), true) > 0)
+            if (Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.RadioSearch.itemIndex, true) > 0)
             {
                 GetSignal();
                 if (NetworkServer.active)
@@ -57,47 +80,10 @@ namespace TurboEdition.Items
             }
         }
 
-        internal class RadioSearchBehavior : CharacterBody.ItemBehavior
-        {
-            private GameObject[] alreadyCheckedChests = new GameObject[0]; //Should clean itself every stage change
-            private float updateTimer;
-            private const float updateInterval = 10f;
-
-            private void FixedUpdate()
-            {
-                this.updateTimer -= Time.fixedDeltaTime;
-                if (updateTimer <= 0f)
-                {
-                    this.updateTimer = updateInterval;
-                    CheckForNearbyContent();
-                }
-            }
-
-            private void CheckForNearbyContent()
-            {
-                foreach (var item in ChestRevealer.RevealedObject.currentlyRevealedObjects)
-                {
-                    if (Vector3.Distance(body.transform.position, item.Key.transform.position) <= 12 && !alreadyCheckedChests.Contains(item.Key))
-                    {
-                        HG.ArrayUtils.ArrayAppend(ref alreadyCheckedChests, item.Key);
-                        if (Util.CheckRoll(25 + (stack - 1) * 5, body.master))
-                        {
-                            SpriteRenderer sprote = item.Value.positionIndicator.insideViewObject.GetComponent<SpriteRenderer>();
-                            if (sprote && sprote.sprite == PingIndicator.GetInteractableIcon(item.Key.gameObject))
-                            {
-                                item.Key.AddComponent<PickupSpriteGetter>().spriteComponent = sprote;
-                                item.Value.lifetime += 30;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         private static void GetSignal()
         {
             currentRevealCount = 0;
-            numberToReveal = Util.GetItemCountForTeam(TeamIndex.Player, ItemCatalog.FindItemIndex("RadioSearch"), true);
+            numberToReveal = Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.RadioSearch.itemIndex, true);
             MonoBehaviour[] things = new MonoBehaviour[0];
             for (int i = 0; i < trimmedTypesToCheck.Length; i++)
             {

@@ -2,29 +2,5 @@
 	strings:
 	{
 		"GRENADIER_BODY_NAME": "Granadero",
-		"GRENADIER_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
-		"GRENADIER_BODY_LORE" : "GRENADIER_BODY_LORE",
-		
-		"GRENADIER_PASSIVE_NAME" : "Blast Armor",
-		"GRENADIER_PASSIVE_DESCRIPTION" : "Every <style=cIsHealth>20% health</style> lost, release from <style=cIsUtility>9 to 12</style> safe bomblets around you, dealing <style=cIsDamage>100% damage each.</style> They recharge when <style=cIsUtility>out of danger</style>.",
-		"GRENADIER_PRIMARY_NAME": "Primary MGL",
-		"GRENADIER_PRIMARY_DESCRIPTION" : "Fire your weapon for <style=cIsDamage>300% damage</style>. Can hold up to 6 rounds.",
-		"GRENADIER_PRIMARY_ALT_NAME": "Primary MGL Alt",
-		"GRENADIER_PRIMARY_ALT_DESCRIPTION" : "",
-		"GRENADIER_SECONDARY_NAME": "Secondary Shot",
-		"GRENADIER_SECONDARY_DESCRIPTION" : "Shoot a self-arming projectile over distance that deals base <style=cIsDamage>250% damage</style> at blank point. A fully armed bomb explodes for <style=cIsDamage>2000% damage</style> in a wide area.",
-		"GRENADIER_SECONDARY_ALT_NAME": "Secondary Shot Alt",
-		"GRENADIER_SECONDARY_ALT_DESCRIPTION" : "Shoot a self-arming cluster bomb that explodes <style=cIsDamage>twice</style> for <style=cIsDamage>200%</style> damage at blank point. At larger distances, it explodes <style=cIsDamage>9 times</style> total.",
-		"GRENADIER_UTILITY_NAME": "Utility",
-		"GRENADIER_UTILITY_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Be able to bounce off enemies for at least <style=cIsDamage>200% damage</style>. Landing damages in a wider area.\n<style=cIsUtility>Get more push force</style> from your own explosives.",
-		"GRENADIER_UTILITY_ALT_NAME": "Utility Alt",
-		"GRENADIER_UTILITY_ALT_DESCRIPTION" : "Be able to bounce off enemies for <style=cIsDamage>80% damage</style>, with each bounce adding <style=cIsDamage>20% damage more</style> up to <style=cIsDamage>1700%</style>.\n<style=cIsUtility>Get more push force</style> from your own explosives.",
-		"GRENADIER_SPECIAL_NAME": "Special",
-		"GRENADIER_SPECIAL_DESCRIPTION" : "Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each.\nFully unloading and reloading your primary gives you up to <style=cIsUtility>three additional stacks</style>.",
-		"GRENADIER_SPECIAL_ALT_NAME": "Special Alt",
-		"GRENADIER_SPECIAL_ALT_DESCRIPTION" : "Charge and throw all your sliding bombs, which when bouncing off obstacles, explode for <style=cIsDamage>200% damage</style>.\nFully unloading and reloading your primary gives you up to <style=cIsUtility>three additional stacks</style>.",
-		
-		"GRENADIER_SKIN_ALT1_NAME" : "Explosive Ordnance Disposal",
-		"GRENADIER_DESCRIPTION" : "GRENADIER_DESCRIPTION<style=cSub>\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n<\/style>\r\n",
 	}
 }

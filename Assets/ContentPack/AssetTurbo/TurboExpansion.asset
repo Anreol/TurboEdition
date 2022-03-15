@@ -16,8 +16,8 @@ MonoBehaviour:
   requiredEntitlement: {fileID: 0}
   nameToken: TURBOEXPANSION_NAME
   descriptionToken: TURBOEXPANSION_DESCRIPTION
-  iconSprite: {fileID: -4593745122777483147, guid: 2467185c8c9095e469dc5ed90ba67ad8,
+  iconSprite: {fileID: -1106802301381323284, guid: c4209b426f0eff4408b8d611f4471442,
     type: 3}
-  disabledIconSprite: {fileID: -1616962383687092452, guid: 2467185c8c9095e469dc5ed90ba67ad8,
+  disabledIconSprite: {fileID: 3047440259461158827, guid: c4209b426f0eff4408b8d611f4471442,
     type: 3}
   runBehaviorPrefab: {fileID: 0}

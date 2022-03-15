@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using EntityStates;
+using RoR2;
 using RoR2.ContentManagement;
 using RoR2.EntitlementManagement;
 using RoR2.ExpansionManagement;
@@ -39,6 +40,13 @@ namespace TurboEdition
 			contentPack.musicTrackDefs.Add(this.musicTrackDefs);
 			contentPack.gameEndingDefs.Add(this.gameEndingDefs);
 			contentPack.entityStateConfigurations.Add(this.entityStateConfigurations);
+
+			//Append with reflection
+			GetType().Assembly.GetTypes()
+				  .Where(type => typeof(EntityState).IsAssignableFrom(type))
+				  .ToList()
+				  .ForEach(state => HG.ArrayUtils.ArrayAppend(ref this.entityStateTypes, new SerializableEntityStateType(state)));
+
 			List<Type> list = new List<Type>();
 			for (int i = 0; i < this.entityStateTypes.Length; i++)
 			{

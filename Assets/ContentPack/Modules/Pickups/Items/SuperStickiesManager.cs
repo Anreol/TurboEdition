@@ -8,11 +8,10 @@ using UnityEngine;
 
 namespace TurboEdition.Items
 {
-    internal class SuperStickies : Item
+    public static class SuperStickiesManager
     {
-        public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("SuperStickies");
-
-        public override void Initialize()
+        [SystemInitializer(typeof(PickupCatalog))]
+        public static void Initialize()
         {
             IL.RoR2.GlobalEventManager.OnHitEnemy += ILHook;
         }
@@ -24,18 +23,6 @@ namespace TurboEdition.Items
                 x => x.OpCode == OpCodes.Ldsfld && (x.Operand as FieldReference)?.Name == "StickyBomb",
                 x => x.MatchCallvirt<Inventory>("GetItemCount")
             );
-            // Done in two because theres a bunch of shit inbetween
-
-            /*
-            var cb = -1;
-            c.GotoNext(MoveType.After,
-                x => x.MatchLdloc(out cb),
-                x => x.MatchCall(out _),
-                x => x.MatchBrfalse(out _)
-            );*/
-
-            //c.Emit(OpCodes.Ldloc, cb);
-            //c.EmitDelegate<Action<CharacterBody>>(body => StickyBombProced(body));
 
             c.GotoNext(MoveType.After,
             x => x.MatchCallvirt<ProjectileManager>("FireProjectile")
@@ -50,7 +37,7 @@ namespace TurboEdition.Items
             CharacterBody characterBody = damageInfo.attacker.GetComponent<CharacterBody>();
             if (characterBody)
             {
-                int stack = characterBody.inventory.GetItemCount(ItemCatalog.FindItemIndex("SuperStickies"));
+                int stack = characterBody.inventory.GetItemCount(TEContent.Items.SuperStickies);
                 if (stack > 0 && Util.CheckRoll(15f * damageInfo.procCoefficient, characterBody.master))
                 {
                     bool alive = characterBody.healthComponent.alive;

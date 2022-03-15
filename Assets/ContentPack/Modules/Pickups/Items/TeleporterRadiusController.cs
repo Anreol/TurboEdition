@@ -3,16 +3,15 @@ using UnityEngine;
 
 namespace TurboEdition.Items
 {
-    public class TeleporterRadius : Item
+    public class TeleporterRadius
     {
-        public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("AddTeleporterRadius");
-
-        public override void Initialize()
+        [SystemInitializer(typeof(PickupCatalog))]
+        public static void Initialize()
         {
-            On.RoR2.HoldoutZoneController.Start += HoldoutZoneController_Start;
+            On.RoR2.HoldoutZoneController.Start += Start;
         }
 
-        private void HoldoutZoneController_Start(On.RoR2.HoldoutZoneController.orig_Start orig, HoldoutZoneController self)
+        private static void Start(On.RoR2.HoldoutZoneController.orig_Start orig, HoldoutZoneController self)
         {
             if (self.applyFocusConvergence) //If zone can get shrunk, it can grow too
             {
@@ -82,12 +81,12 @@ namespace TurboEdition.Items
                 this.uniqueItemCount = 0;
                 foreach (var teamMember in chargingTeamMembers)
                 {
-                    if (teamMember.body.healthComponent.alive && teamMember.body.inventory && teamMember.body.inventory.GetItemCount(Assets.mainAssetBundle.LoadAsset<ItemDef>("AddTeleporterRadius")) > 0)
+                    if (teamMember.body.healthComponent.alive && teamMember.body.inventory && teamMember.body.inventory.GetItemCount(TEContent.Items.AddTeleporterRadius) > 0)
                     {
                         this.uniqueItemCount++; //Basically count that tracks bodies that are alive and have at least one item
                     }
                 }
-                this.itemCount = Util.GetItemCountForTeam(this.holdoutZoneController.chargingTeam, Assets.mainAssetBundle.LoadAsset<ItemDef>("AddTeleporterRadius").itemIndex, true, false);
+                this.itemCount = Util.GetItemCountForTeam(this.holdoutZoneController.chargingTeam, TEContent.Items.AddTeleporterRadius.itemIndex, true, false);
                 if (this.enabledTime.timeSince < this.startupDelay)
                 {
                     this.uniqueItemCount = 0;

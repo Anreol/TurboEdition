@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2019_4_26;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;thunderkit;twiner-unitygameimporter;riskofrain2;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_4_26;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -113,6 +113,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeThrowBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollLoop.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollSingle.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\GrenadierSpecialSkillDef.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\QuestObjectiveProvider.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
@@ -126,23 +127,24 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\IStatItemBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\InitPickups.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Item.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMask.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BloodMoney.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupe.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMaskBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BloodEconomyBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupeBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GetDamageFromHurtVictim.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GracePeriod.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Hitlag.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\ItemDeployerController.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\KnifeFan.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MeleeArmor.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnet.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\RadioSearch.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GracePeriodBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\HitlagBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\ItemDeployerManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\KnifeFanBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MeleeArmorBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnetBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\RadioSearchBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\StandBonus.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\SuperStickies.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\SuperStickiesManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Typewriter.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\WarbannerVoid.cs" />
     <Compile Include="Assets\ContentPack\Modules\SerializableContentPackExpanded.cs" />
+    <Compile Include="Assets\ContentPack\Modules\TEContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\TELog.cs" />
@@ -152,7 +154,7 @@
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxPanicDrops.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TemporaryVFX.cs" />
     <Compile Include="Assets\ContentPack\Modules\WwiseSoundbanks.cs" />
-    <Compile Include="Assets\ContentPack\TurboEdition.cs" />
+    <Compile Include="Assets\ContentPack\TurboUnityPlugin.cs" />
     <None Include="Assets\ContentPack\TurboEdition.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

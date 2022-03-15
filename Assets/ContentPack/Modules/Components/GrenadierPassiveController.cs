@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using RoR2.Projectile;
 using RoR2.Skills;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -35,7 +36,6 @@ namespace TurboEdition.Components
         private EntityStateMachine resolvedRollMachine;
         private bool[] authBlastArmorStates;
         private float blastArmorRechargeTime;
-        private int cachedSpecialBaseMaxStocks;
 
         [HideInInspector]
         [Tooltip("Controls the Special skill unique attribute, changed through entity state code.")]
@@ -65,7 +65,6 @@ namespace TurboEdition.Components
                 authBlastArmorStates[i] = true;
             }
             resolvedRollMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Roll");
-            cachedSpecialBaseMaxStocks = characterBody.skillLocator.special.maxStock;
         }
 
         private void FixedUpdate()
@@ -115,25 +114,6 @@ namespace TurboEdition.Components
             }
         }
 
-        public void GrantOneSpecialStack()
-        {
-            if (primaryFullyDepleted && characterBody.skillLocator.special.maxStock < cachedSpecialBaseMaxStocks + maxSpecialBonusStockFromBody)
-            {
-                primaryFullyDepleted = false;
-                characterBody.skillLocator.special.bonusStockFromBody++;
-                characterBody.skillLocator.special.RecalculateMaxStock();
-                characterBody.skillLocator.special.ApplyAmmoPack();
-                Util.PlaySound("Play_GrenadierSpecialGainExtraCharge", base.gameObject);
-            }
-        }
-        public void DeductOneSpecialStack()
-        {
-            if (characterBody.skillLocator.special.maxStock > cachedSpecialBaseMaxStocks)
-            {
-                characterBody.skillLocator.special.bonusStockFromBody--;
-                characterBody.skillLocator.special.RecalculateMaxStock();
-            }
-        }
         private void AuthTriggerBomblets()
         {
             if (PassiveBlastArmorBombletPrefab == null)

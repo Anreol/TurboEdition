@@ -30,7 +30,7 @@ using System.Security.Permissions;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion(TurboEdition.TurboEdition.ModVer)]
+[assembly: AssemblyVersion(TurboEdition.TurboUnityPlugin.ModVer)]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 #pragma warning disable CS0618

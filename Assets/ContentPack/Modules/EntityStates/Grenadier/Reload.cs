@@ -54,10 +54,6 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
 
         public override void OnExit()
         {
-            if (skillLocator.primary.stock >= skillLocator.primary.maxStock)
-            {
-                characterBody.GetComponent<GrenadierPassiveController>()?.GrantOneSpecialStack();
-            }
             base.OnExit();
         }
 
