@@ -246,11 +246,11 @@
     <Reference Include="NGRemoteScene">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGRemoteScene/NGRemoteScene.dll</HintPath>
     </Reference>
-    <Reference Include="RoR2-Stubbed">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2-Stubbed.dll</HintPath>
-    </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>
+    </Reference>
+    <Reference Include="RoR2-Stubbed">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2-Stubbed.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
