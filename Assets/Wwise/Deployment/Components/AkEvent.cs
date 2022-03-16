@@ -77,10 +77,7 @@ public class AkEvent : AkDragDropTriggerHandler
 	{
 #if UNITY_EDITOR
 		if (UnityEditor.BuildPipeline.isBuildingPlayer || AkUtilities.IsMigrating || !UnityEditor.EditorApplication.isPlaying)
-		{
-			base.Start();
 			return;
-		}
 #endif
 
 		if (useCallbacks)
@@ -176,13 +173,17 @@ public class AkEvent : AkDragDropTriggerHandler
 #pragma warning restore 0414 // private field assigned but not used.
 
 #if UNITY_EDITOR
-	bool AK.Wwise.IMigratable.Migrate(UnityEditor.SerializedObject obj)
+	public virtual bool Migrate(UnityEditor.SerializedObject obj)
 	{
-		if (!AkUtilities.IsMigrationRequired(AkUtilities.MigrationStep.WwiseTypes_v2018_1_6))
-			return false;
+		var hasMigrated = false;
+		if (AkUtilities.IsMigrationRequired(AkUtilities.MigrationStep.WwiseTypes_v2018_1_6))
+		{
+			hasMigrated = AK.Wwise.TypeMigration.ProcessSingleGuidType(obj.FindProperty("data.WwiseObjectReference"), WwiseObjectType.Event,
+				obj.FindProperty("valueGuidInternal"), obj.FindProperty("eventIdInternal"));
+		}
 
-		var hasMigrated = AK.Wwise.TypeMigration.ProcessSingleGuidType(obj.FindProperty("data.WwiseObjectReference"), WwiseObjectType.Event,
-			obj.FindProperty("valueGuidInternal"), obj.FindProperty("eventIdInternal"));
+		if (!AkUtilities.IsMigrationRequired(AkUtilities.MigrationStep.AkEventCallback_v2018_1_6))
+			return hasMigrated;
 
 		var oldCallbackDataProperty = obj.FindProperty("m_callbackDataInternal");
 		var oldCallbackData = oldCallbackDataProperty.objectReferenceValue as AkEventCallbackData;
@@ -208,6 +209,7 @@ public class AkEvent : AkDragDropTriggerHandler
 			data.FindPropertyRelative("Flags.value").intValue = oldCallbackData.callbackFlags[i];
 			UnityEngine.Debug.Log("WwiseUnity: Migrated Callback for function \"" + oldCallbackData.callbackFunc[i] + "\" on <" + oldCallbackData.callbackGameObj[i] + "> with flags <" + (AkCallbackType)oldCallbackData.callbackFlags[i] + ">.");
 		}
+
 		return true;
 	}
 #endif

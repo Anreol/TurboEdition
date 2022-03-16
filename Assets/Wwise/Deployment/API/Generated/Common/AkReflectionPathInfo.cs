@@ -45,26 +45,13 @@ public class AkReflectionPathInfo : global::System.IDisposable {
     }
   }
 
-  public AkVector imageSource { set { AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_imageSource_set(swigCPtr, AkVector.getCPtr(value)); } 
-    get {
-      global::System.IntPtr cPtr = AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_imageSource_get(swigCPtr);
-      AkVector ret = (cPtr == global::System.IntPtr.Zero) ? null : new AkVector(cPtr, false);
-      return ret;
-    } 
+  public UnityEngine.Vector3 imageSource { set { AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_imageSource_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_imageSource_get(swigCPtr); } 
   }
 
   public uint numPathPoints { set { AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_numPathPoints_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_numPathPoints_get(swigCPtr); } 
   }
 
   public uint numReflections { set { AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_numReflections_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_numReflections_get(swigCPtr); } 
-  }
-
-  public AkVector occlusionPoint { set { AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_occlusionPoint_set(swigCPtr, AkVector.getCPtr(value)); } 
-    get {
-      global::System.IntPtr cPtr = AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_occlusionPoint_get(swigCPtr);
-      AkVector ret = (cPtr == global::System.IntPtr.Zero) ? null : new AkVector(cPtr, false);
-      return ret;
-    } 
   }
 
   public float level { set { AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_level_set(swigCPtr, value); }  get { return AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_level_get(swigCPtr); } 
@@ -75,11 +62,7 @@ public class AkReflectionPathInfo : global::System.IDisposable {
 
   public static int GetSizeOf() { return AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_GetSizeOf(); }
 
-  public AkVector GetPathPoint(uint idx) {
-    global::System.IntPtr cPtr = AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_GetPathPoint(swigCPtr, idx);
-    AkVector ret = (cPtr == global::System.IntPtr.Zero) ? null : new AkVector(cPtr, false);
-    return ret;
-  }
+  public UnityEngine.Vector3 GetPathPoint(uint idx) { return AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_GetPathPoint(swigCPtr, idx); }
 
   public AkAcousticSurface GetAcousticSurface(uint idx) {
     AkAcousticSurface ret = new AkAcousticSurface(AkSoundEnginePINVOKE.CSharp_AkReflectionPathInfo_GetAcousticSurface(swigCPtr, idx), false);

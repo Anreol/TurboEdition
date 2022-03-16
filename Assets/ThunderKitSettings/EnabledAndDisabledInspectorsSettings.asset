@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ed1fbf916ccdb4e90ec5cf623fe1be, type: 3}
   m_Name: EnabledAndDisabledInspectorsSettings
   m_EditorClassIdentifier: 
-  EnabledInspectors: []
+  enableNamingConventions: 1
+  inspectorSettings: []

@@ -365,11 +365,11 @@
     <Reference Include="SharpCompress">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@26097cc7ee/Editor/ThirdParty/SharpCompress/SharpCompress.dll</HintPath>
     </Reference>
-    <Reference Include="MMHOOK_RoR2">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>
-    </Reference>
     <Reference Include="RoR2-Stubbed">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2-Stubbed.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_RoR2">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -804,9 +804,9 @@
       <Project>{CA3180B0-15F7-26EF-9A90-EB041B971007}</Project>
       <Name>Wwise</Name>
     </ProjectReference>
-    <ProjectReference Include="Wwise.editor.csproj">
-      <Project>{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}</Project>
-      <Name>Wwise.editor</Name>
+    <ProjectReference Include="Wwise.Editor.csproj">
+      <Project>{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}</Project>
+      <Name>Wwise.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="EditorUtils.csproj">
       <Project>{3E2814BE-4557-36DC-FE9C-10AEA7664F54}</Project>

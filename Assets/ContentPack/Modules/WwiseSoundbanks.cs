@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using AK.Wwise;
 
 namespace TurboEdition
 {
@@ -19,8 +18,9 @@ namespace TurboEdition
         {
             uint akBankID;  // Not used. These banks can be unloaded with their file name.
             AkSoundEngine.AddBasePath(soundBankDirectory);
-            AkSoundEngine.LoadBank("TurboInit.bnk", -1, out akBankID);
-            AkSoundEngine.LoadBank("TurboBank.bnk", -1, out akBankID);
+            AkSoundEngine.LoadBank("TurboInit.bnk", out akBankID);
+            AkSoundEngine.LoadBank("TurboBank.bnk", out akBankID);
+            AkSoundEngine.LoadBank("Init.bnk", out akBankID);
         }
     }
 }

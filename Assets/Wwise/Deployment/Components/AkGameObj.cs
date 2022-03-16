@@ -8,6 +8,7 @@
 [UnityEngine.AddComponentMenu("Wwise/AkGameObj")]
 [UnityEngine.DisallowMultipleComponent]
 [UnityEngine.ExecuteInEditMode] //ExecuteInEditMode necessary to maintain proper state of isStaticObject.
+[UnityEngine.DefaultExecutionOrder(-25)]
 ///@brief This component represents a sound object in your scene tracking its position and other game syncs such as Switches, RTPC and environment values. You can add this to any object that will emit sound, and it will be added to any object that an AkAudioListener is attached to. Note that if it is not present, Wwise will add it automatically, with the default values, to any Unity Game Object that is passed to Wwise.
 /// \sa
 /// - <a href="https://www.audiokinetic.com/library/edge/?source=SDK&id=soundengine__gameobj.html" target="_blank">Integration Details - Game Objects</a> (Note: This is described in the Wwise SDK documentation.)
@@ -67,6 +68,25 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 		return AkSoundEngine.RegisterGameObj(gameObject, gameObject.name);
 	}
 
+	private void SetPosition()
+	{
+		var position = GetPosition();
+		var forward = GetForward();
+		var up = GetUpward();
+
+		if (m_posData != null)
+		{
+			if (m_posData.position == position && m_posData.forward == forward && m_posData.up == up)
+				return;
+
+			m_posData.position = position;
+			m_posData.forward = forward;
+			m_posData.up = up;
+		}
+
+		AkSoundEngine.SetObjectPosition(gameObject, position, forward, up);
+	}
+
 	private void Awake()
 	{
 #if UNITY_EDITOR
@@ -87,9 +107,7 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 		//Register a Game Object in the sound engine, with its name.
 		if (Register() == AKRESULT.AK_Success)
 		{
-			// Get position with offset or custom position and orientation.
-			//Set the original position
-			AkSoundEngine.SetObjectPosition(gameObject, GetPosition(), GetForward(), GetUpward());
+			SetPosition();
 
 			if (isEnvironmentAware)
 			{
@@ -183,24 +201,8 @@ public class AkGameObj : UnityEngine.MonoBehaviour
 		if (m_envData != null)
 			m_envData.UpdateAuxSend(gameObject, transform.position);
 
-		if (isStaticObject)
-			return;
-
-		// Get custom position and orientation.
-		var position = GetPosition();
-		var forward = GetForward();
-		var up = GetUpward();
-
-		//Didn't move.  Do nothing.
-		if (m_posData.position == position && m_posData.forward == forward && m_posData.up == up)
-			return;
-
-		m_posData.position = position;
-		m_posData.forward = forward;
-		m_posData.up = up;
-
-		//Update position
-		AkSoundEngine.SetObjectPosition(gameObject, position, forward, up);
+		if (!isStaticObject)
+			SetPosition();
 	}
 
 	/// Gets the position including the position offset, if applyPositionOffset is enabled. User can also override this method to calculate an arbitrary position.

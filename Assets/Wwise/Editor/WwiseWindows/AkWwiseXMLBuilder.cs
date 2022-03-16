@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+﻿﻿#if UNITY_EDITOR
 //////////////////////////////////////////////////////////////////////
 //
 // Copyright (c) 2014 Audiokinetic Inc. / All Rights Reserved
@@ -13,17 +13,16 @@ public class AkWwiseXMLBuilder
 	static AkWwiseXMLBuilder()
 	{
 		AkWwiseXMLWatcher.Instance.PopulateXML = Populate;
+		UnityEditor.EditorApplication.playModeStateChanged += PlayModeChanged;
+	}
 
-		AkWwiseXMLWatcher.Instance.GetEventMaxDuration = (uint eventID) =>
+	private static void PlayModeChanged(UnityEditor.PlayModeStateChange mode)
+	{
+		if (mode == UnityEditor.PlayModeStateChange.EnteredEditMode)
 		{
-			var eventInfo = AkWwiseProjectInfo.GetData().GetEventInfo(eventID);
-			if (eventInfo != null)
-			{
-				return eventInfo.maxDuration;
-			}
-
-			return null;
-		};
+			AkWwiseProjectInfo.Populate();
+			AkWwiseXMLWatcher.Instance.StartWatcher();
+		}
 	}
 
 	public static bool Populate()
@@ -36,28 +35,35 @@ public class AkWwiseXMLBuilder
 		try
 		{
 			// Try getting the SoundbanksInfo.xml file for Windows or Mac first, then try to find any other available platform.
+			var logWarnings = AkBasePathGetter.LogWarnings;
+			AkBasePathGetter.LogWarnings = false;
 			var FullSoundbankPath = AkBasePathGetter.GetPlatformBasePath();
+			AkBasePathGetter.LogWarnings = logWarnings;
+
 			var filename = System.IO.Path.Combine(FullSoundbankPath, "SoundbanksInfo.xml");
 			if (!System.IO.File.Exists(filename))
 			{
-				FullSoundbankPath = System.IO.Path.Combine(UnityEngine.Application.streamingAssetsPath,
-					WwiseSetupWizard.Settings.SoundbankPath);
+				FullSoundbankPath = System.IO.Path.Combine(UnityEngine.Application.streamingAssetsPath, AkWwiseEditorSettings.Instance.SoundbankPath);
 
 				if (!System.IO.Directory.Exists(FullSoundbankPath))
+				{
+					UnityEngine.Debug.Log("WwiseUnity: Could not open SoundbanksInfo.xml, generated SoundBanks path does not exist: " + FullSoundbankPath);
 					return false;
+				}
 
-				var foundFiles =
-					System.IO.Directory.GetFiles(FullSoundbankPath, "SoundbanksInfo.xml", System.IO.SearchOption.AllDirectories);
-
+				var foundFiles = System.IO.Directory.GetFiles(FullSoundbankPath, "SoundbanksInfo.xml", System.IO.SearchOption.AllDirectories);
 				if (foundFiles.Length == 0)
+				{
+					UnityEngine.Debug.Log("WwiseUnity: Could not find SoundbanksInfo.xml in directory: " + FullSoundbankPath);
 					return false;
-
+				}
 				filename = foundFiles[0];
 			}
 
 			var time = System.IO.File.GetLastWriteTime(filename);
 			if (time <= s_LastParsed)
 			{
+				UnityEngine.Debug.Log("WwiseUnity: Skipping parsing of SoundbanksInfo.xml because it has not changed.");
 				return false;
 			}
 
@@ -77,8 +83,9 @@ public class AkWwiseXMLBuilder
 
 			return bChanged;
 		}
-		catch
+		catch (System.Exception e)
 		{
+			UnityEngine.Debug.Log("WwiseUnity: Exception occured while parsing SoundbanksInfo.xml: " + e.ToString());
 			return false;
 		}
 	}
@@ -92,82 +99,85 @@ public class AkWwiseXMLBuilder
 			var events = includedEvents[i].SelectNodes("Event");
 			for (var j = 0; j < events.Count; j++)
 			{
-				bChanged = SerialiseMaxAttenuation(events[j]) || SerialiseEstimatedDuration(events[j]) || bChanged;
+				bChanged = SerialiseEventData(events[j]) || bChanged;
 			}
 		}
 
 		return bChanged;
 	}
 
-	private static bool SerialiseMaxAttenuation(System.Xml.XmlNode node)
+	private static float GetFloatFromString(string s)
 	{
-		var bChanged = false;
-		for (var i = 0; i < AkWwiseProjectInfo.GetData().EventWwu.Count; i++)
+		if (string.Compare(s, "Infinite") == 0)
 		{
-			for (var j = 0; j < AkWwiseProjectInfo.GetData().EventWwu[i].List.Count; j++)
+			return UnityEngine.Mathf.Infinity;
+		}
+		else
+		{
+			System.Globalization.CultureInfo CultInfo = System.Globalization.CultureInfo.CurrentCulture.Clone() as System.Globalization.CultureInfo;
+			CultInfo.NumberFormat.NumberDecimalSeparator = ".";
+			CultInfo.NumberFormat.CurrencyDecimalSeparator = ".";
+			float Result;
+			if(float.TryParse(s, System.Globalization.NumberStyles.Float, CultInfo, out Result))
 			{
-				if (node.Attributes["MaxAttenuation"] != null &&
-				    node.Attributes["Name"].InnerText == AkWwiseProjectInfo.GetData().EventWwu[i].List[j].Name)
-				{
-					var radius = float.Parse(node.Attributes["MaxAttenuation"].InnerText);
-					if (AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxAttenuation != radius)
-					{
-						AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxAttenuation = radius;
-						bChanged = true;
-					}
-
-					break;
-				}
+				return Result;
+			}
+			else
+			{
+				UnityEngine.Debug.Log("WwiseUnity: Could not parse float number " + s);
+				return 0.0f;
 			}
 		}
-
-		return bChanged;
 	}
 
-	private static bool SerialiseEstimatedDuration(System.Xml.XmlNode node)
+	private static bool SerialiseEventData(System.Xml.XmlNode node)
 	{
-		var bChanged = false;
-		for (var i = 0; i < AkWwiseProjectInfo.GetData().EventWwu.Count; i++)
+		var maxAttenuationAttribute = node.Attributes["MaxAttenuation"];
+		var durationMinAttribute = node.Attributes["DurationMin"];
+		var durationMaxAttribute = node.Attributes["DurationMax"];
+		var name = node.Attributes["Name"].InnerText;
+		if (maxAttenuationAttribute == null && durationMinAttribute == null && durationMaxAttribute == null)
 		{
-			for (var j = 0; j < AkWwiseProjectInfo.GetData().EventWwu[i].List.Count; j++)
+			return false;
+		}
+
+		var bChanged = false;
+		foreach (var wwu in AkWwiseProjectInfo.GetData().EventWwu)
+		{
+			var eventData = wwu.Find(name);
+			if (eventData == null)
+				continue;
+
+			if (maxAttenuationAttribute != null)
 			{
-				if (node.Attributes["Name"].InnerText == AkWwiseProjectInfo.GetData().EventWwu[i].List[j].Name)
+				var maxAttenuation = GetFloatFromString(maxAttenuationAttribute.InnerText);
+				if (eventData.maxAttenuation != maxAttenuation)
 				{
-					if (node.Attributes["DurationMin"] != null)
-					{
-						var minDuration = UnityEngine.Mathf.Infinity;
-						if (string.Compare(node.Attributes["DurationMin"].InnerText, "Infinite") != 0)
-						{
-							minDuration = float.Parse(node.Attributes["DurationMin"].InnerText);
-						}
+					eventData.maxAttenuation = maxAttenuation;
+					bChanged = true;
+				}
+			}
 
-						if (AkWwiseProjectInfo.GetData().EventWwu[i].List[j].minDuration != minDuration)
-						{
-							AkWwiseProjectInfo.GetData().EventWwu[i].List[j].minDuration = minDuration;
-							bChanged = true;
-						}
-					}
+			if (durationMinAttribute != null)
+			{
+				var minDuration = GetFloatFromString(durationMinAttribute.InnerText);
+				if (eventData.minDuration != minDuration)
+				{
+					eventData.minDuration = minDuration;
+					bChanged = true;
+				}
+			}
 
-					if (node.Attributes["DurationMax"] != null)
-					{
-						var maxDuration = UnityEngine.Mathf.Infinity;
-						if (string.Compare(node.Attributes["DurationMax"].InnerText, "Infinite") != 0)
-						{
-							maxDuration = float.Parse(node.Attributes["DurationMax"].InnerText);
-						}
-
-						if (AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxDuration != maxDuration)
-						{
-							AkWwiseProjectInfo.GetData().EventWwu[i].List[j].maxDuration = maxDuration;
-							bChanged = true;
-						}
-					}
-
-					break;
+			if (durationMaxAttribute != null)
+			{
+				var maxDuration = GetFloatFromString(durationMaxAttribute.InnerText);
+				if (eventData.maxDuration != maxDuration)
+				{
+					eventData.maxDuration = maxDuration;
+					bChanged = true;
 				}
 			}
 		}
-
 		return bChanged;
 	}
 }

@@ -14,24 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AcousticTextureWwu:
   - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: af94d613faf72f40be5f848e4807af1b
     GuidInternal: 
-    m_lastTime: -8585565901595017754
+    m_lastTime: -8585542195490007245
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: 197209c57a646240aab75eaca2b7c5b0
     GuidInternal: 
-    m_lastTime: -8585565901596196354
-    List: []
+    m_lastTime: -8585542195489658594
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: ff69bd0cb0472246bf85651c36cdcb1d
     GuidInternal: 
-    m_lastTime: -8585563005363915492
+    m_lastTime: -8585542195489598757
     List:
     - name: TurboBank
       guid: 17de7e2c48388444a1e209fca9afe8f3
@@ -44,13 +62,54 @@ MonoBehaviour:
       Path: Default Work Unit\TurboBank
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: f9aeee3adff9124fa97c10655bacd25f
     GuidInternal: 
-    m_lastTime: -8585563005363735579
+    m_lastTime: -8585542195489808199
     List:
+    - name: Equipment
+      guid: a52016adc750bc4e9dddd5a5e47c93f3
+      id: 3211449947
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Equipment
+        ObjectType: 4
+      Path: Default Work Unit\Equipment
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Grenadier
+      guid: 0fc08d17ebff2e4097d0f61fda5e47c2
+      id: 1343892184
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      Path: Default Work Unit\Grenadier
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_BigScytheSwing
+      guid: 4bbb722ff9254540a855c7b5d4161606
+      id: 1133541694
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Equipment
+        ObjectType: 4
+      - ElementName: Play_BigScytheSwing
+        ObjectType: 3
+      Path: Default Work Unit\Equipment\Play_BigScytheSwing
+      maxAttenuation: 200
+      maxDuration: 0.62963
+      minDuration: 0.560937
     - name: Play_GrenadierPrimaryFire
-      guid: 69fe587b71af4e489e618b14ae5f6f9b
+      guid: 19fb13568f94874c9cacb9d2871170a1
       id: 3965566729
       PathAndIcons:
       - ElementName: Default Work Unit
@@ -60,9 +119,23 @@ MonoBehaviour:
       - ElementName: Play_GrenadierPrimaryFire
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierPrimaryFire
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 200
+      maxDuration: 0.604913
+      minDuration: 0.561764
+    - name: Play_GrenadierReload
+      guid: 356f6c61c606a74dbde1b135b2d72996
+      id: 1186468370
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_GrenadierReload
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_GrenadierReload
+      maxAttenuation: 200
+      maxDuration: 0.629552
+      minDuration: 0.560867
     - name: Play_GrenadierSecondaryFire
       guid: e15892a68b867c4d826dd74ad22c5a36
       id: 241865965
@@ -74,16 +147,95 @@ MonoBehaviour:
       - ElementName: Play_GrenadierSecondaryFire
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierSecondaryFire
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 200
+      maxDuration: 1.572354
+      minDuration: 1.400808
+    - name: Play_GrenadierSpecialCharge
+      guid: 684e169ff60b4e498d07a63091e7a003
+      id: 3039812538
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_GrenadierSpecialCharge
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_GrenadierSpecialCharge
+      maxAttenuation: 200
+      maxDuration: 12.936458
+      minDuration: 12.936458
+    - name: Play_GrenadierSpecialGainExtraCharge
+      guid: 057ba91d79be7441b19739a3a215c417
+      id: 2217609107
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_GrenadierSpecialGainExtraCharge
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_GrenadierSpecialGainExtraCharge
+      maxAttenuation: 200
+      maxDuration: 0.215998
+      minDuration: 0.192432
+    - name: Play_GrenadierSpecialReady
+      guid: fa7c94892666f741b7b463be7078989e
+      id: 2141728575
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_GrenadierSpecialReady
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_GrenadierSpecialReady
+      maxAttenuation: 200
+      maxDuration: 0.12425
+      minDuration: 0.12425
+    - name: Play_LeaveStageError
+      guid: 74b10b8c7ac3e64da33eb5c915848108
+      id: 204571091
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Equipment
+        ObjectType: 4
+      - ElementName: Play_LeaveStageError
+        ObjectType: 3
+      Path: Default Work Unit\Equipment\Play_LeaveStageError
+      maxAttenuation: 200
+      maxDuration: 0.489688
+      minDuration: 0.486868
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: 1aede29b1eb9a3468100f50120ccff6a
     GuidInternal: 
-    m_lastTime: -8585563694612636289
+    m_lastTime: -8585542195489778270
     List:
+    - name: Grenadier
+      guid: da9121b248ddc9459a3094f05425918f
+      id: 1343892184
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      Path: Default Work Unit\Grenadier
+    - name: GrenadierSpecial_ChargeAmount
+      guid: 8c553eaf5451ab46bdee96532139a669
+      id: 1612634724
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: GrenadierSpecial_ChargeAmount
+        ObjectType: 13
+      Path: Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount
     - name: SFX_VolumeIn
       guid: 3fe4fff1c8f76f42993fbbf7c32732d9
       id: 1278074206
@@ -95,24 +247,33 @@ MonoBehaviour:
       Path: Default Work Unit\SFX_VolumeIn
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: 6dcf724cba3b374197530a2398b4a8ae
     GuidInternal: 
-    m_lastTime: -8585565901595256837
+    m_lastTime: -8585542195489818165
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: 3dd9046315c1c94abc184ed75163628f
     GuidInternal: 
-    m_lastTime: -8585565901595536343
+    m_lastTime: -8585542195489558867
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
-    ParentPhysicalPath: 
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
     guid: 65aa0529e70fd14f9964a1f87b68a830
     GuidInternal: 
-    m_lastTime: -8585565901595876931
+    m_lastTime: -8585542195489967775
     List: []
   ExpandedItems:
   - /TurboEdition_WwiseProject

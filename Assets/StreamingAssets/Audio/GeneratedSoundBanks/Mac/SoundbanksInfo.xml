@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
 		<ProjectRoot>C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\</ProjectRoot>
 		<SourceFilesRoot>C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\</SourceFilesRoot>
@@ -11,60 +11,86 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX">
+		<SoundBank Id="34081325" Language="SFX" Hash="299465864">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="1133541694" Name="Play_BigScytheSwing" ObjectPath="\Events\Default Work Unit\Equipment\Play_BigScytheSwing" MaxAttenuation="200.000000"/>
-				<Event Id="3965566729" Name="Play_GrenadierPrimaryFire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierPrimaryFire" MaxAttenuation="200.000000"/>
-				<Event Id="1186468370" Name="Play_GrenadierReload" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierReload" MaxAttenuation="200.000000"/>
-				<Event Id="241865965" Name="Play_GrenadierSecondaryFire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSecondaryFire" MaxAttenuation="200.000000"/>
-				<Event Id="3039812538" Name="Play_GrenadierSpecialCharge" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSpecialCharge" MaxAttenuation="200.000000"/>
-				<Event Id="2217609107" Name="Play_GrenadierSpecialGainExtraCharge" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSpecialGainExtraCharge" MaxAttenuation="200.000000"/>
-				<Event Id="2141728575" Name="Play_GrenadierSpecialReady" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSpecialReady" MaxAttenuation="200.000000"/>
-				<Event Id="204571091" Name="Play_LeaveStageError" ObjectPath="\Events\Default Work Unit\Equipment\Play_LeaveStageError" MaxAttenuation="200.000000"/>
+				<Event Id="1133541694" Name="Play_BigScytheSwing" ObjectPath="\Events\Default Work Unit\Equipment\Play_BigScytheSwing" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.560937" DurationMax="0.629630">
+					<IncludedMemoryFiles>
+						<File Id="441768360" Language="SFX">
+							<ShortName>se_item_deathscythe_swing_m.wav</ShortName>
+							<Path>SFX\se_item_deathscythe_swing_m_0D5756A9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3965566729" Name="Play_GrenadierPrimaryFire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierPrimaryFire" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.561764" DurationMax="0.604913">
+					<IncludedMemoryFiles>
+						<File Id="578702750" Language="SFX">
+							<ShortName>Milkor_FireMix2.wav</ShortName>
+							<Path>SFX\Milkor_FireMix2_0D5756A9.wem</Path>
+						</File>
+						<File Id="923839061" Language="SFX">
+							<ShortName>Milkor_FireMix1.wav</ShortName>
+							<Path>SFX\Milkor_FireMix1_0D5756A9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1186468370" Name="Play_GrenadierReload" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierReload" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.560867" DurationMax="0.629552">
+					<IncludedMemoryFiles>
+						<File Id="717774493" Language="SFX">
+							<ShortName>M79_Reload_064.wav</ShortName>
+							<Path>SFX\M79_Reload_064_0D5756A9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="241865965" Name="Play_GrenadierSecondaryFire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSecondaryFire" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.400808" DurationMax="1.572354">
+					<IncludedMemoryFiles>
+						<File Id="464783086" Language="SFX">
+							<ShortName>M79_fire01.wav</ShortName>
+							<Path>SFX\M79_fire01_0D5756A9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3039812538" Name="Play_GrenadierSpecialCharge" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSpecialCharge" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="12.936458" DurationMax="12.936458">
+					<IncludedMemoryFiles>
+						<File Id="528402572" Language="SFX">
+							<ShortName>se_item_crossbomb_blink.wav</ShortName>
+							<Path>SFX\se_item_crossbomb_blink_78160227.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2217609107" Name="Play_GrenadierSpecialGainExtraCharge" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSpecialGainExtraCharge" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.192432" DurationMax="0.215998">
+					<IncludedMemoryFiles>
+						<File Id="683144335" Language="SFX">
+							<ShortName>snd_se_snake_006.wav</ShortName>
+							<Path>SFX\snd_se_snake_006_0D5756A9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2141728575" Name="Play_GrenadierSpecialReady" ObjectPath="\Events\Default Work Unit\Grenadier\Play_GrenadierSpecialReady" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.124250" DurationMax="0.124250">
+					<IncludedMemoryFiles>
+						<File Id="674121072" Language="SFX">
+							<ShortName>snd_se_snake_Special_S01.wav</ShortName>
+							<Path>SFX\snd_se_snake_Special_S01_0D5756A9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="204571091" Name="Play_LeaveStageError" ObjectPath="\Events\Default Work Unit\Equipment\Play_LeaveStageError" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.486868" DurationMax="0.489688">
+					<IncludedMemoryFiles>
+						<File Id="683838438" Language="SFX">
+							<ShortName>se_system_beep.wav</ShortName>
+							<Path>SFX\se_system_beep_78160227.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
-			<IncludedMemoryFiles>
-				<File Id="441768360" Language="SFX">
-					<ShortName>se_item_deathscythe_swing_m.wav</ShortName>
-					<Path>SFX\se_item_deathscythe_swing_m_A1793BE9.wem</Path>
-				</File>
-				<File Id="464783086" Language="SFX">
-					<ShortName>M79_fire01.wav</ShortName>
-					<Path>SFX\M79_fire01_A1793BE9.wem</Path>
-				</File>
-				<File Id="528402572" Language="SFX">
-					<ShortName>se_item_crossbomb_blink.wav</ShortName>
-					<Path>SFX\se_item_crossbomb_blink_CB1F3167.wem</Path>
-				</File>
-				<File Id="578702750" Language="SFX">
-					<ShortName>Milkor_FireMix2.wav</ShortName>
-					<Path>SFX\Milkor_FireMix2_A1793BE9.wem</Path>
-				</File>
-				<File Id="674121072" Language="SFX">
-					<ShortName>snd_se_snake_Special_S01.wav</ShortName>
-					<Path>SFX\snd_se_snake_Special_S01_A1793BE9.wem</Path>
-				</File>
-				<File Id="683144335" Language="SFX">
-					<ShortName>snd_se_snake_006.wav</ShortName>
-					<Path>SFX\snd_se_snake_006_A1793BE9.wem</Path>
-				</File>
-				<File Id="683838438" Language="SFX">
-					<ShortName>se_system_beep.wav</ShortName>
-					<Path>SFX\se_system_beep_CB1F3167.wem</Path>
-				</File>
-				<File Id="717774493" Language="SFX">
-					<ShortName>M79_Reload_064.wav</ShortName>
-					<Path>SFX\M79_Reload_064_A1793BE9.wem</Path>
-				</File>
-				<File Id="923839061" Language="SFX">
-					<ShortName>Milkor_FireMix1.wav</ShortName>
-					<Path>SFX\Milkor_FireMix1_A1793BE9.wem</Path>
-				</File>
-			</IncludedMemoryFiles>
+			<GameParameters>
+				<GameParameter Id="1278074206" Name="SFX_VolumeIn" ObjectPath="\Game Parameters\Default Work Unit\SFX_VolumeIn"/>
+				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1130579211">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

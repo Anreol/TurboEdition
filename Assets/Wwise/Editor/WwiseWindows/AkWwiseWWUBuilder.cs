@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 //////////////////////////////////////////////////////////////////////
 //
 // Copyright (c) 2014 Audiokinetic Inc. / All Rights Reserved
@@ -12,8 +12,7 @@ public class AkWwiseWWUBuilder
 	private const string s_progTitle = "Populating Wwise Picker";
 	private const int s_SecondsBetweenChecks = 3;
 
-	private static string s_wwiseProjectPath = System.IO.Path.GetDirectoryName(
-		AkUtilities.GetFullPath(UnityEngine.Application.dataPath, WwiseSettings.LoadSettings().WwiseProjectPath));
+	private static string s_wwiseProjectPath = System.IO.Path.GetDirectoryName(AkWwiseEditorSettings.WwiseProjectAbsolutePath);
 
 	private static System.DateTime s_lastFileCheck = System.DateTime.Now.AddSeconds(-s_SecondsBetweenChecks);
 	private static readonly FileInfo_CompareByPath s_FileInfo_CompareByPath = new FileInfo_CompareByPath();
@@ -24,6 +23,20 @@ public class AkWwiseWWUBuilder
 	private int m_currentWwuCnt;
 	private int m_totWwuCnt = 1;
 
+	static AkWwiseWWUBuilder()
+	{
+		// This method gets called from InitializeOnLoad and uses the AkWwiseProjectInfo later on so it needs to check if it can run right now
+		InitializeWwiseProjectData();
+
+		UnityEditor.EditorApplication.playModeStateChanged += (UnityEditor.PlayModeStateChange playMode) =>
+		{
+			if (playMode == UnityEditor.PlayModeStateChange.EnteredEditMode)
+			{
+				RestartWWUWatcher();
+			}
+		};
+	}
+
 	private static void Tick()
 	{
 		isTicking = true;
@@ -31,12 +44,13 @@ public class AkWwiseWWUBuilder
 		if (AkWwiseProjectInfo.GetData() != null)
 		{
 			if (System.DateTime.Now.Subtract(s_lastFileCheck).Seconds > s_SecondsBetweenChecks &&
-			    !UnityEditor.EditorApplication.isCompiling && !UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode &&
-			    AkWwiseProjectInfo.GetData().autoPopulateEnabled)
+				!UnityEditor.EditorApplication.isCompiling && !UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode &&
+				AkWwiseProjectInfo.GetData().autoPopulateEnabled)
 			{
 				AkWwisePicker.treeView.SaveExpansionStatus();
 				if (Populate())
 				{
+					AkWwiseXMLBuilder.Populate();
 					AkWwisePicker.PopulateTreeview();
 					//Make sure that the Wwise picker and the inspector are updated
 					AkUtilities.RepaintInspector();
@@ -51,16 +65,13 @@ public class AkWwiseWWUBuilder
 	{
 		try
 		{
-			if (WwiseSetupWizard.Settings.WwiseProjectPath == null)
-				WwiseSettings.LoadSettings();
-
-			if (string.IsNullOrEmpty(WwiseSetupWizard.Settings.WwiseProjectPath))
+			if (string.IsNullOrEmpty(AkWwiseEditorSettings.Instance.WwiseProjectPath))
 			{
 				UnityEngine.Debug.LogError("WwiseUnity: Wwise project needed to populate from Work Units. Aborting.");
 				return;
 			}
 
-			var fullWwiseProjectPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath);
+			var fullWwiseProjectPath = AkWwiseEditorSettings.WwiseProjectAbsolutePath;
 			s_wwiseProjectPath = System.IO.Path.GetDirectoryName(fullWwiseProjectPath);
 
 			AkUtilities.IsWwiseProjectAvailable = System.IO.File.Exists(fullWwiseProjectPath);
@@ -81,21 +92,18 @@ public class AkWwiseWWUBuilder
 	{
 		try
 		{
-			if (WwiseSetupWizard.Settings.WwiseProjectPath == null)
-				WwiseSettings.LoadSettings();
-
-			if (string.IsNullOrEmpty(WwiseSetupWizard.Settings.WwiseProjectPath))
+			if (string.IsNullOrEmpty(AkWwiseEditorSettings.Instance.WwiseProjectPath))
 			{
 				UnityEngine.Debug.LogError("WwiseUnity: Wwise project needed to populate from Work Units. Aborting.");
 				return false;
 			}
 
-			var fullWwiseProjectPath = AkUtilities.GetFullPath(UnityEngine.Application.dataPath, WwiseSetupWizard.Settings.WwiseProjectPath);
+			var fullWwiseProjectPath = AkWwiseEditorSettings.WwiseProjectAbsolutePath;
 			s_wwiseProjectPath = System.IO.Path.GetDirectoryName(fullWwiseProjectPath);
 
 			AkUtilities.IsWwiseProjectAvailable = System.IO.File.Exists(fullWwiseProjectPath);
 			if (!AkUtilities.IsWwiseProjectAvailable || UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode || string.IsNullOrEmpty(s_wwiseProjectPath) ||
-			    (UnityEditor.EditorApplication.isCompiling && !AkUtilities.IsMigrating))
+				(UnityEditor.EditorApplication.isCompiling && !AkUtilities.IsMigrating))
 				return false;
 
 			AkPluginActivator.Update();
@@ -132,10 +140,9 @@ public class AkWwiseWWUBuilder
 
 	private int RecurseWorkUnit(AssetType in_type, System.IO.FileInfo in_workUnit, string in_currentPathInProj,
 		string in_currentPhysicalPath, System.Collections.Generic.LinkedList<AkWwiseProjectData.PathElement> in_pathAndIcons,
-		string in_parentPhysicalPath = "")
+		string in_parentPath = "")
 	{
 		m_WwuToProcess.Remove(in_workUnit.FullName);
-		System.Xml.XmlReader reader = null;
 		var wwuIndex = -1;
 		try
 		{
@@ -152,106 +159,103 @@ public class AkWwiseWWUBuilder
 
 			var wwu = ReplaceWwuEntry(WwuPhysicalPath, in_type, out wwuIndex);
 
-			wwu.ParentPhysicalPath = in_parentPhysicalPath;
+			wwu.ParentPath = in_currentPathInProj;
 			wwu.PhysicalPath = WwuPhysicalPath;
+			wwu.PathAndIcons = new System.Collections.Generic.List<AkWwiseProjectData.PathElement>(in_pathAndIcons);
 			wwu.Guid = System.Guid.Empty;
 			wwu.LastTime = System.IO.File.GetLastWriteTime(in_workUnit.FullName);
 
-			reader = System.Xml.XmlReader.Create(in_workUnit.FullName);
-
-			reader.MoveToContent();
-			reader.Read();
-			while (!reader.EOF && reader.ReadState == System.Xml.ReadState.Interactive)
+			using (var reader = System.Xml.XmlReader.Create(in_workUnit.FullName))
 			{
-				if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals("WorkUnit"))
+				reader.MoveToContent();
+				reader.Read();
+
+				while (!reader.EOF && reader.ReadState == System.Xml.ReadState.Interactive)
 				{
-					if (wwu.Guid.Equals(System.Guid.Empty))
+					if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals("WorkUnit"))
 					{
-						var ID = reader.GetAttribute("ID");
-						try
+						if (wwu.Guid.Equals(System.Guid.Empty))
 						{
-							wwu.Guid = new System.Guid(ID);
+							var ID = reader.GetAttribute("ID");
+							try
+							{
+								wwu.Guid = new System.Guid(ID);
+							}
+							catch
+							{
+								UnityEngine.Debug.LogWarning("WwiseUnity: Error reading ID <" + ID + "> from work unit <" + in_workUnit.FullName + ">.");
+								throw;
+							}
 						}
-						catch
-						{
-							UnityEngine.Debug.LogWarning("WwiseUnity: Error reading ID <" + ID + "> from work unit <" + in_workUnit.FullName + ">.");
-							throw;
-						}
-					}
 
-					var persistMode = reader.GetAttribute("PersistMode");
-					if (persistMode == "Reference")
-					{
-						// ReadFrom advances the reader
-						var matchedElement = System.Xml.Linq.XNode.ReadFrom(reader) as System.Xml.Linq.XElement;
-						var newWorkUnitPath =
-							System.IO.Path.Combine(in_workUnit.Directory.FullName, matchedElement.Attribute("Name").Value + ".wwu");
-						var newWorkUnit = new System.IO.FileInfo(newWorkUnitPath);
-
-						// Parse the referenced Work Unit
-						if (m_WwuToProcess.Contains(newWorkUnit.FullName))
+						var persistMode = reader.GetAttribute("PersistMode");
+						if (persistMode == "Reference")
 						{
+							// ReadFrom advances the reader
+							var matchedElement = System.Xml.Linq.XNode.ReadFrom(reader) as System.Xml.Linq.XElement;
+							var newWorkUnitPath =
+								System.IO.Path.Combine(in_workUnit.Directory.FullName, matchedElement.Attribute("Name").Value + ".wwu");
+							var newWorkUnit = new System.IO.FileInfo(newWorkUnitPath);
+
+							// Parse the referenced Work Unit
 							RecurseWorkUnit(in_type, newWorkUnit, in_currentPathInProj, in_currentPhysicalPath, in_pathAndIcons,
 								WwuPhysicalPath);
 						}
+						else
+						{
+							// If the persist mode is "Standalone" or "Nested", it means the current XML tag
+							// is the one corresponding to the current file. We can ignore it and advance the reader
+							reader.Read();
+						}
 					}
-					else
+					else if (reader.NodeType == System.Xml.XmlNodeType.Element && (reader.Name.Equals("AuxBus") || reader.Name.Equals("Folder") || reader.Name.Equals("Bus")))
 					{
-						// If the persist mode is "Standalone" or "Nested", it means the current XML tag
-						// is the one corresponding to the current file. We can ignore it and advance the reader
+						WwiseObjectType objType;
+						switch (reader.Name)
+						{
+							case "AuxBus":
+								objType = WwiseObjectType.AuxBus;
+								break;
+
+							case "Bus":
+								objType = WwiseObjectType.Bus;
+								break;
+
+							case "Folder":
+							default:
+								objType = WwiseObjectType.Folder;
+								break;
+						}
+						in_currentPathInProj = System.IO.Path.Combine(in_currentPathInProj, reader.GetAttribute("Name"));
+						in_pathAndIcons.AddLast(new AkWwiseProjectData.PathElement(reader.GetAttribute("Name"), objType));
+						bool IsEmptyElement = reader.IsEmptyElement; // Need to cache this because AddElementToList advances the reader.
+						AddElementToList(in_currentPathInProj, reader, in_type, in_pathAndIcons, wwuIndex, objType);
+						if (IsEmptyElement)
+						{
+							// This element has no children, step out of it immediately
+							// Remove the folder/bus from the path
+							in_currentPathInProj = in_currentPathInProj.Remove(in_currentPathInProj.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
+							in_pathAndIcons.RemoveLast();
+							// Reader was already advanced by AddElementToList
+						}
+					}
+					else if (reader.NodeType == System.Xml.XmlNodeType.EndElement &&
+							 (reader.Name.Equals("Folder") || reader.Name.Equals("Bus") || reader.Name.Equals("AuxBus")))
+					{
+						// Remove the folder/bus from the path
+						in_currentPathInProj = in_currentPathInProj.Remove(in_currentPathInProj.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
+						in_pathAndIcons.RemoveLast();
+						// Advance the reader
 						reader.Read();
 					}
-				}
-				else if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals("AuxBus"))
-				{
-					in_currentPathInProj = System.IO.Path.Combine(in_currentPathInProj, reader.GetAttribute("Name"));
-					in_pathAndIcons.AddLast(new AkWwiseProjectData.PathElement(reader.GetAttribute("Name"), WwiseObjectType.AuxBus));
-					var isEmpty = reader.IsEmptyElement;
-					AddElementToList(in_currentPathInProj, reader, in_type, in_pathAndIcons, wwuIndex);
-
-					if (isEmpty)
+					else if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals(in_type.XmlElementName))
 					{
-						in_currentPathInProj =
-							in_currentPathInProj.Remove(in_currentPathInProj.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
-						in_pathAndIcons.RemoveLast();
+						// Add the element to the list
+						AddElementToList(in_currentPathInProj, reader, in_type, in_pathAndIcons, wwuIndex);
 					}
+					else
+						reader.Read();
 				}
-				// Busses and folders act the same for the Hierarchy: simply add them to the path
-				else if (reader.NodeType == System.Xml.XmlNodeType.Element &&
-				         (reader.Name.Equals("Folder") || reader.Name.Equals("Bus")))
-				{
-					//check if node has children
-					if (!reader.IsEmptyElement)
-					{
-						// Add the folder/bus to the path
-						in_currentPathInProj = System.IO.Path.Combine(in_currentPathInProj, reader.GetAttribute("Name"));
-						if (reader.Name.Equals("Folder"))
-							in_pathAndIcons.AddLast(new AkWwiseProjectData.PathElement(reader.GetAttribute("Name"), WwiseObjectType.Folder));
-						else if (reader.Name.Equals("Bus"))
-							in_pathAndIcons.AddLast(new AkWwiseProjectData.PathElement(reader.GetAttribute("Name"), WwiseObjectType.Bus));
-					}
-
-					// Advance the reader
-					reader.Read();
-				}
-				else if (reader.NodeType == System.Xml.XmlNodeType.EndElement &&
-				         (reader.Name.Equals("Folder") || reader.Name.Equals("Bus") || reader.Name.Equals("AuxBus")))
-				{
-					// Remove the folder/bus from the path
-					in_currentPathInProj =
-						in_currentPathInProj.Remove(in_currentPathInProj.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
-					in_pathAndIcons.RemoveLast();
-
-					// Advance the reader
-					reader.Read();
-				}
-				else if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals(in_type.XmlElementName))
-				{
-					// Add the element to the list
-					AddElementToList(in_currentPathInProj, reader, in_type, in_pathAndIcons, wwuIndex);
-				}
-				else
-					reader.Read();
 			}
 
 			// Sort the newly populated Wwu alphabetically
@@ -262,9 +266,6 @@ public class AkWwiseWWUBuilder
 			UnityEngine.Debug.LogError(e.ToString());
 			wwuIndex = -1;
 		}
-
-		if (reader != null)
-			reader.Close();
 
 		in_pathAndIcons.RemoveLast();
 		return wwuIndex;
@@ -293,26 +294,7 @@ public class AkWwiseWWUBuilder
 			StartWWUWatcher();
 	}
 
-	static AkWwiseWWUBuilder()
-	{
-		InitializeWwiseProjectData();
-
-#if UNITY_2017_2_OR_NEWER
-		UnityEditor.EditorApplication.playModeStateChanged += (UnityEditor.PlayModeStateChange playMode) => 
-		{
-			if (playMode == UnityEditor.PlayModeStateChange.EnteredEditMode)
-				RestartWWUWatcher();
-		};
-#else
-		UnityEditor.EditorApplication.playmodeStateChanged += () =>
-		{
-			if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode && UnityEditor.EditorApplication.isPlaying)
-				RestartWWUWatcher();
-		};
-#endif
-	}
-
-	private static System.Collections.Generic.Dictionary<WwiseObjectType, System.Collections.Generic.List<AkWwiseProjectData.AkBaseInformation>> _WwiseObjectsToRemove 
+	private static System.Collections.Generic.Dictionary<WwiseObjectType, System.Collections.Generic.List<AkWwiseProjectData.AkBaseInformation>> _WwiseObjectsToRemove
 		= new System.Collections.Generic.Dictionary<WwiseObjectType, System.Collections.Generic.List<AkWwiseProjectData.AkBaseInformation>>();
 
 	private static System.Collections.Generic.Dictionary<WwiseObjectType, System.Collections.Generic.List<AkWwiseProjectData.AkBaseInformation>> _WwiseObjectsToAdd
@@ -509,7 +491,7 @@ public class AkWwiseWWUBuilder
 			var fullPath = e.Current as string;
 			var relPath = fullPath.Substring(iBasePathLen);
 			var typeStr = relPath.Remove(relPath.IndexOf(System.IO.Path.DirectorySeparatorChar));
-			UpdateWorkUnit(string.Empty, fullPath, typeStr, relPath);
+			UpdateWorkUnit(fullPath, typeStr, relPath);
 		}
 
 		foreach (var pair in _WwiseObjectsToAdd)
@@ -543,6 +525,7 @@ public class AkWwiseWWUBuilder
 			}
 		}
 
+		UnityEditor.EditorUtility.SetDirty(AkWwiseProjectInfo.GetData());
 		UnityEditor.EditorUtility.ClearProgressBar();
 	}
 
@@ -619,33 +602,31 @@ public class AkWwiseWWUBuilder
 		}
 	}
 
-	private static AkWwiseProjectData.WorkUnit CreateWorkUnit(WwiseObjectType type)
+	private static AkWwiseProjectData.WorkUnit ReplaceWwuEntry(string in_currentPhysicalPath, AssetType in_type, out int out_wwuIndex)
 	{
-		switch (type)
+		var list = AkWwiseProjectInfo.GetData().GetWwuListByString(in_type.RootDirectoryName);
+		out_wwuIndex = list.BinarySearch(new AkWwiseProjectData.WorkUnit { PhysicalPath = in_currentPhysicalPath });
+		AkWwiseProjectData.WorkUnit out_wwu = null;
+
+		switch (in_type.Type)
 		{
 			case WwiseObjectType.Event:
-				return new AkWwiseProjectData.EventWorkUnit();
+				out_wwu = new AkWwiseProjectData.EventWorkUnit();
+				break;
 
 			case WwiseObjectType.StateGroup:
 			case WwiseObjectType.SwitchGroup:
-				return new AkWwiseProjectData.GroupValWorkUnit();
+				out_wwu = new AkWwiseProjectData.GroupValWorkUnit();
+				break;
 
 			case WwiseObjectType.AuxBus:
 			case WwiseObjectType.Soundbank:
 			case WwiseObjectType.GameParameter:
 			case WwiseObjectType.Trigger:
 			case WwiseObjectType.AcousticTexture:
-				return new AkWwiseProjectData.AkInfoWorkUnit();
+				out_wwu = new AkWwiseProjectData.AkInfoWorkUnit();
+				break;
 		}
-
-		return null;
-	}
-
-	private static AkWwiseProjectData.WorkUnit ReplaceWwuEntry(string in_currentPhysicalPath, AssetType in_type, out int out_wwuIndex)
-	{
-		var list = AkWwiseProjectInfo.GetData().GetWwuListByString(in_type.RootDirectoryName);
-		out_wwuIndex = list.BinarySearch(new AkWwiseProjectData.WorkUnit { PhysicalPath = in_currentPhysicalPath });
-		var out_wwu = CreateWorkUnit(in_type.Type);
 
 		if (out_wwuIndex < 0)
 		{
@@ -659,10 +640,12 @@ public class AkWwiseWWUBuilder
 	}
 
 	private static void AddElementToList(string in_currentPathInProj, System.Xml.XmlReader in_reader, AssetType in_type,
-		System.Collections.Generic.LinkedList<AkWwiseProjectData.PathElement> in_pathAndIcons, int in_wwuIndex)
+		System.Collections.Generic.LinkedList<AkWwiseProjectData.PathElement> in_pathAndIcons, int in_wwuIndex, WwiseObjectType in_LeafType = WwiseObjectType.None)
 	{
 		switch (in_type.Type)
 		{
+			case WwiseObjectType.Folder:
+			case WwiseObjectType.Bus:
 			case WwiseObjectType.AuxBus:
 			case WwiseObjectType.Event:
 			case WwiseObjectType.Soundbank:
@@ -670,6 +653,7 @@ public class AkWwiseWWUBuilder
 			case WwiseObjectType.Trigger:
 			case WwiseObjectType.AcousticTexture:
 				{
+					var LeafType = in_LeafType == WwiseObjectType.None ? in_type.Type : in_LeafType;
 					var name = in_reader.GetAttribute("Name");
 					var valueToAdd = in_type.Type == WwiseObjectType.Event ? new AkWwiseProjectData.Event() : new AkWwiseProjectData.AkInformation();
 					valueToAdd.Name = name;
@@ -678,9 +662,11 @@ public class AkWwiseWWUBuilder
 
 					FlagForInsertion(valueToAdd, in_type.Type);
 
-					switch (in_type.Type)
+					switch (LeafType)
 					{
 						case WwiseObjectType.AuxBus:
+						case WwiseObjectType.Bus:
+						case WwiseObjectType.Folder:
 							valueToAdd.Path = in_currentPathInProj;
 							break;
 
@@ -724,41 +710,59 @@ public class AkWwiseWWUBuilder
 			case WwiseObjectType.StateGroup:
 			case WwiseObjectType.SwitchGroup:
 				{
-					var XmlElement = System.Xml.Linq.XNode.ReadFrom(in_reader) as System.Xml.Linq.XElement;
-					var ChildrenList = System.Xml.Linq.XName.Get("ChildrenList");
-					var ChildrenElement = XmlElement.Element(ChildrenList);
-					if (ChildrenElement != null)
+					var valueToAdd = new AkWwiseProjectData.GroupValue();
+					if (in_LeafType == WwiseObjectType.Folder)
 					{
-						var name = XmlElement.Attribute("Name").Value;
-						var valueToAdd = new AkWwiseProjectData.GroupValue
-						{
-							Name = name,
-							Guid = new System.Guid(XmlElement.Attribute("ID").Value),
-							Path = System.IO.Path.Combine(in_currentPathInProj, name),
-							PathAndIcons = new System.Collections.Generic.List<AkWwiseProjectData.PathElement>(in_pathAndIcons),
-						};
-						valueToAdd.PathAndIcons.Add(new AkWwiseProjectData.PathElement(name, in_type.Type));
+						valueToAdd.Name = in_reader.GetAttribute("Name");
+						valueToAdd.Guid = new System.Guid(in_reader.GetAttribute("ID"));
+						valueToAdd.PathAndIcons = new System.Collections.Generic.List<AkWwiseProjectData.PathElement>(in_pathAndIcons);
+						valueToAdd.Path = in_currentPathInProj;
 
 						FlagForInsertion(valueToAdd, in_type.Type);
-
-						var ChildElem = System.Xml.Linq.XName.Get(in_type.ChildElementName);
-						foreach (var element in ChildrenElement.Elements(ChildElem))
+						in_reader.Read();
+					}
+					else
+					{
+						var XmlElement = System.Xml.Linq.XNode.ReadFrom(in_reader) as System.Xml.Linq.XElement;
+						var ChildrenList = System.Xml.Linq.XName.Get("ChildrenList");
+						var ChildrenElement = XmlElement.Element(ChildrenList);
+						if (ChildrenElement != null)
 						{
-							if (element.Name != in_type.ChildElementName)
-								continue;
+							var name = XmlElement.Attribute("Name").Value;
+							valueToAdd.Name = name;
+							valueToAdd.Guid = new System.Guid(XmlElement.Attribute("ID").Value);
+							valueToAdd.Path = System.IO.Path.Combine(in_currentPathInProj, name);
+							valueToAdd.PathAndIcons = new System.Collections.Generic.List<AkWwiseProjectData.PathElement>(in_pathAndIcons);
+							valueToAdd.PathAndIcons.Add(new AkWwiseProjectData.PathElement(name, in_type.Type));
 
-							var elementName = element.Attribute("Name").Value;
-							var childValue = new AkWwiseProjectData.AkBaseInformation
+							FlagForInsertion(valueToAdd, in_type.Type);
+
+							var ChildElem = System.Xml.Linq.XName.Get(in_type.ChildElementName);
+							foreach (var element in ChildrenElement.Elements(ChildElem))
 							{
-								Name = elementName,
-								Guid = new System.Guid(element.Attribute("ID").Value),
-							};
-							childValue.PathAndIcons.Add(new AkWwiseProjectData.PathElement(elementName, in_type.ChildType));
-							valueToAdd.values.Add(childValue);
+								if (element.Name != in_type.ChildElementName)
+									continue;
 
-							FlagForInsertion(childValue, in_type.ChildType);
+								var elementName = element.Attribute("Name").Value;
+								var childValue = new AkWwiseProjectData.AkBaseInformation
+								{
+									Name = elementName,
+									Guid = new System.Guid(element.Attribute("ID").Value),
+								};
+								childValue.PathAndIcons.Add(new AkWwiseProjectData.PathElement(elementName, in_type.ChildType));
+								valueToAdd.values.Add(childValue);
+
+								FlagForInsertion(childValue, in_type.ChildType);
+							}
 						}
+						else
+						{
+							valueToAdd = null;
+						}
+					}
 
+					if (valueToAdd != null)
+					{
 						switch (in_type.Type)
 						{
 							case WwiseObjectType.StateGroup:
@@ -784,23 +788,23 @@ public class AkWwiseWWUBuilder
 		var ParentID = string.Empty;
 		try
 		{
-			var reader = System.Xml.XmlReader.Create(in_fullPath);
-			reader.MoveToContent();
-
-			//We check if the current work unit has a parent and save its guid if its the case
-			while (!reader.EOF && reader.ReadState == System.Xml.ReadState.Interactive)
+			using (var reader = System.Xml.XmlReader.Create(in_fullPath))
 			{
-				if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals("WorkUnit"))
+				reader.MoveToContent();
+
+				//We check if the current work unit has a parent and save its guid if its the case
+				while (!reader.EOF && reader.ReadState == System.Xml.ReadState.Interactive)
 				{
-					if (reader.GetAttribute("PersistMode").Equals("Nested"))
-						ParentID = reader.GetAttribute("OwnerID");
-					break;
+					if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals("WorkUnit"))
+					{
+						if (reader.GetAttribute("PersistMode").Equals("Nested"))
+							ParentID = reader.GetAttribute("OwnerID");
+						break;
+					}
+
+					reader.Read();
 				}
-
-				reader.Read();
 			}
-
-			reader.Close();
 		}
 		catch (System.Exception e)
 		{
@@ -810,7 +814,7 @@ public class AkWwiseWWUBuilder
 
 		if (!string.IsNullOrEmpty(ParentID))
 		{
-			System.Guid parentGuid = System.Guid.Empty;
+			var parentGuid = System.Guid.Empty;
 
 			try
 			{
@@ -823,49 +827,57 @@ public class AkWwiseWWUBuilder
 			}
 
 			var list = AkWwiseProjectInfo.GetData().GetWwuListByString(in_wwuType);
+			var PathAndIcons = new System.Collections.Generic.LinkedList<AkWwiseProjectData.PathElement>();
+			string PathInProj = string.Empty;
+			AkWwiseProjectData.WorkUnit wwu = null;
 
-			//search for the parent and save its physical path
-			for (var i = 0; i < list.Count; i++)
+			if (parentGuid != System.Guid.Empty)
 			{
-				var wwu = list[i] as AkWwiseProjectData.WorkUnit;
-				if (wwu.Guid.Equals(parentGuid))
+				for (var i = 0; i < list.Count; i++)
 				{
-					UpdateWorkUnit(wwu.PhysicalPath, in_fullPath, in_wwuType, in_relativePath);
-					return true;
+					wwu = list[i] as AkWwiseProjectData.WorkUnit;
+					if (wwu.Guid.Equals(parentGuid))
+					{
+						PathInProj = wwu.ParentPath;
+						PathAndIcons = new System.Collections.Generic.LinkedList<AkWwiseProjectData.PathElement>(wwu.PathAndIcons);
+						break;
+					}
+					else
+					{
+						var WwuChildren = wwu.GetChildrenArrayList();
+						foreach (AkWwiseProjectData.AkInformation child in WwuChildren)
+						{
+							if (child.Guid.Equals(parentGuid))
+							{
+								PathInProj = child.Path;
+								PathAndIcons = new System.Collections.Generic.LinkedList<AkWwiseProjectData.PathElement>(child.PathAndIcons);
+								break;
+							}
+						}
+					}
 				}
 			}
+			if (!string.IsNullOrEmpty(PathInProj))
+			{
+				RecurseWorkUnit(AssetType.Create(in_wwuType), new System.IO.FileInfo(in_fullPath), PathInProj,
+					in_relativePath.Remove(in_relativePath.LastIndexOf(System.IO.Path.DirectorySeparatorChar)), PathAndIcons,
+					wwu.PhysicalPath);
+				return true;
+			}
 
-			//Not found.  Wait for it to load
+			//Not found. Wait for it to load
 			return false;
 		}
 
 		//Root Wwu
-		UpdateWorkUnit(string.Empty, in_fullPath, in_wwuType, in_relativePath);
+		UpdateWorkUnit(in_fullPath, in_wwuType, in_relativePath);
 		return true;
 	}
 
-	private void UpdateWorkUnit(string in_parentRelativePath, string in_wwuFullPath, string in_wwuType,
-		string in_relativePath)
+	private void UpdateWorkUnit(string in_wwuFullPath, string in_wwuType, string in_relativePath)
 	{
-		var wwuRelPath = in_parentRelativePath;
-
 		var PathAndIcons = new System.Collections.Generic.LinkedList<AkWwiseProjectData.PathElement>();
-
-		//We need to build the work unit's hierarchy to display it in the right place in the picker
 		var currentPathInProj = string.Empty;
-		while (!wwuRelPath.Equals(string.Empty))
-		{
-			//Add work unit name to the hierarchy
-			var wwuName = System.IO.Path.GetFileNameWithoutExtension(wwuRelPath);
-			currentPathInProj = System.IO.Path.Combine(wwuName, currentPathInProj);
-			//Add work unit icon to the hierarchy
-			PathAndIcons.AddFirst(new AkWwiseProjectData.PathElement(wwuName, WwiseObjectType.WorkUnit));
-
-			//Get the physical path of the parent work unit if any
-			var list = AkWwiseProjectInfo.GetData().GetWwuListByString(in_wwuType);
-			var index = list.BinarySearch(new AkWwiseProjectData.WorkUnit { PhysicalPath = wwuRelPath });
-			wwuRelPath = (list[index] as AkWwiseProjectData.WorkUnit).ParentPhysicalPath;
-		}
 
 		//Add physical folders to the hierarchy if the work unit isn't in the root folder
 		var physicalPath = in_relativePath.Split(System.IO.Path.DirectorySeparatorChar);
@@ -878,8 +890,7 @@ public class AkWwiseWWUBuilder
 
 		//Parse the work unit file
 		RecurseWorkUnit(AssetType.Create(in_wwuType), new System.IO.FileInfo(in_wwuFullPath), currentPathInProj,
-			in_relativePath.Remove(in_relativePath.LastIndexOf(System.IO.Path.DirectorySeparatorChar)), PathAndIcons,
-			in_parentRelativePath);
+			in_relativePath.Remove(in_relativePath.LastIndexOf(System.IO.Path.DirectorySeparatorChar)), PathAndIcons);
 	}
 
 	public class AssetType

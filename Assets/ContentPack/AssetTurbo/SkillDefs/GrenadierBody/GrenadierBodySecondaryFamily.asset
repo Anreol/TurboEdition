@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1627637702, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: GrenadierBodySecondaryFamily
   m_EditorClassIdentifier: 
+  <catalogIndex>k__BackingField: 0
   variants:
   - skillDef: {fileID: 11400000, guid: dfe9f697eaa9bad42b185330096ae34c, type: 2}
     unlockableName: 

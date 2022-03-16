@@ -12,4 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c12d4d39b9ca94c8ba13ee0adfa0c6, type: 3}
   m_Name: PackageSourceSettings
   m_EditorClassIdentifier: 
-  PackageSources: []

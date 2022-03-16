@@ -2,12 +2,13 @@
 <WwiseSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CopySoundBanksAsPreBuildStep>true</CopySoundBanksAsPreBuildStep>
   <CreatedPicker>true</CreatedPicker>
-  <CreateWwiseGlobal>false</CreateWwiseGlobal>
-  <CreateWwiseListener>false</CreateWwiseListener>
-  <GenerateSoundBanksAsPreBuildStep>true</GenerateSoundBanksAsPreBuildStep>
+  <CreateWwiseGlobal>true</CreateWwiseGlobal>
+  <CreateWwiseListener>true</CreateWwiseListener>
+  <GenerateSoundBanksAsPreBuildStep>false</GenerateSoundBanksAsPreBuildStep>
   <ShowMissingRigidBodyWarning>true</ShowMissingRigidBodyWarning>
+  <ShowSpatialAudioWarningMsg>true</ShowSpatialAudioWarningMsg>
   <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
   <WwiseInstallationPathMac />
-  <WwiseInstallationPathWindows>F:\etc\Unity\Audiokinetic\Wwise 2018.1.11.6987</WwiseInstallationPathWindows>
-  <WwiseProjectPath>../TurboEdition_WwiseProject/TurboEdition_WwiseProject.wproj</WwiseProjectPath>
+  <WwiseInstallationPathWindows>F:\etc\Unity\Audiokinetic\Wwise 2019.2.12.7544</WwiseInstallationPathWindows>
+  <WwiseProjectPath>../../TurboEdition/TurboEdition_WwiseProject/TurboEdition_WwiseProject.wproj</WwiseProjectPath>
 </WwiseSettings>

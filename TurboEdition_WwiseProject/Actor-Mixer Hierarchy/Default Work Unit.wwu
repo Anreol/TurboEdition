@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}" SchemaVersion="89">
+<WwiseDocument Type="WorkUnit" ID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}" SchemaVersion="97">
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}" PersistMode="Standalone">
 			<ChildrenList>
@@ -117,9 +117,12 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="M79_fire01" ID="{3BF455B7-8497-4E00-834A-EE69D8397EF5}" ShortID="464783086">
+												<AudioFileSource Name="M79_fire01" ID="{3BF455B7-8497-4E00-834A-EE69D8397EF5}">
 													<Language>SFX</Language>
 													<AudioFile>M79_fire01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="464783086"/>
+													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -163,9 +166,12 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="M79_Reload_064" ID="{63397444-2F44-4E81-8BD8-B396B61415BF}" ShortID="717774493">
+												<AudioFileSource Name="M79_Reload_064" ID="{63397444-2F44-4E81-8BD8-B396B61415BF}">
 													<Language>SFX</Language>
 													<AudioFile>M79_Reload_064.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="717774493"/>
+													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -224,9 +230,12 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Milkor_FireMix1" ID="{90ACCE08-AEF4-42A4-9292-C833470613F1}" ShortID="923839061">
+														<AudioFileSource Name="Milkor_FireMix1" ID="{90ACCE08-AEF4-42A4-9292-C833470613F1}">
 															<Language>SFX</Language>
 															<AudioFile>Milkor_FireMix1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="923839061"/>
+															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
@@ -257,9 +266,12 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Milkor_FireMix2" ID="{6FC4AF1F-4FB3-467B-9268-D243CDD24884}" ShortID="578702750">
+														<AudioFileSource Name="Milkor_FireMix2" ID="{6FC4AF1F-4FB3-467B-9268-D243CDD24884}">
 															<Language>SFX</Language>
 															<AudioFile>Milkor_FireMix2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="578702750"/>
+															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<ActiveSourceList>
@@ -353,9 +365,12 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="se_item_crossbomb_blink" ID="{0BA15A56-01AC-4ABA-B9ED-2BAFFC8BCC54}" ShortID="528402572">
+												<AudioFileSource Name="se_item_crossbomb_blink" ID="{0BA15A56-01AC-4ABA-B9ED-2BAFFC8BCC54}">
 													<Language>SFX</Language>
 													<AudioFile>se_item_crossbomb_blink.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="528402572"/>
+													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -372,9 +387,12 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="snd_se_snake_Special_S01" ID="{F130DDB9-805C-4468-B1DA-044E907AB809}" ShortID="674121072">
+												<AudioFileSource Name="snd_se_snake_Special_S01" ID="{F130DDB9-805C-4468-B1DA-044E907AB809}">
 													<Language>SFX</Language>
 													<AudioFile>snd_se_snake_Special_S01.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="674121072"/>
+													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -406,9 +424,12 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="snd_se_snake_006" ID="{355D3E2C-26FB-4610-9D28-EE8FA304C5A0}" ShortID="683144335">
+												<AudioFileSource Name="snd_se_snake_006" ID="{355D3E2C-26FB-4610-9D28-EE8FA304C5A0}">
 													<Language>SFX</Language>
 													<AudioFile>snd_se_snake_006.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="683144335"/>
+													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -454,7 +475,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="se_system_beep" ID="{8BF2715E-3C3D-4E7D-AFEE-5FBB4D963A82}" ShortID="683838438">
+												<AudioFileSource Name="se_system_beep" ID="{8BF2715E-3C3D-4E7D-AFEE-5FBB4D963A82}">
 													<PropertyList>
 														<Property Name="VolumeOffset" Type="Real64">
 															<ValueList>
@@ -464,6 +485,9 @@
 													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>se_system_beep.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="683838438"/>
+													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
@@ -495,9 +519,12 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="se_item_deathscythe_swing_m" ID="{5A72AD63-DA93-404D-9671-FC03AB66B764}" ShortID="441768360">
+												<AudioFileSource Name="se_item_deathscythe_swing_m" ID="{5A72AD63-DA93-404D-9671-FC03AB66B764}">
 													<Language>SFX</Language>
 													<AudioFile>se_item_deathscythe_swing_m.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="441768360"/>
+													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>

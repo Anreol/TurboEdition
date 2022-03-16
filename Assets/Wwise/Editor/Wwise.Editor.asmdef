@@ -1,8 +1,8 @@
 {
-    "name": "Wwise.editor",
+    "name": "Wwise.Editor",
     "references": [
-        "Wwise",
-        "Unity.Timeline"
+        "GUID:e37fff25e5a181f47b0f58967a44c98f",
+        "GUID:f06555f75b070af458a003d92f9efb00"
     ],
     "includePlatforms": [
         "Editor"

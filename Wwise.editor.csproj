@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{32A8FA6B-A7CF-A5A4-7D9F-1E770FCE5DE7}</ProjectGuid>
+    <ProjectGuid>{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Wwise.editor</AssemblyName>
+    <AssemblyName>Wwise.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -48,7 +48,7 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>4.11.4.0</UnityProjectGeneratorVersion>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2019.4.26f1</UnityVersion>
   </PropertyGroup>
@@ -64,6 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Wwise\Editor\EditorPlatformHelpers\Mac\AkMacPluginActivator.cs" />
+    <Compile Include="Assets\Wwise\Editor\EditorPlatformHelpers\Windows\AkWindowsPluginActivator.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkAmbientInspector.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkAudioListenerInspector.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkBankInspector.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkPortalManager.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkRTPCPlayableInspector.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkRTPCTrackInspector.cs" />
+    <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkRoomAwareObjectInspector.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkRoomInspector.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkRoomPortalInspector.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseComponents\AkSpatialAudioListenerInspector.cs" />
@@ -93,7 +96,6 @@
     <Compile Include="Assets\Wwise\Editor\WwiseSetupWizard\AkUnitySettingsParser.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseSetupWizard\AkWSAUtils.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseSetupWizard\AkWwisePostImportCallbackSetup.cs" />
-    <Compile Include="Assets\Wwise\Editor\WwiseSetupWizard\AkWwiseSettingsWindow.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseSetupWizard\AkWwiseSetupWizard.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseSetupWizard\AkXboxOneUtils.cs" />
     <Compile Include="Assets\Wwise\Editor\WwiseTypes\AcousticTextureDrawer.cs" />
@@ -415,11 +417,11 @@
     <Reference Include="SharpCompress">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@26097cc7ee/Editor/ThirdParty/SharpCompress/SharpCompress.dll</HintPath>
     </Reference>
-    <Reference Include="MMHOOK_RoR2">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>
-    </Reference>
     <Reference Include="RoR2-Stubbed">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2-Stubbed.dll</HintPath>
+    </Reference>
+    <Reference Include="MMHOOK_RoR2">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
