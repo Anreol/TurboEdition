@@ -49,8 +49,8 @@ namespace TurboEdition.Misc
             RuleCatalog_PatchedAddRule(wormEliteHonorRule, 5);
         }
 
-        //Categories as of pre-survivors of the void
-        //0 - Difficulty, 1 - Expansions 2 - Artifacts, 3 - Items, 4 - Equipment, 5 - Misc
+        //Categories as of survivors of the void
+        //0 - Difficulty, 1 - Expansions, 2 - Artifacts, 3 - Items, 4 - Equipment, 5 - Misc
         private static void RuleCatalog_PatchedAddRule(RuleDef ruleDef, int RuleCategoryDefIndex) //Meant to be used post Init
         {
             ruleDef.category = RuleCatalog.GetCategoryDef(RuleCategoryDefIndex);
@@ -73,7 +73,7 @@ namespace TurboEdition.Misc
 
                 RuleCatalog.ruleChoiceDefsByGlobalName[ruleChoiceDef.globalName] = ruleChoiceDef;
 
-                if (ruleChoiceDef.unlockable)
+                if (ruleChoiceDef.requiredUnlockable)
                     HG.ArrayUtils.ArrayAppend(ref RuleCatalog._allChoiceDefsWithUnlocks, ruleChoiceDef);
             }
         }

@@ -89,7 +89,7 @@ namespace TurboEdition
             {
                 if (Directory.Exists(Assets.languageRoot))
                 {
-                    Misc.MiscLanguage.FixLanguageFolders(Assets.languageRoot);
+                    //Misc.MiscLanguage.FixLanguageFolders(Assets.languageRoot);
                     Misc.MiscLanguage.AddDeathMessages();
                 }
             });

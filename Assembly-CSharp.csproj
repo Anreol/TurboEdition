@@ -630,6 +630,9 @@
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="ThunderKit.Thunderstore">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Thunderstore.dll</HintPath>
     </Reference>
@@ -647,6 +650,9 @@
     </Reference>
     <Reference Include="RoR2EditorKit">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/RoR2EditorKit.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
@@ -681,12 +687,11 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{65B1FDC6-0BDF-56B4-43C7-01344DD680CB}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="Wwise.csproj">
       <Project>{CA3180B0-15F7-26EF-9A90-EB041B971007}</Project>
       <Name>Wwise</Name>
@@ -702,6 +707,10 @@
     <ProjectReference Include="TurboEdition.csproj">
       <Project>{889E8141-CA38-8809-3C00-1BBF54EC217D}</Project>
       <Name>TurboEdition</Name>
+    </ProjectReference>
+    <ProjectReference Include="NGTools.csproj">
+      <Project>{DEA3F06B-92A1-9881-F1FE-12BBE6806AFA}</Project>
+      <Name>NGTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

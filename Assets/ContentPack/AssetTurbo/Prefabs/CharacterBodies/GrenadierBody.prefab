@@ -477,11 +477,7 @@ MonoBehaviour:
   body: {fileID: 6353848813484163904}
   itemDisplayRuleSet: {fileID: 11400000, guid: 936bbb577b3179042bf30c2642ad6827, type: 2}
   autoPopulateLightInfos: 1
-  baseRendererInfos:
-  - renderer: {fileID: 3443578558510727532}
-    defaultMaterial: {fileID: 2100000, guid: 42b227e9a45adc643a253d739a2f8104, type: 2}
-    defaultShadowCastingMode: 1
-    ignoreOverlays: 0
+  baseRendererInfos: []
   baseLightInfos: []
   childLocator: {fileID: 0}
   goldAffixEffect: {fileID: 0}
@@ -1023,7 +1019,7 @@ MonoBehaviour:
   currentVehicle: {fileID: 0}
   preferredPodPrefab: {fileID: 0}
   preferredInitialStateType:
-    _typeName: EntityStates.Uninitialized, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    _typeName: EntityStates.Uninitialized, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   skinIndex: 0
   customKillTotalStatName: 
@@ -1137,11 +1133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Body
   initialStateType:
-    _typeName: EntityStates.SpawnTeleporterState, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    _typeName: EntityStates.TestState1, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   mainStateType:
-    _typeName: EntityStates.GenericCharacterMain, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    _typeName: EntityStates.GenericCharacterMain, RoR2, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   <networker>k__BackingField: {fileID: 0}
   <networkIdentity>k__BackingField: {fileID: 0}
   <destroying>k__BackingField: 0
@@ -1159,11 +1154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Weapon
   initialStateType:
-    _typeName: EntityStates.Idle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: EntityStates.TestState1, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   mainStateType:
-    _typeName: EntityStates.Idle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: EntityStates.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   <networker>k__BackingField: {fileID: 0}
   <networkIdentity>k__BackingField: {fileID: 0}
   <destroying>k__BackingField: 0
@@ -1181,11 +1174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Roll
   initialStateType:
-    _typeName: EntityStates.Idle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: EntityStates.TestState1, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   mainStateType:
-    _typeName: EntityStates.Idle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: 
   <networker>k__BackingField: {fileID: 0}
   <networkIdentity>k__BackingField: {fileID: 0}
   <destroying>k__BackingField: 0
@@ -1229,7 +1220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: d0b80a62a8dce2340ab71c7100a460fc, type: 2}
+  _skillFamily: {fileID: 11400000, guid: 76dda22eb34754f479e2485ba8c4c8b2, type: 2}
   <baseSkill>k__BackingField: {fileID: 0}
   skillName: 
   hideInCharacterSelect: 0
@@ -1476,8 +1467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathStateMachine: {fileID: 1949618786361257478}
   deathState:
-    _typeName: EntityStates.Commando.DeathState, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    _typeName: 
   idleStateMachine:
   - {fileID: 5937462284248254577}
   - {fileID: 8761623902472489902}
@@ -1534,13 +1524,7 @@ MonoBehaviour:
   m_Script: {fileID: 261648291, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emoteDefinitions:
-  - name: Point
-    displayName: Point
-    targetStateMachine: {fileID: 1949618786361257478}
-    state:
-      _typeName: EntityStates.EmotePoint, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+  emoteDefinitions: []
 --- !u!114 &1750867745234563096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1644,8 +1628,7 @@ MonoBehaviour:
   idleStateMachine:
   - {fileID: 5937462284248254577}
   hurtState:
-    _typeName: EntityStates.Idle, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: 
   canBeHitStunned: 0
   canBeStunned: 0
   canBeFrozen: 1
@@ -1663,9 +1646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   netIsOutOfDanger: 0
-  primaryFullyDepleted: 0
-  maxSpecialBonusStockFromBody: 3
-  baseBlastArmorRechargeTime: 8
   passiveSkillSlot: {fileID: 4775533713091580501}
   PassiveBlastArmor: {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
   PassiveBlastArmorBombletPrefab: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
@@ -1683,12 +1663,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothingParameters:
-    walkMagnitudeSmoothDamp: 0.2
-    walkAngleSmoothDamp: 0.2
-    forwardSpeedSmoothDamp: 0.1
-    rightSpeedSmoothDamp: 0.1
-    intoJumpTransitionTime: 0.05
-    turnAngleSmoothDamp: 0.5
+    walkMagnitudeSmoothDamp: 0
+    walkAngleSmoothDamp: 0
+    forwardSpeedSmoothDamp: 0
+    rightSpeedSmoothDamp: 0
+    intoJumpTransitionTime: 0
+    turnAngleSmoothDamp: 0
 --- !u!114 &2043359037680833921
 MonoBehaviour:
   m_ObjectHideFlags: 0

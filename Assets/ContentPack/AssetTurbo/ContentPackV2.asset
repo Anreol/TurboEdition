@@ -40,7 +40,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0c31e0d62ddc9247bae4e8a8bb76dcd, type: 2}
   - {fileID: 11400000, guid: 30d47a8300215cf498d24881d884192c, type: 2}
   skillFamilies:
-  - {fileID: 11400000, guid: d0b80a62a8dce2340ab71c7100a460fc, type: 2}
+  - {fileID: 11400000, guid: 76dda22eb34754f479e2485ba8c4c8b2, type: 2}
   - {fileID: 11400000, guid: 601d4f900a561914a8782f9de70b57cd, type: 2}
   - {fileID: 11400000, guid: 3cce2c6e289458b4986c38dcde5c8194, type: 2}
   - {fileID: 11400000, guid: d9d4cf6f3e11a6947b804606a2353c4f, type: 2}
@@ -98,7 +98,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a73ff094c2b2db4ca858a5696afd2cf, type: 2}
   - {fileID: 11400000, guid: 0038863cf28019d4293c9cf7510b8133, type: 2}
   - {fileID: 11400000, guid: c77c1625e6415ae498bdfff13426d3e2, type: 2}
-  entityStateTypes: []
   itemTierDefs: []
   itemRelationshipProviders: []
   itemRelationshipTypes: []

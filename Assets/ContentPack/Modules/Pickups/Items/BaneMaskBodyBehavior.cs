@@ -38,9 +38,9 @@ namespace TurboEdition.Items
             //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.
             if (body.healthComponent)
             {
-                int i = System.Array.IndexOf(body.healthComponent.onIncomingDamageReceivers, this);
+                int i = System.Array.IndexOf(body.healthComponent.onTakeDamageReceivers, this);
                 if (i > -1)
-                    HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onIncomingDamageReceivers, body.healthComponent.onIncomingDamageReceivers.Length, i);
+                    HG.ArrayUtils.ArrayRemoveAtAndResize(ref body.healthComponent.onTakeDamageReceivers, body.healthComponent.onTakeDamageReceivers.Length, i);
             }
         }
 

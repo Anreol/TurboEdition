@@ -11,7 +11,7 @@ namespace TurboEdition.Items
     //This wouldnt be such a pain in the ass if RecalcStats was easier to use
     public class StandBonus : Item
     {
-        public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("StandBonus");
+        public override ItemDef itemDef { get; set; } = TEContent.Items.StandBonus;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

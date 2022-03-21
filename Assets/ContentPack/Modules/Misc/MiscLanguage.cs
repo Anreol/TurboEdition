@@ -23,7 +23,7 @@ namespace TurboEdition.Misc
         /// <param name="rootFolder"></param>
         public static void FixLanguageFolders(string rootFolder)
         {
-            var allLanguageFolders = Directory.EnumerateDirectories(rootFolder);
+            /*var allLanguageFolders = Directory.EnumerateDirectories(rootFolder);
             foreach (Language ltlfgt in Language.GetAllLanguages())
             {
                 foreach (var threeam in allLanguageFolders)
@@ -38,7 +38,7 @@ namespace TurboEdition.Misc
             Language.currentLanguage.UnloadStrings();
             Language.currentLanguage.LoadStrings();
             Language.english.UnloadStrings();
-            Language.english.LoadStrings();
+            Language.english.LoadStrings();*/
         }
     }
 }

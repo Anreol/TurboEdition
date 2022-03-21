@@ -8,7 +8,7 @@ namespace TurboEdition.Items
 {
     internal class GetDamageFromHurtVictim : Item
     {
-        public override ItemDef itemDef { get; set; } = Assets.mainAssetBundle.LoadAsset<ItemDef>("SoulDevourer");
+        public override ItemDef itemDef { get; set; } = TEContent.Items.SoulDevourer;
 
         public override void AddBehavior(ref CharacterBody body, int stack)
         {

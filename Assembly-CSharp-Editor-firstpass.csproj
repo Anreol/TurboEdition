@@ -743,6 +743,9 @@
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="ThunderKit.Thunderstore">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Thunderstore.dll</HintPath>
     </Reference>
@@ -760,6 +763,9 @@
     </Reference>
     <Reference Include="RoR2EditorKit">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/RoR2EditorKit.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
@@ -793,6 +799,9 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
