@@ -547,8 +547,8 @@
     <Reference Include="SharpCompress">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@26097cc7ee/Editor/ThirdParty/SharpCompress/SharpCompress.dll</HintPath>
     </Reference>
-    <Reference Include="RoR2-Stubbed">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2-Stubbed.dll</HintPath>
+    <Reference Include="RoR2-nstrip">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2-nstrip.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>

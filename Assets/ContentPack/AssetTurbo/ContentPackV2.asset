@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ContentPackV2
   m_EditorClassIdentifier: 
   bodyPrefabs:
-  - {fileID: 9196633835157065860, guid: e537a47cc4f457a4a972bf028141c065, type: 3}
+  - {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5, type: 3}
   masterPrefabs: []
   projectilePrefabs:
   - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
@@ -30,21 +30,21 @@ MonoBehaviour:
   - {fileID: 5902242083141093317, guid: 0d39d1d5fd339bf4ca94cecfe95ec832, type: 3}
   - {fileID: 7399638598008387699, guid: 78ed9177a4c28a245abd097636fd9d77, type: 3}
   skillDefs:
-  - {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
-  - {fileID: 11400000, guid: 31665fd3da814fb44924e9b02007ee11, type: 2}
-  - {fileID: 11400000, guid: 1b6681587d1762e46b813344c3a55bcf, type: 2}
-  - {fileID: 11400000, guid: dfe9f697eaa9bad42b185330096ae34c, type: 2}
-  - {fileID: 11400000, guid: deab2f1f1b1cfb040956016b016bb920, type: 2}
-  - {fileID: 11400000, guid: 2fbd163a7a0f8b04b8622c08a4f04de3, type: 2}
-  - {fileID: 11400000, guid: 2e370b50a2eb2b64ca7efd3147a29a4b, type: 2}
-  - {fileID: 11400000, guid: f0c31e0d62ddc9247bae4e8a8bb76dcd, type: 2}
-  - {fileID: 11400000, guid: 30d47a8300215cf498d24881d884192c, type: 2}
+  - {fileID: 11400000, guid: 36b756b854a897a4fadb01184726acd6, type: 2}
+  - {fileID: 11400000, guid: ce681bd5473bb92429cdde9a3e5bdc57, type: 2}
+  - {fileID: 11400000, guid: c2f161f7420560346b4c4009f523f337, type: 2}
+  - {fileID: 11400000, guid: c4b48a62d7e7d534dbe3b37ee4d0c2b1, type: 2}
+  - {fileID: 11400000, guid: 91db08e451f4852439aaa52af44c51ed, type: 2}
+  - {fileID: 11400000, guid: 223d570188e875c4ca8594760226d297, type: 2}
+  - {fileID: 11400000, guid: 292fe1fb8b39e6840b5fb165bc7118d3, type: 2}
+  - {fileID: 11400000, guid: ce06f6bcf86b2f040a3502581de141d3, type: 2}
+  - {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1, type: 2}
   skillFamilies:
-  - {fileID: 11400000, guid: 76dda22eb34754f479e2485ba8c4c8b2, type: 2}
-  - {fileID: 11400000, guid: 601d4f900a561914a8782f9de70b57cd, type: 2}
-  - {fileID: 11400000, guid: 3cce2c6e289458b4986c38dcde5c8194, type: 2}
-  - {fileID: 11400000, guid: d9d4cf6f3e11a6947b804606a2353c4f, type: 2}
-  - {fileID: 11400000, guid: cef7f0ba9ccb12a418cbbb4428780b29, type: 2}
+  - {fileID: 11400000, guid: efd263ff8a40ae242bf658d798590161, type: 2}
+  - {fileID: 11400000, guid: caeb681d695d8c541b21fa6cf6bd5a57, type: 2}
+  - {fileID: 11400000, guid: 2e6e76f69f3042f4981b0ad41036c579, type: 2}
+  - {fileID: 11400000, guid: dd90df1c4872cbe4890b30f8bc2716c0, type: 2}
+  - {fileID: 11400000, guid: 48c48b1cadf82d440befbeb2072c1238, type: 2}
   sceneDefs: []
   itemDefs:
   - {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
@@ -77,7 +77,7 @@ MonoBehaviour:
   eliteDefs: []
   unlockableDefs: []
   survivorDefs:
-  - {fileID: 11400000, guid: ef6f20ca21428c94d923309ee0bf9e5c, type: 2}
+  - {fileID: 11400000, guid: e57d078f7bf83ed449125183c01c095b, type: 2}
   artifactDefs:
   - {fileID: 11400000, guid: 09dec09dc17766b46b38d41a6089551b, type: 2}
   - {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}
@@ -88,16 +88,17 @@ MonoBehaviour:
   musicTrackDefs: []
   gameEndingDefs: []
   entityStateConfigurations:
-  - {fileID: 11400000, guid: 8bfe9b67d27c34948be0529fd3ca973b, type: 2}
-  - {fileID: 11400000, guid: a00fe1baac905044086a5089c8aa79fb, type: 2}
-  - {fileID: 11400000, guid: 7382c36c8b6687d45b23beff588108b2, type: 2}
-  - {fileID: 11400000, guid: b1e606f02e636f247ae443807434d587, type: 2}
-  - {fileID: 11400000, guid: 0b84e5e9b19705d45833c3f6fe6747c5, type: 2}
-  - {fileID: 11400000, guid: 08d26155d954b8949bf0f44f4c800b21, type: 2}
-  - {fileID: 11400000, guid: a3780b33284661743ba00e9d029837d0, type: 2}
-  - {fileID: 11400000, guid: 1a73ff094c2b2db4ca858a5696afd2cf, type: 2}
-  - {fileID: 11400000, guid: 0038863cf28019d4293c9cf7510b8133, type: 2}
-  - {fileID: 11400000, guid: c77c1625e6415ae498bdfff13426d3e2, type: 2}
+  - {fileID: 11400000, guid: 1b8522626951a1f42a84c1ebad617ce4, type: 2}
+  - {fileID: 11400000, guid: 577850e372fbfb145b842d1a46d7a662, type: 2}
+  - {fileID: 11400000, guid: 155365ac80eca7c469fc060a91f713e1, type: 2}
+  - {fileID: 11400000, guid: e3783735c36e02546a1fcfa7145900a3, type: 2}
+  - {fileID: 11400000, guid: acf7c449461af624b8f84f2a6c6aab32, type: 2}
+  - {fileID: 11400000, guid: db9bb8dcc4eaf4e448500d1ad3ee9e37, type: 2}
+  - {fileID: 11400000, guid: 29cbfd4ffa0fde44fa880ee29a314965, type: 2}
+  - {fileID: 11400000, guid: eb35f9ebdab8a9f4eaa86b47b45f7ed2, type: 2}
+  - {fileID: 11400000, guid: f7c3db69ef986c546bdb177de8001f2c, type: 2}
+  - {fileID: 11400000, guid: 19b645547804f624f890ad8934c729c6, type: 2}
+  entityStateTypes: []
   itemTierDefs: []
   itemRelationshipProviders: []
   itemRelationshipTypes: []

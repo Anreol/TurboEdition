@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 6353848813484163904}
-  itemDisplayRuleSet: {fileID: 11400000, guid: 936bbb577b3179042bf30c2642ad6827, type: 2}
+  itemDisplayRuleSet: {fileID: 11400000, guid: e2feab8af4e24904b98a55e251ebbf32, type: 2}
   autoPopulateLightInfos: 1
   baseRendererInfos: []
   baseLightInfos: []
@@ -498,7 +498,10 @@ MonoBehaviour:
   voidAffixEffect: {fileID: 0}
   affixHauntedCloakLockoutDuration: 3
   currentEquipmentDisplayIndex: -1
+  enabledItemDisplays:
+    array: 
   limbFlagSet:
+    flagCounts: 0000000000
     flags: 0
     <materialMaskValue>k__BackingField: 1
   currentOverlays:
@@ -525,8 +528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 11400000, guid: fef98b7a6b9fe784fbb4ede00ac772d5, type: 2}
-  - {fileID: 11400000, guid: bf7b0875120d2d14cb032690edd7ee22, type: 2}
+  - {fileID: 11400000, guid: b7dc42987837d354f9ff552452e098ed, type: 2}
+  - {fileID: 11400000, guid: 21b801861c1d300449ee58a5a57c6fcb, type: 2}
   <currentSkinIndex>k__BackingField: -1
   characterModel: {fileID: 0}
 --- !u!114 &2885110246537395381
@@ -819,6 +822,8 @@ MonoBehaviour:
   isAirControlForced: 0
   lastVelocity: {x: 0, y: 0, z: 0}
   _moveDirection: {x: 0, y: 0, z: 0}
+  <lastGroundedTime>k__BackingField:
+    t: -Infinity
   _safeCollisionEnableCount: 0
   _gravityParameters:
     environmentalAntiGravityGranterCount: 0
@@ -1022,6 +1027,8 @@ MonoBehaviour:
     _typeName: EntityStates.Uninitialized, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   skinIndex: 0
+  <localStartTime>k__BackingField:
+    t: Infinity
   customKillTotalStatName: 
   overrideCoreTransform: {fileID: 0}
 --- !u!114 &1665668662151284939
@@ -1036,7 +1043,7 @@ MonoBehaviour:
   m_Script: {fileID: -1067940895, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraParams: {fileID: 11400000, guid: 6f7cc19de819a5348b7f9df90c8d9490, type: 2}
+  cameraParams: {fileID: 11400000, guid: 67f6f5eb1ea2f9c4e84e7ee8e0e21522, type: 2}
   cameraPivotTransform: {fileID: 0}
   fovOverride: 0
   recoil: {x: 0, y: 0}
@@ -1133,7 +1140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Body
   initialStateType:
-    _typeName: EntityStates.TestState1, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _typeName: EntityStates.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   mainStateType:
     _typeName: EntityStates.GenericCharacterMain, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -1154,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Weapon
   initialStateType:
-    _typeName: EntityStates.TestState1, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _typeName: EntityStates.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   mainStateType:
     _typeName: EntityStates.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   <networker>k__BackingField: {fileID: 0}
@@ -1174,9 +1181,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Roll
   initialStateType:
-    _typeName: EntityStates.TestState1, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    _typeName: EntityStates.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   mainStateType:
-    _typeName: 
+    _typeName: EntityStates.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   <networker>k__BackingField: {fileID: 0}
   <networkIdentity>k__BackingField: {fileID: 0}
   <destroying>k__BackingField: 0
@@ -1220,7 +1227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: 76dda22eb34754f479e2485ba8c4c8b2, type: 2}
+  _skillFamily: {fileID: 11400000, guid: efd263ff8a40ae242bf658d798590161, type: 2}
   <baseSkill>k__BackingField: {fileID: 0}
   skillName: 
   hideInCharacterSelect: 0
@@ -1248,7 +1255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: 601d4f900a561914a8782f9de70b57cd, type: 2}
+  _skillFamily: {fileID: 11400000, guid: caeb681d695d8c541b21fa6cf6bd5a57, type: 2}
   <baseSkill>k__BackingField: {fileID: 0}
   skillName: 
   hideInCharacterSelect: 0
@@ -1276,7 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: 3cce2c6e289458b4986c38dcde5c8194, type: 2}
+  _skillFamily: {fileID: 11400000, guid: 2e6e76f69f3042f4981b0ad41036c579, type: 2}
   <baseSkill>k__BackingField: {fileID: 0}
   skillName: 
   hideInCharacterSelect: 0
@@ -1304,7 +1311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: cef7f0ba9ccb12a418cbbb4428780b29, type: 2}
+  _skillFamily: {fileID: 11400000, guid: dd90df1c4872cbe4890b30f8bc2716c0, type: 2}
   <baseSkill>k__BackingField: {fileID: 0}
   skillName: 
   hideInCharacterSelect: 0
@@ -1332,7 +1339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: d9d4cf6f3e11a6947b804606a2353c4f, type: 2}
+  _skillFamily: {fileID: 11400000, guid: 48c48b1cadf82d440befbeb2072c1238, type: 2}
   <baseSkill>k__BackingField: {fileID: 0}
   skillName: 
   hideInCharacterSelect: 0
@@ -1386,6 +1393,10 @@ MonoBehaviour:
   _killingDamageType: 0
   body: {fileID: 6353848813484163904}
   modelLocator: {fileID: 0}
+  <lastHitTime>k__BackingField:
+    t: 0
+  <lastHealTime>k__BackingField:
+    t: 0
   <lastHitAttacker>k__BackingField: {fileID: 0}
   <godMode>k__BackingField: 0
   <potionReserve>k__BackingField: 0
@@ -1647,7 +1658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   netIsOutOfDanger: 0
   passiveSkillSlot: {fileID: 4775533713091580501}
-  PassiveBlastArmor: {fileID: 11400000, guid: 14d722fae0efa7a4c9b828cf954f65b5, type: 2}
+  PassiveBlastArmor: {fileID: 0}
   PassiveBlastArmorBombletPrefab: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
     type: 3}
 --- !u!114 &114989553434124176

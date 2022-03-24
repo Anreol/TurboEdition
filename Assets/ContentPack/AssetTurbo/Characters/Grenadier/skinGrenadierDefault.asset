@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: -1255927399, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: skinGrenadierDefault
   m_EditorClassIdentifier: 
+  <skinIndex>k__BackingField: -1
   baseSkins: []
   icon: {fileID: 0}
   nameToken: DEFAULT_SKIN
   unlockableName: 
   unlockableDef: {fileID: 0}
-  rootObject: {fileID: 6931545290462054027, guid: e537a47cc4f457a4a972bf028141c065,
+  rootObject: {fileID: 6931545290462054027, guid: a5428e068b224314da4501cec31c9da5,
     type: 3}
   rendererInfos:
-  - renderer: {fileID: 3443578558510727532, guid: e537a47cc4f457a4a972bf028141c065,
+  - renderer: {fileID: 3443578558510727532, guid: a5428e068b224314da4501cec31c9da5,
       type: 3}
     defaultMaterial: {fileID: 2100000, guid: 42b227e9a45adc643a253d739a2f8104, type: 2}
     defaultShadowCastingMode: 1

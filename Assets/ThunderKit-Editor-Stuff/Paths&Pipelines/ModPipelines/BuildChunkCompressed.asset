@@ -54,7 +54,7 @@ MonoBehaviour:
   ErrorMessage: 
   ErrorStacktrace: 
   Active: 1
-  stageDebugDatabases: 0
+  stageDebugDatabases: 1
   assemblyArtifactPath: <AssemblyStaging>
   buildTarget: 5
   buildTargetGroup: 1

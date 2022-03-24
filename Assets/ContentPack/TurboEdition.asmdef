@@ -15,12 +15,12 @@
         "MMHOOK_RoR2.dll",
         "MonoMod.Utils.dll",
         "Assembly-CSharp.dll",
-        "RoR2-Stubbed.dll",
         "HGUnityUtils.dll",
-        "HGCSharpUtils.dll",
         "com.unity.multiplayer-hlapi.Runtime.dll",
+        "HGCSharpUtils.dll",
         "Rewired_Core.dll",
-        "KinematicCharacterController.dll"
+        "KinematicCharacterController.dll",
+        "RoR2-nstrip.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

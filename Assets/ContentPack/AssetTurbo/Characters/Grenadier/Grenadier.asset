@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: -1881990681, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: Grenadier
   m_EditorClassIdentifier: 
-  bodyPrefab: {fileID: 9196633835157065860, guid: e537a47cc4f457a4a972bf028141c065,
+  <survivorIndex>k__BackingField: -1
+  _cachedName: Grenadier
+  bodyPrefab: {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5,
     type: 3}
   displayPrefab: {fileID: 0}
   unlockableName: 
@@ -22,5 +24,5 @@ MonoBehaviour:
   outroFlavorToken: GRENADIER_OUTRO_FLAVOR
   mainEndingEscapeFailureFlavorToken: GRENADIER_MAIN_ENDING_ESCAPE_FAILURE_FLAVOR
   primaryColor: {r: 0.22352941, g: 0.41960785, b: 0.36862746, a: 1}
-  desiredSortPosition: 13.4
+  desiredSortPosition: 16.4
   hidden: 0

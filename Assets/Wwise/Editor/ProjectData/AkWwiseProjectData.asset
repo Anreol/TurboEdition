@@ -105,9 +105,9 @@ MonoBehaviour:
       - ElementName: Play_BigScytheSwing
         ObjectType: 3
       Path: Default Work Unit\Equipment\Play_BigScytheSwing
-      maxAttenuation: 200
-      maxDuration: 0.62963
-      minDuration: 0.560937
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_GrenadierPrimaryFire
       guid: 19fb13568f94874c9cacb9d2871170a1
       id: 3965566729
@@ -119,9 +119,9 @@ MonoBehaviour:
       - ElementName: Play_GrenadierPrimaryFire
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierPrimaryFire
-      maxAttenuation: 200
-      maxDuration: 0.604913
-      minDuration: 0.561764
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_GrenadierReload
       guid: 356f6c61c606a74dbde1b135b2d72996
       id: 1186468370
@@ -133,9 +133,9 @@ MonoBehaviour:
       - ElementName: Play_GrenadierReload
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierReload
-      maxAttenuation: 200
-      maxDuration: 0.629552
-      minDuration: 0.560867
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_GrenadierSecondaryFire
       guid: e15892a68b867c4d826dd74ad22c5a36
       id: 241865965
@@ -147,9 +147,9 @@ MonoBehaviour:
       - ElementName: Play_GrenadierSecondaryFire
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierSecondaryFire
-      maxAttenuation: 200
-      maxDuration: 1.572354
-      minDuration: 1.400808
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_GrenadierSpecialCharge
       guid: 684e169ff60b4e498d07a63091e7a003
       id: 3039812538
@@ -161,9 +161,9 @@ MonoBehaviour:
       - ElementName: Play_GrenadierSpecialCharge
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierSpecialCharge
-      maxAttenuation: 200
-      maxDuration: 12.936458
-      minDuration: 12.936458
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_GrenadierSpecialGainExtraCharge
       guid: 057ba91d79be7441b19739a3a215c417
       id: 2217609107
@@ -175,9 +175,9 @@ MonoBehaviour:
       - ElementName: Play_GrenadierSpecialGainExtraCharge
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierSpecialGainExtraCharge
-      maxAttenuation: 200
-      maxDuration: 0.215998
-      minDuration: 0.192432
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_GrenadierSpecialReady
       guid: fa7c94892666f741b7b463be7078989e
       id: 2141728575
@@ -189,9 +189,9 @@ MonoBehaviour:
       - ElementName: Play_GrenadierSpecialReady
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_GrenadierSpecialReady
-      maxAttenuation: 200
-      maxDuration: 0.12425
-      minDuration: 0.12425
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_LeaveStageError
       guid: 74b10b8c7ac3e64da33eb5c915848108
       id: 204571091
@@ -203,9 +203,9 @@ MonoBehaviour:
       - ElementName: Play_LeaveStageError
         ObjectType: 3
       Path: Default Work Unit\Equipment\Play_LeaveStageError
-      maxAttenuation: 200
-      maxDuration: 0.489688
-      minDuration: 0.486868
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -275,12 +275,6 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585542195489967775
     List: []
-  ExpandedItems:
-  - /TurboEdition_WwiseProject
-  - /TurboEdition_WwiseProject/Events
-  - /TurboEdition_WwiseProject/Events/Default Work Unit
-  - /TurboEdition_WwiseProject/Events/Default Work Unit/Grenadier
-  - /TurboEdition_WwiseProject/SoundBanks
-  - /TurboEdition_WwiseProject/SoundBanks/Default Work Unit
+  ExpandedItems: []
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

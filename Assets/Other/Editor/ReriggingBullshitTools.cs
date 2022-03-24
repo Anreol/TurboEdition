@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using RoR2;
 
 /// <summary>
 /// Tools to help with re-rigging bullshit

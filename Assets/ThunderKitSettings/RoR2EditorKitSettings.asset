@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RoR2EditorKitSettings
   m_EditorClassIdentifier: 
   TokenPrefix: 
-  MainManifest: {fileID: 11400000, guid: 2c1262962c6f2bd16ef910d2862a0880, type: 2}
+  MainManifest: {fileID: 0}

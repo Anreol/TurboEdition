@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1627637702, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: GrenadierBodyPrimaryFamily
+  m_Name: GrenadierBodyPassiveFamily
   m_EditorClassIdentifier: 
   <catalogIndex>k__BackingField: 0
   variants:
-  - skillDef: {fileID: 11400000, guid: 31665fd3da814fb44924e9b02007ee11, type: 2}
+  - skillDef: {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1, type: 2}
     unlockableName: 
     unlockableDef: {fileID: 0}
   defaultVariantIndex: 0
