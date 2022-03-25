@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using TurboEdition.Components;
 using UnityEngine;
 
-namespace TurboEdition.States.AI.Walker
+namespace TurboEdition.EntityStates.AI.Walker
 {
     public class ForceFlee : BaseAIState
     {

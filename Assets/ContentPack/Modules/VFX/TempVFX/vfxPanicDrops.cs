@@ -1,5 +1,5 @@
 ﻿using RoR2;
-using TurboEdition.States.AI.Walker;
+using TurboEdition.EntityStates.AI.Walker;
 using UnityEngine;
 
 namespace TurboEdition.TempVFX

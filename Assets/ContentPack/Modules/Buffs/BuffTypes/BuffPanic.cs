@@ -1,7 +1,7 @@
 ﻿using EntityStates.AI.Walker;
 using RoR2;
 using RoR2.CharacterAI;
-using TurboEdition.States.AI.Walker;
+using TurboEdition.EntityStates.AI.Walker;
 
 namespace TurboEdition.Buffs
 {
