@@ -444,7 +444,6 @@ GameObject:
   - component: {fileID: 5937462284248254577}
   - component: {fileID: 8761623902472489902}
   - component: {fileID: 6237464298281262309}
-  - component: {fileID: 4775533713091580501}
   - component: {fileID: 5817264358098905916}
   - component: {fileID: 320286017254185105}
   - component: {fileID: 3999612438210395320}
@@ -941,34 +940,6 @@ MonoBehaviour:
   hasEffectiveAuthority: 0
   skillDefDirtyFlags: 0
   inDeserialize: 0
---- !u!114 &4775533713091580501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9196633835157065860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: efd263ff8a40ae242bf658d798590161, type: 2}
-  <baseSkill>k__BackingField: {fileID: 0}
-  skillName: 
-  hideInCharacterSelect: 0
-  <stateMachine>k__BackingField: {fileID: 0}
-  <characterBody>k__BackingField: {fileID: 0}
-  <defaultSkillDef>k__BackingField: {fileID: 0}
-  bonusStockFromBody: 0
-  <maxStock>k__BackingField: 0
-  <stock>k__BackingField: 0
-  finalRechargeInterval: 0
-  _cooldownScale: 1
-  _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
-  hasExecutedSuccessfully: 0
 --- !u!114 &5817264358098905916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,7 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <skillDef>k__BackingField: {fileID: 0}
-  _skillFamily: {fileID: 11400000, guid: dd90df1c4872cbe4890b30f8bc2716c0, type: 2}
+  _skillFamily: {fileID: 11400000, guid: 134c52305cdb3724eb77f19b98d08cf8, type: 2}
   <baseSkill>k__BackingField: {fileID: 0}
   skillName: 
   hideInCharacterSelect: 0

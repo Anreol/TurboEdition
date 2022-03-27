@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: CrabChestBodyPrimaryFamily
   m_EditorClassIdentifier: 
   <catalogIndex>k__BackingField: 0
-  variants: []
+  variants:
+  - skillDef: {fileID: 11400000, guid: ca1686d6d40240744ab577764cdaf072, type: 2}
+    unlockableName: 
+    unlockableDef: {fileID: 0}
   defaultVariantIndex: 0

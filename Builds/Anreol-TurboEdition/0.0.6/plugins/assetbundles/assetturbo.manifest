@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1603829833
+CRC: 204398118
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 880855dd65a17c337502f19a3c002f75
+    Hash: c8e5f8f4adab73976f98fb65e443e70c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9856ccc434d300c60844b9da50c3c19f
@@ -322,10 +322,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1873157448, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
-  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: -565067572, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -103623725, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -345,6 +341,10 @@ ClassTypes:
   Script: {fileID: -146705984, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -226763392, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: -565067572, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 115
@@ -383,10 +383,12 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Textures/Ramps/texRampTwotone.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/pain_selected.png
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodyUtilityFamily.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdPanic.asset
 - Assets/ContentPack/AssetTurbo/Items/MeleeArmor/MeleeArmor.asset
 - Assets/Materials/matYellowLineRenderer.mat
 - Assets/Mesh/Items/meshSandbag_.mesh
+- Assets/Textures/texAlphaKumo0101_under00.png
 - Assets/ContentPack/AssetTurbo/Items/KnifeFan/KnifeFan.asset
 - Assets/Materials/matVFXLightshaft.mat
 - Assets/Textures/Ramps/texRampWhiteAlphaOnly.png
@@ -398,7 +400,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOff.png
 - Assets/Textures/texBlackKumo0101_under00.png
 - Assets/Materials/matInvisibleOutlineMeshHolder.mat
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierUtilityAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierUtilityAlt.asset
 - Assets/ContentPack/AssetTurbo/Misc/physmatSuperFriction.physicMaterial
 - Assets/Textures/texHellLinkedBuffOverlay.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SoulDevourerBodyAttachment.prefab
@@ -415,17 +417,18 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texTurboExpansionIcon.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bane.png
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD.OTF
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.FireMGLPrimary.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierSecondaryQuickshotAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireMGLPrimary.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSecondaryQuickshotAlt.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Belt.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Nanomachines.png
 - Assets/Materials/matHellLinkedBuffBillboard.mat
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierPassiveBlastArmor.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierPassiveBlastArmor.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ThrowableVisualizerArea.prefab
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2Artifact.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxPanicDrops.prefab
 - Assets/Textures/texGlowDirty.png
 - Assets/Textures/texKnifeUVNormal.png
+- Assets/Shaders/RoR2/Base/Shaders/FX/HGIntersectionCloudRemap.asset
 - Assets/ContentPack/AssetTurbo/Items/PackMagnet/PackMagnet.asset
 - Assets/ContentPack/AssetTurbo/Misc/NetworkSoundEffectDefs/nseLeaveStageError.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/RadioConnect.prefab
@@ -433,15 +436,14 @@ Assets:
 - Assets/Mesh/Items/meshBigScythe_.mesh
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_selected.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/WormArtifactSpawnEffect.prefab
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.FireMGLPrimaryAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireMGLPrimaryAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BloodPackHeal.prefab
 - Assets/Textures/Ramps/texRampMaroonToYellow.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_selected.png
-- Assets/Shaders/RealShaders/fx/hgcloudremap.asset
 - Assets/Mesh/Items/meshKnifeGuard.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.SpecialChargeSatchels.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.SpecialChargeSatchels.asset
 - Assets/Textures/texSuperStickyEmMask.png
 - Assets/ContentPack/AssetTurbo/Items/StandBonus/PickupSandBag.prefab
 - Assets/Textures/Ramps/texRampBrightFire.png
@@ -449,13 +451,14 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Equipment/Hellchain/Hellchain.asset
 - Assets/Other/TextMesh Pro/Fonts/LiberationSans.ttf
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
+- Assets/Shaders/RoR2/Base/Shaders/Deferred/HGStandard.asset
 - Assets/Textures/texSandbagNormal.png
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierUtility.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierUtility.asset
 - Assets/Textures/texSuperStickyFresnel.png
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/SettingsSubPanel, Turbo.prefab
 - Assets/Textures/texBlackKumo0104_00.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormArtifact.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.Reload.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.Reload.asset
 - Assets/Textures/texImpactPillar.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
 - Assets/Materials/matSuperSticky.mat
@@ -466,7 +469,7 @@ Assets:
 - Assets/ScriptableObject/tsfRunStopwatch.asset
 - Assets/Mesh/Items/meshItemDeployer_.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/DummySceneExitController.prefab
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierPrimaryBombAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierPrimaryBombAlt.asset
 - Assets/ContentPack/AssetTurbo/Items/SoulDevourer/SoulDevourer.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxHellLinkedBuffEffect.prefab
@@ -479,17 +482,19 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
 - Assets/Textures/Ramps/texTeamAreaIndicatorEnemy.png
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/skinGrenadierAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/skinGrenadierAlt.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Cards.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPrimaryProjectile.prefab
 - Assets/Textures/Ramps/texRampRedcross.png
 - Assets/ScriptableObject/skinObjectivePanel.asset
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/CrabChestBody.prefab
 - Assets/Mesh/Items/meshSuperSticky_.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestPrimaryMinigun.asset
 - Assets/ContentPack/AssetTurbo/Characters/States.AI.Walker.ForceFlee.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Rare.png
 - Assets/Other/TextMesh Pro/Fonts/BOMBARD DROPSHADOW.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierBodySecondaryFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodySecondaryFamily.asset
 - Assets/ContentPack/AssetTurbo/ContentPack.asset
 - Assets/Mesh/Items/meshKnifeBase.mesh
 - Assets/Mesh/Items/meshIcosphereCage.mesh
@@ -508,8 +513,10 @@ Assets:
 - Assets/Textures/texAlphaKumo0104_00.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestSpecialItemSteal.asset
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySecondaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOn.png
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierSecondaryQuickshot.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSecondaryQuickshot.asset
 - Assets/Mesh/Items/meshTeleporterLensesCloth.mesh
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Font Asset Icon.psd
 - Assets/Textures/Ramps/texRampHuntressSoft2.png
@@ -520,19 +527,17 @@ Assets:
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
 - Assets/Textures/texBlackKumo0101_00.png
 - Assets/Textures/texSuperSticky.png
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/skinGrenadierDefault.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/skinGrenadierDefault.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/QuestObjectiveStrip.prefab
 - Assets/Materials/matSuperStickyPulse.mat
 - Assets/ContentPack/AssetTurbo/ContentPackV2.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierPrimaryBomb.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierPrimaryBomb.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/SuperStickyBombProjectile.prefab
-- Assets/Shaders/RealShaders/deferred/hgstandard.asset
 - Assets/Materials/matSweatParticle.mat
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.FireSecondary.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireSecondary.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bag.png
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.SpecialChargeCurling.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.SpecialChargeCurling.asset
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/ItemDeployer.asset
-- Assets/Textures/Ramps/texRampPurpleYellow.png
 - Assets/Mesh/donut3Mesh.asset
 - Assets/Textures/texCloudDifferenceBW2.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/HellchainBodyAttachment.prefab
@@ -542,7 +547,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/PickupItemDeployer.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdCannotSprint.asset
 - Assets/Textures/texBBDecalMask1.png
-- Assets/Shaders/RealShaders/fx/hgdistortion.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_SuperSticky.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTextEffect.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/GenericHeaderButton (Turbo).prefab
@@ -555,12 +559,15 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lenses.png
 - Assets/Textures/texItemDeployer.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ExplosionVFXGrenadier.prefab
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySpecialFamily.asset
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestSecondaryShove.asset
 - Assets/Textures/texTeleporterLensesGlass.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormNonEliteArtifact.asset
 - Assets/Textures/texKumo0101_00.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lunar.png
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestUtilityBigJump.asset
 - Assets/Materials/matSandbag.mat
 - Assets/ContentPack/AssetTurbo/Items/BloodEconomy/BloodEconomy.asset
 - Assets/Textures/texSandbagDiffuse.png
@@ -569,36 +576,36 @@ Assets:
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdWarbannerVoid.asset
 - Assets/Textures/texBigScytheNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/ccpGrenadier.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Roll.UtilityBodyRollLoop.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierSpecial.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierBodySpecialFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Roll.UtilityBodyRollLoop.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecial.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodySpecialFamily.asset
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Text.mesh
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierBodyUtilityFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyUtilityFamily.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/StatArmorUP.prefab
 - Assets/Textures/texShockwaveMask.png
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodyPrimaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/GracePeriod/GracePeriod.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/SuperStickyGhost.prefab
 - Assets/Textures/Ramps/texRampLightblue.png
 - Assets/ContentPack/AssetTurbo/Items/StandBonus/StandBonus.asset
 - Assets/ContentPack/AssetTurbo/TurboExpansion.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ProjectileLandGround.prefab
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.EnterReload.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.EnterReload.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierSpecialAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecialAlt.asset
 - Assets/Mesh/Items/meshKnife_.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Weapon.FireSecondaryAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireSecondaryAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/pain_deselected.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png
 - Assets/Textures/texSandbagRoughness.png
 - Assets/ContentPack/AssetTurbo/Items/Typewriter/Typewriter.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierBodyPrimaryFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPrimaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/PickupTeleporterLenses.prefab
 - Assets/Materials/matTeleporterLensesCloth.mat
 - Assets/Materials/matTeleporterLensesGlass.mat
-- Assets/Textures/Ramps/texRampVerticalAlphaWhite.png
 - Assets/Textures/texTeleporterLensesClothNormal.png
 - Assets/Materials/matBigScythe.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab
@@ -606,12 +613,13 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
 - Assets/Le Tai's Asset/TranslucentImage/Resources/TranslucentImage.shader
 - Assets/Materials/matGlassWhite.mat
+- Assets/Shaders/RoR2/Base/Shaders/Deferred/HGStandardWithDistortion.asset
 - Assets/Textures/texTeleporterLensesClothBase.png
 - Assets/ContentPack/AssetTurbo/Items/RadioSearch/RadioSearch.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
 - Assets/Materials/matCardTest.mat
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdElectroStatic.asset
-- Assets/Shaders/RealShaders/fx/hgintersectioncloudremap.asset
+- Assets/Shaders/RoR2/Base/Shaders/FX/HGCloudRemap.asset
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
@@ -620,7 +628,7 @@ Assets:
 - Packages/com.unity.textmeshpro/Editor Resources/Gizmos/TMP - Text Component Icon.psd
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/128x128Square.png
 - Assets/Materials/matAreaIndicatorRim.mat
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/EntityStates.Grenadier.Roll.UtilityBodyRollSingle.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Roll.UtilityBodyRollSingle.asset
 - Assets/ContentPack/AssetTurbo/Items/Hitlag/Hitlag.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdHellLinked.asset
 - Assets/Materials/matTeamAreaIndicatorIntersectionPlayer.mat
@@ -631,8 +639,9 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/MeltdownArtifact.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdMeleeArmor.asset
 - Assets/Materials/matDustTrail.mat
+- Assets/Shaders/Shader/Hopoo GamesFXCloud Remap.asset
 - Assets/ContentPack/AssetTurbo/Items/KnifeFan/PickupKnifeFan.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/nanomachines.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/GrenadierBasicPrimaryGhost.prefab
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierBodyPassiveFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPassiveFamily.asset
 Dependencies: []

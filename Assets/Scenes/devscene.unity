@@ -481,7 +481,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 197d533d50c06854ca3312d00a8c9a04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1433,6 +1433,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 15602234469558339, guid: 86f8495c9b7524547b7f85b997b3588f,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 197144053513459032, guid: 86f8495c9b7524547b7f85b997b3588f,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136055792789437033, guid: 86f8495c9b7524547b7f85b997b3588f,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1590668215045940336, guid: 86f8495c9b7524547b7f85b997b3588f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f2aa46b616db6c241a7342ca39ca08f2, type: 2}
     - target: {fileID: 2512621537976480058, guid: 86f8495c9b7524547b7f85b997b3588f,
         type: 3}
       propertyPath: m_RootOrder
@@ -1487,6 +1507,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004964974458724718, guid: 86f8495c9b7524547b7f85b997b3588f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004964974458724718, guid: 86f8495c9b7524547b7f85b997b3588f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7004964974458724718, guid: 86f8495c9b7524547b7f85b997b3588f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8202156028514425107, guid: 86f8495c9b7524547b7f85b997b3588f,
         type: 3}

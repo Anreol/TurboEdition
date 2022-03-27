@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matSuperStickyPulse
-  m_Shader: {fileID: 4800000, guid: ef6eeef384c6437ba001b48e927ed2af, type: 2}
+  m_Shader: {fileID: 4800000, guid: 2e68267ebb51d0a438acfc57e42a7269, type: 2}
   m_ShaderKeywords: VERTEXCOLOR _DISPLACEMENTMODE_OFF _DISTORTIONQUALITY_HIGH _REFLECTIONTYPE_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -140,7 +140,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: 6ae76c89eba1e7543909a844f3292559, type: 3}
+        m_Texture: {fileID: 2800000, guid: 33ba5ee3d72034e40b28995fe2293922, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SliceAlphaTex:
@@ -152,7 +152,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0
+    - _AlphaBias: 0.016
     - _AlphaBoost: 1
     - _Amplitude: 0.05
     - _AngleLimit: 0.5

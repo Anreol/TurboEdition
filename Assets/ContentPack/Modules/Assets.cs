@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using TurboEdition.Components;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using Path = System.IO.Path;
 
 namespace TurboEdition
@@ -53,7 +54,7 @@ namespace TurboEdition
                 var material = assetBundleMaterials[i];
                 if (material.shader.name.StartsWith("StubbedCalmWater"))
                 {
-                    material.shader = Shader.Find(material.shader.name.Substring(7));
+                    material.shader = Addressables.LoadAssetAsync<Shader>("Calm Water/" + material.shader.name.Substring(7)).WaitForCompletion();
                     MaterialsWithSwappedShaders.Add(material);
                     continue;
                 }
@@ -61,14 +62,14 @@ namespace TurboEdition
                 {
                     Debug.Log(material.shader.name);
                     Debug.Log(material.shader.name.Substring(7));
-                    material.shader = Shader.Find(material.shader.name.Substring(8));
+                    material.shader = Addressables.LoadAssetAsync<Shader>("Decalicious/" + material.shader.name.Substring(8)).WaitForCompletion();
                     MaterialsWithSwappedShaders.Add(material);
                     continue;
                 }
                 // If it's stubbed, just switch out the shader unless it's fucking cloudremap
                 if (material.shader.name.StartsWith("StubbedShader"))
                 {
-                    material.shader = Resources.Load<Shader>("shaders" + material.shader.name.Substring(13));
+                    material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HG" + material.shader.name.Substring(13)).WaitForCompletion();
                     if (material.shader.name.Contains("Cloud Remap"))
                     {
                         var eatShit = new RuntimeCloudMaterialMapper(material);

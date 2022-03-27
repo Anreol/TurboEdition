@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matTeleporterLensesGlass
-  m_Shader: {fileID: 4800000, guid: eb284f2acb1345ceab4b3dcb4829edb3, type: 2}
+  m_Shader: {fileID: 4800000, guid: 09cce4fd9df19f042bc2804ffbbb7874, type: 2}
   m_ShaderKeywords: CUTOUT DISTANCEMODULATION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -158,13 +158,14 @@ Material:
     - _InvFade: 0.1
     - _LimbPrimeMask: 1
     - _LimbRemovalOn: 0
-    - _Magnitude: 1.44
+    - _Magnitude: 1.52
     - _Metallic: 0
     - _Mode: 0
     - _NearFadeOneDistance: 5
     - _NearFadeZeroDistance: 0
     - _NormalStrength: 1
     - _OcclusionStrength: 1
+    - _Opacity: 0.25
     - _Parallax: 0.02
     - _PrintBias: 0
     - _PrintBoost: 1
@@ -187,6 +188,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DistortionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OpacityColor: {r: 64, g: 64, b: 64, a: 1}
