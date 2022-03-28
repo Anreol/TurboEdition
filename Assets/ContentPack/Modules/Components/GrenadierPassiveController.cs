@@ -41,17 +41,20 @@ namespace TurboEdition.Components
         public GenericSkill passiveSkillSlot;
 
         [Header("Skill Defs")]
-        public SkillDef PassiveBlastArmor;
+        public SkillDef PassiveBlastArmorSkillDef;
 
         public GameObject PassiveBlastArmorBombletPrefab;
 
         private void Awake()
         {
             this.characterBody = base.GetComponent<CharacterBody>();
-            authBlastArmorStates = new bool[PassiveBlastArmor.baseMaxStock];
-            for (int i = 0; i < authBlastArmorStates.Length; i++)
+            if (!PassiveBlastArmorSkillDef || !passiveSkillSlot)
+                Debug.LogError("Couldn't find a passive skill def or a passive skill slot for the Grenadier's blast armor, character won't work properly!");
+            if (PassiveBlastArmorSkillDef)
             {
-                authBlastArmorStates[i] = true;
+                authBlastArmorStates = new bool[PassiveBlastArmorSkillDef.baseMaxStock];
+                for (int i = 0; i < authBlastArmorStates.Length; i++)
+                    authBlastArmorStates[i] = true;
             }
             resolvedRollMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Roll");
         }
@@ -65,9 +68,9 @@ namespace TurboEdition.Components
             }
             if (hasEffectiveAuthority && passiveSkillSlot)
             {
-                if (passiveSkillSlot.skillDef == PassiveBlastArmor)
+                if (passiveSkillSlot.skillDef == PassiveBlastArmorSkillDef)
                 {
-                    float baseIntervals = 1f / (float)PassiveBlastArmor.baseMaxStock;
+                    float baseIntervals = 1f / (float)PassiveBlastArmorSkillDef.baseMaxStock;
                     if (!netIsOutOfDanger)
                     {
                         //Inside NOT isOutOfDanger because we don't want to trigger if regenerating hp
@@ -80,7 +83,7 @@ namespace TurboEdition.Components
                                 break;
                             }
                         }
-                        blastArmorRechargeTime = PassiveBlastArmor.baseRechargeInterval;
+                        blastArmorRechargeTime = PassiveBlastArmorSkillDef.baseRechargeInterval;
                         return;
                     }
                     if (netIsOutOfDanger)
@@ -93,7 +96,7 @@ namespace TurboEdition.Components
                                 if (!authBlastArmorStates[i] && baseIntervals * i > characterBody.healthComponent.combinedHealthFraction) //Require to be above breaker to recharge it
                                 {
                                     authBlastArmorStates[i] = true;
-                                    blastArmorRechargeTime = PassiveBlastArmor.baseRechargeInterval;
+                                    blastArmorRechargeTime = PassiveBlastArmorSkillDef.baseRechargeInterval;
                                     break;
                                 }
                             }
@@ -130,7 +133,7 @@ namespace TurboEdition.Components
         {
             if (passiveSkillSlot)
             {
-                if (passiveSkillSlot.skillDef == PassiveBlastArmor && damageInfo.inflictor && damageInfo.attacker == this.characterBody.gameObject)
+                if (passiveSkillSlot.skillDef == PassiveBlastArmorSkillDef && damageInfo.inflictor && damageInfo.attacker == this.characterBody.gameObject)
                 {
                     if (damageInfo.inflictor.GetComponent<MarkReducedSelfDamage>())
                     {

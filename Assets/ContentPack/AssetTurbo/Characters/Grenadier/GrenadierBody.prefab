@@ -708,6 +708,7 @@ GameObject:
   - component: {fileID: 2554193306075792939}
   - component: {fileID: 5499407411116357988}
   - component: {fileID: 2457169426555390129}
+  - component: {fileID: 6364317256697949123}
   - component: {fileID: 6353848813484163904}
   - component: {fileID: 1665668662151284939}
   - component: {fileID: 4029321593561651436}
@@ -723,13 +724,13 @@ GameObject:
   - component: {fileID: 7102421919237282378}
   - component: {fileID: 2827456887168870262}
   - component: {fileID: 1927676449937621408}
-  - component: {fileID: 6364317256697949123}
   - component: {fileID: 6433972718493569276}
   - component: {fileID: 8431363311881491856}
   - component: {fileID: 2811486774179711868}
   - component: {fileID: 219412482288847033}
   - component: {fileID: 1439706858656675952}
   - component: {fileID: 3913907628915061441}
+  - component: {fileID: 4002961201484805053}
   - component: {fileID: 1750867745234563096}
   - component: {fileID: 5238029916515396389}
   - component: {fileID: 7494377625262542546}
@@ -833,6 +834,26 @@ MonoBehaviour:
   _flightParameters:
     channeledFlightGranterCount: 0
   <isFlying>k__BackingField: 0
+--- !u!114 &6364317256697949123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196633835157065860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1549848242, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterBody: {fileID: 0}
+  _aimDirection: {x: 0, y: 0, z: 0}
+  lastRaycastTime: -Infinity
+  lastFixedRaycastTime: -Infinity
+  didLastRaycastHit: 0
+  lastMaxDistance: 0
+  moveVector: {x: 0, y: 0, z: 0}
+  <emoteRequest>k__BackingField: -1
 --- !u!114 &6353848813484163904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,26 +1432,6 @@ MonoBehaviour:
   serverDamageTakenThisUpdate: 0
   repeatHealComponent: {fileID: 0}
   currentEquipmentIndex: 0
---- !u!114 &6364317256697949123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9196633835157065860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1549848242, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterBody: {fileID: 0}
-  _aimDirection: {x: 0, y: 0, z: 0}
-  lastRaycastTime: -Infinity
-  lastFixedRaycastTime: -Infinity
-  didLastRaycastHit: 0
-  lastMaxDistance: 0
-  moveVector: {x: 0, y: 0, z: 0}
-  <emoteRequest>k__BackingField: -1
 --- !u!114 &6433972718493569276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1478,7 +1479,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathStateMachine: {fileID: 1949618786361257478}
   deathState:
-    _typeName: 
+    _typeName: EntityStates.GenericCharacterDeath, RoR2, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   idleStateMachine:
   - {fileID: 5937462284248254577}
   - {fileID: 8761623902472489902}
@@ -1536,6 +1538,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emoteDefinitions: []
+--- !u!114 &4002961201484805053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196633835157065860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1144835783, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  <activeEquipmentSlot>k__BackingField: 0
+  <equipmentIndex>k__BackingField: 0
+  <stock>k__BackingField: 0
+  <maxStock>k__BackingField: 0
+  _rechargeTime:
+    t: 0
+  hasEffectiveAuthority: 0
+  <characterBody>k__BackingField: {fileID: 0}
+  healthComponent: {fileID: 0}
+  inputBank: {fileID: 0}
+  teamComponent: {fileID: 0}
+  missileTimer: 0
+  bfgChargeTimer: 0
+  subcooldownTimer: 0
+  remainingMissiles: 0
+  passiveHealingFollower: {fileID: 0}
+  goldgatControllerObject: {fileID: 0}
 --- !u!114 &1750867745234563096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1638,8 +1670,9 @@ MonoBehaviour:
   targetStateMachine: {fileID: 1949618786361257478}
   idleStateMachine:
   - {fileID: 5937462284248254577}
+  - {fileID: 5937462284248254577}
   hurtState:
-    _typeName: 
+    _typeName: EntityStates.HurtState, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   canBeHitStunned: 0
   canBeStunned: 0
   canBeFrozen: 1
@@ -1658,7 +1691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   netIsOutOfDanger: 0
   passiveSkillSlot: {fileID: 4775533713091580501}
-  PassiveBlastArmor: {fileID: 0}
+  PassiveBlastArmorSkillDef: {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1,
+    type: 2}
   PassiveBlastArmorBombletPrefab: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
     type: 3}
 --- !u!114 &114989553434124176
