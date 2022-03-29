@@ -614,20 +614,20 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
-    7: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
-    13: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
-    14: thunderkit;riskofrain2;riskofthunder-ror2editorkit
-    19: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
-    21: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
-    25: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
+    1: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    7: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    13: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    14: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    19: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    21: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    25: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
     26: thunderkit;twiner-unitygameimporter
-    27: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
-    28: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit
-    29: thunderkit;riskofrain2;riskofthunder-ror2editorkit
-    30: thunderkit;riskofrain2;riskofthunder-ror2editorkit
-    32: thunderkit;riskofrain2;riskofthunder-ror2editorkit
-    33: thunderkit;riskofrain2;riskofthunder-ror2editorkit
+    27: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    28: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    29: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    30: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    32: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    33: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

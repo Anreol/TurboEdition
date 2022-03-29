@@ -3,7 +3,8 @@
     "references": [
         "ThunderKit.Core",
         "Wwise",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "com.unity.multiplayer-hlapi.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -12,7 +13,6 @@
     "precompiledReferences": [
         "Unity.Addressables.dll",
         "Unity.ResourceManager.dll",
-        "com.unity.multiplayer-hlapi.Runtime.dll",
         "Rewired_Core.dll",
         "KinematicCharacterController.dll",
         "Assembly-CSharp.dll",
