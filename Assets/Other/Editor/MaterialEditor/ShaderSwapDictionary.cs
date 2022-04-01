@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-
+/*
 namespace Moonstorm.EditorUtils
 {
     [InitializeOnLoad]
@@ -111,4 +111,4 @@ namespace Moonstorm.EditorUtils
             }
         }
     }
-}
+}*/

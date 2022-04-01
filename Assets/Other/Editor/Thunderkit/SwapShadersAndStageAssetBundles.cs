@@ -13,7 +13,7 @@ using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.Networking;
 using Object = UnityEngine.Object;
-
+/*
 namespace Moonstorm.EditorUtils.Pipelines
 {
     [PipelineSupport(typeof(Pipeline)), RequiresManifestDatumType(typeof(AssetBundleDefinitions))]
@@ -288,4 +288,4 @@ namespace Moonstorm.EditorUtils.Pipelines
             return count;
         }
     }
-}
+}*/

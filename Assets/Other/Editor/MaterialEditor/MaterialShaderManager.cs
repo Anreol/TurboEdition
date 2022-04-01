@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-
+/*
 namespace Moonstorm.EditorUtils
 {
     public class MaterialShaderManager : MonoBehaviour
@@ -63,4 +63,4 @@ namespace Moonstorm.EditorUtils
             return materials;
         }
     }
-}
+}*/

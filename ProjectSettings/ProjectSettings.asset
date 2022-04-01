@@ -614,20 +614,20 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    7: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    13: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    14: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    19: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    21: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    25: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    1: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    7: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    13: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    14: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    19: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    21: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    25: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
     26: thunderkit;twiner-unitygameimporter
-    27: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    28: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    29: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    30: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    32: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
-    33: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi
+    27: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    28: thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    29: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    30: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    32: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
+    33: thunderkit;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

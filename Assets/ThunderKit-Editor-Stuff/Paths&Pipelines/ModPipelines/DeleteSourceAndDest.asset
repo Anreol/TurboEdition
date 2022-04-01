@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 114941680286485374}
   - {fileID: 114782765872862854}
   - {fileID: 114992998992198128}
+  QuickAccess: 0
   manifest: {fileID: 11400000, guid: 2c1262962c6f2bd16ef910d2862a0880, type: 2}
 --- !u!114 &114782765872862854
 MonoBehaviour:
@@ -29,9 +30,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d65cc226c348d45aa1c6dddf3600a6, type: 3}
   m_Name: Delete
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   PerManifest: 0
   ExcludedManifests: []
@@ -50,9 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d65cc226c348d45aa1c6dddf3600a6, type: 3}
   m_Name: Delete
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   PerManifest: 1
   ExcludedManifests: []
@@ -71,9 +66,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d65cc226c348d45aa1c6dddf3600a6, type: 3}
   m_Name: Delete
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   PerManifest: 0
   ExcludedManifests: []

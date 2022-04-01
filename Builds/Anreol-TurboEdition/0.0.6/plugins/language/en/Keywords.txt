@@ -1,6 +1,0 @@
-{
-	strings:
-	{
-		"KEYWORD_SNIPERCLASSIC_MORTAR" : "<style=cKeywordName>Mortar</style><style=cSub>An explosive projectile that gains <style=cIsDamage>extra blast radius</style> with distance traveled.</style>",
-	}
-}

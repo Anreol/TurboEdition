@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 114856607283172862}
   - {fileID: 114628780278423992}
   - {fileID: 114737672866306462}
+  QuickAccess: 0
   manifest: {fileID: 11400000, guid: 2c1262962c6f2bd16ef910d2862a0880, type: 2}
 --- !u!114 &114628780278423992
 MonoBehaviour:
@@ -29,9 +30,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 162923f5fc933e84c9cb1980f8770cca, type: 3}
   m_Name: SwapShadersAndStageAssetBundles
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   AssetBundleBuildOptions: 1
   buildTarget: 5
@@ -50,9 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b20fac9c71fd64183cb7a8f359d73a, type: 3}
   m_Name: StageAssemblies
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 1
   stageDebugDatabases: 1
   assemblyArtifactPath: <AssemblyStaging>
@@ -70,9 +65,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924ee63e6c016f14d8a1560b288f15a3, type: 3}
   m_Name: StageAssetBundles
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
-  ErrorStacktrace: 
   Active: 0
   AssetBundleBuildOptions: 1
   buildTarget: 5

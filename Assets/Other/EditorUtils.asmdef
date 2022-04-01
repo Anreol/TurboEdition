@@ -35,7 +35,8 @@
         "HGCSharpUtils.dll",
         "HGUnityUtils.dll",
         "BepInEx.dll",
-        "RoR2-nstrip.dll"
+        "RoR2-nstrip.dll",
+        "RoR2.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

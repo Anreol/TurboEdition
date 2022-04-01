@@ -22,7 +22,8 @@
         "Mono.Cecil.dll",
         "MonoMod.Utils.dll",
         "MMHOOK_RoR2.dll",
-        "RoR2-nstrip.dll"
+        "RoR2-nstrip.dll",
+        "RoR2.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

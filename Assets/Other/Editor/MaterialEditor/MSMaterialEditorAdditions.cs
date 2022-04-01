@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
-
+/*
 namespace Moonstorm.EditorUtils
 {
     [InitializeOnLoad]
@@ -40,4 +40,4 @@ namespace Moonstorm.EditorUtils
             }
         }
     }
-}
+}*/
