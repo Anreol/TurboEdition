@@ -110,6 +110,8 @@ namespace TurboEdition
         public static class Items
         {
             public static ItemDef AddTeleporterRadius;
+            public static ItemDef AirborneBonus;
+            public static ItemDef AirborneDash;
             public static ItemDef BaneMask;
             public static ItemDef BloodEconomy;
             public static ItemDef DropletDupe;

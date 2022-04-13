@@ -65,14 +65,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Other\Editor\AchievementConditionDrawer.cs" />
+    <Compile Include="Assets\Other\Editor\Data\ShaderSwapDictionary.cs" />
     <Compile Include="Assets\Other\Editor\EditorRecordAndSetTransforms.cs" />
     <Compile Include="Assets\Other\Editor\FindLocalID.cs" />
     <Compile Include="Assets\Other\Editor\MD4.cs" />
-    <Compile Include="Assets\Other\Editor\MaterialEditor\MSMaterialEditorAdditions.cs" />
-    <Compile Include="Assets\Other\Editor\MaterialEditor\MaterialShaderManager.cs" />
-    <Compile Include="Assets\Other\Editor\MaterialEditor\ShaderSwapDictionary.cs" />
     <Compile Include="Assets\Other\Editor\PrefabReferencePropertyDrawer.cs" />
+    <Compile Include="Assets\Other\Editor\PropertyDrawers\ShaderPairPropertyDrawer.cs" />
     <Compile Include="Assets\Other\Editor\ReriggingBullshitTools.cs" />
+    <Compile Include="Assets\Other\Editor\ShaderSystem\MaterialEditorAdditions.cs" />
+    <Compile Include="Assets\Other\Editor\ShaderSystem\MaterialShaderManager.cs" />
     <Compile Include="Assets\Other\Editor\Thunderkit\BuildAssetBundles.cs" />
     <Compile Include="Assets\Other\Editor\Thunderkit\ClearFolder.cs" />
     <Compile Include="Assets\Other\Editor\Thunderkit\ManifestVersion.cs" />
@@ -80,25 +81,7 @@
     <Compile Include="Assets\Other\Editor\Thunderkit\SaveAssets.cs" />
     <Compile Include="Assets\Other\Editor\Thunderkit\SwapShadersAndStageAssetBundles.cs" />
     <Compile Include="Assets\Other\Editor\Util.cs" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Other\EditorUtils.asmdef" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Other\Editor\EditorUtils.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -345,8 +328,8 @@
     <Reference Include="RoR2">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -702,9 +685,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
     <Reference Include="ThunderKit.Core">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Core.dll</HintPath>
     </Reference>
@@ -714,23 +694,18 @@
     <Reference Include="ThunderKit.Thunderstore">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Thunderstore.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+    <Reference Include="RoR2EditorKit">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/RoR2EditorKit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="TurboEdition.csproj">
       <Project>{889E8141-CA38-8809-3C00-1BBF54EC217D}</Project>
       <Name>TurboEdition</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{B8624284-03BA-BD16-D142-A5E9E1383610}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

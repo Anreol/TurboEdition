@@ -1,0 +1,43 @@
+{
+    "name": "EditorUtils",
+    "references": [
+        "TurboEdition",
+        "ThunderKit.Core",
+        "ThunderKit.Common",
+        "ThunderKit.Thunderstore",
+        "RoR2EditorKit"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "0Harmony.dll",
+        "BepInEx.Harmony.dll",
+        "BepInEx.MonoMod.HookGenPatcher.dll",
+        "BepInEx.Preloader.dll",
+        "Facepunch.Steamworks.dll",
+        "HGCSharpUtils.dll",
+        "Mono.Cecil.dll",
+        "Mono.Cecil.Mdb.dll",
+        "Mono.Cecil.Pdb.dll",
+        "Mono.Cecil.Rocks.dll",
+        "MonoMod.RuntimeDetour.dll",
+        "MonoMod.Utils.dll",
+        "Rewired_Core.dll",
+        "Rewired_CSharp.dll",
+        "HGCSharpUtils.dll",
+        "HGUnityUtils.dll",
+        "BepInEx.dll",
+        "RoR2.dll",
+        "UnityEngine.UI.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_EDITOR"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

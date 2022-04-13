@@ -1,0 +1,17 @@
+{
+	"strings":
+	{
+		"ARTIFACT_WORMS_NAME": "Artifact of Worms",
+		"ARTIFACT_WORMS_DESCRIPTION" : "Worm Party. Worms will spawn in all stages, weaker, but in higher counts.",
+
+		"ARTIFACT_SPITE2_NAME" : "Artifact of Revenge",
+		"ARTIFACT_SPITE2_DESCRIPTION" : "Enemies drop multiple exploding bombs on hit, and players drop bombs on death.",
+
+		"ARTIFACT_PAIN_NAME" : "Artifact of Pain",
+		"ARTIFACT_PAIN_DESCRIPTION" : "All players share their pain. Incoming damage is reduced by the amount shared.",
+		
+		//[Cheers for the deceased, to remember their noble sacrifices]
+		"ARTIFACT_MELTDOWN_NAME" : "Artifact of Meltdown",
+		"ARTIFACT_MELTDOWN_DESCRIPTION" : "When things are going wrong, a Meltdown may occur, making waves of stronger enemies spawn.",
+	}
+}

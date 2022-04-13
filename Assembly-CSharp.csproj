@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2019_4_26;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_4_26;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;PLATFORM_STANDALONE;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;thunderkit;twiner-unitygameimporter;riskofrain2;riskofthunder-ror2editorkit;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -49,7 +49,7 @@
     <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>4.11.4.0</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2019.4.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -64,18 +64,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\BlurAlgorithm\BlurConfig.cs" />
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\BlurAlgorithm\IBlurAlgorithm.cs" />
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\BlurAlgorithm\ScalableBlur.cs" />
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\BlurAlgorithm\ScalableBlurConfig.cs" />
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\TrueShadowCompat.cs" />
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\Utilities\Extensions.cs" />
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\Utilities\ResizableScreenRect.cs" />
-    <Compile Include="Assets\Le Tai's Asset\TranslucentImage\Script\Utilities\ShaderId.cs" />
+    <Compile Include="Assets\Other\Temp\ApplyPatchJob.cs" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\PluginInfo.xml" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\StreamingAssets\desc.txt" />
-    <None Include="Assets\Le Tai's Asset\TranslucentImage\Resources\TranslucentImage.shader" />
-    <None Include="Assets\Le Tai's Asset\TranslucentImage\Resources\EfficientBlur.shader" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\StreamingAssets\language\en\Quests.txt" />
     <None Include="Assets\StreamingAssets\language\es-ES\Items.txt" />
     <None Include="Assets\StreamingAssets\language\es-ES\CharacterBodies.txt" />
@@ -83,6 +77,7 @@
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\Init.txt" />
     <None Include="Assets\StreamingAssets\language\en\Items.txt" />
     <None Include="Assets\StreamingAssets\language\en\Tooltips.txt" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\SoundbanksInfo.xml" />
     <None Include="Assets\StreamingAssets\language\en\Settings.txt" />
     <None Include="Assets\StreamingAssets\language\en\Interactors.txt" />
@@ -90,14 +85,27 @@
     <None Include="Assets\StreamingAssets\language\en\Equipment.txt" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\PluginInfo.xml" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\SoundbanksInfo.xml" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Other\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Mac\TurboBank.txt" />
     <None Include="Assets\StreamingAssets\language\en\Keywords.txt" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\TurboBank.txt" />
-    <None Include="Assets\Le Tai's Asset\TranslucentImage\Resources\FillCrop.shader" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\StreamingAssets\language\en\Rules.txt" />
     <None Include="Assets\StreamingAssets\language\en\Artifacts.txt" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\StreamingAssets\Audio\GeneratedSoundBanks\Windows\Init.txt" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Other\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\StreamingAssets\language\en\Messages.txt" />
+    <None Include="Assets\Other\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\StreamingAssets\language\en\CharacterBodies.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -269,9 +277,6 @@
     </Reference>
     <Reference Include="NGRemoteScene">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGRemoteScene/NGRemoteScene.dll</HintPath>
-    </Reference>
-    <Reference Include="RoR2-Stubbed">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/Risk of Rain 2/RoR2-Stubbed.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>
@@ -627,6 +632,9 @@
     <Reference Include="UnityEditor.CacheServer">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.CacheServer.dll</HintPath>
     </Reference>
+    <Reference Include="MonoDetector">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/MonoDetector.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline.Editor">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
@@ -636,11 +644,8 @@
     <Reference Include="ThunderKit.Thunderstore">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Thunderstore.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    <Reference Include="UnityVersion">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityVersion.dll</HintPath>
     </Reference>
     <Reference Include="ThunderKit.Markdown">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Markdown.dll</HintPath>
@@ -648,14 +653,17 @@
     <Reference Include="Unity.Timeline">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
-    <Reference Include="RoR2EditorKit">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/RoR2EditorKit.dll</HintPath>
+    <Reference Include="ToolbarExtender.Editor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ToolbarExtender.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    <Reference Include="AssetsExporter">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/AssetsExporter.dll</HintPath>
+    </Reference>
+    <Reference Include="ThunderKit.Addressable">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Addressable.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
@@ -663,29 +671,20 @@
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="AssetsTools.NET">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/AssetsTools.NET.dll</HintPath>
+    </Reference>
     <Reference Include="ThunderKit.Core">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Core.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    <Reference Include="RoR2EditorKit">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/RoR2EditorKit.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
-    </Reference>
     <Reference Include="ThunderKit.Common">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/ThunderKit.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
@@ -696,9 +695,17 @@
       <Project>{CA3180B0-15F7-26EF-9A90-EB041B971007}</Project>
       <Name>Wwise</Name>
     </ProjectReference>
+    <ProjectReference Include="TranslucentImage.csproj">
+      <Project>{A302CE47-10C7-C417-7503-01736AF82B04}</Project>
+      <Name>TranslucentImage</Name>
+    </ProjectReference>
     <ProjectReference Include="Wwise.Editor.csproj">
       <Project>{C72D2872-E8EC-C293-A3EC-B4DAA7E7E4FD}</Project>
       <Name>Wwise.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NGTools.csproj">
+      <Project>{DEA3F06B-92A1-9881-F1FE-12BBE6806AFA}</Project>
+      <Name>NGTools</Name>
     </ProjectReference>
     <ProjectReference Include="EditorUtils.csproj">
       <Project>{3E2814BE-4557-36DC-FE9C-10AEA7664F54}</Project>
@@ -708,9 +715,13 @@
       <Project>{889E8141-CA38-8809-3C00-1BBF54EC217D}</Project>
       <Name>TurboEdition</Name>
     </ProjectReference>
-    <ProjectReference Include="NGTools.csproj">
-      <Project>{DEA3F06B-92A1-9881-F1FE-12BBE6806AFA}</Project>
-      <Name>NGTools</Name>
+    <ProjectReference Include="BsDiff.csproj">
+      <Project>{8BD7C7A7-88AB-EE00-34A2-0F53F5CBAE16}</Project>
+      <Name>BsDiff</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{B8624284-03BA-BD16-D142-A5E9E1383610}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

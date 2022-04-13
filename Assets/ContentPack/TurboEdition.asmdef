@@ -3,7 +3,6 @@
     "references": [
         "ThunderKit.Core",
         "Wwise",
-        "Unity.TextMeshPro",
         "com.unity.multiplayer-hlapi.Runtime"
     ],
     "includePlatforms": [],
@@ -11,8 +10,10 @@
     "allowUnsafeCode": true,
     "overrideReferences": true,
     "precompiledReferences": [
+        "UnityEngine.UI.dll",
         "Unity.Addressables.dll",
         "Unity.ResourceManager.dll",
+        "Unity.TextMeshPro.dll",
         "Rewired_Core.dll",
         "KinematicCharacterController.dll",
         "Assembly-CSharp.dll",
@@ -22,7 +23,6 @@
         "Mono.Cecil.dll",
         "MonoMod.Utils.dll",
         "MMHOOK_RoR2.dll",
-        "RoR2-nstrip.dll",
         "RoR2.dll"
     ],
     "autoReferenced": true,

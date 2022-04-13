@@ -24,5 +24,5 @@ MonoBehaviour:
   pickupIconSprite: {fileID: 21300000, guid: 5668b552f5c5be344b56175f639d85af, type: 3}
   hidden: 0
   canRemove: 1
-  tags: 03000000
+  tags: 0300000010000000
   requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}

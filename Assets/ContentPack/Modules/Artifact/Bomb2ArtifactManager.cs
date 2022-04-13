@@ -11,9 +11,9 @@ namespace TurboEdition.Artifacts
     {
         public static ArtifactDef artifact = Assets.mainAssetBundle.LoadAsset<ArtifactDef>("Spite2Artifact");
         private static int maxBombCount = BombArtifactManager.maxBombCount;
-        private static float extraBombPerRadius = BombArtifactManager.extraBombPerRadius / 1.25f;
+        private static float extraBombPerRadius = BombArtifactManager.extraBombPerRadius / 1.35f;
         private static float bombSpawnBaseRadius = BombArtifactManager.bombSpawnBaseRadius;
-        private static float bombSpawnRadiusCoefficient = BombArtifactManager.bombSpawnRadiusCoefficient / 1.25f;
+        private static float bombSpawnRadiusCoefficient = BombArtifactManager.bombSpawnRadiusCoefficient / 1.35f;
         private static float bombSpawnFromDamageChance = 25f;
         private static readonly Queue<BombArtifactManager.BombRequest> bombRequestQueue = new Queue<BombArtifactManager.BombRequest>();
 

@@ -14,40 +14,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyPrefabs:
   - {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5, type: 3}
+  - {fileID: 9196633835157065860, guid: 76cb1e9685ad9fc4d97394864c5dda3e, type: 3}
   masterPrefabs: []
   projectilePrefabs:
-  - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
   - {fileID: 2074815300407172818, guid: 5a2d61750beb9e24d9a179e83d0bdd18, type: 3}
-  - {fileID: 5927682615679395250, guid: 2f4e77b8486cca54c9f46200c5516d76, type: 3}
+  - {fileID: 7028506108066464535, guid: 17c81c7f3d51dac438048991d66082aa, type: 3}
+  - {fileID: 7028506108066464535, guid: 89698fc5cff9b0f4c85a6b8d8e47dff5, type: 3}
   - {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5, type: 3}
+  - {fileID: 7028506108066464535, guid: d8221bda00547fc43ae7da8a17691f35, type: 3}
+  - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
+  - {fileID: 5927682615679395250, guid: 2f4e77b8486cca54c9f46200c5516d76, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs:
-  - {fileID: 5819360341333742186, guid: 2e0112021406d1e48aadd4c1a8353517, type: 3}
-  - {fileID: 3920638942587432995, guid: c9c9dfac6aa642e4786ab15b63150d9b, type: 3}
-  - {fileID: 3920638942587432995, guid: b15bd4412c0604c47b4c74db3ffb3169, type: 3}
   - {fileID: 1918061013436419, guid: ff8a7375923956040b7e09f90304fc9e, type: 3}
   - {fileID: 8321067140481484799, guid: a753f8e38b98bd741b38562118aa57d6, type: 3}
   - {fileID: 5902242083141093317, guid: 0d39d1d5fd339bf4ca94cecfe95ec832, type: 3}
+  - {fileID: 5819360341333742186, guid: 2e0112021406d1e48aadd4c1a8353517, type: 3}
   - {fileID: 7399638598008387699, guid: 78ed9177a4c28a245abd097636fd9d77, type: 3}
+  - {fileID: 3920638942587432995, guid: ae313ba9facc51e4cbcc48d5f687d2fe, type: 3}
+  - {fileID: 3920638942587432995, guid: c9c9dfac6aa642e4786ab15b63150d9b, type: 3}
+  - {fileID: 3920638942587432995, guid: b15bd4412c0604c47b4c74db3ffb3169, type: 3}
   skillDefs:
+  - {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1, type: 2}
   - {fileID: 11400000, guid: 36b756b854a897a4fadb01184726acd6, type: 2}
   - {fileID: 11400000, guid: ce681bd5473bb92429cdde9a3e5bdc57, type: 2}
   - {fileID: 11400000, guid: c2f161f7420560346b4c4009f523f337, type: 2}
   - {fileID: 11400000, guid: c4b48a62d7e7d534dbe3b37ee4d0c2b1, type: 2}
-  - {fileID: 11400000, guid: 91db08e451f4852439aaa52af44c51ed, type: 2}
-  - {fileID: 11400000, guid: 223d570188e875c4ca8594760226d297, type: 2}
   - {fileID: 11400000, guid: 292fe1fb8b39e6840b5fb165bc7118d3, type: 2}
   - {fileID: 11400000, guid: ce06f6bcf86b2f040a3502581de141d3, type: 2}
-  - {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1, type: 2}
+  - {fileID: 11400000, guid: 91db08e451f4852439aaa52af44c51ed, type: 2}
+  - {fileID: 11400000, guid: 223d570188e875c4ca8594760226d297, type: 2}
+  - {fileID: 11400000, guid: ca1686d6d40240744ab577764cdaf072, type: 2}
+  - {fileID: 11400000, guid: ab77cb3b7b3d1a74986a78f23f89236f, type: 2}
+  - {fileID: 11400000, guid: c03691c7d0994d946bb9623a6cd97ece, type: 2}
+  - {fileID: 11400000, guid: 6fae1d7bc7749cb4585fa71de2ec6deb, type: 2}
   skillFamilies:
   - {fileID: 11400000, guid: efd263ff8a40ae242bf658d798590161, type: 2}
   - {fileID: 11400000, guid: caeb681d695d8c541b21fa6cf6bd5a57, type: 2}
   - {fileID: 11400000, guid: 2e6e76f69f3042f4981b0ad41036c579, type: 2}
-  - {fileID: 11400000, guid: dd90df1c4872cbe4890b30f8bc2716c0, type: 2}
   - {fileID: 11400000, guid: 48c48b1cadf82d440befbeb2072c1238, type: 2}
+  - {fileID: 11400000, guid: dd90df1c4872cbe4890b30f8bc2716c0, type: 2}
+  - {fileID: 11400000, guid: 9f000e3c5dae37a4c95cfc4ea5055f52, type: 2}
+  - {fileID: 11400000, guid: 679ca3c753e44d346ba0e729026c6394, type: 2}
+  - {fileID: 11400000, guid: 52ecb20bebc23ef44a2e9b69dd62fc37, type: 2}
+  - {fileID: 11400000, guid: 134c52305cdb3724eb77f19b98d08cf8, type: 2}
   sceneDefs: []
   itemDefs:
   - {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
+  - {fileID: 11400000, guid: 087e200b366c13f43b843170111cb07f, type: 2}
+  - {fileID: 11400000, guid: cea04826273f5ad4d9305499626b8e1c, type: 2}
   - {fileID: 11400000, guid: d2baa190849934b42918cafaefa38084, type: 2}
   - {fileID: 11400000, guid: a113d78be0c779243b35f58fc72fca16, type: 2}
   - {fileID: 11400000, guid: 316652a0f390cfe489524dedaa60a90c, type: 2}
@@ -61,16 +76,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 909c95e53da82894fb312688494a7f6a, type: 2}
   - {fileID: 11400000, guid: 3e7ec56cec60a0a47846c86c30f18eb2, type: 2}
   - {fileID: 11400000, guid: 299e4e4152716bf4caf65d885af0b391, type: 2}
-  - {fileID: 11400000, guid: 8579b21d89c54e445bb851aaac16fda2, type: 2}
   - {fileID: 11400000, guid: 0a18c326e9746e9479f942a8bf7a7937, type: 2}
   equipmentDefs:
   - {fileID: 11400000, guid: db5f8f8735505d440aad0e7b540c4933, type: 2}
   - {fileID: 11400000, guid: 2b525fa417a5d5c4d9b9b424ac22d29c, type: 2}
   - {fileID: 11400000, guid: 6dd507f5f16ba154aa4def91e95b105c, type: 2}
+  - {fileID: 11400000, guid: a35c5ec8881b7374e9badf6763c1f3e6, type: 2}
   buffDefs:
-  - {fileID: 11400000, guid: 6fa3762a9e31b3e458e30f7c36e28813, type: 2}
-  - {fileID: 11400000, guid: 8ffd5c6e050f00c479b5cf8fe098c8cb, type: 2}
-  - {fileID: 11400000, guid: 26d9d65feaa32f8458921eb64400be64, type: 2}
+  - {fileID: 11400000, guid: 50f6fde7c3fcd6440a0a13870e1f64e1, type: 2}
+  - {fileID: 11400000, guid: 634098f549259bf489ae9214b5ab367f, type: 2}
+  - {fileID: 11400000, guid: 3ae8199edd57e91439e4be8f07f032e7, type: 2}
   - {fileID: 11400000, guid: 38f9af9ff75b2614d8cbef1ecf2c724c, type: 2}
   - {fileID: 11400000, guid: fc870f30f90351e4bb50b1af97fe16f2, type: 2}
   - {fileID: 11400000, guid: 0e4004db3ae50604f8e3b6fbabdf39f3, type: 2}
@@ -84,18 +99,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55f7519b8d49e694d9036a31bc141dfd, type: 2}
   effectDefs: []
   surfaceDefs: []
-  networkSoundEventDefs: []
+  networkSoundEventDefs:
+  - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
   musicTrackDefs: []
   gameEndingDefs: []
   entityStateConfigurations:
+  - {fileID: 11400000, guid: eb35f9ebdab8a9f4eaa86b47b45f7ed2, type: 2}
+  - {fileID: 11400000, guid: 29cbfd4ffa0fde44fa880ee29a314965, type: 2}
+  - {fileID: 11400000, guid: 155365ac80eca7c469fc060a91f713e1, type: 2}
   - {fileID: 11400000, guid: 1b8522626951a1f42a84c1ebad617ce4, type: 2}
   - {fileID: 11400000, guid: 577850e372fbfb145b842d1a46d7a662, type: 2}
-  - {fileID: 11400000, guid: 155365ac80eca7c469fc060a91f713e1, type: 2}
-  - {fileID: 11400000, guid: e3783735c36e02546a1fcfa7145900a3, type: 2}
   - {fileID: 11400000, guid: acf7c449461af624b8f84f2a6c6aab32, type: 2}
   - {fileID: 11400000, guid: db9bb8dcc4eaf4e448500d1ad3ee9e37, type: 2}
-  - {fileID: 11400000, guid: 29cbfd4ffa0fde44fa880ee29a314965, type: 2}
-  - {fileID: 11400000, guid: eb35f9ebdab8a9f4eaa86b47b45f7ed2, type: 2}
+  - {fileID: 11400000, guid: e3783735c36e02546a1fcfa7145900a3, type: 2}
   - {fileID: 11400000, guid: f7c3db69ef986c546bdb177de8001f2c, type: 2}
   - {fileID: 11400000, guid: 19b645547804f624f890ad8934c729c6, type: 2}
   entityStateTypes: []

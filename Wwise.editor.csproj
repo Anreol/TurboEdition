@@ -312,17 +312,113 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="NGAssetFinderEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGAssetFinder/Editor/NGAssetFinderEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGComponentReplacerEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGComponentReplacer/Editor/NGComponentReplacerEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGComponentsInspectorEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGComponentsInspector/Editor/NGComponentsInspectorEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGConsole">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGConsole/NGConsole.dll</HintPath>
+    </Reference>
+    <Reference Include="NGConsoleEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGConsole/Editor/NGConsoleEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGCore">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGCore/NGCore.dll</HintPath>
+    </Reference>
+    <Reference Include="NGCoreEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGCore/Editor/NGCoreEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGLicenses">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGCore/Editor/NGLicenses.dll</HintPath>
+    </Reference>
+    <Reference Include="NGDraggableObjectEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGDraggableObject/Editor/NGDraggableObjectEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGFavEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGFav/Editor/NGFavEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGFlowInspector">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGFlowInspector/NGFlowInspector.dll</HintPath>
+    </Reference>
+    <Reference Include="NGFlowInspectorEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGFlowInspector/Editor/NGFlowInspectorEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGFullscreenBindingsEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGFullscreenBindings/Editor/NGFullscreenBindingsEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGGameConsole">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGGameConsole/NGGameConsole.dll</HintPath>
+    </Reference>
+    <Reference Include="RemoteModule_For_NGConsole">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGGameConsole/Editor/RemoteModule_For_NGConsole.dll</HintPath>
+    </Reference>
+    <Reference Include="NGHierarchyEnhancerEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGHierarchyEnhancer/Editor/NGHierarchyEnhancerEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGHubEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGHub/Editor/NGHubEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGInspectorGadgetEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGInspectorGadget/Editor/NGInspectorGadgetEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGMissingScriptRecoveryEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGMissingScriptRecovery/Editor/NGMissingScriptRecoveryEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGNavSelectionEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGNavSelection/Editor/NGNavSelectionEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGNavSelection_For_NGHub">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGNavSelection/Editor/NGNavSelection_For_NGHub.dll</HintPath>
+    </Reference>
+    <Reference Include="NGPrefsEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGPrefs/Editor/NGPrefsEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGRemoteScene">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGRemoteScene/NGRemoteScene.dll</HintPath>
+    </Reference>
+    <Reference Include="NGRemoteSceneEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGRemoteScene/Editor/NGRemoteSceneEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGRemoteScene_For_NGHub">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGRemoteScene/Editor/NGRemoteScene_For_NGHub.dll</HintPath>
+    </Reference>
+    <Reference Include="NGRenamerEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGRenamer/Editor/NGRenamerEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGScenesEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGScenes/Editor/NGScenesEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGScenes_For_NGHub">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGScenes/Editor/NGScenes_For_NGHub.dll</HintPath>
+    </Reference>
+    <Reference Include="NGShaderFinderEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGShaderFinder/Editor/NGShaderFinderEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGSmartMenuEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGSmartMenu/Editor/NGSmartMenuEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGSpotlightEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGSpotlight/Editor/NGSpotlightEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGStaticInspectorEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGStaticInspector/Editor/NGStaticInspectorEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="NGSyncFoldersEditor">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGSyncFolders/Editor/NGSyncFoldersEditor.dll</HintPath>
+    </Reference>
     <Reference Include="Markdig.Signed">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@71788ca1e8/Editor/ThirdParty/Markdig/Markdig.Signed.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@515f013cbd/Editor/ThirdParty/Markdig/Markdig.Signed.dll</HintPath>
     </Reference>
     <Reference Include="SharpCompress">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@71788ca1e8/Editor/ThirdParty/SharpCompress/SharpCompress.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@515f013cbd/Editor/ThirdParty/SharpCompress/SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -681,23 +777,15 @@
     <Reference Include="Unity.Timeline">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Wwise.csproj">
       <Project>{CA3180B0-15F7-26EF-9A90-EB041B971007}</Project>
       <Name>Wwise</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{B8624284-03BA-BD16-D142-A5E9E1383610}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using TurboEdition.Components;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -44,13 +46,23 @@ namespace TurboEdition
             if (assetBundle.isStreamedSceneAssetBundle)
                 return;
 
-            var cloudRemapReference = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
+            //var cloudRemapReference = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
 
             Material[] assetBundleMaterials = assetBundle.LoadAllAssets<Material>();
-            Material[] assetBundleMaterialObjects = Resources.FindObjectsOfTypeAll<Material>();
+            //Material[] assetBundleMaterialObjects = Resources.FindObjectsOfTypeAll<Material>();
 
             for (int i = 0; i < assetBundleMaterials.Length; i++)
             {
+                try
+                {
+                    _ = SwapShader(assetBundleMaterials[i]);
+                }
+                catch (Exception ex)
+                {
+                    TELog.LogE($"Failed to swap shader of material {assetBundleMaterials[i]}: {ex}");
+                }
+
+                /*
                 var material = assetBundleMaterials[i];
                 if (material.shader.name.StartsWith("StubbedCalmWater"))
                 {
@@ -92,8 +104,19 @@ namespace TurboEdition
                             break;
                         }
                     continue;
-                }
+                }*/
             }
+        }
+
+        private static async Task SwapShader(Material material)
+        {
+            var shaderName = material.shader.name.Substring(7);
+            var adressablePath = $"{shaderName}.shader";
+            var asyncOp = Addressables.LoadAssetAsync<Shader>(adressablePath);
+            var shaderTask = asyncOp.Task;
+            var shader = await shaderTask;
+            material.shader = shader;
+            MaterialsWithSwappedShaders.Add(material);
         }
     }
 }

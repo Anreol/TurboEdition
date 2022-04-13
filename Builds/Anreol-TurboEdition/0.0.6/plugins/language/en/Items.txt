@@ -1,0 +1,85 @@
+{
+	strings:
+	{
+	"ITEM_ADDTELEPORTERRADIUS_NAME": "Chromatic Lenses",
+	"ITEM_ADDTELEPORTERRADIUS_PICKUP": "Increase Teleporter charging radius.",
+	"ITEM_ADDTELEPORTERRADIUS_DESC": "Increase Teleporter charging radius by <style=cIsUtility>+8m</style> <style=cStack>(+4m per stack)</style>",
+	"ITEM_ADDTELEPORTERRADIUS_LORE": "",
+	
+	"ITEM_BANEMASK_NAME": "Voice Modulator",
+	"ITEM_BANEMASK_PICKUP": "Shriek each time you get hurt while in safety or with a chance depending of percent health lost when hurt, panicking nearby enemies.",
+	"ITEM_BANEMASK_DESC": "Panic enemies within <style=cIsUtility>16m</style> <style=cStack>(+5m per stack)</style> upon <style=cIsUtility>leaving safety</style> or depending on <style=cIsHealth>percent health lost</style> when hurt, for <style=cIsUtility>10s</style></style>. Getting to safety <style=cIsUtility>recharges both uses</style>.",
+	"ITEM_BANEMASK_LORE": "",
+	
+	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
+	"ITEM_BLOODECONOMY_PICKUP": "Discount interactables that you cannot afford by paying with your blood.",
+	"ITEM_BLOODECONOMY_DESC": "<style=cIsUtility>Decrease the cost</style> by <style=cIsDamage>2$</style> of an interacteable you cannot afford by <color=#FF7F7F>damaging yourself by 35% HP</color> up to one time <style=cStack>(+1 per stack)</style> <style=cIsUtility>Scales over time</style>.",
+	"ITEM_BLOODECONOMY_LORE": ""
+
+	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
+	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
+	"ITEM_DROPLETDUPE_DESC": "8% chance <style=cStack>(+2.5% per stack)</style> to duplicate items that fall. 3% chance <style=cStack>(+1% per stack)</style> to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
+	"ITEM_DROPLETDUPE_LORE": "",
+	
+	"ITEM_RADIOSEARCH_NAME": "UVB-51 Radio",
+	"ITEM_RADIOSEARCH_PICKUP": "Upon reaching a stage, receive the position for relevant interactables for one minute. Chance to reveal the contents of scanned objects.",
+	"ITEM_RADIOSEARCH_DESC": "Upon <style=cIsUtility>reaching a stage</style>, <style=cIsUtility>reveal</style> 15% of the stage's interactables <style=cStack>(+5 per stack)</style> for one minute. Getting close to a <style=cIsDamage>revealed</style> interactable has a 25% <style=cStack>(+5% per stack)</style> chance of <style=cIsUtility>revealing its contents.</style>",
+	"ITEM_RADIOSEARCH_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
+	
+	"ITEM_GRACEPERIOD_NAME": "Songs from the Past",
+	"ITEM_GRACEPERIOD_PICKUP": "Be able to get <style=cIsUtility>assists</style> from enemy deaths, activating <style=cIsDamage>On Kill</style> effects... <color=#FF7F7F>BUT it also activates negative effects</color>.",
+	"ITEM_GRACEPERIOD_DESC": "Enemies not directly killed by you, but that <style=cIsDamage>you've hurt</style> in the last 1 second <style=cStack>(+1s per stack)</style> will activate all <style=cIsDamage>On Kill effects</style>, <color=#FF7F7F>including negative ones</style>.",
+	"ITEM_GRACEPERIOD_LORE": "",
+	
+	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
+	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage.",
+	"ITEM_HITLAG_DESC": "Delay all incoming normal damage by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>Healing</style> reduces damage being delayed up to a 50%. <style=cSub>Affected by armor bypasses and freezes.</style>.",
+	"ITEM_HITLAG_LORE": "",
+	
+	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",
+	"ITEM_ITEMDEPLOYER_PICKUP": "Copy one of your items to a minion.",
+	"ITEM_ITEMDEPLOYER_DESC": "Give 1 <style=cStack>(+1 per stack)</style> item(s) to a minion. Give up this <style=cIsUtility>item's stack by two</style> of the chosen item to give.",
+	"ITEM_ITEMDEPLOYER_LORE": "",
+	
+	"ITEM_KNIFEFAN_NAME": "Fan of Blades",
+	"ITEM_KNIFEFAN_PICKUP": "Throw knifes upon using your utility skill.",
+	"ITEM_KNIFEFAN_DESC": "Throw 2 knifes <style=cStack>(+1 per stack)</style> around you on Utility skill use, dealing <style=cIsDamage>285% armor piercing damage</style> each.",
+	"ITEM_KNIFEFAN_LORE": "",
+	
+	"ITEM_MELEEARMOR_NAME": "Nanomachines",
+	"ITEM_MELEEARMOR_PICKUP": "Boost your armor and damage in response to physical trauma.",
+	"ITEM_MELEEARMOR_DESC": "Getting hurt by an enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to 2 times <style=cStack>(+1 per stack)</style>. <style=cIsDamage>Gain 25% more damage.</style>",
+	"ITEM_MELEEARMOR_LORE": "",
+	
+	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
+	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 5% chance of <style=cIsUtility>duplicating</style> them <style=cStack>(+1% per stack)</style>",
+	"ITEM_PACKMAGNET_LORE": "",
+	
+	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
+	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>50</style> <style=cStack>(+25 per stack)</style> each time you hit an enemy that is under 25% HP, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_LORE": "",
+
+	"ITEM_STANDBONUS_NAME": "Punching Bag",
+	"ITEM_STANDBONUS_PICKUP": "Halve incoming damage after standing still. Bonus decreases as you take damage.",
+	"ITEM_STANDBONUS_DESC": "Gain a <style=cIsUtility>50% damage reduction</style> and <style=cIsUtility>inmunity to knockback</style> after standing still.\nBuff decreases as you take 50% <style=cStack>(+50% per stack)</style> damage of your combined maximum HP.",
+	"ITEM_STANDBONUS_LORE": "",
+
+	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
+	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
+	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on <style=cIsUtility>sticky bomb proc</style> to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>540%</style> <style=cStack>(+180% per stack)</style> TOTAL damage.",
+	"ITEM_SUPERSTICKIES_LORE": "",
+
+	"ITEM_TYPEWRITER_NAME": "Typewriter",
+	"ITEM_TYPEWRITER_PICKUP": "Performing actions types a letter, forming up words creates unique effects.",
+	"ITEM_TYPEWRITER_DESC": "Type <style=cIsUtility>one letter</style> <style=cStack>(+1 per stack)</style> after using skills or walking. Getting the name of an item or a character will <style=cIsUtility>spawn</style> it.",
+	"ITEM_TYPEWRITER_LORE": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
+	
+	"ITEM_VOIDWARBANNER_NAME": "",
+	"ITEM_VOIDWARBANNER_PICKUP": "",
+	"ITEM_VOIDWARBANNER_DESC": "",
+	"ITEM_VOIDWARBANNER_LORE": "",
+	
+	}
+}

@@ -22,9 +22,10 @@ MonoBehaviour:
   CreatedDateFormat: MMM/dd HH:mm:ss
   ShowLogWindow: 1
   AttemptAddressableImport: 1
-  SelectedPipeline: {fileID: 0}
+  SelectedPipeline: {fileID: 11400000, guid: c67f5a6a33715114e8be7947dfe3c3e5, type: 2}
   SelectedManifest: {fileID: 0}
-  QuickAccessPipelines: []
+  QuickAccessPipelines:
+  - {fileID: 11400000, guid: c67f5a6a33715114e8be7947dfe3c3e5, type: 2}
   QuickAccessManifests: []
   OldGuidGenerationMode: 0
   GuidGenerationMode: 0

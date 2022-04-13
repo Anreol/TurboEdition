@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 3768546965871777247}
   - component: {fileID: 114989553434124176}
   - component: {fileID: 2043359037680833921}
+  - component: {fileID: 733617939301272120}
   m_Layer: 0
   m_Name: CrabChestBody
   m_TagString: Player
@@ -572,14 +573,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyIndex: -1
-  baseNameToken: GRENADIER_BODY_NAME
-  subtitleNameToken: GRENADIER_BODY_SUBTITLE
+  baseNameToken: CRABCHEST_BODY_NAME
+  subtitleNameToken: CRABCHEST_BODY_SUBTITLE
   activeBuffsList: 
   activeBuffsListCount: 0
   buffs: 
   eliteBuffCount: 0
   warCryEffectInstance: {fileID: 0}
-  bodyFlags: 16
+  bodyFlags: 2
   _masterObject: {fileID: 0}
   _master: {fileID: 0}
   <inventory>k__BackingField: {fileID: 0}
@@ -619,7 +620,7 @@ MonoBehaviour:
   baseMoveSpeed: 7
   baseAcceleration: 65
   baseJumpPower: 15
-  baseDamage: 16
+  baseDamage: 5
   baseAttackSpeed: 1
   baseCrit: 1
   baseArmor: 20
@@ -632,7 +633,7 @@ MonoBehaviour:
   levelMaxShield: 0
   levelMoveSpeed: 0
   levelJumpPower: 0
-  levelDamage: 3.2
+  levelDamage: 1
   levelAttackSpeed: 0
   levelCrit: 0
   levelArmor: 0
@@ -1176,7 +1177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathStateMachine: {fileID: 1949618786361257478}
   deathState:
-    _typeName: 
+    _typeName: EntityStates.GenericCharacterDeath, RoR2, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   idleStateMachine:
   - {fileID: 5937462284248254577}
   - {fileID: 8761623902472489902}
@@ -1337,7 +1339,7 @@ MonoBehaviour:
   idleStateMachine:
   - {fileID: 5937462284248254577}
   hurtState:
-    _typeName: 
+    _typeName: EntityStates.HurtState, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   canBeHitStunned: 0
   canBeStunned: 0
   canBeFrozen: 1
@@ -1375,3 +1377,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}
   requireEntitlementIfPlayerControlled: 1
+--- !u!114 &733617939301272120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196633835157065860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -578974823, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logUnlockableName: 
+  logUnlockableDef: {fileID: 11400000, guid: 7002b71b40dcb7547a6be57cb34d4592, type: 2}
+  bossDropTable: {fileID: 0}
+  fallbackGold: 0
+  <expReward>k__BackingField: 0
+  <spawnValue>k__BackingField: 0
+  characterBody: {fileID: 0}
+  bossPickup:
+    pickupName: 
