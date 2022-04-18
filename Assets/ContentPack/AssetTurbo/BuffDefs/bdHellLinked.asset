@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bdHellLinked
   m_EditorClassIdentifier: 
   <buffIndex>k__BackingField: -1
-  iconPath: Textures/ItemIcons/texNullIcon
+  iconPath:
   iconSprite: {fileID: 0}
   buffColor: {r: 1, g: 1, b: 1, a: 1}
   canStack: 0

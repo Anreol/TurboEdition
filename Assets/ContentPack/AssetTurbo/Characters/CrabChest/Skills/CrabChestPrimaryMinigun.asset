@@ -23,7 +23,7 @@ MonoBehaviour:
     _typeName: TurboEdition.EntityStates.CrabChest.Weapon.DoubleMinigunSpinup, TurboEdition,
       Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
-  baseRechargeInterval: 1
+  baseRechargeInterval: 3
   baseMaxStock: 1
   rechargeStock: 1
   requiredStock: 1
@@ -31,7 +31,7 @@ MonoBehaviour:
   resetCooldownTimerOnUse: 0
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
-  beginSkillCooldownOnSkillEnd: 0
+  beginSkillCooldownOnSkillEnd: 1
   cancelSprintingOnActivation: 1
   forceSprintDuringState: 0
   canceledFromSprinting: 0

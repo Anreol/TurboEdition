@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3981085430
+CRC: 3469634988
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e6e0ee3a38e6c82b78f4f501f57745d7
+    Hash: 7d3f74c3ad4243cdf90c24edcb2837d8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: faaf40270931423d68cd37be6d5d2edc
+    Hash: de61f506320ac3f26e02ea8d87b0c8d1
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -64,40 +64,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1480773730, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1143142494, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1533710874, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1392865457, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 952828898, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 170120512, guid: 3ff99aa2a19071810a63a4e9dbf06a54, type: 3}
-- Class: 114
-  Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1144835783, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1530905962, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 306635731, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 261648291, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1468520491, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1512185436, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
 - Class: 114
   Script: {fileID: 816898038, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -117,6 +83,8 @@ ClassTypes:
   Script: {fileID: 3143073, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 653292689, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 760127866, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -144,6 +112,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: a958c722193d47443a969c2ad392f330, type: 3}
 - Class: 114
+  Script: {fileID: 170120512, guid: 3ff99aa2a19071810a63a4e9dbf06a54, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: a4dfc8565e7f246419b17df85cd7069c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 7dc989b79fca69b4c9faec60017a5276, type: 3}
@@ -151,6 +121,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: bdbc521962730e84b8876685d5eb8080, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d497c989a6507d0409c8a1e22eeb2707, type: 3}
+- Class: 114
+  Script: {fileID: 1392865457, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -2119659324, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -166,6 +138,10 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -354346302, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 422384671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1468520491, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -1783169300, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1067940895, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -178,6 +154,14 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1077198318, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 261648291, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1143142494, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1530905962, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -226763392, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -578974823, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -188,13 +172,21 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1144835783, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 802575700, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -144590133, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -875252823, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1480773730, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -365436499, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -210,6 +202,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -359660931, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1512185436, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1888550019, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -220,7 +214,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1864444436, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1533710874, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 1931460509, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -432102721, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -246,11 +244,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -789927658, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 952828898, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -565067572, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1391837873, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1627637702, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 306635731, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1255927399, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -351,6 +353,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Equipment/CursedScythe/PickupCursedScythe.prefab
 - Assets/ContentPack/AssetTurbo/Items/BaneMask/BaneMask.asset
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/DropletDupe.asset
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunSpinDown.asset
 - Assets/Mesh/Items/meshTeleporterLenses_.mesh
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOff.png
 - Assets/Textures/texBlackKumo0101_under00.png
@@ -380,6 +383,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxPanicDrops.prefab
 - Assets/Textures/texGlowDirty.png
 - Assets/Textures/texKnifeUVNormal.png
+- Assets/Shaders/RoR2/Base/Shaders/FX/HGIntersectionCloudRemap.asset
 - Assets/ContentPack/AssetTurbo/Items/PackMagnet/PackMagnet.asset
 - Assets/ContentPack/AssetTurbo/Misc/NetworkSoundEffectDefs/nseLeaveStageError.asset
 - Assets/Textures/texOilSplatter.png
@@ -403,6 +407,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Equipment/Hellchain/Hellchain.asset
 - Assets/Other/TextMesh Pro/Fonts/LiberationSans.ttf
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
+- Assets/Shaders/RoR2/Base/Shaders/Deferred/HGStandard.asset
 - Assets/Textures/texSandbagNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierUtility.asset
 - Assets/Textures/texSuperStickyFresnel.png
@@ -432,6 +437,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/WarbannerVoid/WarbannerVoid.asset
 - Assets/ContentPack/AssetTurbo/Items/AirborneDash/AirborneDash.asset
 - Assets/Textures/texKnifeUVFresnel.png
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunSpinUp.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
 - Assets/Textures/Ramps/texTeamAreaIndicatorEnemy.png
@@ -484,6 +490,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/SuperStickyBombProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Equipment/VoidSquad/VoidSquad.asset
 - Assets/Materials/matSweatParticle.mat
+- Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunFire.asset
 - Assets/Materials/matSmokePuffDirectional.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireSecondary.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bag.png
@@ -517,6 +524,7 @@ Assets:
 - Assets/Textures/texTeleporterLensesGlass.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormNonEliteArtifact.asset
 - Assets/Textures/texKumo0101_00.png
+- Assets/Shaders/Decalicious/Shader/DecaliciousDeferredDecal.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lunar.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestUtilityBigJump.asset
 - Assets/Materials/matSandbag.mat
@@ -564,10 +572,12 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
 - Assets/Le Tai's Asset/TranslucentImage/Resources/TranslucentImage.shader
 - Assets/Materials/matGlassWhite.mat
+- Assets/Shaders/RoR2/Base/Shaders/Deferred/HGStandardWithDistortion.asset
 - Assets/Textures/texTeleporterLensesClothBase.png
 - Assets/ContentPack/AssetTurbo/Items/RadioSearch/RadioSearch.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
 - Assets/Materials/matCardTest.mat
+- Assets/Shaders/RoR2/Base/Shaders/FX/HGCloudRemap.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
@@ -587,6 +597,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/MeltdownArtifact.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdMeleeArmor.asset
 - Assets/Materials/matDustTrail.mat
+- Assets/Shaders/Shader/Hopoo GamesFXCloud Remap.asset
 - Assets/ContentPack/AssetTurbo/Items/KnifeFan/PickupKnifeFan.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/nanomachines.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/GrenadierBasicPrimaryGhost.prefab

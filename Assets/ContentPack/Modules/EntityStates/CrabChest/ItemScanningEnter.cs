@@ -1,34 +1,74 @@
 ﻿using EntityStates;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
+using UnityEngine.Events;
 using UnityEngine.Networking;
 
 namespace TurboEdition.EntityStates.CrabChest.ItemScanner
 {
     internal class ItemScanningEnter : BaseItemStealState
     {
-        public int numMaxStrayDropletsToSteal;
-        public int numMaxItemStackToSteal;
-        public int maxhHeightTolerance;
+        private bool hasSubscribedToStealFinish;
+        private bool hasBegunSteal;
 
-        private static void GetDropletsNearby(Vector3 origin, Vector3 aimDirection, float coneAngle, float maxDist, float heightTolerance)
+        //public int numMaxStrayDropletsToSteal;
+        //public int numMaxItemStackToSteal;
+
+        public int maxHeightTolerance;
+        public int maxDistance;
+        public int maxConeAngle;
+        public string childBoneLocatorString;
+
+        public int delayBeforeBeginningSteal;
+        public int maxDuration;
+        public float stealInterval;
+
+        public override void FixedUpdate()
         {
-            float cone = Mathf.Cos(coneAngle * 0.5f * 0.017453292f);
-            foreach (GenericPickupController item in InstanceTracker.GetInstancesList<GenericPickupController>())
+            base.FixedUpdate();
+            if (!this.itemStealController)
             {
-                if (Vector3.Distance(origin, item.transform.position) <= maxDist)
+                return;
+            }
+            if (!this.hasSubscribedToStealFinish && base.isAuthority)
+            {
+                this.hasSubscribedToStealFinish = true;
+                if (NetworkServer.active)
                 {
-                    Vector3 normalized = (origin - item.transform.position).normalized;
-                    if (Vector3.Dot(-normalized, aimDirection) >= cone && heightTolerance >= Mathf.Abs(origin.y - item.transform.position.y))
-                    {
-
-                    }
+                    this.itemStealController.onStealFinishServer.AddListener(new UnityAction(this.OnStealEndAuthority));
+                }
+                else
+                {
+                    this.itemStealController.onStealFinishClient += this.OnStealEndAuthority;
                 }
             }
+            if (NetworkServer.active && base.fixedAge > delayBeforeBeginningSteal && !this.hasBegunSteal)
+            {
+                this.hasBegunSteal = true;
+                this.itemStealController.stealInterval = stealInterval;
+                TeamIndex teamIndex = base.GetTeam();
+                this.itemStealController.StartSteal((CharacterMaster characterMaster) => TeamManager.IsTeamEnemy(characterMaster.teamIndex, teamIndex) && characterMaster.hasBody && TransformBypassesFilter(characterMaster.transform.position, base.transform.position, base.characterBody.inputBank.aimDirection, maxConeAngle, maxDistance, maxHeightTolerance));
+            }
+            if (base.isAuthority && base.fixedAge > delayBeforeBeginningSteal + maxDuration)
+            {
+                this.outer.SetNextState(new ItemScanningExit());
+            }
+            if (childBoneLocatorString.Length > 0)
+            {
+                this.itemStealController.transform.position = base.GetModelChildLocator().FindChild(childBoneLocatorString).transform.position;
+            }
         }
-
+        public override void OnExit()
+        {
+            if (this.itemStealController && this.hasSubscribedToStealFinish)
+            {
+                this.itemStealController.onStealFinishServer.RemoveListener(new UnityAction(this.OnStealEndAuthority));
+                this.itemStealController.onStealFinishClient -= this.OnStealEndAuthority;
+            }
+            base.OnExit();
+        }
+        private void OnStealEndAuthority()
+        {
+            this.outer.SetNextState(new ItemScanningExit());
+        }
     }
 }

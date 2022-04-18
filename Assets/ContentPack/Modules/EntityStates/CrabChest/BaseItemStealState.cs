@@ -59,8 +59,21 @@ namespace TurboEdition.EntityStates.CrabChest.ItemScanner
                 NetworkServer.Spawn(gameObject);
             }
         }
+        public bool TransformBypassesFilter(Vector3 targetTransform, Vector3 originTransform, Vector3 aimDirection, float coneAngle, float maxDist, float heightTolerance)
+        {
+            float cone = Mathf.Cos(coneAngle * 0.5f * 0.017453292f);
+            if (Vector3.Distance(originTransform, targetTransform) <= maxDist)
+            {
+                Vector3 normalized = (originTransform - targetTransform).normalized;
+                if (Vector3.Dot(-normalized, aimDirection) >= cone && heightTolerance >= Mathf.Abs(originTransform.y - targetTransform.y))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
-        public bool PlayerFilter(CharacterMaster characterMaster)
+        public bool ItemFilter(ItemIndex index)
         {
             return true;
         }

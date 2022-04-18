@@ -106,6 +106,8 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\DoubleMinigunSpinup.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\DoubleMinigunState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\ItemScanningEnter.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\ItemScanningExit.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\LeapAtEnemy.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollLoop.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollSingle.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReload.cs" />

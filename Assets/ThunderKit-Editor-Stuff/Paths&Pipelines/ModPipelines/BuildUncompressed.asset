@@ -15,27 +15,9 @@ MonoBehaviour:
   Data:
   - {fileID: 114856607283172862}
   - {fileID: 114737672866306462}
-  - {fileID: 114628780278423992}
+  - {fileID: 3565862318650120610}
   QuickAccess: 0
   manifest: {fileID: 11400000, guid: 2c1262962c6f2bd16ef910d2862a0880, type: 2}
---- !u!114 &114628780278423992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162923f5fc933e84c9cb1980f8770cca, type: 3}
-  m_Name: SwapShadersAndStageAssetBundles
-  m_EditorClassIdentifier: 
-  Active: 1
-  AssetBundleBuildOptions: 1
-  buildTarget: 5
-  recurseDirectories: 1
-  simulate: 0
-  BundleArtifactPath: <AssetBundleStaging>
 --- !u!114 &114737672866306462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +48,24 @@ MonoBehaviour:
   m_Name: StageAssetBundles
   m_EditorClassIdentifier: 
   Active: 0
+  AssetBundleBuildOptions: 1
+  buildTarget: 5
+  recurseDirectories: 1
+  simulate: 0
+  BundleArtifactPath: <AssetBundleStaging>
+--- !u!114 &3565862318650120610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162923f5fc933e84c9cb1980f8770cca, type: 3}
+  m_Name: SwapShadersAndStageAssetBundles
+  m_EditorClassIdentifier: 
+  Active: 1
   AssetBundleBuildOptions: 1
   buildTarget: 5
   recurseDirectories: 1

@@ -1,12 +1,13 @@
 ﻿using Mono.Cecil;
 using Mono.Cecil.Cil;
+using MonoMod.Cil;
 using RoR2;
 using RoR2.Projectile;
 using System;
 using UnityEngine;
 
 namespace TurboEdition.Items
-{/*
+{
     public static class SuperStickiesManager
     {
         [SystemInitializer(typeof(PickupCatalog))]
@@ -64,5 +65,5 @@ namespace TurboEdition.Items
                 }
             }
         }
-    }*/
+    }
 }

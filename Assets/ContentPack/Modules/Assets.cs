@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using TurboEdition.Components;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Path = System.IO.Path;
@@ -45,7 +44,7 @@ namespace TurboEdition
         {
             if (assetBundle.isStreamedSceneAssetBundle)
                 return;
-
+            Debug.Log("Remapping materials");
             //var cloudRemapReference = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
 
             Material[] assetBundleMaterials = assetBundle.LoadAllAssets<Material>();
@@ -53,13 +52,18 @@ namespace TurboEdition
 
             for (int i = 0; i < assetBundleMaterials.Length; i++)
             {
-                try
+                if (assetBundleMaterials[i].shader.name.Contains("Stubbed"))
                 {
-                    _ = SwapShader(assetBundleMaterials[i]);
-                }
-                catch (Exception ex)
-                {
-                    TELog.LogE($"Failed to swap shader of material {assetBundleMaterials[i]}: {ex}");
+                    try
+                    {
+                        //Debug.Log("mat: " + assetBundleMaterials[i] + " with shader " + assetBundleMaterials[i].shader);
+                        var fuck = SwapShader(assetBundleMaterials[i]);
+                        //Debug.Log("Swapped: " + assetBundleMaterials[i].shader);
+                    }
+                    catch (Exception ex)
+                    {
+                        TELog.LogE($"Failed to swap shader of material {assetBundleMaterials[i]}: {ex}");
+                    }
                 }
 
                 /*
@@ -112,10 +116,12 @@ namespace TurboEdition
         {
             var shaderName = material.shader.name.Substring(7);
             var adressablePath = $"{shaderName}.shader";
+            //Debug.Log("Shader name: " + shaderName + "\nAddressable Path: " + adressablePath);
             var asyncOp = Addressables.LoadAssetAsync<Shader>(adressablePath);
-            var shaderTask = asyncOp.Task;
-            var shader = await shaderTask;
+            Task<Shader> shaderTask = asyncOp.Task;
+            Shader shader = await shaderTask;
             material.shader = shader;
+            //Debug.Log("Finalized swapping, shader is: " + shader.name + " and the material shader is " + material.shader);
             MaterialsWithSwappedShaders.Add(material);
         }
     }
