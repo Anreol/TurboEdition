@@ -121,6 +121,11 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeThrowBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollLoop.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityBodyRollSingle.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombGet.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombHolding.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombThrow.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombThrowForced.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\ImpHurtState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\GrenadierSpecialSkillDef.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
