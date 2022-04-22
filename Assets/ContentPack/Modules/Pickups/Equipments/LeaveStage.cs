@@ -43,13 +43,14 @@ namespace TurboEdition.Equipments
         {
             if (canLeave)
             {
-                return UseThingie();
+                return UseThingie(slot);
             }
-            PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
+            //PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
+            EntitySoundManager.EmitSoundServer(networkSound.index, slot.gameObject);
             return false;
         }
 
-        public bool UseThingie()
+        public bool UseThingie(EquipmentSlot slot)
         {
             if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) //Is anniversary moon. Do not know how to get it in a better way.
             {
@@ -64,6 +65,7 @@ namespace TurboEdition.Equipments
             }
             if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) //Not a stage trololo
             {
+                PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
                 return false;
             }
             if (TeleporterInteraction.instance.chargeFraction >= 0.99f || TeleporterInteraction.instance.monstersCleared || (TeleporterInteraction.instance.currentState is TeleporterInteraction.ChargedState && TeleporterInteraction.instance.monstersCleared))
@@ -74,6 +76,7 @@ namespace TurboEdition.Equipments
                 sceneExitGO.GetComponent<SceneExitController>()?.Begin();
                 return true;
             }
+            PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
             return false;
         }
 

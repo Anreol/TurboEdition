@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matSweatParticle
   m_Shader: {fileID: 4800000, guid: 2e68267ebb51d0a438acfc57e42a7269, type: 2}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: FADECLOSE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -76,9 +76,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0.024
+    - _AlphaBias: 0.04
     - _AlphaBoost: 1.9
-    - _Boost: 2
+    - _Boost: 3.6
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CharacterLimit: 3
@@ -98,7 +98,7 @@ Material:
     - _ExtrusionStrength: 1
     - _Fade: 1
     - _FadeCloseDistance: 0.5
-    - _FadeCloseOn: 0
+    - _FadeCloseOn: 1
     - _FadeFromVertexColorsOn: 0
     - _FresnelOn: 0
     - _FresnelPower: 0
@@ -107,7 +107,7 @@ Material:
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
     - _IntersectionStrength: 0
-    - _InvFade: 0.05
+    - _InvFade: 0.12
     - _Metallic: 0
     - _Mode: 0
     - _NormalStrength: 1

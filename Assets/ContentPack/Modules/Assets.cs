@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using TurboEdition.Components;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Path = System.IO.Path;
@@ -44,84 +45,35 @@ namespace TurboEdition
         {
             if (assetBundle.isStreamedSceneAssetBundle)
                 return;
-            Debug.Log("Remapping materials");
-            //var cloudRemapReference = Resources.Load<GameObject>("Prefabs/Effects/OrbEffects/LightningStrikeOrbEffect").transform.Find("Ring").GetComponent<ParticleSystemRenderer>().material;
-
+            Debug.Log("Remapping materials in assetbundle " + assetBundle.name);
             Material[] assetBundleMaterials = assetBundle.LoadAllAssets<Material>();
-            //Material[] assetBundleMaterialObjects = Resources.FindObjectsOfTypeAll<Material>();
 
             for (int i = 0; i < assetBundleMaterials.Length; i++)
             {
+                Debug.Log("mat: " + assetBundleMaterials[i] + " with shader " + assetBundleMaterials[i].shader + " is stubbed " + (bool)assetBundleMaterials[i].shader.name.Contains("Stubbed"));
                 if (assetBundleMaterials[i].shader.name.Contains("Stubbed"))
                 {
                     try
                     {
-                        //Debug.Log("mat: " + assetBundleMaterials[i] + " with shader " + assetBundleMaterials[i].shader);
-                        var fuck = SwapShader(assetBundleMaterials[i]);
-                        //Debug.Log("Swapped: " + assetBundleMaterials[i].shader);
+                        SwapShader(assetBundleMaterials[i]);
+                        Debug.Log("Swapped: " + assetBundleMaterials[i].shader);
                     }
                     catch (Exception ex)
                     {
                         TELog.LogE($"Failed to swap shader of material {assetBundleMaterials[i]}: {ex}");
                     }
                 }
-
-                /*
-                var material = assetBundleMaterials[i];
-                if (material.shader.name.StartsWith("StubbedCalmWater"))
-                {
-                    material.shader = Addressables.LoadAssetAsync<Shader>("Calm Water/" + material.shader.name.Substring(7)).WaitForCompletion();
-                    MaterialsWithSwappedShaders.Add(material);
-                    continue;
-                }
-                if (material.shader.name.StartsWith("StubbedDecalicious"))
-                {
-                    Debug.Log(material.shader.name);
-                    Debug.Log(material.shader.name.Substring(7));
-                    material.shader = Addressables.LoadAssetAsync<Shader>("Decalicious/" + material.shader.name.Substring(8)).WaitForCompletion();
-                    MaterialsWithSwappedShaders.Add(material);
-                    continue;
-                }
-                // If it's stubbed, just switch out the shader unless it's fucking cloudremap
-                if (material.shader.name.StartsWith("StubbedShader"))
-                {
-                    material.shader = Addressables.LoadAssetAsync<Shader>("RoR2/Base/Shaders/HG" + material.shader.name.Substring(13)).WaitForCompletion();
-                    if (material.shader.name.Contains("Cloud Remap"))
-                    {
-                        var eatShit = new RuntimeCloudMaterialMapper(material);
-                        material.CopyPropertiesFromMaterial(cloudRemapReference);
-                        eatShit.SetMaterialValues(ref material);
-                    }
-                    MaterialsWithSwappedShaders.Add(material);
-                    continue;
-                }
-
-                //If it's this shader it searches for a material with the same name and copies the properties
-                if (material.shader.name.Equals("CopyFromRoR2"))
-                {
-                    foreach (var gameMaterial in assetBundleMaterialObjects)
-                        if (material.name.Equals(gameMaterial.name))
-                        {
-                            material.shader = gameMaterial.shader;
-                            material.CopyPropertiesFromMaterial(gameMaterial);
-                            MaterialsWithSwappedShaders.Add(material);
-                            break;
-                        }
-                    continue;
-                }*/
             }
         }
 
-        private static async Task SwapShader(Material material)
+        private static async void SwapShader(Material material)
         {
-            var shaderName = material.shader.name.Substring(7);
+            var shaderName = material.shader.name.Substring("Stubbed".Length);
             var adressablePath = $"{shaderName}.shader";
-            //Debug.Log("Shader name: " + shaderName + "\nAddressable Path: " + adressablePath);
             var asyncOp = Addressables.LoadAssetAsync<Shader>(adressablePath);
-            Task<Shader> shaderTask = asyncOp.Task;
-            Shader shader = await shaderTask;
+            var shaderTask = asyncOp.Task;
+            var shader = await shaderTask;
             material.shader = shader;
-            //Debug.Log("Finalized swapping, shader is: " + shader.name + " and the material shader is " + material.shader);
             MaterialsWithSwappedShaders.Add(material);
         }
     }

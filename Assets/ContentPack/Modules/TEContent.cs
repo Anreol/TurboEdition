@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using TurboEdition.Misc;
 using UnityEngine;
 
 namespace TurboEdition
@@ -85,15 +86,12 @@ namespace TurboEdition
 
         public IEnumerator FinalizeAsync(FinalizeAsyncArgs args)
         {
-            RoR2Application.onLoad += (delegate ()
+            if (Directory.Exists(Assets.languageRoot))
             {
-                if (Directory.Exists(Assets.languageRoot))
-                {
-                    //Misc.MiscLanguage.FixLanguageFolders(Assets.languageRoot);
-                    Misc.MiscLanguage.AddDeathMessages();
-                }
-            });
-
+                Language.collectLanguageRootFolders += (List<string> stringList) => stringList.Add(Assets.languageRoot);
+                Misc.MiscLanguage.AddDeathMessages();
+            }
+            CostExtras.Init();
             RoR2Application.isModded = true;
             args.ReportProgress(1f);
             yield break;

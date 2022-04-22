@@ -6,6 +6,16 @@
 	"ITEM_ADDTELEPORTERRADIUS_DESC": "Increase Teleporter charging radius by <style=cIsUtility>+8m</style> <style=cStack>(+4m per stack)</style>",
 	"ITEM_ADDTELEPORTERRADIUS_LORE": "",
 	
+	"ITEM_AIRBORNEBONUS_NAME": "Angel Wings",
+	"ITEM_AIRBORNEBONUS_PICKUP": "Deal more damage while airbone.",
+	"ITEM_AIRBORNEBONUS_DESC": "Deal <style=cIsDamage>25%</style> <style=cStack>(+20% per stack)</style> more damage while <style=cIsUtility>airbone</style>. Increase <style=cIsUtility>air control</style> by 10.",
+	"ITEM_AIRBORNEBONUS_LORE": "",
+	
+	"ITEM_AIRBORNEDASH_NAME": "Thieves' Hat",
+	"ITEM_AIRBORNEDASH_PICKUP": "Dash sideways whenever jumping midair while not moving forward.",
+	"ITEM_AIRBORNEDASH_DESC": "While not moving forward, jumping midair will grant you a <style=cIsUtility>dash</style> at <style=cIsUtility>2m/s</style> <style=cStack>(+ 2m per stack)</style>. Gain an <style=cIsUtility>extra jump</style> in the first and every <style=cIsDamage>5 stacks</style>.",
+	"ITEM_AIRBORNEDASH_LORE": "",
+	
 	"ITEM_BANEMASK_NAME": "Voice Modulator",
 	"ITEM_BANEMASK_PICKUP": "Shriek each time you get hurt while in safety or with a chance depending of percent health lost when hurt, panicking nearby enemies.",
 	"ITEM_BANEMASK_DESC": "Panic enemies within <style=cIsUtility>16m</style> <style=cStack>(+5m per stack)</style> upon <style=cIsUtility>leaving safety</style> or depending on <style=cIsHealth>percent health lost</style> when hurt, for <style=cIsUtility>10s</style></style>. Getting to safety <style=cIsUtility>recharges both uses</style>.",
@@ -13,12 +23,12 @@
 	
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
 	"ITEM_BLOODECONOMY_PICKUP": "Discount interactables that you cannot afford by paying with your blood.",
-	"ITEM_BLOODECONOMY_DESC": "<style=cIsUtility>Decrease the cost</style> by <style=cIsDamage>2$</style> of an interacteable you cannot afford by <color=#FF7F7F>damaging yourself by 35% HP</color> up to one time <style=cStack>(+1 per stack)</style> <style=cIsUtility>Scales over time</style>.",
+	"ITEM_BLOODECONOMY_DESC": "<style=cIsUtility>Decrease the cost</style> by <style=cIsDamage>2$</style> of an interacteable you cannot afford by <color=#FF7F7F>damaging yourself by 35% HP</color> up to one time <style=cStack>(+1 per stack)</style>. <style=cIsUtility>Scales over time</style>.",
 	"ITEM_BLOODECONOMY_LORE": ""
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
 	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
-	"ITEM_DROPLETDUPE_DESC": "8% chance <style=cStack>(+2.5% per stack)</style> to duplicate items that fall. 3% chance <style=cStack>(+1% per stack)</style> to <color=#FF7F7F>instantly die when hurt</color>.\n<style=cIsUtility>Death chance is affected by luck</style>.",
+	"ITEM_DROPLETDUPE_DESC": "8% chance <style=cStack>(+2.5% per stack)</style> to <style=cIsUtility>duplicate items</style> that fall. 3% chance <style=cStack>(+1% per stack)</style> to <color=#FF7F7F>instantly die when hurt</color>. <style=cIsUtility>Death chance is affected by luck</style>.",
 	"ITEM_DROPLETDUPE_LORE": "",
 	
 	"ITEM_RADIOSEARCH_NAME": "UVB-51 Radio",
@@ -26,9 +36,9 @@
 	"ITEM_RADIOSEARCH_DESC": "Upon <style=cIsUtility>reaching a stage</style>, <style=cIsUtility>reveal</style> 15% of the stage's interactables <style=cStack>(+5 per stack)</style> for one minute. Getting close to a <style=cIsDamage>revealed</style> interactable has a 25% <style=cStack>(+5% per stack)</style> chance of <style=cIsUtility>revealing its contents.</style>",
 	"ITEM_RADIOSEARCH_LORE": "It's happening.\n\nIt's happening.\n\nIt's happening.\n\n\n\nIt's over.",
 	
-	"ITEM_GRACEPERIOD_NAME": "Songs from the Past",
-	"ITEM_GRACEPERIOD_PICKUP": "Be able to get <style=cIsUtility>assists</style> from enemy deaths, activating <style=cIsDamage>On Kill</style> effects... <color=#FF7F7F>BUT it also activates negative effects</color>.",
-	"ITEM_GRACEPERIOD_DESC": "Enemies not directly killed by you, but that <style=cIsDamage>you've hurt</style> in the last 1 second <style=cStack>(+1s per stack)</style> will activate all <style=cIsDamage>On Kill effects</style>, <color=#FF7F7F>including negative ones</style>.",
+	"ITEM_GRACEPERIOD_NAME": "Soul Container",
+	"ITEM_GRACEPERIOD_PICKUP": "Enemies you've hurt in the last few seconds before their death will activate all of your <style=cIsDamage>On Kill</style> effects, even <color=#FF7F7F>negative effects</color>.",
+	"ITEM_GRACEPERIOD_DESC": "Any enemy you've hurt directly in the <style=cIsDamage>last 2 seconds</style> from their death <style=cStack>(+ 1s per stack)</style> will trigger all of your <style=cIsDamage>On Kill</style> effects, even <color=#FF7F7F>negative effects</color>...",
 	"ITEM_GRACEPERIOD_LORE": "",
 	
 	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
@@ -62,7 +72,7 @@
 	"ITEM_SOULDEVOURER_LORE": "",
 
 	"ITEM_STANDBONUS_NAME": "Punching Bag",
-	"ITEM_STANDBONUS_PICKUP": "Halve incoming damage after standing still. Bonus decreases as you take damage.",
+	"ITEM_STANDBONUS_PICKUP": "Gain immunity to knockback and halve incoming damage after standing still. Bonus decreases as you take damage.",
 	"ITEM_STANDBONUS_DESC": "Gain a <style=cIsUtility>50% damage reduction</style> and <style=cIsUtility>inmunity to knockback</style> after standing still.\nBuff decreases as you take 50% <style=cStack>(+50% per stack)</style> damage of your combined maximum HP.",
 	"ITEM_STANDBONUS_LORE": "",
 
@@ -76,10 +86,10 @@
 	"ITEM_TYPEWRITER_DESC": "Type <style=cIsUtility>one letter</style> <style=cStack>(+1 per stack)</style> after using skills or walking. Getting the name of an item or a character will <style=cIsUtility>spawn</style> it.",
 	"ITEM_TYPEWRITER_LORE": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
 	
-	"ITEM_VOIDWARBANNER_NAME": "",
-	"ITEM_VOIDWARBANNER_PICKUP": "",
-	"ITEM_VOIDWARBANNER_DESC": "",
-	"ITEM_VOIDWARBANNER_LORE": "",
+	"ITEM_WARBANNERVOID_NAME": "War Declaration",
+	"ITEM_WARBANNERVOID_PICKUP": "",
+	"ITEM_WARBANNERVOID_DESC": "",
+
 	
 	}
 }

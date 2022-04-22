@@ -15,6 +15,7 @@ MonoBehaviour:
   bodyPrefabs:
   - {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5, type: 3}
   - {fileID: 9196633835157065860, guid: 76cb1e9685ad9fc4d97394864c5dda3e, type: 3}
+  - {fileID: 9196633835157065860, guid: 8104befcda172954f9bc0dac09520ffa, type: 3}
   masterPrefabs: []
   projectilePrefabs:
   - {fileID: 2074815300407172818, guid: 5a2d61750beb9e24d9a179e83d0bdd18, type: 3}
@@ -76,6 +77,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 909c95e53da82894fb312688494a7f6a, type: 2}
   - {fileID: 11400000, guid: 3e7ec56cec60a0a47846c86c30f18eb2, type: 2}
   - {fileID: 11400000, guid: 299e4e4152716bf4caf65d885af0b391, type: 2}
+  - {fileID: 11400000, guid: 8579b21d89c54e445bb851aaac16fda2, type: 2}
   - {fileID: 11400000, guid: 0a18c326e9746e9479f942a8bf7a7937, type: 2}
   equipmentDefs:
   - {fileID: 11400000, guid: db5f8f8735505d440aad0e7b540c4933, type: 2}
@@ -118,7 +120,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a2f133c06f05b3645a444a949bd9f483, type: 2}
   - {fileID: 11400000, guid: 8617585608878de429690cc648fc6439, type: 2}
   entityStateTypes: []
-  itemTierDefs: []
+  itemTierDefs:
+  - {fileID: 11400000, guid: 0c88764d8ce49f045b07565a3316082b, type: 2}
   itemRelationshipProviders: []
   itemRelationshipTypes: []
   expansionDefs:

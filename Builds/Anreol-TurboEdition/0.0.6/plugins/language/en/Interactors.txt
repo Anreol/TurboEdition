@@ -19,5 +19,7 @@
 	
 	//[TURRETS],
 
+
+	"COST_TELEPORTERCHARGE_FORMAT": "{0}% <sprite name=\"TP\" tint=1>",
 	}
 }

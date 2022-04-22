@@ -1,6 +1,8 @@
 ﻿using BepInEx;
 using RoR2;
 using RoR2.ContentManagement;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 
@@ -36,31 +38,10 @@ namespace TurboEdition
             pluginInfo = Info;
             instance = this;
 
-            On.RoR2.Language.SetFolders += StinkyShit;
             ContentManager.collectContentPackProviders += (addContentPackProvider) => addContentPackProvider(new TEContent());
 #if DEBUG
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);
 #endif
-        }
-
-        private void StinkyShit(On.RoR2.Language.orig_SetFolders orig, Language self, System.Collections.Generic.IEnumerable<string> newFolders)
-        {
-            if (System.IO.Directory.Exists(Assets.languageRoot))
-            {
-                /*var allLanguageFolders = System.IO.Directory.EnumerateDirectories(Assets.languageRoot);
-                foreach (var singleFolder in allLanguageFolders)
-                {
-                    int languageName = singleFolder.LastIndexOf("\\") + 1;
-                    if ((newFolders.First().Contains(singleFolder.Substring(languageName, singleFolder.Length - languageName))))
-                    {
-                        newFolders = newFolders.Concat(new[] { singleFolder });
-                    }
-                }*/
-                var dirs = System.IO.Directory.EnumerateDirectories(System.IO.Path.Combine(Assets.languageRoot), self.name);
-                orig(self, newFolders.Union(dirs));
-                return;
-            }
-            orig(self, newFolders);
         }
     }
 }

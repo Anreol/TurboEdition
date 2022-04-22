@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
@@ -117,8 +118,8 @@ namespace TurboEdition.Artifacts
         private static List<CharacterSpawnCard> SetupBaseCards()
         {
             List<CharacterSpawnCard> spawnCards = new List<CharacterSpawnCard>();
-            spawnCards.Add(UnityEngine.Object.Instantiate(Resources.Load<CharacterSpawnCard>("SpawnCards/CharacterSpawncards/cscMagmaWorm")));
-            spawnCards.Add(UnityEngine.Object.Instantiate(Resources.Load<CharacterSpawnCard>("SpawnCards/CharacterSpawncards/cscElectricWorm")));
+            spawnCards.Add(UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/MagmaWorm/cscMagmaWorm.asset").WaitForCompletion()));
+            spawnCards.Add(UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/ElectricWorm/cscElectricWorm.asset").WaitForCompletion()));
             foreach (CharacterSpawnCard item in spawnCards)
             {
                 item.name += "Artifact";

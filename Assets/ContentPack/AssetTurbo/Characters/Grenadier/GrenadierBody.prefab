@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthComponent: {fileID: 1927676449937621408}
-  isBullseye: 0
+  isBullseye: 1
   isSniperTarget: 0
   damageModifier: 0
   <teamIndex>k__BackingField: -1
@@ -548,7 +548,7 @@ MonoBehaviour:
   - {fileID: 2421667031911229486}
   - {fileID: 803774332545281539}
   mainHurtBox: {fileID: 2421667031911229486}
-  bullseyeCount: 0
+  bullseyeCount: 1
   _hurtBoxesDeactivatorCounter: 0
 --- !u!114 &8413216178746677724
 MonoBehaviour:
@@ -1256,9 +1256,10 @@ MonoBehaviour:
   <stateMachine>k__BackingField: {fileID: 0}
   <characterBody>k__BackingField: {fileID: 0}
   <defaultSkillDef>k__BackingField: {fileID: 0}
+  currentSkillOverride: -1
   bonusStockFromBody: 0
   <maxStock>k__BackingField: 0
-  <stock>k__BackingField: 0
+  baseStock: 0
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
@@ -1284,9 +1285,10 @@ MonoBehaviour:
   <stateMachine>k__BackingField: {fileID: 0}
   <characterBody>k__BackingField: {fileID: 0}
   <defaultSkillDef>k__BackingField: {fileID: 0}
+  currentSkillOverride: -1
   bonusStockFromBody: 0
   <maxStock>k__BackingField: 0
-  <stock>k__BackingField: 0
+  baseStock: 0
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
@@ -1312,9 +1314,10 @@ MonoBehaviour:
   <stateMachine>k__BackingField: {fileID: 0}
   <characterBody>k__BackingField: {fileID: 0}
   <defaultSkillDef>k__BackingField: {fileID: 0}
+  currentSkillOverride: -1
   bonusStockFromBody: 0
   <maxStock>k__BackingField: 0
-  <stock>k__BackingField: 0
+  baseStock: 0
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
@@ -1340,9 +1343,10 @@ MonoBehaviour:
   <stateMachine>k__BackingField: {fileID: 0}
   <characterBody>k__BackingField: {fileID: 0}
   <defaultSkillDef>k__BackingField: {fileID: 0}
+  currentSkillOverride: -1
   bonusStockFromBody: 0
   <maxStock>k__BackingField: 0
-  <stock>k__BackingField: 0
+  baseStock: 0
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
@@ -1368,9 +1372,10 @@ MonoBehaviour:
   <stateMachine>k__BackingField: {fileID: 0}
   <characterBody>k__BackingField: {fileID: 0}
   <defaultSkillDef>k__BackingField: {fileID: 0}
+  currentSkillOverride: -1
   bonusStockFromBody: 0
   <maxStock>k__BackingField: 0
-  <stock>k__BackingField: 0
+  baseStock: 0
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
