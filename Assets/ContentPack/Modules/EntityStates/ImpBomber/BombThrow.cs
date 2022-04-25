@@ -20,6 +20,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
 
         public override void OnEnter()
         {
+            base.OnEnter();
             for (int i = 0; i < stageNames.Length; i++)
             {
                 if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName(stageNames[i]) && stageProjectilePrefabs[i])
@@ -31,5 +32,11 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             }
             base.OnEnter();
         }
+        public override void PlayAnimation(float duration)
+        {
+            base.PlayAnimation(duration);
+            base.PlayCrossfade("Gesture, Additive", "ThrowBomb", "BombThrow.playbackRate", duration, 0.1f);
+        }
+
     }
 }

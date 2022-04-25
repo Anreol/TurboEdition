@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using RoR2;
+using System;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.ImpBomber.Weapon
@@ -8,17 +9,19 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
     {
         public static float baseDuration;
         public static string enterSoundString;
+        public static string bombBoneChildName;
 
         private ChildLocator childLocator;
         private GameObject bombInstance;
+        [SerializeField]
         public GameObject bombPrefabDefault;
 
         [Tooltip("The stages in which to use a specific model. Parallel to stageProjectilePrefabs.")]
         [SerializeField]
-        public string[] stageNames;
+        public static string[] stageNames = Array.Empty<string>();
         [Tooltip("The specific projectile prefabs to use per stage. Parallel to stageNames.")]
         [SerializeField]
-        public GameObject[] stageBombPrefabs;
+        public static GameObject[] stageBombPrefabs = Array.Empty<GameObject>();
 
         private float duration
         {
@@ -31,17 +34,21 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
         public override void OnEnter()
         {
             base.OnEnter();
-            base.PlayCrossfade("Gesture, Additive", "EnterReload", "Reload.playbackRate", this.duration, 0.1f);
+            if (skillLocator)
+            {
+                skillLocator.primary.DeductStock(skillLocator.primary.stock);
+            }
+            base.PlayCrossfade("Gesture, Additive", "GetBomb", "BombGet.playbackRate", this.duration, 0.1f);
             Util.PlaySound(enterSoundString, base.gameObject);
             this.childLocator = base.GetModelChildLocator();
             if (this.childLocator)
             {
-                Transform transform = this.childLocator.FindChild("MuzzleBetween") ?? base.characterBody.coreTransform;
+                Transform transform = this.childLocator.FindChild(bombBoneChildName) ?? base.characterBody.coreTransform;
                 for (int i = 0; i < stageNames.Length; i++)
                 {
                     if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName(stageNames[i]) && stageBombPrefabs[i])
                     {
-                        this.bombInstance = UnityEngine.Object.Instantiate<GameObject>(this.stageBombPrefabs[i], transform.position, transform.rotation);
+                        this.bombInstance = UnityEngine.Object.Instantiate<GameObject>(stageBombPrefabs[i], transform.position, transform.rotation);
                         this.bombInstance.transform.parent = transform;
                         return;
                     }
@@ -64,7 +71,16 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
                 this.outer.SetNextState(jc);
             }
         }
-
+        public override void OnExit()
+        {
+            if (base.skillLocator)
+            {
+                base.GetModelAnimator().SetBool("BombHolding.active", true);
+                base.PlayAnimation("Gesture, Override", "HoldingBomb");
+                skillLocator.primary.AddOneStock();
+            }
+            base.OnExit();
+        }
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;

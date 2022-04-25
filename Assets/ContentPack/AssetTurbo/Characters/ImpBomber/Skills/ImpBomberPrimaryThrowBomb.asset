@@ -18,19 +18,20 @@ MonoBehaviour:
   skillDescriptionToken: 
   keywordTokens: []
   icon: {fileID: 0}
-  activationStateMachineName: 
+  activationStateMachineName: Weapon
   activationState:
-    _typeName: 
-  interruptPriority: 2
-  baseRechargeInterval: 0
+    _typeName: TurboEdition.EntityStates.ImpBomber.Weapon.BombThrow, TurboEdition,
+      Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
+  interruptPriority: 1
+  baseRechargeInterval: 90
   baseMaxStock: 1
-  rechargeStock: 1
+  rechargeStock: 0
   requiredStock: 1
   stockToConsume: 1
   resetCooldownTimerOnUse: 0
   fullRestockOnAssign: 0
   dontAllowPastMaxStocks: 1
-  beginSkillCooldownOnSkillEnd: 0
+  beginSkillCooldownOnSkillEnd: 1
   cancelSprintingOnActivation: 1
   forceSprintDuringState: 0
   canceledFromSprinting: 0

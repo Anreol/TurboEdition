@@ -18,9 +18,10 @@ MonoBehaviour:
   skillDescriptionToken: 
   keywordTokens: []
   icon: {fileID: 0}
-  activationStateMachineName: 
+  activationStateMachineName: Weapon
   activationState:
-    _typeName: 
+    _typeName: TurboEdition.EntityStates.ImpBomber.Weapon.BombGet, TurboEdition,
+      Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
   baseRechargeInterval: 6
   baseMaxStock: 1
@@ -28,7 +29,7 @@ MonoBehaviour:
   requiredStock: 1
   stockToConsume: 1
   resetCooldownTimerOnUse: 0
-  fullRestockOnAssign: 1
+  fullRestockOnAssign: 0
   dontAllowPastMaxStocks: 1
   beginSkillCooldownOnSkillEnd: 0
   cancelSprintingOnActivation: 1

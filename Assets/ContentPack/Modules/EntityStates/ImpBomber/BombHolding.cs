@@ -12,6 +12,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
 {
     class BombHolding : BaseState
     {
+        [SerializeField]
         public SkillDef replacementSkillDef;
 
         [HideInInspector]
@@ -36,6 +37,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             {
                 UnityEngine.Object.Destroy(boneBombInstance);
             }
+            base.GetModelAnimator().SetBool("BombHolding.active", false);
             base.OnExit();
         }
     }

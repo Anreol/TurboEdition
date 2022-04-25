@@ -19,6 +19,7 @@ namespace TurboEdition
             uint akBankID;  // Not used. These banks can be unloaded with their file name.
             AkSoundEngine.AddBasePath(soundBankDirectory);
             AkSoundEngine.LoadBank("TurboInit.bnk", out akBankID);
-            AkSoundEngine.LoadBank("TurboBank.bnk", out akBankID);        }
+            AkSoundEngine.LoadBank("TurboBank.bnk", out akBankID);        
+        }
     }
 }

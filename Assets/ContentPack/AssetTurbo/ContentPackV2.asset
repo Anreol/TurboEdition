@@ -16,7 +16,8 @@ MonoBehaviour:
   - {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5, type: 3}
   - {fileID: 9196633835157065860, guid: 76cb1e9685ad9fc4d97394864c5dda3e, type: 3}
   - {fileID: 9196633835157065860, guid: 8104befcda172954f9bc0dac09520ffa, type: 3}
-  masterPrefabs: []
+  masterPrefabs:
+  - {fileID: 6518832654186872370, guid: bb7c43777775dfe49a54fdc52ad8bb94, type: 3}
   projectilePrefabs:
   - {fileID: 2074815300407172818, guid: 5a2d61750beb9e24d9a179e83d0bdd18, type: 3}
   - {fileID: 7028506108066464535, guid: 17c81c7f3d51dac438048991d66082aa, type: 3}
@@ -49,6 +50,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ab77cb3b7b3d1a74986a78f23f89236f, type: 2}
   - {fileID: 11400000, guid: c03691c7d0994d946bb9623a6cd97ece, type: 2}
   - {fileID: 11400000, guid: 6fae1d7bc7749cb4585fa71de2ec6deb, type: 2}
+  - {fileID: 11400000, guid: 2353c445b7313ec47884abebcea6ebda, type: 2}
+  - {fileID: 11400000, guid: 9cd7b78f0ca695146aad0b6420619b5a, type: 2}
+  - {fileID: 11400000, guid: f461938d2bdcae94a8f8a4c3d2549a90, type: 2}
   skillFamilies:
   - {fileID: 11400000, guid: efd263ff8a40ae242bf658d798590161, type: 2}
   - {fileID: 11400000, guid: caeb681d695d8c541b21fa6cf6bd5a57, type: 2}
@@ -59,6 +63,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 679ca3c753e44d346ba0e729026c6394, type: 2}
   - {fileID: 11400000, guid: 52ecb20bebc23ef44a2e9b69dd62fc37, type: 2}
   - {fileID: 11400000, guid: 134c52305cdb3724eb77f19b98d08cf8, type: 2}
+  - {fileID: 11400000, guid: 199c1db616950c743910567c84a82808, type: 2}
+  - {fileID: 11400000, guid: 330cd15a9b6df7641bcb93fd13556520, type: 2}
   sceneDefs: []
   itemDefs:
   - {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
@@ -99,7 +105,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09dec09dc17766b46b38d41a6089551b, type: 2}
   - {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}
   - {fileID: 11400000, guid: 55f7519b8d49e694d9036a31bc141dfd, type: 2}
-  effectDefs: []
+  effectDefs:
+  - {fileID: 7214428371660463810, guid: b3da412cc6cbe6841b3e63258871aabf, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
@@ -119,6 +126,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 965453e88ad61364f938ba4f942cbe17, type: 2}
   - {fileID: 11400000, guid: a2f133c06f05b3645a444a949bd9f483, type: 2}
   - {fileID: 11400000, guid: 8617585608878de429690cc648fc6439, type: 2}
+  - {fileID: 11400000, guid: ff7418454466cbb40bbf30bba9fa019f, type: 2}
+  - {fileID: 11400000, guid: 394a637b267186d4eabb5740c484f132, type: 2}
+  - {fileID: 11400000, guid: 4a231fa7f6a7d334ba6ae94e9ca81185, type: 2}
+  - {fileID: 11400000, guid: 1db43eff3e26ffa4cb26a6b9758eeb19, type: 2}
   entityStateTypes: []
   itemTierDefs:
   - {fileID: 11400000, guid: 0c88764d8ce49f045b07565a3316082b, type: 2}

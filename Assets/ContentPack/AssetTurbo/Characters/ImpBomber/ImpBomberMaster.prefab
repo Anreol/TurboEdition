@@ -1,0 +1,529 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6518832654186872370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7767118567455166685}
+  - component: {fileID: 2406752445943837321}
+  - component: {fileID: 7806712888549323273}
+  - component: {fileID: 8084405423545232728}
+  - component: {fileID: 3594424335973882826}
+  - component: {fileID: 3023498533053918485}
+  - component: {fileID: 4339349503458679999}
+  - component: {fileID: 3225343293923061251}
+  - component: {fileID: 5202960411871120442}
+  - component: {fileID: 6065530335983810957}
+  - component: {fileID: 4193669580412134045}
+  - component: {fileID: 6383358538216101972}
+  - component: {fileID: 6061093960855827692}
+  m_Layer: 0
+  m_Name: ImpBomberMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7767118567455166685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2406752445943837321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &7806712888549323273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -2096938146, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _masterIndex: 0
+  bodyPrefab: {fileID: 9196633835157065860, guid: 8104befcda172954f9bc0dac09520ffa,
+    type: 3}
+  spawnOnStart: 0
+  _teamIndex: 2
+  <networkIdentity>k__BackingField: {fileID: 0}
+  <hasEffectiveAuthority>k__BackingField: 0
+  onBodyDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyOnBodyDeath: 1
+  <inventory>k__BackingField: {fileID: 0}
+  aiComponents: []
+  <playerCharacterMasterController>k__BackingField: {fileID: 0}
+  <playerStatsComponent>k__BackingField: {fileID: 0}
+  <minionOwnership>k__BackingField: {fileID: 0}
+  resolvedBodyInstance: {fileID: 0}
+  bodyResolved: 0
+  <backupBodyIndex>k__BackingField: 0
+  _money: 0
+  _voidCoins: 0
+  <luck>k__BackingField: 0
+  isBoss: 0
+  preventGameOver: 1
+  <deathFootPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  deathAimVector: {x: 0, y: 0, z: 0}
+  killedByUnsafeArea: 0
+  _internalSurvivalTime: 0
+  killerBodyIndex: -1
+  preventRespawnUntilNextStageServer: 0
+  godMode: 0
+  lostBodyToDeathFlag: 1
+  _miscFlags: 0
+--- !u!114 &8084405423545232728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 682687671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemStacks: 
+  itemAcquisitionOrder: 
+  <activeEquipmentSlot>k__BackingField: 0
+  <infusionBonus>k__BackingField: 0
+--- !u!114 &3594424335973882826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1578512655, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ownerMaster>k__BackingField: {fileID: 0}
+--- !u!114 &3023498533053918485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1357070253, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <master>k__BackingField: {fileID: 0}
+  <body>k__BackingField: {fileID: 0}
+  <bodyTransform>k__BackingField: {fileID: 0}
+  <bodyCharacterDirection>k__BackingField: {fileID: 0}
+  <bodyCharacterMotor>k__BackingField: {fileID: 0}
+  <bodyInputBank>k__BackingField: {fileID: 0}
+  <bodyHealthComponent>k__BackingField: {fileID: 0}
+  <bodySkillLocator>k__BackingField: {fileID: 0}
+  <networkIdentity>k__BackingField: {fileID: 0}
+  <skillDrivers>k__BackingField: []
+  fullVision: 0
+  neverRetaliateFriendlies: 0
+  enemyAttentionDuration: 5
+  desiredSpawnNodeGraphType: 0
+  stateMachine: {fileID: 4339349503458679999}
+  scanState:
+    _typeName: EntityStates.AI.Walker.LookBusy, RoR2, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  isHealer: 0
+  enemyAttention: 0
+  aimVectorDampTime: 0.2
+  aimVectorMaxSpeed: 180
+  aimVelocity: 0
+  targetRefreshTimer: 0
+  selectedSkilldriverName: 
+  <hasAimConfirmation>k__BackingField: 0
+  debugEnemyHurtBox: {fileID: 0}
+  <currentEnemy>k__BackingField:
+    owner: {fileID: 0}
+    unset: 0
+    _gameObject: {fileID: 0}
+    <characterBody>k__BackingField: {fileID: 0}
+    <healthComponent>k__BackingField: {fileID: 0}
+    bestHurtBox: {fileID: 0}
+    hurtBoxGroup: {fileID: 0}
+    mainHurtBox: {fileID: 0}
+    bullseyeCount: 0
+    lastKnownBullseyePositionTime:
+      t: 0
+    hasLoS: 0
+  <leader>k__BackingField:
+    owner: {fileID: 0}
+    unset: 0
+    _gameObject: {fileID: 0}
+    <characterBody>k__BackingField: {fileID: 0}
+    <healthComponent>k__BackingField: {fileID: 0}
+    bestHurtBox: {fileID: 0}
+    hurtBoxGroup: {fileID: 0}
+    mainHurtBox: {fileID: 0}
+    bullseyeCount: 0
+    lastKnownBullseyePositionTime:
+      t: 0
+    hasLoS: 0
+  <buddy>k__BackingField:
+    owner: {fileID: 0}
+    unset: 0
+    _gameObject: {fileID: 0}
+    <characterBody>k__BackingField: {fileID: 0}
+    <healthComponent>k__BackingField: {fileID: 0}
+    bestHurtBox: {fileID: 0}
+    hurtBoxGroup: {fileID: 0}
+    mainHurtBox: {fileID: 0}
+    bullseyeCount: 0
+    lastKnownBullseyePositionTime:
+      t: 0
+    hasLoS: 0
+  <customTarget>k__BackingField:
+    owner: {fileID: 0}
+    unset: 0
+    _gameObject: {fileID: 0}
+    <characterBody>k__BackingField: {fileID: 0}
+    <healthComponent>k__BackingField: {fileID: 0}
+    bestHurtBox: {fileID: 0}
+    hurtBoxGroup: {fileID: 0}
+    mainHurtBox: {fileID: 0}
+    bullseyeCount: 0
+    lastKnownBullseyePositionTime:
+      t: 0
+    hasLoS: 0
+  skillDriverUpdateTimer: 0
+--- !u!114 &4339349503458679999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297580292, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: AI
+  initialStateType:
+    _typeName: EntityStates.AI.Walker.Wander, RoR2, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  mainStateType:
+    _typeName: EntityStates.AI.Walker.Wander, RoR2, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  <networker>k__BackingField: {fileID: 0}
+  <networkIdentity>k__BackingField: {fileID: 0}
+  <destroying>k__BackingField: 0
+--- !u!114 &3225343293923061251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: FleeBecauseClose
+  skillSlot: -1
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 0
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 0
+  maxDistance: 5
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 3
+  moveInputScale: 1
+  aimType: 4
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+  <timesSelected>k__BackingField: 0
+--- !u!114 &5202960411871120442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: ThrowBarrel
+  skillSlot: 0
+  requiredSkill: {fileID: 11400000, guid: 9cd7b78f0ca695146aad0b6420619b5a, type: 2}
+  requireSkillReady: 1
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 5
+  maxDistance: 50
+  selectionRequiresTargetLoS: 1
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 1
+  activationRequiresAimTargetLoS: 1
+  activationRequiresAimConfirmation: 0
+  movementType: 0
+  moveInputScale: 1
+  aimType: 2
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+  <timesSelected>k__BackingField: 0
+--- !u!114 &6065530335983810957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: UnburrowBarrel
+  skillSlot: 1
+  requiredSkill: {fileID: 11400000, guid: f461938d2bdcae94a8f8a4c3d2549a90, type: 2}
+  requireSkillReady: 1
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 10
+  maxDistance: Infinity
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 1
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 0
+  moveInputScale: 1
+  aimType: 0
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 1
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+  <timesSelected>k__BackingField: 0
+--- !u!114 &4193669580412134045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: ChaseCloseOffNodegraph
+  skillSlot: -1
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 0
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 0
+  maxDistance: 10
+  selectionRequiresTargetLoS: 1
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 1
+  moveInputScale: 1
+  aimType: 1
+  ignoreNodeGraph: 1
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+  <timesSelected>k__BackingField: 0
+--- !u!114 &6383358538216101972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: PathFromAfar
+  skillSlot: -1
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 0
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 0
+  maxDistance: 40
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 1
+  moveInputScale: 1
+  aimType: 1
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+  <timesSelected>k__BackingField: 0
+--- !u!114 &6061093960855827692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: PathFromVeryAfar
+  skillSlot: -1
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 0
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 40
+  maxDistance: Infinity
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 1
+  moveInputScale: 1
+  aimType: 1
+  ignoreNodeGraph: 0
+  shouldSprint: 1
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+  <timesSelected>k__BackingField: 0
