@@ -88,7 +88,7 @@
 	
 	"ITEM_WARBANNERVOID_NAME": "War Declaration",
 	"ITEM_WARBANNERVOID_PICKUP": "",
-	"ITEM_WARBANNERVOID_DESC": "",
+	"ITEM_WARBANNERVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>30 seconds</style>. <style=cStack>(+ 30s per stack)</style>.",
 
 	
 	}

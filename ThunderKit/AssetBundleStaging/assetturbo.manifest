@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1450029342
+CRC: 3364487498
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 77d5899a2a35a3476500cbcfcd1aee5d
+    Hash: a5f1ecec24205fc31affa1b4101ef5b9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2fd5a48ecae69a383c1d78273e03d2d3
+    Hash: d336bdadd27dae6c343811b37bed98ad
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -244,6 +244,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -432102721, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 80205854, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -1848696948, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -848926067, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -394,6 +396,7 @@ Assets:
 - Assets/Textures/texSweat.png
 - Assets/Mesh/meshSphere.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_BloodEconomy.png
+- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber.fbx
 - Assets/Materials/matTeamAreaIndicatorIntersectionMonster.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/HellchainDebuffArea.prefab
 - Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
@@ -510,7 +513,8 @@ Assets:
 - Assets/Mesh/Items/meshTeleporterLensesCloth.mesh
 - Assets/Textures/Ramps/texRampHuntressSoft2.png
 - Assets/Materials/matKnife.mat
-- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/animImpBomber.controller
+- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/animImpBomber.controller
+- Assets/Textures/texAlphaKumo0104_01.png
 - Assets/Textures/texBigScytheBase.png
 - Assets/Materials/matSuperStickyLight.mat
 - Assets/Other/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
@@ -553,7 +557,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ExplosionVFXGrenadier.prefab
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/AirborneBonus.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySpecialFamily.asset
-- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/mdlImpBomber.fbx
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Logs.CrabChestBody.asset
@@ -587,7 +590,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/SuperStickyGhost.prefab
 - Assets/Textures/Ramps/texRampLightblue.png
 - Assets/ContentPack/AssetTurbo/Items/StandBonus/StandBonus.asset
-- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/matImpBomber.mat
+- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/matImpBomber.mat
 - Assets/ContentPack/AssetTurbo/TurboExpansion.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ProjectileLandGround.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.EnterReload.asset
