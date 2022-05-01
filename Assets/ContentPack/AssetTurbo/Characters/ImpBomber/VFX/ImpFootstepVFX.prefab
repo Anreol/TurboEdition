@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3490854497141081480}
-  - component: {fileID: 7693541488095663340}
-  - component: {fileID: 7001462580780990019}
+  - component: {fileID: 8257025180423265314}
+  - component: {fileID: 4460385309438798238}
   m_Layer: 0
   m_Name: ImpFootstepVFX
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7693541488095663340
+--- !u!114 &8257025180423265314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   vfxIntensity: 0
   optionalLights: []
   secondaryParticleSystem: []
---- !u!114 &7001462580780990019
+--- !u!114 &4460385309438798238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectIndex: -1
-  positionAtReferencedTransform: 0
+  positionAtReferencedTransform: 1
   parentToReferencedTransform: 0
   applyScale: 0
   soundName: 

@@ -28,15 +28,15 @@ MonoBehaviour:
     - fieldName: projectilePrefab
       fieldValue:
         stringValue: 
-        objectValue: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
+        objectValue: {fileID: 7028506108066464535, guid: 703f5e15e8cb80a4ab1d52c939245139,
           type: 3}
     - fieldName: damageCoefficient
       fieldValue:
-        stringValue: 1
+        stringValue: 3
         objectValue: {fileID: 0}
     - fieldName: force
       fieldValue:
-        stringValue: 0
+        stringValue: 100
         objectValue: {fileID: 0}
     - fieldName: minSpread
       fieldValue:
@@ -56,7 +56,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: projectilePitchBonus
       fieldValue:
-        stringValue: 0
+        stringValue: -5
         objectValue: {fileID: 0}
     - fieldName: baseDelayBeforeFiringProjectile
       fieldValue:

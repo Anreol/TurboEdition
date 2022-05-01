@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matDustTrail
+  m_Name: matTracerBright
   m_Shader: {fileID: 4800000, guid: 2e68267ebb51d0a438acfc57e42a7269, type: 2}
-  m_ShaderKeywords: USE_CLOUDS
+  m_ShaderKeywords: USE_CLOUDS VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 2800000, guid: aff4eda754e569d4abf79a00e1e5b965, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 25fb682a6fa7f1347aefae9296554510, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2f5f2589173cbd84799ef787c70908e3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -64,13 +64,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 51678d7c45665ef4d98bc82f6cf2c67b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0
-    - _AlphaBoost: 0.86
-    - _Boost: 1
+    - _AlphaBias: 0.033
+    - _AlphaBoost: 0.6
+    - _Boost: 2.2
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
@@ -80,7 +80,7 @@ Material:
     - _DepthOffset: 0
     - _DetailNormalMapScale: 1
     - _DisableRemapOn: 0
-    - _DistortionStrength: 0.1
+    - _DistortionStrength: 0.05
     - _DstBlend: 10
     - _ExternalAlpha: 1
     - _Fade: 1
@@ -92,7 +92,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
-    - _InvFade: 2
+    - _InvFade: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -105,12 +105,12 @@ Material:
     - _UVSec: 0
     - _UseUV1On: 0
     - _VertexAlphaOn: 0
-    - _VertexColorOn: 0
+    - _VertexColorOn: 1
     - _VertexOffsetOn: 0
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: 0, g: 0, b: 0, a: 0}
+    - _CutoffScroll: {r: 0, g: -10, b: 0, a: -8}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 1}

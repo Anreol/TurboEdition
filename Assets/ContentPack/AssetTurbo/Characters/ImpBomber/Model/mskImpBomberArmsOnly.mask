@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mskImpBomberArmsOnly
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: ImpBomberMesh
+    m_Weight: 0
+  - m_Path: ImpBomberRig
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/IKHand.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/IKHand.L/elbow.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/IKHand.L/elbow.L/elbow.L_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/IKHand.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/IKHand.R/elbow.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/IKHand.R/elbow.R/elbow.R_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.L/thigh.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.L/thigh.L/foot.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.L/thigh.L/foot.L/foot.L_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.R/thigh.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.R/thigh.R/foot.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/pelvis/leg.R/thigh.R/foot.R/foot.R_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/lowerJaw
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/lowerJaw/lowerJaw_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L/finger1.L
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L/finger1.L/Barrel
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L/finger1.L/Barrel/Barrel_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L/finger1.L/finger2.L
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L/finger1.L/finger2.L/finger2.L_end
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L/thumb.L
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.L/arm.L/forearm.L/hand.L/thumb.L/thumb.L_end
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R/forearm.R
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R/forearm.R/hand.R
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R/forearm.R/hand.R/finger1.R
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R/forearm.R/hand.R/finger1.R/finger2.R
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R/forearm.R/hand.R/finger1.R/finger2.R/finger2.R_end
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R/forearm.R/hand.R/thumb.R
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/shoulder.R/arm.R/forearm.R/hand.R/thumb.R/thumb.R_end
+    m_Weight: 1
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/tentacle.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/tentacle.L/tentacle.L_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/tentacle.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/tentacle.R/tentacle.R_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/upperJaw
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/BASE/stomach/upperJaw/upperJaw_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/IkFoot.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/IkFoot.L/knee.L
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/IkFoot.L/knee.L/knee.L_end
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/IkFoot.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/IkFoot.R/knee.R
+    m_Weight: 0
+  - m_Path: ImpBomberRig/ROOT/IkFoot.R/knee.R/knee.R_end
+    m_Weight: 0
+  - m_Path: ImpBomberTeeth
+    m_Weight: 0

@@ -16,13 +16,6 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
         [SerializeField]
         public GameObject bombPrefabDefault;
 
-        [Tooltip("The stages in which to use a specific model. Parallel to stageProjectilePrefabs.")]
-        [SerializeField]
-        public static string[] stageNames = Array.Empty<string>();
-        [Tooltip("The specific projectile prefabs to use per stage. Parallel to stageNames.")]
-        [SerializeField]
-        public static GameObject[] stageBombPrefabs = Array.Empty<GameObject>();
-
         private float duration
         {
             get
@@ -43,20 +36,14 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             this.childLocator = base.GetModelChildLocator();
             if (this.childLocator)
             {
+                Debug.Log("Childlocated");
                 Transform transform = this.childLocator.FindChild(bombBoneChildName) ?? base.characterBody.coreTransform;
-                for (int i = 0; i < stageNames.Length; i++)
-                {
-                    if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName(stageNames[i]) && stageBombPrefabs[i])
-                    {
-                        this.bombInstance = UnityEngine.Object.Instantiate<GameObject>(stageBombPrefabs[i], transform.position, transform.rotation);
-                        this.bombInstance.transform.parent = transform;
-                        return;
-                    }
-                }
                 if (transform && this.bombPrefabDefault)
                 {
-                    this.bombInstance = UnityEngine.Object.Instantiate<GameObject>(this.bombPrefabDefault, transform.position, transform.rotation);
-                    this.bombInstance.transform.parent = transform;
+                    Debug.Log("bomb");
+                    this.bombInstance = UnityEngine.Object.Instantiate<GameObject>(this.bombPrefabDefault, transform.position, transform.rotation, transform);
+                    //this.bombInstance.transform.parent = transform;
+                    Debug.Log(bombInstance);
                 }
             }
         }
@@ -76,7 +63,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             if (base.skillLocator)
             {
                 base.GetModelAnimator().SetBool("BombHolding.active", true);
-                base.PlayAnimation("Gesture, Override", "HoldingBomb");
+                base.PlayCrossfade("Gesture, Override", "HoldingBomb", 0.5f);
                 skillLocator.primary.AddOneStock();
             }
             base.OnExit();

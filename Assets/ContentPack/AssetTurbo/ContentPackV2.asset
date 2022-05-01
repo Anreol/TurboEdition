@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 7028506108066464535, guid: d8221bda00547fc43ae7da8a17691f35, type: 3}
   - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
   - {fileID: 5927682615679395250, guid: 2f4e77b8486cca54c9f46200c5516d76, type: 3}
+  - {fileID: 7028506108066464535, guid: 703f5e15e8cb80a4ab1d52c939245139, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs:
   - {fileID: 1918061013436419, guid: ff8a7375923956040b7e09f90304fc9e, type: 3}
@@ -106,7 +107,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}
   - {fileID: 11400000, guid: 55f7519b8d49e694d9036a31bc141dfd, type: 2}
   effectDefs:
-  - {fileID: 7214428371660463810, guid: b3da412cc6cbe6841b3e63258871aabf, type: 3}
+  - {fileID: 7214428371660463810, guid: fd316f146eefb3445bfd6cafe161b9bc, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}

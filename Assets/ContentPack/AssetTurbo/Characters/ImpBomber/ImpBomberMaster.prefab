@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4339349503458679999}
   - component: {fileID: 3225343293923061251}
   - component: {fileID: 5202960411871120442}
+  - component: {fileID: -3657187071966948680}
   - component: {fileID: 6065530335983810957}
   - component: {fileID: 4193669580412134045}
   - component: {fileID: 6383358538216101972}
@@ -298,7 +299,7 @@ MonoBehaviour:
   moveInputScale: 1
   aimType: 4
   ignoreNodeGraph: 0
-  shouldSprint: 0
+  shouldSprint: 1
   shouldFireEquipment: 0
   shouldTapButton: 0
   buttonPressType: 0
@@ -351,6 +352,50 @@ MonoBehaviour:
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
   <timesSelected>k__BackingField: 0
+--- !u!114 &-3657187071966948680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6518832654186872370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1811796171, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: StrafeNearby
+  skillSlot: -1
+  requiredSkill: {fileID: 0}
+  requireSkillReady: 0
+  requireEquipmentReady: 0
+  minUserHealthFraction: -Infinity
+  maxUserHealthFraction: Infinity
+  minTargetHealthFraction: -Infinity
+  maxTargetHealthFraction: Infinity
+  minDistance: 5
+  maxDistance: 10
+  selectionRequiresTargetLoS: 0
+  selectionRequiresOnGround: 0
+  selectionRequiresAimTarget: 0
+  maxTimesSelected: -1
+  moveTargetType: 0
+  activationRequiresTargetLoS: 0
+  activationRequiresAimTargetLoS: 0
+  activationRequiresAimConfirmation: 0
+  movementType: 2
+  moveInputScale: 0.7
+  aimType: 2
+  ignoreNodeGraph: 0
+  shouldSprint: 0
+  shouldFireEquipment: 0
+  shouldTapButton: 0
+  buttonPressType: 0
+  driverUpdateTimerOverride: -1
+  resetCurrentEnemyOnNextDriverSelection: 0
+  noRepeat: 0
+  nextHighPriorityOverride: {fileID: 0}
+  <timesSelected>k__BackingField: 0
 --- !u!114 &6065530335983810957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,14 +428,14 @@ MonoBehaviour:
   activationRequiresAimTargetLoS: 0
   activationRequiresAimConfirmation: 0
   movementType: 0
-  moveInputScale: 1
+  moveInputScale: 0.5
   aimType: 0
   ignoreNodeGraph: 0
   shouldSprint: 0
   shouldFireEquipment: 0
   shouldTapButton: 0
   buttonPressType: 0
-  driverUpdateTimerOverride: -1
+  driverUpdateTimerOverride: 3
   resetCurrentEnemyOnNextDriverSelection: 1
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
