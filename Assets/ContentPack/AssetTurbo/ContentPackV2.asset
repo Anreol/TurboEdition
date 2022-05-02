@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 394a637b267186d4eabb5740c484f132, type: 2}
   - {fileID: 11400000, guid: 4a231fa7f6a7d334ba6ae94e9ca81185, type: 2}
   - {fileID: 11400000, guid: 1db43eff3e26ffa4cb26a6b9758eeb19, type: 2}
+  - {fileID: 11400000, guid: a8bd3ecc56272194a80ee71f6f89b381, type: 2}
   entityStateTypes: []
   itemTierDefs:
   - {fileID: 11400000, guid: 0c88764d8ce49f045b07565a3316082b, type: 2}

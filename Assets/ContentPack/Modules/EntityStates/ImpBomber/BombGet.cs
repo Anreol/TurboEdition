@@ -36,14 +36,10 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             this.childLocator = base.GetModelChildLocator();
             if (this.childLocator)
             {
-                Debug.Log("Childlocated");
                 Transform transform = this.childLocator.FindChild(bombBoneChildName) ?? base.characterBody.coreTransform;
                 if (transform && this.bombPrefabDefault)
                 {
-                    Debug.Log("bomb");
                     this.bombInstance = UnityEngine.Object.Instantiate<GameObject>(this.bombPrefabDefault, transform.position, transform.rotation, transform);
-                    //this.bombInstance.transform.parent = transform;
-                    Debug.Log(bombInstance);
                 }
             }
         }

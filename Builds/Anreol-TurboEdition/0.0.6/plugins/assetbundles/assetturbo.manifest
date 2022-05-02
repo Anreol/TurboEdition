@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3688843765
+CRC: 4265673742
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: afb5055f02534cdbf2bc8cfad6c14950
+    Hash: 76b01aa913a3fd7d5cfcd06263a5ceb6
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 610038e1e48827d16e58b4f66adb3ec7
+    Hash: 74ebef150c256faa0d5eb11e662d0e6e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -177,6 +177,8 @@ ClassTypes:
   Script: {fileID: 1530905962, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -380008858, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -226763392, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -405,6 +407,7 @@ Assets:
 - Assets/Mesh/meshSphere.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_BloodEconomy.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber.fbx
+- Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsFrozenWallMonstersTE.asset
 - Assets/Textures/texSmokePuffSmallDirectional2.png
 - Assets/Materials/matTeamAreaIndicatorIntersectionMonster.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/HellchainDebuffArea.prefab
@@ -501,6 +504,7 @@ Assets:
 - Assets/Mesh/Items/meshSuperSticky_.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberBodyPrimaryFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/cscImpBomber.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestPrimaryMinigun.asset
 - Assets/ContentPack/AssetTurbo/Characters/States.AI.Walker.ForceFlee.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Rare.png
@@ -548,6 +552,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Equipment/VoidSquad/VoidSquad.asset
 - Assets/Materials/matSweatParticle.mat
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunFire.asset
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniExplosionVFXBloodxplosion.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/matImpFootstepSplash.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireSecondary.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bag.png
@@ -568,6 +573,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberBodySecondaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTextEffect.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/idrsGrenadier.asset
+- Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWispGraveyardMonstersTE.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/BigScytheImpactEffect.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber@Master.fbx
 - Assets/ContentPack/AssetTurbo/icon.png
@@ -622,6 +628,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecialAlt.asset
 - Assets/Mesh/Items/meshKnife_.mesh
+- Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/EntityStates.ImpBomber.SpawnState.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireSecondaryAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
@@ -653,6 +660,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdHellLinked.asset
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
+- Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsDampCaveMonstersTE.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Tape.png
 - Assets/Textures/texCardTest.png

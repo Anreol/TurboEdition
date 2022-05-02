@@ -14,6 +14,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
 
         public override void OnEnter()
         {
+            base.GetModelAnimator().SetBool("BombHolding.active", false);
             base.OnEnter();
         }
         public override void PlayAnimation(float duration)

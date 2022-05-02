@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5874383695490305987}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.35, z: 0.9}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.35, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3236676104841737270}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &7028506108066464535
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 12
-  lifetimeExpiredEffect: {fileID: 0}
+  lifetimeExpiredEffect: {fileID: 7214428371660463810, guid: b3da412cc6cbe6841b3e63258871aabf,
+    type: 3}
   desiredForwardSpeed: 70
   updateAfterFiring: 0
   enableVelocityOverLifetime: 0
@@ -294,7 +295,8 @@ MonoBehaviour:
   calculateTotalDamage: 0
   totalDamageMultiplier: 0
   impactNormal: {x: 0, y: 1, z: 0}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 7214428371660463810, guid: fd316f146eefb3445bfd6cafe161b9bc,
+    type: 3}
   lifetimeExpiredSoundString: 
   lifetimeExpiredSound: {fileID: 0}
   offsetForLifetimeExpiredSound: 0

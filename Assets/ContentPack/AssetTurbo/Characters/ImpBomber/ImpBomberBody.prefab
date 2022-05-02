@@ -62,6 +62,37 @@ Transform:
   m_Father: {fileID: 1935179051133467103}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &490675702913271174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1767868333666683324}
+  m_Layer: 0
+  m_Name: LogbookTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1767868333666683324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490675702913271174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6268588514453707893}
+  m_Father: {fileID: 2990431080968667176}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802707347093431662
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802707347093431662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2990431080968667176}
@@ -467,6 +498,7 @@ GameObject:
   - component: {fileID: 7509347834406452740}
   - component: {fileID: 2869702375012129470}
   - component: {fileID: 2667563115338383650}
+  - component: {fileID: 7801731201098656778}
   m_Layer: 0
   m_Name: mdlImpBomber
   m_TagString: Untagged
@@ -490,6 +522,7 @@ Transform:
   - {fileID: 5878883277036777764}
   - {fileID: 2722342387791572809}
   - {fileID: 4515714906455926214}
+  - {fileID: 1767868333666683324}
   m_Father: {fileID: 3026287713785689126}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -504,7 +537,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b98759a1f7238ce48b05e37f787467d8, type: 3}
   m_Controller: {fileID: 9100000, guid: 9f4af7482f1faad4e85767c6ede0a004, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -693,6 +726,23 @@ MonoBehaviour:
   pitchClipCycleEnd: 0
   yawClipCycleEnd: 0
   giveupTimer: 0
+--- !u!114 &7801731201098656778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507367642035952274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1864444436, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusPointTransform: {fileID: 1767868333666683324}
+  cameraPositionTransform: {fileID: 6268588514453707893}
+  modelRotation: {x: 0, y: 0, z: 0, w: 1}
+  minDistance: 0.75
+  maxDistance: 3
 --- !u!1 &2653359103644529564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,6 +1996,36 @@ Transform:
   m_Father: {fileID: 8058506155309048533}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6468853303025683358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6268588514453707893}
+  m_Layer: 0
+  m_Name: LogbookCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6268588514453707893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468853303025683358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1767868333666683324}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6679054878792332736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,7 +2905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraParams: {fileID: 11400000, guid: 67f6f5eb1ea2f9c4e84e7ee8e0e21522, type: 2}
-  cameraPivotTransform: {fileID: 5175137636755833381}
+  cameraPivotTransform: {fileID: 0}
   fovOverride: 0
   recoil: {x: 0, y: 0}
   dontRaycastToPivot: 0
@@ -2921,8 +3001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: Body
   initialStateType:
-    _typeName: EntityStates.GenericCharacterMain, RoR2, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: TurboEdition.EntityStates.ImpBomber.SpawnState, TurboEdition, Version=9999.0.0.6,
+      Culture=neutral, PublicKeyToken=null
   mainStateType:
     _typeName: EntityStates.GenericCharacterMain, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -3161,6 +3241,7 @@ MonoBehaviour:
     _typeName: EntityStates.GenericCharacterDeath, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   idleStateMachine:
+  - {fileID: 1949618786361257478}
   - {fileID: 5937462284248254577}
 --- !u!114 &219412482288847033
 MonoBehaviour:
@@ -3265,7 +3346,7 @@ CapsuleCollider:
   m_Radius: 0.6
   m_Height: 1.6
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5621022985162316997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3283,7 +3364,7 @@ MonoBehaviour:
   Rigidbody: {fileID: 5238029916515396389}
   CapsuleRadius: 0.6
   CapsuleHeight: 1.6
-  CapsuleYOffset: 0.4
+  CapsuleYOffset: 0
   CapsulePhysicsMaterial: {fileID: 0}
   DetectDiscreteCollisions: 0
   GroundDetectionExtraDistance: 0

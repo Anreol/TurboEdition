@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Artifact\MeltdownArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\PainArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\WormsArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\AssemblyInfo.cs" />
@@ -126,6 +127,8 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombThrow.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombThrowForced.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\ImpHurtState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\SpawnState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\CombatDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\CostExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\GrenadierSpecialSkillDef.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />

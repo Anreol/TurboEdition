@@ -21,7 +21,7 @@ namespace TurboEdition.Buffs
 
         public override void OnBuffFirstStackGained(ref CharacterBody body)
         {
-            BaseAI baseAI = body.master.GetComponent<BaseAI>();
+            BaseAI baseAI = body.master?.GetComponent<BaseAI>();
             if (baseAI != null)
             {
                 for (int i = 0; i < body.timedBuffs.Count; i++)
@@ -45,12 +45,13 @@ namespace TurboEdition.Buffs
                     }
                 }
             }
-            body.RemoveBuff(buffDef.buffIndex);
+
+            //body.RemoveBuff(buffDef.buffIndex);
         }
 
         public override void OnBuffLastStackLost(ref CharacterBody body)
         {
-            BaseAI baseAI = body.master.GetComponent<BaseAI>();
+            BaseAI baseAI = body.master?.GetComponent<BaseAI>();
             if (baseAI != null && forceStateExitOnBuffLose)
             {
                 baseAI.stateMachine.SetNextState(new LookBusy());
