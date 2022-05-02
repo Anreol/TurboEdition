@@ -81,6 +81,7 @@ MonoBehaviour:
   customName: 
   monsterCredit: 400
   expRewardCoefficient: 0.2
+  goldRewardCoefficient: 1
   minSeriesSpawnInterval: 0.1
   maxSeriesSpawnInterval: 5
   minRerollSpawnInterval: 30
@@ -91,9 +92,12 @@ MonoBehaviour:
   teamIndex: 2
   creditMultiplier: 1
   spawnDistanceMultiplier: 1.5
+  maxSpawnDistance: Infinity
+  minSpawnRange: 0
   shouldSpawnOneWave: 0
   targetPlayers: 1
   skipSpawnIfTooCheap: 0
+  maxConsecutiveCheapSkips: 3
   resetMonsterCardIfFailed: 1
   maximumNumberToSpawnBeforeSkipping: 3
   eliteBias: 1
@@ -106,7 +110,35 @@ MonoBehaviour:
   ignoreTeamSizeLimit: 0
   _monsterCards: {fileID: 0}
   fallBackToStageMonsterCards: 0
+  <monsterSpawnTimer>k__BackingField: 0
+  <lastAttemptedMonsterCard>k__BackingField:
+    spawnCard: {fileID: 0}
+    selectionWeight: 0
+    spawnDistance: 0
+    preventOverhead: 0
+    minimumStageCompletions: 0
+    requiredUnlockable: 
+    forbiddenUnlockable: 
+    requiredUnlockableDef: {fileID: 0}
+    forbiddenUnlockableDef: {fileID: 0}
+  <totalCreditsSpent>k__BackingField: 0
+  hasStartedWave: 0
+  currentMonsterCard:
+    spawnCard: {fileID: 0}
+    selectionWeight: 0
+    spawnDistance: 0
+    preventOverhead: 0
+    minimumStageCompletions: 0
+    requiredUnlockable: 
+    forbiddenUnlockable: 
+    requiredUnlockableDef: {fileID: 0}
+    forbiddenUnlockableDef: {fileID: 0}
+  currentActiveEliteDef: {fileID: 0}
+  currentMonsterCardCost: 0
+  consecutiveCheapSkips: 0
   currentSpawnTarget: {fileID: 0}
+  playerRetargetTimer: 0
+  spawnCountInCurrentWave: 0
 --- !u!114 &2976323720318654951
 MonoBehaviour:
   m_ObjectHideFlags: 0
