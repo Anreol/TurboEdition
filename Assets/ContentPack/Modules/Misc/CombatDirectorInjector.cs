@@ -1,96 +1,95 @@
 ﻿using RoR2;
 using RoR2.ExpansionManagement;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace TurboEdition.Misc
 {
-    class CombatDirectorInjector
+    internal class CombatDirectorInjector
     {
+        private const bool USE_UNIQUE_DCCS = false;
         public static DccsPool.ConditionalPoolEntry frozenWallExtraEntry;
         public static DccsPool.ConditionalPoolEntry wispGraveyardExtraEntry;
         public static DccsPool.ConditionalPoolEntry dampCaveExtraEntry;
 
+        public static DirectorCard cscImpBomber;
+
         [SystemInitializer]
         public static void Init()
         {
+            if (USE_UNIQUE_DCCS)
+            {
+                frozenWallExtraEntry = new DccsPool.ConditionalPoolEntry();
+                frozenWallExtraEntry.requiredExpansions = new ExpansionDef[] { TEContent.Expansions.TurboExpansion };
+                frozenWallExtraEntry.weight = 1;
+                frozenWallExtraEntry.dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsFrozenWallMonstersTE");
 
-            frozenWallExtraEntry = new DccsPool.ConditionalPoolEntry();
-            frozenWallExtraEntry.requiredExpansions = new ExpansionDef[] { TEContent.Expansions.TurboExpansion };
-            frozenWallExtraEntry.weight = 1;
-            frozenWallExtraEntry.dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsFrozenWallMonstersTE");
+                wispGraveyardExtraEntry = new DccsPool.ConditionalPoolEntry();
+                wispGraveyardExtraEntry.requiredExpansions = new ExpansionDef[] { TEContent.Expansions.TurboExpansion };
+                wispGraveyardExtraEntry.weight = 1;
+                wispGraveyardExtraEntry.dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsWispGraveyardMonstersTE");
 
-            wispGraveyardExtraEntry = new DccsPool.ConditionalPoolEntry();
-            wispGraveyardExtraEntry.requiredExpansions = new ExpansionDef[] { TEContent.Expansions.TurboExpansion };
-            wispGraveyardExtraEntry.weight = 1;
-            wispGraveyardExtraEntry.dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsWispGraveyardMonstersTE");
+                dampCaveExtraEntry = new DccsPool.ConditionalPoolEntry();
+                dampCaveExtraEntry.requiredExpansions = new ExpansionDef[] { TEContent.Expansions.TurboExpansion };
+                dampCaveExtraEntry.weight = 1;
+                dampCaveExtraEntry.dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsDampCaveMonstersTE");
 
-            dampCaveExtraEntry = new DccsPool.ConditionalPoolEntry();
-            dampCaveExtraEntry.requiredExpansions = new ExpansionDef[] { TEContent.Expansions.TurboExpansion };
-            dampCaveExtraEntry.weight = 1;
-            dampCaveExtraEntry.dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsDampCaveMonstersTE");
-
+                Stage.onServerStageBegin += onServerStageBeginUnique; //Server has auth over stage
+            }
             //RoR2Content.mixEnemyMonsterCards.AddCard(3, frozenWallExtraEntry.dccs.categories[3].cards[0]); //ImpBomber
-            Stage.onServerStageBegin += onServerStageBegin; //Server has auth over stage
+            Stage.onServerStageBegin += onServerStageBeginNormal; //Server has auth over stage
         }
 
-        private static void onServerStageBegin(Stage obj)
+        private static void onServerStageBeginUnique(Stage obj)
         {
             if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("frozenwall"))
             {
                 //Pool categories usually have: Standard, Family event, and (maybe?) VoidInvasion
-                DumpInfo(ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet);
-                if (ClassicStageInfo.instance.monsterSelection != null)
-                {
-                    Debug.LogWarning("Dumping ClassicStageInfo.instance.monsterSelection...");
-                    DumpInfo(ClassicStageInfo.instance.monsterSelection);
-                }
-                foreach (var item in CombatDirector.instancesList)
-                {
-                    Debug.LogWarning("Dumping finalMonsterCardsSelection...");
-                    if (item.finalMonsterCardsSelection == null)
-                    {
-                        Debug.LogWarning("Skipped as it was null.");
-                        continue;
-                    }
-                    DumpInfo(item.finalMonsterCardsSelection);
-                }
-
-                Debug.LogWarning("Appending our cards");
-                HG.ArrayUtils.ArrayAppend<DccsPool.ConditionalPoolEntry>(ref ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet, frozenWallExtraEntry);
+                if (frozenWallExtraEntry != null)
+                    HG.ArrayUtils.ArrayAppend<DccsPool.ConditionalPoolEntry>(ref ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet, frozenWallExtraEntry);
                 ClassicStageInfo.instance.RebuildCards();
                 RefreshAllAvailableDirectorCards();
-
-                DumpInfo(ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet);
-                if (ClassicStageInfo.instance.monsterSelection != null)
-                {
-                    Debug.LogWarning("Dumping ClassicStageInfo.instance.monsterSelection...");
-                    DumpInfo(ClassicStageInfo.instance.monsterSelection);
-                }
-                foreach (var item in CombatDirector.instancesList)
-                {
-                    Debug.LogWarning("Dumping finalMonsterCardsSelection...");
-                    if (item.finalMonsterCardsSelection == null)
-                    {
-                        Debug.LogWarning("Skipped as it was null.");
-                        continue;
-                    }
-                    DumpInfo(item.finalMonsterCardsSelection);
-                }
             }
             if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("wispgraveyard"))
             {
                 //Pool categories usually have: Standard, Family event, and (maybe?) VoidInvasion
-                Debug.LogWarning("Appending our cards");
-                HG.ArrayUtils.ArrayAppend<DccsPool.ConditionalPoolEntry>(ref ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet, wispGraveyardExtraEntry);
+                if (wispGraveyardExtraEntry != null)
+                    HG.ArrayUtils.ArrayAppend<DccsPool.ConditionalPoolEntry>(ref ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet, wispGraveyardExtraEntry);
                 ClassicStageInfo.instance.RebuildCards();
                 RefreshAllAvailableDirectorCards();
             }
         }
+
+        //Pool categories usually have: Standard, Family event, and (maybe?) VoidInvasion
+        private static void onServerStageBeginNormal(Stage obj)
+        {
+            DirectorCardCategorySelection dccs = null;
+            if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("frozenwall"))
+            {
+                dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsFrozenWallMonstersTE");
+            }
+            if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("wispgraveyard"))
+            {
+                dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsWispGraveyardMonstersTE");
+            }
+            if (ClassicStageInfo.instance.monsterDccsPool != null && dccs != null)
+            {
+                foreach (var item in ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].alwaysIncluded)
+                {
+                    CopyDccsToDccs(dccs, item.dccs);
+                }
+                foreach (var item in ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet)
+                {
+                    CopyDccsToDccs(dccs, item.dccs);
+                }
+                foreach (var item in ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfNoConditionsMet)
+                {
+                    CopyDccsToDccs(dccs, item.dccs);
+                }
+            }
+            ClassicStageInfo.instance.RebuildCards();
+            RefreshAllAvailableDirectorCards();
+        }
+
         public static void DumpInfo(DccsPool.ConditionalPoolEntry[] conditionalPoolEntry)
         {
             foreach (var poolEntry in conditionalPoolEntry)
@@ -109,6 +108,7 @@ namespace TurboEdition.Misc
             }
             Debug.LogError("Done dumping Info from conditionalPoolEntry");
         }
+
         public static void DumpInfo(WeightedSelection<DirectorCard> weightedSelection)
         {
             foreach (var choice in weightedSelection.choices)
@@ -127,20 +127,39 @@ namespace TurboEdition.Misc
             }
             Debug.LogError("Done dumping Info from weightedSelection");
         }
+
+        public static void CopyDccsToDccs(DirectorCardCategorySelection source, DirectorCardCategorySelection dest)
+        {
+            for (int i = 0; i < source.categories.Length; i++)
+            {
+                if (i > dest.categories.Length)
+                {
+                    HG.ArrayUtils.ArrayAppend<DirectorCardCategorySelection.Category>(ref dest.categories, source.categories[i]);
+                }
+                if (dest.categories[i].name == source.categories[i].name)
+                {
+                    foreach (var item in source.categories[i].cards)
+                    {
+                        HG.ArrayUtils.ArrayAppend<DirectorCard>(ref dest.categories[i].cards, item);
+                    }
+                }
+            }
+        }
+
         public static void RefreshAllAvailableDirectorCards()
         {
-            Debug.Log("Refreshing director cards in " + CombatDirector.instancesList.Count + " directors.");
+            TELog.LogW("Refreshing director cards in " + CombatDirector.instancesList.Count + " directors.");
             foreach (CombatDirector director in CombatDirector.instancesList)
             {
-                Debug.LogWarning("Trying to refresh cards... fallback to stage monsters is " + director.fallBackToStageMonsterCards);
+                TELog.LogW("Trying to refresh cards... fallback to stage monsters is " + director.fallBackToStageMonsterCards);
                 if (director.fallBackToStageMonsterCards) //Is set to true by default, so we hope that nobody has set it to false. It isn't used by the game itself anywhere.
                 {
-                    Debug.LogWarning("Falling back to stage monster cards... is _monsterCards null" + director._monsterCards == null);
-                    if (director._monsterCards == null) //This is internal and should never change. If its null, it means it doesn't have explicit monster cards and is instead taking from the stage. 
+                    TELog.LogW("Falling back to stage monster cards... is _monsterCards null" + director._monsterCards == null);
+                    if (director._monsterCards == null) //This is internal and should never change. If its null, it means it doesn't have explicit monster cards and is instead taking from the stage.
                     {
-                        Debug.LogWarning("TE Combat Director Cards refreshed.");
+                        TELog.LogW("TE Combat Director Cards refreshed.");
                         director.monsterCardsSelection = null; //Force a reset to refresh cards from the late modified ClassicStageInfo.
-                                                           //This shouldn't break anything as we aren't... modifying the internal cards..?
+                                                               //This shouldn't break anything as we aren't... modifying the internal cards..?
                     }
                 }
             }

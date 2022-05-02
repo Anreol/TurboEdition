@@ -28,4 +28,5 @@ MonoBehaviour:
     - fieldName: spawnEffectPrefab
       fieldValue:
         stringValue: 
-        objectValue: {fileID: 0}
+        objectValue: {fileID: 7214428371660463810, guid: bf58a6e845cdebd4f80cb7f0cf059926,
+          type: 3}

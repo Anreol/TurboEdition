@@ -108,6 +108,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55f7519b8d49e694d9036a31bc141dfd, type: 2}
   effectDefs:
   - {fileID: 7214428371660463810, guid: fd316f146eefb3445bfd6cafe161b9bc, type: 3}
+  - {fileID: 7214428371660463810, guid: 34687113b42d51448b0bace50efbf24d, type: 3}
+  - {fileID: 7214428371660463810, guid: bf58a6e845cdebd4f80cb7f0cf059926, type: 3}
+  - {fileID: 7214428371660463810, guid: 4b92ecfcac8586946846ac5ba0c72a0a, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
@@ -132,6 +135,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a231fa7f6a7d334ba6ae94e9ca81185, type: 2}
   - {fileID: 11400000, guid: 1db43eff3e26ffa4cb26a6b9758eeb19, type: 2}
   - {fileID: 11400000, guid: a8bd3ecc56272194a80ee71f6f89b381, type: 2}
+  - {fileID: 11400000, guid: a6bd9c1c04882b04999c48f387a2d134, type: 2}
   entityStateTypes: []
   itemTierDefs:
   - {fileID: 11400000, guid: 0c88764d8ce49f045b07565a3316082b, type: 2}

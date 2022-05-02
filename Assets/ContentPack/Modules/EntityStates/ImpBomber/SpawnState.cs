@@ -28,7 +28,7 @@ namespace TurboEdition.EntityStates.ImpBomber
 			Util.PlaySound(SpawnState.spawnSoundString, base.gameObject);
 			if (SpawnState.spawnEffectPrefab)
 			{
-				EffectManager.SimpleMuzzleFlash(SpawnState.spawnEffectPrefab, base.gameObject, "ROOT", false);
+				EffectManager.SimpleMuzzleFlash(SpawnState.spawnEffectPrefab, base.gameObject, "Root", false);
 			}
 		}
 		public override void FixedUpdate()

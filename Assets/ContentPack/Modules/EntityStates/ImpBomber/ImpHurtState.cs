@@ -15,7 +15,6 @@ namespace TurboEdition.EntityStates.ImpBomber
 
         public override void OnEnter()
         {
-            Debug.Log("ImpHurtState");
             base.OnEnter();
             resolvedWeaponMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Weapon");
             if (resolvedWeaponMachine.state.GetType() == typeof(ImpBomber.Weapon.BombHolding) || resolvedWeaponMachine.state.GetType() == typeof(ImpBomber.Weapon.BombGet))

@@ -70,3 +70,12 @@ MonoBehaviour:
       fieldValue:
         stringValue: 0
         objectValue: {fileID: 0}
+    - fieldName: bombBoneChildName
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: bombPrefabDefault
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 8202156028514425107, guid: 27da74dd1eae1254caeec248adb2ebe5,
+          type: 3}

@@ -585,6 +585,10 @@ MonoBehaviour:
     transform: {fileID: 6907699155753829399}
   - name: FootR
     transform: {fileID: 7961918648592767326}
+  - name: Root
+    transform: {fileID: 1935179051133467103}
+  - name: Base
+    transform: {fileID: 6957577943670963927}
 --- !u!114 &6728361659162682316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2952,7 +2956,7 @@ MonoBehaviour:
   autoUpdateModelTransform: 1
   dontDetatchFromParent: 0
   modelParentTransform: {fileID: 0}
-  noCorpse: 1
+  noCorpse: 0
   dontReleaseModelOnDeath: 0
   preserveModel: 0
   normalizeToFloor: 1
@@ -3238,8 +3242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathStateMachine: {fileID: 1949618786361257478}
   deathState:
-    _typeName: EntityStates.GenericCharacterDeath, RoR2, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: TurboEdition.EntityStates.ImpBomber.DeathState, TurboEdition, Version=9999.0.0.6,
+      Culture=neutral, PublicKeyToken=null
   idleStateMachine:
   - {fileID: 1949618786361257478}
   - {fileID: 5937462284248254577}

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: EntityStates.ImpBomber.DeathState
+  m_EditorClassIdentifier: 
+  targetType:
+    assemblyQualifiedName: TurboEdition.EntityStates.ImpBomber.DeathState, TurboEdition,
+      Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: duration
+      fieldValue:
+        stringValue: 4
+        objectValue: {fileID: 0}
+    - fieldName: initialEffect
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 7214428371660463810, guid: 4b92ecfcac8586946846ac5ba0c72a0a,
+          type: 3}
+    - fieldName: deathEffect
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 7214428371660463810, guid: 34687113b42d51448b0bace50efbf24d,
+          type: 3}
