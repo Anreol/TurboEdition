@@ -52,7 +52,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: attackSoundString
       fieldValue:
-        stringValue: 
+        stringValue: Play_wMissileLaunch
         objectValue: {fileID: 0}
     - fieldName: projectilePitchBonus
       fieldValue:
@@ -72,7 +72,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: bombBoneChildName
       fieldValue:
-        stringValue: 
+        stringValue: BombBone
         objectValue: {fileID: 0}
     - fieldName: bombPrefabDefault
       fieldValue:

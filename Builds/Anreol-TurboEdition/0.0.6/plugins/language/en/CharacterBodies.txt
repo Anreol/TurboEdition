@@ -30,6 +30,26 @@
 		"GRENADIER_SKIN_ALT1_NAME" : "Explosive Ordnance Disposal",
 		"GRENADIER_DESCRIPTION" : "GRENADIER_DESCRIPTION<style=cSub>\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n<\/style>\r\n",
 		
+		"WARDEN_BODY_NAME": "Warden",
+		"WARDEN_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
+		"WARDEN_BODY_LORE" : "GRENADIER_BODY_LORE",
+		
+		"WARDEN_PASSIVE_NAME" : "Impact Batteries",
+		"WARDEN_PASSIVE_DESCRIPTION" : "<style=cIsUtility>Energy is stored</style> twice as much on damage taken.",
+		"WARDEN_PRIMARY_NAME": "Battering Batons",
+		"WARDEN_PRIMARY_DESCRIPTION" : "Attack in a fast hitting combo with each hit doing <style=cIsDamage>90% damage</style>. Every time you connect, <style=cIsUtility>energy is stored</style>.",
+		"WARDEN_SECONDARY_NAME": "Magnetic Recall",
+		"WARDEN_SECONDARY_DESCRIPTION" : "Hurl a piercing baton at enemies doing <style=cIsDamage>150% damage</style>. Activate again to recall the baton, hitting enemies on its path back to you. On recall, <style=cIsUtility>energy is stored</style>.",
+		"WARDEN_UTILITY_NAME": "Power Vault",
+		"WARDEN_UTILITY_DESCRIPTION" : "Take a massive leap upward and forward, damaging enemies near your takeoff for <style=cIsDamage>300% damage</style>. The more <style=cIsUtility>energy</style> you have stored, the shorter the cooldown. Stores 3 charges.",
+		"WARDEN_SPECIAL_NAME": "Discharge",
+		"WARDEN_SPECIAL_DESCRIPTION" : "Release all stored <style=cIsUtility>energy</style>, doing a proportional amount of damage in an exploding sphere around you.",
+		
+		"WARDEN_SKIN_ALT1_NAME" : "Explosive Ordnance Disposal",
+		"WARDEN_DESCRIPTION" : "GRENADIER_DESCRIPTION<style=cSub>\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n\r\n< ! > GRENADIER_DESCRIPTION\r\n<\/style>\r\n",
+		
+		
+		
 		"CRABCHEST_BODY_NAME": "Mimigun",
 		"CRABCHEST_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
 		"CRABCHEST_BODY_LORE" : "GRENADIER_BODY_LORE",

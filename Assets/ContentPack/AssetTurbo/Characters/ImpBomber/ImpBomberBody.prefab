@@ -924,7 +924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3419860812166096087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2554193306075792939}
@@ -3245,7 +3245,6 @@ MonoBehaviour:
     _typeName: TurboEdition.EntityStates.ImpBomber.DeathState, TurboEdition, Version=9999.0.0.6,
       Culture=neutral, PublicKeyToken=null
   idleStateMachine:
-  - {fileID: 1949618786361257478}
   - {fileID: 5937462284248254577}
 --- !u!114 &219412482288847033
 MonoBehaviour:
@@ -3312,8 +3311,8 @@ MonoBehaviour:
   m_Script: {fileID: 952828898, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: 
-  barkSound: 
+  deathSound: Play_wImpDeath
+  barkSound: Play_wImpShoot2
   openSound: 
   landingSound: Play_char_land
   fallDamageSound: Play_char_land_fall_damage

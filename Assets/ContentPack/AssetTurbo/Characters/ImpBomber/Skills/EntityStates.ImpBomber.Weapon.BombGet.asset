@@ -23,7 +23,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: enterSoundString
       fieldValue:
-        stringValue: 
+        stringValue: Play_wImpShoot1
         objectValue: {fileID: 0}
     - fieldName: bombPrefabDefault
       fieldValue:

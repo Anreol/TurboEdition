@@ -86,9 +86,9 @@
 	"ITEM_TYPEWRITER_DESC": "Type <style=cIsUtility>one letter</style> <style=cStack>(+1 per stack)</style> after using skills or walking. Getting the name of an item or a character will <style=cIsUtility>spawn</style> it.",
 	"ITEM_TYPEWRITER_LORE": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
 	
-	"ITEM_WARBANNERVOID_NAME": "War Declaration",
-	"ITEM_WARBANNERVOID_PICKUP": "",
-	"ITEM_WARBANNERVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>30 seconds</style>. <style=cStack>(+ 30s per stack)</style>.",
+	"ITEM_WARDONLEVELVOID_NAME": "War Declaration",
+	"ITEM_WARDONLEVELVOID_PICKUP": "",
+	"ITEM_WARDONLEVELVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>30 seconds</style>. <style=cStack>(+ 30s per stack)</style>.",
 
 	
 	}

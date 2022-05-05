@@ -16,7 +16,7 @@ I'm pretty bad at coming up with names for what I make, and I followed Turbo Edi
 I also find *"Turbo"* a funny word that goes along pretty well with a lot of other words. You can probably think of a few ones.
 
 ## Features
-- 15 Awful items to ruin your host with.
+- 17 Awful items to ruin your host with.
 - 2 Equipments that probably do something useful.
 - 3 Artifacts to make your run harder, for some reason.
 
@@ -24,14 +24,13 @@ Unfinished content will be marked with a WIP icon, but keep in mind that with mo
 
 ## Planned Features
 
-- Finish currently shipped content. That is one equipments and one common item, along with models.
-- Add a new Shrine, this turned out to have a very heavy refactoring so I didn't end up finishing it in time, maybe you know what it is about already!
-- Survivors. I have up to 5 in mind, but the first one will probably be a simple one.
-- More worthwhile items and equipment: Hopoo is adding over 40 items at once with the DLC, and there's countless mods already out there, meaning that items aren't really attracting me, so coming up with good items will be harder!
+- Finish currently shipped content. That means item models, if you are a modeller, please, contact me!
+- Finish the currently in-dev survivor, again, if you are a modeller, please contact me!
 
 ## Credits
+- Imp and Mimigun models and animations by DotFlare.
+- Graphics (Expansion Icon and Artifacts) by SOM.
 - Bubbet & Moffein for giving me a hand in a few things and showing me how dumb some of my practices are.
-- SOM for icons and cool graphics, including the expansion's icon.
 - Kevin from HP support, learned a awful ton of Unity and proper practices thanks to my time spent in the SS2 team. Also, how the mod loads items is taken from there!
 - Special thanks to Gnome, for introducing me to modding.
 - Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!
@@ -56,6 +55,20 @@ Update for Survivors of the Void
 - Equipment
 	- Implemented Big Scythe
 
+- Enemies
+	- Imp Trasher
+		- Spawns in Rallypoint Delta and Scorched Acres
+		- Throws explosive barrels at you from far away. If you get too close, they'll run away!
+
+- Items
+	- Ported Angel Wings
+		- +25% damage (+20% per stack) and +10 air control when airborne.
+	- Ported Thieves' Hat
+		- Reworked a bit to fit 3D: Any midair jump that isn't forward will perform a dash. Gain an extra jump in the first and every 5 stacks.
+	- New War Declaration (Void Warbanner)
+		- On Teleporter Activation -> Start of each stage. Gives a wider range of buffs but is extremely more temporal.
+
+* At first was against porting Angel Wings as you spend most of the end-game mid air, but it might be a good bonus early-game. Thieves' Hat is meant to be an alternative for Hopoo Feather, as the green pool is kinda bloated, but at the same time to not compete or replace it*
 
 ### Balance Changes
 - Red Tape Roll
@@ -71,7 +84,7 @@ Update for Survivors of the Void
 	- It will also afflict bleed for 3 seconds, if you are above 25% hp.
 	- The initial hit won't kill you, but the bleed can, don't get too cocky.
 
-* Another balance change as Hopoo is introducing Roll of Pennies with DLC, which is a common item.*
+* Another balance change as Hopoo is introducing Roll of Pennies with DLC, which is a common item. Thinking about making it not scale... but to give you 25$ discount (x1.5 per stack). Need feedback on this.*
 
 - Fan of Blades
 	- Removed acceleration over lifetime as it was too awkward to use.

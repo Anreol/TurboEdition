@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3647679347
+CRC: 2025610611
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 129cbe5231335bf763a442761d1109ea
+    Hash: 13d76008f479d23f45f48eddecb72f5c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a538270ad1235546db65f723f83cf794
+    Hash: f1aba13445609c931e07e94d164105af
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -232,6 +232,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1888550019, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 378867107, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 1006468269, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1122936093, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -330,9 +332,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
-  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -393,7 +395,9 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/BaneMask/BaneMask.asset
 - Assets/Textures/texImpBomberNormal.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/DropletDupe.asset
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenPassive.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunSpinDown.asset
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenBodySecondaryFamily.asset
 - Assets/Mesh/Items/meshTeleporterLenses_.mesh
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOff.png
 - Assets/Textures/texBlackKumo0101_under00.png
@@ -405,6 +409,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/SuperStickies/SuperStickies.asset
 - Assets/Textures/texSweat.png
 - Assets/Mesh/meshSphere.asset
+- Assets/ContentPack/AssetTurbo/Textures/Icons/SkillIcons/texWardenSkillIcons.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_BloodEconomy.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber.fbx
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsFrozenWallMonstersTE.asset
@@ -442,6 +447,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireMGLPrimaryAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BloodPackHeal.prefab
 - Assets/Textures/Ramps/texRampMaroonToYellow.png
+- Assets/ContentPack/AssetTurbo/Characters/Warden/WardenBody.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_selected.png
 - Assets/Mesh/Items/meshKnifeGuard.mesh
 - Assets/Textures/texNormalInvertFadeCone.png
@@ -449,6 +455,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/OmniExplosionVFXImpBomber.prefab
 - Assets/Materials/matOmniRing.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenUtility.asset
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGDistortion.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.SpecialChargeSatchels.asset
 - Assets/Textures/texSuperStickyEmMask.png
@@ -467,6 +474,7 @@ Assets:
 - Assets/Textures/texBlackKumo0104_00.png
 - Assets/Textures/texLineMaskAura.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormArtifact.asset
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenBodyPassiveFamily.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.Reload.asset
 - Assets/Textures/texImpactPillar.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
@@ -481,6 +489,7 @@ Assets:
 - Assets/Mesh/Items/meshItemDeployer_.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierAltSecondaryProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/DummySceneExitController.prefab
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenPrimary.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierPrimaryBombAlt.asset
 - Assets/ContentPack/AssetTurbo/Items/SoulDevourer/SoulDevourer.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
@@ -490,7 +499,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texClockTimer.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierBody.prefab
 - Assets/Textures/texTeleporterLensesClothHeight.png
-- Assets/ContentPack/AssetTurbo/Items/WarbannerVoid/WarbannerVoid.asset
+- Assets/ContentPack/AssetTurbo/Items/WardOnLevelVoid/WardOnLevelVoid.asset
 - Assets/ContentPack/AssetTurbo/Items/AirborneDash/AirborneDash.asset
 - Assets/Textures/Ramps/texGolemRedRamp.png
 - Assets/Textures/texKnifeUVFresnel.png
@@ -503,6 +512,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Cards.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPrimaryProjectile.prefab
 - Assets/Textures/Ramps/texRampRedcross.png
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenBodySpecialFamily.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/CrabChestBody.prefab
 - Assets/Mesh/Items/meshSuperSticky_.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
@@ -562,6 +572,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireSecondary.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bag.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.SpecialChargeCurling.asset
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenSpecial.asset
 - Assets/Textures/texGlowClean.png
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/ItemDeployer.asset
 - Assets/Mesh/donut3Mesh.asset
@@ -577,6 +588,7 @@ Assets:
 - Assets/Materials/matInverseDistortion.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_SuperSticky.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberBodySecondaryFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenBodyPrimaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTextEffect.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/matImpFootstepCircleBright.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/idrsGrenadier.asset
@@ -593,6 +605,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ExplosionVFXGrenadier.prefab
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/AirborneBonus.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySpecialFamily.asset
+- Assets/ContentPack/AssetTurbo/Items/ContagionTurboItem.asset
 - Assets/Textures/texKnifeUVEmission.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorPrefab.prefab
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Logs.CrabChestBody.asset
@@ -609,7 +622,7 @@ Assets:
 - Assets/Textures/texSandbagDiffuse.png
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/WormsArtifact.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
-- Assets/ContentPack/AssetTurbo/BuffDefs/bdWarbannerVoid.asset
+- Assets/ContentPack/AssetTurbo/BuffDefs/bdWardOnLevelVoid.asset
 - Assets/Textures/texBigScytheNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/ccpGrenadier.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Roll.UtilityBodyRollLoop.asset
@@ -644,6 +657,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpInitialDeathVFX.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/ImpBomberBody.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenBodyUtilityFamily.asset
 - Assets/Textures/texSandbagRoughness.png
 - Assets/ContentPack/AssetTurbo/Items/Typewriter/Typewriter.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPrimaryFamily.asset
@@ -675,10 +689,12 @@ Assets:
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Tape.png
 - Assets/Textures/texCardTest.png
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenSecondary.asset
 - Assets/Textures/Ramps/texRampDustLong.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/128x128Square.png
 - Assets/Materials/matAreaIndicatorRim.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Roll.UtilityBodyRollSingle.asset
+- Assets/ContentPack/AssetTurbo/Characters/Warden/Warden.asset
 - Assets/ContentPack/AssetTurbo/Items/Hitlag/Hitlag.asset
 - Assets/Materials/matTeamAreaIndicatorIntersectionPlayer.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png

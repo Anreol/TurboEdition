@@ -58,6 +58,7 @@ namespace TurboEdition
             InitVFX.Init();
 
             ContentLoadHelper.PopulateTypeFields<ArtifactDef>(typeof(TEContent.Artifacts), tempPackFromSerializablePack.artifactDefs);
+            ContentLoadHelper.PopulateTypeFields<ItemTierDef>(typeof(TEContent.ItemTiers), tempPackFromSerializablePack.itemTierDefs);
             ContentLoadHelper.PopulateTypeFields<ItemDef>(typeof(TEContent.Items), tempPackFromSerializablePack.itemDefs);
             ContentLoadHelper.PopulateTypeFields<EquipmentDef>(typeof(TEContent.Equipment), tempPackFromSerializablePack.equipmentDefs);
             ContentLoadHelper.PopulateTypeFields<BuffDef>(typeof(TEContent.Buffs), tempPackFromSerializablePack.buffDefs, (string fieldName) => "bd" + fieldName);
@@ -72,10 +73,31 @@ namespace TurboEdition
             yield break;
         }
 
+        /// <summary>
+        /// NOTE: Every instruction here will be done as many times as the current number of content packs the game has. This will cause serious errors if you do not watch out.
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
         public IEnumerator GenerateContentPackAsync(GetContentPackAsyncArgs args)
         {
-            //NOTE: For some reason any instructions that are put inside of here are done twice. This will cause serious errors if you do not watch out.
             ContentPack.Copy(tempPackFromSerializablePack, args.output);
+
+            bool baseGameLoaded = false;
+            bool dlcLoaded = false;
+            foreach (ContentPackLoadInfo cpli in args.peerLoadInfos)
+            {
+                if (cpli.previousContentPack.identifier == "RoR2.BaseContent")
+                    baseGameLoaded = true;
+                if (cpli.previousContentPack.identifier == "RoR2.DLC1")
+                    dlcLoaded = true;
+            }
+
+            //Void Items support.
+            if (baseGameLoaded && dlcLoaded)
+            {
+                args.output.itemRelationshipProviders[0].relationshipType = DLC1Content.ItemRelationshipTypes.ContagiousItem;
+                args.output.itemRelationshipProviders[0].relationships[0].itemDef1 = RoR2Content.Items.WardOnLevel;
+            }
 
             if (onGenerateContentPack != null)
                 yield return onGenerateContentPack;
@@ -104,7 +126,10 @@ namespace TurboEdition
             public static ArtifactDef Spite2Artifact;
             public static ArtifactDef WormsArtifact;
         }
-
+        public static class ItemTiers
+        {
+            public static ItemTierDef CurseItemTier;
+        }
         public static class Items
         {
             public static ItemDef AddTeleporterRadius;
@@ -124,7 +149,7 @@ namespace TurboEdition
             public static ItemDef StandBonus;
             public static ItemDef SuperStickies;
             public static ItemDef Typewriter;
-            public static ItemDef WarbannerVoid;
+            public static ItemDef WardOnLevelVoid;
         }
 
         public static class Equipment
@@ -141,7 +166,7 @@ namespace TurboEdition
             public static BuffDef HellLinked;
             public static BuffDef MeleeArmor;
             public static BuffDef Panic;
-            public static BuffDef WarbannerVoid;
+            public static BuffDef WardOnLevelVoid;
         }
         public static class Expansions
         {

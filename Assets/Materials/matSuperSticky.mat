@@ -103,6 +103,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ScopeMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SliceAlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -115,12 +119,14 @@ Material:
     - _BlueChannelBias: 0
     - _BlueChannelSmoothness: 0
     - _BumpScale: 1
+    - _ColorMask: 15
     - _ColorsOn: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DecalLayer: 0
     - _Depth: 0.2
     - _DetailNormalMapScale: 1
+    - _DistortionStrength: 1
     - _DitherOn: 0
     - _DstBlend: 0
     - _EliteBrightnessMax: 1
@@ -160,6 +166,7 @@ Material:
     - _PrintEmissionToAlbedoLerp: 0
     - _PrintOn: 0
     - _RampInfo: 0
+    - _Scale: 1
     - _SliceAlphaDepth: 0.1
     - _SliceBandHeight: 1
     - _SliceHeight: 5
@@ -171,7 +178,14 @@ Material:
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _TintStrength: 0.5
     - _UVSec: 0
+    - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

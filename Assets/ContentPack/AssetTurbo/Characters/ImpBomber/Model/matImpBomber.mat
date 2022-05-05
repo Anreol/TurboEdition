@@ -132,7 +132,7 @@ Material:
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
-    - _EmPower: 3.55
+    - _EmPower: 4
     - _EnableCutout: 0
     - _FEON: 1
     - _Fade: 1
@@ -168,7 +168,7 @@ Material:
     - _Opacity: 0
     - _Parallax: 0.02
     - _PrintBias: 0.02
-    - _PrintBoost: 0.48
+    - _PrintBoost: 0.5
     - _PrintDirection: 1
     - _PrintEmissionToAlbedoLerp: 1
     - _PrintOn: 1

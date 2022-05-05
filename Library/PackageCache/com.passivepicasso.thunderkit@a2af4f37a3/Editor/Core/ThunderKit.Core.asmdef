@@ -1,0 +1,25 @@
+{
+    "name": "ThunderKit.Core",
+    "references": [
+        "ThunderKit.Common",
+        "ThunderKit.Markdown",
+        "ToolbarExtender.Editor",
+        "AssetsExporter",
+        "AssetsTools.NET",
+        "BsDiff"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "SharpCompress.dll",
+        "Markdig.Signed.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

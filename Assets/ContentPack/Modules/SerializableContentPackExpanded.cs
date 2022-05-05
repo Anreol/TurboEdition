@@ -78,6 +78,7 @@ namespace TurboEdition
 			contentPack.miscPickupDefs.Add(this.miscPickupDefs);
 			return contentPack;
 		}
+
 		public override RoR2.ContentManagement.ContentPack CreateContentPack()
         {
             return CreateV1_2_1_0_ContentPack();

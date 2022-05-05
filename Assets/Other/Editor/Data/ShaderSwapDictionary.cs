@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 
 namespace Moonstorm.EditorUtils.Settings
 {
-    public class ShaderDictionary : ThunderKitSetting
+    public sealed class ShaderDictionary : ThunderKitSetting
     {
         [Serializable]
         public class ShaderPair
@@ -27,8 +27,6 @@ namespace Moonstorm.EditorUtils.Settings
         }
 
         const string ShaderRootGUID = "e57526cd2e529264f8e9999843849112";
-        const string MarkdownStylePath = "Packages/com.passivepicasso.thunderkit/Documentation/uss/markdown.uss";
-        const string DocumentationStylePath = "Packages/com.passivepicasso.thunderkit/uss/thunderkit_style.uss";
 
         [InitializeOnLoadMethod]
         static void SetupSettings()
@@ -86,11 +84,23 @@ namespace Moonstorm.EditorUtils.Settings
             string fullPath = Path.GetFullPath(rootPath);
             string pathWithoutFile = fullPath.Replace(Path.GetFileName(fullPath), "");
             IEnumerable<string> files = Directory.EnumerateFiles(pathWithoutFile, "*.shader", SearchOption.AllDirectories);
-            shaderPairs = files.Select(path => FileUtil.GetProjectRelativePath(path.Replace("\\", "/")))
+            shaderPairs = files.Select(ModifyPath)
+                .Select(path => FileUtil.GetProjectRelativePath(path.Replace("\\", "/")))
                 .Select(relativePath => AssetDatabase.LoadAssetAtPath<Shader>(relativePath))
                 .Select(shader => new ShaderPair(null, shader)).ToList();
 
+            shaderDictionarySO.Update();
             shaderDictionarySO.ApplyModifiedProperties();
+            AssetDatabase.SaveAssets();
+        }
+
+        private string ModifyPath(string path)
+        {
+            if (path.Contains($"Packages\\MoonstormSharedEditorUtils"))
+            {
+                return path.Replace($"Packages\\MoonstormSharedEditorUtils", "Packages\\teammoonstorm-moonstormsharededitorutils");
+            }
+            return path;
         }
 
         private void AttemptToFinishDictionaryAutomatically()
@@ -122,6 +132,7 @@ namespace Moonstorm.EditorUtils.Settings
                 pair.original = origShader;
             }
 
+            shaderDictionarySO.Update();
             shaderDictionarySO.ApplyModifiedProperties();
         }
     }

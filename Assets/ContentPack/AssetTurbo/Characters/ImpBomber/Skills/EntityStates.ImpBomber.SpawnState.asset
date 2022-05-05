@@ -23,7 +23,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: spawnSoundString
       fieldValue:
-        stringValue: 
+        stringValue: Play_wCrabSpawn
         objectValue: {fileID: 0}
     - fieldName: spawnEffectPrefab
       fieldValue:
