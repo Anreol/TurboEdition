@@ -54,9 +54,6 @@ namespace TurboEdition
             tempPackFromSerializablePack = serializableContentPack.CreateContentPack();
             tempPackFromSerializablePack.identifier = identifier;
 
-            InitBuffs.Init();
-            InitVFX.Init();
-
             ContentLoadHelper.PopulateTypeFields<ArtifactDef>(typeof(TEContent.Artifacts), tempPackFromSerializablePack.artifactDefs);
             ContentLoadHelper.PopulateTypeFields<ItemTierDef>(typeof(TEContent.ItemTiers), tempPackFromSerializablePack.itemTierDefs);
             ContentLoadHelper.PopulateTypeFields<ItemDef>(typeof(TEContent.Items), tempPackFromSerializablePack.itemDefs);
@@ -65,6 +62,10 @@ namespace TurboEdition
             //ContentLoadHelper.PopulateTypeFields<EliteDef>(typeof(TEContent.Elites), contentPackFromSerializableContentPack.eliteDefs, (string fieldName) => "ed" + fieldName);
             ContentLoadHelper.PopulateTypeFields<SurvivorDef>(typeof(TEContent.Survivors), tempPackFromSerializablePack.survivorDefs);
             ContentLoadHelper.PopulateTypeFields<ExpansionDef>(typeof(TEContent.Expansions), tempPackFromSerializablePack.expansionDefs);
+
+            //This shouldn't go earlier than the type field population!
+            InitBuffs.Init();
+            InitVFX.Init();
 
             if (onLoadStaticContent != null)
                 yield return onLoadStaticContent;

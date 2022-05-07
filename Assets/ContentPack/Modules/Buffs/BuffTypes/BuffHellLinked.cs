@@ -5,7 +5,7 @@ namespace TurboEdition.Buffs
 {
     public class BuffHellLinked : Buff
     {
-        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("bdHellLinked");
+        public override BuffDef buffDef { get; set; } = TEContent.Buffs.HellLinked;
         public override void Initialize()
         {
         }

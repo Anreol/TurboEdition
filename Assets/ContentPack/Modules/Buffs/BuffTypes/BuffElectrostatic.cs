@@ -4,7 +4,7 @@ namespace TurboEdition.Buffs
 {
     public class BuffElectrostatic : Buff
     {
-        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("bdElectrostatic");
+        public override BuffDef buffDef { get; set; } = TEContent.Buffs.ElectroStatic;
 
         public override void Initialize()
         {

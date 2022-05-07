@@ -4,7 +4,7 @@ namespace TurboEdition.Buffs
 {
     public class BuffVoidWarbanner : Buff
     {
-        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("bdWarbannerVoid");
+        public override BuffDef buffDef { get; set; } = TEContent.Buffs.WardOnLevelVoid;
 
         private float regenBonus = 0;
         private float armorBonus = 0;

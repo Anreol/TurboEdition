@@ -4,7 +4,7 @@ namespace TurboEdition.Buffs
 {
     public class BuffCannotSprint : Buff
     {
-        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("bdCannotSprint");
+        public override BuffDef buffDef { get; set; } = TEContent.Buffs.CannotSprint;
 
         public override void Initialize()
         {

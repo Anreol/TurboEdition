@@ -29,7 +29,7 @@ namespace TurboEdition
                 Buff buff = (Buff)Activator.CreateInstance(buffType);
                 if (!buff.buffDef)
                 {
-                    Debug.LogError("Buff " + buff + " is missing buff Def. Check Unity Project. Skipping.");
+                    Debug.LogError("Buff " + buff + " is missing the buffDef or it couldn't be found. Check the Unity project. Skipping.");
                     continue;
                 }
                 buff.Initialize();

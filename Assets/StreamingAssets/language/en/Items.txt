@@ -14,7 +14,7 @@
 	"ITEM_AIRBORNEDASH_NAME": "Thieves' Hat",
 	"ITEM_AIRBORNEDASH_PICKUP": "Dash sideways whenever jumping midair while not moving forward.",
 	"ITEM_AIRBORNEDASH_DESC": "While not moving forward, jumping midair will grant you a <style=cIsUtility>dash</style> at <style=cIsUtility>2m/s</style> <style=cStack>(+ 2m per stack)</style>. Gain an <style=cIsUtility>extra jump</style> in the first and every <style=cIsDamage>5 stacks</style>.",
-	"ITEM_AIRBORNEDASH_LORE": "",
+	"ITEM_AIRBORNEDASH_LORE": "Order: Thieves' Hat\r\nTracking Number: 724***********\r\nEstimated Delivery: 02\/27\/2056\r\nShipping Method:  Standard\r\nShipping Address: Helios Space Station, Lower Docks, Hangar 12\r\nShipping Details:\r\n\r\nDid you leave anything behind before we had to run for our lives in the last hit?\r\n\r\nI know you like to do all kinds of flashy movements, presentations and monologues, even if that means losing the element of surprise or ruining an ambush. Sometimes, that exposes a gap for me so I can act, hell, sometimes you even make me laugh!\r\n\r\nI\'m not going to ask you to stop doing it, it\'s just a part of what makes \"you\", but the situation got a bit out of control, didn\'t it?\r\n\r\nAnywho, I don\'t know how you made it out, or if you made it out, but I\'m sending you this to the usual address in hopes to see you wearing it again someday. Don\'t tell me that I\'m being tactless by sending you this over delivery, and that I could\'ve just handled it over in person to be cooler or whatever you think. I\'m still recovering, and still in the space road too, so it will be a while before we see eachother again.\r\n\r\nDon\'t you dare to lose it again in the meanwhile, okay?\r\n",
 	
 	"ITEM_BANEMASK_NAME": "Voice Modulator",
 	"ITEM_BANEMASK_PICKUP": "Shriek each time you get hurt while in safety or with a chance depending of percent health lost when hurt, panicking nearby enemies.",
@@ -87,8 +87,8 @@
 	"ITEM_TYPEWRITER_LORE": "I hate this item so fucking much its fucking shit its garbage holy shit i'm surprised i made it work please give me a better idea",
 	
 	"ITEM_WARDONLEVELVOID_NAME": "War Declaration",
-	"ITEM_WARDONLEVELVOID_PICKUP": "",
-	"ITEM_WARDONLEVELVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>30 seconds</style>. <style=cStack>(+ 30s per stack)</style>.",
+	"ITEM_WARDONLEVELVOID_PICKUP": "Declare war on level up and at the start of each stage. Grants nearby allies attack speed, movement speed, health regeneration and armor. <style=cIsVoid>Corrupts all Warbanners</style>.",
+	"ITEM_WARDONLEVELVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>30 seconds</style>. <style=cStack>(+ 30s per stack)</style>. <style=cIsVoid>Corrupts all Warbanners</style>.",
 
 	
 	}

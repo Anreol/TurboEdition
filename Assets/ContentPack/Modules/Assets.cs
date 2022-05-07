@@ -45,18 +45,18 @@ namespace TurboEdition
         {
             if (assetBundle.isStreamedSceneAssetBundle)
                 return;
-            Debug.Log("Remapping materials in assetbundle " + assetBundle.name);
+            //Debug.Log("Remapping materials in assetbundle " + assetBundle.name);
             Material[] assetBundleMaterials = assetBundle.LoadAllAssets<Material>();
 
             for (int i = 0; i < assetBundleMaterials.Length; i++)
             {
-                Debug.Log("mat: " + assetBundleMaterials[i] + " with shader " + assetBundleMaterials[i].shader + " is stubbed " + (bool)assetBundleMaterials[i].shader.name.Contains("Stubbed"));
+                //Debug.Log("mat: " + assetBundleMaterials[i] + " with shader " + assetBundleMaterials[i].shader + " is stubbed " + (bool)assetBundleMaterials[i].shader.name.Contains("Stubbed"));
                 if (assetBundleMaterials[i].shader.name.Contains("Stubbed"))
                 {
                     try
                     {
                         SwapShader(assetBundleMaterials[i]);
-                        Debug.Log("Swapped: " + assetBundleMaterials[i].shader);
+                        //Debug.Log("Swapped: " + assetBundleMaterials[i].shader);
                     }
                     catch (Exception ex)
                     {

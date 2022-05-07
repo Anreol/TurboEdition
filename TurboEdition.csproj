@@ -76,7 +76,7 @@
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffHellLinked.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffMeleeArmor.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffPanic.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffVoidWarbanner.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Buffs\BuffTypes\BuffWardOnLevelVoid.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\IStatBuffBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Buffs\InitBuffs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\BaseAINumb.cs" />

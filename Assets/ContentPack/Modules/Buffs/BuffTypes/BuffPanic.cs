@@ -7,7 +7,7 @@ namespace TurboEdition.Buffs
 {
     public class BuffPanicked : Buff
     {
-        public override BuffDef buffDef { get; set; } = Assets.mainAssetBundle.LoadAsset<BuffDef>("bdPanic");
+        public override BuffDef buffDef { get; set; } = TEContent.Buffs.Panic;
 
         private bool forceStateExitOnBuffLose = false;
 
