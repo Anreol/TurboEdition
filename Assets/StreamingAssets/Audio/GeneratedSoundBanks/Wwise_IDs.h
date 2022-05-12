@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID PLAY_GRENADIERSPECIALCHARGE = 3039812538U;
         static const AkUniqueID PLAY_GRENADIERSPECIALGAINEXTRACHARGE = 2217609107U;
         static const AkUniqueID PLAY_GRENADIERSPECIALREADY = 2141728575U;
+        static const AkUniqueID PLAY_ITEM_PROC_ITEMDEPLOYER = 902611312U;
         static const AkUniqueID PLAY_LEAVESTAGEERROR = 204571091U;
     } // namespace EVENTS
 

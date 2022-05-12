@@ -24,12 +24,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: a0fedc2af37863f41a8b380372e5bafb, type: 3}
+        m_Scale: {x: 0.3, y: 0.3}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
         m_Texture: {fileID: 2800000, guid: aff4eda754e569d4abf79a00e1e5b965, type: 3}
-        m_Scale: {x: 0.5, y: 0.5}
+        m_Scale: {x: 0.2, y: 0.2}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -64,18 +64,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: d0bd1696b23197b4589fdf8dd07d2eff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 33ba5ee3d72034e40b28995fe2293922, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBias: 0
-    - _AlphaBoost: 5.2
-    - _Boost: 1
+    - _AlphaBoost: 0.42
+    - _Boost: 1.5
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
     - _CloudsOn: 1
-    - _Cull: 0
+    - _Cull: 1
     - _Cutoff: 0.5
     - _DepthOffset: 0
     - _DetailNormalMapScale: 1
@@ -94,15 +94,15 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
-    - _IntersectionStrength: 1.3
-    - _InvFade: 4.3
+    - _IntersectionStrength: 4
+    - _InvFade: 1.79
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OffsetAmount: 0
     - _Parallax: 0.02
-    - _RimPower: 5.6
-    - _RimStrength: 5
+    - _RimPower: 3.73
+    - _RimStrength: 0.48
     - _SkyboxOnly: 0
     - _SmoothnessTextureChannel: 0
     - _SoftPower: 1
@@ -119,6 +119,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: 5, g: 0, b: 10, a: 10}
+    - _CutoffScroll: {r: -9, g: 9, b: 2, a: -12}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}

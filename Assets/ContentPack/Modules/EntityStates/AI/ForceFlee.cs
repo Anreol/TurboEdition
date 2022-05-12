@@ -66,7 +66,7 @@ namespace TurboEdition.EntityStates.AI.Walker
             if (base.ai && base.body)
             {
                 //If AI is ready to enter combat again or be busy
-                if (!body.HasBuff(BuffCatalog.GetBuffDef(BuffCatalog.FindBuffIndex("BuffPanicked"))))
+                if (!body.HasBuff(TEContent.Buffs.Panic))
                 {
                     if (base.ai.skillDriverEvaluation.dominantSkillDriver)
                         this.outer.SetNextState(new Combat());

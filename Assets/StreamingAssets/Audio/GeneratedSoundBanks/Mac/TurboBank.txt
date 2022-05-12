@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	204571091	Play_LeaveStageError			\Default Work Unit\Equipment\Play_LeaveStageError	
 	241865965	Play_GrenadierSecondaryFire			\Default Work Unit\Grenadier\Play_GrenadierSecondaryFire	
+	902611312	Play_Item_Proc_ItemDeployer			\Default Work Unit\Items\Play_Item_Proc_ItemDeployer	
 	1133541694	Play_BigScytheSwing			\Default Work Unit\Equipment\Play_BigScytheSwing	
 	1186468370	Play_GrenadierReload			\Default Work Unit\Grenadier\Play_GrenadierReload	
 	2141728575	Play_GrenadierSpecialReady			\Default Work Unit\Grenadier\Play_GrenadierSpecialReady	
@@ -13,6 +14,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1612634724	GrenadierSpecial_ChargeAmount			\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	325557564	Item_Proc_ItemDeployer1	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\Item_Proc_ItemDeployer1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Items\Item_Proc_ItemDeployer\Item_Proc_ItemDeployer1		7846
 	441768360	BigScytheSwing	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\se_item_deathscythe_swing_m_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Equipment\BigScytheSwing		6074
 	464783086	GrenadierSecondaryFire	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\M79_fire01_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierSecondaryFire		16058
 	528402572	GrenadierSpecialCharge	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\se_item_crossbomb_blink_78160227.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierSpecialCharge		2715
@@ -21,5 +23,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	683144335	GrenadierSpecialGainExtraCharge	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\snd_se_snake_006_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierSpecialGainExtraCharge		2683
 	683838438	LeaveStageError	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\se_system_beep_78160227.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Equipment\LeaveStageError		3796
 	717774493	GrenadierReload	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\M79_Reload_064_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierReload		7159
+	778002739	Item_Proc_ItemDeployer2	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\Item_Proc_ItemDeployer2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Items\Item_Proc_ItemDeployer\Item_Proc_ItemDeployer2		6286
 	923839061	Milkor_FireMix1	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\Milkor_FireMix1_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierPrimaryFire\Milkor_FireMix1		8258
 

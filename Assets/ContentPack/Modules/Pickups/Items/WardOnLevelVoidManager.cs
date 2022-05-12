@@ -45,7 +45,8 @@ namespace TurboEdition.Items
             int c = obj.inventory.GetItemCount(TEContent.Items.WardOnLevelVoid.itemIndex);
             if (Stage.instance.entryTime.timeSince <= activationWindow && c > 0)
             {
-                //obj.AddTimedBuff(TEContent.Buffs.WardOnLevelVoid, 45 + ((c - 1 * 30)));
+                obj.AddTimedBuff(TEContent.Buffs.WardOnLevelVoid, 45 + ((c - 1 * 30)));
+
                 List<HurtBox> hurtBoxes = CollectionPool<HurtBox, List<HurtBox>>.RentCollection();
                 SearchForTargets(hurtBoxes, obj);
                 for (int i = 0; i < hurtBoxes.Count; i++)

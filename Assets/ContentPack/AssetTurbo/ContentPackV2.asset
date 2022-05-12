@@ -16,7 +16,6 @@ MonoBehaviour:
   - {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5, type: 3}
   - {fileID: 9196633835157065860, guid: 76cb1e9685ad9fc4d97394864c5dda3e, type: 3}
   - {fileID: 9196633835157065860, guid: 8104befcda172954f9bc0dac09520ffa, type: 3}
-  - {fileID: 9196633835157065860, guid: b8b443f39a79f694898a14d5be46c988, type: 3}
   masterPrefabs:
   - {fileID: 6518832654186872370, guid: bb7c43777775dfe49a54fdc52ad8bb94, type: 3}
   projectilePrefabs:
@@ -125,6 +124,7 @@ MonoBehaviour:
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
+  - {fileID: 11400000, guid: 9b5932cf8c1899a49be70a365f0e1e7c, type: 2}
   musicTrackDefs: []
   gameEndingDefs: []
   entityStateConfigurations:

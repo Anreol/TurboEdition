@@ -92,11 +92,11 @@ namespace TurboEdition.Items
                     maxData = 0,
                     currentData = 0,
                     offData = "TOOLTIP_ITEM_INIT",
-                    sprite = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).pickupIconSprite,
+                    sprite = TEContent.Items.SoulDevourer.pickupIconSprite,
                     tooltipContent = new RoR2.UI.TooltipContent
                     {
-                        titleColor = ColorCatalog.GetColor(ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).darkColorIndex),
-                        titleToken = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).nameToken,
+                        titleColor = ColorCatalog.GetColor(ItemTierCatalog.GetItemTierDef(TEContent.Items.SoulDevourer.tier).darkColorIndex),
+                        titleToken = TEContent.Items.SoulDevourer.nameToken,
                         bodyToken = "TOOLTIP_ITEM_INIT"
                     }
                 };

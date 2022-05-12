@@ -8,6 +8,7 @@
 						<ObjectRef Name="Play_BigScytheSwing" ID="{2F72BB4B-25F9-4045-A855-C7B5D4161606}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_GrenadierSpecialGainExtraCharge" ID="{1DA97B05-BE79-4174-B197-39A3A215C417}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_GrenadierSpecialReady" ID="{89947CFA-6626-41F7-B7B4-63BE7078989E}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Item_Proc_ItemDeployer" ID="{CFEDFDB7-6446-43BA-AA96-9C6D6914174F}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_GrenadierSpecialCharge" ID="{9F164E68-0BF6-494E-8D07-A63091E7A003}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_GrenadierPrimaryFire" ID="{5613FB19-948F-4C87-9CAC-B9D2871170A1}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_GrenadierSecondaryFire" ID="{A69258E1-868B-4D7C-826D-D74AD22C5A36}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>

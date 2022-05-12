@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: matHellLinkedBuffBillboard
-  m_Shader: {fileID: 4800000, guid: da73ffafca86eb647b55e6684d46e8bb, type: 2}
-  m_ShaderKeywords: USE_CLOUDS
+  m_Shader: {fileID: 4800000, guid: 2e68267ebb51d0a438acfc57e42a7269, type: 2}
+  m_ShaderKeywords: CLOUDOFFSET USE_CLOUDS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -32,12 +32,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 61a3496008ba4f44ab61f1fb46d593fc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: d82313afb7d68584ab3c35b4ea332973, type: 3}
+        m_Scale: {x: 0.3, y: 0.3}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
@@ -112,7 +112,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: d0bd1696b23197b4589fdf8dd07d2eff, type: 3}
+        m_Texture: {fileID: 2800000, guid: 01b4c940ba3403c4bbb8851c7399e182, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SliceAlphaTex:
@@ -124,27 +124,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0
-    - _AlphaBoost: 1
+    - _AlphaBias: 0.042
+    - _AlphaBoost: 0.8
     - _BlueChannelBias: 0
     - _BlueChannelSmoothness: 0
     - _Boost: 1
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CharacterLimit: 3
-    - _CloudOffsetOn: 0
+    - _CloudOffsetOn: 1
     - _CloudsOn: 1
     - _ColorsOn: 0
-    - _Cull: 1
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DecalLayer: 0
     - _Depth: 0.2
     - _DepthOffset: 0
     - _DetailNormalMapScale: 1
     - _DisableRemapOn: 0
-    - _DistortionStrength: 0.1
+    - _DistortionStrength: -0.025
     - _DitherOn: 0
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _EliteBrightnessMax: 1
     - _EliteBrightnessMin: 0
     - _EliteIndex: 0
@@ -174,7 +174,7 @@ Material:
     - _GreenChannelBias: 0
     - _GreenChannelSmoothness: 0
     - _InternalSimpleBlendMode: 0
-    - _InvFade: 0.1
+    - _InvFade: 0
     - _LimbPrimeMask: 1
     - _LimbRemovalOn: 0
     - _Metallic: 0
@@ -200,18 +200,18 @@ Material:
     - _SpecularStrength: 0
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _UVSec: 0
     - _UseUV1On: 0
     - _VertexAlphaOn: 0
     - _VertexColorOn: 0
     - _VertexOffsetOn: 0
-    - _ZTest: 4
+    - _ZTest: 8
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CritColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: 0, g: 0, b: 0, a: 0}
+    - _CutoffScroll: {r: 2, g: 1, b: 2, a: 1}
     - _EmColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}

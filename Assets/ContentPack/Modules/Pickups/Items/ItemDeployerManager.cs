@@ -1,5 +1,6 @@
 ﻿using HG;
 using RoR2;
+using RoR2.Audio;
 using RoR2.Orbs;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace TurboEdition.Items
 {
     public static class ItemDeployerManager
     {
+        private static NetworkSoundEventDef networkSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItemProcItemDeployer");
+
         [SystemInitializer(typeof(PickupCatalog))]
         public static void Initialize()
         {
@@ -32,6 +35,8 @@ namespace TurboEdition.Items
             int itemDeployCount = msr.leaderMasterInstance.inventory.GetItemCount(TEContent.Items.ItemDeployer);
             if (itemDeployCount > 0)
             {
+                EntitySoundManager.EmitSoundServer(networkSound.index, msr.summonMasterInstance.GetBody()?.gameObject);
+
                 List<RoR2.Orbs.ItemTransferOrb> inFlightOrbs = new List<RoR2.Orbs.ItemTransferOrb>();
                 int maxItemsToGive = Mathf.Min(itemDeployCount + 1, msr.leaderMasterInstance.inventory.itemAcquisitionOrder.Count);
                 for (int i = maxItemsToGive - 1; i >= 0; i--)

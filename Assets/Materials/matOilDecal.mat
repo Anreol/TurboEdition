@@ -24,11 +24,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud1Tex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: aff4eda754e569d4abf79a00e1e5b965, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cloud2Tex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 61a3496008ba4f44ab61f1fb46d593fc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DecalTex:
@@ -76,14 +76,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1926dc361a4cf8843afa5c9786597787, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBoost: 1
+    - _AlphaBoost: 0.81
     - _AngleLimit: 0.5
     - _BumpScale: 1
-    - _CloudOn: 0
+    - _CloudOn: 1
     - _Cutoff: 0.5
     - _DecalBlendMode: 0
     - _DecalDstBlend: 10
@@ -114,5 +114,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: 0, g: 0, b: 0, a: 0}
+    - _CutoffScroll: {r: 1, g: -1.5, b: -1, a: 3}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

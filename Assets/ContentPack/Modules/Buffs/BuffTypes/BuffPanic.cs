@@ -46,7 +46,8 @@ namespace TurboEdition.Buffs
                 }
             }
 
-            //body.RemoveBuff(buffDef.buffIndex);
+            //Remove buff if its not AI
+            body.RemoveBuff(buffDef.buffIndex);
         }
 
         public override void OnBuffLastStackLost(ref CharacterBody body)

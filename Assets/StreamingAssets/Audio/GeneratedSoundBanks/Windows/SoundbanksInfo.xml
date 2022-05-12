@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="299465864">
+		<SoundBank Id="34081325" Language="SFX" Hash="3883120556">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -73,6 +73,18 @@
 						<File Id="674121072" Language="SFX">
 							<ShortName>snd_se_snake_Special_S01.wav</ShortName>
 							<Path>SFX\snd_se_snake_Special_S01_0D5756A9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="902611312" Name="Play_Item_Proc_ItemDeployer" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_ItemDeployer" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.290448" DurationMax="0.392121">
+					<IncludedMemoryFiles>
+						<File Id="325557564" Language="SFX">
+							<ShortName>Item_Proc_ItemDeployer1.wav</ShortName>
+							<Path>SFX\Item_Proc_ItemDeployer1_3F75BDB9.wem</Path>
+						</File>
+						<File Id="778002739" Language="SFX">
+							<ShortName>Item_Proc_ItemDeployer2.wav</ShortName>
+							<Path>SFX\Item_Proc_ItemDeployer2_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

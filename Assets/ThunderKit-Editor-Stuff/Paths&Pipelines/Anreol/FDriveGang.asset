@@ -26,6 +26,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cebc722807299b54bb8733330087d5e3, type: 3}
   m_Name: Constant
   m_EditorClassIdentifier: 
-  Errored: 0
-  ErrorMessage: 
   Value: F:\SteamLibrary\steamapps\common\Risk of Rain 2\BepInEx\plugins\TurboEdition
