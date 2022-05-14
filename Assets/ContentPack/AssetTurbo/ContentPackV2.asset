@@ -109,7 +109,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc870f30f90351e4bb50b1af97fe16f2, type: 2}
   - {fileID: 11400000, guid: 0e4004db3ae50604f8e3b6fbabdf39f3, type: 2}
   eliteDefs: []
-  unlockableDefs: []
+  unlockableDefs:
+  - {fileID: 11400000, guid: 7002b71b40dcb7547a6be57cb34d4592, type: 2}
+  - {fileID: 11400000, guid: 99191b8fc0a42dc4a8e3afc33bf87cc9, type: 2}
+  - {fileID: 11400000, guid: 29eccc1ee979f844ca5be74c5a3e8298, type: 2}
   survivorDefs:
   - {fileID: 11400000, guid: e57d078f7bf83ed449125183c01c095b, type: 2}
   artifactDefs:

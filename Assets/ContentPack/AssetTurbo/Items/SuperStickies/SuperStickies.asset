@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: SuperStickies
   m_EditorClassIdentifier: 
   _itemIndex: -1
-  tier: 2
+  deprecatedTier: 2
+  _itemTierDef: {fileID: 0}
   nameToken: ITEM_SUPERSTICKIES_NAME
   pickupToken: ITEM_SUPERSTICKIES_PICKUP
   descriptionToken: ITEM_SUPERSTICKIES_DESC
-  loreToken: ITEM_SUPERSTICKIES_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 1733885898963566674, guid: 38e82d37263946f41862f3ae5c4f0575,
     type: 3}

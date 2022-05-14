@@ -1,0 +1,7 @@
+﻿{
+	"strings":
+	{
+		"ACHIEVEMENT_HOSTLOBBY_NAME": "Host?",
+		"ACHIEVEMENT_HOSTLOBBY_DESCRIPTION": "Host a multiplayer game.",
+	}
+}

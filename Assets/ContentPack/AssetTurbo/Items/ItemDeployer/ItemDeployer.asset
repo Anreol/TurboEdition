@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: ItemDeployer
   m_EditorClassIdentifier: 
   _itemIndex: -1
-  tier: 0
+  deprecatedTier: 0
+  _itemTierDef: {fileID: 0}
   nameToken: ITEM_ITEMDEPLOYER_NAME
   pickupToken: ITEM_ITEMDEPLOYER_PICKUP
   descriptionToken: ITEM_ITEMDEPLOYER_DESC
-  loreToken: ITEM_ITEMDEPLOYER_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 1733885898963566674, guid: f03e010a461c08540abbac62468729b3,
     type: 3}

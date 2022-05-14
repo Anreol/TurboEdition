@@ -18,7 +18,7 @@ MonoBehaviour:
   nameToken: ITEM_WARDONLEVELVOID_NAME
   pickupToken: ITEM_WARDONLEVELVOID_PICKUP
   descriptionToken: ITEM_WARDONLEVELVOID_DESC
-  loreToken: ITEM_WARDONLEVELVOID_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
   pickupIconSprite: {fileID: 0}

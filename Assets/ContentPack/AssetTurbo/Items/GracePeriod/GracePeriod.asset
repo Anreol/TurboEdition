@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: GracePeriod
   m_EditorClassIdentifier: 
   _itemIndex: -1
-  tier: 3
+  deprecatedTier: 3
+  _itemTierDef: {fileID: 0}
   nameToken: ITEM_GRACEPERIOD_NAME
   pickupToken: ITEM_GRACEPERIOD_PICKUP
   descriptionToken: ITEM_GRACEPERIOD_DESC
-  loreToken: ITEM_GRACEPERIOD_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 5004284487608745642, guid: 62cf4b451dc824948805a23cf6311b2e,
     type: 3}

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: KnifeFan
   m_EditorClassIdentifier: 
   _itemIndex: -1
-  tier: 1
+  deprecatedTier: 1
+  _itemTierDef: {fileID: 0}
   nameToken: ITEM_KNIFEFAN_NAME
   pickupToken: ITEM_KNIFEFAN_PICKUP
   descriptionToken: ITEM_KNIFEFAN_DESC
-  loreToken: ITEM_KNIFEFAN_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 9054252896963136890, guid: d2384bbfc9841fe48880a8010ef6dbfb,
     type: 3}

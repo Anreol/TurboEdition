@@ -18,7 +18,7 @@ MonoBehaviour:
   nameToken: ITEM_ADDTELEPORTERRADIUS_NAME
   pickupToken: ITEM_ADDTELEPORTERRADIUS_PICKUP
   descriptionToken: ITEM_ADDTELEPORTERRADIUS_DESC
-  loreToken: ITEM_ADDTELEPORTERRADIUS_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 1733885898963566674, guid: d35d623dee5888f45ab8230e96d28f6a,
     type: 3}

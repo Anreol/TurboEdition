@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Typewriter
   m_EditorClassIdentifier: 
   _itemIndex: -1
-  tier: 5
+  deprecatedTier: 5
+  _itemTierDef: {fileID: 0}
   nameToken: ITEM_TYPEWRITER_NAME
   pickupToken: ITEM_TYPEWRITER_PICKUP
   descriptionToken: ITEM_TYPEWRITER_DESC
-  loreToken: ITEM_TYPEWRITER_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 5004284487608745642, guid: 62cf4b451dc824948805a23cf6311b2e,
     type: 3}

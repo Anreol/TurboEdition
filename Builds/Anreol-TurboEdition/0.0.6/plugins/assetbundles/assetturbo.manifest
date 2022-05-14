@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1059854045
+CRC: 3708754890
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 80d1f415dcca9c472f131cbac558563f
+    Hash: cd7c6d53ab9758d766c10e38504ff6a5
   TypeTreeHash:
     serializedVersion: 2
     Hash: f1aba13445609c931e07e94d164105af
@@ -683,6 +683,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_deselected.png
 - Assets/Materials/matGlassWhite.mat
 - Assets/Textures/texTeleporterLensesClothBase.png
+- Assets/ContentPack/AssetTurbo/Items/Hitlag/Items.Hitlag.asset
 - Assets/ContentPack/AssetTurbo/Items/RadioSearch/RadioSearch.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
 - Assets/Materials/matCardTest.mat
