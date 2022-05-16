@@ -144,6 +144,7 @@ namespace TurboEdition
             public static ItemDef ItemDeployer;
             public static ItemDef KnifeFan;
             public static ItemDef MeleeArmor;
+            public static ItemDef MoneyBank;
             public static ItemDef PackMagnet;
             public static ItemDef RadioSearch;
             public static ItemDef SoulDevourer;

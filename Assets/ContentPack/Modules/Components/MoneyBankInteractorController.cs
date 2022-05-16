@@ -1,209 +1,228 @@
-﻿using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using TurboEdition.Items;
 using TurboEdition.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
-namespace TurboEdition.Components
+namespace RoR2
 {
     [RequireComponent(typeof(NetworkUIPromptController))]
-    class MoneyBankInteractorController : NetworkBehaviour, IInteractable
+    public class MoneyBankInteractionController : NetworkBehaviour, IInteractable
     {
-		public MoneyBankInteractorController.MoneySubmittedUnityEvent onMoneySubmitted;
-		public GenericInteraction.InteractorUnityEvent onServerInteractionBegin;
-
-        public NetworkUIPromptController networkUIPromptController;
-        public GameObject panelPrefab;
-		public bool available;
-		public string contextString;
-        public int cutoffDistance;
-        
-		private GameObject panelInstance;
-        private MoneyBankPanel panelInstanceController;
-        private int moneyMount;
+        public bool available = true;
 
         private void Awake()
-		{
-			this.networkUIPromptController = base.GetComponent<NetworkUIPromptController>();
-			if (NetworkClient.active)
-			{
-				this.networkUIPromptController.onDisplayBegin += this.OnDisplayBegin;
-				this.networkUIPromptController.onDisplayEnd += this.OnDisplayEnd;
-			}
-			if (NetworkServer.active)
-			{
-				this.networkUIPromptController.messageFromClientHandler = new Action<NetworkReader>(this.HandleClientMessage);
-			}
-		}
-		private void OnEnable()
-		{
-			InstanceTracker.Add<MoneyBankInteractorController>(this);
-		}
-		private void OnDisable()
-		{
-			InstanceTracker.Remove<MoneyBankInteractorController>(this);
-		}
-		private void HandleClientMessage(NetworkReader reader)
-		{
-			byte b = reader.ReadByte();
-			if (b == 0)
-			{
-				int moneyAmount = reader.ReadInt32();
-				this.HandleMoneySubmitted(moneyAmount);
-				return;
-			}
-			if (b != 1)
-			{
-				return;
-			}
-			this.networkUIPromptController.SetParticipantMaster(null);
-		}
-		private void FixedUpdate()
-		{
-			if (NetworkServer.active)
-			{
-				this.FixedUpdateServer();
-			}
-		}
-		private void FixedUpdateServer()
-		{
-			CharacterMaster currentParticipantMaster = this.networkUIPromptController.currentParticipantMaster;
-			if (currentParticipantMaster)
-			{
-				CharacterBody body = currentParticipantMaster.GetBody();
-				if (!body || (body.inputBank.aimOrigin - base.transform.position).sqrMagnitude > this.cutoffDistance * this.cutoffDistance)
-				{
-					this.networkUIPromptController.SetParticipantMaster(null);
-				}
-			}
-		}
-		private void OnPanelDestroyed(OnDestroyCallback onDestroyCallback)
-		{
-			NetworkWriter networkWriter = this.networkUIPromptController.BeginMessageToServer();
-			networkWriter.Write(1);
-			this.networkUIPromptController.FinishMessageToServer(networkWriter);
-		}
-		private void OnDisplayBegin(NetworkUIPromptController networkUIPromptController, LocalUser localUser, CameraRigController cameraRigController)
-		{
-			this.panelInstance = UnityEngine.Object.Instantiate<GameObject>(this.panelPrefab, cameraRigController.hud.mainContainer.transform);
-			this.panelInstanceController = this.panelInstance.GetComponent<MoneyBankPanel>();
-			this.panelInstanceController.interactorController = this;
-			this.panelInstanceController.moneyAmount = this.moneyMount;
-			OnDestroyCallback.AddCallback(this.panelInstance, new Action<OnDestroyCallback>(this.OnPanelDestroyed));
-		}
-		private void OnDisplayEnd(NetworkUIPromptController networkUIPromptController, LocalUser localUser, CameraRigController cameraRigController)
-		{
-			UnityEngine.Object.Destroy(this.panelInstance);
-			this.panelInstance = null;
-			this.panelInstanceController = null;
-		}
-
-		[Server]
-		public void SetMoneyServer(int newMoney)
-		{
-			this.SetMoneyInternal(newMoney);
-		}
-		private void SetMoneyInternal(int newMoney)
-		{
-			this.moneyMount = newMoney;
-			if (this.panelInstanceController)
-			{
-				this.panelInstanceController.moneyAmount = (this.moneyMount);
-			}
-			if (NetworkServer.active)
-			{
-				base.SetDirtyBit(MoneyBankInteractorController.optionsDirtyBit);
-			}
-		}
-		[Server]
-		public void SetAvailable(bool newAvailable)
-		{
-			this.available = newAvailable;
-		}
-		public void SubmitMoney(int moneyAmount)
-		{
-			if (!NetworkServer.active)
-			{
-				NetworkWriter networkWriter = this.networkUIPromptController.BeginMessageToServer();
-				networkWriter.Write(0);
-				networkWriter.Write(moneyAmount);
-				this.networkUIPromptController.FinishMessageToServer(networkWriter);
-				return;
-			}
-			this.HandleMoneySubmitted(moneyAmount);
-		}
-		[Server]
-		private void HandleMoneySubmitted(int moneyAmount)
-		{
-			MoneyBankInteractorController.MoneySubmittedUnityEvent moneySubmittedUnityEvent = this.onMoneySubmitted;
-			ref int moneySubmitted = ref moneyAmount;
-			moneySubmittedUnityEvent?.Invoke(moneySubmitted);
-		}
-
-		public override bool OnSerialize(NetworkWriter writer, bool initialState)
-		{
-			uint syncVarDirtyBits = base.syncVarDirtyBits;
-			if (initialState)
-			{
-				syncVarDirtyBits = MoneyBankInteractorController.allDirtyBits;
-			}
-			bool flag = (syncVarDirtyBits & MoneyBankInteractorController.optionsDirtyBit) > 0U;
-			writer.WritePackedUInt32(syncVarDirtyBits);
-			if (flag)
-			{
-				writer.Write(moneyMount);
-			}
-			return syncVarDirtyBits > 0U;
-		}
-
-		public override void OnDeserialize(NetworkReader reader, bool initialState)
-		{
-			if ((reader.ReadPackedUInt32() & MoneyBankInteractorController.optionsDirtyBit) > 0U)
-			{
-				int readedMoney = reader.ReadPackedUInt32();
-				this.SetMoneyInternal(readedMoney);
-			}
-		}
-		public string GetContextString(Interactor activator)
-		{
-			return Language.GetString(this.contextString);
-		}
-
-		public Interactability GetInteractability(Interactor activator)
-		{
-			if (this.networkUIPromptController.inUse)
-			{
-				return Interactability.ConditionsNotMet;
-			}
-			if (!this.available)
-			{
-				return Interactability.Disabled;
-			}
-			return Interactability.Available;
-		}
-
-		public void OnInteractionBegin(Interactor activator)
-		{
-			this.onServerInteractionBegin.Invoke(activator);
-			this.networkUIPromptController.SetParticipantMasterFromInteractor(activator);
-		}
-		public bool ShouldIgnoreSpherecastForInteractibility(Interactor activator)
-		{
-			return false;
-		}
-		public bool ShouldShowOnScanner()
-		{
-			return true;
-		}
-
-		[Serializable]
-		public class MoneySubmittedUnityEvent : UnityEvent<int>
         {
+            this.networkUIPromptController = base.GetComponent<NetworkUIPromptController>();
+            if (NetworkClient.active)
+            {
+                this.networkUIPromptController.onDisplayBegin += this.OnDisplayBegin;
+                this.networkUIPromptController.onDisplayEnd += this.OnDisplayEnd;
+            }
+            if (NetworkServer.active)
+            {
+                this.networkUIPromptController.messageFromClientHandler = new Action<NetworkReader>(this.HandleClientMessage);
+            }
+        }
+
+        private void OnEnable()
+        {
+            InstanceTracker.Add<MoneyBankInteractionController>(this);
+        }
+
+        private void OnDisable()
+        {
+            InstanceTracker.Remove<MoneyBankInteractionController>(this);
+        }
+
+        private void HandleClientMessage(NetworkReader reader)
+        {
+            byte b = reader.ReadByte();
+            if (b == 0)
+            {
+                int moneyAmount = reader.ReadInt32(); //Read the int from client's SubmitChoice
+                this.HandleTransaction(this.networkUIPromptController.currentParticipantMaster, moneyAmount);
+                return;
+            }
+            if (b != 1)
+            {
+                return;
+            }
+            this.networkUIPromptController.SetParticipantMaster(null);
+        }
+
+        private void FixedUpdate()
+        {
+            if (NetworkServer.active)
+            {
+                this.FixedUpdateServer();
+            }
+            if (this.panelInstanceController?.moneyAmount != cachedMoneyAmount)
+                this.panelInstanceController.moneyAmount = cachedMoneyAmount;
+            if (this.panelInstanceController?.maxMoneyAmount != MoneyBankManager.maxMoneyAmountToStore)
+                this.panelInstanceController.maxMoneyAmount = MoneyBankManager.maxMoneyAmountToStore;
+        }
+
+        [Server] //Originally didn't have a server tag
+        private void FixedUpdateServer()
+        {
+            CharacterMaster currentParticipantMaster = this.networkUIPromptController.currentParticipantMaster;
+            if (currentParticipantMaster)
+            {
+                CharacterBody body = currentParticipantMaster.GetBody();
+                if (!body || (body.inputBank.aimOrigin - base.transform.position).sqrMagnitude > this.cutoffDistance * this.cutoffDistance)
+                {
+                    this.networkUIPromptController.SetParticipantMaster(null);
+                    return;
+                }
+                if (cachedMoneyAmount != MoneyBankManager.serverCurrentMoneyAmount)
+                    cachedMoneyAmount = MoneyBankManager.serverCurrentMoneyAmount;
+            }
+        }
+
+        private void OnPanelDestroyed(OnDestroyCallback onDestroyCallback)
+        {
+            NetworkWriter networkWriter = this.networkUIPromptController.BeginMessageToServer();
+            networkWriter.Write(1);
+            this.networkUIPromptController.FinishMessageToServer(networkWriter);
+        }
+
+        private void OnDisplayBegin(NetworkUIPromptController networkUIPromptController, LocalUser localUser, CameraRigController cameraRigController)
+        {
+            this.panelInstance = UnityEngine.Object.Instantiate<GameObject>(this.panelPrefab, cameraRigController.hud.mainContainer.transform);
+            this.panelInstanceController = this.panelInstance.GetComponent<MoneyBankPanel>();
+            this.panelInstanceController.pickerController = this;
+            this.panelInstanceController.moneyAmount = cachedMoneyAmount;
+            OnDestroyCallback.AddCallback(this.panelInstance, new Action<OnDestroyCallback>(this.OnPanelDestroyed));
+        }
+
+        private void OnDisplayEnd(NetworkUIPromptController networkUIPromptController, LocalUser localUser, CameraRigController cameraRigController)
+        {
+            UnityEngine.Object.Destroy(this.panelInstance);
+            this.panelInstance = null;
+            this.panelInstanceController = null;
+        }
+
+        [Server]
+        public void SetAvailable(bool newAvailable)
+        {
+            this.available = newAvailable;
+        }
+
+        //Gets called from the UI, each button. Sends the amount to the server, which will read the value and process the transaction.
+        public void SubmitChoice(int moneyAmount)
+        {
+            //If its the client...
+            if (!NetworkServer.active) 
+            {
+                NetworkWriter networkWriter = this.networkUIPromptController.BeginMessageToServer();
+                networkWriter.Write(0);
+                networkWriter.Write(moneyAmount); //Writes into HandleClientMessage
+                this.networkUIPromptController.FinishMessageToServer(networkWriter);
+                return;
+            }
+            //If its already server...
+            this.HandleTransaction(this.networkUIPromptController.currentParticipantMaster, moneyAmount); 
+        }
+
+        [Server]
+        private void HandleTransaction(CharacterMaster interactor, int moneyAmount)
+        {
+            MoneyBankInteractionController.MoneyInteractedUnityEvent moneyInteractedUnityEvent = this.onMoneyInteracted;
+            if (moneyInteractedUnityEvent == null)
+            {
+                return;
+            }
+            moneyInteractedUnityEvent.Invoke(interactor, moneyAmount);
+        }
+
+        //Used in unity events
+        [Server]
+        private void AddMoneyToBank(CharacterMaster master, int moneyAmount)
+        {
+            if (MoneyBankManager.CanStoreMoney)
+            {
+                if (TurboEdition.Items.MoneyBankManager.AddMoney(moneyAmount))
+                {
+                    master.money -= (uint)moneyAmount;
+                }
+                
+            }
+        }
+
+        //Used in unity events
+        [Server]
+        private void RemoveMoneyFromBank(CharacterMaster master, int moneyAmount)
+        {
+            int moneyFromBank = TurboEdition.Items.MoneyBankManager.SubstractMoney(moneyAmount);
+            if (moneyFromBank > 0)
+            {
+                master.GiveMoney((uint)moneyFromBank);
+            }
+        }
+
+        public string GetContextString(Interactor activator)
+        {
+            return Language.GetString(this.contextString);
+        }
+
+        public Interactability GetInteractability(Interactor activator)
+        {
+            if (this.networkUIPromptController.inUse)
+            {
+                return Interactability.ConditionsNotMet;
+            }
+            if (!this.available)
+            {
+                return Interactability.Disabled;
+            }
+            return Interactability.Available;
+        }
+
+        public void OnInteractionBegin(Interactor activator)
+        {
+            this.onServerInteractionBegin.Invoke(activator);
+            this.networkUIPromptController.SetParticipantMasterFromInteractor(activator);
+        }
+
+        public bool ShouldIgnoreSpherecastForInteractibility(Interactor activator)
+        {
+            return false;
+        }
+
+        public bool ShouldShowOnScanner()
+        {
+            return true;
+        }
+
+        public GameObject panelPrefab;
+
+        //Used on unity
+        public MoneyBankInteractionController.MoneyInteractedUnityEvent onMoneyInteracted;
+
+        public GenericInteraction.InteractorUnityEvent onServerInteractionBegin;
+
+        public float cutoffDistance;
+        public string contextString = "";
+        private NetworkUIPromptController networkUIPromptController;
+
+        private GameObject panelInstance;
+        private MoneyBankPanel panelInstanceController;
+
+        [SyncVar]
+        private uint cachedMoneyAmount;
+
+        private static readonly uint optionsDirtyBit = 1U;
+
+        private static readonly uint allDirtyBits = MoneyBankInteractionController.optionsDirtyBit;
+
+        [Serializable]
+        public class MoneyInteractedUnityEvent : UnityEvent<CharacterMaster, int>
+        {
+            public MoneyInteractedUnityEvent()
+            {
+            }
         }
     }
 }

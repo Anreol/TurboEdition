@@ -29,7 +29,7 @@ namespace TurboEdition.Misc
                     TELog.LogW("Director category: " + item.name);
                     foreach (var card in item.cards)
                     {
-                        TELog.LogD("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.CardIsValid());
+                        TELog.LogD("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable()) ;
                     }
                 }
             }
@@ -76,7 +76,7 @@ namespace TurboEdition.Misc
                 TELog.LogW("Director category: " + item.name);
                 foreach (var card in item.cards)
                 {
-                    TELog.LogW("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.CardIsValid());
+                    TELog.LogW("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable());
                 }
             }
         }

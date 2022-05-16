@@ -156,6 +156,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\ItemDeployerManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\KnifeFanBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MeleeArmorBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MoneyBankManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnetBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\RadioSearchBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\StandBonus.cs" />
