@@ -1,11 +1,14 @@
 ﻿using RoR2;
 using System;
+using UnityEngine;
 
 namespace TurboEdition.Misc
 {
     internal class SceneDirectorInjector
     {
         private static DirectorCard questShrineDirectorCard = new DirectorCard();
+        private static DirectorCard teleporterOverchargerDirectorCard = new DirectorCard();
+
         private static bool logCards = false;
 
         [SystemInitializer(new Type[]
@@ -15,8 +18,36 @@ namespace TurboEdition.Misc
         private static void Init()
         {
             GenerateDirectorCards();
-            SceneDirector.onGenerateInteractableCardSelection += SceneDirector_onGenerateInteractableCardSelection;
+            SceneDirector.onGenerateInteractableCardSelection += AppendCardToInteracteablePool;
+            SceneDirector.onPrePopulateMonstersSceneServer += ExplicitInteracteableGeneration;
             //SceneDirector.onGenerateInteractableCardSelection += SceneDirector_onGenerateInteractableCardSelection1;
+        }
+
+        private static void ExplicitInteracteableGeneration(SceneDirector obj)
+        {
+            Xoroshiro128Plus xoroshiro128Plus = new Xoroshiro128Plus(obj.rng.nextUlong);
+            if (Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex,false,true) > 0)
+            {
+                Transform moneyBankTarget;
+                if (SceneInfo.instance.countsAsStage)
+                {
+                    moneyBankTarget = TeleporterInteraction.instance ? TeleporterInteraction.instance.transform : SpawnPoint.readOnlyInstancesList[xoroshiro128Plus.RangeInt(0, SpawnPoint.readOnlyInstancesList.Count)].transform;
+                }
+                else
+                {
+                    moneyBankTarget = SpawnPoint.readOnlyInstancesList[xoroshiro128Plus.RangeInt(0, SpawnPoint.readOnlyInstancesList.Count)].transform;
+                }
+                if (moneyBankTarget)
+                {
+                    DirectorCore.instance.TrySpawnObject(new DirectorSpawnRequest(Assets.mainAssetBundle.LoadAsset<SpawnCard>("iscMoneyBank"), new DirectorPlacementRule
+                    {
+                        placementMode = DirectorPlacementRule.PlacementMode.Approximate, //Let's me spawn in the target, and specify min and max distances,
+                        maxDistance = 50f,
+                        minDistance = 5f,
+                        spawnOnTarget = moneyBankTarget
+                    }, xoroshiro128Plus));
+                }
+            }
         }
 
         private static void SceneDirector_onGenerateInteractableCardSelection1(SceneDirector arg1, DirectorCardCategorySelection arg2)
@@ -66,7 +97,7 @@ namespace TurboEdition.Misc
             return false;
         }
 
-        private static void SceneDirector_onGenerateInteractableCardSelection(SceneDirector arg1, DirectorCardCategorySelection arg2)
+        private static void AppendCardToInteracteablePool(SceneDirector arg1, DirectorCardCategorySelection arg2)
         {
             //AddQuestShrine(ref arg1, ref arg2); TODO FOR... uhm, some update, maybe 1.0? god i wish
             if (!logCards)

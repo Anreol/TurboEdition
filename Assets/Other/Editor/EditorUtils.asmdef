@@ -32,7 +32,9 @@
         "HGUnityUtils.dll",
         "BepInEx.dll",
         "RoR2.dll",
-        "UnityEngine.UI.dll"
+        "UnityEngine.UI.dll",
+        "Unity.Addressables.dll",
+        "Unity.ResourceManager.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [

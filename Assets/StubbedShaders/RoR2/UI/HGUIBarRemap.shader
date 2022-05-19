@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/HGUIAnimateAlpha" {
+Shader "StubbedRoR2/Base/Shaders/HGUIBarRemap" {
 	Properties {
 		_MainTex ("Gradient (R) Mask (G)", 2D) = "grey" {}
 		_RemapTex ("Color Remap Ramp (RGB)", 2D) = "grey" {}

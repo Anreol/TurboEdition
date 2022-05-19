@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Achievements
 {
@@ -29,7 +30,7 @@ namespace TurboEdition.Achievements
 
         private void onStartHostGlobal()
         {
-            if (RoR2Application.isInMultiPlayer)
+            if (!NetworkServer.dontListen)
             {
                 base.Grant();
             }

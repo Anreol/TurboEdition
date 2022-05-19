@@ -63,6 +63,10 @@ namespace TurboEdition.Misc
         private static void onServerStageBeginNormal(Stage obj)
         {
             DirectorCardCategorySelection dccs = null;
+            if (!ClassicStageInfo.instance) //Bazaar doesn't seem to have it.
+            {
+                return;
+            }
             if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("frozenwall"))
             {
                 dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsFrozenWallMonstersTE");
@@ -71,7 +75,7 @@ namespace TurboEdition.Misc
             {
                 dccs = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsWispGraveyardMonstersTE");
             }
-            if (ClassicStageInfo.instance.monsterDccsPool != null && dccs != null)
+            if (ClassicStageInfo.instance.monsterDccsPool != null && ClassicStageInfo.instance.monsterDccsPool.poolCategories[0] != null && dccs != null)
             {
                 foreach (var item in ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].alwaysIncluded)
                 {

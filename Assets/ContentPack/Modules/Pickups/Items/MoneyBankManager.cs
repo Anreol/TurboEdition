@@ -15,7 +15,11 @@ namespace TurboEdition.Items
         /// Stored in the server ONLY. Gets fetched and synced by each interactor.
         /// </summary>
         public static uint serverCurrentMoneyAmount;
-        public static uint maxMoneyAmountToStore
+
+        /// <summary>
+        /// Both client and server can access this information, as the calculation doesn't require networking.
+        /// </summary>
+        public static uint targetMoneyAmountToStore
         {
             get
             {
@@ -28,7 +32,7 @@ namespace TurboEdition.Items
                         moneyFromFirstStack += 200; //Basically count that tracks bodies that have at least one item
                     }
                 }
-                return (uint)(Run.instance.GetDifficultyScaledCost(Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) - (moneyFromFirstStack / 200))*100);
+                return (uint)(moneyFromFirstStack + (Run.instance.GetDifficultyScaledCost(Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) - (moneyFromFirstStack / 200))*100));
             }
         }
         public static bool CanStoreMoney
@@ -39,7 +43,7 @@ namespace TurboEdition.Items
                 {
                     return false;
                 }
-                return serverCurrentMoneyAmount < maxMoneyAmountToStore;
+                return serverCurrentMoneyAmount < targetMoneyAmountToStore;
             }
         }
 
