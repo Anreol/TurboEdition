@@ -51,13 +51,13 @@ namespace TurboEdition.UI
                 for (int i = 0; i < buttonContributeAllocator.elements?.Count; i++)
                 {
                     //Need this kind of update else it flickers
-                    if (!buttonContributeAllocator.elements[0].interactable && contributeCosts[i] <= pickerController.networkUIPromptController.currentParticipantMaster.money) 
+                    if (!buttonContributeAllocator.elements[i].interactable && contributeCosts[i] <= pickerController.networkUIPromptController.currentParticipantMaster.money && (pickerController.cachedSyncedMoneyAmount + contributeCosts[i]) <= TurboEdition.Items.MoneyBankManager.targetMoneyAmountToStore) 
                     {
-                        buttonContributeAllocator.elements[0].interactable = true;
+                        buttonContributeAllocator.elements[i].interactable = true;
                     }
-                    else if (buttonContributeAllocator.elements[0].interactable && contributeCosts[i] > pickerController.networkUIPromptController.currentParticipantMaster.money)
+                    else if (buttonContributeAllocator.elements[i].interactable && contributeCosts[i] > pickerController.networkUIPromptController.currentParticipantMaster.money || (pickerController.cachedSyncedMoneyAmount + contributeCosts[i]) > TurboEdition.Items.MoneyBankManager.targetMoneyAmountToStore)
                     {
-                        buttonContributeAllocator.elements[0].interactable = false;
+                        buttonContributeAllocator.elements[i].interactable = false;
                     }   
                 }
             }
@@ -65,13 +65,13 @@ namespace TurboEdition.UI
             {
                 for (int i = 0; i < buttonWithdrawAllocator.elements?.Count; i++)
                 {
-                    if (!buttonWithdrawAllocator.elements[0].interactable && withdrawCosts[i] <= pickerController.cachedSyncedMoneyAmount)
+                    if (!buttonWithdrawAllocator.elements[i].interactable && withdrawCosts[i] <= pickerController.cachedSyncedMoneyAmount)
                     {
-                        buttonWithdrawAllocator.elements[0].interactable = true;
+                        buttonWithdrawAllocator.elements[i].interactable = true;
                     }
-                    else if (buttonWithdrawAllocator.elements[0].interactable && withdrawCosts[i] > pickerController.cachedSyncedMoneyAmount)
+                    else if (buttonWithdrawAllocator.elements[i].interactable && withdrawCosts[i] > pickerController.cachedSyncedMoneyAmount)
                     {
-                        buttonWithdrawAllocator.elements[0].interactable = false;
+                        buttonWithdrawAllocator.elements[i].interactable = false;
                     }
                 }
             }
@@ -98,7 +98,7 @@ namespace TurboEdition.UI
             }
             button.onClick.AddListener(delegate ()
             {
-                this.pickerController.SubmitChoice(withdrawCosts[index]);
+                this.pickerController.SubmitChoice(-withdrawCosts[index]);
             });
         }
 
@@ -118,7 +118,7 @@ namespace TurboEdition.UI
             }
             for (int i = 0; i < withdrawCosts.Length; i++)
             {
-                withdrawCosts[i] = -Run.instance.GetDifficultyScaledCost(Mathf.FloorToInt(Mathf.Pow(pickerController.baseWithdrawCost, i)));
+                withdrawCosts[i] = Run.instance.GetDifficultyScaledCost(Mathf.FloorToInt(Mathf.Pow(pickerController.baseWithdrawCost, i)));
             }
 
             //Do things. Buttons now can access the previous arrays on creation.

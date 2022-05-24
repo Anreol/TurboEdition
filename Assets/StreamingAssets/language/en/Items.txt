@@ -13,7 +13,7 @@
 	
 	"ITEM_AIRBORNEDASH_NAME": "Thieves' Hat",
 	"ITEM_AIRBORNEDASH_PICKUP": "Dash sideways whenever jumping midair while not moving forward.",
-	"ITEM_AIRBORNEDASH_DESC": "While not moving forward, jumping midair will grant you a <style=cIsUtility>dash</style> at <style=cIsUtility>2m/s</style> <style=cStack>(+ 2m per stack)</style>. Gain an <style=cIsUtility>extra jump</style> in the first and every <style=cIsDamage>5 stacks</style>.",
+	"ITEM_AIRBORNEDASH_DESC": "While not moving forward, jumping midair will grant you a <style=cIsUtility>dash</style> at <style=cIsUtility>2m/s</style> <style=cStack>(+ 2m per stack)</style>. Gain an <style=cIsUtility>extra jump</style> <style=cStack>(+1 per 5 stacks)</style>.",
 	"ITEM_AIRBORNEDASH_LORE": "Order: Lost Thief Hat\r\nTracking Number: 724***********\r\nEstimated Delivery: 02\/27\/2056\r\nShipping Method: Standard\r\nShipping Address: Lower Docks, Hangar 12, Helios Space Station\r\nShipping Details:\r\n\r\nDid you leave anything behind before we had to run for our lives in the last hit?\r\n\r\nI know you like to do all kinds of flashy movements, presentations and monologues, even if that means losing the element of surprise or ruining an ambush. Sometimes, that exposes a gap for me so I can act, hell, sometimes you even make me laugh!\r\n\r\nI\'m not going to ask you to stop doing it, it\'s just a part of what makes \"you\", but the situation got a bit out of control, didn\'t it?\r\n\r\nAnywho, I don\'t know how you made it out, or if you made it out, but I\'m sending you this to the usual address in hopes to see you wearing it again someday. Don\'t tell me that I\'m being tactless by sending you this over delivery, and that I could\'ve just handled it over in person to be cooler or whatever you think. I\'m still recovering, and still in the space road too, so it will be a while before we see eachother again.\r\n\r\nIn the meanwhile, don\'t you dare to lose it again, okay?\r\n",
 	
 	"ITEM_BANEMASK_NAME": "Voice Modulator",
@@ -61,6 +61,11 @@
 	"ITEM_MELEEARMOR_PICKUP": "Boost your armor and damage in response to physical trauma.",
 	"ITEM_MELEEARMOR_DESC": "Getting hurt by an enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to <style=cIsUtility>2 times</style> <style=cStack>(+1 per stack)</style>. Gain <style=cIsDamage>25% more damage</style>.",
 	"ITEM_MELEEARMOR_LORE": "",
+	
+	"ITEM_MONEYBANK_NAME": "Off-Planet Account",
+	"ITEM_MONEYBANK_PICKUP": "Gain access to a bank account where you can store money between stages.",
+	"ITEM_MONEYBANK_DESC": "Store up to <style=cIsUtility>500$</style> plus <style=cIsUtility>0$</style> <style=cStack>(+25$ per stack)</style> MORE <style=cIsDamage>each stage</style> in an off-planet account, storing your money for future stages.",
+	"ITEM_MONEYBANK_LORE": "",
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",

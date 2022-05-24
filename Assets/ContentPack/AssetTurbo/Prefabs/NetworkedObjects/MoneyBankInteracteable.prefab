@@ -111,34 +111,10 @@ MonoBehaviour:
   withdrawButtonsAmount: 3
   onMoneyInteracted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2735529144397630269}
-        m_MethodName: PlayNetworkedUISound
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: RoR2.NetworkSoundEventDef, RoR2
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAffordableContributal:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2735529144397630269}
-        m_MethodName: PlayNetworkedUISound
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: RoR2.NetworkSoundEventDef, RoR2
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2735529144397630268}
         m_MethodName: AddMoneyToBank
         m_Mode: 0
@@ -153,24 +129,12 @@ MonoBehaviour:
   onAffordableWithdrawal:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2735529144397630269}
-        m_MethodName: PlayNetworkedUISound
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: RoR2.NetworkSoundEventDef, RoR2
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2735529144397630269}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 2735529144397630268}
+        m_MethodName: RemoveMoneyFromBank
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

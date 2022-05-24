@@ -29,10 +29,10 @@ namespace TurboEdition.Items
                 {
                     if (teamMember.body.inventory && teamMember.body.inventory.GetItemCount(TEContent.Items.MoneyBank) > 0)
                     {
-                        moneyFromFirstStack += 200; //Basically count that tracks bodies that have at least one item
+                        moneyFromFirstStack += 500; //Basically count that tracks bodies that have at least one item
                     }
                 }
-                return (uint)(moneyFromFirstStack + (Run.instance.GetDifficultyScaledCost(Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) - (moneyFromFirstStack / 200))*100));
+                return (uint)(moneyFromFirstStack + ((Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) - (moneyFromFirstStack / 500)) * 25) * (Run.instance.stageClearCount + 1));
             }
         }
         public static bool CanStoreMoney
@@ -46,32 +46,40 @@ namespace TurboEdition.Items
                 return serverCurrentMoneyAmount < targetMoneyAmountToStore;
             }
         }
+        [SystemInitializer(new Type[]
+        {
+            typeof(ItemCatalog),
+        })]
+        public static void Init()
+        {
+            CharacterBody.onBodyInventoryChangedGlobal += onBodyInventoryChangedGlobal;
+        }
+
+        private static void onBodyInventoryChangedGlobal(CharacterBody obj)
+        {
+            if (NetworkServer.active && obj.teamComponent.teamIndex == TeamIndex.Player)
+            {
+                if (serverCurrentMoneyAmount > targetMoneyAmountToStore)
+                {
+                    serverCurrentMoneyAmount = targetMoneyAmountToStore;
+                }
+            }
+        }
 
         public static bool AddMoney(int amount)
         {
-            if (serverCurrentMoneyAmount >= UInt32.MaxValue)
+            if (serverCurrentMoneyAmount >= UInt32.MaxValue || amount < 0)
             {
                 return false;
-            }
-            if (amount < 0)
-            {
-                serverCurrentMoneyAmount -= (uint)Mathf.Abs(amount);
-                return true;
             }
             serverCurrentMoneyAmount += (uint)amount;
             return true;
         }
-        public static int SubstractMoney(int amount)
+        public static uint SubstractMoney(uint amount)
         {
             if (serverCurrentMoneyAmount <= 0)
                 return 0;
-            if (Mathf.Abs(amount) >= serverCurrentMoneyAmount)
-            {
-                amount = (int)serverCurrentMoneyAmount;
-                serverCurrentMoneyAmount = 0;
-                return amount;
-            }
-            serverCurrentMoneyAmount -= (uint)Mathf.Abs(amount);
+            serverCurrentMoneyAmount -= amount;
             return amount;
         }
     }

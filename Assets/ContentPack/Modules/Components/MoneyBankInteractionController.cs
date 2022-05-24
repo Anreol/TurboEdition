@@ -134,6 +134,7 @@ namespace TurboEdition.Components
             this.panelInstanceController.pickerController = this;
             this.panelInstanceController.displayMoneyAmount = cachedSyncedMoneyAmount;
             this.panelInstanceController.displayTargetMoneyAmount = MoneyBankManager.targetMoneyAmountToStore;
+            this.panelInstanceController.dirtyUI = true;
             this.panelInstanceController.SetButtons(contributeButtonsAmount, withdrawButtonsAmount);
 
             OnDestroyCallback.AddCallback(this.panelInstance, new Action<OnDestroyCallback>(this.OnPanelDestroyed));
@@ -177,13 +178,15 @@ namespace TurboEdition.Components
                 return; //Just in case.
             }
             onMoneyInteracted?.Invoke(interactor, moneyAmount);
-            if (interactor.money >= moneyAmount)
+            if (moneyAmount > 0 && interactor.money >= moneyAmount && MoneyBankManager.CanStoreMoney)
             {
                 onAffordableContributal?.Invoke(interactor, moneyAmount);
+                return;
             }
-            if (moneyAmount <= MoneyBankManager.serverCurrentMoneyAmount)
+            if (moneyAmount < 0 && moneyAmount <= MoneyBankManager.serverCurrentMoneyAmount)
             {
                 onAffordableWithdrawal?.Invoke(interactor, moneyAmount);
+                return;
             }
         }
 
@@ -193,11 +196,12 @@ namespace TurboEdition.Components
         {
             if (MoneyBankManager.CanStoreMoney)
             {
+                moneyAmount = (int)((moneyAmount + cachedSyncedMoneyAmount) > MoneyBankManager.targetMoneyAmountToStore ? MoneyBankManager.targetMoneyAmountToStore - (moneyAmount + cachedSyncedMoneyAmount) : moneyAmount);
+                //uint moneyAmountuint = Mathf.Clamp(moneyAmount, 0, cachedSyncedMoneyAmount);
                 if (TurboEdition.Items.MoneyBankManager.AddMoney(moneyAmount))
                 {
                     master.money -= (uint)moneyAmount;
                 }
-                
             }
         }
 
@@ -205,10 +209,10 @@ namespace TurboEdition.Components
         [Server]
         public void RemoveMoneyFromBank(CharacterMaster master, int moneyAmount)
         {
-            int moneyFromBank = TurboEdition.Items.MoneyBankManager.SubstractMoney(moneyAmount);
+            uint moneyFromBank = TurboEdition.Items.MoneyBankManager.SubstractMoney((uint)Math.Abs(moneyAmount));
             if (moneyFromBank > 0)
             {
-                master.GiveMoney((uint)moneyFromBank);
+                master.GiveMoney(moneyFromBank);
             }
         }
 
@@ -248,7 +252,7 @@ namespace TurboEdition.Components
 
         public string GetDisplayName()
         {
-            return Language.GetString(contextString);
+            return Language.GetString(interactableString) + "(" + cachedSyncedMoneyAmount + "$ / " + MoneyBankManager.targetMoneyAmountToStore + "$ )";
         }
 
 

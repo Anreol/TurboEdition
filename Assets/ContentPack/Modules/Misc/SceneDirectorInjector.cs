@@ -42,8 +42,8 @@ namespace TurboEdition.Misc
                     DirectorCore.instance.TrySpawnObject(new DirectorSpawnRequest(Assets.mainAssetBundle.LoadAsset<SpawnCard>("iscMoneyBank"), new DirectorPlacementRule
                     {
                         placementMode = DirectorPlacementRule.PlacementMode.Approximate, //Let's me spawn in the target, and specify min and max distances,
-                        maxDistance = 50f,
-                        minDistance = 5f,
+                        maxDistance = 80f,
+                        minDistance = 6f,
                         spawnOnTarget = moneyBankTarget
                     }, xoroshiro128Plus));
                 }
