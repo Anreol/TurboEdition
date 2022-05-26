@@ -65,12 +65,21 @@ Update for Survivors of the Void
 		- +25% damage (+20% per stack) and +10 air control when airborne.
 	- Ported Thieves' Hat
 		- Reworked a bit to fit 3D: Any midair jump that isn't forward will perform a dash. Gain an extra jump in the first and every 5 stacks.
-	- New War Declaration (Void Warbanner)
-		- On Teleporter Activation -> Start of each stage. Gives a wider range of buffs but is extremely more temporal.
-	- Broken Fiber Cable
-		- Now has an achievement: "Host?"
 
 * At first was against porting Angel Wings as you spend most of the end-game mid air, but it might be a good bonus early-game. Thieves' Hat is meant to be an alternative for Hopoo Feather, as the green pool is kinda bloated, but at the same time to not compete or replace it*
+
+	- New War Declaration (Void Warbanner)
+		- On Teleporter Activation -> Start of each stage. Gives a wider range of buffs but is extremely more temporal.
+		- Keeps On Level Up trigger.
+		
+	- Red Tape Roll
+		- Now has an achievement: "Lots of Damage"
+		
+	- Broken Fiber Cable
+		- Now has an achievement: "Host?"
+		
+	- Super Stickies
+		- Now has an achievement: "...Maybe Two More?"
 
 ### Balance Changes
 - Red Tape Roll

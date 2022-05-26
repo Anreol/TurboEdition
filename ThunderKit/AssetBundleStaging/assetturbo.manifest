@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 751955998
+CRC: 1015785086
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 084029e85945c89925b6eb6465984977
+    Hash: 2ce9635d75f74342bc88db6b83e146ee
   TypeTreeHash:
     serializedVersion: 2
     Hash: 45f793fd350a4d3f5429e216ee094b46
@@ -400,9 +400,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
-  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -630,6 +630,7 @@ Assets:
 - Assets/Textures/texImpBomberDiffuse.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOn.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSecondaryQuickshot.asset
+- Assets/ContentPack/AssetTurbo/Items/ItemDeployer/Items.ItemDeployer.asset
 - Assets/Textures/texOmniHitspark11Mask.png
 - Assets/Mesh/Items/meshTeleporterLensesCloth.mesh
 - Assets/Textures/Ramps/texRampHuntressSoft2.png
@@ -781,6 +782,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsDampCaveMonstersTE.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Tape.png
+- Assets/ContentPack/AssetTurbo/Items/SuperStickies/Items.SuperStickies.asset
 - Assets/Textures/texCardTest.png
 - Assets/ContentPack/AssetTurbo/Misc/uiPopoutPanel.asset
 - Assets/ContentPack/AssetTurbo/Characters/Warden/Skills/WardenSecondary.asset

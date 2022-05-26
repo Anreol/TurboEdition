@@ -18,7 +18,7 @@ MonoBehaviour:
   nameToken: ITEM_MONEYBANK_NAME
   pickupToken: ITEM_MONEYBANK_PICKUP
   descriptionToken: ITEM_MONEYBANK_DESC
-  loreToken: ITEM_MONEYBANK_LORE
+  loreToken: ITEM_TURBOWIP_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
   pickupIconSprite: {fileID: 0}

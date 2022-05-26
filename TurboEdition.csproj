@@ -65,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ContentPack\Modules\Achievements\HostLobby.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Achievements\MinionDamage.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Achievements\StackStickybombs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\MeltdownArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\PainArtifactManager.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\IStatItemBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\InitPickups.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Item.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\AirborneDashBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMaskBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BloodEconomyBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupeBodyBehavior.cs" />
