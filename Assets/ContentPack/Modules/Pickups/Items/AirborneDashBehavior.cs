@@ -1,18 +1,26 @@
-﻿using EntityStates;
-using RoR2;
+﻿using RoR2;
 using RoR2.Items;
 using UnityEngine;
 
 namespace TurboEdition.Items
 {
-    class AirborneDashBehavior : BaseItemBodyBehavior, IStatItemBehavior
+    internal class AirborneDashBehavior : BaseItemBodyBehavior, IStatItemBehavior
     {
         [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = false, useOnClient = true)]
         private static ItemDef GetItemDef()
         {
             return TEContent.Items.AirborneDash;
         }
+
+        private const float curveDuration = 0.5f;
+
+        private AnimationCurveAsset animationCurveAsset = Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("AirborneDashEvaluationCurve");
+
         private bool jumpInputReceived;
+
+        private float stopwatch = 5;
+        private int timesDashed; //Since jumps are done at different timings...
+
         public void FixedUpdate()
         {
             //Gather inputs
@@ -28,50 +36,58 @@ namespace TurboEdition.Items
             //Perform Inputs
             if (body.hasAuthority)
             {
-                jumpInputReceived = false;
-            }
-        }
-        private void ProcessJump()
-        {
-            if (body.characterMotor)
-            {
-                if (jumpInputReceived && body && body.characterMotor.jumpCount <= body.maxJumpCount && !body.characterMotor.isGrounded)
+                if (stopwatch <= curveDuration)
                 {
-                    float horizontalBonus = 1f;
-                    float verticalBonus = body.characterMotor.velocity.y <= 0.75f * body.jumpPower ? 0.75f : body.jumpPower; //I dunno what i am doing
-                    if (stack > 0 && body.characterMotor.jumpCount > body.baseJumpCount /*+ body.inventory.GetItemCount(RoR2Content.Items.Feather*)*/)
+                    stopwatch += Time.fixedDeltaTime;
+                    if (body.characterDirection && body.characterMotor)
                     {
+                        Vector3 forwardDirectionBeforeChanges = body.characterDirection.forward;
                         float currentAirAcceleration = body.acceleration * body.characterMotor.airControl;
-                        if (body.moveSpeed > 0f && currentAirAcceleration > 0f)
-                        {
-                            EffectManager.SpawnEffect(Assets.mainAssetBundle.LoadAsset<GameObject>("Prefabs/Effects/BoostJumpEffect"), new EffectData
-                            {
-                                origin = body.footPosition,
-                                rotation = Util.QuaternionSafeLookRotation(body.characterMotor.velocity)
-                            }, true);
+                        float speedFromItem = Mathf.Sqrt((15f + (10f * ((float)stack - 1))) / currentAirAcceleration); //10 + 5 per stack
+                        float airSpeed = body.moveSpeed / currentAirAcceleration;
 
-                            float speedFromItem = Mathf.Sqrt((10f + (5f * ((float)stack - 1))) / currentAirAcceleration); //4 + 2 per stack
-                            float airSpeed = body.moveSpeed / currentAirAcceleration;
-                            horizontalBonus = (speedFromItem + airSpeed) / airSpeed;
-                        }
-                        ///TODO: rework with curve.
-                        GenericCharacterMain.ApplyJumpVelocity(body.characterMotor, body, horizontalBonus, verticalBonus, false);
-                        if (body.characterMotor.jumpCount > body.baseJumpCount + body.inventory.GetItemCount(RoR2Content.Items.Feather))
-                        {
-                            body.characterMotor.jumpCount++;
-                        }
+                        body.characterDirection.moveVector = body.inputBank.moveVector;
+                        body.characterMotor.rootMotion += (((((speedFromItem + airSpeed) / airSpeed) * (animationCurveAsset.value.Evaluate(stopwatch / curveDuration))) * body.moveSpeed) * forwardDirectionBeforeChanges) * Time.fixedDeltaTime;
                     }
                 }
+                if (body.characterMotor.isGrounded)
+                    timesDashed = 0;
+
+                jumpInputReceived = false;
             }
         }
 
         public void RecalculateStatsEnd()
         {
-            body.maxJumpCount += (1 + Mathf.FloorToInt(stack / 5f));
+            //This check sometimes breaks
+            //if (body.characterMotor.jumpCount > body.baseJumpCount + body.inventory.GetItemCount(RoR2Content.Items.Feather) - 1)
+            {
+                body.maxJumpCount += (1 + Mathf.FloorToInt((float)stack / 5f));
+            }
         }
 
         public void RecalculateStatsStart()
         {
+        }
+
+        private void ProcessJump()
+        {
+            if (jumpInputReceived && body.characterMotor && !body.characterMotor.isGrounded)
+            {
+                if (body.inputBank.moveVector != Vector3.zero && Vector3.Dot(body.inputBank.aimDirection, body.inputBank.moveVector) < PlayerCharacterMasterController.sprintMinAimMoveDot && body.characterMotor.jumpCount > body.baseJumpCount && timesDashed < body.maxJumpCount - body.baseJumpCount /*+ body.inventory.GetItemCount(RoR2Content.Items.Feather*)*/)
+                {
+                    EffectManager.SpawnEffect(Assets.mainAssetBundle.LoadAsset<GameObject>("Prefabs/Effects/BoostJumpEffect"), new EffectData
+                    {
+                        origin = body.footPosition,
+                        rotation = Util.QuaternionSafeLookRotation(body.characterMotor.velocity)
+                    }, true);
+
+                    //Start the dash
+                    body.characterDirection.forward = ((body.inputBank.moveVector == Vector3.zero) ? body.characterDirection.forward : body.inputBank.moveVector).normalized;
+                    stopwatch = 0;
+                }
+                    timesDashed++;
+            }
         }
     }
 }

@@ -18,6 +18,5 @@ namespace TurboEdition.Achievements
         public override StatDef statDef => StatDef.totalMinionDamageDealt;
 
         public override ulong statRequirement => 20000UL;
-
     }
 }

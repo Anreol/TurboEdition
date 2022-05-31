@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AddressableGraphicsSettings
   m_EditorClassIdentifier: 
   CustomDeferredReflection: RoR2/Base/Shaders/Internal-DeferredReflections.shader
-  CustomDeferredShading: RoR2/Base/Shaders/DeferredShaders.asset
-  CustomDeferredScreenspaceShadows: 
+  CustomDeferredShading: RoR2/Base/Shaders/Internal-DeferredShadingCustom.shader
+  CustomDeferredScreenspaceShadows: NGSS/NGSS_Directional.shader

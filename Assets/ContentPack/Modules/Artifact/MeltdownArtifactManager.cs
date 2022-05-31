@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TurboEdition.Artifact
+namespace TurboEdition.Artifacts
 {
     class MeltdownArtifactManager
     {

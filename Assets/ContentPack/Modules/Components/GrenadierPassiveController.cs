@@ -135,14 +135,15 @@ namespace TurboEdition.Components
             {
                 if (passiveSkillSlot.skillDef == PassiveBlastArmorSkillDef && damageInfo.inflictor && damageInfo.attacker == this.characterBody.gameObject)
                 {
-                    if (damageInfo.inflictor.GetComponent<MarkReducedSelfDamage>())
+                    MarkReducedSelfDamage markReducedSelfDamage = damageInfo.inflictor.GetComponent<MarkReducedSelfDamage>();
+                    if (markReducedSelfDamage)
                     {
                         damageInfo.attacker = null;
-                        damageInfo.damage /= 2;
-                        damageInfo.crit = false;
+                        damageInfo.damage /= markReducedSelfDamage.reduceDamageFraction;
+                        damageInfo.crit = markReducedSelfDamage.forceNoCrit ? false : damageInfo.crit;
                         damageInfo.damageColorIndex = DamageColorIndex.Default;
-                        damageInfo.dotIndex = DotController.DotIndex.None;
-                        damageInfo.damageType = DamageType.NonLethal;
+                        damageInfo.dotIndex = markReducedSelfDamage.clearDots ? DotController.DotIndex.None : damageInfo.dotIndex;
+                        damageInfo.damageType = markReducedSelfDamage.damageTypeOverride;
                         damageInfo.procCoefficient = -255;
                         damageInfo.procChainMask = default(ProcChainMask);
                         if (isRolling)

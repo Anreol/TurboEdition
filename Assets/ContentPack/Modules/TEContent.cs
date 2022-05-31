@@ -15,6 +15,8 @@ namespace TurboEdition
 {
     public class TEContent : IContentPackProvider
     {
+        private static bool alreadyLoadedBaseGame = false;
+
         public delegate IEnumerator LoadStaticContentAsyncDelegate(LoadStaticContentAsyncArgs args);
 
         public delegate IEnumerator GenerateContentPackAsyncDelegate(GetContentPackAsyncArgs args);
@@ -93,9 +95,10 @@ namespace TurboEdition
                     dlcLoaded = true;
             }
 
-            //Void Items support.
-            if (baseGameLoaded && dlcLoaded)
+            //Void Items.
+            if (baseGameLoaded && dlcLoaded && !alreadyLoadedBaseGame)
             {
+                alreadyLoadedBaseGame = true;
                 args.output.itemRelationshipProviders[0].relationshipType = DLC1Content.ItemRelationshipTypes.ContagiousItem;
                 args.output.itemRelationshipProviders[0].relationships[0].itemDef1 = RoR2Content.Items.WardOnLevel;
             }
@@ -116,6 +119,9 @@ namespace TurboEdition
             }
             CostExtras.Init();
             RoR2Application.isModded = true;
+
+            ItemDisplayRulesInjector.DoInjection();
+
             args.ReportProgress(1f);
             yield break;
         }

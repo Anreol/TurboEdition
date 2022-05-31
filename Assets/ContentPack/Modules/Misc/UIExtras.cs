@@ -11,15 +11,15 @@ namespace TurboEdition.Misc
 {
     internal class UIExtras
     {
-        [SystemInitializer(new Type[]
-        {
-        })]
+        internal static GameObject mainMenuObject; //WHAT IS ENCAPSULATION AMIRITE
+
+        [SystemInitializer]
         private static void Init()
         {
             if (RoR2.RoR2Application.isDedicatedServer || Application.isBatchMode) //We dont need graphics
                 return;
             CameraRigController.onCameraEnableGlobal += onCameraEnabledGlobal;
-            SceneCatalog.onMostRecentSceneDefChanged += SceneCatalog_onMostRecentSceneDefChanged;
+            SceneCatalog.onMostRecentSceneDefChanged += onMostRecentSceneDefChanged;
             PauseManager.onPauseStartGlobal += new Action(delegate ()
             {
                 PauseAction();
@@ -41,18 +41,30 @@ namespace TurboEdition.Misc
             }
         }
 
-        private static void SceneCatalog_onMostRecentSceneDefChanged(SceneDef obj)
+        private static void onMostRecentSceneDefChanged(SceneDef obj)
         {
             if (obj == SceneCatalog.GetSceneDefFromSceneName("title"))
             {
-                GameObject mm = GameObject.Find("MainMenu");
-                RoR2.UI.MainMenu.MainMenuController mmc = mm.GetComponent<RoR2.UI.MainMenu.MainMenuController>();
+                mainMenuObject = GameObject.Find("MainMenu");
+                RoR2.UI.MainMenu.MainMenuController mmc = mainMenuObject.GetComponent<RoR2.UI.MainMenu.MainMenuController>();
+                //RoR2.UI.MainMenu.MainMenuController mmc = RoR2.UI.MainMenu.MainMenuController.instance; THIS FAILS. GOD DAMNIT HOPOO
                 if (mmc.settingsMenuScreen)
                 {
                     mmc.settingsMenuScreen.onEnter.AddListener(new UnityAction(delegate ()
                     {
                         TurboUnityPlugin.instance.StartCoroutine(AddSettingsMenuCoroutine(mmc.settingsMenuScreen.GetComponent<RoR2.UI.MainMenu.SubmenuMainMenuScreen>()));
                     }));
+                }
+                if (mmc.multiplayerMenuScreen)
+                {
+                    GameObject itemHolder = mmc.multiplayerMenuScreen.transform.parent.GetChild(0).GetChild(1).GetChild(1).GetChild(26).GetChild(4).gameObject;
+                    LocalUser firstLocalUser = LocalUserManager.GetFirstLocalUser();
+                    if (firstLocalUser.userProfile.HasDiscoveredPickup(PickupCatalog.itemIndexToPickupIndex[(int)TEContent.Items.StandBonus.itemIndex]))
+                    {
+                        GameObject sandBag = UnityEngine.Object.Instantiate(Assets.mainAssetBundle.LoadAsset<GameObject>("PickupSandBag"), new Vector3(-5.4547f, 597.8f, -430.8293f), Quaternion.Euler(0f, 152.6924f, 0), itemHolder.transform);
+                        sandBag.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                        sandBag.SetActive(true); //Just in case.
+                    }
                 }
             }
         }
