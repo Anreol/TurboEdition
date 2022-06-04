@@ -18,7 +18,7 @@ MonoBehaviour:
   nameToken: ITEM_AIRBORNEBONUS_NAME
   pickupToken: ITEM_AIRBORNEBONUS_PICKUP
   descriptionToken: ITEM_AIRBORNEBONUS_DESC
-  loreToken: ITEM_TURBOWIP_LORE
+  loreToken: ITEM_AIRBORNEBONUS_LORE
   unlockableDef: {fileID: 0}
   pickupModelPrefab: {fileID: 1733885898963566674, guid: ab5e453be138e7e4287e6d879c5ad672,
     type: 3}

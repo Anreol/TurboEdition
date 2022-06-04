@@ -20,14 +20,14 @@ I also find *"Turbo"* a funny word that goes along pretty well with a lot of oth
 - 2 Equipments that probably do something useful.
 - 3 Artifacts to make your run harder, for some reason.
 
-Unfinished content will be marked with a WIP icon, but keep in mind that with mods, anything can go wrong anytime, especially when you are loading 500 different mods at once!
+Keep in mind that with mods, anything can go wrong anytime, especially when you are loading 500 different mods at once, let me know if something breaks.
 
 ## Planned Features
 
-- Finish currently shipped content. That means item models, if you are a modeller, please, contact me!
-- Finish the currently in-dev survivor, again, if you are a modeller, please contact me!
+- Finish the currently in-dev survivor, if you are interested, please contact me!
 
 ## Credits
+- Majority of items modelled by the talented 
 - Imp and Mimigun models and animations by DotFlare.
 - Graphics (Expansion Icon and Artifacts) by SOM.
 - Bubbet & Moffein for giving me a hand in a few things and showing me how dumb some of my practices are.
@@ -44,7 +44,12 @@ You can contact me by messaging to Anreol#8231 or @anreol:poa.st
 
 Update for Survivors of the Void
 - Now with sounds!
-- Tweaked pickup models of items that do have them.
+- Items now have models, models made by 
+- Items now have proper icons.
+- Commando has most, if not all, item displays.
+	- Contact me if you want to voluteer in making item displays for different survivors, they take quite a decent amount of time!.
+
+- Tweaked pickup models of old items.
 - Artifacts
 	- Artifact of Pain
 		- Now implemented!
@@ -62,7 +67,8 @@ Update for Survivors of the Void
 
 - Items
 	- Ported Angel Wings
-		- +25% damage (+20% per stack) and +10 air control when airborne.
+		- +25% damage (+15% per stack) and +10 air control when airborne.
+		- Lower stacking damage as Delicate Watch exists, and this has absolutely no risk of being broken.
 	- Ported Thieves' Hat
 		- Reworked a bit to fit 3D: Any midair jump that isn't forward will perform a dash. Gain an extra jump in the first and every 5 stacks.
 
