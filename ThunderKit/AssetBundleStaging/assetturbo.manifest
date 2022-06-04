@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2118633006
+CRC: 1497198421
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 708f4e8c5107233bd01c5bc86b1d0636
+    Hash: 8b8283e0110a901a51c9d0f2455335a9
   TypeTreeHash:
     serializedVersion: 2
     Hash: bb07e4e26e4a5c35b17d875ca0b507b7
@@ -492,7 +492,9 @@ Assets:
 - Assets/Materials/matTeamAreaIndicatorIntersectionMonster.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/HellchainDebuffArea.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/MoneyBankPickerPanel.prefab
+- Assets/ContentPack/AssetTurbo/Items/ItemDeployer/texItemDeployer.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Wings.png
+- Assets/ContentPack/AssetTurbo/Items/ItemDeployer/texItemDeployerFresnel.png
 - Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
 - Assets/Mesh/Items/meshKnifeHandle.mesh
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texTurboExpansionIcon.png
@@ -513,7 +515,9 @@ Assets:
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGIntersectionCloudRemap.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpDeathVFX.prefab
 - Assets/Textures/texUIBgTopDownRamp.png
+- Assets/ContentPack/AssetTurbo/Items/ItemDeployer/texItemDeployerNormal.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/PickupDropletDupe.prefab
+- Assets/ContentPack/AssetTurbo/Items/DropletDupe/texDropletDupeIcon.png
 - Assets/ContentPack/AssetTurbo/Items/PackMagnet/PackMagnet.asset
 - Assets/ContentPack/AssetTurbo/Misc/NetworkSoundEffectDefs/nseLeaveStageError.asset
 - Assets/Materials/matTracerAdditive.mat
@@ -534,6 +538,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/OmniExplosionVFXImpBomber.prefab
 - Assets/Materials/matOmniRing.mat
+- Assets/ContentPack/AssetTurbo/Items/ItemDeployer/texItemDeployerIcon.png
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/DisplayDropletDupe.prefab
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGDistortion.asset
@@ -564,6 +569,7 @@ Assets:
 - Assets/Materials/matSuperSticky.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/PlaceholderSphere1Prefab.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectileDotZone.prefab
+- Assets/ContentPack/AssetTurbo/Items/SuperStickies/texSuperStickiesIcon.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/matAirborneBonus.mat
 - Assets/Textures/texImpBomberEmission.png
@@ -610,11 +616,10 @@ Assets:
 - Assets/Mesh/Items/meshIcosphereCage.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Uncommon.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_SoulDevourer.png
-- Assets/ContentPack/AssetTurbo/Items/SuperStickies/PickupSuperSticky.prefab
+- Assets/ContentPack/AssetTurbo/Items/SuperStickies/PickupSuperStickies.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
 - Assets/Textures/texKnifeUV.png
 - Assets/Textures/texLineMaskArrows.png
-- Assets/Textures/texItemDeployerNormal.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/WormDirector.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/ImpBomberMaster.prefab
 - Assets/Mesh/VFXLightShaft.asset
@@ -669,9 +674,10 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/HellchainBodyAttachment.prefab
 - Assets/Textures/Ramps/texGenericDustRamp.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_deselected.png
+- Assets/ContentPack/AssetTurbo/Items/SuperStickies/DisplaySuperStickies.prefab
 - Assets/Textures/texCloudDiamondsLeft.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/matImpFootstepCircle.mat
-- Assets/Materials/matItemDeployer.mat
+- Assets/ContentPack/AssetTurbo/Items/ItemDeployer/matItemDeployer.mat
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/PickupItemDeployer.prefab
 - Assets/Textures/texAlphaCloudBankB.png
 - Assets/Textures/texBBDecalMask1.png
@@ -685,6 +691,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/idrsGrenadier.asset
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWispGraveyardMonstersTE.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/BigScytheImpactEffect.prefab
+- Assets/ContentPack/AssetTurbo/Items/AirborneBonus/texAirborneBonusIcon.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber@Master.fbx
 - Assets/ContentPack/AssetTurbo/icon.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/ImpBomberBarrelGhost.prefab
@@ -692,7 +699,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ThrowableVisualizerLine.prefab
 - Assets/Mesh/Items/meshIcosphere.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lenses.png
-- Assets/Textures/texItemDeployer.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ExplosionVFXGrenadier.prefab
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/texAirborneBonusNormal.png
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/AirborneBonus.asset
@@ -753,6 +759,7 @@ Assets:
 - Assets/Textures/texSandbagRoughness.png
 - Assets/ContentPack/AssetTurbo/Items/Typewriter/Typewriter.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPrimaryFamily.asset
+- Assets/ContentPack/AssetTurbo/Items/StandBonus/texSandbagIcon.png
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/PickupTeleporterLenses.prefab
 - Assets/Materials/matTeleporterLensesCloth.mat
 - Assets/Le Tai's Asset/TranslucentImage/Material/Default-Translucent.mat
@@ -802,7 +809,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierAltPrimaryProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Grenadier.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberPrimaryThrowBomb.asset
-- Assets/Textures/texItemDeployerFresnel.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Logs.ImpBomberBody.asset
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/meshDropletDupePickup.mesh
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/MeltdownArtifact.asset

@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 114338525782180936}
   - {fileID: 114364032661763054}
   identity: {fileID: 114211852988908172}
-  QuickAccess: 0
+  QuickAccess: 1
 --- !u!114 &114107831304456238
 MonoBehaviour:
   m_ObjectHideFlags: 1
