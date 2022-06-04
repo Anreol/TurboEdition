@@ -24,7 +24,26 @@ MonoBehaviour:
         childName: Stomach
         localPos: {x: 0.16651, y: 0.10982, z: -0.0489}
         localAngles: {x: 351.1942, y: 119.0101, z: 359.5083}
-        localScale: {x: 0.1038, y: 0.1038, z: 0.1038}
+        localScale: {x: 1, y: 1, z: 1}
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 087e200b366c13f43b843170111cb07f, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: ac8aacf439e5d8448ba9394f78ba6c12,
+          type: 3}
+        childName: Chest
+        localPos: {x: -0.01, y: 0.35, z: -0.15}
+        localAngles: {x: 0.6, y: 357, z: 20}
+        localScale: {x: 0.5, y: 0.5, z: 0.5}
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: ac8aacf439e5d8448ba9394f78ba6c12,
+          type: 3}
+        childName: Chest
+        localPos: {x: 0.01, y: 0.35, z: -0.15}
+        localAngles: {x: 0.6, y: 3, z: 340}
+        localScale: {x: -0.5, y: 0.5, z: 0.5}
         limbMask: 0
   runtimeItemRuleGroups: []
   runtimeEquipmentRuleGroups: []

@@ -61,9 +61,14 @@ namespace TurboEdition.Misc
                     LocalUser firstLocalUser = LocalUserManager.GetFirstLocalUser();
                     if (firstLocalUser.userProfile.HasDiscoveredPickup(PickupCatalog.itemIndexToPickupIndex[(int)TEContent.Items.StandBonus.itemIndex]))
                     {
-                        GameObject sandBag = UnityEngine.Object.Instantiate(Assets.mainAssetBundle.LoadAsset<GameObject>("PickupSandBag"), new Vector3(-5.4547f, 597.8f, -430.8293f), Quaternion.Euler(0f, 152.6924f, 0), itemHolder.transform);
-                        sandBag.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-                        sandBag.SetActive(true); //Just in case.
+                        GameObject gameObject = UnityEngine.Object.Instantiate(Assets.mainAssetBundle.LoadAsset<GameObject>("PickupSandBag"), new Vector3(-5.4547f, 597.8f, -430.8293f), Quaternion.Euler(0f, 152.6924f, 0), itemHolder.transform);
+                        gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                        gameObject.SetActive(true); //Just in case.
+                    }
+                    if (firstLocalUser.userProfile.HasDiscoveredPickup(PickupCatalog.itemIndexToPickupIndex[(int)TEContent.Items.DropletDupe.itemIndex]))
+                    {
+                        GameObject gameObject = UnityEngine.Object.Instantiate(Assets.mainAssetBundle.LoadAsset<GameObject>("DisplayDropletDupe"), new Vector3(-5.06f, 598.34f, -433.3199f), Quaternion.Euler(270f, 328f, 0), itemHolder.transform);
+                        gameObject.SetActive(true); //Just in case.
                     }
                 }
             }

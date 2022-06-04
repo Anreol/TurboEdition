@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using RoR2.ExpansionManagement;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace TurboEdition.Misc
 {
@@ -56,6 +57,15 @@ namespace TurboEdition.Misc
                     HG.ArrayUtils.ArrayAppend<DccsPool.ConditionalPoolEntry>(ref ClassicStageInfo.instance.monsterDccsPool.poolCategories[0].includedIfConditionsMet, wispGraveyardExtraEntry);
                 ClassicStageInfo.instance.RebuildCards();
                 RefreshAllAvailableDirectorCards();
+            }
+            if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("voidraid"))
+            {
+                GameObject gameObject = GameObject.Find("EncounterPhases/VoidRaidCrabCombatEncounter Phase 1/");
+                if (gameObject)
+                {
+                    gameObject.GetComponent<ScriptedCombatEncounter>().spawns[0].explicitSpawnPosition.position = new Vector3(3.6765f, 89.98f, 0f);
+                    gameObject.GetComponent<ScriptedCombatEncounter>().spawns[0].spawnCard = Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/DLC1/VoidRaidCrab/cscVoidRaidCrab.asset").WaitForCompletion();
+                }
             }
         }
 

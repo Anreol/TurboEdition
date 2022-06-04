@@ -120,7 +120,7 @@ namespace TurboEdition
             CostExtras.Init();
             RoR2Application.isModded = true;
 
-            ItemDisplayRulesInjector.DoInjection();
+            //ItemDisplayRulesInjector.DoInjection();
 
             args.ReportProgress(1f);
             yield break;

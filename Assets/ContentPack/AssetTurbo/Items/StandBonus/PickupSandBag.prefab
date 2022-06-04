@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusPointTransform: {fileID: 8067224476631806823}
   cameraPositionTransform: {fileID: 959274352217443387}
+  modelRotation: {x: 0, y: 0, z: 0, w: 1}
   minDistance: 1
   maxDistance: 3
 --- !u!1 &3737855839429574387
@@ -126,6 +127,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -137,6 +139,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

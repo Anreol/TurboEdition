@@ -140,7 +140,6 @@
     <Compile Include="Assets\ContentPack\Modules\Misc\GrenadierSpecialSkillDef.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\ItemDisplayRulesInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Misc\PropDecor.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\UIExtras.cs" />

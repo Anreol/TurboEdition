@@ -9,6 +9,12 @@ namespace TurboEdition.Misc
 {
     class ItemDisplayRulesInjector
     {
+        [SystemInitializer(new Type[]
+        {
+            typeof(ItemCatalog),
+            typeof(EquipmentCatalog),
+            typeof(BodyCatalog)
+        })]
         public static void DoInjection()
         {
             AppendIDRSToBody(RoR2Content.Survivors.Commando.bodyPrefab.GetComponent<CharacterBody>());
