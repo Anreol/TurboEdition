@@ -1,10 +1,5 @@
 ﻿using RoR2;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 using UnityEngine.Networking;
 
 namespace TurboEdition.Items
@@ -35,6 +30,7 @@ namespace TurboEdition.Items
                 return (uint)(moneyFromFirstStack + ((Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) - (moneyFromFirstStack / 500)) * 25) * (Run.instance.stageClearCount + 1));
             }
         }
+
         public static bool CanStoreMoney
         {
             get
@@ -46,6 +42,7 @@ namespace TurboEdition.Items
                 return serverCurrentMoneyAmount < targetMoneyAmountToStore;
             }
         }
+
         [SystemInitializer(new Type[]
         {
             typeof(ItemCatalog),
@@ -75,6 +72,7 @@ namespace TurboEdition.Items
             serverCurrentMoneyAmount += (uint)amount;
             return true;
         }
+
         public static uint SubstractMoney(uint amount)
         {
             if (serverCurrentMoneyAmount <= 0)

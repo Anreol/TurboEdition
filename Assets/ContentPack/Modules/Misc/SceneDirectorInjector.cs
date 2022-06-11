@@ -1,14 +1,13 @@
 ﻿using RoR2;
 using System;
+using TurboEdition.ScriptableObjects;
 using UnityEngine;
 
 namespace TurboEdition.Misc
 {
     internal class SceneDirectorInjector
     {
-        private static DirectorCard questShrineDirectorCard = new DirectorCard();
-        private static DirectorCard teleporterOverchargerDirectorCard = new DirectorCard();
-
+        private static SerializableDirectorCard[] cards;
         private static bool logCards = false;
 
         [SystemInitializer(new Type[]
@@ -17,16 +16,19 @@ namespace TurboEdition.Misc
         })]
         private static void Init()
         {
-            GenerateDirectorCards();
-            SceneDirector.onGenerateInteractableCardSelection += AppendCardToInteracteablePool;
+            cards = new SerializableDirectorCard[]
+            {
+                Assets.mainAssetBundle.LoadAsset<SerializableDirectorCard>("sdcShrineOvercharger"),
+                Assets.mainAssetBundle.LoadAsset<SerializableDirectorCard>("sdcShrineOverchargerCommon")
+            };
+            SceneDirector.onGenerateInteractableCardSelection += AddDirectorCards;
             SceneDirector.onPrePopulateMonstersSceneServer += ExplicitInteracteableGeneration;
-            //SceneDirector.onGenerateInteractableCardSelection += SceneDirector_onGenerateInteractableCardSelection1;
         }
 
         private static void ExplicitInteracteableGeneration(SceneDirector obj)
         {
             Xoroshiro128Plus xoroshiro128Plus = new Xoroshiro128Plus(obj.rng.nextUlong);
-            if (Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex,false,true) > 0)
+            if (Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) > 0)
             {
                 Transform moneyBankTarget;
                 if (SceneInfo.instance.countsAsStage)
@@ -50,7 +52,7 @@ namespace TurboEdition.Misc
             }
         }
 
-        private static void SceneDirector_onGenerateInteractableCardSelection1(SceneDirector arg1, DirectorCardCategorySelection arg2)
+        private static void LogDirectorCards(SceneDirector arg1, DirectorCardCategorySelection arg2)
         {
             if (logCards)
             {
@@ -60,54 +62,27 @@ namespace TurboEdition.Misc
                     TELog.LogW("Director category: " + item.name);
                     foreach (var card in item.cards)
                     {
-                        TELog.LogD("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable()) ;
+                        TELog.LogD("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable());
                     }
                 }
             }
         }
 
-        private static void GenerateDirectorCards()
+        private static void AddDirectorCards(SceneDirector arg1, DirectorCardCategorySelection arg2)
         {
-            //Director cards are set in an director card category selection array, its not an asset or something else
-            questShrineDirectorCard.spawnCard = Assets.mainAssetBundle.LoadAsset<InteractableSpawnCard>("iscShrineQuest");
-            questShrineDirectorCard.selectionWeight = 4; //Same as chance.
-            questShrineDirectorCard.spawnDistance = DirectorCore.MonsterSpawnDistance.Standard; //Dont think it matters in interacteables
-            questShrineDirectorCard.preventOverhead = false; //only used in the combat director
-            questShrineDirectorCard.minimumStageCompletions = 0; //Could be fun to toy with
-        }
-
-        private static bool AddQuestShrine(ref SceneDirector arg1, ref DirectorCardCategorySelection arg2)
-        {
-            foreach (string item in questShrineScenes)
+            foreach (SerializableDirectorCard sdc in cards)
             {
-                if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName(item))
+                for (int i = 0; i < sdc.sceneNamesToBeUsedIn.Length; i++)
                 {
-                    int index = FixedFindCategoryIndexByName(ref arg2, "Shrines");
-                    if (index != -1)
+                    if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName(sdc.sceneNamesToBeUsedIn[i]))
                     {
-                        TELog.LogW("Adding card. " + questShrineDirectorCard);
-                        TELog.LogW(arg2.categories[index].cards.Length);
-                        arg2.AddCard(index, questShrineDirectorCard);
-                        TELog.LogW("Added card. " + questShrineDirectorCard);
-                        TELog.LogW(arg2.categories[index].cards.Length);
-                        return true;
+                        int index = FixedFindCategoryIndexByName(ref arg2, sdc.categoryName);
+                        if (index != -1)
+                        {
+                            arg2.AddCard(index, sdc.CreateDirectorCard());
+                        }
+                        continue;
                     }
-                }
-            }
-            return false;
-        }
-
-        private static void AppendCardToInteracteablePool(SceneDirector arg1, DirectorCardCategorySelection arg2)
-        {
-            //AddQuestShrine(ref arg1, ref arg2); TODO FOR... uhm, some update, maybe 1.0? god i wish
-            if (!logCards)
-                return;
-            foreach (var item in arg2.categories)
-            {
-                TELog.LogW("Director category: " + item.name);
-                foreach (var card in item.cards)
-                {
-                    TELog.LogW("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable());
                 }
             }
         }
@@ -129,13 +104,5 @@ namespace TurboEdition.Misc
         {
             logCards = args.TryGetArgBool(0) ?? false;
         }
-
-        private static string[] questShrineScenes = new string[]
-        {
-            "blackbeach",
-            "foggyswamp",
-            "wispgraveyard",
-            "goldshores"
-        };
     }
 }

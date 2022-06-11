@@ -52,7 +52,7 @@ namespace TurboEdition
             //Content pack things, RoR2 systems.
             Assets.loadedAssetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
             serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPackV2");
-
+            
             tempPackFromSerializablePack = serializableContentPack.CreateContentPack();
             tempPackFromSerializablePack.identifier = identifier;
 
@@ -117,7 +117,7 @@ namespace TurboEdition
                 Language.collectLanguageRootFolders += (List<string> stringList) => stringList.Add(Assets.languageRoot);
                 Misc.MiscLanguage.AddDeathMessages();
             }
-            CostExtras.Init();
+            CostAndStatExtras.Init();
             RoR2Application.isModded = true;
 
             //ItemDisplayRulesInjector.DoInjection();

@@ -16,7 +16,7 @@ namespace TurboEdition.Items
             IL.RoR2.GlobalEventManager.OnHitEnemy += ILHook;
         }
 
-        public static void ILHook(ILContext il) //Thanks bubbet for code
+        public static void ILHook(ILContext il) //Thanks bubbet & moffein for code
         {
             var c = new ILCursor(il);
             c.GotoNext(

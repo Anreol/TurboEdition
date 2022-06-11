@@ -1,18 +1,13 @@
 ﻿using RoR2;
 using RoR2.Achievements;
 using RoR2.Networking;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 using UnityEngine.Networking;
 
 namespace TurboEdition.Achievements
 {
+    //Achievements MUST be public classes
     [RegisterAchievement("HostLobby", "Items.Hitlag", "CompleteThreeStages", null)]
-    class HostLobby : BaseAchievement
+    public class HostLobby : BaseAchievement
     {
         public override void OnInstall()
         {
@@ -35,6 +30,5 @@ namespace TurboEdition.Achievements
                 base.Grant();
             }
         }
-
     }
 }

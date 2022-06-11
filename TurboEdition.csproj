@@ -100,6 +100,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\RuntimeCloudMaterialMapper.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\ShrineTeleporterOverchargerBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\IStatBarProvider.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\MoneyBankPanel.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarController.cs" />
@@ -136,8 +137,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\SpawnState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\AddressableFieldLoader.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\CombatDirectorInjector.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Misc\CostExtras.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Misc\GrenadierSpecialSkillDef.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\CostAndStatExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\ItemDisplayRulesInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
@@ -169,7 +169,9 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Typewriter.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\WardOnLevelVoidManager.cs" />
-    <Compile Include="Assets\ContentPack\Modules\SerializableContentPackExpanded.cs" />
+    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\GrenadierSpecialSkillDef.cs" />
+    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\SerializableContentPackExpanded.cs" />
+    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\SerializableDirectorCard.cs" />
     <Compile Include="Assets\ContentPack\Modules\TEContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />

@@ -1,9 +1,7 @@
 ﻿using RoR2;
 using RoR2.UI;
-using System.Collections.ObjectModel;
 using TurboEdition.Components;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace TurboEdition.UI
 {
@@ -36,6 +34,7 @@ namespace TurboEdition.UI
             this.buttonWithdrawAllocator = new UIElementAllocator<MPButton>(this.buttonWithdrawContainer, this.buttonWithdrawTemplate, true, false);
             this.buttonWithdrawAllocator.onCreateElement = new UIElementAllocator<MPButton>.ElementOperationDelegate(this.OnCreateNegativeButton);
         }
+
         private void Update()
         {
             if (dirtyUI)
@@ -44,6 +43,7 @@ namespace TurboEdition.UI
                 targetMoneyText.formatArgs = new object[] { displayTargetMoneyAmount };
             }
         }
+
         private void FixedUpdate()
         {
             if (buttonContributeAllocator != null)
@@ -51,14 +51,14 @@ namespace TurboEdition.UI
                 for (int i = 0; i < buttonContributeAllocator.elements?.Count; i++)
                 {
                     //Need this kind of update else it flickers
-                    if (!buttonContributeAllocator.elements[i].interactable && contributeCosts[i] <= pickerController.networkUIPromptController.currentParticipantMaster.money && (pickerController.cachedSyncedMoneyAmount + contributeCosts[i]) <= TurboEdition.Items.MoneyBankManager.targetMoneyAmountToStore) 
+                    if (!buttonContributeAllocator.elements[i].interactable && contributeCosts[i] <= pickerController.networkUIPromptController.currentParticipantMaster.money && (pickerController.cachedSyncedMoneyAmount + contributeCosts[i]) <= TurboEdition.Items.MoneyBankManager.targetMoneyAmountToStore)
                     {
                         buttonContributeAllocator.elements[i].interactable = true;
                     }
                     else if (buttonContributeAllocator.elements[i].interactable && contributeCosts[i] > pickerController.networkUIPromptController.currentParticipantMaster.money || (pickerController.cachedSyncedMoneyAmount + contributeCosts[i]) > TurboEdition.Items.MoneyBankManager.targetMoneyAmountToStore)
                     {
                         buttonContributeAllocator.elements[i].interactable = false;
-                    }   
+                    }
                 }
             }
             if (buttonWithdrawAllocator != null)
@@ -76,6 +76,7 @@ namespace TurboEdition.UI
                 }
             }
         }
+
         private void OnCreatePositiveButton(int index, MPButton button)
         {
             LanguageTextMeshController lang = button.gameObject.GetComponent<LanguageTextMeshController>();
@@ -124,7 +125,6 @@ namespace TurboEdition.UI
             //Do things. Buttons now can access the previous arrays on creation.
             this.buttonContributeAllocator.AllocateElements(positiveCount);
             this.buttonWithdrawAllocator.AllocateElements(negativeCount);
-
 
             ///TODO: redo all this shit
             /*

@@ -1,13 +1,10 @@
 ﻿using RoR2;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TurboEdition.Misc
 {
-    class ItemDisplayRulesInjector
+    internal class ItemDisplayRulesInjector
     {
         [SystemInitializer(new Type[]
         {
@@ -19,6 +16,7 @@ namespace TurboEdition.Misc
         {
             AppendIDRSToBody(RoR2Content.Survivors.Commando.bodyPrefab.GetComponent<CharacterBody>());
         }
+
         public static void AppendIDRSToBody(CharacterBody characterBody)
         {
             ItemDisplayRuleSet idrs = characterBody.GetComponentInChildren<CharacterModel>().itemDisplayRuleSet;

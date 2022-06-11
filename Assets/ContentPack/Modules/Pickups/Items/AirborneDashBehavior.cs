@@ -86,7 +86,7 @@ namespace TurboEdition.Items
                     body.characterDirection.forward = ((body.inputBank.moveVector == Vector3.zero) ? body.characterDirection.forward : body.inputBank.moveVector).normalized;
                     stopwatch = 0;
                 }
-                    timesDashed++;
+                timesDashed++;
             }
         }
     }

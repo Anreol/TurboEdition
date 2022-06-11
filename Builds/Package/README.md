@@ -27,7 +27,9 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 - Finish the currently in-dev survivor, if you are interested, please contact me!
 
 ## Credits
-- Majority of items modelled by the talented 
+- Majority of items modelled by the talented Big Nut.
+	- [Check out his work at his ArtStation profile.](https://www.artstation.com/raditsys)
+
 - Imp and Mimigun models and animations by DotFlare.
 - Graphics (Expansion Icon and Artifacts) by SOM.
 - Bubbet & Moffein for giving me a hand in a few things and showing me how dumb some of my practices are.
@@ -44,7 +46,7 @@ You can contact me by messaging to Anreol#8231 or @anreol:poa.st
 
 Update for Survivors of the Void
 - Now with sounds!
-- Items now have models, models made by 
+- Items now have models, made by BigNut.
 - Items now have proper icons.
 - Commando has most, if not all, item displays.
 	- Contact me if you want to voluteer in making item displays for different survivors, they take quite a decent amount of time!.
