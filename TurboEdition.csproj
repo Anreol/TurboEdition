@@ -91,6 +91,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboBuffManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboItemManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboVFXManager.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\MarkAsUnableToBeLocked.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\MoneyBankInteractionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PainArtifactServerListener.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
