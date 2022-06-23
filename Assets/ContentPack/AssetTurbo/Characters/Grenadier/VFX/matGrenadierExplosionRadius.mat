@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matAreaIndicatorGrenadier
+  m_Name: matGrenadierExplosionRadius
   m_Shader: {fileID: 4800000, guid: 01ae53f241a8ca247b55e45f9a54625c, type: 2}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -69,7 +69,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBoost: 1.6
-    - _Boost: 2
+    - _Boost: 2.5
     - _BumpScale: 1
     - _Cull: 0
     - _Cutoff: 0.5
@@ -81,16 +81,16 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _IntersectionStrength: 0.6
-    - _InvFade: 1.1
+    - _IntersectionStrength: 0.5
+    - _InvFade: 16.8
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimPower: 0.1
-    - _RimStrength: 0
+    - _RimPower: 0.7
+    - _RimStrength: 1.76
     - _SmoothnessTextureChannel: 0
-    - _SoftPower: 1.2
+    - _SoftPower: 1.4
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendFloat: 5

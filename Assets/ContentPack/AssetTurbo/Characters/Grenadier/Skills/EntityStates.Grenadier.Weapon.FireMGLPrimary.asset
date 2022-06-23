@@ -78,3 +78,11 @@ MonoBehaviour:
       fieldValue:
         stringValue: 0
         objectValue: {fileID: 0}
+    - fieldName: speedOverride
+      fieldValue:
+        stringValue: -1
+        objectValue: {fileID: 0}
+    - fieldName: fuseOverride
+      fieldValue:
+        stringValue: -1
+        objectValue: {fileID: 0}

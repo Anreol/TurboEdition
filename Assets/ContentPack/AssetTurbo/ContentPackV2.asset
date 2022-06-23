@@ -27,6 +27,7 @@ MonoBehaviour:
   - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
   - {fileID: 5927682615679395250, guid: 2f4e77b8486cca54c9f46200c5516d76, type: 3}
   - {fileID: 7028506108066464535, guid: 703f5e15e8cb80a4ab1d52c939245139, type: 3}
+  - {fileID: 7028506108066464535, guid: 8200670119ef60342a2a0d6a42791e6f, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs:
   - {fileID: 1918061013436419, guid: ff8a7375923956040b7e09f90304fc9e, type: 3}
@@ -119,6 +120,8 @@ MonoBehaviour:
   - {fileID: 7214428371660463810, guid: 34687113b42d51448b0bace50efbf24d, type: 3}
   - {fileID: 7214428371660463810, guid: bf58a6e845cdebd4f80cb7f0cf059926, type: 3}
   - {fileID: 7214428371660463810, guid: 4b92ecfcac8586946846ac5ba0c72a0a, type: 3}
+  - {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e, type: 3}
+  - {fileID: 7214428371660463810, guid: 2cd654e88532eca43b181f347506ebc9, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
@@ -126,25 +129,27 @@ MonoBehaviour:
   musicTrackDefs: []
   gameEndingDefs: []
   entityStateConfigurations:
-  - {fileID: 11400000, guid: eb35f9ebdab8a9f4eaa86b47b45f7ed2, type: 2}
   - {fileID: 11400000, guid: 29cbfd4ffa0fde44fa880ee29a314965, type: 2}
+  - {fileID: 11400000, guid: 4140213d9eb4fec4d85e1acd98e60d7b, type: 2}
   - {fileID: 11400000, guid: 155365ac80eca7c469fc060a91f713e1, type: 2}
+  - {fileID: 11400000, guid: 43371a5f17bc3514b92981572589de92, type: 2}
   - {fileID: 11400000, guid: 1b8522626951a1f42a84c1ebad617ce4, type: 2}
-  - {fileID: 11400000, guid: 577850e372fbfb145b842d1a46d7a662, type: 2}
+  - {fileID: 11400000, guid: 32ff7eebff941944bb2b4b122ffe00ef, type: 2}
   - {fileID: 11400000, guid: acf7c449461af624b8f84f2a6c6aab32, type: 2}
   - {fileID: 11400000, guid: db9bb8dcc4eaf4e448500d1ad3ee9e37, type: 2}
   - {fileID: 11400000, guid: e3783735c36e02546a1fcfa7145900a3, type: 2}
+  - {fileID: 11400000, guid: d2775906f81329d478d86ab9a2565f15, type: 2}
   - {fileID: 11400000, guid: f7c3db69ef986c546bdb177de8001f2c, type: 2}
   - {fileID: 11400000, guid: 19b645547804f624f890ad8934c729c6, type: 2}
-  - {fileID: 11400000, guid: 965453e88ad61364f938ba4f942cbe17, type: 2}
-  - {fileID: 11400000, guid: a2f133c06f05b3645a444a949bd9f483, type: 2}
-  - {fileID: 11400000, guid: 8617585608878de429690cc648fc6439, type: 2}
+  - {fileID: 11400000, guid: a6bd9c1c04882b04999c48f387a2d134, type: 2}
+  - {fileID: 11400000, guid: a8bd3ecc56272194a80ee71f6f89b381, type: 2}
   - {fileID: 11400000, guid: ff7418454466cbb40bbf30bba9fa019f, type: 2}
   - {fileID: 11400000, guid: 394a637b267186d4eabb5740c484f132, type: 2}
   - {fileID: 11400000, guid: 4a231fa7f6a7d334ba6ae94e9ca81185, type: 2}
   - {fileID: 11400000, guid: 1db43eff3e26ffa4cb26a6b9758eeb19, type: 2}
-  - {fileID: 11400000, guid: a8bd3ecc56272194a80ee71f6f89b381, type: 2}
-  - {fileID: 11400000, guid: a6bd9c1c04882b04999c48f387a2d134, type: 2}
+  - {fileID: 11400000, guid: a2f133c06f05b3645a444a949bd9f483, type: 2}
+  - {fileID: 11400000, guid: 8617585608878de429690cc648fc6439, type: 2}
+  - {fileID: 11400000, guid: 965453e88ad61364f938ba4f942cbe17, type: 2}
   entityStateTypes: []
   itemTierDefs:
   - {fileID: 11400000, guid: 0c88764d8ce49f045b07565a3316082b, type: 2}

@@ -1005,7 +1005,7 @@ MonoBehaviour:
   voidFogStrongEffectInstance: {fileID: 0}
   voidJailerSlowEffectInstance: {fileID: 0}
   voidRaidcrabWardWipeFogEffectInstance: {fileID: 0}
-  spreadBloomDecayTime: 0.4
+  spreadBloomDecayTime: 0.7
   spreadBloomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1031,7 +1031,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   spreadBloomInternal: 0
-  _defaultCrosshairPrefab: {fileID: 0}
+  _defaultCrosshairPrefab: {fileID: 1348855532995429490, guid: 9944e2f1d566ad74b9cec0083a72db0e,
+    type: 3}
   hideCrosshair: 0
   multiKillTimer: 0
   <multiKillCount>k__BackingField: 0
@@ -1231,6 +1232,10 @@ MonoBehaviour:
     skillDescriptionToken: 
     keywordToken: 
     icon: {fileID: 0}
+  primaryBonusStockOverrideSkill: {fileID: 0}
+  secondaryBonusStockOverrideSkill: {fileID: 0}
+  utilityBonusStockOverrideSkill: {fileID: 0}
+  specialBonusStockOverrideSkill: {fileID: 0}
   networkIdentity: {fileID: 0}
   allSkills: []
   hasEffectiveAuthority: 0
@@ -1263,7 +1268,7 @@ MonoBehaviour:
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
+  baseRechargeStopwatch: 0
   hasExecutedSuccessfully: 0
 --- !u!114 &5817264358098905916
 MonoBehaviour:
@@ -1292,7 +1297,7 @@ MonoBehaviour:
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
+  baseRechargeStopwatch: 0
   hasExecutedSuccessfully: 0
 --- !u!114 &320286017254185105
 MonoBehaviour:
@@ -1321,7 +1326,7 @@ MonoBehaviour:
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
+  baseRechargeStopwatch: 0
   hasExecutedSuccessfully: 0
 --- !u!114 &3999612438210395320
 MonoBehaviour:
@@ -1350,7 +1355,7 @@ MonoBehaviour:
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
+  baseRechargeStopwatch: 0
   hasExecutedSuccessfully: 0
 --- !u!114 &7102421919237282378
 MonoBehaviour:
@@ -1379,7 +1384,7 @@ MonoBehaviour:
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
+  baseRechargeStopwatch: 0
   hasExecutedSuccessfully: 0
 --- !u!114 &2827456887168870262
 MonoBehaviour:

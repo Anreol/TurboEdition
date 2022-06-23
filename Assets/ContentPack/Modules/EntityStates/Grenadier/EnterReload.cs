@@ -1,18 +1,21 @@
 ﻿using EntityStates;
 using RoR2;
+using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
     public class EnterReload : BaseState
     {
-        public static float baseDuration;
-        public static string enterSoundString;
+        [SerializeField]
+        public float baseDuration;
+        [SerializeField]
+        public string enterSoundString;
 
         private float duration
         {
             get
             {
-                return EnterReload.baseDuration / this.attackSpeedStat;
+                return baseDuration / this.attackSpeedStat;
             }
         }
 
@@ -20,7 +23,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         {
             base.OnEnter();
             base.PlayCrossfade("Gesture, Additive", "EnterReload", "Reload.playbackRate", this.duration, 0.1f);
-            Util.PlaySound(EnterReload.enterSoundString, base.gameObject);
+            Util.PlaySound(enterSoundString, base.gameObject);
         }
 
         public override void FixedUpdate()
@@ -28,10 +31,13 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             base.FixedUpdate();
             if (base.isAuthority && base.fixedAge > this.duration)
             {
-                this.outer.SetNextState(new Reload());
+                this.outer.SetNextState(GetNextState());
             }
         }
-
+        public virtual Reload GetNextState()
+        {
+            return new Reload();
+        }
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;

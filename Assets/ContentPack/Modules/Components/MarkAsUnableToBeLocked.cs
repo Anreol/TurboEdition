@@ -18,7 +18,7 @@ namespace TurboEdition.Components
         {
             var c = new ILCursor(il);
 
-            if (c.TryGotoNext(MoveType.After, x => x.MatchLdloc(10), x => x.MatchCallOrCallvirt<UnityEngine.Object>("op_Implicit")))
+            if (c.TryGotoNext(MoveType.After, x => x.MatchLdloc(10), x => x.MatchCallOrCallvirt(typeof(UnityEngine.Object).GetMethod("op_Implicit", (System.Reflection.BindingFlags)(-1)))))
             {
                 bool hasMarker = false;
                 c.Emit(OpCodes.Ldloc, 10);

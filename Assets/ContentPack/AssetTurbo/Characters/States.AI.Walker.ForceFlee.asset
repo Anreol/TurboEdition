@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: States.AI.Walker.ForceFlee
   m_EditorClassIdentifier: 
   targetType:
-    assemblyQualifiedName: TurboEdition.States.AI.Walker.ForceFlee, TurboEdition,
-      Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
+    assemblyQualifiedName: 
   serializedFieldsCollection:
     serializedFields: []

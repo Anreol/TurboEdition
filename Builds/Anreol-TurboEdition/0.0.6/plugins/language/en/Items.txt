@@ -24,7 +24,7 @@
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
 	"ITEM_BLOODECONOMY_PICKUP": "Discount interactables that you cannot afford by paying with your blood.",
 	"ITEM_BLOODECONOMY_DESC": "<style=cIsUtility>Decrease the cost</style> by <style=cIsDamage>2$</style> of an interacteable you cannot afford by <color=#FF7F7F>damaging yourself by 35% HP</color> up to one time <style=cStack>(+1 per stack)</style>. <style=cIsUtility>Scales over time</style>.",
-	"ITEM_BLOODECONOMY_LORE": "Order: Monthly Payment\r\nTracking Number: 732***********r\nEstimated Delivery: 11\/17\/2056\r\nShipping Method: High Priority/Biological\r\nShipping Address: 18 Broad Street, 10005 NY, United States, Earth\r\nShipping Details:\r\n\r\n",
+	"ITEM_BLOODECONOMY_LORE": "Order: Monthly Payment, x8\r\nTracking Number: 732***********r\nEstimated Delivery: 11\/17\/2056\r\nShipping Method: High Priority/Biological\r\nShipping Address: 18 Broad Street, 10005 NY, United States, Earth\r\nShipping Details:\r\n\r\n",
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
 	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
@@ -70,7 +70,7 @@
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
 	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 5% <style=cStack>(+1% per stack)</style> chance of <style=cIsUtility>duplicating</style> them.",
-	"ITEM_PACKMAGNET_LORE": "",
+	"ITEM_PACKMAGNET_LORE": "Order: Magnetic Safety Belt\r\nTracking Number: 732***********r\nEstimated Delivery: 10\/28\/2056\r\nShipping Method: Standard\r\nShipping Address: Landfill 6-4, Scrap and Yard's Scrapyard, Earth\r\nShipping Details:\r\n\r\nHere it is, a prototype model, for now. I made a manual for a more professional look, tell me if there's any typos or errors.",
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
 	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",

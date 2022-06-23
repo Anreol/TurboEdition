@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ed1fbf916ccdb4e90ec5cf623fe1be, type: 3}
   m_Name: EditorInspectorSettings
   m_EditorClassIdentifier: 
-  enableNamingConventions: 1
-  inspectorSettings: []
+  enableNamingConventions: 0
+  inspectorSettings:
+  - inspectorName: EntityStateConfigurationInspector
+    typeReference: RoR2EditorKit.RoR2Related.Inspectors.EntityStateConfigurationInspector,
+      RoR2EditorScripts, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    isEnabled: 1

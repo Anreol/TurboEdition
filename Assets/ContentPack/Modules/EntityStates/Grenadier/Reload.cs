@@ -1,26 +1,39 @@
 ﻿using EntityStates;
 using RoR2;
-using TurboEdition.Components;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
     public class Reload : BaseState
     {
-        public static float baseDuration;
-        public static string enterSoundString;
-        public static string exitSoundString;
-        public static GameObject reloadEffectPrefab;
-        public static float enterSoundPitch;
-        public static float exitSoundPitch;
-        public static string reloadEffectMuzzleString;
+        [SerializeField]
+        public float baseDuration;
+
+        [SerializeField]
+        public string enterSoundString;
+
+        [SerializeField]
+        public string exitSoundString;
+
+        [SerializeField]
+        public GameObject reloadEffectPrefab;
+
+        [SerializeField]
+        public float enterSoundPitch;
+
+        [SerializeField]
+        public float exitSoundPitch;
+
+        [SerializeField]
+        public string reloadEffectMuzzleString;
+
         private bool hasGivenStock;
 
         public float duration
         {
             get
             {
-                return Reload.baseDuration / this.attackSpeedStat;
+                return baseDuration / this.attackSpeedStat;
             }
         }
 
@@ -28,8 +41,8 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         {
             base.OnEnter();
             base.PlayAnimation("Gesture, Additive", (base.characterBody.isSprinting && base.characterMotor && base.characterMotor.isGrounded) ? "ReloadSimple" : "Reload", "Reload.playbackRate", this.duration);
-            Util.PlayAttackSpeedSound(Reload.enterSoundString, base.gameObject, Reload.enterSoundPitch);
-            EffectManager.SimpleMuzzleFlash(Reload.reloadEffectPrefab, base.gameObject, Reload.reloadEffectMuzzleString, false);
+            Util.PlayAttackSpeedSound(enterSoundString, base.gameObject, enterSoundPitch);
+            EffectManager.SimpleMuzzleFlash(reloadEffectPrefab, base.gameObject, reloadEffectMuzzleString, false);
         }
 
         public override void FixedUpdate()
@@ -45,10 +58,10 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             }
             if (base.skillLocator.primary.stock < base.skillLocator.primary.maxStock)
             {
-                this.outer.SetNextState(new Reload());
+                this.outer.SetNextState(GetNextState());
                 return;
             }
-            Util.PlayAttackSpeedSound(Reload.exitSoundString, base.gameObject, Reload.exitSoundPitch);
+            Util.PlayAttackSpeedSound(exitSoundString, base.gameObject, exitSoundPitch);
             this.outer.SetNextStateToMain();
         }
 
@@ -70,6 +83,10 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             this.hasGivenStock = true;
         }
 
+        public virtual Reload GetNextState()
+        {
+            return new Reload();
+        }
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;

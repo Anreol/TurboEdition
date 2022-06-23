@@ -1,4 +1,6 @@
 ﻿using EntityStates;
+using RoR2;
+using RoR2.Projectile;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
@@ -10,6 +12,14 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
 
         [SerializeField]
         public float baseMinDuration = 0f;
+
+        [Tooltip("Set to -1 to disable. Overrides the speed of the projectile.")]
+        [SerializeField]
+        public float speedOverride = -1;
+
+        [Tooltip("Set to -1 to disable. Affects lifes of Fuse controllers and Projectile Impact Explosions.")]
+        [SerializeField]
+        public float fuseOverride = -1;
 
         private bool buttonReleased;
         private float minimumDuration;
@@ -48,6 +58,33 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 base.characterBody.SetSpreadBloom(0f, false);
             }
             base.OnExit();
+        }
+
+        public override void FireProjectile()
+        {
+            if (base.isAuthority)
+            {
+                Ray aimRay = base.GetAimRay();
+                aimRay = this.ModifyProjectileAimRay(aimRay);
+                aimRay.direction = Util.ApplySpread(aimRay.direction, this.minSpread, this.maxSpread, 1f, 1f, 0f, this.projectilePitchBonus);
+                FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
+                {
+                    projectilePrefab = projectilePrefab,
+                    position = aimRay.origin,
+                    rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
+                    owner = gameObject,
+                    damage = this.damageStat * this.damageCoefficient,
+                    force = force,
+                    crit = Util.CheckRoll(this.critStat, base.characterBody.master),
+                    damageColorIndex = DamageColorIndex.Default,
+                    target = null,
+                    speedOverride = speedOverride,
+                    fuseOverride = fuseOverride,
+                    damageTypeOverride = null
+                };
+                ProjectileManager.instance.FireProjectile(fireProjectileInfo);
+                //ProjectileManager.instance.FireProjectile(this.projectilePrefab, aimRay.origin, Util.QuaternionSafeLookRotation(aimRay.direction), base.gameObject, this.damageStat * this.damageCoefficient, this.force, Util.CheckRoll(this.critStat, base.characterBody.master), DamageColorIndex.Default, null, -1f);
+            }
         }
     }
 }

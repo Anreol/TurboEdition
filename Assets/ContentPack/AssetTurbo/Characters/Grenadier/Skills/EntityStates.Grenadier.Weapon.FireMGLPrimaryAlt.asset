@@ -13,13 +13,25 @@ MonoBehaviour:
   m_Name: EntityStates.Grenadier.Weapon.FireMGLPrimaryAlt
   m_EditorClassIdentifier: 
   targetType:
-    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Weapon.FireMGLPrimary,
+    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Weapon.FireMGLPrimaryAlt,
       TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
+    - fieldName: baseAnimDuration
+      fieldValue:
+        stringValue: 0.8
+        objectValue: {fileID: 0}
     - fieldName: baseMinDuration
       fieldValue:
-        stringValue: 0.45
+        stringValue: 0.5
+        objectValue: {fileID: 0}
+    - fieldName: speedOverride
+      fieldValue:
+        stringValue: -1
+        objectValue: {fileID: 0}
+    - fieldName: fuseOverride
+      fieldValue:
+        stringValue: 0.3
         objectValue: {fileID: 0}
     - fieldName: effectPrefab
       fieldValue:
@@ -28,31 +40,31 @@ MonoBehaviour:
     - fieldName: projectilePrefab
       fieldValue:
         stringValue: 
-        objectValue: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
+        objectValue: {fileID: 7028506108066464535, guid: 8200670119ef60342a2a0d6a42791e6f,
           type: 3}
     - fieldName: damageCoefficient
       fieldValue:
-        stringValue: 3
+        stringValue: 2
         objectValue: {fileID: 0}
     - fieldName: force
       fieldValue:
-        stringValue: 400
+        stringValue: 300
         objectValue: {fileID: 0}
     - fieldName: minSpread
       fieldValue:
-        stringValue: 0
+        stringValue: 0.1
         objectValue: {fileID: 0}
     - fieldName: maxSpread
       fieldValue:
-        stringValue: 1
+        stringValue: 1.25
         objectValue: {fileID: 0}
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 0.8
         objectValue: {fileID: 0}
     - fieldName: recoilAmplitude
       fieldValue:
-        stringValue: 1
+        stringValue: 1.5
         objectValue: {fileID: 0}
     - fieldName: attackSoundString
       fieldValue:
@@ -64,7 +76,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDelayBeforeFiringProjectile
       fieldValue:
-        stringValue: 0
+        stringValue: 0.3
         objectValue: {fileID: 0}
     - fieldName: targetMuzzle
       fieldValue:
@@ -72,9 +84,5 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: bloom
       fieldValue:
-        stringValue: 1
-        objectValue: {fileID: 0}
-    - fieldName: baseAnimDuration
-      fieldValue:
-        stringValue: 0
+        stringValue: 1.25
         objectValue: {fileID: 0}

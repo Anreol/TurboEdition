@@ -243,7 +243,7 @@ MonoBehaviour:
   bonusBlastForce: {x: 200, y: 300, z: 200}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
-  explosionEffect: {fileID: 1367687870407945083, guid: a7c6f3fafc8fca246966a0aaed395d47,
+  explosionEffect: {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e,
     type: 3}
   explosionSoundString: 
   fireChildren: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   offsetForLifetimeExpiredSound: 0
   destroyOnEnemy: 1
   destroyOnWorld: 0
+  impactOnWorld: 1
   timerAfterImpact: 0
   lifetime: 3
   lifetimeAfterImpact: 3
@@ -309,6 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf39fc0812dbdd4ba71529646b5902e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reduceDamageFraction: 2
+  forceNoCrit: 1
+  clearDots: 1
+  damageTypeOverride: 1
 --- !u!1 &9086722933741340282
 GameObject:
   m_ObjectHideFlags: 0

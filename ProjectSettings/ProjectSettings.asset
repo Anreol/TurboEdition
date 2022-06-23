@@ -614,20 +614,20 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    7: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    13: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    14: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    19: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    21: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    25: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    1: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    7: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    13: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    14: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    19: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    21: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    25: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
     26: thunderkit;twiner-unitygameimporter
-    27: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    28: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    29: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    30: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    32: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
-    33: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-ror2editorkit;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    27: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    28: thunderkit;twiner-unitygameimporter;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    29: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    30: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    32: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
+    33: thunderkit;riskofrain2;nebby-unitymultiplayerhlapi;TK_ADDRESSABLE;riskofthunder-hookgenpatcher;riskofthunder-fixplugintypesserialization;UNITY_POST_PROCESSING_STACK_V2
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

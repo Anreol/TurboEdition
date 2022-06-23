@@ -10,20 +10,28 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: EntityStates.Grenadier.Roll.UtilityBodyRollLoop
+  m_Name: EntityStates.Grenadier.UtilityRollLoopGrounded
   m_EditorClassIdentifier: 
   targetType:
-    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.UtilityBodyRollLoop,
+    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.UtilityRollLoopGrounded,
       TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
-    - fieldName: minimumBaseDuration
+    - fieldName: baseDuration
       fieldValue:
         stringValue: 2
         objectValue: {fileID: 0}
-    - fieldName: rollingTimeExtensionWhenAttacking
+    - fieldName: enterSoundString
       fieldValue:
-        stringValue: 5
+        stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: baseMinDuration
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: baseOverlapAttackCoefficient
+      fieldValue:
+        stringValue: 2
         objectValue: {fileID: 0}
     - fieldName: hitEffectPrefab
       fieldValue:
@@ -37,39 +45,43 @@ MonoBehaviour:
       fieldValue:
         stringValue: 
         objectValue: {fileID: 0}
-    - fieldName: maximumRollDuration
+    - fieldName: hitMaximumTargetsAtOnce
+      fieldValue:
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: hitRecoilAmplitude
       fieldValue:
         stringValue: 10
         objectValue: {fileID: 0}
-    - fieldName: airControlOverride
+    - fieldName: ungroundSmallHopYVel
       fieldValue:
-        stringValue: 4.8
+        stringValue: 20
+        objectValue: {fileID: 0}
+    - fieldName: ungroundSmallHopForwardVel
+      fieldValue:
+        stringValue: 50
+        objectValue: {fileID: 0}
+    - fieldName: newAirControl
+      fieldValue:
+        stringValue: 5
+        objectValue: {fileID: 0}
+    - fieldName: overlapAttackResetFrequency
+      fieldValue:
+        stringValue: 0.01
         objectValue: {fileID: 0}
     - fieldName: baseHitPauseDuration
       fieldValue:
         stringValue: 0.5
         objectValue: {fileID: 0}
-    - fieldName: baseOverlapAttackCoefficient
-      fieldValue:
-        stringValue: 2
-        objectValue: {fileID: 0}
-    - fieldName: baseOverlapAttackRate
-      fieldValue:
-        stringValue: 1
-        objectValue: {fileID: 0}
-    - fieldName: hitMaximumTargetsAtOnce
-      fieldValue:
-        stringValue: 1
-        objectValue: {fileID: 0}
-    - fieldName: hitRecoilAmplitude
-      fieldValue:
-        stringValue: 20
-        objectValue: {fileID: 0}
-    - fieldName: overlapAttackSmallHopVelocity
+    - fieldName: hitSmallHopYVel
       fieldValue:
         stringValue: 45
         objectValue: {fileID: 0}
-    - fieldName: overlapAttackResetFrequency
+    - fieldName: baseOverlapPushAwayForce
       fieldValue:
-        stringValue: 0.01
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: overlapAttackFireFrequency
+      fieldValue:
+        stringValue: 0
         objectValue: {fileID: 0}
