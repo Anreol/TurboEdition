@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1290827472
+CRC: 3541640907
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6e03ae8810a0d9229285eb5d980c3987
+    Hash: 224d8e317ebece94b9e8a3ac819d8a6c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1ecf95c99ff471883e965843b9e7dc99
+    Hash: e6bc1fdf996eb32a9b998957d2a4a99d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -45,6 +45,8 @@ ClassTypes:
   Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
+  Script: {fileID: 1297475563, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
 - Class: 114
   Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -99,8 +101,6 @@ ClassTypes:
   Script: {fileID: 760127866, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1297475563, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
 - Class: 114
   Script: {fileID: 116179522, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -157,6 +157,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: d497c989a6507d0409c8a1e22eeb2707, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c7e0d06a2bda94640b2f8e76ffaae769, type: 3}
 - Class: 114
   Script: {fileID: 1392865457, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -434,15 +436,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
-  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: c7e0d06a2bda94640b2f8e76ffaae769, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
+  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
 - Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 115
@@ -723,7 +723,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/PickupItemDeployer.prefab
 - Assets/Textures/texAlphaCloudBankB.png
 - Assets/Textures/texBBDecalMask1.png
-- Assets/Textures/texAlphaCloudPlasma.png
 - Assets/Materials/matInverseDistortion.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/MoneyBankInteracteable.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_SuperSticky.png
@@ -785,7 +784,8 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/matImpBomber.mat
 - Assets/ContentPack/AssetTurbo/TurboExpansion.asset
 - Assets/Textures/Ramps/texRampBrownMiddle.png
-- Assets/ContentPack/AssetTurbo/Prefabs/Effects/ProjectileLandGround.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/HitSharpVFXGround.prefab
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierSpecialCrosshair.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.EnterReload.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecialAlt.asset

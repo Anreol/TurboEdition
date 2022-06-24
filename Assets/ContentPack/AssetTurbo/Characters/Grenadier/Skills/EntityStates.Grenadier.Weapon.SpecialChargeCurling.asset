@@ -24,11 +24,8 @@ MonoBehaviour:
     - fieldName: crosshairOverridePrefab
       fieldValue:
         stringValue: 
-        objectValue: {fileID: 0}
-    - fieldName: chargeSoundString
-      fieldValue:
-        stringValue: Play_GrenadierSpecialCharge
-        objectValue: {fileID: 0}
+        objectValue: {fileID: 3766452387141122371, guid: 11bde58c306ec0d429c0fcd7cfd1f7fd,
+          type: 3}
     - fieldName: maxDistance
       fieldValue:
         stringValue: 75
@@ -75,4 +72,24 @@ MonoBehaviour:
     - fieldName: baseFireFrequency
       fieldValue:
         stringValue: 1.25
+        objectValue: {fileID: 0}
+    - fieldName: soundChargeReadyString
+      fieldValue:
+        stringValue: Play_GrenadierSpecialCharge
+        objectValue: {fileID: 0}
+    - fieldName: soundLoopFullyChargedString
+      fieldValue:
+        stringValue: Play_GrenadierSpecialReady
+        objectValue: {fileID: 0}
+    - fieldName: soundLoopRTPCChargeString
+      fieldValue:
+        stringValue: GrenadierSpecial_ChargeAmount
+        objectValue: {fileID: 0}
+    - fieldName: minimumChargeValue
+      fieldValue:
+        stringValue: 0.15
+        objectValue: {fileID: 0}
+    - fieldName: fireAllStocks
+      fieldValue:
+        stringValue: 1
         objectValue: {fileID: 0}

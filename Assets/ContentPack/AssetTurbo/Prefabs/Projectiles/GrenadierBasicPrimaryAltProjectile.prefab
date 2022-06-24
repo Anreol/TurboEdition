@@ -319,11 +319,11 @@ MonoBehaviour:
   projectileDamage: {fileID: 0}
   alive: 1
   falloffModel: 2
-  blastRadius: 5
+  blastRadius: 6
   blastDamageCoefficient: 1
-  blastProcCoefficient: 1
+  blastProcCoefficient: 1.15
   blastAttackerFiltering: 1
-  bonusBlastForce: {x: 200, y: 300, z: 200}
+  bonusBlastForce: {x: 300, y: 400, z: 300}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: 2cd654e88532eca43b181f347506ebc9,

@@ -51,7 +51,7 @@ namespace TurboEdition.Components.UI
                         newMaxSkillLocatorStacks += genericSkill.maxStock;
                     }
                 }
-                if (newMaxSkillLocatorStacks != cacheMaxSkillLocatorStacks)
+                if (newMaxSkillLocatorStacks > cacheMaxSkillLocatorStacks) //Do not rebuild unless theres new more, since the game already takes care of disabling the added dynamic ones
                 {
                     cacheMaxSkillLocatorStacks = newMaxSkillLocatorStacks;
                     RebuildDynamicDisplays();
@@ -61,7 +61,8 @@ namespace TurboEdition.Components.UI
 
         private void RebuildDynamicDisplays()
         {
-            crossController.skillStockSpriteDisplays = baseSkillStocks; //Reset to base before we remove the added ones.
+            //NOT needed because crosshairs update in LATE update, while we do at UPDATE
+            //crossController.skillStockSpriteDisplays = baseSkillStocks; //Reset to base before we remove the added ones.
             if (previousSkillStockObjects != null && previousSkillStockObjects.Length > 0)
             {
                 foreach (var item in previousSkillStockObjects)
@@ -82,7 +83,7 @@ namespace TurboEdition.Components.UI
                         HG.ArrayUtils.ArrayAppend(ref previousSkillStockObjects, go);
                         dynamicSkillStocks.Add(new CrosshairController.SkillStockSpriteDisplay
                         {
-                            maximumStockCountToBeValid = genericSkill.maxStock,
+                            maximumStockCountToBeValid = 99, //Previously genericSkill.maxStock
                             minimumStockCountToBeValid = i + 1,
                             requiredSkillDef = dssd.requiredSkillDef ?? null,
                             skillSlot = dssd.skillSlot,

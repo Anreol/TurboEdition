@@ -122,6 +122,7 @@ MonoBehaviour:
   - {fileID: 7214428371660463810, guid: 4b92ecfcac8586946846ac5ba0c72a0a, type: 3}
   - {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e, type: 3}
   - {fileID: 7214428371660463810, guid: 2cd654e88532eca43b181f347506ebc9, type: 3}
+  - {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}

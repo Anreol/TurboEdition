@@ -16,7 +16,8 @@ MonoBehaviour:
   skillName: GrenadierPrimaryBombAlt
   skillNameToken: GRENADIER_PRIMARY_ALT_NAME
   skillDescriptionToken: GRENADIER_PRIMARY_ALT_DESCRIPTION
-  keywordTokens: []
+  keywordTokens:
+  - KEYWORD_AGILE
   icon: {fileID: 0}
   activationStateMachineName: Weapon
   activationState:
@@ -24,7 +25,7 @@ MonoBehaviour:
       Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
   baseRechargeInterval: 0
-  baseMaxStock: 4
+  baseMaxStock: 8
   rechargeStock: 0
   requiredStock: 1
   stockToConsume: 1
@@ -32,7 +33,7 @@ MonoBehaviour:
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
   beginSkillCooldownOnSkillEnd: 0
-  cancelSprintingOnActivation: 1
+  cancelSprintingOnActivation: 0
   forceSprintDuringState: 0
   canceledFromSprinting: 0
   isCombatSkill: 1
@@ -41,4 +42,4 @@ MonoBehaviour:
     _typeName: TurboEdition.EntityStates.Grenadier.Weapon.EnterReloadFast, TurboEdition,
       Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   reloadInterruptPriority: 0
-  graceDuration: 0.65
+  graceDuration: 0.35

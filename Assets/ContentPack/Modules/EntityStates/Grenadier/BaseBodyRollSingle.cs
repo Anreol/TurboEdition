@@ -27,9 +27,17 @@ namespace TurboEdition.EntityStates.Grenadier
         [SerializeField]
         public float baseOverlapPushAwayForce;
 
-        [Tooltip("The frequency (1/time) at which the overlap attack is fired. Higher values means more frequent ticks of damage..")]
+        [Tooltip("The frequency (1/time) at which the overlap attack is fired. Higher values means more frequent ticks of damage.")]
         [SerializeField]
-        public float overlapAttackFireFrequency;
+        public float baseOverlapAttackFireFrequency;
+
+        [Tooltip("Should the fire frequency scale with attack speed.")]
+        [SerializeField]
+        public bool scaleFireFrequencyWithAttackSpeed;
+
+        [Tooltip("Should the fire timer get reset whenever a succesful hit is done.")]
+        [SerializeField]
+        public bool hitResetOverlapFireTimer;
 
         [Tooltip("Effect prefab that will play when performing a hit.")]
         [SerializeField]
@@ -68,6 +76,7 @@ namespace TurboEdition.EntityStates.Grenadier
         internal bool exitNextFrame;
 
         internal abstract float calculatedDuration { get; }
+        internal virtual float overlapAttackFireFrequency => scaleFireFrequencyWithAttackSpeed ? baseOverlapAttackFireFrequency * attackSpeedStat : baseOverlapAttackFireFrequency;
         private float minimumDuration => baseMinDuration / this.attackSpeedStat;
 
         internal int overlapAttackTicks;
@@ -97,7 +106,7 @@ namespace TurboEdition.EntityStates.Grenadier
             base.FixedUpdate();
             //base.characterMotor.moveDirection = base.inputBank.moveVector;
 
-            if (base.isAuthority)
+            if (isAuthority)
             {
                 base.characterDirection.forward = UpdateDirection() ?? base.characterDirection.forward;
                 //Do attack, with a timer to dont lag the hell out of the game.
@@ -151,6 +160,8 @@ namespace TurboEdition.EntityStates.Grenadier
         public virtual void HitSuccessful(List<HurtBox> victims)
         {
             overlapAttackTicks++;
+            if (hitResetOverlapFireTimer)
+                fireTimer = 1f / overlapAttackFireFrequency;
             base.SmallHop(characterMotor, hitSmallHopYVel);
             base.AddRecoil(-0.5f * hitRecoilAmplitude, -0.5f * hitRecoilAmplitude, -0.5f * hitRecoilAmplitude, 0.5f * hitRecoilAmplitude);
             Util.PlaySound(hitSoundString, base.gameObject);
@@ -167,8 +178,8 @@ namespace TurboEdition.EntityStates.Grenadier
         /// <summary>
         /// Same as MUL-Ts Transport mode.
         /// </summary>
-        /// <returns>Returns current move speed divided by the base movement speed.</returns>
-        private float GetDamageBoostFromSpeed()
+        /// <returns>Returns current move speed divided by the base movement speed or 1.</returns>
+        internal virtual float GetDamageBoostFromSpeed()
         {
             return Mathf.Max(1f, base.characterBody.moveSpeed / base.characterBody.baseMoveSpeed);
         }

@@ -64,7 +64,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDelayBeforeFiringProjectile
       fieldValue:
-        stringValue: 0
+        stringValue: 0.02
         objectValue: {fileID: 0}
     - fieldName: targetMuzzle
       fieldValue:
@@ -72,7 +72,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: bloom
       fieldValue:
-        stringValue: 1
+        stringValue: 0.5
         objectValue: {fileID: 0}
     - fieldName: baseAnimDuration
       fieldValue:

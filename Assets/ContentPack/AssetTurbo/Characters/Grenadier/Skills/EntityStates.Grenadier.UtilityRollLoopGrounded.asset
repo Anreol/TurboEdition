@@ -81,7 +81,15 @@ MonoBehaviour:
       fieldValue:
         stringValue: 0
         objectValue: {fileID: 0}
-    - fieldName: overlapAttackFireFrequency
+    - fieldName: baseOverlapAttackFireFrequency
       fieldValue:
-        stringValue: 0
+        stringValue: 5
+        objectValue: {fileID: 0}
+    - fieldName: scaleFireFrequencyWithAttackSpeed
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: hitResetOverlapFireTimer
+      fieldValue:
+        stringValue: 1
         objectValue: {fileID: 0}

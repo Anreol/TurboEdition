@@ -1,20 +1,11 @@
-﻿using TurboEdition.Components;
-
-namespace TurboEdition.EntityStates.Grenadier.Weapon
+﻿namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
-    internal class SpecialChargeCurling : SpecialChargeThrowBase
+    internal class SpecialChargeCurling : AimThrowableBaseChargable
     {
-        private bool shotOnce;
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            activatorSkillSlot.skillDef.canceledFromSprinting = !shotOnce;
-        }
-
-        public override void FireOnce(bool wasForced)
-        {
-            base.FireOnce(wasForced);
-            shotOnce = true;
+            activatorSkillSlot.skillDef.canceledFromSprinting = !firedAtLeastOnce;
         }
     }
 }

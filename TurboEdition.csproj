@@ -118,6 +118,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\ItemScanningEnter.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\ItemScanningExit.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\LeapAtEnemy.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\AimThrowableBaseChargable.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseBodyRollSingle.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReload.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReloadFast.cs" />
@@ -130,7 +131,6 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\ReloadFast.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeCurling.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeSatchels.cs" />
-    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeThrowBase.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityRollLoopAerial.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityRollLoopGrounded.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombGet.cs" />

@@ -44,11 +44,11 @@ MonoBehaviour:
           type: 3}
     - fieldName: damageCoefficient
       fieldValue:
-        stringValue: 2
+        stringValue: 1.75
         objectValue: {fileID: 0}
     - fieldName: force
       fieldValue:
-        stringValue: 300
+        stringValue: 475
         objectValue: {fileID: 0}
     - fieldName: minSpread
       fieldValue:
@@ -76,7 +76,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDelayBeforeFiringProjectile
       fieldValue:
-        stringValue: 0.3
+        stringValue: 0.02
         objectValue: {fileID: 0}
     - fieldName: targetMuzzle
       fieldValue:
@@ -84,5 +84,5 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: bloom
       fieldValue:
-        stringValue: 1.25
+        stringValue: 1
         objectValue: {fileID: 0}

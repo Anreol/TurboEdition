@@ -27,6 +27,7 @@ namespace TurboEdition.Misc
         {
             RoR2.UI.GameEndReportPanelController gameEndReportPanelController = GameOverController.instance.gameEndReportPanelPrefab.GetComponent<RoR2.UI.GameEndReportPanelController>();
             HG.ArrayUtils.ArrayAppend<string>(ref gameEndReportPanelController.statsToDisplay, totalTeleporterOverchargerUsed.name);
+            Run.onClientGameOverGlobal -= appendStatsToReportScreen; //Just do it once and desubscribe, else it keeps appending every game over.
         }
 
         private static void appendGeneralStats(ILContext il)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
-    public class FireMGLBase : GenericProjectileBaseState
+    public abstract class FireMGLBase : GenericProjectileBaseState
     {
         [SerializeField]
         public float baseAnimDuration = 1f;

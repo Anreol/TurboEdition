@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 2
+        stringValue: 3
         objectValue: {fileID: 0}
     - fieldName: enterSoundString
       fieldValue:
@@ -75,19 +75,15 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: hitSmallHopYVel
       fieldValue:
-        stringValue: 15
+        stringValue: 24
         objectValue: {fileID: 0}
     - fieldName: baseOverlapPushAwayForce
       fieldValue:
         stringValue: 16
         objectValue: {fileID: 0}
-    - fieldName: overlapAttackFireFrequency
-      fieldValue:
-        stringValue: 25
-        objectValue: {fileID: 0}
     - fieldName: hitStateDurationExtention
       fieldValue:
-        stringValue: 2
+        stringValue: 3
         objectValue: {fileID: 0}
     - fieldName: shouldUngroundIfGrounded
       fieldValue:
@@ -98,6 +94,18 @@ MonoBehaviour:
         stringValue: 1
         objectValue: {fileID: 0}
     - fieldName: shouldDamageAndExitIfGrounding
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: baseOverlapAttackFireFrequency
+      fieldValue:
+        stringValue: 5
+        objectValue: {fileID: 0}
+    - fieldName: scaleFireFrequencyWithAttackSpeed
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: hitResetOverlapFireTimer
       fieldValue:
         stringValue: 1
         objectValue: {fileID: 0}

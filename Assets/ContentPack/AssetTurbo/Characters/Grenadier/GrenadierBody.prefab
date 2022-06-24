@@ -1005,28 +1005,28 @@ MonoBehaviour:
   voidFogStrongEffectInstance: {fileID: 0}
   voidJailerSlowEffectInstance: {fileID: 0}
   voidRaidcrabWardWipeFogEffectInstance: {fileID: 0}
-  spreadBloomDecayTime: 0.7
+  spreadBloomDecayTime: 1.2
   spreadBloomCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.2702374
-      outSlope: 0.2702374
-      tangentMode: 0
-      weightedMode: 2
-      inWeight: 0
-      outWeight: 0.6458333
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 0.29532403
-      outSlope: 0.29532403
-      tangentMode: 0
+      value: 10.000233
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
       weightedMode: 0
-      inWeight: 0.09583336
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
