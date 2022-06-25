@@ -223,11 +223,11 @@ MonoBehaviour:
   <hudElement>k__BackingField: {fileID: 0}
   spriteSpreadPositions:
   - target: {fileID: 3742838287259339717}
-    zeroPosition: {x: -30, y: 0, z: 0}
-    onePosition: {x: -90, y: 0, z: 0}
+    zeroPosition: {x: -35, y: 0, z: 0}
+    onePosition: {x: -100, y: 0, z: 0}
   - target: {fileID: 2215475706019026532}
-    zeroPosition: {x: 30, y: 0, z: 0}
-    onePosition: {x: 90, y: 0, z: 0}
+    zeroPosition: {x: 35, y: 0, z: 0}
+    onePosition: {x: 100, y: 0, z: 0}
   skillStockSpriteDisplays: []
   remapSprites: []
   minSpreadAlpha: 0

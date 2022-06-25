@@ -9,6 +9,7 @@ namespace TurboEdition.Components
     public class ProjectileImpactEffect : MonoBehaviour, IProjectileImpactBehavior
     {
         public GameObject prefabEffect;
+        public float scaleOverride = 1;
         public bool useSurfaceDefEffectToo;
         public bool tryToNormalize;
 
@@ -25,13 +26,11 @@ namespace TurboEdition.Components
                     EffectData effectData = new EffectData()
                     {
                         color = color,
-                        origin = position,
-                        surfaceDefIndex = surfaceDef.surfaceDefIndex
+                        origin = tryToNormalize ? normal : position,
+                        surfaceDefIndex = surfaceDef.surfaceDefIndex,
+                        rotation = tryToNormalize ? Util.QuaternionSafeLookRotation(normal) : EffectData.defaultRotation,
+                        scale = scaleOverride != -1 ? scaleOverride : EffectData.defaultScale,
                     };
-                    if (tryToNormalize)
-                    {
-                        effectData.rotation = Util.QuaternionSafeLookRotation(normal);
-                    }
                     EffectManager.SpawnEffect(surfaceDef.impactEffectPrefab, effectData, false); //Will be local, we dont need to transmit
                     string impactSoundString = surfaceDef.impactSoundString;
                     if (!string.IsNullOrEmpty(impactSoundString))
@@ -44,13 +43,12 @@ namespace TurboEdition.Components
                     EffectData effectData = new EffectData()
                     {
                         color = color,
-                        origin = position,
-                        surfaceDefIndex = surfaceDef.surfaceDefIndex
+                        origin = tryToNormalize ? normal : position,
+                        surfaceDefIndex = surfaceDef.surfaceDefIndex,
+                        rotation = tryToNormalize ? Util.QuaternionSafeLookRotation(normal) : EffectData.defaultRotation,
+                        scale = scaleOverride != -1 ? scaleOverride : EffectData.defaultScale,
+
                     };
-                    if (tryToNormalize)
-                    {
-                        effectData.rotation = Util.QuaternionSafeLookRotation(normal);
-                    }
                     EffectManager.SpawnEffect(prefabEffect, effectData, false);
                 }
                 return;
