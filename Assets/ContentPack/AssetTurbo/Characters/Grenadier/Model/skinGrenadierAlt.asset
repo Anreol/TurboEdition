@@ -26,6 +26,7 @@ MonoBehaviour:
     defaultMaterial: {fileID: 2100000, guid: 90304b456fa0bc541ab1de654af5a1b6, type: 2}
     defaultShadowCastingMode: 1
     ignoreOverlays: 0
+    hideOnDeath: 0
   gameObjectActivations: []
   meshReplacements: []
   projectileGhostReplacements: []

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6503306493459240982}
   - component: {fileID: 1782425723763529551}
   m_Layer: 14
-  m_Name: GrenadierBasicPrimaryProjectile
+  m_Name: GrenadierBasicSpecialProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   projectileController: {fileID: 0}
   projectileDamage: {fileID: 0}
   alive: 1
-  falloffModel: 2
+  falloffModel: 0
   blastRadius: 14
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
@@ -296,8 +296,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEffect: {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3,
     type: 3}
-  useSurfaceDefEffectToo: 0
-  tryToNormalize: 0
+  scaleOverride: 1
+  useSurfaceDefEffectToo: 1
+  tryToNormalize: 1
 --- !u!114 &1782425723763529551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf39fc0812dbdd4ba71529646b5902e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reduceDamageFraction: 2
+  reduceDamageFraction: 4
   forceNoCrit: 1
   clearDots: 1
   damageTypeOverride: 1

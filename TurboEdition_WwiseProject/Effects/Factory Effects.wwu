@@ -1678,7 +1678,7 @@
 					<ChildrenList>
 						<Effect Name="Fear_no_Evil" ID="{A1F17D99-0801-4F32-B74E-ADB2D9ACC556}" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
 							<PropertyList>
-								<Property Name="DryLevel" Type="Real32" Value="-3"/>
+								<Property Name="DryLevel" Type="Real32" Value="-5"/>
 								<Property Name="Voice1Pitch" Type="Real32" Value="-100"/>
 								<Property Name="Voice2Enable" Type="bool" Value="True"/>
 								<Property Name="Voice2Pitch" Type="Real32" Value="100"/>

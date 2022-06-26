@@ -56,7 +56,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: attackSoundString
       fieldValue:
-        stringValue: Play_GrenadierPrimaryFire
+        stringValue: Play_Grenadier_Primary_Fire
         objectValue: {fileID: 0}
     - fieldName: projectilePitchBonus
       fieldValue:

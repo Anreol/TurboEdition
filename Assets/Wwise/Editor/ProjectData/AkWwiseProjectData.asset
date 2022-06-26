@@ -49,7 +49,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: ff69bd0cb0472246bf85651c36cdcb1d
     GuidInternal: 
-    m_lastTime: -8585495822883556419
+    m_lastTime: -8585453469348198904
     List:
     - name: TurboBank
       guid: 17de7e2c48388444a1e209fca9afe8f3
@@ -68,7 +68,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: f9aeee3adff9124fa97c10655bacd25f
     GuidInternal: 
-    m_lastTime: -8585495822883625717
+    m_lastTime: -8585453467782919692
     List:
     - name: Equipment
       guid: a52016adc750bc4e9dddd5a5e47c93f3
@@ -120,90 +120,146 @@ MonoBehaviour:
       maxAttenuation: 200
       maxDuration: 0.62963
       minDuration: 0.560937
-    - name: Play_GrenadierPrimaryFire
-      guid: 19fb13568f94874c9cacb9d2871170a1
-      id: 3965566729
+    - name: Play_Grenadier_ExplosionM
+      guid: acd84a52a8ba644e91b27be1fa89b281
+      id: 855800858
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Grenadier
         ObjectType: 4
-      - ElementName: Play_GrenadierPrimaryFire
+      - ElementName: Play_Grenadier_ExplosionM
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_GrenadierPrimaryFire
+      Path: Default Work Unit\Grenadier\Play_Grenadier_ExplosionM
+      maxAttenuation: 200
+      maxDuration: 0.815207
+      minDuration: 0.769453
+    - name: Play_Grenadier_ExplosionS
+      guid: 955eb90bda30e24d85bbc74a0e539bdc
+      id: 855800836
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_Grenadier_ExplosionS
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_Grenadier_ExplosionS
+      maxAttenuation: 200
+      maxDuration: 0.623157
+      minDuration: 0.588182
+    - name: Play_Grenadier_Landing
+      guid: 3ccba281a6b74246ad750ed97f6f3f72
+      id: 2376185369
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_Grenadier_Landing
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Landing
+      maxAttenuation: 200
+      maxDuration: 0.454618
+      minDuration: 0.280079
+    - name: Play_Grenadier_Primary_Fire
+      guid: 19fb13568f94874c9cacb9d2871170a1
+      id: 183542901
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_Grenadier_Primary_Fire
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Primary_Fire
       maxAttenuation: 200
       maxDuration: 0.604913
       minDuration: 0.561764
-    - name: Play_GrenadierReload
+    - name: Play_Grenadier_Reload
       guid: 356f6c61c606a74dbde1b135b2d72996
-      id: 1186468370
+      id: 3477662151
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Grenadier
         ObjectType: 4
-      - ElementName: Play_GrenadierReload
+      - ElementName: Play_Grenadier_Reload
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_GrenadierReload
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Reload
       maxAttenuation: 200
       maxDuration: 0.629552
       minDuration: 0.560867
-    - name: Play_GrenadierSecondaryFire
+    - name: Play_Grenadier_Secondary_Fire
       guid: e15892a68b867c4d826dd74ad22c5a36
-      id: 241865965
+      id: 4088573137
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Grenadier
         ObjectType: 4
-      - ElementName: Play_GrenadierSecondaryFire
+      - ElementName: Play_Grenadier_Secondary_Fire
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_GrenadierSecondaryFire
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Secondary_Fire
       maxAttenuation: 200
-      maxDuration: 1.572354
-      minDuration: 1.400808
-    - name: Play_GrenadierSpecialCharge
+      maxDuration: 1.190035
+      minDuration: 1.0602
+    - name: Play_Grenadier_Special_Charge
       guid: 684e169ff60b4e498d07a63091e7a003
-      id: 3039812538
+      id: 2041123800
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Grenadier
         ObjectType: 4
-      - ElementName: Play_GrenadierSpecialCharge
+      - ElementName: Play_Grenadier_Special_Charge
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_GrenadierSpecialCharge
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Special_Charge
       maxAttenuation: 200
       maxDuration: 12.936458
       minDuration: 12.936458
-    - name: Play_GrenadierSpecialGainExtraCharge
+    - name: Play_Grenadier_Special_GainExtraCharge
       guid: 057ba91d79be7441b19739a3a215c417
-      id: 2217609107
+      id: 1561076785
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Grenadier
         ObjectType: 4
-      - ElementName: Play_GrenadierSpecialGainExtraCharge
+      - ElementName: Play_Grenadier_Special_GainExtraCharge
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_GrenadierSpecialGainExtraCharge
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Special_GainExtraCharge
       maxAttenuation: 200
       maxDuration: 0.215998
       minDuration: 0.192432
-    - name: Play_GrenadierSpecialReady
+    - name: Play_Grenadier_Special_Ready
       guid: fa7c94892666f741b7b463be7078989e
-      id: 2141728575
+      id: 3091314681
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
       - ElementName: Grenadier
         ObjectType: 4
-      - ElementName: Play_GrenadierSpecialReady
+      - ElementName: Play_Grenadier_Special_Ready
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_GrenadierSpecialReady
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Special_Ready
       maxAttenuation: 200
       maxDuration: 0.12425
       minDuration: 0.12425
+    - name: Play_Grenadier_Steps
+      guid: 5535bc077730124b93a1cc3dad03f5db
+      id: 878563697
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_Grenadier_Steps
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Steps
+      maxAttenuation: 200
+      maxDuration: 0.219891
+      minDuration: 0.206346
     - name: Play_Item_Proc_ItemDeployer
       guid: b7fdedcf4664ba43aa969c6d6914174f
       id: 902611312
@@ -230,8 +286,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Equipment\Play_LeaveStageError
       maxAttenuation: 200
-      maxDuration: 0.489688
-      minDuration: 0.486868
+      maxDuration: 0.790161
+      minDuration: 0.78561
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:

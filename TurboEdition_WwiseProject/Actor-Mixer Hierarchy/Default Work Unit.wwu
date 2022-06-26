@@ -69,9 +69,22 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ChildrenList>
-										<RandomSequenceContainer Name="GrenadierSteps" ID="{5BC0292F-28A0-43DD-8BDD-51810C66DC02}" ShortID="809985856">
+										<RandomSequenceContainer Name="Grenadier_Steps" ID="{5BC0292F-28A0-43DD-8BDD-51810C66DC02}" ShortID="809985856">
 											<PropertyList>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{980436A5-88AD-4D90-8E55-34CC9E49E6B0}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="10"/>
+																	<Property Name="Min" Type="Real64" Value="-10"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
 												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
@@ -82,8 +95,66 @@
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="se_reflet_step_left_m" ID="{66260B16-F8E5-4867-93A4-041AC7A9107D}" ShortID="974014596">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="se_reflet_step_left_m" ID="{0F2F7207-5A27-4595-8D9B-1A90D3E8973D}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>se_reflet_step_left_m.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="504455130"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="se_reflet_step_left_m" ID="{0F2F7207-5A27-4595-8D9B-1A90D3E8973D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="se_reflet_step_right_m" ID="{4FD4CB32-4C33-4032-BF87-A4BBBF2F666F}" ShortID="737805694">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="se_reflet_step_right_m" ID="{2A06B7A5-A1D6-4F3E-B45D-9A40076C49F6}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>se_reflet_step_right_m.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="143500258"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="se_reflet_step_right_m" ID="{2A06B7A5-A1D6-4F3E-B45D-9A40076C49F6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
 										</RandomSequenceContainer>
-										<Sound Name="GrenadierSecondaryFire" ID="{871948E4-8FE5-44D2-A5B2-A301C971F387}" ShortID="166905928">
+										<Sound Name="Grenadier_Secondary_Fire" ID="{871948E4-8FE5-44D2-A5B2-A301C971F387}" ShortID="166905928">
 											<PropertyList>
 												<Property Name="Lowpass" Type="int16">
 													<ModifierList>
@@ -122,6 +193,15 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="M79_fire01" ID="{3BF455B7-8497-4E00-834A-EE69D8397EF5}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.642942448668964"/>
+														<Property Name="FadeOutShape" Type="int16" Value="1"/>
+														<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.12324332929519"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>M79_fire01.wav</AudioFile>
 													<MediaIDList>
@@ -133,7 +213,7 @@
 												<ActiveSource Name="M79_fire01" ID="{3BF455B7-8497-4E00-834A-EE69D8397EF5}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="GrenadierReload" ID="{8C5269C4-2706-4218-9976-4C25B1B08F19}" ShortID="698247290">
+										<Sound Name="Grenadier_Reload" ID="{8C5269C4-2706-4218-9976-4C25B1B08F19}" ShortID="698247290">
 											<PropertyList>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -182,7 +262,7 @@
 												<ActiveSource Name="M79_Reload_064" ID="{63397444-2F44-4E81-8BD8-B396B61415BF}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<RandomSequenceContainer Name="GrenadierPrimaryFire" ID="{56D5C4C3-C2E0-4C83-8072-DA91FE653B40}" ShortID="514077951">
+										<RandomSequenceContainer Name="Grenadier_Primary_Fire" ID="{56D5C4C3-C2E0-4C83-8072-DA91FE653B40}" ShortID="514077951">
 											<PropertyList>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -284,7 +364,7 @@
 												</Sound>
 											</ChildrenList>
 										</RandomSequenceContainer>
-										<Sound Name="GrenadierSpecialCharge" ID="{0A247F6D-FEFF-4F4A-A918-28123C93DC66}" ShortID="464287792">
+										<Sound Name="Grenadier_Special_Charge" ID="{0A247F6D-FEFF-4F4A-A918-28123C93DC66}" ShortID="464287792">
 											<PropertyList>
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
@@ -381,7 +461,7 @@
 												<ActiveSource Name="se_item_crossbomb_blink" ID="{0BA15A56-01AC-4ABA-B9ED-2BAFFC8BCC54}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="GrenadierSpecialReady" ID="{72829B68-1120-4FB0-A16B-FF0A2F0AFDD5}" ShortID="1073103848">
+										<Sound Name="Grenadier_Special_Ready" ID="{72829B68-1120-4FB0-A16B-FF0A2F0AFDD5}" ShortID="1073103848">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
@@ -403,7 +483,7 @@
 												<ActiveSource Name="snd_se_snake_Special_S01" ID="{F130DDB9-805C-4468-B1DA-044E907AB809}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="GrenadierSpecialGainExtraCharge" ID="{A6E2CA13-85C6-4FB3-8564-A3DCAA1B2F5B}" ShortID="871038894">
+										<Sound Name="Grenadier_Special_GainExtraCharge" ID="{A6E2CA13-85C6-4FB3-8564-A3DCAA1B2F5B}" ShortID="871038894">
 											<PropertyList>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -438,6 +518,219 @@
 											</ChildrenList>
 											<ActiveSourceList>
 												<ActiveSource Name="snd_se_snake_006" ID="{355D3E2C-26FB-4610-9D28-EE8FA304C5A0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="Grenadier_Landing" ID="{2633CE6E-B7AD-48F5-A054-167DF2C92FB5}" ShortID="671847726">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{84C6298F-9DC9-4356-913A-4D16AB2754D0}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="20"/>
+																	<Property Name="Min" Type="Real64" Value="-20"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="se_reflet_landing01" ID="{1CB8A8FB-FA13-49A7-984A-CC55BD89F13D}" ShortID="356613982">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="se_reflet_landing01" ID="{A7BD8B75-2F78-4AB4-B018-AAE3C7C7FBBD}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>se_reflet_landing01.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1005350925"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="se_reflet_landing01" ID="{A7BD8B75-2F78-4AB4-B018-AAE3C7C7FBBD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="se_reflet_landing02" ID="{20697198-8BEC-4F69-B5C0-BA8C7DC2FCC6}" ShortID="413859783">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="se_reflet_landing02" ID="{8450A238-D7DD-42D4-9CB6-04AFEA6468F6}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>se_reflet_landing02.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="240158681"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="se_reflet_landing02" ID="{8450A238-D7DD-42D4-9CB6-04AFEA6468F6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="se_reflet_landing03" ID="{ED85D22B-312C-4E85-A6F9-1DC32521B48A}" ShortID="33405774">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="se_reflet_landing03" ID="{BD0367DE-138F-4877-A581-5E336393C221}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>se_reflet_landing03.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="839927522"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="se_reflet_landing03" ID="{BD0367DE-138F-4877-A581-5E336393C221}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<Sound Name="Grenadier_ExplosionM" ID="{28FCE3E1-F7F8-4847-AE4B-EBF300D8B726}" ShortID="135621865">
+											<PropertyList>
+												<Property Name="Lowpass" Type="int16">
+													<ValueList>
+														<Value>10</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{9F7CD817-17C3-41BF-83A6-AB851FB23602}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="50"/>
+																	<Property Name="Min" Type="Real64" Value="-50"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+												</Reference>
+												<Reference Name="Effect0" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+													<ObjectRef Name="Secret_message" ID="{2F5DE612-1AAD-4A84-8FB4-3E66521C920E}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="se_reflet_attackbomb" ID="{60E28466-F415-4B6B-8FA9-C0605AA27EA0}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+														<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>se_reflet_attackbomb.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="289712532"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="se_reflet_attackbomb" ID="{60E28466-F415-4B6B-8FA9-C0605AA27EA0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Grenadier_ExplosionS" ID="{0B99AD97-7652-4B62-93E4-8370AC0CDBC8}" ShortID="46671321">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{B0AE324C-1414-4436-ACB9-29F9BA435FD7}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="50"/>
+																	<Property Name="Min" Type="Real64" Value="-50"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="se_snake_special_S07" ID="{6585B315-2615-4CD2-A9B7-B938B5D4471D}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.404302226027395"/>
+														<Property Name="FadeOutShape" Type="int16" Value="7"/>
+														<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>se_snake_special_S07.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="542577557"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="se_snake_special_S07" ID="{6585B315-2615-4CD2-A9B7-B938B5D4471D}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
@@ -571,11 +864,10 @@
 									<ChildrenList>
 										<Sound Name="LeaveStageError" ID="{0CC23CEE-A6A0-4467-B627-08C886E48677}" ShortID="726663238">
 											<PropertyList>
-												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
-														<Value>-200</Value>
+														<Value>-100</Value>
 													</ValueList>
 													<ModifierList>
 														<ModifierInfo>
@@ -612,9 +904,22 @@
 														<MediaID ID="683838438"/>
 													</MediaIDList>
 												</AudioFileSource>
+												<AudioFileSource Name="Denied" ID="{15CFDFE6-172C-464A-85D4-1A2D2524FF35}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+														<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+														<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Denied.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="647408152"/>
+													</MediaIDList>
+												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="se_system_beep" ID="{8BF2715E-3C3D-4E7D-AFEE-5FBB4D963A82}" Platform="Linked"/>
+												<ActiveSource Name="Denied" ID="{15CFDFE6-172C-464A-85D4-1A2D2524FF35}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="BigScytheSwing" ID="{3AC199EE-F9BC-42F1-9BDF-02CC2DA57D43}" ShortID="204013128">

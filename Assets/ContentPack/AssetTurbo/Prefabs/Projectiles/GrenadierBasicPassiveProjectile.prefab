@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1546852646074600187}
   - component: {fileID: 2929345596389720017}
   m_Layer: 14
-  m_Name: GrenadierBlastArmorProjectile
+  m_Name: GrenadierBasicPassiveProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,9 +126,9 @@ Rigidbody:
   m_GameObject: {fileID: 7028506108066464535}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_Drag: 1
+  m_AngularDrag: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
@@ -166,9 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 3
+  lifetime: 2
   lifetimeExpiredEffect: {fileID: 0}
-  desiredForwardSpeed: 80
+  desiredForwardSpeed: 15
   updateAfterFiring: 0
   enableVelocityOverLifetime: 1
   velocityOverLifetime:
@@ -197,7 +197,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   oscillate: 1
   oscillateMagnitude: 10
-  oscillateSpeed: 5
+  oscillateSpeed: 10
   deltaHeight: 0
   oscillationStopwatch: 0
   stopwatch: 0
@@ -210,11 +210,11 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028506108066464535}
-  m_Material: {fileID: 13400000, guid: 9b022d012dfb74e408c0bf9e34e4a2bc, type: 2}
+  m_Material: {fileID: 13400000, guid: a00e87f34cb2e814980ce293e603056c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1546852646074600187
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
   blastDamageCoefficient: 1
   blastProcCoefficient: 1.25
   blastAttackerFiltering: 2
-  bonusBlastForce: {x: 200, y: 300, z: 200}
+  bonusBlastForce: {x: 200, y: 200, z: 200}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: 2cd654e88532eca43b181f347506ebc9,
@@ -289,9 +289,9 @@ MonoBehaviour:
   destroyOnWorld: 0
   impactOnWorld: 1
   timerAfterImpact: 0
-  lifetime: 1
+  lifetime: 0.25
   lifetimeAfterImpact: 0
-  lifetimeRandomOffset: 2
+  lifetimeRandomOffset: 1.5
   stopwatch: 0
   stopwatchAfterImpact: 0
   hasImpact: 0

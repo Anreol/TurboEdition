@@ -28098,7 +28098,7 @@ MonoBehaviour:
   positionAtReferencedTransform: 0
   parentToReferencedTransform: 0
   applyScale: 1
-  soundName: Play_mage_m1_impact
+  soundName: Play_Grenadier_ExplosionM
   disregardZScale: 0
   didResolveReferencedObject: 0
   referencedObject: {fileID: 0}

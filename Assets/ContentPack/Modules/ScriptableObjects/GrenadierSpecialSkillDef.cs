@@ -133,7 +133,7 @@ namespace TurboEdition.ScriptableObjects
                         if (runningGS.CanApplyAmmoPack()) //Refund new stock
                         {
                             runningGS.ApplyAmmoPack();
-                            Util.PlaySound("Play_GrenadierSpecialGainExtraCharge", runningGS.gameObject);
+                            Util.PlaySound("Play_Grenadier_Special_GainExtraCharge", runningGS.gameObject);
                         }
                     }
                 }

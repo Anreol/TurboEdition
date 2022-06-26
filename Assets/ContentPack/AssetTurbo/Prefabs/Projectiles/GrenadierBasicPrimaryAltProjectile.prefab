@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catalogIndex: -1
-  ghostPrefab: {fileID: 8202156028514425107, guid: 8c2383df3927f5a4cb4833219b119442,
+  ghostPrefab: {fileID: 8202156028514425107, guid: 3597b8bfae6e8714cb019023e67db98f,
     type: 3}
   ghostTransformAnchor: {fileID: 0}
   startSound: 
@@ -168,7 +168,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   <procChainMask>k__BackingField:
     mask: 0
-  procCoefficient: 0.5
+  procCoefficient: 1
   myColliders: []
 --- !u!114 &8896665261586244783
 MonoBehaviour:
@@ -276,9 +276,9 @@ MonoBehaviour:
   falloffModel: 2
   blastRadius: 15
   blastDamageCoefficient: 2
-  blastProcCoefficient: 0.5
+  blastProcCoefficient: 0.75
   blastAttackerFiltering: 0
-  bonusBlastForce: {x: 100, y: 300, z: 100}
+  bonusBlastForce: {x: 200, y: 200, z: 200}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e,
@@ -321,9 +321,9 @@ MonoBehaviour:
   falloffModel: 2
   blastRadius: 6
   blastDamageCoefficient: 1
-  blastProcCoefficient: 1.15
+  blastProcCoefficient: 1
   blastAttackerFiltering: 1
-  bonusBlastForce: {x: 300, y: 400, z: 300}
+  bonusBlastForce: {x: 350, y: 350, z: 350}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: 2cd654e88532eca43b181f347506ebc9,

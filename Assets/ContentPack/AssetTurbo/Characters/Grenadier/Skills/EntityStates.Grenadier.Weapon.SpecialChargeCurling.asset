@@ -75,11 +75,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: soundChargeReadyString
       fieldValue:
-        stringValue: Play_GrenadierSpecialCharge
+        stringValue: Play_Grenadier_Special_Charge
         objectValue: {fileID: 0}
     - fieldName: soundLoopFullyChargedString
       fieldValue:
-        stringValue: Play_GrenadierSpecialReady
+        stringValue: Play_Grenadier_Special_Ready
         objectValue: {fileID: 0}
     - fieldName: soundLoopRTPCChargeString
       fieldValue:

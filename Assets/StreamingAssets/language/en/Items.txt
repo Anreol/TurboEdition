@@ -78,7 +78,7 @@
 	"ITEM_SOULDEVOURER_LORE": "",
 
 	"ITEM_STANDBONUS_NAME": "Punching Bag",
-	"ITEM_STANDBONUS_PICKUP": "Gain immunity to knockback and halve incoming damage after standing still. Bonus decreases as you take damage.",
+	"ITEM_STANDBONUS_PICKUP": "Gain immunity to knockback and halve incoming damage after standing still. Defenses decrease as you take damage.",
 	"ITEM_STANDBONUS_DESC": "Gain a <style=cIsUtility>50% damage reduction</style> and <style=cIsUtility>inmunity to knockback</style> after standing still. Buff decreases as you take 50% <style=cStack>(+50% per stack)</style> damage of your combined maximum HP.",
 	"ITEM_STANDBONUS_LORE": "",
 

@@ -1,28 +1,39 @@
 Event	ID	Name			Wwise Object Path	Notes
+	183542901	Play_Grenadier_Primary_Fire			\Default Work Unit\Grenadier\Play_Grenadier_Primary_Fire	
 	204571091	Play_LeaveStageError			\Default Work Unit\Equipment\Play_LeaveStageError	
-	241865965	Play_GrenadierSecondaryFire			\Default Work Unit\Grenadier\Play_GrenadierSecondaryFire	
+	855800836	Play_Grenadier_ExplosionS			\Default Work Unit\Grenadier\Play_Grenadier_ExplosionS	
+	855800858	Play_Grenadier_ExplosionM			\Default Work Unit\Grenadier\Play_Grenadier_ExplosionM	
+	878563697	Play_Grenadier_Steps			\Default Work Unit\Grenadier\Play_Grenadier_Steps	
 	902611312	Play_Item_Proc_ItemDeployer			\Default Work Unit\Items\Play_Item_Proc_ItemDeployer	
 	1133541694	Play_BigScytheSwing			\Default Work Unit\Equipment\Play_BigScytheSwing	
-	1186468370	Play_GrenadierReload			\Default Work Unit\Grenadier\Play_GrenadierReload	
-	2141728575	Play_GrenadierSpecialReady			\Default Work Unit\Grenadier\Play_GrenadierSpecialReady	
-	2217609107	Play_GrenadierSpecialGainExtraCharge			\Default Work Unit\Grenadier\Play_GrenadierSpecialGainExtraCharge	
-	3039812538	Play_GrenadierSpecialCharge			\Default Work Unit\Grenadier\Play_GrenadierSpecialCharge	
-	3965566729	Play_GrenadierPrimaryFire			\Default Work Unit\Grenadier\Play_GrenadierPrimaryFire	
+	1561076785	Play_Grenadier_Special_GainExtraCharge			\Default Work Unit\Grenadier\Play_Grenadier_Special_GainExtraCharge	
+	2041123800	Play_Grenadier_Special_Charge			\Default Work Unit\Grenadier\Play_Grenadier_Special_Charge	
+	2376185369	Play_Grenadier_Landing			\Default Work Unit\Grenadier\Play_Grenadier_Landing	
+	3091314681	Play_Grenadier_Special_Ready			\Default Work Unit\Grenadier\Play_Grenadier_Special_Ready	
+	3477662151	Play_Grenadier_Reload			\Default Work Unit\Grenadier\Play_Grenadier_Reload	
+	4088573137	Play_Grenadier_Secondary_Fire			\Default Work Unit\Grenadier\Play_Grenadier_Secondary_Fire	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1278074206	SFX_VolumeIn			\Default Work Unit\SFX_VolumeIn	
 	1612634724	GrenadierSpecial_ChargeAmount			\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	143500258	se_reflet_step_right_m	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_step_right_m_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Steps\se_reflet_step_right_m		2315
+	240158681	se_reflet_landing02	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_landing02_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Landing\se_reflet_landing02		4642
+	289712532	Grenadier_ExplosionM	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_attackbomb_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_ExplosionM		7732
 	325557564	Item_Proc_ItemDeployer1	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Item_Proc_ItemDeployer1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Items\Item_Proc_ItemDeployer\Item_Proc_ItemDeployer1		7846
 	441768360	BigScytheSwing	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_item_deathscythe_swing_m_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Equipment\BigScytheSwing		6074
-	464783086	GrenadierSecondaryFire	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\M79_fire01_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierSecondaryFire		16058
-	528402572	GrenadierSpecialCharge	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_item_crossbomb_blink_78160227.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierSpecialCharge		2715
-	578702750	Milkor_FireMix2	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Milkor_FireMix2_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierPrimaryFire\Milkor_FireMix2		7961
-	674121072	GrenadierSpecialReady	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\snd_se_snake_Special_S01_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierSpecialReady		1787
-	683144335	GrenadierSpecialGainExtraCharge	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\snd_se_snake_006_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierSpecialGainExtraCharge		2683
-	683838438	LeaveStageError	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_system_beep_78160227.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Equipment\LeaveStageError		3796
-	717774493	GrenadierReload	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\M79_Reload_064_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierReload		7159
+	464783086	Grenadier_Secondary_Fire	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\M79_fire01_79BA5627.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Secondary_Fire		12640
+	504455130	se_reflet_step_left_m	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_step_left_m_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Steps\se_reflet_step_left_m		2736
+	528402572	Grenadier_Special_Charge	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_item_crossbomb_blink_78160227.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Special_Charge		2715
+	542577557	Grenadier_ExplosionS	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_snake_special_S07_B5F722F8.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_ExplosionS		8996
+	578702750	Milkor_FireMix2	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Milkor_FireMix2_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Primary_Fire\Milkor_FireMix2		7961
+	647408152	LeaveStageError	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Denied_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Equipment\LeaveStageError		11087
+	674121072	Grenadier_Special_Ready	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\snd_se_snake_Special_S01_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Special_Ready		1787
+	683144335	Grenadier_Special_GainExtraCharge	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\snd_se_snake_006_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Special_GainExtraCharge		2683
+	717774493	Grenadier_Reload	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\M79_Reload_064_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Reload		7159
 	778002739	Item_Proc_ItemDeployer2	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Item_Proc_ItemDeployer2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Items\Item_Proc_ItemDeployer\Item_Proc_ItemDeployer2		6286
-	923839061	Milkor_FireMix1	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Milkor_FireMix1_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\GrenadierPrimaryFire\Milkor_FireMix1		8258
+	839927522	se_reflet_landing03	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_landing03_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Landing\se_reflet_landing03		6078
+	923839061	Milkor_FireMix1	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Milkor_FireMix1_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Primary_Fire\Milkor_FireMix1		8258
+	1005350925	se_reflet_landing01	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_landing01_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MASTER-MIXER\SFX-MIXER\Grenadier\Grenadier_Landing\se_reflet_landing01		5038
 

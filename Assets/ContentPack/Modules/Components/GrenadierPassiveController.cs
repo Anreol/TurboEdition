@@ -60,11 +60,9 @@ namespace TurboEdition.Components
 
         private void FixedUpdate()
         {
-            if (NetworkServer.active)
-            {
-                if (characterBody.outOfDanger != netIsOutOfDanger)
-                    netIsOutOfDanger = characterBody.outOfDanger;
-            }
+            if (NetworkServer.active && characterBody.outOfDanger != netIsOutOfDanger)
+                netIsOutOfDanger = characterBody.outOfDanger;
+
             if (hasEffectiveAuthority && passiveSkillSlot)
             {
                 if (passiveSkillSlot.skillDef == PassiveBlastArmorSkillDef)
@@ -110,14 +108,13 @@ namespace TurboEdition.Components
             if (PassiveBlastArmorBombletPrefab == null)
                 return;
             int rand = UnityEngine.Random.Range(9, 13);
-            Vector3 sphoore = UnityEngine.Random.insideUnitSphere;
             for (int i = 0; i < rand; i++)
             {
                 FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                 {
                     projectilePrefab = PassiveBlastArmorBombletPrefab,
-                    position = characterBody.corePosition + (sphoore * 5),
-                    rotation = Util.QuaternionSafeLookRotation(characterBody.corePosition),
+                    position = characterBody.corePosition + (UnityEngine.Random.insideUnitSphere * 5),
+                    rotation = Util.QuaternionSafeLookRotation(Vector3.up + UnityEngine.Random.insideUnitSphere * UnityEngine.Random.Range(5f, 90f)), //Random rotation starting from up
                     owner = characterBody.gameObject,
                     damage = characterBody.damage * 1,
                     force = 250,
@@ -128,7 +125,7 @@ namespace TurboEdition.Components
             }
         }
 
-        public void OnIncomingDamageServer(DamageInfo damageInfo) //This shouldnt need to be added directly as its built in the prefab, and HC should take it automatically
+        public void OnIncomingDamageServer(DamageInfo damageInfo) //This shouldnt need to be added directly as its built in the BODY prefab, and HC should take it automatically
         {
             if (passiveSkillSlot)
             {

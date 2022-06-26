@@ -240,7 +240,7 @@ MonoBehaviour:
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
   blastAttackerFiltering: 1
-  bonusBlastForce: {x: 200, y: 300, z: 200}
+  bonusBlastForce: {x: 300, y: 300, z: 300}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e,
@@ -296,8 +296,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEffect: {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3,
     type: 3}
-  useSurfaceDefEffectToo: 0
-  tryToNormalize: 0
+  scaleOverride: 1
+  useSurfaceDefEffectToo: 1
+  tryToNormalize: 1
 --- !u!114 &1782425723763529551
 MonoBehaviour:
   m_ObjectHideFlags: 0

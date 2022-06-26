@@ -415,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseFootstepString: Play_player_footstep
   baseFootliftString: 
-  sprintFootstepOverrideString: Play_bandit2_step_sprint
+  sprintFootstepOverrideString: Play_Grenadier_Steps
   sprintFootliftOverrideString: 
   enableFootstepDust: 0
   footstepDustPrefab: {fileID: 0}
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   deathSound: Play_ui_player_death
   barkSound: 
   openSound: 
-  landingSound: Play_char_land
+  landingSound: Play_Grenadier_Landing
   fallDamageSound: Play_char_land_fall_damage
   aliveLoopStart: 
   aliveLoopStop: 
