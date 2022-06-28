@@ -26,7 +26,7 @@ namespace TurboEdition.Components
                     EffectData effectData = new EffectData()
                     {
                         color = color,
-                        origin = tryToNormalize ? normal : position,
+                        origin = position,
                         surfaceDefIndex = surfaceDef.surfaceDefIndex,
                         rotation = tryToNormalize ? Util.QuaternionSafeLookRotation(normal) : EffectData.defaultRotation,
                         scale = scaleOverride != -1 ? scaleOverride : EffectData.defaultScale,
@@ -43,7 +43,7 @@ namespace TurboEdition.Components
                     EffectData effectData = new EffectData()
                     {
                         color = color,
-                        origin = tryToNormalize ? normal : position,
+                        origin = position,
                         surfaceDefIndex = surfaceDef.surfaceDefIndex,
                         rotation = tryToNormalize ? Util.QuaternionSafeLookRotation(normal) : EffectData.defaultRotation,
                         scale = scaleOverride != -1 ? scaleOverride : EffectData.defaultScale,

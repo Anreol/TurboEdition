@@ -118,6 +118,8 @@ Update for Survivors of the Void
 - Voice Modulator
 	- Inital radius 10m -> 16m
 	- Stack radius 3.5m -> 5m
+	- Most enemies (the ones that follow the standard) will now get their attacks interrupted.
+	- Enemies no longer have a movement speed bonus.
 	- Middle-sized enemies (golems and similar) now have a chance to be afflicted.
 
 * Item fell off late game when there's a ton of bruisers and golems spawning, so this should address that*

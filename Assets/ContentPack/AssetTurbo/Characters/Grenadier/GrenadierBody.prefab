@@ -914,7 +914,7 @@ MonoBehaviour:
   baseMoveSpeed: 7
   baseAcceleration: 65
   baseJumpPower: 15
-  baseDamage: 16
+  baseDamage: 15
   baseAttackSpeed: 1
   baseCrit: 1
   baseArmor: 20
@@ -927,7 +927,7 @@ MonoBehaviour:
   levelMaxShield: 0
   levelMoveSpeed: 0
   levelJumpPower: 0
-  levelDamage: 3.2
+  levelDamage: 3
   levelAttackSpeed: 0
   levelCrit: 0
   levelArmor: 0
@@ -1031,7 +1031,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   spreadBloomInternal: 0
-  _defaultCrosshairPrefab: {fileID: 1348855532995429490, guid: 9944e2f1d566ad74b9cec0083a72db0e,
+  _defaultCrosshairPrefab: {fileID: 1348855532995429490, guid: d6ad0f824a6b90948b4b6a550383b5e4,
     type: 3}
   hideCrosshair: 0
   multiKillTimer: 0
@@ -1700,7 +1700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d497c989a6507d0409c8a1e22eeb2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  netIsOutOfDanger: 0
   passiveSkillSlot: {fileID: 4775533713091580501}
   PassiveBlastArmorSkillDef: {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1,
     type: 2}

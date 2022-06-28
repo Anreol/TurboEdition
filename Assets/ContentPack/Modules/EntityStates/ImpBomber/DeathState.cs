@@ -23,6 +23,10 @@ namespace TurboEdition.EntityStates.ImpBomber
 		{
 			base.OnEnter();
 			this.animator = base.GetModelAnimator();
+            if (animator)
+            {
+				animator.SetBool("BombHolding.active", false);
+			}
 			if (base.characterMotor)
 			{
 				base.characterMotor.enabled = false;

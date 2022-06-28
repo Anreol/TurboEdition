@@ -16,7 +16,8 @@ MonoBehaviour:
   skillName: GrenadierSpecialAlt
   skillNameToken: GRENADIER_SPECIAL_ALT_NAME
   skillDescriptionToken: GRENADIER_SPECIAL_ALT_DESCRIPTION
-  keywordTokens: []
+  keywordTokens:
+  - KEYWORD_SYNCEDRELOAD
   icon: {fileID: 0}
   activationStateMachineName: Weapon
   activationState:
@@ -28,7 +29,7 @@ MonoBehaviour:
   rechargeStock: 1
   requiredStock: 1
   stockToConsume: 0
-  resetCooldownTimerOnUse: 1
+  resetCooldownTimerOnUse: 0
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
   beginSkillCooldownOnSkillEnd: 1

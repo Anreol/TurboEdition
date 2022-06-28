@@ -58,7 +58,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
         {
             if (base.skillLocator)
             {
-                base.GetModelAnimator().SetBool("BombHolding.active", true);
+                base.GetModelAnimator()?.SetBool("BombHolding.active", true);
                 base.PlayCrossfade("Gesture, Override", "HoldingBomb", 0.5f);
                 skillLocator.primary.AddOneStock();
             }

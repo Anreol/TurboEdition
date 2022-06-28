@@ -66,8 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectIndex: -1
-  positionAtReferencedTransform: 1
-  parentToReferencedTransform: 1
+  positionAtReferencedTransform: 0
+  parentToReferencedTransform: 0
   applyScale: 1
   soundName: 
   disregardZScale: 0

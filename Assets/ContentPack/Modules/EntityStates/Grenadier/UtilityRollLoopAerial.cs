@@ -15,20 +15,30 @@ namespace TurboEdition.EntityStates.Grenadier
         public static bool shouldDamageAndExitIfGrounding;
 
         [Tooltip("Vertical Velocity to apply when entering this state if ungrounding.")]
-        [SerializeField]
-        public float ungroundSmallHopYVel;
+        public static float ungroundSmallHopYVel;
 
         [Tooltip("Forward Velocity to apply when entering this state if ungrounding.")]
-        [SerializeField]
-        public float ungroundSmallHopForwardVel;
+        public static float ungroundSmallHopForwardVel;
 
         [Tooltip("Air control to set during this state.")]
         [SerializeField]
         public float newAirControl;
 
+        [Tooltip("Air Control to be set after hitting an enemy.")]
+        [SerializeField]
+        public float improvedAirControl;
+
+        [Tooltip("Evaluation ramp that will evaluate improvedAirControl.")]
+        [SerializeField]
+        public AnimationCurve improvedAirControlCurve;
+
         [SerializeField]
         [Tooltip("The frequency (1/time) at which the overlap attack is reset. Higher values means more frequent ticks of damage.")]
         public float overlapAttackResetFrequency;
+
+        [SerializeField]
+        [Tooltip("Should overlapAttackResetFrequency scale with attack speed.")]
+        public bool overlapAttackScaleFrequencyAttackSpeed;
 
         [Tooltip("Time to freeze when a hit is performed.")]
         [SerializeField]
@@ -39,7 +49,7 @@ namespace TurboEdition.EntityStates.Grenadier
         public float hitStateDurationExtention;
 
         private float hitPauseDuration => baseHitPauseDuration / this.attackSpeedStat;
-        private float resetFrequency => overlapAttackResetFrequency * attackSpeedStat;
+        private float resetFrequency => overlapAttackScaleFrequencyAttackSpeed ? overlapAttackResetFrequency * attackSpeedStat : overlapAttackResetFrequency;
 
         internal override float calculatedDuration { get => baseDuration + (hitStateDurationExtention * overlapAttackTicks); }
 
@@ -51,7 +61,7 @@ namespace TurboEdition.EntityStates.Grenadier
         private HitStopCachedState hitStopCachedState;
 
         private float resetStopwatch;
-
+        private float timeSinceLastHit;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -62,7 +72,14 @@ namespace TurboEdition.EntityStates.Grenadier
                 {
                     base.characterMotor.Motor.ForceUnground();
                     //base.SmallHop(characterMotor, ungroundSmallHopYVel);
-                    base.characterMotor.velocity += new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z) + (characterDirection.moveVector * ungroundSmallHopForwardVel);
+                    if (characterDirection.moveVector != Vector3.zero)
+                    {
+                        base.characterMotor.velocity += new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z) + (characterDirection.moveVector * ungroundSmallHopForwardVel);
+                    }
+                    else
+                    {
+                        base.characterMotor.velocity += new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z);
+                    }
                 }
                 if (!characterMotor.Motor.GroundingStatus.IsStableOnGround && shouldApplyForwardBoostIfAirborne)
                 {
@@ -109,7 +126,7 @@ namespace TurboEdition.EntityStates.Grenadier
             base.FixedUpdate();
             if (isAuthority)
             {
-                if (overlapAttackResetFrequency >= 0f)
+                if (overlapAttackResetFrequency > 0f)
                 {
                     this.resetStopwatch -= Time.fixedDeltaTime;
                     if (resetStopwatch <= 0f)
@@ -127,6 +144,15 @@ namespace TurboEdition.EntityStates.Grenadier
                     this.hitPauseTimer -= Time.fixedDeltaTime;
                     base.characterMotor.velocity = Vector3.zero;
                     this.cachedAnimator.SetFloat("UtilityRoll.playbackRate", 0f);
+                }
+                else
+                {
+                    timeSinceLastHit += Time.fixedDeltaTime;
+                    if (overlapAttackTicks > 0)
+                    {
+                        float ac = improvedAirControl * improvedAirControlCurve.Evaluate(timeSinceLastHit);
+                        characterMotor.airControl = ac > 0 ? ac : newAirControl;
+                    }
                 }
 
                 if (this.hitPauseTimer <= 0f && this.isInHitPause)
@@ -146,7 +172,7 @@ namespace TurboEdition.EntityStates.Grenadier
                 //Reset.
                 ResetOverlap();
                 //Do this instead of calling base modify attack, as the character speed might be already zero.
-                overlapAttack.damage = Mathf.Max(damageStat * baseOverlapAttackCoefficient, damageStat * (baseOverlapAttackCoefficient * Mathf.Max(1f, movementHitInfo.velocity.sqrMagnitude / base.characterBody.baseMoveSpeed)));
+                overlapAttack.damage = Mathf.Max(damageStat * baseOverlapAttackCoefficient, damageStat * (baseOverlapAttackCoefficient * Mathf.Max(1f, movementHitInfo.velocity.magnitude / base.characterBody.baseMoveSpeed)));
                 if (overlapAttack.Fire(victims))
                 {
                     HitSuccessful(victims);
@@ -175,6 +201,7 @@ namespace TurboEdition.EntityStates.Grenadier
             base.HitSuccessful(victims);
             if (!this.isInHitPause)
             {
+                timeSinceLastHit = 0;
                 this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.cachedAnimator, "UtilityRoll.playbackRate");
                 this.hitPauseTimer = hitPauseDuration;
                 this.isInHitPause = true;

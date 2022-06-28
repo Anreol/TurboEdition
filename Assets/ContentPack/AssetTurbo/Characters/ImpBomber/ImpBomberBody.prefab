@@ -2752,13 +2752,13 @@ MonoBehaviour:
   notMovingStopwatch: 0
   rootMotionInMainState: 0
   mainRootSpeed: 0
-  baseMaxHealth: 120
+  baseMaxHealth: 130
   baseRegen: 1.2
   baseMaxShield: 0
   baseMoveSpeed: 7
   baseAcceleration: 65
   baseJumpPower: 15
-  baseDamage: 8
+  baseDamage: 9
   baseAttackSpeed: 1
   baseCrit: 1
   baseArmor: 0
@@ -2766,12 +2766,12 @@ MonoBehaviour:
   baseJumpCount: 1
   sprintingSpeedMultiplier: 1.45
   autoCalculateLevelStats: 1
-  levelMaxHealth: 36
+  levelMaxHealth: 39
   levelRegen: 0.24000001
   levelMaxShield: 0
   levelMoveSpeed: 0
   levelJumpPower: 0
-  levelDamage: 1.6
+  levelDamage: 1.8000001
   levelAttackSpeed: 0
   levelCrit: 0
   levelArmor: 0
@@ -3055,6 +3055,10 @@ MonoBehaviour:
     skillDescriptionToken: 
     keywordToken: 
     icon: {fileID: 0}
+  primaryBonusStockOverrideSkill: {fileID: 0}
+  secondaryBonusStockOverrideSkill: {fileID: 0}
+  utilityBonusStockOverrideSkill: {fileID: 0}
+  specialBonusStockOverrideSkill: {fileID: 0}
   networkIdentity: {fileID: 0}
   allSkills: []
   hasEffectiveAuthority: 0
@@ -3087,7 +3091,7 @@ MonoBehaviour:
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
+  baseRechargeStopwatch: 0
   hasExecutedSuccessfully: 0
 --- !u!114 &320286017254185105
 MonoBehaviour:
@@ -3116,7 +3120,7 @@ MonoBehaviour:
   finalRechargeInterval: 0
   _cooldownScale: 1
   _flatCooldownReduction: 1
-  <rechargeStopwatch>k__BackingField: 0
+  baseRechargeStopwatch: 0
   hasExecutedSuccessfully: 0
 --- !u!114 &2827456887168870262
 MonoBehaviour:

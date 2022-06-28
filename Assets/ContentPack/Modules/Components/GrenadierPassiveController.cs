@@ -30,7 +30,7 @@ namespace TurboEdition.Components
 
         [HideInInspector]
         [SyncVar]
-        public bool netIsOutOfDanger;
+        internal bool netIsOutOfDanger;
 
         private EntityStateMachine resolvedRollMachine;
         private bool[] authBlastArmorStates;
@@ -107,16 +107,16 @@ namespace TurboEdition.Components
         {
             if (PassiveBlastArmorBombletPrefab == null)
                 return;
-            int rand = UnityEngine.Random.Range(9, 13);
+            int rand = UnityEngine.Random.Range(9, 13 + (characterBody.inventory.GetItemCount(DLC1Content.Items.MoreMissile) * 2));
             for (int i = 0; i < rand; i++)
             {
                 FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
                 {
                     projectilePrefab = PassiveBlastArmorBombletPrefab,
-                    position = characterBody.corePosition + (UnityEngine.Random.insideUnitSphere * 5),
-                    rotation = Util.QuaternionSafeLookRotation(Vector3.up + UnityEngine.Random.insideUnitSphere * UnityEngine.Random.Range(5f, 90f)), //Random rotation starting from up
+                    position = characterBody.corePosition,
+                    rotation = Util.QuaternionSafeLookRotation(Vector3.up + UnityEngine.Random.insideUnitSphere * UnityEngine.Random.Range(75f, 95f)), //Random rotation starting from up
                     owner = characterBody.gameObject,
-                    damage = characterBody.damage * 1,
+                    damage = characterBody.damage * 1 * ((characterBody.inventory.GetItemCount(DLC1Content.Items.MoreMissile) - 1) / 2),
                     force = 250,
                     crit = characterBody.RollCrit(),
                     damageColorIndex = DamageColorIndex.Item

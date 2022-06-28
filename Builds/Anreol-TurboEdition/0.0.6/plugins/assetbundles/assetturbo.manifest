@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3255991120
+CRC: 3553383775
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8ae0fce72df93d6feed17a6a71911eda
+    Hash: d75603dbe577caad63b31b05d65336f3
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2594a9c5d8fa4830542534a0827c661d
+    Hash: 29e4d42f5dbd83736e0420a33dbdeece
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -436,13 +436,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
+  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
 - Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: -335047464, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 115
@@ -512,6 +512,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierUtilityAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPrimaryAltProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Misc/physmatSuperFriction.physicMaterial
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skins.Grenadier.Alt1.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/texCrosshairGrenadeSet.png
 - Assets/Textures/texHellLinkedBuffOverlay.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SoulDevourerBodyAttachment.prefab
@@ -536,6 +537,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Bane.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireMGLPrimary.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSecondaryQuickshotAlt.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierCrosshairSimple.prefab
 - Assets/Textures/Ramps/texRampMilitaryGreen.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Belt.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Nanomachines.png
@@ -569,6 +571,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BloodPackHeal.prefab
 - Assets/Textures/Ramps/texRampMaroonToYellow.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_selected.png
+- Assets/ContentPack/AssetTurbo/Misc/physmatBouncy.physicMaterial
 - Assets/Mesh/Items/meshKnifeGuard.mesh
 - Assets/Textures/texNormalInvertFadeCone.png
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab

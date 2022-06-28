@@ -7,6 +7,7 @@ namespace TurboEdition.EntityStates.Grenadier
 {
     public abstract class BaseBodyRollSingle : BaseSkillState
     {
+        [Header("Durations")]
         [Tooltip("Base Duration, scale or not, depends on the states inheriting from base.")]
         [SerializeField]
         public float baseDuration;
@@ -19,6 +20,7 @@ namespace TurboEdition.EntityStates.Grenadier
         [SerializeField]
         public string enterSoundString;
 
+        [Header("Overlap Configuration")]
         [Tooltip("The character's Base Damage will be multiplied by this. It also gets multiplied by the Speed Bonus, before multiplying by the Base Damage")]
         [SerializeField]
         public float baseOverlapAttackCoefficient;

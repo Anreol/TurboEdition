@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   nameToken: GRENADIER_SKIN_ALT1_NAME
   unlockableName: 
-  unlockableDef: {fileID: 0}
+  unlockableDef: {fileID: 11400000, guid: 0982df111677f304098eb245a4d44afa, type: 2}
   rootObject: {fileID: 6931545290462054027, guid: a5428e068b224314da4501cec31c9da5,
     type: 3}
   rendererInfos:

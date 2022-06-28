@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 2
   lifetimeExpiredEffect: {fileID: 0}
-  desiredForwardSpeed: 15
+  desiredForwardSpeed: 25
   updateAfterFiring: 0
   enableVelocityOverLifetime: 1
   velocityOverLifetime:
@@ -196,8 +196,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   oscillate: 1
-  oscillateMagnitude: 10
-  oscillateSpeed: 10
+  oscillateMagnitude: 30
+  oscillateSpeed: 40
   deltaHeight: 0
   oscillationStopwatch: 0
   stopwatch: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   projectileController: {fileID: 0}
   projectileDamage: {fileID: 0}
   alive: 1
-  falloffModel: 2
+  falloffModel: 0
   blastRadius: 10
   blastDamageCoefficient: 1
   blastProcCoefficient: 1.25

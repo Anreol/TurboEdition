@@ -41,6 +41,9 @@ namespace TurboEdition.Buffs
                             body.skillLocator.utility.DeductStock(1);
                         if (body.skillLocator.special)
                             body.skillLocator.special.DeductStock(1);
+
+                        //Interrupt attack
+                        EntityStateMachine.FindByCustomName(body.gameObject, "Weapon")?.SetNextStateToMain();
                         return;
                     }
                 }
@@ -61,7 +64,6 @@ namespace TurboEdition.Buffs
 
         public override void RecalcStatsEnd(ref CharacterBody body)
         {
-            body.moveSpeed += 1f;
             if (body.skillLocator.primary)
                 body.skillLocator.primary.cooldownScale += 0.25f;
             if (body.skillLocator.secondary)

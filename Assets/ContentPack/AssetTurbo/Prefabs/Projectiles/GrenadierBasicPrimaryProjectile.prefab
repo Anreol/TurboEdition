@@ -236,7 +236,7 @@ MonoBehaviour:
   projectileDamage: {fileID: 0}
   alive: 1
   falloffModel: 2
-  blastRadius: 14
+  blastRadius: 17
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
   blastAttackerFiltering: 1

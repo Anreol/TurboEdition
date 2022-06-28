@@ -2,5 +2,6 @@
 	strings:
 	{
 		"KEYWORD_SNIPERCLASSIC_MORTAR" : "<style=cKeywordName>Mortar</style><style=cSub>An explosive projectile that gains <style=cIsDamage>extra blast radius</style> with distance traveled.</style>",
+		"KEYWORD_SYNCEDRELOAD" : "<style=cKeywordName>Synced Reload</style><style=cSub>Fully <style=cIsHealth>unloading</style> and <style=cIsUtility>reloading</style> your <style=cIsDamage>Primary</style> skill grants additional bonuses to this skill.",
 	}
 }

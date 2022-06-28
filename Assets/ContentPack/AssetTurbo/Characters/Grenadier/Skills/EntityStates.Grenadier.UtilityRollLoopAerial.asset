@@ -55,19 +55,19 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: ungroundSmallHopYVel
       fieldValue:
-        stringValue: 20
+        stringValue: 10
         objectValue: {fileID: 0}
     - fieldName: ungroundSmallHopForwardVel
       fieldValue:
-        stringValue: 50
+        stringValue: 15
         objectValue: {fileID: 0}
     - fieldName: newAirControl
       fieldValue:
-        stringValue: 5
+        stringValue: 0.25
         objectValue: {fileID: 0}
     - fieldName: overlapAttackResetFrequency
       fieldValue:
-        stringValue: 0.01
+        stringValue: 0.25
         objectValue: {fileID: 0}
     - fieldName: baseHitPauseDuration
       fieldValue:
@@ -75,7 +75,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: hitSmallHopYVel
       fieldValue:
-        stringValue: 24
+        stringValue: 28
         objectValue: {fileID: 0}
     - fieldName: baseOverlapPushAwayForce
       fieldValue:
@@ -99,13 +99,25 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseOverlapAttackFireFrequency
       fieldValue:
-        stringValue: 5
+        stringValue: 4
         objectValue: {fileID: 0}
     - fieldName: scaleFireFrequencyWithAttackSpeed
       fieldValue:
-        stringValue: 1
+        stringValue: 0
         objectValue: {fileID: 0}
     - fieldName: hitResetOverlapFireTimer
       fieldValue:
         stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: improvedAirControl
+      fieldValue:
+        stringValue: 10
+        objectValue: {fileID: 0}
+    - fieldName: improvedAirControlCurve
+      fieldValue:
+        stringValue: '{"preWrapMode":8,"postWrapMode":8,"keys":[{"time":0.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408,"weightedMode":0,"tangentMode":136},{"time":1.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408,"weightedMode":0,"tangentMode":136}]}'
+        objectValue: {fileID: 0}
+    - fieldName: overlapAttackScaleFrequencyAttackSpeed
+      fieldValue:
+        stringValue: 0
         objectValue: {fileID: 0}
