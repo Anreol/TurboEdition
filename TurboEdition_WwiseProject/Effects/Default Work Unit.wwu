@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{B2927D02-BD47-4928-88A0-16616FA1E1FE}" SchemaVersion="97">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{B2927D02-BD47-4928-88A0-16616FA1E1FE}" PersistMode="Standalone">
-			<ChildrenList>
-				<Effect Name="New_Wwise_Guitar_Distortion" ID="{B79095E1-BDD8-4217-AD8F-57936A9FC0B6}" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
-					<PropertyList>
-						<Property Name="DistortionDrive" Type="Real32" Value="10"/>
-						<Property Name="DistortionTone" Type="Real32" Value="37"/>
-						<Property Name="PostEQBand1FilterType" Type="int32" Value="1"/>
-						<Property Name="PostEQBand2FilterType" Type="int32" Value="5"/>
-						<Property Name="PostEQBand3FilterType" Type="int32" Value="4"/>
-						<Property Name="PreEQBand2FilterType" Type="int32" Value="1"/>
-						<Property Name="PreEQBand3FilterType" Type="int32" Value="6"/>
-						<Property Name="Rectification" Type="Real32" Value="41"/>
-						<Property Name="WetDryMix" Type="Real32" Value="54"/>
-					</PropertyList>
-				</Effect>
-			</ChildrenList>
-		</WorkUnit>
+		<WorkUnit Name="Default Work Unit" ID="{B2927D02-BD47-4928-88A0-16616FA1E1FE}" PersistMode="Standalone"/>
 	</Effects>
 </WwiseDocument>

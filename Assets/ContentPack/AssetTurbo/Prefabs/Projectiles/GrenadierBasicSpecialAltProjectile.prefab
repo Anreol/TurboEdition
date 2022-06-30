@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6503306493459240982}
   - component: {fileID: 1782425723763529551}
   m_Layer: 14
-  m_Name: GrenadierBasicPrimaryProjectile
+  m_Name: GrenadierBasicSpecialAltProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   blastRadius: 14
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
-  blastAttackerFiltering: 1
+  blastAttackerFiltering: 3
   bonusBlastForce: {x: 200, y: 300, z: 200}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
@@ -296,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabEffect: {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3,
     type: 3}
+  scaleOverride: 1
   useSurfaceDefEffectToo: 0
   tryToNormalize: 0
 --- !u!114 &1782425723763529551

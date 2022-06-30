@@ -128,8 +128,11 @@ MonoBehaviour:
   - {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
-  - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
+  - {fileID: 11400000, guid: d167a02be48e3f24d974ee1fb4117010, type: 2}
   - {fileID: 11400000, guid: 9b5932cf8c1899a49be70a365f0e1e7c, type: 2}
+  - {fileID: 11400000, guid: 421beb8cba51a8e46b73f2f337706c1e, type: 2}
+  - {fileID: 11400000, guid: ff554923878a42d499fe035614b75cfc, type: 2}
+  - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
   musicTrackDefs: []
   gameEndingDefs: []
   entityStateConfigurations:

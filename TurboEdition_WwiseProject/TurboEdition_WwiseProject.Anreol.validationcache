@@ -2,12 +2,12 @@
 <ValidationCache Version="1" SchemaVersion="97">
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\TurboEdition_WwiseProject.wproj" DateLow="1647389160" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\TurboEdition_WwiseProject.Anreol.wsettings" DateLow="1653156208" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\TurboEdition_WwiseProject.Anreol.wsettings" DateLow="1656268406" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\States\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1652024597" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1656259950" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Queries\Factory Queries.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Presets\Factory Spatial Audio.wwu" DateLow="1647387336" DateHigh="0"/>
@@ -17,14 +17,14 @@
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Events\Default Work Unit.wwu" DateLow="1652024597" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Effects\Factory Effects.wwu" DateLow="1647387336" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Events\Default Work Unit.wwu" DateLow="1656260107" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Effects\Factory Effects.wwu" DateLow="1656258994" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1656258994" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
 	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1647387336" DateHigh="0"/>
-	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1652024597" DateHigh="0"/>
+	<ValidationCacheItem File="C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1656260107" DateHigh="0"/>
 </ValidationCache>

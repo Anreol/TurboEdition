@@ -9,7 +9,7 @@
 		"ACHIEVEMENT_STACKSTICKYBOMBS_DESCRIPTION": "Find a stickybomb 60 times.",
 		
 		
-		"ACHIEVEMENT_GRENADIERCLEARMONSOON_NAME": "Grenadier: Mastery",
-		"ACHIEVEMENT_GRENADIERCLEARMONSOON_DESCRIPTION": "As Grenadier, beat the game or obliterate on Monsoon.",
+		"ACHIEVEMENT_GRENADIERCLEARGAMEMONSOON_NAME": "Grenadier: Mastery",
+		"ACHIEVEMENT_GRENADIERCLEARGAMEMONSOON_DESCRIPTION": "As Grenadier, beat the game or obliterate on Monsoon.",
 	}
 }

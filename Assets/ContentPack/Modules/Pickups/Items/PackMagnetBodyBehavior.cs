@@ -1,4 +1,5 @@
 ﻿using RoR2;
+using RoR2.Audio;
 using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,13 @@ using UnityEngine.Networking;
 namespace TurboEdition.Items
 {
     //Check whenever it should run on client or server. It currently works... and the server is already calculating most of the stuff, so maybe let it get a free pass here?
+    //All packs are sent through the net.
     public class PackMagnetBodyBehavior : BaseItemBodyBehavior
     {
-        [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = false, useOnClient = true)]
+        private static NetworkSoundEventDef grabSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseLeaveStageError");
+        private static NetworkSoundEventDef duplicateSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseLeaveStageError");
+
+        [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
         private static ItemDef GetItemDef()
         {
             return TEContent.Items.PackMagnet;
@@ -31,10 +36,8 @@ namespace TurboEdition.Items
 
         private void FixedUpdate()
         {
-            if (!NetworkServer.active || sphereSearch == null || !body || body.transform.position == null) //Needs to be attatched to a body so we check if its null
-            {
+            if (sphereSearch == null || !body || body.transform.position == null) //Needs to be attatched to a body so we check if its null
                 return;
-            }
             sphereSearch.origin = body.transform.position;
             sphereSearch.radius = 16f + ((stack - 1) * 8f);
             //GravitationControllers have sphere colliders to check whenever a player is in radius no matter what...
@@ -49,7 +52,9 @@ namespace TurboEdition.Items
                 {
                     if (body.gameObject.GetComponent<Collider>())
                     {
-                        gravitatePickup.OnTriggerEnter(body.gameObject.GetComponent<Collider>());
+                        gravitatePickup.OnTriggerEnter(body.gameObject.GetComponent<Collider>()); //Simulate a touch
+                        EntitySoundManager.EmitSoundServer(grabSound.index, gameObject);
+
                         if (gravitatePickup.rigidbody)
                         {
                             DuplicateGameObject(gravitatePickup.rigidbody.gameObject, item.transform);
@@ -61,10 +66,11 @@ namespace TurboEdition.Items
 
         private void DuplicateGameObject(GameObject gameObject, Transform transform)
         {
-            float rawChance = 5f + ((stack - 1));
-            if (Util.CheckRoll(rawChance, body.master.luck))
+            if (Util.CheckRoll(5f + ((stack - 1)), body.master.luck))
             {
                 TELog.LogI("Passed luck check, duplicating.");
+                EntitySoundManager.EmitSoundServer(duplicateSound.index, gameObject);
+
                 GameObject pickup = UnityEngine.Object.Instantiate<GameObject>(gameObject, transform);
                 GravitatePickup clonedGravitator = pickup.GetComponentInChildren<GravitatePickup>();
                 clonedGravitator.gravitateTarget = body.transform;

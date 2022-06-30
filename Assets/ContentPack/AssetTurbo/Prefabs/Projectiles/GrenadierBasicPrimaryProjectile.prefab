@@ -239,7 +239,7 @@ MonoBehaviour:
   blastRadius: 17
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
-  blastAttackerFiltering: 1
+  blastAttackerFiltering: 3
   bonusBlastForce: {x: 300, y: 300, z: 300}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
@@ -268,8 +268,9 @@ MonoBehaviour:
   impactNormal: {x: 0, y: 1, z: 0}
   impactEffect: {fileID: 0}
   lifetimeExpiredSoundString: 
-  lifetimeExpiredSound: {fileID: 0}
-  offsetForLifetimeExpiredSound: 0
+  lifetimeExpiredSound: {fileID: 11400000, guid: d167a02be48e3f24d974ee1fb4117010,
+    type: 2}
+  offsetForLifetimeExpiredSound: 1
   destroyOnEnemy: 1
   destroyOnWorld: 0
   impactOnWorld: 1

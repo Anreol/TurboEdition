@@ -149,6 +149,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Grenadier_Primary_Warn" ID="{12D3D9AB-1731-4942-853A-AF70518B8DC0}">
+							<ChildrenList>
+								<Action Name="" ID="{588C286C-023A-455B-9343-02F4C57FACC9}" ShortID="263714532">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Grenadier_Primary_Warn" ID="{2D67F6A1-626E-4D69-AE6F-B3FAF373D5A8}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Equipment" ID="{AD1620A5-50C7-4EBC-9DDD-D5A5E47C93F3}" ShortID="793425364">
@@ -202,6 +216,34 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Item_Proc_ItemDeployer" ID="{FE4A7D71-ADE5-4B82-AC8D-96B4EA3DC644}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Item_Proc_PackMagnet_Duplicate" ID="{069DA3D4-15D2-4D4A-AFF5-00F717C7B66E}">
+							<ChildrenList>
+								<Action Name="" ID="{611DFC43-3D72-473D-A1D3-67F66EC81E80}" ShortID="555691687">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Item_Proc_PackMagnet_Duplicate" ID="{63009606-5BD2-4E88-AE19-0410DA3B2FC8}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Item_Proc_PackMagnet_Grab" ID="{2488480D-44AB-4BC0-AF94-84418D6414B6}">
+							<ChildrenList>
+								<Action Name="" ID="{2B0F4135-909C-47CC-BF5E-99038523485D}" ShortID="590296325">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Item_Proc_PackMagnet_Grab" ID="{D6979843-FAE3-4DBE-9EB6-496A391596FE}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

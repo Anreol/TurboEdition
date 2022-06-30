@@ -68,7 +68,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: f9aeee3adff9124fa97c10655bacd25f
     GuidInternal: 
-    m_lastTime: -8585453467782919692
+    m_lastTime: -8585450031429976548
     List:
     - name: Equipment
       guid: a52016adc750bc4e9dddd5a5e47c93f3
@@ -131,7 +131,7 @@ MonoBehaviour:
       - ElementName: Play_Grenadier_ExplosionM
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_Grenadier_ExplosionM
-      maxAttenuation: 200
+      maxAttenuation: 150
       maxDuration: 0.815207
       minDuration: 0.769453
     - name: Play_Grenadier_ExplosionS
@@ -145,7 +145,7 @@ MonoBehaviour:
       - ElementName: Play_Grenadier_ExplosionS
         ObjectType: 3
       Path: Default Work Unit\Grenadier\Play_Grenadier_ExplosionS
-      maxAttenuation: 200
+      maxAttenuation: 150
       maxDuration: 0.623157
       minDuration: 0.588182
     - name: Play_Grenadier_Landing
@@ -176,6 +176,20 @@ MonoBehaviour:
       maxAttenuation: 200
       maxDuration: 0.604913
       minDuration: 0.561764
+    - name: Play_Grenadier_Primary_Warn
+      guid: abd9d31231174249853aaf70518b8dc0
+      id: 1978592993
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Grenadier
+        ObjectType: 4
+      - ElementName: Play_Grenadier_Primary_Warn
+        ObjectType: 3
+      Path: Default Work Unit\Grenadier\Play_Grenadier_Primary_Warn
+      maxAttenuation: 50
+      maxDuration: 0.247033
+      minDuration: 0.233168
     - name: Play_Grenadier_Reload
       guid: 356f6c61c606a74dbde1b135b2d72996
       id: 3477662151
@@ -274,6 +288,34 @@ MonoBehaviour:
       maxAttenuation: 200
       maxDuration: 0.392121
       minDuration: 0.290448
+    - name: Play_Item_Proc_PackMagnet_Duplicate
+      guid: d4a39d06d2154a4daff500f717c7b66e
+      id: 2762120414
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Items
+        ObjectType: 4
+      - ElementName: Play_Item_Proc_PackMagnet_Duplicate
+        ObjectType: 3
+      Path: Default Work Unit\Items\Play_Item_Proc_PackMagnet_Duplicate
+      maxAttenuation: 200
+      maxDuration: 0.9
+      minDuration: 0.9
+    - name: Play_Item_Proc_PackMagnet_Grab
+      guid: 0d488824ab44c04baf9484418d6414b6
+      id: 310158201
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Items
+        ObjectType: 4
+      - ElementName: Play_Item_Proc_PackMagnet_Grab
+        ObjectType: 3
+      Path: Default Work Unit\Items\Play_Item_Proc_PackMagnet_Grab
+      maxAttenuation: 200
+      maxDuration: 1.051239
+      minDuration: 0.992238
     - name: Play_LeaveStageError
       guid: 74b10b8c7ac3e64da33eb5c915848108
       id: 204571091

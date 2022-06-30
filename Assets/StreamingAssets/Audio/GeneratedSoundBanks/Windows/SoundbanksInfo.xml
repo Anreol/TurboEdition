@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="2124038214">
+		<SoundBank Id="34081325" Language="SFX" Hash="2791455526">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -24,7 +24,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="855800858" Name="Play_Grenadier_ExplosionM" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionM" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.769453" DurationMax="0.815207">
+				<Event Id="855800858" Name="Play_Grenadier_ExplosionM" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionM" MaxAttenuation="150.000000" DurationType="OneShot" DurationMin="0.769453" DurationMax="0.815207">
 					<IncludedMemoryFiles>
 						<File Id="289712532" Language="SFX">
 							<ShortName>se_reflet_attackbomb.wav</ShortName>
@@ -32,11 +32,11 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="855800836" Name="Play_Grenadier_ExplosionS" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionS" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.588182" DurationMax="0.623157">
+				<Event Id="855800836" Name="Play_Grenadier_ExplosionS" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionS" MaxAttenuation="150.000000" DurationType="OneShot" DurationMin="0.588182" DurationMax="0.623157">
 					<IncludedMemoryFiles>
 						<File Id="542577557" Language="SFX">
 							<ShortName>se_snake_special_S07.wav</ShortName>
-							<Path>SFX\se_snake_special_S07_B5F722F8.wem</Path>
+							<Path>SFX\se_snake_special_S07_60C0BFD0.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -68,6 +68,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1978592993" Name="Play_Grenadier_Primary_Warn" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Primary_Warn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.233168" DurationMax="0.247033">
+					<IncludedMemoryFiles>
+						<File Id="883888142" Language="SFX">
+							<ShortName>DetpackBeepEndA_1.wav</ShortName>
+							<Path>SFX\DetpackBeepEndA_1_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3477662151" Name="Play_Grenadier_Reload" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Reload" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.560867" DurationMax="0.629552">
 					<IncludedMemoryFiles>
 						<File Id="717774493" Language="SFX">
@@ -80,7 +88,7 @@
 					<IncludedMemoryFiles>
 						<File Id="464783086" Language="SFX">
 							<ShortName>M79_fire01.wav</ShortName>
-							<Path>SFX\M79_fire01_79BA5627.wem</Path>
+							<Path>SFX\M79_fire01_2AE48679.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -129,6 +137,22 @@
 						<File Id="778002739" Language="SFX">
 							<ShortName>Item_Proc_ItemDeployer2.wav</ShortName>
 							<Path>SFX\Item_Proc_ItemDeployer2_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2762120414" Name="Play_Item_Proc_PackMagnet_Duplicate" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_PackMagnet_Duplicate" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.900000" DurationMax="0.900000">
+					<IncludedMemoryFiles>
+						<File Id="856589483" Language="SFX">
+							<ShortName>actors_samus_magnet_saminit_04.wav</ShortName>
+							<Path>SFX\actors_samus_magnet_saminit_04_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="310158201" Name="Play_Item_Proc_PackMagnet_Grab" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_PackMagnet_Grab" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.992238" DurationMax="1.051239">
+					<IncludedMemoryFiles>
+						<File Id="659094007" Language="SFX">
+							<ShortName>actors_samus_magnet_saminit_05.wav</ShortName>
+							<Path>SFX\actors_samus_magnet_saminit_05_3F75BDB9.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

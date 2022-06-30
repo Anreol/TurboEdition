@@ -12,7 +12,7 @@
 		"GRENADIER_PRIMARY_ALT_NAME": "Rapid Blaster",
 		"GRENADIER_PRIMARY_ALT_DESCRIPTION" : "<style=cIsUtility>Agile</style>. Fire a shell for <style=cIsDamage>150% damage</style> on impact, or that can explode during travel for <style=cIsDamage>x2 damage</style>. Hold up to 8.",
 		"GRENADIER_SECONDARY_NAME": "Secondary Shot",
-		"GRENADIER_SECONDARY_DESCRIPTION" : "<style=cIsUtility>Mortar</style>. <style=cIsDamage>Stunning</style>. Shoot a self-arming projectile that deals base <style=cIsDamage>250% damage</style> at blank point. A fully explosive deals <style=cIsDamage>2000% damage</style> in a wide area.",
+		"GRENADIER_SECONDARY_DESCRIPTION" : "<style=cIsUtility>Mortar</style>. <style=cIsDamage>Stunning</style>. Shoot a projectile that deals <style=cIsDamage>250% damage</style> at blank point. A fully explosive deals <style=cIsDamage>2000% damage</style> in a wide area.",
 		"GRENADIER_SECONDARY_ALT_NAME": "Secondary Shot Alt",
 		"GRENADIER_SECONDARY_ALT_DESCRIPTION" : "<style=cIsUtility>Mortar</style>. Shoot a self-arming cluster bomb that explodes <style=cIsDamage>twice</style> for <style=cIsDamage>200%</style> damage at blank point. At larger distances, it explodes <style=cIsDamage>9 times</style> total.",
 		"GRENADIER_UTILITY_NAME": "Utility",

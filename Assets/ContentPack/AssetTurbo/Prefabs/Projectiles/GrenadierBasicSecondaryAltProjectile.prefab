@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 2929345596389720017}
   - component: {fileID: 8710313284497637358}
   m_Layer: 14
-  m_Name: GrenadierBasicSecondaryProjectile
+  m_Name: GrenadierBasicSecondaryAltProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teamIndexInternal: 0
   defaultTeam: -1
 --- !u!114 &3104996826693707152
 MonoBehaviour:
@@ -104,10 +105,20 @@ MonoBehaviour:
     type: 3}
   ghostTransformAnchor: {fileID: 0}
   startSound: 
+  cannotBeDeleted: 0
   flightSoundLoop: {fileID: 0}
+  rigidbody: {fileID: 0}
+  <teamFilter>k__BackingField: {fileID: 0}
+  <ghost>k__BackingField: {fileID: 0}
+  <isPrediction>k__BackingField: 0
+  canImpactOnTrigger: 0
+  <shouldPlaySounds>k__BackingField: 0
   allowPrediction: 1
   owner: {fileID: 0}
+  <procChainMask>k__BackingField:
+    mask: 0
   procCoefficient: 1
+  myColliders: []
 --- !u!54 &54808093057743666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,9 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileController: {fileID: 0}
+  transform: {fileID: 0}
+  rb: {fileID: 0}
+  interpolatedTransform: {fileID: 0}
   positionTransmitInterval: 0.033333335
   interpolationFactor: 1
   allowClientsideCollision: 0
+  serverPosition: {x: 0, y: 0, z: 0}
+  serverRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &8896665261586244783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredForwardSpeed: 160
   lifetime: 9
+  lifetimeExpiredEffect: {fileID: 0}
+  desiredForwardSpeed: 160
   updateAfterFiring: 0
   enableVelocityOverLifetime: 0
   velocityOverLifetime:
@@ -164,6 +182,11 @@ MonoBehaviour:
   oscillate: 0
   oscillateMagnitude: 20
   oscillateSpeed: 0
+  deltaHeight: 0
+  oscillationStopwatch: 0
+  stopwatch: 0
+  rigidbody: {fileID: 0}
+  transform: {fileID: 0}
 --- !u!135 &9195881915704691530
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -171,7 +194,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028506108066464535}
-  m_Material: {fileID: 13400000, guid: 76875017f177fda4699be54d0fd45266, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -194,6 +217,8 @@ MonoBehaviour:
   force: 0
   damageColorIndex: 0
   damageType: 0
+  useDotMaxStacksFromAttacker: 0
+  dotMaxStacksFromAttacker: 4294967295
 --- !u!114 &3387088757089728484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,6 +231,9 @@ MonoBehaviour:
   m_Script: {fileID: 1952984350, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileController: {fileID: 0}
+  projectileDamage: {fileID: 0}
+  alive: 1
   destroyWhenNotAlive: 1
   destroyOnWorld: 1
   impactEffect: {fileID: 0}
@@ -223,32 +251,54 @@ MonoBehaviour:
   m_Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionSoundString: 
+  projectileController: {fileID: 0}
+  projectileDamage: {fileID: 0}
+  alive: 1
   falloffModel: 2
   blastRadius: 14
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
-  blastAttackerFiltering: 1
+  blastAttackerFiltering: 3
   bonusBlastForce: {x: 200, y: 300, z: 200}
+  canRejectForce: 1
+  projectileHealthComponent: {fileID: 0}
+  explosionEffect: {fileID: 0}
+  explosionSoundString: 
   fireChildren: 0
   childrenProjectilePrefab: {fileID: 0}
   childrenCount: 0
   childrenDamageCoefficient: 0
   minAngleOffset: {x: 0, y: 0, z: 0}
   maxAngleOffset: {x: 0, y: 0, z: 0}
+  minRollDegrees: 0
+  rangeRollDegrees: 0
+  minPitchDegrees: 0
+  rangePitchDegrees: 0
   useLocalSpaceForChildren: 0
-  projectileHealthComponent: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  applyDot: 0
+  dotIndex: -1
+  dotDuration: 0
+  dotDamageMultiplier: 1
+  applyMaxStacksFromAttacker: 0
+  maxStacksFromAttacker: 4294967295
+  calculateTotalDamage: 0
+  totalDamageMultiplier: 0
+  impactNormal: {x: 0, y: 1, z: 0}
   impactEffect: {fileID: 0}
   lifetimeExpiredSoundString: 
   lifetimeExpiredSound: {fileID: 0}
   offsetForLifetimeExpiredSound: 0
   destroyOnEnemy: 1
   destroyOnWorld: 1
+  impactOnWorld: 1
   timerAfterImpact: 0
   lifetime: 3
   lifetimeAfterImpact: 0
   lifetimeRandomOffset: 0
+  stopwatch: 0
+  stopwatchAfterImpact: 0
+  hasImpact: 0
+  hasPlayedLifetimeExpiredSound: 0
   transformSpace: 0
 --- !u!114 &8710313284497637358
 MonoBehaviour:
@@ -262,3 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf39fc0812dbdd4ba71529646b5902e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reduceDamageFraction: 2
+  forceNoCrit: 1
+  clearDots: 1
+  damageTypeOverride: 1

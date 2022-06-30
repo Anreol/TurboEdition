@@ -18,6 +18,7 @@ namespace AK
         static const AkUniqueID PLAY_GRENADIER_EXPLOSIONS = 855800836U;
         static const AkUniqueID PLAY_GRENADIER_LANDING = 2376185369U;
         static const AkUniqueID PLAY_GRENADIER_PRIMARY_FIRE = 183542901U;
+        static const AkUniqueID PLAY_GRENADIER_PRIMARY_WARN = 1978592993U;
         static const AkUniqueID PLAY_GRENADIER_RELOAD = 3477662151U;
         static const AkUniqueID PLAY_GRENADIER_SECONDARY_FIRE = 4088573137U;
         static const AkUniqueID PLAY_GRENADIER_SPECIAL_CHARGE = 2041123800U;
@@ -25,6 +26,8 @@ namespace AK
         static const AkUniqueID PLAY_GRENADIER_SPECIAL_READY = 3091314681U;
         static const AkUniqueID PLAY_GRENADIER_STEPS = 878563697U;
         static const AkUniqueID PLAY_ITEM_PROC_ITEMDEPLOYER = 902611312U;
+        static const AkUniqueID PLAY_ITEM_PROC_PACKMAGNET_DUPLICATE = 2762120414U;
+        static const AkUniqueID PLAY_ITEM_PROC_PACKMAGNET_GRAB = 310158201U;
         static const AkUniqueID PLAY_LEAVESTAGEERROR = 204571091U;
     } // namespace EVENTS
 
