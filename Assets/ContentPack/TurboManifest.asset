@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 114431642618062350}
   - {fileID: 114338525782180936}
   - {fileID: 114364032661763054}
+  - {fileID: 8592142845470579597}
   identity: {fileID: 114211852988908172}
   QuickAccess: 1
 --- !u!114 &114107831304456238
@@ -91,6 +92,7 @@ MonoBehaviour:
   files:
   - {fileID: 102900000, guid: f017c249e60d5b144ae795e8156c96ad, type: 3}
   - {fileID: 102900000, guid: 7597aaa29ea068349906d31f22f40a2b, type: 3}
+  - {fileID: 102900000, guid: 812baf5fc62f6d24989a5f2ebdbd9c08, type: 3}
 --- !u!114 &114431642618062350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,3 +111,26 @@ MonoBehaviour:
   - assetBundleName: assetTurbo
     assets:
     - {fileID: 102900000, guid: df259b5ce648ed6468125650bc290ae3, type: 3}
+  - assetBundleName: turboScenes_test
+    assets:
+    - {fileID: 102900000, guid: 9153ee60f62e5c148b30a623ebea0296, type: 3}
+  - assetBundleName: turboScenes_observatory
+    assets:
+    - {fileID: 102900000, guid: f3222faf3a7941a41ab261d66244d66f, type: 3}
+--- !u!114 &8592142845470579597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b243ff405b33b94dbf5b6775dd9aa33, type: 3}
+  m_Name: Files
+  m_EditorClassIdentifier: 
+  StagingPaths:
+  - <BuildPathSoundbanks>
+  files:
+  - {fileID: 102900000, guid: b5467b845ab3a884199144dc05155992, type: 3}
+  - {fileID: 102900000, guid: 96d5a6abcf926bb469dab4fd54f41ad0, type: 3}

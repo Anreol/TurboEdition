@@ -17,7 +17,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	4088573137	Play_Grenadier_Secondary_Fire			\Default Work Unit\Grenadier\Play_Grenadier_Secondary_Fire	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	1278074206	SFX_VolumeIn			\Default Work Unit\SFX_VolumeIn	
 	1612634724	GrenadierSpecial_ChargeAmount			\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size

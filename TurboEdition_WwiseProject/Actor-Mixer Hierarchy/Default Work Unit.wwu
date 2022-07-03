@@ -22,34 +22,7 @@
 						<ActorMixer Name="SFX-MIXER" ID="{F9F133F9-6C5C-4B79-A663-E31DEA560E9F}" ShortID="786650031">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="1"/>
-								<Property Name="Volume" Type="Real64">
-									<RTPCList>
-										<RTPC Name="" ID="{31F3895E-660A-4905-9A0A-5AE685B3432B}" ShortID="964435436">
-											<ReferenceList>
-												<Reference Name="ControlInput">
-													<ObjectRef Name="SFX_VolumeIn" ID="{F1FFE43F-F7C8-426F-993F-BBF7C32732D9}" WorkUnitID="{9BE2ED1A-B91E-46A3-8100-F50120CCFF6A}"/>
-												</Reference>
-											</ReferenceList>
-											<Curve Name="" ID="{A619FDC2-5460-4B88-8DDA-4211A295C2C9}">
-												<PropertyList>
-													<Property Name="Flags" Type="int32" Value="3"/>
-												</PropertyList>
-												<PointList>
-													<Point>
-														<XPos>0</XPos>
-														<YPos>-200</YPos>
-														<Flags>5</Flags>
-													</Point>
-													<Point>
-														<XPos>100</XPos>
-														<YPos>0</YPos>
-														<Flags>37</Flags>
-													</Point>
-												</PointList>
-											</Curve>
-										</RTPC>
-									</RTPCList>
-								</Property>
+								<Property Name="OverrideOutput" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
@@ -59,7 +32,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+									<ObjectRef Name="SFX_BUS" ID="{05EF0313-7CED-4CB7-9B7B-0CB2F5B06552}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -72,6 +45,7 @@
 										<RandomSequenceContainer Name="Grenadier_Steps" ID="{5BC0292F-28A0-43DD-8BDD-51810C66DC02}" ShortID="809985856">
 											<PropertyList>
 												<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -92,7 +66,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -169,6 +143,7 @@
 														</ModifierInfo>
 													</ModifierList>
 												</Property>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -188,7 +163,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -215,6 +190,7 @@
 										</Sound>
 										<Sound Name="Grenadier_Reload" ID="{8C5269C4-2706-4218-9976-4C25B1B08F19}" ShortID="698247290">
 											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -246,7 +222,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -264,6 +240,7 @@
 										</Sound>
 										<RandomSequenceContainer Name="Grenadier_Primary_Fire" ID="{56D5C4C3-C2E0-4C83-8072-DA91FE653B40}" ShortID="514077951">
 											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -300,7 +277,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -369,6 +346,7 @@
 												<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
 												<Property Name="LoopCount" Type="int32" Value="50"/>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -445,7 +423,7 @@
 													<ObjectRef Name="Large_Church1" ID="{9B6E8B78-EF8C-494C-AADA-D01CF51B5FAC}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -462,12 +440,15 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Grenadier_Special_Ready" ID="{72829B68-1120-4FB0-A16B-FF0A2F0AFDD5}" ShortID="1073103848">
+											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -485,6 +466,7 @@
 										</Sound>
 										<Sound Name="Grenadier_Special_GainExtraCharge" ID="{A6E2CA13-85C6-4FB3-8564-A3DCAA1B2F5B}" ShortID="871038894">
 											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -504,7 +486,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -522,6 +504,7 @@
 										</Sound>
 										<RandomSequenceContainer Name="Grenadier_Landing" ID="{2633CE6E-B7AD-48F5-A054-167DF2C92FB5}" ShortID="671847726">
 											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -541,7 +524,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -639,7 +622,7 @@
 														<Value>10</Value>
 													</ValueList>
 												</Property>
-												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -660,9 +643,6 @@
 												</Property>
 											</PropertyList>
 											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="200_Meters_Explosion" ID="{7218D4E6-A89F-4ACF-8DFB-A0A2E1F6F994}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
-												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
@@ -670,7 +650,7 @@
 													<ObjectRef Name="Secret_message" ID="{2F5DE612-1AAD-4A84-8FB4-3E66521C920E}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -695,7 +675,7 @@
 										<Sound Name="Grenadier_ExplosionS" ID="{0B99AD97-7652-4B62-93E4-8370AC0CDBC8}" ShortID="46671321">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -711,14 +691,11 @@
 												</Property>
 											</PropertyList>
 											<ReferenceList>
-												<Reference Name="Attenuation">
-													<ObjectRef Name="200_Meters_Explosion" ID="{7218D4E6-A89F-4ACF-8DFB-A0A2E1F6F994}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
-												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -751,6 +728,7 @@
 														<Value>10</Value>
 													</ValueList>
 												</Property>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
@@ -774,7 +752,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -806,6 +784,7 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Item_Proc_ItemDeployer" ID="{FE4A7D71-ADE5-4B82-AC8D-96B4EA3DC644}" ShortID="100158618">
 											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -831,7 +810,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -919,6 +898,7 @@
 										</RandomSequenceContainer>
 										<Sound Name="Item_Proc_PackMagnet_Grab" ID="{D6979843-FAE3-4DBE-9EB6-496A391596FE}" ShortID="356326859">
 											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -952,7 +932,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -975,12 +955,15 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Item_Proc_PackMagnet_Duplicate" ID="{63009606-5BD2-4E88-AE19-0410DA3B2FC8}" ShortID="54535841">
+											<PropertyList>
+												<Property Name="OverrideOutput" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+													<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -1038,20 +1021,6 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="se_system_beep" ID="{8BF2715E-3C3D-4E7D-AFEE-5FBB4D963A82}">
-													<PropertyList>
-														<Property Name="VolumeOffset" Type="Real64">
-															<ValueList>
-																<Value>4</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>se_system_beep.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="683838438"/>
-													</MediaIDList>
-												</AudioFileSource>
 												<AudioFileSource Name="Denied" ID="{15CFDFE6-172C-464A-85D4-1A2D2524FF35}">
 													<PropertyList>
 														<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>

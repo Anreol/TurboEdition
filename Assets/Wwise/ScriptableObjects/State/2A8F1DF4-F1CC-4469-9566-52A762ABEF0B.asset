@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f51e5ee17537ca4889df94449bdb4d4, type: 3}
+  m_Name: 2A8F1DF4-F1CC-4469-9566-52A762ABEF0B
+  m_EditorClassIdentifier: 
+  objectName: songTurbo01
+  id: 402164447
+  guid: 2A8F1DF4-F1CC-4469-9566-52A762ABEF0B
+  WwiseStateGroupReference: {fileID: 11400000, guid: 363d88d17948fcb4f8ba418eb00291e5,
+    type: 2}

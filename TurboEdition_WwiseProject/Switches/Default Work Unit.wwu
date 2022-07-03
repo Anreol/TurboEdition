@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{6304D93D-C115-4AC9-BC18-4ED75163628F}" SchemaVersion="97">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{6304D93D-C115-4AC9-BC18-4ED75163628F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{6304D93D-C115-4AC9-BC18-4ED75163628F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="audioSource" ID="{7BCE5BCD-6B91-41A1-8F48-6C53C8478ADE}">
+					<ChildrenList>
+						<Switch Name="self" ID="{7B18CFF9-45E0-4D60-9332-4F22C33EC750}"/>
+						<Switch Name="friendly" ID="{AAFB4F43-C7CA-4D71-B213-47F034D9F530}"/>
+						<Switch Name="enemy" ID="{A04A6AD7-0F24-478E-B79E-08323C3E3D4B}"/>
+					</ChildrenList>
+				</SwitchGroup>
+				<SwitchGroup Name="musicEV" ID="{A9736BDA-83F6-4101-87B2-B15C1B4AB4EF}">
+					<ChildrenList>
+						<Switch Name="LOW" ID="{C09100ED-BAA7-4512-B3EB-1B480F29C3D6}"/>
+						<Switch Name="NORMAL" ID="{369120DF-3F07-449A-9A03-280118784A2D}"/>
+						<Switch Name="START" ID="{92CBCA91-D865-4382-B4C9-B4970449AB60}"/>
+						<Switch Name="HIGH" ID="{0C7672BD-786D-430A-A02A-32D39C3016C9}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

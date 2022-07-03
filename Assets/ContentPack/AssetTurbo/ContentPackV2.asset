@@ -71,7 +71,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 134c52305cdb3724eb77f19b98d08cf8, type: 2}
   - {fileID: 11400000, guid: 199c1db616950c743910567c84a82808, type: 2}
   - {fileID: 11400000, guid: 330cd15a9b6df7641bcb93fd13556520, type: 2}
-  sceneDefs: []
+  sceneDefs:
+  - {fileID: 11400000, guid: c117d76215f53a74d94e2faf56dba582, type: 2}
+  - {fileID: 11400000, guid: 845631bff6b64e243920384b7538e7df, type: 2}
   itemDefs:
   - {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
   - {fileID: 11400000, guid: 087e200b366c13f43b843170111cb07f, type: 2}
@@ -133,7 +135,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 421beb8cba51a8e46b73f2f337706c1e, type: 2}
   - {fileID: 11400000, guid: ff554923878a42d499fe035614b75cfc, type: 2}
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
-  musicTrackDefs: []
+  musicTrackDefs:
+  - {fileID: 11400000, guid: 3b10239eadfb3114f84bc8b8d70c0d71, type: 2}
+  - {fileID: 11400000, guid: 43ceed4a1921fe645a06f55fde3c15b2, type: 2}
   gameEndingDefs: []
   entityStateConfigurations:
   - {fileID: 11400000, guid: 29cbfd4ffa0fde44fa880ee29a314965, type: 2}

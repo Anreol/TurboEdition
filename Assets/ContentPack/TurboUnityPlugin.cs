@@ -27,9 +27,10 @@ namespace TurboEdition
 
         public void Awake()
         {
-            Debug.Log("Running Turbo Edition!");
-#if DEBUG
             TELog.logger = Logger;
+            TELog.LogI("Running Turbo Edition!", true);
+#if DEBUG
+            TELog.outputAlways = true;
             TELog.LogW("Running TurboEdition DEBUG build. PANIC!");
 #endif
             pluginInfo = Info;

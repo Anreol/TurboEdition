@@ -42,9 +42,10 @@ I'm open to contributions, specifically models, as they take me more time than w
 You can contact me by messaging to Anreol#8231 or @anreol:poa.st
 
 ## Changelog
+Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Changelog](https://rentry.org/TurboEditionChangelog)
+
 `0.0.6`
 
-	Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Changelog](https://rentry.org/TurboEditionChangelog)
 
 ## Rainfusion
 You can find the original Turbo Edition by JoeyAsagiri on [rainfusion.ml](https://rainfusion.ml/) and a direct download can be found [here](https://cdn.rainfusion.ml/download-mod/18f68f57-bcfd-4979-873c-6df90c33e353/turbo_edition_0.3.1.zip). The original repository can be found [here](https://github.com/JoeySmulders/RoR-Turbo-Edition).

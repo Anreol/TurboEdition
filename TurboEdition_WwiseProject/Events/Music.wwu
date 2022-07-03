@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9310F5B9-21B6-4A90-8863-1AF010352446}" SchemaVersion="97">
+	<Events>
+		<WorkUnit Name="Music" ID="{9310F5B9-21B6-4A90-8863-1AF010352446}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="26"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<Event Name="Pause_Music" ID="{BEAB34E0-1A12-4587-A8B1-3BF1BC062E3A}">
+					<ChildrenList>
+						<Action Name="" ID="{1339F78A-CB5B-4F47-95AD-A6D54BAE3D29}" ShortID="445238255">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_System" ID="{DE2BBD54-31F9-4BD4-B603-07A887FAE4CA}" WorkUnitID="{BDD272D9-F34C-4EB8-8382-0E27E51D5E51}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Unpause_Music" ID="{572B8C2A-3342-40C3-99D6-504CDA46E25F}">
+					<ChildrenList>
+						<Action Name="" ID="{A79E8ECD-211A-4791-9E3F-91FA3BDCCB89}" ShortID="342495341">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_System" ID="{DE2BBD54-31F9-4BD4-B603-07A887FAE4CA}" WorkUnitID="{BDD272D9-F34C-4EB8-8382-0E27E51D5E51}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Music_System" ID="{3B765F06-6605-42A2-A214-1274181D18E6}">
+					<ChildrenList>
+						<Action Name="" ID="{09CA1E05-0E22-4698-BD88-2E2BE51DCDEF}" ShortID="789388970">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_System" ID="{DE2BBD54-31F9-4BD4-B603-07A887FAE4CA}" WorkUnitID="{BDD272D9-F34C-4EB8-8382-0E27E51D5E51}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Music_System_TurboEditon" ID="{75FD8ACA-C691-4423-B067-1C74E836B8BF}">
+					<ChildrenList>
+						<Action Name="" ID="{64271C55-631D-4AF0-B74F-96813B1B1993}" ShortID="1001462475">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Music_System" ID="{DE2BBD54-31F9-4BD4-B603-07A887FAE4CA}" WorkUnitID="{BDD272D9-F34C-4EB8-8382-0E27E51D5E51}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

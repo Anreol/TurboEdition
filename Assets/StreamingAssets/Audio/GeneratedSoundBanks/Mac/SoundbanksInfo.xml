@@ -8,10 +8,19 @@
 		<ExternalSourcesOutputRoot>C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
-	<StreamedFiles/>
+	<StreamedFiles>
+		<File Id="715305458" Language="SFX">
+			<ShortName>musicStage9.wav</ShortName>
+			<Path>SFX\musicStage9_9EDFC787.wem</Path>
+		</File>
+		<File Id="1067800072" Language="SFX">
+			<ShortName>musicBoss3.wav</ShortName>
+			<Path>SFX\musicBoss3_9EDFC787.wem</Path>
+		</File>
+	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="2791455526">
+		<SoundBank Id="34081325" Language="SFX" Hash="474804221">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -24,7 +33,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="855800858" Name="Play_Grenadier_ExplosionM" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionM" MaxAttenuation="150.000000" DurationType="OneShot" DurationMin="0.769453" DurationMax="0.815207">
+				<Event Id="855800858" Name="Play_Grenadier_ExplosionM" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionM" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.769453" DurationMax="0.815207">
 					<IncludedMemoryFiles>
 						<File Id="289712532" Language="SFX">
 							<ShortName>se_reflet_attackbomb.wav</ShortName>
@@ -32,7 +41,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="855800836" Name="Play_Grenadier_ExplosionS" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionS" MaxAttenuation="150.000000" DurationType="OneShot" DurationMin="0.588182" DurationMax="0.623157">
+				<Event Id="855800836" Name="Play_Grenadier_ExplosionS" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionS" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.588182" DurationMax="0.623157">
 					<IncludedMemoryFiles>
 						<File Id="542577557" Language="SFX">
 							<ShortName>se_snake_special_S07.wav</ShortName>
@@ -166,14 +175,157 @@
 				</Event>
 			</IncludedEvents>
 			<GameParameters>
-				<GameParameter Id="1278074206" Name="SFX_VolumeIn" ObjectPath="\Game Parameters\Default Work Unit\SFX_VolumeIn"/>
 				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1130579211">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2101947498">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
+			<GameParameters>
+				<GameParameter Id="1514947204" Name="Meter_Character" ObjectPath="\Game Parameters\Default Work Unit\Meter_Character"/>
+				<GameParameter Id="1871679725" Name="Meter_UI" ObjectPath="\Game Parameters\Default Work Unit\Meter_UI"/>
+				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX"/>
+				<GameParameter Id="3695994288" Name="Volume_Master" ObjectPath="\Game Parameters\Default Work Unit\Volume_Master"/>
+				<GameParameter Id="3729143042" Name="Volume_MSX" ObjectPath="\Game Parameters\Default Work Unit\Volume_MSX"/>
+			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="1664825278" Language="SFX" Hash="1675983611">
+			<ObjectPath>\SoundBanks\Default Work Unit\TurboMusicBank</ObjectPath>
+			<ShortName>TurboMusicBank</ShortName>
+			<Path>TurboMusicBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2735935537" Name="Pause_Music" ObjectPath="\Events\Music\Pause_Music" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3260968109" Name="Play_Music_System" ObjectPath="\Events\Music\Play_Music_System" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="715305458" Language="SFX">
+							<ShortName>musicStage9.wav</ShortName>
+							<Path>SFX\musicStage9_9EDFC787.wem</Path>
+						</File>
+						<File Id="1067800072" Language="SFX">
+							<ShortName>musicBoss3.wav</ShortName>
+							<Path>SFX\musicBoss3_9EDFC787.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+					<IncludedMemoryFiles>
+						<File Id="715305458" Language="SFX">
+							<ShortName>musicStage9.wav</ShortName>
+							<Path>SFX\musicStage9_9EDFC787.wem</Path>
+							<PrefetchSize>7202</PrefetchSize>
+						</File>
+						<File Id="1067800072" Language="SFX">
+							<ShortName>musicBoss3.wav</ShortName>
+							<Path>SFX\musicBoss3_9EDFC787.wem</Path>
+							<PrefetchSize>4194</PrefetchSize>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{6EF93A07-B5EB-43B6-AE18-9B30C4F4E153}">
+							<Children>
+								<SwitchContainer SwitchValue="{E1A6B7F5-DB5D-43BE-90A0-49E34FDAFDDB}">
+									<Children>
+										<SwitchContainer SwitchValue="{DA472F25-BF34-43ED-971F-A56B83153EE0}">
+											<Children>
+												<SwitchContainer SwitchValue="{356514B3-C062-4247-9967-1BEEF020BEC7}">
+													<Children>
+														<SwitchContainer SwitchValue="{2B159531-4EB0-43CD-AF54-A3ECE4C698C1}">
+															<Media>
+																<File Id="1067800072"/>
+															</Media>
+														</SwitchContainer>
+													</Children>
+												</SwitchContainer>
+											</Children>
+										</SwitchContainer>
+									</Children>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{7BE463D5-0FA7-462D-A15F-BD98D0C9F8FD}">
+							<Children>
+								<SwitchContainer SwitchValue="{2A8F1DF4-F1CC-4469-9566-52A762ABEF0B}">
+									<Media>
+										<File Id="715305458"/>
+									</Media>
+								</SwitchContainer>
+							</Children>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="354587331" Name="Play_Music_System_TurboEditon" ObjectPath="\Events\Music\Play_Music_System_TurboEditon" DurationType="Infinite">
+					<ReferencedStreamedFiles>
+						<File Id="715305458" Language="SFX">
+							<ShortName>musicStage9.wav</ShortName>
+							<Path>SFX\musicStage9_9EDFC787.wem</Path>
+						</File>
+						<File Id="1067800072" Language="SFX">
+							<ShortName>musicBoss3.wav</ShortName>
+							<Path>SFX\musicBoss3_9EDFC787.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
+					<IncludedMemoryFiles>
+						<File Id="715305458" Language="SFX">
+							<ShortName>musicStage9.wav</ShortName>
+							<Path>SFX\musicStage9_9EDFC787.wem</Path>
+							<PrefetchSize>7202</PrefetchSize>
+						</File>
+						<File Id="1067800072" Language="SFX">
+							<ShortName>musicBoss3.wav</ShortName>
+							<Path>SFX\musicBoss3_9EDFC787.wem</Path>
+							<PrefetchSize>4194</PrefetchSize>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3712621630" Name="Unpause_Music" ObjectPath="\Events\Music\Unpause_Music" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="151362964" Name="playerHealth" ObjectPath="\Game Parameters\Default Work Unit\playerHealth"/>
+				<GameParameter Id="1010989040" Name="teleporterPlayerStatus" ObjectPath="\Game Parameters\Default Work Unit\teleporterPlayerStatus"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="549431000" Name="bossStatus" ObjectPath="\States\Default Work Unit\bossStatus">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\bossStatus\None"/>
+						<State Id="655265632" Name="alive" ObjectPath="\States\Default Work Unit\bossStatus\alive"/>
+						<State Id="2044049779" Name="dead" ObjectPath="\States\Default Work Unit\bossStatus\dead"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="792781730" Name="Music_system" ObjectPath="\States\Default Work Unit\Music_system">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\Music_system\None"/>
+						<State Id="89505537" Name="Gameplay" ObjectPath="\States\Default Work Unit\Music_system\Gameplay"/>
+						<State Id="580146960" Name="Bossfight" ObjectPath="\States\Default Work Unit\Music_system\Bossfight"/>
+						<State Id="778026301" Name="SecretLevel" ObjectPath="\States\Default Work Unit\Music_system\SecretLevel"/>
+						<State Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\Music_system\Menu"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="1741660947" Name="gameplaySongChoice" ObjectPath="\States\Default Work Unit\gameplaySongChoice">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\gameplaySongChoice\None"/>
+						<State Id="402164447" Name="songTurbo01" ObjectPath="\States\Default Work Unit\gameplaySongChoice\songTurbo01"/>
+						<State Id="402164444" Name="songTurbo02" ObjectPath="\States\Default Work Unit\gameplaySongChoice\songTurbo02"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="2561284575" Name="bossPhase" ObjectPath="\States\Default Work Unit\bossPhase">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\bossPhase\None"/>
+						<State Id="1057600524" Name="bossDead" ObjectPath="\States\Default Work Unit\bossPhase\bossDead"/>
+						<State Id="3630028971" Name="phase1" ObjectPath="\States\Default Work Unit\bossPhase\phase1"/>
+						<State Id="3630028968" Name="phase2" ObjectPath="\States\Default Work Unit\bossPhase\phase2"/>
+						<State Id="3630028969" Name="phase3" ObjectPath="\States\Default Work Unit\bossPhase\phase3"/>
+						<State Id="3630028974" Name="phase4" ObjectPath="\States\Default Work Unit\bossPhase\phase4"/>
+						<State Id="3630029026" Name="phaseX" ObjectPath="\States\Default Work Unit\bossPhase\phaseX"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3807720919" Name="enemyType" ObjectPath="\States\Default Work Unit\enemyType">
+					<States>
+						<State Id="748895195" Name="None" ObjectPath="\States\Default Work Unit\enemyType\None"/>
+						<State Id="1160234136" Name="normal" ObjectPath="\States\Default Work Unit\enemyType\normal"/>
+						<State Id="1464097230" Name="elite" ObjectPath="\States\Default Work Unit\enemyType\elite"/>
+						<State Id="1560169506" Name="boss" ObjectPath="\States\Default Work Unit\enemyType\boss"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

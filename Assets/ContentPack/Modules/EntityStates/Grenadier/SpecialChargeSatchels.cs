@@ -45,7 +45,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 float num2 = 0f;
                 if (startingStock > 1)
                 {
-                    num2 = UnityEngine.Random.Range(minFixedSpreadYaw + bloom, maxFixedSpreadYaw + bloom) * 2f;
+                    num2 = UnityEngine.Random.Range(minFixedSpreadYaw * 1.5f + bloom, maxFixedSpreadYaw * 1.5f + bloom) * 2f;
                     angle = num2 / (float)(startingStock - 1);
                 }
                 Vector3 direction = Quaternion.AngleAxis(-num2 * 0.5f, axis) * finalRay.direction;

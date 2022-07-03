@@ -3,7 +3,12 @@
 	<GameParameters>
 		<WorkUnit Name="Default Work Unit" ID="{9BE2ED1A-B91E-46A3-8100-F50120CCFF6A}" PersistMode="Standalone">
 			<ChildrenList>
-				<GameParameter Name="SFX_VolumeIn" ID="{F1FFE43F-F7C8-426F-993F-BBF7C32732D9}"/>
+				<GameParameter Name="Volume_SFX" ID="{F1FFE43F-F7C8-426F-993F-BBF7C32732D9}">
+					<Comment>The volume of sound effects, from 0 to 100</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
 				<Folder Name="Grenadier" ID="{B22191DA-DD48-45C9-9A30-94F05425918F}" ShortID="950519353">
 					<ChildrenList>
 						<GameParameter Name="GrenadierSpecial_ChargeAmount" ID="{AF3E558C-5154-46AB-BDEE-96532139A669}">
@@ -15,6 +20,136 @@
 						</GameParameter>
 					</ChildrenList>
 				</Folder>
+				<GameParameter Name="playerHealth" ID="{6DD73FEE-1274-4F31-91FF-3903A3A9C827}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="teleporterPlayerStatus" ID="{2B8BCF0D-1975-47E1-B5B2-854F381D8B53}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Meter_Character" ID="{62956831-200A-4548-BC0A-5D07AB0BA9B7}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Meter_UI" ID="{D7A3466D-9696-46F7-A83A-E59346C4C704}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Meter_SFX" ID="{A5457EEE-18B0-4531-80FE-B3A27DADDB55}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Volume_Master" ID="{AE69087A-E9E8-4971-AED7-9DB1055D5723}">
+					<Comment>The volume of the game master audio, from 0 to 100</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="Volume_MSX" ID="{FD535CAF-1945-448E-8187-137B24891FB5}">
+					<Comment>The music volume, from 0 to 100</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="teleporterProximity" ID="{222CC5C2-224A-4392-92CA-C98F6BD1385B}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="10000"/>
+						<Property Name="Max" Type="Real64" Value="10000"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="teleporterDirection" ID="{8D41A302-5CC0-41B0-A6D9-C16CA214AACC}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="360"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="enemyValue" ID="{1B384727-2635-4CEF-9DFA-17E6BFFA95E0}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="64"/>
+					</PropertyList>
+				</GameParameter>
+				<Folder Name="SFX_param" ID="{DF387BBF-919D-44CC-AC20-F2FEF5DC3C84}" ShortID="752673707">
+					<ChildrenList>
+						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="explosionSize" ID="{4209B276-A690-47FF-835C-6DCE739824C7}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="fallIntensity" ID="{6FB22469-2988-45F2-BD0B-3FAA360AED49}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="elevation" ID="{757D94F9-9BE2-415F-9290-9A6CAFE28B53}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="attackSpeed" ID="{23295613-FD10-4F5C-8A6D-F106FC1EFAE7}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="characterSize" ID="{71CABDF5-27B5-49C0-98F1-33ABDEE88762}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="eliteEnemy" ID="{CE0EFC42-8584-4987-A55D-F051280A3D5F}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="droneSize" ID="{E749DB23-3767-445B-9FAF-6C2399F99CB7}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="charMultSpeed" ID="{F89F9018-D6EE-47D9-AEB7-B93DBF369967}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="damageDirection" ID="{8D310096-22EA-4DCA-9391-9E4293748D8A}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="enemy_size" ID="{F4D70A98-540E-4343-8D8D-7D98C7799333}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="intensityWeather" ID="{6C42B04E-2108-4D21-9DA7-90E015C03964}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="podDistanceToGround" ID="{2F933841-74D5-4585-B0F9-FA8E01DE9834}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="1"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<GameParameter Name="EscapeTimer" ID="{1EE32629-DE9C-43A9-957E-241402E06987}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="100"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

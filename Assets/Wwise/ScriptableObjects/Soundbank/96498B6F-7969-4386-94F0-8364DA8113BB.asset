@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 345f8e6eb35db1c4fb564cfd4e2b6c6e, type: 3}
+  m_Name: 96498B6F-7969-4386-94F0-8364DA8113BB
+  m_EditorClassIdentifier: 
+  objectName: TurboMusicBank
+  id: 1664825278
+  guid: 96498B6F-7969-4386-94F0-8364DA8113BB

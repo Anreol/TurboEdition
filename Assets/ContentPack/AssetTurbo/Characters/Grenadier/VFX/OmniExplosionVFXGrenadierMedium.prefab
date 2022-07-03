@@ -16782,9 +16782,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   timeMax: 0.2
-  time: 0
-  light: {fileID: 0}
-  maxIntensity: 0
   loop: 0
   randomStart: 0
   enableNegativeLights: 0
@@ -28081,7 +28078,6 @@ MonoBehaviour:
   m_Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 0}
 --- !u!114 &8046353392873570123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28100,12 +28096,6 @@ MonoBehaviour:
   applyScale: 1
   soundName: Play_Grenadier_ExplosionM
   disregardZScale: 0
-  didResolveReferencedObject: 0
-  referencedObject: {fileID: 0}
-  didResolveReferencedChildTransform: 0
-  referencedChildTransform: {fileID: 0}
-  didResolveReferencedHurtBox: 0
-  referencedHurtBoxGameObject: {fileID: 0}
 --- !u!114 &5515385273435483636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28330,7 +28320,6 @@ MonoBehaviour:
       particleSystemOverrideMaterial: {fileID: 0}
       maximumValidRadius: Infinity
       bonusEmissionPerBonusRadius: 0
-  radius: 0
 --- !u!114 &2767909476793351181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28350,13 +28339,9 @@ MonoBehaviour:
     frequency: 8
     cycleOffset: 0
   duration: 0.25
-  radius: 10
+  radius: 5
   scaleShakeRadiusWithLocalScale: 1
   amplitudeTimeDecay: 1
-  stopwatch: Infinity
-  halfPeriodTimer: 0
-  halfPeriodVector: {x: 0, y: 0, z: 0}
-  currentOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &7326933916471780653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28371,7 +28356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   resetAgeOnDisable: 0
-  age: 0
 --- !u!1 &7453787238201736081
 GameObject:
   m_ObjectHideFlags: 0

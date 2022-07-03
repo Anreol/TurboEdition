@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{4C72CF6D-3BBA-4137-9753-0A2398B4A8AE}" SchemaVersion="97">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{4C72CF6D-3BBA-4137-9753-0A2398B4A8AE}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{4C72CF6D-3BBA-4137-9753-0A2398B4A8AE}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="gameplaySongChoice" ID="{C2AEED47-ABD7-40AE-BAA1-DD82EEF419B5}">
+					<ChildrenList>
+						<State Name="None" ID="{1C3DAC26-568B-41DB-B871-084EB8EFF109}"/>
+						<State Name="songTurbo01" ID="{2A8F1DF4-F1CC-4469-9566-52A762ABEF0B}"/>
+						<State Name="songTurbo02" ID="{E1A6B7F5-DB5D-43BE-90A0-49E34FDAFDDB}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="bossVoidRaid_fog_status" ID="{4AC4E2BD-5487-41AB-8C10-8F8451B08155}">
+					<ChildrenList>
+						<State Name="None" ID="{CEC844A2-806F-4F94-AC1E-5C29C2521E65}"/>
+						<State Name="fog_out" ID="{5FEBF187-839E-4A9F-8B44-C2A279F01F57}"/>
+						<State Name="fog_in" ID="{56F05D2D-FB1B-48BE-A51B-52DCE7976CB2}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="bossStatus" ID="{DA472F25-BF34-43ED-971F-A56B83153EE0}">
+					<ChildrenList>
+						<State Name="None" ID="{11954B2B-39ED-4167-9974-62DC5F5F24FE}"/>
+						<State Name="alive" ID="{5C729783-949A-42B9-972D-CBBA1A338FA6}"/>
+						<State Name="dead" ID="{E5291380-097A-4BD2-8D08-D89B15A83101}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Music_system" ID="{FF2B9F8A-18EB-4867-AEB4-6F57C9BE31C4}">
+					<ChildrenList>
+						<State Name="None" ID="{FF444CDC-E901-4837-A55E-EA2DC741596E}"/>
+						<State Name="Gameplay" ID="{7BE463D5-0FA7-462D-A15F-BD98D0C9F8FD}"/>
+						<State Name="Bossfight" ID="{6EF93A07-B5EB-43B6-AE18-9B30C4F4E153}"/>
+						<State Name="SecretLevel" ID="{75D88B17-154B-421F-BC83-F3059294E5F7}"/>
+						<State Name="Menu" ID="{ECC7D2FA-41E3-4D18-BAEA-4049962780C4}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Music_menu" ID="{D1739CDD-2020-46D8-830D-6F1A5E034628}">
+					<ChildrenList>
+						<State Name="None" ID="{A9E09058-C9D4-405B-B05D-A0EB4CB53CD9}"/>
+						<State Name="OpeningCutScene1" ID="{8B323731-04B4-4EE3-BFA8-3D07D4FCBE62}"/>
+						<State Name="OpeningCutscene2" ID="{5EA2D710-33AD-450F-92BF-9918B6EC2DB8}"/>
+						<State Name="Logbook" ID="{535F06FC-6A4A-4B3E-95B6-3C9AB75B5D1A}"/>
+						<State Name="OutroCutsceneFULL" ID="{3531536A-7570-487F-A39E-4A8E511F4773}"/>
+						<State Name="OutroCutsceneB" ID="{7D5D60E1-3325-45DD-BB8F-CE86F8122356}"/>
+						<State Name="OutroCutsceneA" ID="{E42509A6-20D4-4907-B7C4-11C5043F919F}"/>
+						<State Name="Main" ID="{69AE8A46-BFD5-4645-ACE5-9569A281D6CE}"/>
+						<State Name="Prismatic" ID="{3256C5F2-2AF9-479A-B047-4F3506EA40AA}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="bossPhase" ID="{2B159531-4EB0-43CD-AF54-A3ECE4C698C1}">
+					<ChildrenList>
+						<State Name="None" ID="{C0C23818-B943-431C-9925-804CF2DD106B}"/>
+						<State Name="bossDead" ID="{54E95085-C37E-45CC-908C-B589303C2383}"/>
+						<State Name="phase1" ID="{5FDDD3F4-445C-416F-B73A-017D438B8DDA}"/>
+						<State Name="phase2" ID="{685AFA20-82CF-4C58-8DD2-053914B1DDD0}"/>
+						<State Name="phase3" ID="{5FB96C90-52AD-49E4-A3E5-C16A231DD560}"/>
+						<State Name="phase4" ID="{8AFAB3BC-8AD6-4C06-A436-D92B1219A674}"/>
+						<State Name="phaseX" ID="{60817E54-E3C2-4371-815B-EC4DEC245B7C}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="TABStatus" ID="{9486C538-D120-48A6-A790-F505F09D7704}">
+					<ChildrenList>
+						<State Name="None" ID="{CE04686E-389F-47BB-8914-9A9337AE417A}"/>
+						<State Name="off" ID="{BEE83283-7060-4976-8E5C-9F2E1E024D17}"/>
+						<State Name="on" ID="{B0F8376B-FCEF-4E7F-8D05-018D2D5E7CC5}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="ghostStatus" ID="{23556EE4-3E04-4888-A6EB-5AFB4ABE1DE3}">
+					<ChildrenList>
+						<State Name="None" ID="{5591E7BF-7F22-458F-95E2-33DC6C14A530}"/>
+						<State Name="true" ID="{8F2B3D88-5F13-4895-8E7A-9F8B985B2159}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="enemyType" ID="{356514B3-C062-4247-9967-1BEEF020BEC7}">
+					<ChildrenList>
+						<State Name="None" ID="{AE559FE1-7006-48DF-A516-6070F1CD7349}"/>
+						<State Name="normal" ID="{4A629C1B-644D-41BC-8EBA-7BA25AB2BE60}"/>
+						<State Name="elite" ID="{5D8D8E2E-3465-49EE-BECB-85D8B8D7453C}"/>
+						<State Name="boss" ID="{7108EE7B-D6E2-49B4-82B5-A8A452DAAC0B}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="teleporterZone" ID="{4A1E6C18-490E-40D3-BCED-454E9DA43B4B}">
+					<ChildrenList>
+						<State Name="None" ID="{BC116CC6-616D-4772-817F-F237A377A3CC}"/>
+						<State Name="OUT" ID="{8D4D4404-A442-4C1A-A5B2-A8BAA3EABB63}"/>
+						<State Name="IN" ID="{274A2650-667D-4C3B-820B-A03B4AB38938}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>
