@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 1391837873, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: GrenadierSecondaryQuickshotAlt
   m_EditorClassIdentifier: 
-  <skillIndex>k__BackingField: 0
   skillName: GrenadierSecondaryQuickshotAlt
   skillNameToken: GRENADIER_SECONDARY_ALT_NAME
   skillDescriptionToken: GRENADIER_SECONDARY_ALT_DESCRIPTION
   keywordTokens:
   - KEYWORD_SNIPERCLASSIC_MORTAR
   icon: {fileID: 0}
-  activationStateMachineName: Weapon
+  activationStateMachineName: SideWeapon
   activationState:
-    _typeName: TurboEdition.EntityStates.Grenadier.Weapon.FireSecondaryAlt, TurboEdition,
-      Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
-  interruptPriority: 2
+    _typeName: TurboEdition.EntityStates.Grenadier.SideWeapon.FireSecondaryAlt, TurboEdition,
+      Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
+  interruptPriority: 1
   baseRechargeInterval: 8
   baseMaxStock: 1
   rechargeStock: 1

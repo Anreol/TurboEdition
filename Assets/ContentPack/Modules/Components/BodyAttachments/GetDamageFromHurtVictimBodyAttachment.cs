@@ -10,13 +10,11 @@ namespace TurboEdition.Components
     [RequireComponent(typeof(NetworkedBodyAttachment))]
     public class GetDamageFromHurtVictimBodyAttachment : NetworkBehaviour, INetworkedBodyAttachmentListener
     {
-        [HideInInspector]
-        public NetworkedBodyAttachment nba;
+        internal NetworkedBodyAttachment nba;
 
-        private GetDamageFromHurtVictim.ServerListener serverListener;
-        private GetDamageFromHurtVictim.GetDamageFromHurtVictimBehavior clientAuthorityBehavior;
+        private GetDamageFromHurtVictimBodyBehavior.ServerListener serverListener;
 
-        public int stack;
+        internal int stack;
 
         [SyncVar]
         public float currentDamage;
@@ -30,15 +28,21 @@ namespace TurboEdition.Components
         {
             if (NetworkServer.active)
             {
-                this.serverListener = attachedBody.gameObject.AddComponent<GetDamageFromHurtVictim.ServerListener>();
+                this.serverListener = attachedBody.gameObject.AddComponent<GetDamageFromHurtVictimBodyBehavior.ServerListener>();
                 this.serverListener.attachment = this;
             }
             if (attachedBody.hasEffectiveAuthority)
             {
-                attachedBody.GetComponent<GetDamageFromHurtVictim.GetDamageFromHurtVictimBehavior>().getDamageFromHurtVictimBodyAttachment = this; ;
+                attachedBody.GetComponent<GetDamageFromHurtVictimBodyBehavior>().getDamageFromHurtVictimBodyAttachment = this;
             }
         }
-
+        public void OnDestroy()
+        {
+            if (NetworkServer.active && serverListener)
+            {
+                Object.Destroy(serverListener);
+            }
+        }
         public void RecalculateStatsEnd()
         {
             nba.attachedBody.damage += currentDamage;
@@ -53,10 +57,10 @@ namespace TurboEdition.Components
                 maxData = (50 + ((stack - 1) * 25)),
                 currentData = currentDamage,
                 offData = "TOOLTIP_ITEM_NOBUFF_DESCRIPTION",
-                sprite = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).pickupIconSprite,
+                sprite = TEContent.Items.SoulDevourer.pickupIconSprite,
                 tooltipContent = new RoR2.UI.TooltipContent
                 {
-                    titleColor = ColorCatalog.GetColor(ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).darkColorIndex),
+                    titleColor = ColorCatalog.GetColor(TEContent.Items.SoulDevourer.darkColorIndex),
                     titleToken = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).nameToken,
                     bodyToken = "TOOLTIP_ITEM_SOULDEVOURER_DESCRIPTION",
                     overrideBodyText = Language.GetString(overString),

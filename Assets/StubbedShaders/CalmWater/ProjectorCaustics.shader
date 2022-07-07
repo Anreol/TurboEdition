@@ -1,4 +1,4 @@
-Shader "StubbedCalm Water/Shaders/ProjectorCaustics" {
+Shader "StubbedCalm Water/ProjectorCaustics" {
 	Properties {
 		_Color ("Main Color", Vector) = (1,1,1,1)
 		_CausticTex ("Cookie", 2D) = "" {}

@@ -15,6 +15,9 @@ namespace TurboEdition.ScriptableObjects
         [Tooltip("Description Token used whenever the user has its extra stocks full.")]
         public string holdingFullStocksDescriptionToken;
 
+        [Tooltip("Wwise sound event string to play when a stock is gained.")]
+        public string stockGainedSoundEffectString;
+
         public override SkillDef.BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
         {
             return new GrenadierSpecialSkillDef.InstanceData(maxExtraStocksFromReloading);
@@ -40,7 +43,7 @@ namespace TurboEdition.ScriptableObjects
         {
             base.OnFixedUpdate(skillSlot);
             GrenadierSpecialSkillDef.InstanceData instanceData = (GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData;
-            instanceData.FixedUpdate(skillSlot);
+            instanceData.FixedUpdate(skillSlot, stockGainedSoundEffectString);
         }
 
         public override void OnExecute([NotNull] GenericSkill skillSlot)
@@ -50,7 +53,7 @@ namespace TurboEdition.ScriptableObjects
             {
                 skillSlot.characterBody.isSprinting = false;
             }
-            skillSlot.stock -= this.stockToConsume;
+            //skillSlot.stock -= this.stockToConsume; commented out, controlled in OnTrueExecute
             if (this.resetCooldownTimerOnUse)
             {
                 skillSlot.rechargeStopwatch = 0f;
@@ -81,20 +84,20 @@ namespace TurboEdition.ScriptableObjects
             public int maxSkillStockExtra;
 
             /// <summary>
-            /// Updated on stock deducted
+            /// Updated on stock deducted, amount of extra stocks that the player currently has
             /// </summary>
             public int skillStocksExtra;
 
             /// <summary>
             /// Automatically updated, keeps the stocks of the running skill from the previous update cycle saved.
             /// </summary>
-            public int skillStocks;
+            public int previousSkillStocks;
 
             public InstanceData(int maxStockFromReloading)
             {
                 maxSkillStockExtra = maxStockFromReloading;
                 skillStocksExtra = 0;
-                skillStocks = 0;
+                previousSkillStocks = 0;
             }
 
             public void Dispose()
@@ -102,23 +105,23 @@ namespace TurboEdition.ScriptableObjects
                 hasFullyUnloadedPrimary = false;
                 maxSkillStockExtra = 0;
                 skillStocksExtra = 0;
-                skillStocks = 0;
+                previousSkillStocks = 0;
             }
 
-            public void FixedUpdate(GenericSkill runningGS)
+            public void FixedUpdate(GenericSkill runningGS, string sfxToPlayOnExtraStockGained)
             {
-                if (runningGS.stock < skillStocks /*&& runningGS.stock > 0*/) //Compare with values of last loop, if passes, it means it lost a stock or more since last updated
-                {
-                    if (skillStocks > runningGS.skillDef.baseMaxStock) //Lost additional stocks...?
-                    {
-                        skillStocksExtra -= Mathf.Max(skillStocks - runningGS.skillDef.baseMaxStock, 0); //Remove amount of additional stocks we have lost in this update
-                        runningGS.RecalculateValues(); //Refresh to remove lost stock
-                    }
-       
-                    if (runningGS.characterBody)
-                        runningGS.characterBody.OnSkillActivated(runningGS);
-                }
-                skillStocks = runningGS.stock; //Update with values of this last loop.
+                //if (runningGS.stock < previousSkillStocks /*&& runningGS.stock > 0*/) //Compare with values of last loop, if passes, it means it lost a stock or more since last updated
+                //{
+                //    if (previousSkillStocks > runningGS.skillDef.baseMaxStock) //Lost additional stocks...?
+                //    {
+                //        skillStocksExtra -= Mathf.Max(previousSkillStocks - runningGS.skillDef.baseMaxStock, 0); //Remove amount of additional stocks we have lost in this update
+                //        runningGS.RecalculateValues(); //Refresh to remove lost stock
+                //    }
+
+                //    if (runningGS.characterBody)
+                //        runningGS.characterBody.OnSkillActivated(runningGS);
+                //}
+                previousSkillStocks = runningGS.stock; //Update with values of this last loop.
 
                 if (runningGS.characterBody.skillLocator.primary.stock == 0)
                     hasFullyUnloadedPrimary = true;
@@ -133,7 +136,7 @@ namespace TurboEdition.ScriptableObjects
                         if (runningGS.CanApplyAmmoPack()) //Refund new stock
                         {
                             runningGS.ApplyAmmoPack();
-                            Util.PlaySound("Play_Grenadier_Special_GainExtraCharge", runningGS.gameObject);
+                            Util.PlaySound(sfxToPlayOnExtraStockGained, runningGS.gameObject);
                         }
                     }
                 }

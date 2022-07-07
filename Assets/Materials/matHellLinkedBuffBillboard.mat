@@ -167,7 +167,7 @@ Material:
     - _ForceSpecOn: 0
     - _FresnelBoost: 1
     - _FresnelOn: 0
-    - _FresnelPower: 1
+    - _FresnelPower: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

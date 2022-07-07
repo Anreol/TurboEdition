@@ -140,8 +140,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0.158
-    - _AlphaBoost: 1.8
+    - _AlphaBias: 0
+    - _AlphaBoost: 1
     - _AtmosphereStrength: 1
     - _BinaryBlendOn: 1
     - _Boost: 1
@@ -182,7 +182,7 @@ Material:
     - _FarFadeZeroDistance: 250000
     - _ForceSpecOn: 0
     - _FresnelOn: 0
-    - _FresnelPower: 3.2
+    - _FresnelPower: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

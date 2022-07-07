@@ -7,6 +7,7 @@ namespace TurboEdition.ScriptableObjects
     [CreateAssetMenu(menuName = "TurboEdition/MusicTrackSafeDef")]
     public class MusicTrackSafeDef : MusicTrackDef
     {
+        public static uint playMusicSystemID;
         public override void Preload()
         {
             AK.Wwise.Bank bank = this.soundBank;
@@ -17,7 +18,10 @@ namespace TurboEdition.ScriptableObjects
             }
 
             bank.Load(false, false);
-            uint id = AkSoundEngine.PostEvent("Play_Music_System_TurboEditon", TurboUnityPlugin.instance.gameObject);
+            //if (playMusicSystemID == 0U)
+            {
+                playMusicSystemID = AkSoundEngine.PostEvent("Play_Music_System_TurboEditon", TurboUnityPlugin.instance.gameObject); //MUST be done, else the music won't play
+            }
             //TELog.LogI($"Got a PostEvent id of {id} after trying to play Play_Music_System_TurboEditon {this.cachedName}", true);
         }
 

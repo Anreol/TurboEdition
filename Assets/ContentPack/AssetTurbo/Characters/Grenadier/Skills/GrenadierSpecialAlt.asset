@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a958c722193d47443a969c2ad392f330, type: 3}
   m_Name: GrenadierSpecialAlt
   m_EditorClassIdentifier: 
-  <skillIndex>k__BackingField: 0
   skillName: GrenadierSpecialAlt
   skillNameToken: GRENADIER_SPECIAL_ALT_NAME
   skillDescriptionToken: GRENADIER_SPECIAL_ALT_DESCRIPTION
@@ -28,7 +27,7 @@ MonoBehaviour:
   baseMaxStock: 3
   rechargeStock: 1
   requiredStock: 1
-  stockToConsume: 0
+  stockToConsume: 1
   resetCooldownTimerOnUse: 0
   fullRestockOnAssign: 1
   dontAllowPastMaxStocks: 0
@@ -40,3 +39,4 @@ MonoBehaviour:
   mustKeyPress: 1
   maxExtraStocksFromReloading: 5
   holdingFullStocksDescriptionToken: GRENADIER_SPECIAL_ALT_FULL_DESCRIPTION
+  stockGainedSoundEffectString: Play_Grenadier_Special_GainExtraCharge

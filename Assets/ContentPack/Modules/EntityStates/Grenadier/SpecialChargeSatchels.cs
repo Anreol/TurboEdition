@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TurboEdition.ScriptableObjects;
+using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
@@ -45,7 +46,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 float num2 = 0f;
                 if (startingStock > 1)
                 {
-                    num2 = UnityEngine.Random.Range(minFixedSpreadYaw * 1.5f + bloom, maxFixedSpreadYaw * 1.5f + bloom) * 2f;
+                    num2 = UnityEngine.Random.Range(minFixedSpreadYaw + bloom * 2f, maxFixedSpreadYaw + bloom * 2f) * 2f;
                     angle = num2 / (float)(startingStock - 1);
                 }
                 Vector3 direction = Quaternion.AngleAxis(-num2 * 0.5f, axis) * finalRay.direction;
@@ -54,6 +55,14 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 for (int i = 0; i < startingStock; i++)
                 {
                     base.FireProjectileOnce(aimRay2);
+                    
+                    GrenadierSpecialSkillDef.InstanceData instanceData = (GrenadierSpecialSkillDef.InstanceData)activatorSkillSlot.skillInstanceData;
+                    if (instanceData != null && instanceData.skillStocksExtra > 0)
+                    {
+                        instanceData.skillStocksExtra -= activatorSkillSlot.skillDef.stockToConsume;
+                        activatorSkillSlot.RecalculateValues();
+                    }
+                    activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
                     aimRay2.direction = rotation * aimRay2.direction;
                 }
             }

@@ -1,4 +1,4 @@
-Shader "StubbedCalm Water/Shaders/CalmWater - DX11" {
+Shader "StubbedCalm Water/CalmWater - DX11" {
 	Properties {
 		_Color ("Shallow Color", Vector) = (1,1,1,1)
 		_DepthColor ("Depth Color", Vector) = (0,0,0,0)

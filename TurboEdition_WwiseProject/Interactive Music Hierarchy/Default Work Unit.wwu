@@ -104,7 +104,7 @@
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>25</YPos>
+														<YPos>15</YPos>
 														<Flags>5</Flags>
 														<SegmentShape>Exp1</SegmentShape>
 													</Point>
@@ -144,7 +144,7 @@
 													</Point>
 													<Point>
 														<XPos>25</XPos>
-														<YPos>-0</YPos>
+														<YPos>0</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
@@ -187,7 +187,7 @@
 												<Property Name="EndPosition" Type="Real64" Value="467652.994642871"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-2</Value>
+														<Value>-5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -261,7 +261,7 @@
 												<MusicCue Name="Exit Cue" ID="{1B462254-3BAD-4303-9DA8-BBF3008EC1D6}">
 													<PropertyList>
 														<Property Name="CueType" Type="int16" Value="1"/>
-														<Property Name="TimeMs" Type="Real64" Value="400087.074829932"/>
+														<Property Name="TimeMs" Type="Real64" Value="370818.996253644"/>
 													</PropertyList>
 												</MusicCue>
 												<MusicCue Name="" ID="{E1D954AD-5692-461B-A3E0-BBDE7555EF2D}">
@@ -353,7 +353,7 @@
 												<PointList>
 													<Point>
 														<XPos>0</XPos>
-														<YPos>25</YPos>
+														<YPos>15</YPos>
 														<Flags>5</Flags>
 														<SegmentShape>Exp1</SegmentShape>
 													</Point>
@@ -393,7 +393,7 @@
 													</Point>
 													<Point>
 														<XPos>25</XPos>
-														<YPos>-0</YPos>
+														<YPos>0</YPos>
 														<Flags>0</Flags>
 													</Point>
 													<Point>
@@ -465,7 +465,7 @@
 												<Property Name="EndPosition" Type="Real64" Value="149832.088575525"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-2</Value>
+														<Value>-5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -540,7 +540,7 @@
 												<MusicCue Name="Exit Cue" ID="{F5C6BCA5-A344-4E34-B4EA-68E9586992EE}">
 													<PropertyList>
 														<Property Name="CueType" Type="int16" Value="1"/>
-														<Property Name="TimeMs" Type="Real64" Value="142815.782312925"/>
+														<Property Name="TimeMs" Type="Real64" Value="139895.402715938"/>
 													</PropertyList>
 												</MusicCue>
 											</CueList>
@@ -618,6 +618,37 @@
 							</PropertyList>
 							<ChildrenList>
 								<MusicTransition Name="Transition" ID="{0ACE385B-6E22-4571-BEAD-ED7CF842B7E8}">
+									<TransitionInfo/>
+								</MusicTransition>
+								<MusicTransition Name="FromGameplay" ID="{B68E2ACC-1EE1-4A4F-86E7-904978A8851E}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{85D27EC7-4795-409B-A3D3-6D2F32ADEE3E}">
+											<PropertyList>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="GameplaySongChoice" ID="{C824D313-6A49-45AD-8AA0-9781FA045EC2}" WorkUnitID="{BDD272D9-F34C-4EB8-8382-0E27E51D5E51}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{E4FA7828-67DC-4620-8682-2AED1D48CA14}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="6"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+											</TransitionInfo>
+										</MusicTransition>
+									</ChildrenList>
 									<TransitionInfo/>
 								</MusicTransition>
 							</ChildrenList>

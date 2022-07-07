@@ -56,7 +56,6 @@ MonoBehaviour:
   - {fileID: 3064895786582864499}
   - {fileID: 7778795071675409756}
   visualState: 0
-  previousVisualState: 0
   healthComponent: {fileID: 0}
 --- !u!114 &3064895786582864499
 MonoBehaviour:
@@ -72,7 +71,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1
   resetAgeOnDisable: 0
-  age: 0
 --- !u!114 &7778795071675409756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,8 +1615,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: a7b35551a4c686c46a84287aec2ce509, type: 3}
-    - sprite: {fileID: 21300002, guid: a7b35551a4c686c46a84287aec2ce509, type: 3}
+    - sprite: {fileID: -5222560712978760000, guid: a7b35551a4c686c46a84287aec2ce509,
+        type: 3}
+    - sprite: {fileID: 658850014915335954, guid: a7b35551a4c686c46a84287aec2ce509,
+        type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

@@ -27,8 +27,9 @@ namespace TurboEdition.Items
 
             private Run.FixedTimeStamp enabledTime;
 
-            private float radiusIncreaseUnique = 8f;
-            private float radiusIncreaseExtra = 4f;
+            private const float radiusIncreaseUniqueNonTp = 4f;
+            private const float radiusIncreaseUnique = 16f;
+            private const float radiusIncreaseExtra = 8f;
 
             private float startupDelay = 3f;
             private float rampUpTime = 5f;
@@ -42,10 +43,12 @@ namespace TurboEdition.Items
             private int itemCount;
             private int uniqueItemCount;
 
+            private bool isTeleporter;
             private void Awake()
             {
                 this.holdoutZoneController = base.GetComponent<HoldoutZoneController>();
                 newMaterialColor = this.holdoutZoneController.baseIndicatorColor;
+                isTeleporter = base.GetComponent<TeleporterInteraction>();
             }
 
             private void OnEnable()
@@ -65,6 +68,11 @@ namespace TurboEdition.Items
             {
                 if (this.enabledTime.timeSince > startupDelay)
                 {
+                    if (!isTeleporter)
+                    {
+                        radius += (uniqueItemCount * radiusIncreaseUniqueNonTp);
+                        return;
+                    }
                     radius += (uniqueItemCount * radiusIncreaseUnique) + ((itemCount - uniqueItemCount) * radiusIncreaseExtra);
                 }
             }

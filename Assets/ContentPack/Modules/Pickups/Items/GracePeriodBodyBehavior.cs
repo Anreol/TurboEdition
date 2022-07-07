@@ -55,7 +55,6 @@ namespace TurboEdition.Items
 
         public void FixedUpdate()
         {
-            buffer.Clear();
             foreach (GraceBufferHit item in hitList)
             {
                 item.duration -= Time.fixedDeltaTime; //TODO: look into this not breaking if game's paused

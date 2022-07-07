@@ -47,6 +47,13 @@ namespace TurboEdition.Artifacts
 
             Stage.onServerStageComplete -= onServerStageCompleted;
             Stage.onServerStageBegin -= onServerStageBegin;
+
+            if (directorInstance)
+            {
+                directorInstance.GetComponent<CombatDirector>().enabled = false;
+                UnityEngine.Object.Destroy(directorInstance);
+                NetworkServer.Destroy(directorInstance);
+            }
         }
 
         private static void RunArtifactManager_onArtifactEnabledGlobal([JetBrains.Annotations.NotNull] RunArtifactManager runArtifactManager, [JetBrains.Annotations.NotNull] ArtifactDef artifactDef)
@@ -210,14 +217,17 @@ namespace TurboEdition.Artifacts
             if (!combatDirector)
                 return; //as we do not have the neccesary stuff for the calculations.
 
-            DeathRewards component2 = characterBody.GetComponent<DeathRewards>();
-            if (component2)
+            DeathRewards dr = characterBody.GetComponent<DeathRewards>();
+            if (dr)
             {
                 //Hopefully the current monster cost is still on the wave as this spawn. Should be as this is almost instantaneous right after spawning, while changing monster cards do have delay.
                 int monsterCostThatMayOrMayNotBeElite = (int)(combatDirector.currentMonsterCard.cost * eliteTierDef.costMultiplier);
-                component2.spawnValue -= (int)Mathf.Max(1f, (float)monsterCostThatMayOrMayNotBeElite * combatDirector.expRewardCoefficient);
-                component2.expReward -= (uint)((float)monsterCostThatMayOrMayNotBeElite * combatDirector.expRewardCoefficient * Run.instance.compensatedDifficultyCoefficient);
-                component2.goldReward -= (uint)((float)monsterCostThatMayOrMayNotBeElite * combatDirector.expRewardCoefficient * 2f * Run.instance.compensatedDifficultyCoefficient);
+                int futureExpReward = (int)(dr.expReward - (monsterCostThatMayOrMayNotBeElite * combatDirector.expRewardCoefficient * Run.instance.compensatedDifficultyCoefficient));
+                int futureGoldReward = (int)(dr.goldReward - (monsterCostThatMayOrMayNotBeElite * combatDirector.expRewardCoefficient * 2f * Run.instance.compensatedDifficultyCoefficient));
+
+                dr.spawnValue -= (int)Mathf.Max(1f, monsterCostThatMayOrMayNotBeElite * combatDirector.expRewardCoefficient);
+                dr.expReward = futureExpReward < 0 ? dr.expReward : (uint)futureExpReward;
+                dr.goldReward = futureGoldReward < 0 ? dr.goldReward : (uint)futureGoldReward;
             }
 
             //Refund spent credits

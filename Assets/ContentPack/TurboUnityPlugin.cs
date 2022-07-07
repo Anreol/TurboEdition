@@ -81,12 +81,12 @@ namespace TurboEdition
             }
         }
 
-        private void onFixedUpdate()
+        /*private void onFixedUpdate()
         {
             if (Input.GetKeyDown(KeyCode.F3))
             {
                 UnityEngine.AddressableAssets.Addressables.LoadSceneAsync("RoR2/Dev/renderitem/renderitem.unity", UnityEngine.SceneManagement.LoadSceneMode.Single);
             }
-        }
+        }*/
     }
 }

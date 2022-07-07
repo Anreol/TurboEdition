@@ -3,7 +3,7 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}" PersistMode="Standalone">
 			<ChildrenList>
-				<ActorMixer Name="MASTER-MIXER" ID="{212BB100-3FA1-4FAC-90A7-D1695D67035E}" ShortID="755781216">
+				<ActorMixer Name="MasterAudioMixer" ID="{212BB100-3FA1-4FAC-90A7-D1695D67035E}" ShortID="755781216">
 					<PropertyList>
 						<Property Name="3DSpatialization" Type="int16" Value="1"/>
 					</PropertyList>
@@ -19,7 +19,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<ActorMixer Name="SFX-MIXER" ID="{F9F133F9-6C5C-4B79-A663-E31DEA560E9F}" ShortID="786650031">
+						<ActorMixer Name="SFX_Mixer" ID="{F9F133F9-6C5C-4B79-A663-E31DEA560E9F}" ShortID="786650031">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="1"/>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
@@ -776,217 +776,6 @@
 										</Sound>
 									</ChildrenList>
 								</Folder>
-								<Folder Name="Items" ID="{C62C6960-231A-48AE-9FDA-870ADA0394AD}" ShortID="993514425">
-									<PropertyList>
-										<Property Name="Color" Type="int16" Value="2"/>
-										<Property Name="OverrideColor" Type="bool" Value="True"/>
-									</PropertyList>
-									<ChildrenList>
-										<RandomSequenceContainer Name="Item_Proc_ItemDeployer" ID="{FE4A7D71-ADE5-4B82-AC8D-96B4EA3DC644}" ShortID="100158618">
-											<PropertyList>
-												<Property Name="OverrideOutput" Type="bool" Value="True"/>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{D1FC65CD-A961-4C32-9B18-B13DDD2C716D}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="50"/>
-																	<Property Name="Min" Type="Real64" Value="-50"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>5</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<Sound Name="Item_Proc_ItemDeployer1" ID="{9F434C51-0EF2-4BEB-B602-47E685FC9F13}" ShortID="705470300">
-													<PropertyList>
-														<Property Name="3DSpatialization" Type="int16" Value="1"/>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Attenuation">
-															<ObjectRef Name="200_Meters" ID="{C2DBE14D-647F-4E79-9BBA-6C4DABC82509}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
-														</Reference>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis" ID="{B7E90D9F-71BC-4A46-83DE-B624556C7E89}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Item_Proc_ItemDeployer1" ID="{7926DBC2-30FD-4EA4-8601-BEFC6630B5B0}">
-															<PropertyList>
-																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
-																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
-																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
-																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>Item_Proc_ItemDeployer1.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="325557564"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Item_Proc_ItemDeployer1" ID="{7926DBC2-30FD-4EA4-8601-BEFC6630B5B0}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-												<Sound Name="Item_Proc_ItemDeployer2" ID="{46B4E010-AB69-44AD-B39E-606CD9E470CC}" ShortID="656306966">
-													<PropertyList>
-														<Property Name="3DSpatialization" Type="int16" Value="1"/>
-														<Property Name="Pitch" Type="int32">
-															<ModifierList>
-																<ModifierInfo>
-																	<Modifier Name="" ID="{9FAB31EC-0D95-4295-A157-16A064169A6E}">
-																		<PropertyList>
-																			<Property Name="Max" Type="Real64" Value="20"/>
-																			<Property Name="Min" Type="Real64" Value="-20"/>
-																		</PropertyList>
-																	</Modifier>
-																</ModifierInfo>
-															</ModifierList>
-														</Property>
-													</PropertyList>
-													<ReferenceList>
-														<Reference Name="Attenuation">
-															<ObjectRef Name="200_Meters" ID="{C2DBE14D-647F-4E79-9BBA-6C4DABC82509}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
-														</Reference>
-														<Reference Name="Conversion">
-															<ObjectRef Name="Vorbis" ID="{B7E90D9F-71BC-4A46-83DE-B624556C7E89}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
-														</Reference>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Item_Proc_ItemDeployer2" ID="{72FB7F65-7C43-4124-9852-77E5833FFAE5}">
-															<PropertyList>
-																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
-																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
-																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
-																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
-															</PropertyList>
-															<Language>SFX</Language>
-															<AudioFile>Item_Proc_ItemDeployer2.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="778002739"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<ActiveSourceList>
-														<ActiveSource Name="Item_Proc_ItemDeployer2" ID="{72FB7F65-7C43-4124-9852-77E5833FFAE5}" Platform="Linked"/>
-													</ActiveSourceList>
-												</Sound>
-											</ChildrenList>
-										</RandomSequenceContainer>
-										<Sound Name="Item_Proc_PackMagnet_Grab" ID="{D6979843-FAE3-4DBE-9EB6-496A391596FE}" ShortID="356326859">
-											<PropertyList>
-												<Property Name="OverrideOutput" Type="bool" Value="True"/>
-												<Property Name="Pitch" Type="int32">
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{7A2FF4D0-EBF1-4599-9014-CB861DEB1170}">
-																<PropertyList>
-																	<Property Name="Enabled" Type="bool" Value="True"/>
-																	<Property Name="Max" Type="Real64" Value="50"/>
-																	<Property Name="Min" Type="Real64" Value="-50"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-3</Value>
-													</ValueList>
-													<ModifierList>
-														<ModifierInfo>
-															<Modifier Name="" ID="{16DDA0B3-C6B9-4C40-9BC6-17C176AA0F4F}">
-																<PropertyList>
-																	<Property Name="Min" Type="Real64" Value="-3"/>
-																</PropertyList>
-															</Modifier>
-														</ModifierInfo>
-													</ModifierList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="actors_samus_magnet_saminit_05" ID="{98F8A760-C707-4D1F-BDDD-0E613630A449}">
-													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
-														<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
-														<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
-														<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>actors_samus_magnet_saminit_05.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="659094007"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="actors_samus_magnet_saminit_05" ID="{98F8A760-C707-4D1F-BDDD-0E613630A449}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Item_Proc_PackMagnet_Duplicate" ID="{63009606-5BD2-4E88-AE19-0410DA3B2FC8}" ShortID="54535841">
-											<PropertyList>
-												<Property Name="OverrideOutput" Type="bool" Value="True"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="actors_samus_magnet_saminit_04" ID="{04D96C5D-BC29-4F4C-ACF9-A515146A75D6}">
-													<PropertyList>
-														<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
-														<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
-														<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
-														<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
-													</PropertyList>
-													<Language>SFX</Language>
-													<AudioFile>actors_samus_magnet_saminit_04.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="856589483"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="actors_samus_magnet_saminit_04" ID="{04D96C5D-BC29-4F4C-ACF9-A515146A75D6}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-									</ChildrenList>
-								</Folder>
 								<Folder Name="Equipment" ID="{E46AE747-EF15-4492-B7A9-0EAE6706497F}" ShortID="821803802">
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="8"/>
@@ -996,6 +785,7 @@
 										<Sound Name="LeaveStageError" ID="{0CC23CEE-A6A0-4467-B627-08C886E48677}" ShortID="726663238">
 											<PropertyList>
 												<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
 												<Property Name="Pitch" Type="int32">
 													<ValueList>
 														<Value>-100</Value>
@@ -1013,6 +803,9 @@
 												</Property>
 											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="50_Meters" ID="{1EC52D9B-EBBC-4ED2-9336-1A66986E331C}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
 												</Reference>
@@ -1078,6 +871,270 @@
 										</Sound>
 									</ChildrenList>
 								</Folder>
+								<ActorMixer Name="ItemMixer" ID="{DCDF0893-C727-40D1-8CE2-D189A8BBC38A}" ShortID="778729051">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="1"/>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="200_Meters" ID="{C2DBE14D-647F-4E79-9BBA-6C4DABC82509}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Vorbis" ID="{B7E90D9F-71BC-4A46-83DE-B624556C7E89}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Folder Name="Items" ID="{C62C6960-231A-48AE-9FDA-870ADA0394AD}" ShortID="993514425">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="2"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<RandomSequenceContainer Name="Item_Proc_ItemDeployer" ID="{FE4A7D71-ADE5-4B82-AC8D-96B4EA3DC644}" ShortID="100158618">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{D1FC65CD-A961-4C32-9B18-B13DDD2C716D}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="50"/>
+																			<Property Name="Min" Type="Real64" Value="-50"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>5</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="Item_Proc_ItemDeployer1" ID="{9F434C51-0EF2-4BEB-B602-47E685FC9F13}" ShortID="705470300">
+															<PropertyList>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="200_Meters" ID="{C2DBE14D-647F-4E79-9BBA-6C4DABC82509}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis" ID="{B7E90D9F-71BC-4A46-83DE-B624556C7E89}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Item_Proc_ItemDeployer1" ID="{7926DBC2-30FD-4EA4-8601-BEFC6630B5B0}">
+																	<PropertyList>
+																		<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																		<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																		<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																		<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>Item_Proc_ItemDeployer1.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="325557564"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Item_Proc_ItemDeployer1" ID="{7926DBC2-30FD-4EA4-8601-BEFC6630B5B0}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="Item_Proc_ItemDeployer2" ID="{46B4E010-AB69-44AD-B39E-606CD9E470CC}" ShortID="656306966">
+															<PropertyList>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="Pitch" Type="int32">
+																	<ModifierList>
+																		<ModifierInfo>
+																			<Modifier Name="" ID="{9FAB31EC-0D95-4295-A157-16A064169A6E}">
+																				<PropertyList>
+																					<Property Name="Max" Type="Real64" Value="20"/>
+																					<Property Name="Min" Type="Real64" Value="-20"/>
+																				</PropertyList>
+																			</Modifier>
+																		</ModifierInfo>
+																	</ModifierList>
+																</Property>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="200_Meters" ID="{C2DBE14D-647F-4E79-9BBA-6C4DABC82509}" WorkUnitID="{E412DBCB-7DC6-46BF-A01A-1271405D8E83}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Vorbis" ID="{B7E90D9F-71BC-4A46-83DE-B624556C7E89}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="Item_Proc_ItemDeployer2" ID="{72FB7F65-7C43-4124-9852-77E5833FFAE5}">
+																	<PropertyList>
+																		<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																		<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																		<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																		<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+																	</PropertyList>
+																	<Language>SFX</Language>
+																	<AudioFile>Item_Proc_ItemDeployer2.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="778002739"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="Item_Proc_ItemDeployer2" ID="{72FB7F65-7C43-4124-9852-77E5833FFAE5}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<Sound Name="Item_Proc_PackMagnet_Grab" ID="{D6979843-FAE3-4DBE-9EB6-496A391596FE}" ShortID="356326859">
+													<PropertyList>
+														<Property Name="OverrideOutput" Type="bool" Value="True"/>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{7A2FF4D0-EBF1-4599-9014-CB861DEB1170}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="50"/>
+																			<Property Name="Min" Type="Real64" Value="-50"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-3</Value>
+															</ValueList>
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{16DDA0B3-C6B9-4C40-9BC6-17C176AA0F4F}">
+																		<PropertyList>
+																			<Property Name="Min" Type="Real64" Value="-3"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="actors_samus_magnet_saminit_05" ID="{98F8A760-C707-4D1F-BDDD-0E613630A449}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>actors_samus_magnet_saminit_05.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="659094007"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="actors_samus_magnet_saminit_05" ID="{98F8A760-C707-4D1F-BDDD-0E613630A449}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Item_Proc_PackMagnet_Duplicate" ID="{63009606-5BD2-4E88-AE19-0410DA3B2FC8}" ShortID="54535841">
+													<PropertyList>
+														<Property Name="OverrideOutput" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="actors_samus_magnet_saminit_04" ID="{04D96C5D-BC29-4F4C-ACF9-A515146A75D6}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>actors_samus_magnet_saminit_04.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="856589483"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="actors_samus_magnet_saminit_04" ID="{04D96C5D-BC29-4F4C-ACF9-A515146A75D6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Item_Proc_DropletDupe_Clone" ID="{AF165A87-F66F-4B7E-B5F9-AFA143845D8D}" ShortID="1023481117">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="00325_streaming" ID="{5E6CEA5C-9026-4ACC-952A-F1794DB039C5}">
+															<PropertyList>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.3314921875"/>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="1.58026412671234"/>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>24</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>00325_streaming.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="55014961"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="00325_streaming" ID="{5E6CEA5C-9026-4ACC-952A-F1794DB039C5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</Folder>
+									</ChildrenList>
+								</ActorMixer>
 							</ChildrenList>
 						</ActorMixer>
 					</ChildrenList>

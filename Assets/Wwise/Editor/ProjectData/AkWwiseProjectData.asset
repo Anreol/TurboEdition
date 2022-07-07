@@ -209,7 +209,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: ff69bd0cb0472246bf85651c36cdcb1d
     GuidInternal: 
-    m_lastTime: -8585448020869356134
+    m_lastTime: -8585447332423062256
     List:
     - name: TurboBank
       guid: 17de7e2c48388444a1e209fca9afe8f3
@@ -237,8 +237,32 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: f9aeee3adff9124fa97c10655bacd25f
     GuidInternal: 
-    m_lastTime: -8585448289212686306
+    m_lastTime: -8585444203181117176
     List:
+    - name: Ambience
+      guid: 99a9833588cef848951ae7302d9080f3
+      id: 85412153
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 4
+      Path: Default Work Unit\Ambience
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Characters
+      guid: 00ec8139601ff34eae128899c58116eb
+      id: 1557941045
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
+      Path: Default Work Unit\Characters
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Equipment
       guid: a52016adc750bc4e9dddd5a5e47c93f3
       id: 3211449947
@@ -257,9 +281,11 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
-      Path: Default Work Unit\Grenadier
+      Path: Default Work Unit\Characters\Grenadier
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -272,6 +298,20 @@ MonoBehaviour:
       - ElementName: Items
         ObjectType: 4
       Path: Default Work Unit\Items
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_AMB_zone_dark_rain
+      guid: e47a0c79bd099d408fd90b7114bee841
+      id: 938309267
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 4
+      - ElementName: Play_AMB_zone_dark_rain
+        ObjectType: 3
+      Path: Default Work Unit\Ambience\Play_AMB_zone_dark_rain
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -295,11 +335,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_ExplosionM
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_ExplosionM
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_ExplosionM
       maxAttenuation: 200
       maxDuration: 0.815207
       minDuration: 0.769453
@@ -309,11 +351,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_ExplosionS
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_ExplosionS
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_ExplosionS
       maxAttenuation: 200
       maxDuration: 0.623157
       minDuration: 0.588182
@@ -323,11 +367,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Landing
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Landing
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Landing
       maxAttenuation: 200
       maxDuration: 0.454618
       minDuration: 0.280079
@@ -337,11 +383,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Primary_Fire
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Primary_Fire
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Fire
       maxAttenuation: 200
       maxDuration: 0.604913
       minDuration: 0.561764
@@ -351,11 +399,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Primary_Warn
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Primary_Warn
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Warn
       maxAttenuation: 50
       maxDuration: 0.247033
       minDuration: 0.233168
@@ -365,11 +415,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Reload
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Reload
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Reload
       maxAttenuation: 200
       maxDuration: 0.629552
       minDuration: 0.560867
@@ -379,11 +431,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Secondary_Fire
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Secondary_Fire
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Secondary_Fire
       maxAttenuation: 200
       maxDuration: 1.190035
       minDuration: 1.0602
@@ -393,11 +447,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Special_Charge
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Special_Charge
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Charge
       maxAttenuation: 200
       maxDuration: 12.936458
       minDuration: 12.936458
@@ -407,11 +463,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Special_GainExtraCharge
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Special_GainExtraCharge
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_GainExtraCharge
       maxAttenuation: 200
       maxDuration: 0.215998
       minDuration: 0.192432
@@ -421,11 +479,13 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Special_Ready
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Special_Ready
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Ready
       maxAttenuation: 200
       maxDuration: 0.12425
       minDuration: 0.12425
@@ -435,14 +495,28 @@ MonoBehaviour:
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
+      - ElementName: Characters
+        ObjectType: 4
       - ElementName: Grenadier
         ObjectType: 4
       - ElementName: Play_Grenadier_Steps
         ObjectType: 3
-      Path: Default Work Unit\Grenadier\Play_Grenadier_Steps
+      Path: Default Work Unit\Characters\Grenadier\Play_Grenadier_Steps
       maxAttenuation: 200
       maxDuration: 0.219891
       minDuration: 0.206346
+    - name: Play_Item_Proc_DropletDupe_Clone
+      guid: e3f950d7852fb84793c24145a62a6d89
+      id: 2255434859
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Item_Proc_DropletDupe_Clone
+        ObjectType: 3
+      Path: Default Work Unit\Play_Item_Proc_DropletDupe_Clone
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Item_Proc_ItemDeployer
       guid: b7fdedcf4664ba43aa969c6d6914174f
       id: 902611312
@@ -496,9 +570,23 @@ MonoBehaviour:
       - ElementName: Play_LeaveStageError
         ObjectType: 3
       Path: Default Work Unit\Equipment\Play_LeaveStageError
-      maxAttenuation: 200
+      maxAttenuation: 50
       maxDuration: 0.790161
       minDuration: 0.78561
+    - name: Stop_Ambience_Loop
+      guid: 5e61abaf6363d949a733333cb1c32d3a
+      id: 116129673
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambience
+        ObjectType: 4
+      - ElementName: Stop_Ambience_Loop
+        ObjectType: 3
+      Path: Default Work Unit\Ambience\Stop_Ambience_Loop
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   - PhysicalPath: Events\Music.wwu
     PathAndIcons:
     - ElementName: Music
@@ -564,7 +652,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 1aede29b1eb9a3468100f50120ccff6a
     GuidInternal: 
-    m_lastTime: -8585448066182779264
+    m_lastTime: -8585444176496186835
     List:
     - name: attackSpeed
       guid: 1356292310fd5c4f8a6df106fc1efae7

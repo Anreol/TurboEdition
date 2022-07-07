@@ -1,4 +1,4 @@
-Shader "StubbedCalm Water/Shaders/CalmWater - SingleSided" {
+Shader "StubbedCalm Water/CalmWater - SingleSided" {
 	Properties {
 		_Color ("Shallow Color", Vector) = (1,1,1,1)
 		_DepthColor ("Depth Color", Vector) = (0,0,0,0)

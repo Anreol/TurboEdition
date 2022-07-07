@@ -105,12 +105,12 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SnowBias: -0.3
     - _SnowOn: 0
-    - _SnowSmoothness: 0.05
+    - _SnowSmoothness: 0
     - _SnowSpecularExponent: 1
     - _SnowSpecularStrength: 0
-    - _SpecularExponent: 0.1
+    - _SpecularExponent: 2
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0.05
+    - _SpecularStrength: 0.109
     - _SrcBlend: 1
     - _TriplanarOn: 0
     - _TriplanarTextureFactor: 1

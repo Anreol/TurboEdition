@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/MobileBlur" {
+Shader "Hidden/FastBlur" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 		_Bloom ("Bloom (RGB)", 2D) = "black" {}

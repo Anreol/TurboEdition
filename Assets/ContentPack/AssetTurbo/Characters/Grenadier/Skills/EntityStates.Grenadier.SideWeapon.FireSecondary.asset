@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: EntityStates.Grenadier.Weapon.FireSecondaryAlt
+  m_Name: EntityStates.Grenadier.SideWeapon.FireSecondary
   m_EditorClassIdentifier: 
   targetType:
-    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Weapon.FireSecondaryAlt,
-      TurboEdition, Version=9999.0.0.5, Culture=neutral, PublicKeyToken=null
+    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.SideWeapon.FireSecondary,
+      TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
     - fieldName: effectPrefab
@@ -32,7 +32,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: force
       fieldValue:
-        stringValue: 700
+        stringValue: 25
         objectValue: {fileID: 0}
     - fieldName: minSpread
       fieldValue:
@@ -40,11 +40,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: maxSpread
       fieldValue:
-        stringValue: 0
+        stringValue: 1
         objectValue: {fileID: 0}
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 0.75
+        stringValue: 3
         objectValue: {fileID: 0}
     - fieldName: recoilAmplitude
       fieldValue:
@@ -60,7 +60,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDelayBeforeFiringProjectile
       fieldValue:
-        stringValue: 0.1
+        stringValue: 0
         objectValue: {fileID: 0}
     - fieldName: targetMuzzle
       fieldValue:
@@ -72,5 +72,9 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: selfForce
       fieldValue:
-        stringValue: 3000
+        stringValue: 4000
+        objectValue: {fileID: 0}
+    - fieldName: minimumDuration
+      fieldValue:
+        stringValue: 0.5
         objectValue: {fileID: 0}

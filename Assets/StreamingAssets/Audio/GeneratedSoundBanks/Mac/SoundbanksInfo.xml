@@ -20,7 +20,7 @@
 	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="474804221">
+		<SoundBank Id="34081325" Language="SFX" Hash="2806194365">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -33,7 +33,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="855800858" Name="Play_Grenadier_ExplosionM" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionM" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.769453" DurationMax="0.815207">
+				<Event Id="855800858" Name="Play_Grenadier_ExplosionM" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_ExplosionM" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.769453" DurationMax="0.815207">
 					<IncludedMemoryFiles>
 						<File Id="289712532" Language="SFX">
 							<ShortName>se_reflet_attackbomb.wav</ShortName>
@@ -41,7 +41,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="855800836" Name="Play_Grenadier_ExplosionS" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_ExplosionS" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.588182" DurationMax="0.623157">
+				<Event Id="855800836" Name="Play_Grenadier_ExplosionS" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_ExplosionS" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.588182" DurationMax="0.623157">
 					<IncludedMemoryFiles>
 						<File Id="542577557" Language="SFX">
 							<ShortName>se_snake_special_S07.wav</ShortName>
@@ -49,7 +49,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2376185369" Name="Play_Grenadier_Landing" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Landing" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.280079" DurationMax="0.454618">
+				<Event Id="2376185369" Name="Play_Grenadier_Landing" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Landing" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.280079" DurationMax="0.454618">
 					<IncludedMemoryFiles>
 						<File Id="240158681" Language="SFX">
 							<ShortName>se_reflet_landing02.wav</ShortName>
@@ -65,7 +65,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="183542901" Name="Play_Grenadier_Primary_Fire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Primary_Fire" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.561764" DurationMax="0.604913">
+				<Event Id="183542901" Name="Play_Grenadier_Primary_Fire" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Fire" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.561764" DurationMax="0.604913">
 					<IncludedMemoryFiles>
 						<File Id="578702750" Language="SFX">
 							<ShortName>Milkor_FireMix2.wav</ShortName>
@@ -77,7 +77,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1978592993" Name="Play_Grenadier_Primary_Warn" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Primary_Warn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.233168" DurationMax="0.247033">
+				<Event Id="1978592993" Name="Play_Grenadier_Primary_Warn" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Warn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.233168" DurationMax="0.247033">
 					<IncludedMemoryFiles>
 						<File Id="883888142" Language="SFX">
 							<ShortName>DetpackBeepEndA_1.wav</ShortName>
@@ -85,7 +85,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3477662151" Name="Play_Grenadier_Reload" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Reload" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.560867" DurationMax="0.629552">
+				<Event Id="3477662151" Name="Play_Grenadier_Reload" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Reload" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.560867" DurationMax="0.629552">
 					<IncludedMemoryFiles>
 						<File Id="717774493" Language="SFX">
 							<ShortName>M79_Reload_064.wav</ShortName>
@@ -93,7 +93,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4088573137" Name="Play_Grenadier_Secondary_Fire" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Secondary_Fire" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.060200" DurationMax="1.190035">
+				<Event Id="4088573137" Name="Play_Grenadier_Secondary_Fire" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Secondary_Fire" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.060200" DurationMax="1.190035">
 					<IncludedMemoryFiles>
 						<File Id="464783086" Language="SFX">
 							<ShortName>M79_fire01.wav</ShortName>
@@ -101,7 +101,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2041123800" Name="Play_Grenadier_Special_Charge" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Special_Charge" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="12.936458" DurationMax="12.936458">
+				<Event Id="2041123800" Name="Play_Grenadier_Special_Charge" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Charge" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="12.936458" DurationMax="12.936458">
 					<IncludedMemoryFiles>
 						<File Id="528402572" Language="SFX">
 							<ShortName>se_item_crossbomb_blink.wav</ShortName>
@@ -109,7 +109,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1561076785" Name="Play_Grenadier_Special_GainExtraCharge" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Special_GainExtraCharge" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.192432" DurationMax="0.215998">
+				<Event Id="1561076785" Name="Play_Grenadier_Special_GainExtraCharge" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_GainExtraCharge" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.192432" DurationMax="0.215998">
 					<IncludedMemoryFiles>
 						<File Id="683144335" Language="SFX">
 							<ShortName>snd_se_snake_006.wav</ShortName>
@@ -117,7 +117,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3091314681" Name="Play_Grenadier_Special_Ready" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Special_Ready" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.124250" DurationMax="0.124250">
+				<Event Id="3091314681" Name="Play_Grenadier_Special_Ready" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Ready" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.124250" DurationMax="0.124250">
 					<IncludedMemoryFiles>
 						<File Id="674121072" Language="SFX">
 							<ShortName>snd_se_snake_Special_S01.wav</ShortName>
@@ -125,7 +125,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="878563697" Name="Play_Grenadier_Steps" ObjectPath="\Events\Default Work Unit\Grenadier\Play_Grenadier_Steps" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.206346" DurationMax="0.219891">
+				<Event Id="878563697" Name="Play_Grenadier_Steps" ObjectPath="\Events\Default Work Unit\Characters\Grenadier\Play_Grenadier_Steps" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.206346" DurationMax="0.219891">
 					<IncludedMemoryFiles>
 						<File Id="143500258" Language="SFX">
 							<ShortName>se_reflet_step_right_m.wav</ShortName>
@@ -165,7 +165,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="204571091" Name="Play_LeaveStageError" ObjectPath="\Events\Default Work Unit\Equipment\Play_LeaveStageError" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.785610" DurationMax="0.790161">
+				<Event Id="204571091" Name="Play_LeaveStageError" ObjectPath="\Events\Default Work Unit\Equipment\Play_LeaveStageError" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.785610" DurationMax="0.790161">
 					<IncludedMemoryFiles>
 						<File Id="647408152" Language="SFX">
 							<ShortName>Denied.wav</ShortName>
@@ -178,7 +178,7 @@
 				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2101947498">
+		<SoundBank Id="1355168291" Language="SFX" Hash="983726706">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -190,7 +190,7 @@
 				<GameParameter Id="3729143042" Name="Volume_MSX" ObjectPath="\Game Parameters\Default Work Unit\Volume_MSX"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1664825278" Language="SFX" Hash="1675983611">
+		<SoundBank Id="1664825278" Language="SFX" Hash="229320158">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboMusicBank</ObjectPath>
 			<ShortName>TurboMusicBank</ShortName>
 			<Path>TurboMusicBank.bnk</Path>

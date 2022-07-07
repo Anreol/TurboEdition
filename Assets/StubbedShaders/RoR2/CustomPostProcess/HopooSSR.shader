@@ -1,4 +1,4 @@
-Shader "StubbedRoR2/Base/Shaders/CustomPostProcess/HopooSSR" {
+Shader "StubbedRoR2/Base/Shaders/HopooSSR" {
 	Properties {
 	}
 	//DummyShaderTextExporter

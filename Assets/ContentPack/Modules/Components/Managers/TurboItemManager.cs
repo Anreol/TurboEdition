@@ -20,7 +20,7 @@ namespace TurboEdition
         {
             //It seems counter-intuitive to add an item behavior for something even if it has none of them, but the game actually destroys the behavior if there isn't one which is what we want and it doesn't add a component if it doesn't have any of the item
             foreach (var item in InitPickups.itemBehaviourList)
-                item.Value.AddBehavior(ref body, body.inventory.GetItemCount(item.Key.itemIndex));
+                item.Value.AddBehavior(ref body, body.inventory.GetItemCount(item.Key));
             foreach (var equipment in InitPickups.equipmentList)
                 equipment.Value.AddBehavior(ref body, System.Convert.ToInt32(body.equipmentSlot?.equipmentIndex == equipment.Value.equipmentDef.equipmentIndex));
 
@@ -48,14 +48,26 @@ namespace TurboEdition
 
         public void RunStatRecalculationsStart()
         {
+            //Gets new BodyBehaviors and Legacy Items classes alike
             foreach (var statBehavior in statItemBehaviors)
                 statBehavior.RecalculateStatsStart();
+            //Gets JUST Legacy Item classes
+            foreach (var item in InitPickups.itemBehaviourList)
+            {
+                item.Value.RecalcStatsStart(ref body, body.inventory.GetItemCount(item.Key));
+            }
         }
 
         public void RunStatRecalculationsEnd()
         {
+            //Gets new BodyBehaviors and Legacy Items classes alike
             foreach (var statBehavior in statItemBehaviors)
                 statBehavior.RecalculateStatsEnd();
+            //Gets JUST Legacy Item classes
+            foreach (var item in InitPickups.itemBehaviourList)
+            {
+                item.Value.RecalcStatsEnd(ref body, body.inventory.GetItemCount(item.Key));
+            }
         }
     }
 }

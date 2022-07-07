@@ -68,7 +68,7 @@ namespace TurboEdition.Items
             sphereSearch.queryTriggerInteraction = QueryTriggerInteraction.UseGlobal;
             sphereSearch.RefreshCandidates();
             sphereSearch.FilterCandidatesByHurtBoxTeam(teamMask);
-            sphereSearch.OrderCandidatesByDistance();
+            //sphereSearch.OrderCandidatesByDistance(); //Not needed, just added extra calculation process for no reason.
             sphereSearch.FilterCandidatesByDistinctHurtBoxEntities();
             sphereSearch.GetHurtBoxes(dest);
             sphereSearch.ClearCandidates();

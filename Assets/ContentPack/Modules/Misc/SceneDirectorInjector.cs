@@ -21,7 +21,8 @@ namespace TurboEdition.Misc
                 Assets.mainAssetBundle.LoadAsset<SerializableDirectorCard>("sdcShrineOvercharger"),
                 Assets.mainAssetBundle.LoadAsset<SerializableDirectorCard>("sdcShrineOverchargerCommon")
             };
-            SceneDirector.onGenerateInteractableCardSelection += AddDirectorCards;
+            //TODO: AS OF JULY 4, LEAVE IT FOR NEXT UPDATE
+            //SceneDirector.onGenerateInteractableCardSelection += AddDirectorCards;
             SceneDirector.onPrePopulateMonstersSceneServer += ExplicitInteracteableGeneration;
         }
 

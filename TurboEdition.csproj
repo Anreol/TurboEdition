@@ -100,6 +100,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MineProximityDetonatorAttackerFiltering.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileDistanceFuse.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileImpactEffect.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectilePropertyModifier.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\RuntimeCloudMaterialMapper.cs" />
@@ -158,11 +159,12 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\IStatItemBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\InitPickups.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Item.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\AirborneBonus.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\AirborneDashBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMaskBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BloodEconomyBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupeBodyBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GetDamageFromHurtVictim.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GetDamageFromHurtVictimBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GracePeriodBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\HitlagBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\ItemDeployerManager.cs" />
@@ -171,7 +173,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\MoneyBankManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\PackMagnetBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\RadioSearchBodyBehavior.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\StandBonus.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\StandBonusBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\SuperStickiesManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\TeleporterRadiusController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\Typewriter.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDeathCards.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDummy1.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxPanicDrops.cs" />
+    <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxVoidWarbannerBuffIndicator.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TemporaryVFX.cs" />
     <Compile Include="Assets\ContentPack\Modules\WwiseSoundbanks.cs" />
     <Compile Include="Assets\ContentPack\TurboUnityPlugin.cs" />

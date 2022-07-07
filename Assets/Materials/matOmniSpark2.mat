@@ -68,8 +68,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0.243
-    - _AlphaBoost: 0.5
+    - _AlphaBias: 0
+    - _AlphaBoost: 1.25
     - _Boost: 2
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0

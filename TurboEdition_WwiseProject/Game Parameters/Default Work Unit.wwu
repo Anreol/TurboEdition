@@ -21,11 +21,14 @@
 					</ChildrenList>
 				</Folder>
 				<GameParameter Name="playerHealth" ID="{6DD73FEE-1274-4F31-91FF-3903A3A9C827}">
+					<Comment>Current maximum combined health of the player. From 0 to 100.
+</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="100"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="teleporterPlayerStatus" ID="{2B8BCF0D-1975-47E1-B5B2-854F381D8B53}">
+					<Comment>Whenever a player is inside the teleporter zone or not. From 0 to 1.</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="1"/>
 						<Property Name="Max" Type="Real64" Value="1"/>
@@ -33,7 +36,7 @@
 				</GameParameter>
 				<GameParameter Name="Meter_Character" ID="{62956831-200A-4548-BC0A-5D07AB0BA9B7}">
 					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="100"/>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Meter_UI" ID="{D7A3466D-9696-46F7-A83A-E59346C4C704}">
@@ -47,7 +50,7 @@
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Volume_Master" ID="{AE69087A-E9E8-4971-AED7-9DB1055D5723}">
-					<Comment>The volume of the game master audio, from 0 to 100</Comment>
+					<Comment>The master volume of the game audio, from 0 to 100.</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="100"/>
 					</PropertyList>
@@ -59,12 +62,15 @@
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="teleporterProximity" ID="{222CC5C2-224A-4392-92CA-C98F6BD1385B}">
+					<Comment>Distance to the teleporter. From 0 to 10000</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="10000"/>
 						<Property Name="Max" Type="Real64" Value="10000"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="teleporterDirection" ID="{8D41A302-5CC0-41B0-A6D9-C16CA214AACC}">
+					<Comment>Angle to the Teleporter calculated from the Camera. From 0 to 360
+</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="0"/>
 						<Property Name="Max" Type="Real64" Value="360"/>
@@ -78,11 +84,7 @@
 				</GameParameter>
 				<Folder Name="SFX_param" ID="{DF387BBF-919D-44CC-AC20-F2FEF5DC3C84}" ShortID="752673707">
 					<ChildrenList>
-						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
+						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}"/>
 						<GameParameter Name="explosionSize" ID="{4209B276-A690-47FF-835C-6DCE739824C7}">
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="1"/>
@@ -99,8 +101,11 @@
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="attackSpeed" ID="{23295613-FD10-4F5C-8A6D-F106FC1EFAE7}">
+							<Comment>Used in certain attacks. The math operation is 1200 * Log(AttackSpeed, 2) / 96 + 50
+Default 50.
+</Comment>
 							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
+								<Property Name="Max" Type="Real64" Value="1200"/>
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="characterSize" ID="{71CABDF5-27B5-49C0-98F1-33ABDEE88762}">
@@ -114,9 +119,7 @@
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="droneSize" ID="{E749DB23-3767-445B-9FAF-6C2399F99CB7}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
+							<Comment>Affects drones and MUL-T</Comment>
 						</GameParameter>
 						<GameParameter Name="charMultSpeed" ID="{F89F9018-D6EE-47D9-AEB7-B93DBF369967}">
 							<PropertyList>
@@ -134,6 +137,7 @@
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="intensityWeather" ID="{6C42B04E-2108-4D21-9DA7-90E015C03964}">
+							<Comment>Used by SceneWeatherController. Maximum and minimum values can vary, but by default its 0 to 100</Comment>
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="1"/>
 							</PropertyList>
@@ -146,6 +150,7 @@
 					</ChildrenList>
 				</Folder>
 				<GameParameter Name="EscapeTimer" ID="{1EE32629-DE9C-43A9-957E-241402E06987}">
+					<Comment>Used by EscapeSequenceController. From 0 to 100.</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="100"/>
 					</PropertyList>

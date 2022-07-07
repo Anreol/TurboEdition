@@ -14,12 +14,12 @@ namespace TurboEdition
         public static Dictionary<EquipmentDef, Equipment> equipmentList = new Dictionary<EquipmentDef, Equipment>();
 
         [SystemInitializer(typeof(PickupCatalog))]
-        private static void HookInit()
+        public static void HookInit()
         {
             InitializeEquipments();
             InitializeItems();
 
-            TELog.LogI("Subscribing to delegates related to Items and Equipments.");
+            TELog.LogI("Subscribing to delegates related to Items and Equipments.", true);
 
             CharacterBody.onBodyStartGlobal += AddItemManager;
             On.RoR2.CharacterBody.RecalculateStats += OnRecalculateStats;
@@ -28,7 +28,7 @@ namespace TurboEdition
 
         public static IEnumerable<Item> InitializeItems()
         {
-            TELog.LogD($"Getting the Items found inside {Assembly.GetExecutingAssembly()}...");
+            TELog.LogD($"Getting Legacy Items found inside {Assembly.GetExecutingAssembly()}...", true);
             Assembly.GetExecutingAssembly().GetTypes()
                            .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Item)))
                            .Where(type => !type.GetCustomAttributes(true)

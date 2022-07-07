@@ -36,8 +36,8 @@ State	ID	Name	State Group			Notes
 	1560169506	boss	enemyType			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	151362964	playerHealth			\Default Work Unit\playerHealth	
-	1010989040	teleporterPlayerStatus			\Default Work Unit\teleporterPlayerStatus	
+	151362964	playerHealth			\Default Work Unit\playerHealth	Current maximum combined health of the player. From 0 to 100. 
+	1010989040	teleporterPlayerStatus			\Default Work Unit\teleporterPlayerStatus	Whenever a player is inside the teleporter zone or not. From 0 to 1.
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	715305458	TURBO_01_MAIN	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\musicStage9_9EDFC787.wem		\Interactive Music Hierarchy\Default Work Unit\Music_System\GameplaySongChoice\TurboSong01\muArcticOscillation\TURBO_01_MAIN		7202

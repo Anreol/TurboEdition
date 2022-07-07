@@ -58,7 +58,7 @@ namespace TurboEdition
                     }
                     catch (Exception ex)
                     {
-                        TELog.LogE($"Failed to swap shader of material {assetBundleMaterials[i]}: {ex}");
+                        TELog.LogE($"Failed to swap shader of material {assetBundleMaterials[i]}: {ex}", true);
                     }
                 }
             }

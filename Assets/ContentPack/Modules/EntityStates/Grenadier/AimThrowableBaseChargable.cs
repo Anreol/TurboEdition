@@ -20,7 +20,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public float graceDuration;
 
         [SerializeField]
-        [Tooltip("Should it fire all available stocks of the skill assigned to.")]
+        [Tooltip("Makes it so it won't leave the state as long as there's stock remaining. Doesn't account for the very first stock lost on skill activation.")]
         public bool fireAllStocks;
 
         [SerializeField]
@@ -40,8 +40,8 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public string soundLoopFullyChargedString;
 
         [SerializeField]
-        [Tooltip("wWise RTPC value to change from the soundLoopFullyChargedString whenever it starts overcharging.")]
-        public string soundLoopRTPCChargeString;
+        [Tooltip("wWise RTPC ID to change from the soundLoopFullyChargedString whenever it starts overcharging.")]
+        public string soundLoopRTPCChargeID;
 
         private uint loopSoundInstanceId;
         private bool buttonReleasedAuthority;
@@ -119,7 +119,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public override void FixedUpdate()
         {
             //Update fixed age ourselves as we aren't calling Base
-            this.fixedAge += Time.fixedDeltaTime; 
+            this.fixedAge += Time.fixedDeltaTime;
 
             if (!KeyIsDown())
                 buttonReleasedAuthority = true;
@@ -142,7 +142,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                         chargedAge += Time.fixedDeltaTime;
                         if (loopSoundInstanceId != 0U)
                         {
-                            AkSoundEngine.SetRTPCValueByPlayingID(soundLoopRTPCChargeString, (chargedAge / graceDuration) * 100, this.loopSoundInstanceId);
+                            AkSoundEngine.SetRTPCValueByPlayingID(soundLoopRTPCChargeID, (chargedAge / graceDuration) * 100, this.loopSoundInstanceId);
                         }
                     }
                     else //Start blastin because we have overcharged.
@@ -154,6 +154,8 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                             UpdateTrajectoryInfo(out this.currentTrajectoryInfo); //Update trajectory as we are about to fire
                             if (isAuthority)
                             {
+                                if (firedAtLeastOnce) //We are beyond the first shot (which is free as using the skill consumes a stock)
+                                    activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
                                 FireProjectileOnce(currentTrajectoryInfo.finalRay);
                             }
                             base.OnProjectileFiredLocal();
@@ -175,6 +177,8 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                     UpdateTrajectoryInfo(out this.currentTrajectoryInfo); //Update trajectory as we are about to fire
                     if (isAuthority)
                     {
+                        if (firedAtLeastOnce) //We are beyond the first shot (which is free as using the skill consumes a stock)
+                            activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
                         FireProjectileOnce(currentTrajectoryInfo.finalRay);
                     }
                     base.OnProjectileFiredLocal();
@@ -241,7 +245,6 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             }
             this.ModifyProjectile(ref fireProjectileInfo);
             ProjectileManager.instance.FireProjectile(fireProjectileInfo);
-            activatorSkillSlot.DeductStock(1);
             firedAtLeastOnce = true;
         }
 

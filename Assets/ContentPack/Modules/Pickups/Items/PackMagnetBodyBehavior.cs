@@ -11,8 +11,8 @@ namespace TurboEdition.Items
     //All packs are sent through the net.
     public class PackMagnetBodyBehavior : BaseItemBodyBehavior
     {
-        private static NetworkSoundEventDef grabSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseLeaveStageError");
-        private static NetworkSoundEventDef duplicateSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseLeaveStageError");
+        private static NetworkSoundEventDef grabSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItemProcPackMagnetGrab");
+        private static NetworkSoundEventDef duplicateSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItemProcPackMagnetDuplicate");
 
         [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
         private static ItemDef GetItemDef()

@@ -3,168 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Grenadier" ID="{178DC00F-FFEB-402E-97D0-F61FDA5E47C2}" ShortID="80358572">
-					<PropertyList>
-						<Property Name="Color" Type="int16" Value="10"/>
-						<Property Name="OverrideColor" Type="bool" Value="True"/>
-					</PropertyList>
-					<ChildrenList>
-						<Event Name="Play_Grenadier_Secondary_Fire" ID="{A69258E1-868B-4D7C-826D-D74AD22C5A36}">
-							<ChildrenList>
-								<Action Name="" ID="{328D3FEA-900B-4497-8978-390228266D09}" ShortID="646105834">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Secondary_Fire" ID="{871948E4-8FE5-44D2-A5B2-A301C971F387}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Primary_Fire" ID="{5613FB19-948F-4C87-9CAC-B9D2871170A1}">
-							<ChildrenList>
-								<Action Name="" ID="{1EE5EE7F-699C-4740-A0A3-5B168992B925}" ShortID="31728987">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Primary_Fire" ID="{56D5C4C3-C2E0-4C83-8072-DA91FE653B40}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Reload" ID="{616C6F35-06C6-4DA7-BDE1-B135B2D72996}">
-							<ChildrenList>
-								<Action Name="" ID="{ADD8A8FC-9398-4C97-92B5-93FC0F50C434}" ShortID="154965554">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Reload" ID="{8C5269C4-2706-4218-9976-4C25B1B08F19}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Special_Charge" ID="{9F164E68-0BF6-494E-8D07-A63091E7A003}">
-							<ChildrenList>
-								<Action Name="" ID="{C7AD6A1F-79A0-4269-82DE-0E7E7009C4F8}" ShortID="559529125">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Special_Charge" ID="{0A247F6D-FEFF-4F4A-A918-28123C93DC66}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Special_Ready" ID="{89947CFA-6626-41F7-B7B4-63BE7078989E}">
-							<ChildrenList>
-								<Action Name="" ID="{7C1865F5-3B32-4470-BDE0-196C99F1E86C}" ShortID="50729584">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Special_Ready" ID="{72829B68-1120-4FB0-A16B-FF0A2F0AFDD5}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Special_GainExtraCharge" ID="{1DA97B05-BE79-4174-B197-39A3A215C417}">
-							<ChildrenList>
-								<Action Name="" ID="{7B8A57D0-A04A-4D17-8667-E9E5D7359512}" ShortID="375786476">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Special_GainExtraCharge" ID="{A6E2CA13-85C6-4FB3-8564-A3DCAA1B2F5B}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_ExplosionM" ID="{524AD8AC-BAA8-4E64-91B2-7BE1FA89B281}">
-							<ChildrenList>
-								<Action Name="" ID="{FFF72D9E-4B29-4A43-943E-E7FC24CF4CDC}" ShortID="646335827">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_ExplosionM" ID="{28FCE3E1-F7F8-4847-AE4B-EBF300D8B726}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_ExplosionS" ID="{0BB95E95-30DA-4DE2-85BB-C74A0E539BDC}">
-							<ChildrenList>
-								<Action Name="" ID="{6F0F52B7-5DDC-42F4-8860-406E32BE7DD1}" ShortID="997364033">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_ExplosionS" ID="{0B99AD97-7652-4B62-93E4-8370AC0CDBC8}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Steps" ID="{07BC3555-3077-4B12-93A1-CC3DAD03F5DB}">
-							<ChildrenList>
-								<Action Name="" ID="{04F5C961-8ED2-4CFF-9416-E4A44E417A10}" ShortID="126403898">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Steps" ID="{5BC0292F-28A0-43DD-8BDD-51810C66DC02}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Landing" ID="{81A2CB3C-B7A6-4642-AD75-0ED97F6F3F72}">
-							<ChildrenList>
-								<Action Name="" ID="{8E7D4FC8-50A5-4A0A-A5FE-2C15B5FE2DA8}" ShortID="339375479">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Landing" ID="{2633CE6E-B7AD-48F5-A054-167DF2C92FB5}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Play_Grenadier_Primary_Warn" ID="{12D3D9AB-1731-4942-853A-AF70518B8DC0}">
-							<ChildrenList>
-								<Action Name="" ID="{588C286C-023A-455B-9343-02F4C57FACC9}" ShortID="263714532">
-									<PropertyList>
-										<Property Name="ActionType" Type="int16" Value="1"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Grenadier_Primary_Warn" ID="{2D67F6A1-626E-4D69-AE6F-B3FAF373D5A8}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-					</ChildrenList>
-				</Folder>
 				<Folder Name="Equipment" ID="{AD1620A5-50C7-4EBC-9DDD-D5A5E47C93F3}" ShortID="793425364">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="8"/>
@@ -251,6 +89,192 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Characters" ID="{3981EC00-1F60-4EF3-AE12-8899C58116EB}" ShortID="217043008">
+					<ChildrenList>
+						<Folder Name="Grenadier" ID="{178DC00F-FFEB-402E-97D0-F61FDA5E47C2}" ShortID="80358572">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="10"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Event Name="Play_Grenadier_Secondary_Fire" ID="{A69258E1-868B-4D7C-826D-D74AD22C5A36}">
+									<ChildrenList>
+										<Action Name="" ID="{328D3FEA-900B-4497-8978-390228266D09}" ShortID="646105834">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Secondary_Fire" ID="{871948E4-8FE5-44D2-A5B2-A301C971F387}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Primary_Fire" ID="{5613FB19-948F-4C87-9CAC-B9D2871170A1}">
+									<ChildrenList>
+										<Action Name="" ID="{1EE5EE7F-699C-4740-A0A3-5B168992B925}" ShortID="31728987">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Primary_Fire" ID="{56D5C4C3-C2E0-4C83-8072-DA91FE653B40}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Reload" ID="{616C6F35-06C6-4DA7-BDE1-B135B2D72996}">
+									<ChildrenList>
+										<Action Name="" ID="{ADD8A8FC-9398-4C97-92B5-93FC0F50C434}" ShortID="154965554">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Reload" ID="{8C5269C4-2706-4218-9976-4C25B1B08F19}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Special_Charge" ID="{9F164E68-0BF6-494E-8D07-A63091E7A003}">
+									<ChildrenList>
+										<Action Name="" ID="{C7AD6A1F-79A0-4269-82DE-0E7E7009C4F8}" ShortID="559529125">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Special_Charge" ID="{0A247F6D-FEFF-4F4A-A918-28123C93DC66}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Special_Ready" ID="{89947CFA-6626-41F7-B7B4-63BE7078989E}">
+									<ChildrenList>
+										<Action Name="" ID="{7C1865F5-3B32-4470-BDE0-196C99F1E86C}" ShortID="50729584">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Special_Ready" ID="{72829B68-1120-4FB0-A16B-FF0A2F0AFDD5}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Special_GainExtraCharge" ID="{1DA97B05-BE79-4174-B197-39A3A215C417}">
+									<ChildrenList>
+										<Action Name="" ID="{7B8A57D0-A04A-4D17-8667-E9E5D7359512}" ShortID="375786476">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Special_GainExtraCharge" ID="{A6E2CA13-85C6-4FB3-8564-A3DCAA1B2F5B}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_ExplosionM" ID="{524AD8AC-BAA8-4E64-91B2-7BE1FA89B281}">
+									<ChildrenList>
+										<Action Name="" ID="{FFF72D9E-4B29-4A43-943E-E7FC24CF4CDC}" ShortID="646335827">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_ExplosionM" ID="{28FCE3E1-F7F8-4847-AE4B-EBF300D8B726}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_ExplosionS" ID="{0BB95E95-30DA-4DE2-85BB-C74A0E539BDC}">
+									<ChildrenList>
+										<Action Name="" ID="{6F0F52B7-5DDC-42F4-8860-406E32BE7DD1}" ShortID="997364033">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_ExplosionS" ID="{0B99AD97-7652-4B62-93E4-8370AC0CDBC8}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Steps" ID="{07BC3555-3077-4B12-93A1-CC3DAD03F5DB}">
+									<ChildrenList>
+										<Action Name="" ID="{04F5C961-8ED2-4CFF-9416-E4A44E417A10}" ShortID="126403898">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Steps" ID="{5BC0292F-28A0-43DD-8BDD-51810C66DC02}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Landing" ID="{81A2CB3C-B7A6-4642-AD75-0ED97F6F3F72}">
+									<ChildrenList>
+										<Action Name="" ID="{8E7D4FC8-50A5-4A0A-A5FE-2C15B5FE2DA8}" ShortID="339375479">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Landing" ID="{2633CE6E-B7AD-48F5-A054-167DF2C92FB5}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Grenadier_Primary_Warn" ID="{12D3D9AB-1731-4942-853A-AF70518B8DC0}">
+									<ChildrenList>
+										<Action Name="" ID="{588C286C-023A-455B-9343-02F4C57FACC9}" ShortID="263714532">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Grenadier_Primary_Warn" ID="{2D67F6A1-626E-4D69-AE6F-B3FAF373D5A8}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Ambience" ID="{3583A999-CE88-48F8-951A-E7302D9080F3}" ShortID="401564265">
+					<ChildrenList>
+						<Event Name="Play_AMB_zone_dark_rain" ID="{790C7AE4-09BD-409D-8FD9-0B7114BEE841}"/>
+						<Event Name="Stop_Ambience_Loop" ID="{AFAB615E-6363-49D9-A733-333CB1C32D3A}"/>
+					</ChildrenList>
+				</Folder>
+				<Event Name="Play_Item_Proc_DropletDupe_Clone" ID="{D750F9E3-2F85-47B8-93C2-4145A62A6D89}">
+					<ChildrenList>
+						<Action Name="" ID="{C3D8B54C-11AB-433F-92CE-3F6649993A49}" ShortID="65926718">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Item_Proc_DropletDupe_Clone" ID="{AF165A87-F66F-4B7E-B5F9-AFA143845D8D}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -1,7 +1,6 @@
 {
-	"strings":
+	strings:
 	{
-
 		"PLAYER_DEATH_QUOTE_TE_0_2P" : "It all comes tumbling down.",
 		"PLAYER_DEATH_QUOTE_TE_0" : "{0} comes tumbling down.",
 		"PLAYER_DEATH_QUOTE_TE_1_2P" : "Lost the pace.",

@@ -10,15 +10,13 @@ namespace TurboEdition.Components
     [RequireComponent(typeof(NetworkedBodyAttachment))]
     public class SandbagBodyAttachment : NetworkBehaviour, INetworkedBodyAttachmentListener
     {
-        [HideInInspector]
-        public NetworkedBodyAttachment nba;
+        internal NetworkedBodyAttachment nba;
 
-        private StandBonus.ServerListener serverListener;
+        private StandBonusBodyBehavior.ServerListener serverListener;
 
-        [HideInInspector]
-        public int stack;
+        internal int stack;
 
-        public float accumulatedDamage;
+        internal float accumulatedDamage; //Why the fuck does this need to be here if it gets only read and written in the server listener? Change it.
 
         [SyncVar]
         public float syncLerp;
@@ -27,17 +25,23 @@ namespace TurboEdition.Components
         {
             this.nba = base.GetComponent<NetworkedBodyAttachment>();
         }
-
+        private void OnDestroy()
+        {
+            if (NetworkServer.active && serverListener)
+            {
+                Destroy(serverListener);
+            }
+        }
         public void OnAttachedBodyDiscovered(NetworkedBodyAttachment networkedBodyAttachment, CharacterBody attachedBody)
         {
             if (NetworkServer.active)
             {
-                this.serverListener = attachedBody.gameObject.AddComponent<StandBonus.ServerListener>();
+                this.serverListener = attachedBody.gameObject.AddComponent<StandBonusBodyBehavior.ServerListener>();
                 this.serverListener.attachment = this;
             }
             if (attachedBody.hasEffectiveAuthority)
             {
-                attachedBody.GetComponent<StandBonus.Sandbag>().sandbagBodyAttachment = this;
+                attachedBody.GetComponent<StandBonusBodyBehavior>().sandbagBodyAttachment = this;
             }
         }
 
@@ -53,8 +57,8 @@ namespace TurboEdition.Components
                 sprite = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).pickupIconSprite,
                 tooltipContent = new RoR2.UI.TooltipContent
                 {
-                    titleColor = ColorCatalog.GetColor(ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).darkColorIndex),
-                    titleToken = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("StandBonus")).nameToken,
+                    titleColor = ColorCatalog.GetColor(TEContent.Items.StandBonus.darkColorIndex),
+                    titleToken = TEContent.Items.StandBonus.nameToken,
                     bodyToken = "TOOLTIP_ITEM_STANDBONUS_DESCRIPTION",
                     overrideBodyText = Language.GetString(overString),
                 }

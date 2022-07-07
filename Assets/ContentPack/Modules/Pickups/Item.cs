@@ -2,6 +2,9 @@
 
 namespace TurboEdition.Items
 {
+    /// <summary>
+    /// Legacy Item base, nowadays used for simple things that shouldn't go inside a component
+    /// </summary>
     public abstract class Item
     {
         public abstract ItemDef itemDef { get; set; }
@@ -14,6 +17,16 @@ namespace TurboEdition.Items
         }
 
         public virtual void AddBehavior(ref CharacterBody body, int stack)
+        {
+        }
+
+        /// <summary>
+        /// Simple RecalcStats so it doesn't need to be a component
+        /// </summary>
+        public virtual void RecalcStatsStart(ref CharacterBody body, int stack)
+        {
+        }
+        public virtual void RecalcStatsEnd(ref CharacterBody body, int stack)
         {
         }
     }

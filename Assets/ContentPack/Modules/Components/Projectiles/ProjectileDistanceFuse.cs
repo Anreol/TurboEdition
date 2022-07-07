@@ -21,21 +21,21 @@ namespace TurboEdition.Components.Projectiles
         public UnityEvent onEveryFuse;
         public UnityEvent onLastFuse;
 
-        private float lastPosSqr;
+        private Vector3 lastPos;
         private int timesInvoked;
 
         private void Awake()
         {
             if (!NetworkServer.active)
                 enabled = false;
-            lastPosSqr = gameObject.transform.position.sqrMagnitude + startingDistance * startingDistance;
+            lastPos = gameObject.transform.position + Vector3.one * startingDistance;
         }
 
         private void FixedUpdate()
         {
-            if (gameObject.transform.position.sqrMagnitude - lastPosSqr >= meterInterval * meterInterval)
+            if ((gameObject.transform.position - lastPos).sqrMagnitude >= meterInterval * meterInterval)
             {
-                lastPosSqr = gameObject.transform.position.sqrMagnitude;
+                lastPos = gameObject.transform.position;
                 if (timesInvoked == 0)
                 {
                     onFirstFuse?.Invoke();

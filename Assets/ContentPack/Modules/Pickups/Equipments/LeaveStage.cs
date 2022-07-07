@@ -41,6 +41,8 @@ namespace TurboEdition.Equipments
 
         public override bool FireAction(EquipmentSlot slot)
         {
+            if (!slot.characterBody.isPlayerControlled) //Is not a player, avoid grief.
+                return false;
             if (canLeave)
             {
                 return UseThingie(slot);

@@ -64,12 +64,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: 51678d7c45665ef4d98bc82f6cf2c67b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 70799e941d95f01428d6c9d2c4295a6c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaBias: 0.231
-    - _AlphaBoost: 0.7
+    - _AlphaBias: 0
+    - _AlphaBoost: 1
     - _Boost: 2.4
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
@@ -101,7 +101,7 @@ Material:
     - _SkyboxOnly: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _UVSec: 0
     - _UseUV1On: 0
     - _VertexAlphaOn: 0

@@ -64,6 +64,7 @@ namespace TurboEdition
             //ContentLoadHelper.PopulateTypeFields<EliteDef>(typeof(TEContent.Elites), contentPackFromSerializableContentPack.eliteDefs, (string fieldName) => "ed" + fieldName);
             ContentLoadHelper.PopulateTypeFields<SurvivorDef>(typeof(TEContent.Survivors), tempPackFromSerializablePack.survivorDefs);
             ContentLoadHelper.PopulateTypeFields<ExpansionDef>(typeof(TEContent.Expansions), tempPackFromSerializablePack.expansionDefs);
+            ContentLoadHelper.PopulateTypeFields<SceneDef>(typeof(TEContent.Scenes), tempPackFromSerializablePack.sceneDefs);
 
             //This shouldn't go earlier than the type field population!
             InitBuffs.Init();
@@ -159,7 +160,6 @@ namespace TurboEdition
             public static ItemDef Typewriter;
             public static ItemDef WardOnLevelVoid;
         }
-
         public static class Equipment
         {
             public static EquipmentDef CursedScythe;
@@ -183,6 +183,10 @@ namespace TurboEdition
         public static class Survivors
         {
             public static SurvivorDef Grenadier;
+        }
+        public static class Scenes
+        {
+            public static SceneDef observatory;
         }
     }
 }

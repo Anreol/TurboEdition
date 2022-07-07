@@ -13,15 +13,15 @@ namespace TurboEdition.Items
             return TEContent.Items.DropletDupe;
         }
 
-        private float dropUpStrength = 20f; //Default is 20 in chests but seems that its too strong
-
+        private static GameObject effectPrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("DropletDupeProcEffect");
+        private const float dropUpStrength = 30f; //Default is 20 in chests but seems that its too strong
         private const float baseDupeDelay = 15f;
         private float dupeDelay;
         private float dropForwardStrength = 2f; //Default is 2
-        public bool suicideReady = false;
+        internal bool suicideReady = false;
         private MasterSuicideOnTimer masterSuicideOnTimer;
 
-        private void Start()
+        private void OnEnable()
         {
             PickupDropletController.onDropletHitGroundServer += onDropletHitGround;
             PurchaseInteraction.onItemSpentOnPurchase += onItemSpentOnPurchase;
@@ -42,7 +42,7 @@ namespace TurboEdition.Items
         public void OnTakeDamageServer(DamageReport damageReport)
         {
             if (!NetworkServer.active) return;
-            if (damageReport.isFallDamage || damageReport.dotType != DotController.DotIndex.None) return;
+            if (damageReport.attacker == null || damageReport.isFallDamage || damageReport.dotType != DotController.DotIndex.None) return; //Also returns on null attacker, for enviroment damage or REX self damage.
             if (Util.CheckRoll(3f * stack, -body.master.luck) && body.healthComponent && !suicideReady)
             {
                 TELog.LogW("Rolled for death");
@@ -67,9 +67,10 @@ namespace TurboEdition.Items
                 EffectData effectData = new EffectData
                 {
                     origin = createPickupInfo.position,
+                    //start = createPickupInfo.position
                     //networkSoundEventIndex =
                 };
-                //EffectManager.SpawnEffect(effectPrefab, effectData, true);
+                EffectManager.SpawnEffect(effectPrefab, effectData, true);
                 PickupDropletController.CreatePickupDroplet(createPickupInfo.pickupIndex, createPickupInfo.position + Vector3.up * dropForwardStrength, Vector3.up * dropUpStrength);
                 dupeDelay = baseDupeDelay;
             }
@@ -88,7 +89,7 @@ namespace TurboEdition.Items
             }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             PickupDropletController.onDropletHitGroundServer -= onDropletHitGround;
             PurchaseInteraction.onItemSpentOnPurchase -= onItemSpentOnPurchase;

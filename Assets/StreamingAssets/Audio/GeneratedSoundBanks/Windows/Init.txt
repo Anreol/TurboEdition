@@ -58,7 +58,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1514947204	Meter_Character			\Default Work Unit\Meter_Character	
 	1871679725	Meter_UI			\Default Work Unit\Meter_UI	
 	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	The volume of sound effects, from 0 to 100
-	3695994288	Volume_Master			\Default Work Unit\Volume_Master	The volume of the game master audio, from 0 to 100
+	3695994288	Volume_Master			\Default Work Unit\Volume_Master	The master volume of the game audio, from 0 to 100.
 	3729143042	Volume_MSX			\Default Work Unit\Volume_MSX	The music volume, from 0 to 100
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
