@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TurboEdition.EntityStates.Grenadier
+namespace TurboEdition.EntityStates.Grenadier.Roll
 {
     internal class UtilityRollLoopAerial : BaseBodyRollSingle
     {
         public static bool shouldUngroundIfGrounded;
-
+        public static bool shouldApplyUngroundBoostIfAirborne;
         [Tooltip("Should it apply ungroundSmallHopForwardVel when entering this state if already airborne.")]
         public static bool shouldApplyForwardBoostIfAirborne;
 
@@ -81,9 +81,9 @@ namespace TurboEdition.EntityStates.Grenadier
                         base.characterMotor.velocity += new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z);
                     }
                 }
-                if (!characterMotor.Motor.GroundingStatus.IsStableOnGround && shouldApplyForwardBoostIfAirborne)
+                if (!characterMotor.Motor.GroundingStatus.IsStableOnGround)
                 {
-                    base.characterMotor.velocity += (base.inputBank.moveVector * ungroundSmallHopForwardVel);
+                    base.characterMotor.velocity += (shouldApplyForwardBoostIfAirborne ? (base.inputBank.moveVector * ungroundSmallHopForwardVel) : Vector3.zero) + (shouldApplyUngroundBoostIfAirborne ? new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z) : Vector3.zero);
                 }
                 if (shouldDamageAndExitIfGrounding)
                 {

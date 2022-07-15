@@ -84,7 +84,13 @@
 				</GameParameter>
 				<Folder Name="SFX_param" ID="{DF387BBF-919D-44CC-AC20-F2FEF5DC3C84}" ShortID="752673707">
 					<ChildrenList>
-						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}"/>
+						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
+							<Comment>Affects MUL-T</Comment>
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="200"/>
+								<Property Name="Max" Type="Real64" Value="200"/>
+							</PropertyList>
+						</GameParameter>
 						<GameParameter Name="explosionSize" ID="{4209B276-A690-47FF-835C-6DCE739824C7}">
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="1"/>
@@ -119,7 +125,7 @@ Default 50.
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="droneSize" ID="{E749DB23-3767-445B-9FAF-6C2399F99CB7}">
-							<Comment>Affects drones and MUL-T</Comment>
+							<Comment>Affects drones, default to 50. Stuff like drone spawn sounds and idle.</Comment>
 						</GameParameter>
 						<GameParameter Name="charMultSpeed" ID="{F89F9018-D6EE-47D9-AEB7-B93DBF369967}">
 							<PropertyList>

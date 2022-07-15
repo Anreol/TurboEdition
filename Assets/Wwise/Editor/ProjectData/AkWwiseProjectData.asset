@@ -652,7 +652,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 1aede29b1eb9a3468100f50120ccff6a
     GuidInternal: 
-    m_lastTime: -8585444176496186835
+    m_lastTime: -8585440274404502457
     List:
     - name: attackSpeed
       guid: 1356292310fd5c4f8a6df106fc1efae7

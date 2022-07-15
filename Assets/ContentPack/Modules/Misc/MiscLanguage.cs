@@ -12,7 +12,7 @@ namespace TurboEdition.Misc
         {
             //HG.ArrayUtils.CloneTo(standardTurboDeathQuoteTokens, ref GlobalEventManager.standardDeathQuoteTokens); //Thanks bubbet for pointing this out lol
             //GlobalEventManager.standardDeathQuoteTokens = standardTurboDeathQuoteTokens.Union(GlobalEventManager.standardDeathQuoteTokens).ToArray();
-            GlobalEventManager.standardDeathQuoteTokens.Concat(standardTurboDeathQuoteTokens);
+            GlobalEventManager.standardDeathQuoteTokens = GlobalEventManager.standardDeathQuoteTokens.Concat(standardTurboDeathQuoteTokens).ToArray();
         }
     }
 }

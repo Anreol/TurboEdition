@@ -68,6 +68,7 @@
     <Compile Include="Assets\Other\Editor\EditorRecordAndSetTransforms.cs" />
     <Compile Include="Assets\Other\Editor\FindLocalID.cs" />
     <Compile Include="Assets\Other\Editor\MD4.cs" />
+    <Compile Include="Assets\Other\Editor\NodeGroupInspector.cs" />
     <Compile Include="Assets\Other\Editor\PrefabReferencePropertyDrawer.cs" />
     <Compile Include="Assets\Other\Editor\PropertyDrawers\ShaderPairPropertyDrawer.cs" />
     <Compile Include="Assets\Other\Editor\ReriggingBullshitTools.cs" />

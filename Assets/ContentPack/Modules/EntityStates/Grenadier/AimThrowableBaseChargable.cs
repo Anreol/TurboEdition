@@ -54,7 +54,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         /// <summary>
         /// Copy of Base's projectileBaseSpeed, which is the velocity of the ProjectileSimple component
         /// </summary>
-        private float targetProjectileBaseSpeed;
+        internal float targetProjectileBaseSpeed;
 
         /// <summary>
         /// Copy of Base's maxDistance, which is a field in the entity state configuration and the target distance to hit.
@@ -177,7 +177,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                     UpdateTrajectoryInfo(out this.currentTrajectoryInfo); //Update trajectory as we are about to fire
                     if (isAuthority)
                     {
-                        if (firedAtLeastOnce) //We are beyond the first shot (which is free as using the skill consumes a stock)
+                        //if (firedAtLeastOnce) //We are beyond the first shot (which is free as using the skill consumes a stock)
                             activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
                         FireProjectileOnce(currentTrajectoryInfo.finalRay);
                     }

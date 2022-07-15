@@ -11,7 +11,7 @@ namespace TurboEdition.Items
             if (body.characterMotor && !body.characterMotor.isGrounded && stack > 0)
             {
                 //body.characterMotor.airControl += 0.5f;
-                body.damage += ((body.baseDamage * 0.25f) + ((body.baseDamage * 0.15f) * (stack - 1)));
+                body.damage += ((body.baseDamage * 0.10f) + ((body.baseDamage * 0.10f) * (stack - 1)));
             }
         }
     }

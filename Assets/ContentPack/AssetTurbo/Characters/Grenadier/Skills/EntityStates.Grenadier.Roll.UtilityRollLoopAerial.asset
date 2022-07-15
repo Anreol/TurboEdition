@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: EntityStates.Grenadier.UtilityRollLoopGrounded
+  m_Name: EntityStates.Grenadier.Roll.UtilityRollLoopAerial
   m_EditorClassIdentifier: 
   targetType:
-    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.UtilityRollLoopGrounded,
+    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Roll.UtilityRollLoopAerial,
       TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 2
+        stringValue: 3
         objectValue: {fileID: 0}
     - fieldName: enterSoundString
       fieldValue:
@@ -47,7 +47,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: hitMaximumTargetsAtOnce
       fieldValue:
-        stringValue: 3
+        stringValue: 6
         objectValue: {fileID: 0}
     - fieldName: hitRecoilAmplitude
       fieldValue:
@@ -55,41 +55,73 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: ungroundSmallHopYVel
       fieldValue:
-        stringValue: 20
+        stringValue: 13
         objectValue: {fileID: 0}
     - fieldName: ungroundSmallHopForwardVel
       fieldValue:
-        stringValue: 50
+        stringValue: 4
         objectValue: {fileID: 0}
     - fieldName: newAirControl
       fieldValue:
-        stringValue: 5
+        stringValue: 0.25
         objectValue: {fileID: 0}
     - fieldName: overlapAttackResetFrequency
       fieldValue:
-        stringValue: 0.01
+        stringValue: 0.25
         objectValue: {fileID: 0}
     - fieldName: baseHitPauseDuration
       fieldValue:
-        stringValue: 0.5
+        stringValue: 0.15
         objectValue: {fileID: 0}
     - fieldName: hitSmallHopYVel
       fieldValue:
-        stringValue: 45
+        stringValue: 28
         objectValue: {fileID: 0}
     - fieldName: baseOverlapPushAwayForce
       fieldValue:
-        stringValue: 0
+        stringValue: 16
         objectValue: {fileID: 0}
-    - fieldName: baseOverlapAttackFireFrequency
+    - fieldName: hitStateDurationExtention
       fieldValue:
-        stringValue: 5
+        stringValue: 3
         objectValue: {fileID: 0}
-    - fieldName: scaleFireFrequencyWithAttackSpeed
+    - fieldName: shouldUngroundIfGrounded
       fieldValue:
         stringValue: 1
         objectValue: {fileID: 0}
+    - fieldName: shouldApplyForwardBoostIfAirborne
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: shouldDamageAndExitIfGrounding
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: baseOverlapAttackFireFrequency
+      fieldValue:
+        stringValue: 4
+        objectValue: {fileID: 0}
+    - fieldName: scaleFireFrequencyWithAttackSpeed
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
     - fieldName: hitResetOverlapFireTimer
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: improvedAirControl
+      fieldValue:
+        stringValue: 15
+        objectValue: {fileID: 0}
+    - fieldName: improvedAirControlCurve
+      fieldValue:
+        stringValue: '{"preWrapMode":8,"postWrapMode":8,"keys":[{"time":0.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408,"weightedMode":0,"tangentMode":136},{"time":1.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408,"weightedMode":0,"tangentMode":136}]}'
+        objectValue: {fileID: 0}
+    - fieldName: overlapAttackScaleFrequencyAttackSpeed
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: shouldApplyUngroundBoostIfAirborne
       fieldValue:
         stringValue: 1
         objectValue: {fileID: 0}

@@ -42,7 +42,7 @@ MonoBehaviour:
     - fieldName: projectilePrefab
       fieldValue:
         stringValue: 
-        objectValue: {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5,
+        objectValue: {fileID: 7028506108066464535, guid: b1f2aac4e54706c4392feae306ec8294,
           type: 3}
     - fieldName: endpointVisualizerPrefab
       fieldValue:

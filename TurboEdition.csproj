@@ -99,8 +99,8 @@
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MarkReducedSelfDamage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MineProximityDetonatorAttackerFiltering.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileDistanceFuse.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileImpactEffect.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectilePropertyModifier.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileSurfaceImpactEffect.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\MaterialController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\RuntimeCloudMaterialMapper.cs" />
@@ -149,6 +149,7 @@
     <Compile Include="Assets\ContentPack\Modules\Misc\ItemDisplayRulesInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\SceneChanges.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\UIExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />

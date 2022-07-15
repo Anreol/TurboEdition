@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: baseMinDuration
       fieldValue:
-        stringValue: 0.45
+        stringValue: 0.65
         objectValue: {fileID: 0}
     - fieldName: effectPrefab
       fieldValue:
@@ -48,7 +48,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 0.7
         objectValue: {fileID: 0}
     - fieldName: recoilAmplitude
       fieldValue:

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace TurboEdition.Components
 {
     [RequireComponent(typeof(ProjectileController))]
-    public class ProjectileImpactEffect : MonoBehaviour, IProjectileImpactBehavior
+    public class ProjectileSurfaceImpactEffect : MonoBehaviour, IProjectileImpactBehavior
     {
         public GameObject prefabEffect;
         public float scaleOverride = 1;

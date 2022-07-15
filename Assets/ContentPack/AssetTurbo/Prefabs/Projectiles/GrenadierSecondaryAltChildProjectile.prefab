@@ -16,10 +16,11 @@ GameObject:
   - component: {fileID: 3104996826693707152}
   - component: {fileID: 1117116352880543111}
   - component: {fileID: 1546852646074600187}
-  - component: {fileID: 1403713467368464217}
-  - component: {fileID: 9081809704407828652}
+  - component: {fileID: 1072506510179941351}
+  - component: {fileID: 6204152061996257637}
+  - component: {fileID: -5982296466625266307}
   m_Layer: 14
-  m_Name: GrenadierSecondaryAltChild
+  m_Name: GrenadierSecondaryAltChildProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,7 +172,7 @@ MonoBehaviour:
   damageType: 0
   useDotMaxStacksFromAttacker: 0
   dotMaxStacksFromAttacker: 4294967295
---- !u!114 &1403713467368464217
+--- !u!114 &1072506510179941351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,18 +181,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 7028506108066464535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -974958137, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 3
+  lifetimeExpiredEffect: {fileID: 0}
+  desiredForwardSpeed: 15
+  updateAfterFiring: 0
+  enableVelocityOverLifetime: 0
+  velocityOverLifetime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  oscillate: 0
+  oscillateMagnitude: 20
+  oscillateSpeed: 0
+--- !u!114 &6204152061996257637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7028506108066464535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   falloffModel: 2
-  blastRadius: 6
-  blastDamageCoefficient: 2
+  blastRadius: 8
+  blastDamageCoefficient: 1
   blastProcCoefficient: 0.5
   blastAttackerFiltering: 0
-  bonusBlastForce: {x: 0, y: 0, z: 0}
+  bonusBlastForce: {x: 5, y: 5, z: 5}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 7214428371660463810, guid: 4cb548fb8f1dbf048b32ecb372949457,
+    type: 3}
   explosionSoundString: 
   fireChildren: 0
   childrenProjectilePrefab: {fileID: 0}
@@ -212,7 +240,19 @@ MonoBehaviour:
   maxStacksFromAttacker: 4294967295
   calculateTotalDamage: 0
   totalDamageMultiplier: 0
---- !u!114 &9081809704407828652
+  impactEffect: {fileID: 0}
+  lifetimeExpiredSoundString: 
+  lifetimeExpiredSound: {fileID: 0}
+  offsetForLifetimeExpiredSound: 0
+  destroyOnEnemy: 0
+  destroyOnWorld: 0
+  impactOnWorld: 0
+  timerAfterImpact: 0
+  lifetime: 0.2
+  lifetimeAfterImpact: 0
+  lifetimeRandomOffset: 0.8
+  transformSpace: 2
+--- !u!114 &-5982296466625266307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,21 +261,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7028506108066464535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1810124184, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: -132178706, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuse: 0.3
-  onFuse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1403713467368464217}
-        m_MethodName: Detonate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  localTorque: {x: 300, y: -200, z: 300}
+  randomize: 1

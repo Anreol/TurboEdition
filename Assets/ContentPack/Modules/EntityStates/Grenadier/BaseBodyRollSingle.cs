@@ -3,7 +3,7 @@ using RoR2;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TurboEdition.EntityStates.Grenadier
+namespace TurboEdition.EntityStates.Grenadier.Roll
 {
     public abstract class BaseBodyRollSingle : BaseSkillState
     {

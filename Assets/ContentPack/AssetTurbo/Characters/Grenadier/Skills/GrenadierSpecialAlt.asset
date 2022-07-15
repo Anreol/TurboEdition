@@ -23,7 +23,7 @@ MonoBehaviour:
     _typeName: TurboEdition.EntityStates.Grenadier.Weapon.SpecialChargeCurling, TurboEdition,
       Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
-  baseRechargeInterval: 15
+  baseRechargeInterval: 9
   baseMaxStock: 3
   rechargeStock: 1
   requiredStock: 1

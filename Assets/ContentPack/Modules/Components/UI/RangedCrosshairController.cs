@@ -21,6 +21,10 @@ namespace TurboEdition.Components.UI
 
         private void Start()
         {
+            if (!hudElement.targetCharacterBody)
+            {
+                Destroy(this);
+            }
             bodySkillLocator = hudElement.targetCharacterBody.GetComponent<SkillLocator>();
             SetSkillRangeDisplay();
         }

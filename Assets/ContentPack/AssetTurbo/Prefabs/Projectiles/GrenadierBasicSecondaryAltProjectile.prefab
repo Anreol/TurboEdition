@@ -99,11 +99,11 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028506108066464535}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9b022d012dfb74e408c0bf9e34e4a2bc, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6243246625076868539
 MonoBehaviour:
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 9
+  lifetime: 3
   lifetimeExpiredEffect: {fileID: 0}
   desiredForwardSpeed: 160
   updateAfterFiring: 0
@@ -214,11 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   falloffModel: 2
-  blastRadius: 4
-  blastDamageCoefficient: 2
+  blastRadius: 6
+  blastDamageCoefficient: 1
   blastProcCoefficient: 1
   blastAttackerFiltering: 3
-  bonusBlastForce: {x: 150, y: 150, z: 150}
+  bonusBlastForce: {x: 50, y: 50, z: 50}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 0}
@@ -226,14 +226,14 @@ MonoBehaviour:
   fireChildren: 1
   childrenProjectilePrefab: {fileID: 7028506108066464535, guid: e18b338e4cb9d6840b2836eafb7a3c92,
     type: 3}
-  childrenCount: 2
+  childrenCount: 0
   childrenDamageCoefficient: 2
-  minAngleOffset: {x: 0, y: 0, z: 0}
-  maxAngleOffset: {x: 360, y: 360, z: 30}
+  minAngleOffset: {x: -2, y: -2, z: -2}
+  maxAngleOffset: {x: 2, y: 2, z: 2}
   minRollDegrees: 0
   rangeRollDegrees: 360
-  minPitchDegrees: 0
-  rangePitchDegrees: 360
+  minPitchDegrees: -90
+  rangePitchDegrees: 90
   useLocalSpaceForChildren: 0
   applyDot: 0
   dotIndex: -1
@@ -247,14 +247,14 @@ MonoBehaviour:
   lifetimeExpiredSoundString: 
   lifetimeExpiredSound: {fileID: 0}
   offsetForLifetimeExpiredSound: 0
-  destroyOnEnemy: 1
-  destroyOnWorld: 1
+  destroyOnEnemy: 0
+  destroyOnWorld: 0
   impactOnWorld: 1
-  timerAfterImpact: 0
+  timerAfterImpact: 1
   lifetime: 3
-  lifetimeAfterImpact: 0
+  lifetimeAfterImpact: 0.3
   lifetimeRandomOffset: 0
-  transformSpace: 0
+  transformSpace: 2
 --- !u!114 &8710313284497637358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingDistance: 20
   meterInterval: 20
-  maxTimesToInvoke: 7
+  maxTimesToInvoke: 9
   onFirstFuse:
     m_PersistentCalls:
       m_Calls: []
