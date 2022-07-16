@@ -68,10 +68,10 @@
     <Compile Include="Assets\Other\Editor\EditorRecordAndSetTransforms.cs" />
     <Compile Include="Assets\Other\Editor\FindLocalID.cs" />
     <Compile Include="Assets\Other\Editor\MD4.cs" />
-    <Compile Include="Assets\Other\Editor\NodeGroupInspector.cs" />
     <Compile Include="Assets\Other\Editor\PrefabReferencePropertyDrawer.cs" />
     <Compile Include="Assets\Other\Editor\PropertyDrawers\ShaderPairPropertyDrawer.cs" />
     <Compile Include="Assets\Other\Editor\ReriggingBullshitTools.cs" />
+    <Compile Include="Assets\Other\Editor\SceneInfoInspector.cs" />
     <Compile Include="Assets\Other\Editor\ShaderSystem\MaterialEditorAdditions.cs" />
     <Compile Include="Assets\Other\Editor\ShaderSystem\MaterialShaderManager.cs" />
     <Compile Include="Assets\Other\Editor\Thunderkit\BuildAssetBundles.cs" />
@@ -81,6 +81,7 @@
     <Compile Include="Assets\Other\Editor\Thunderkit\SaveAssets.cs" />
     <Compile Include="Assets\Other\Editor\Thunderkit\SwapShadersAndStageAssetBundles.cs" />
     <Compile Include="Assets\Other\Editor\Util.cs" />
+    <None Include="Assets\Other\Editor\SceneInfoInspector_UXML.uxml" />
     <None Include="Assets\Other\Editor\EditorUtils.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

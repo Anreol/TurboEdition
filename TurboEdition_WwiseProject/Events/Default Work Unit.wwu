@@ -87,6 +87,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Item_Proc_DropletDupe_Clone" ID="{D750F9E3-2F85-47B8-93C2-4145A62A6D89}">
+							<ChildrenList>
+								<Action Name="" ID="{C3D8B54C-11AB-433F-92CE-3F6649993A49}" ShortID="65926718">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Item_Proc_DropletDupe_Clone" ID="{AF165A87-F66F-4B7E-B5F9-AFA143845D8D}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Characters" ID="{3981EC00-1F60-4EF3-AE12-8899C58116EB}" ShortID="217043008">
@@ -261,20 +275,6 @@
 						<Event Name="Stop_Ambience_Loop" ID="{AFAB615E-6363-49D9-A733-333CB1C32D3A}"/>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Play_Item_Proc_DropletDupe_Clone" ID="{D750F9E3-2F85-47B8-93C2-4145A62A6D89}">
-					<ChildrenList>
-						<Action Name="" ID="{C3D8B54C-11AB-433F-92CE-3F6649993A49}" ShortID="65926718">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="1"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Item_Proc_DropletDupe_Clone" ID="{AF165A87-F66F-4B7E-B5F9-AFA143845D8D}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

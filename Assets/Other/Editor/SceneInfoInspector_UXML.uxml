@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement>
+        <uie:PropertyField binding-path="groundNodeGroup" label="Ground Node Group" tooltip="The NodeGraph saved as an asset will equal this." />
+        <uie:PropertyField binding-path="airNodeGroup" label="Air Node Group" tooltip="The NodeGraph saved as an asset will equal this." />
+        <uie:PropertyField binding-path="railNodeGroup" label="Rail Node Group" tooltip="The NodeGraph saved as an asset will equal this." />
+    </ui:VisualElement>
+    <ui:VisualElement>
+        <uie:PropertyField label="Approximate Map Bounds" binding-path="approximateMapBoundMesh" tooltip="What the map bounds are. Used by Director&apos;s Random Normalized placement mode." />
+    </ui:VisualElement>
+    <ui:VisualElement>
+        <uie:PropertyField label="Ground Nodes Asset" binding-path="groundNodesAsset" />
+        <uie:PropertyField label="Air Nodes Asset" binding-path="airNodesAsset" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-direction: row;">
+        <ui:VisualElement style="width: 50%;">
+            <ui:Button text="Bake Ground Nodegraph" name="btnGroundBake" />
+            <ui:Button text="Clear Ground Node Group" name="btnGroundClear" />
+        </ui:VisualElement>
+        <ui:VisualElement style="width: 50%;">
+            <ui:Button text="Bake Air Nodegraph" name="btnAirBake" />
+            <ui:Button text="Clear Air Node Group" name="btnAirClear" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
