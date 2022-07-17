@@ -20,7 +20,7 @@
 	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="2806194365">
+		<SoundBank Id="34081325" Language="SFX" Hash="1857298081">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -137,6 +137,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2255434859" Name="Play_Item_Proc_DropletDupe_Clone" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_DropletDupe_Clone" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.580264" DurationMax="1.580264">
+					<IncludedMemoryFiles>
+						<File Id="55014961" Language="SFX">
+							<ShortName>00325_streaming.wav</ShortName>
+							<Path>SFX\00325_streaming_B282B47B.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="902611312" Name="Play_Item_Proc_ItemDeployer" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_ItemDeployer" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.290448" DurationMax="0.392121">
 					<IncludedMemoryFiles>
 						<File Id="325557564" Language="SFX">
@@ -178,7 +186,7 @@
 				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2956626853">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2839448921">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -190,7 +198,7 @@
 				<GameParameter Id="3729143042" Name="Volume_MSX" ObjectPath="\Game Parameters\Default Work Unit\Volume_MSX"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1664825278" Language="SFX" Hash="229320158">
+		<SoundBank Id="1664825278" Language="SFX" Hash="3814713138">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboMusicBank</ObjectPath>
 			<ShortName>TurboMusicBank</ShortName>
 			<Path>TurboMusicBank.bnk</Path>

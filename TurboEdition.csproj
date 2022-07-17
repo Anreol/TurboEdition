@@ -96,6 +96,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\MoneyBankInteractionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PainArtifactServerListener.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\PreplacedZiplineController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MarkReducedSelfDamage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MineProximityDetonatorAttackerFiltering.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileDistanceFuse.cs" />

@@ -32,6 +32,18 @@ internal class SceneInfoInspector : Editor
         //airClearButton.RegisterCallback<MouseDownEvent, MapNodeGroup>(Clear, (MapNodeGroup)serializedObject.FindProperty("airNodeGroup").objectReferenceValue, TrickleDown.TrickleDown);
         airClearButton.clicked += () => Clear((MapNodeGroup)serializedObject.FindProperty("airNodeGroup").objectReferenceValue);
 
+        Button groundNoCeilMask = myInspector.Q<Button>(name: "btnGroundNoCeil");
+        //airClearButton.RegisterCallback<MouseDownEvent, MapNodeGroup>(Clear, (MapNodeGroup)serializedObject.FindProperty("airNodeGroup").objectReferenceValue, TrickleDown.TrickleDown);
+        groundNoCeilMask.clicked += () => UpdateNoCeil((MapNodeGroup)serializedObject.FindProperty("groundNodeGroup").objectReferenceValue);
+
+        Button airNoCeilMask = myInspector.Q<Button>(name: "btnAirNoCeil");
+        //airClearButton.RegisterCallback<MouseDownEvent, MapNodeGroup>(Clear, (MapNodeGroup)serializedObject.FindProperty("airNodeGroup").objectReferenceValue, TrickleDown.TrickleDown);
+        airNoCeilMask.clicked += () => UpdateNoCeil((MapNodeGroup)serializedObject.FindProperty("airNodeGroup").objectReferenceValue);
+
+        Button noTeleporter = myInspector.Q<Button>(name: "btnTeleporter");
+        //airClearButton.RegisterCallback<MouseDownEvent, MapNodeGroup>(Clear, (MapNodeGroup)serializedObject.FindProperty("airNodeGroup").objectReferenceValue, TrickleDown.TrickleDown);
+        noTeleporter.clicked += () => UpdateNoTeleporter((MapNodeGroup)serializedObject.FindProperty("groundNodeGroup").objectReferenceValue);
+
         // Return the finished inspector UI
         return myInspector;
     }
@@ -52,5 +64,14 @@ internal class SceneInfoInspector : Editor
         Debug.LogWarning($"Clearing {mapNodeGroup.gameObject.name} out of nodes!");
         mapNodeGroup.Clear();
         return;
+    }
+
+    public void UpdateNoCeil(MapNodeGroup mapNodeGroup)
+    {
+        mapNodeGroup.UpdateNoCeilingMasks();
+    }
+    public void UpdateNoTeleporter(MapNodeGroup mapNodeGroup)
+    {
+        mapNodeGroup.UpdateTeleporterMasks();
     }
 }

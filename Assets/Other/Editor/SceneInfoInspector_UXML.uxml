@@ -15,10 +15,13 @@
         <ui:VisualElement style="width: 50%;">
             <ui:Button text="Bake Ground Nodegraph" name="btnGroundBake" />
             <ui:Button text="Clear Ground Node Group" name="btnGroundClear" />
+            <ui:Button text="Ground NoCeiling Mask" name="btnGroundNoCeil" />
         </ui:VisualElement>
         <ui:VisualElement style="width: 50%;">
             <ui:Button text="Bake Air Nodegraph" name="btnAirBake" />
             <ui:Button text="Clear Air Node Group" name="btnAirClear" />
+            <ui:Button text="Ground NoCeiling Mask" name="btnAirNoCeil" />
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:Button text="Update Ground Teleporter Mask" name="btnTeleporter" />
 </ui:UXML>

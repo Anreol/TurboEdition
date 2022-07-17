@@ -10,6 +10,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1561076785	Play_Grenadier_Special_GainExtraCharge			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_GainExtraCharge	
 	1978592993	Play_Grenadier_Primary_Warn			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Warn	
 	2041123800	Play_Grenadier_Special_Charge			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Charge	
+	2255434859	Play_Item_Proc_DropletDupe_Clone			\Default Work Unit\Items\Play_Item_Proc_DropletDupe_Clone	
 	2376185369	Play_Grenadier_Landing			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Landing	
 	2762120414	Play_Item_Proc_PackMagnet_Duplicate			\Default Work Unit\Items\Play_Item_Proc_PackMagnet_Duplicate	
 	3091314681	Play_Grenadier_Special_Ready			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Ready	
@@ -20,6 +21,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1612634724	GrenadierSpecial_ChargeAmount			\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	55014961	Item_Proc_DropletDupe_Clone	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\00325_streaming_B282B47B.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\ItemMixer\Items\Item_Proc_DropletDupe_Clone		19993
 	143500258	se_reflet_step_right_m	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\se_reflet_step_right_m_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\Grenadier\Grenadier_Steps\se_reflet_step_right_m		2315
 	240158681	se_reflet_landing02	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\se_reflet_landing02_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\Grenadier\Grenadier_Landing\se_reflet_landing02		4642
 	289712532	Grenadier_ExplosionM	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\se_reflet_attackbomb_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\Grenadier\Grenadier_ExplosionM		7732
