@@ -28,7 +28,8 @@ namespace TurboEdition
         public void Awake()
         {
             TELog.logger = Logger;
-            TELog.LogI("Running Turbo Edition!", true);
+            TELog.LogI("Running Turbo Edition for PLAYTESTING!", true);
+            TELog.LogI("Whenever a run ends, a log message will appear with a link to a form for feedback. Fill it if you want!", true);
 #if DEBUG
             TELog.outputAlways = true;
             TELog.LogW("Running TurboEdition DEBUG build. PANIC!");
@@ -42,6 +43,13 @@ namespace TurboEdition
 
             //RoR2Application.onFixedUpdate += onFixedUpdate;
             //UnityEngine.SceneManagement.SceneManager.activeSceneChanged += activeSceneChanged;
+            RoR2.Run.onClientGameOverGlobal += FeedbackLog;
+        }
+
+        private void FeedbackLog(Run arg1, RunReport arg2)
+        {
+            TELog.LogW("That was a good run, right? If you used Turbo Edition content, please fill up this form below!", true);
+            TELog.LogW("https://forms.gle/6kEEJdguHPrKzHNo9", true);
         }
 
         private void activeSceneChanged(UnityEngine.SceneManagement.Scene current, UnityEngine.SceneManagement.Scene next)

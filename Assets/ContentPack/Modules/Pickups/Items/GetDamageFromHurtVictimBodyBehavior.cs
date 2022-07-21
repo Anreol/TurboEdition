@@ -109,7 +109,7 @@ namespace TurboEdition.Items
             public void onServerCharacterExecuted(DamageReport arg1, float executionHealthLost)
             {
                 if (!attachment) return;
-                if (arg1.attackerBody == attachment.nba.attachedBody && attachment.currentDamage < (50 + ((attachment.stack - 1) * 25)))
+                if (arg1.attackerBody == attachment.nba.attachedBody && attachment.currentDamage < (25 + ((attachment.stack - 1) * 25)))
                     attachment.currentDamage += 15f;
                 attachment.currentDamage = Mathf.Min(attachment.currentDamage, 50 + ((attachment.stack - 1) * 25));
             }

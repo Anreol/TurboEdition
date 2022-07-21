@@ -17,8 +17,8 @@
 		"GRENADIER_SECONDARY_ALT_DESCRIPTION" : "<style=cIsUtility>Mortar</style>. Shoot a cluster bomb for <style=cIsDamage>100%</style>. At large distances, it releases bomblets for <style=cIsDamage>9x200% damage</style> maximum.",
 		"GRENADIER_UTILITY_NAME": "Utility",
 		"GRENADIER_UTILITY_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Bounce off enemies for at least <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
-		"GRENADIER_UTILITY_ALT_NAME": "<sprite name=\"WIP\">Utility Alt<sprite name=\"WIP\">",
-		"GRENADIER_UTILITY_ALT_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Roll in the ground and crash into enemies for <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
+		"GRENADIER_UTILITY_ALT_NAME": "<sprite name=\"WIP\">Speed Booster<sprite name=\"WIP\">",
+		"GRENADIER_UTILITY_ALT_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Start running and crash into enemies for <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
 		"GRENADIER_SPECIAL_NAME": "Special",
 		"GRENADIER_SPECIAL_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each.",
 		"GRENADIER_SPECIAL_ALT_NAME": "<sprite name=\"WIP\">Special Alt<sprite name=\"WIP\">",
@@ -35,7 +35,7 @@
 		"CRABCHEST_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
 		"CRABCHEST_BODY_LORE" : "GRENADIER_BODY_LORE",
 		
-		"IMPBOMBER_BODY_NAME": "Imp Bomber",
+		"IMPBOMBER_BODY_NAME": "Imp Trasher",
 		"IMPBOMBER_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
 		"IMPBONBER_BODY_LORE" : "GRENADIER_BODY_LORE",
 		

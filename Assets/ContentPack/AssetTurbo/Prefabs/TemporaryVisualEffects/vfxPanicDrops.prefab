@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: -1561644061, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 1
   parentTransform: {fileID: 0}
   visualTransform: {fileID: 6087482521098262445}
   enterComponents: []
@@ -419,8 +419,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.5
-      minScalar: 1
+      scalar: 2
+      minScalar: 1.25
       maxCurve:
         serializedVersion: 2
         m_Curve:

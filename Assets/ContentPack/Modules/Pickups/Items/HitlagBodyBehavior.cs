@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace TurboEdition.Items
 {
-    public class HitlagBodyBehavior : BaseItemBodyBehavior, IOnIncomingDamageServerReceiver
+    internal class HitlagBodyBehavior : BaseItemBodyBehavior, IOnIncomingDamageServerReceiver
     {
         [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
         private static ItemDef GetItemDef()
@@ -13,7 +13,7 @@ namespace TurboEdition.Items
             return TEContent.Items.Hitlag;
         }
 
-        public List<DelayedDamageInfo> damageInfos = new List<DelayedDamageInfo>();
+        internal List<DelayedDamageInfo> damageInfos = new List<DelayedDamageInfo>();
 
         public void OnIncomingDamageServer(DamageInfo damageInfo)
         {
@@ -54,7 +54,7 @@ namespace TurboEdition.Items
             {
                 if (damageInfos[i].FixedTimeStamp.timeSince >= (float)stack)
                 {
-                    body.healthComponent.TakeDamage(damageInfos[i].ReducedDamageInfo);
+                    TryToTakeDamage(damageInfos[i].ReducedDamageInfo);
                     buffer.Add(damageInfos[i]);
                 }
             }
@@ -69,7 +69,7 @@ namespace TurboEdition.Items
             }
         }
 
-        public void Heal(HealthComponent hc, float amount, ProcChainMask procChainMask)
+        internal void Heal(HealthComponent hc, float amount, ProcChainMask procChainMask)
         {
             amount /= 4;
             foreach (DelayedDamageInfo hitlag in damageInfos)
@@ -90,15 +90,28 @@ namespace TurboEdition.Items
         }
 
         //Special method that can be called whenever
-        public void Cleanse()
+        internal void Cleanse()
         {
             if (base.body.healthComponent)
             {
                 foreach (DelayedDamageInfo hitlag in damageInfos)
                 {
-                    body.healthComponent.TakeDamage(hitlag.ReducedDamageInfo);
+                    TryToTakeDamage(hitlag.ReducedDamageInfo);
                 }
                 damageInfos.Clear();
+            }
+        }
+
+        /// <summary>
+        /// For some reason, Hidden Invincibility, a buff given by many status effects (ie Merc skills) doesn't reject damage if the damage type has Bypass Block.
+        /// In fact there's a mod that fixes this... but whatever.
+        /// </summary>
+        /// <param name="di">Damage Info</param>
+        internal void TryToTakeDamage(DamageInfo di)
+        {
+            if (!body.HasBuff(RoR2Content.Buffs.HiddenInvincibility))
+            {
+                body.healthComponent.TakeDamage(di);
             }
         }
 
@@ -115,7 +128,7 @@ namespace TurboEdition.Items
 
     }
 
-    public struct DelayedDamageInfo
+    internal struct DelayedDamageInfo
     {
         public float ogDamageInfoDamage;
         public DamageInfo ReducedDamageInfo;

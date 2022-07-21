@@ -6,14 +6,14 @@ namespace TurboEdition.Items
 {
     public class BloodEconomyBodyBehavior : BaseItemBodyBehavior
     {
-        [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
+        [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = false, useOnClient = true)]
         private static ItemDef GetItemDef()
         {
             return TEContent.Items.BloodEconomy;
         }
 
         //Cleans up everytime the body dies ie. death and stage change
-        private PurchaseInteraction[] purchaseList = new PurchaseInteraction[0];
+        private PurchaseInteraction[] localPurchaseList = new PurchaseInteraction[0];
 
         private int[] purchaseTimes = new int[0];
 
@@ -48,8 +48,6 @@ namespace TurboEdition.Items
             //Debug.Log("interaction driver " + interactionDriver + " input received " + inputReceived);
             if (inputReceived)
             {
-                if (!interactionDriver)
-                    return;
                 GameObject gameObject = interactionDriver.FindBestInteractableObject();
                 if (!gameObject)
                     return;
@@ -62,9 +60,9 @@ namespace TurboEdition.Items
                         if (purchaseInteraction.cost <= 5 || purchaseInteraction.cost < body.master.money)
                             return;
                         int index;
-                        for (index = 0; index < purchaseList.Length; index++)
+                        for (index = 0; index < localPurchaseList.Length; index++)
                         {
-                            if (purchaseList[index] == purchaseInteraction)
+                            if (localPurchaseList[index] == purchaseInteraction)
                             {
                                 if (purchaseTimes[index] < stack)
                                 {
@@ -74,7 +72,7 @@ namespace TurboEdition.Items
                                 return;
                             }
                         }
-                        HG.ArrayUtils.ArrayAppend(ref purchaseList, purchaseInteraction);
+                        HG.ArrayUtils.ArrayAppend(ref localPurchaseList, purchaseInteraction);
                         HG.ArrayUtils.ArrayAppend(ref purchaseTimes, 1);
                         DecreasePriceOfPurchaseInteractor(purchaseInteraction);
                     }
@@ -84,7 +82,7 @@ namespace TurboEdition.Items
 
         public void DecreasePriceOfPurchaseInteractor(PurchaseInteraction purchaseInteraction)
         {
-            float damage = body.healthComponent.fullCombinedHealth * 0.35f;
+            float damage = 20;
             body.healthComponent.TakeDamage(new DamageInfo
             {
                 damage = damage,
@@ -94,7 +92,7 @@ namespace TurboEdition.Items
             });
             if (!body.healthComponent.isHealthLow)
             {
-                DotController.InflictDot(body.gameObject, body.gameObject, DotController.DotIndex.Bleed, 3f, 0.0005f);
+                DotController.InflictDot(body.gameObject, body.gameObject, DotController.DotIndex.Bleed, 3f, 0.000001f, 1);
             }
 
             purchaseInteraction.cost = Mathf.Max(5, purchaseInteraction.cost -= Run.instance.GetDifficultyScaledCost(2));

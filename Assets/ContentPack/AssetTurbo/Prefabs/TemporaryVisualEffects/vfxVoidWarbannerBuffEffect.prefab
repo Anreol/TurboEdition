@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 232860264928507532}
   - component: {fileID: 8882587394376083124}
   - component: {fileID: 3064895786582864499}
-  - component: {fileID: 7778795071675409756}
   - component: {fileID: 1326640903}
   m_Layer: 0
   m_Name: vfxVoidWarbannerBuffEffect
@@ -68,21 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
-  resetAgeOnDisable: 0
---- !u!114 &7778795071675409756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055509353076077173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1080798252, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
+  duration: 0.1
+  resetAgeOnDisable: 1
 --- !u!114 &1326640903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10698,19 +10684,19 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0.6263142
-          inSlope: 1.4203718
-          outSlope: 1.4203718
+          value: 0.6500015
+          inSlope: 1.5991157
+          outSlope: 1.5991157
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0
-          outWeight: 0.12969282
+          inWeight: 0.33333334
+          outWeight: 0.08483755
         - serializedVersion: 3
           time: 1
           value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 136
+          tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
@@ -14449,7 +14435,7 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
-  m_MinParticleSize: 0.1
+  m_MinParticleSize: 0.02
   m_MaxParticleSize: 0.16
   m_CameraVelocityScale: 0
   m_VelocityScale: 0

@@ -1,4 +1,5 @@
-# Turbo Edition Alpha
+# Turbo Edition TEST-RELEASE
+# **NOTE:** THIS CURRENT RELEASE IS MEANT FOR **PLAYTESTING** AND IS **NOT** A RELEASE BUILD. In-dev content is enabled and there might be everywhere. 
 ### **Note:** This is a very heavy **WIP** mod, **issues and bugs** can arise.
 The mod has been tested and while *most features* are multiplayer compatible, some things may not work.
 
@@ -24,7 +25,10 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 
 ## Planned Features
 
-- Finish the currently in-dev survivor, if you are interested, please contact me!
+- Finish the currently in-dev survivor.
+- Finish the currently in-dev stage.
+- Finish a new shrine.
+- If you are interested in any of this, or the future, please contact me.
 
 ## Credits
 - Majority of items modelled by the talented Big Nut.
@@ -34,18 +38,23 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 - Graphics (Expansion Icon and Artifacts) by SOM.
 - Bubbet & Moffein for giving me a hand in a few things and showing me how dumb some of my practices are.
 - Kevin from HP support, learned a awful ton of Unity and proper practices thanks to my time spent in the SS2 team. Also, how the mod loads items is taken from there!
+- Special thanks to vm for playtesting.
 - Special thanks to Gnome, for introducing me to modding.
 - Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!
 
+### Feedback
+If you can fill up [this form](https://forms.gle/6kEEJdguHPrKzHNo9) for [feedback](https://forms.gle/6kEEJdguHPrKzHNo9) I'd be extremely thankful.
+Alternatively you can contact me...
+
 ### Contact
 I'm open to contributions, specifically models, as they take me more time than what I wished. 
-You can contact me by messaging to Anreol#8231 or @anreol:poa.st
+You can contact me by messaging to Anreol#8231
 
 ## Changelog
 Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Changelog](https://rentry.org/TurboEditionChangelog)
 
-`0.0.6`
-
+`0.0.6` 
+Test Releases for playtesting.
 
 ## Rainfusion
 You can find the original Turbo Edition by JoeyAsagiri on [rainfusion.ml](https://rainfusion.ml/) and a direct download can be found [here](https://cdn.rainfusion.ml/download-mod/18f68f57-bcfd-4979-873c-6df90c33e353/turbo_edition_0.3.1.zip). The original repository can be found [here](https://github.com/JoeySmulders/RoR-Turbo-Edition).

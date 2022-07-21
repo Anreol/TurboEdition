@@ -73,8 +73,9 @@ namespace TurboEdition.Items
 
                 GameObject pickup = UnityEngine.Object.Instantiate<GameObject>(gameObject, transform);
                 GravitatePickup clonedGravitator = pickup.GetComponentInChildren<GravitatePickup>();
-                clonedGravitator.gravitateTarget = body.transform;
                 //Duplicates pickup and makes it gravitate towards you right away, blocking it from getting magnetized and duplicated yet again
+                clonedGravitator.gravitateTarget = body.transform;
+                //Speeds it up
                 clonedGravitator.acceleration *= 2f;
                 clonedGravitator.maxSpeed *= 2f;
             }

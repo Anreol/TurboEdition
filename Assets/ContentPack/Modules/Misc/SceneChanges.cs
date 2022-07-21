@@ -9,7 +9,7 @@ namespace TurboEdition.Misc
         [SystemInitializer]
         public static void Init()
         {
-            SceneCatalog.onMostRecentSceneDefChanged += onMostRecentSceneDefChanged;
+            //SceneCatalog.onMostRecentSceneDefChanged += onMostRecentSceneDefChanged;
         }
 
         const int sgEnviron = 10;

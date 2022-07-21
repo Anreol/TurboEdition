@@ -11,7 +11,7 @@ namespace TurboEdition.Components
 
         private void Start()
         {
-            if (NetworkServer.active)
+            //if (NetworkServer.active) //Late clients got desynced... so commenting this out for now, hopefully no issues?
             {
                 if (pointASpawnTransform)
                 {
