@@ -9,7 +9,7 @@ namespace TurboEdition.Equipments
     public class CursedScythe : Equipment
     {
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("CursedScythe");
-        private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BigScytheProjectileDotZone");
+        private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BigScytheOverlapAttack");
 
         public override bool FireAction(EquipmentSlot slot)
         {
@@ -75,10 +75,11 @@ namespace TurboEdition.Equipments
             {
                 impactPosition = raycastHit.point;
             }
-            else if (Physics.Raycast(impactPosition, Vector3.down, out raycastHit, float.PositiveInfinity, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
+            //Else snap to the ground no matter what
+           /* else if (Physics.Raycast(impactPosition, Vector3.down, out raycastHit, float.PositiveInfinity, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
             {
                 impactPosition = raycastHit.point;
-            }
+            }*/
 
             FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
             {

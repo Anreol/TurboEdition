@@ -100,10 +100,10 @@ namespace TurboEdition.Items
                 if (!attachment.nba.attachedBody.GetNotMoving())
                 {
                     attachment.accumulatedDamage = 0f;
-                    attachment.syncLerp = 0f;
+                    attachment.syncLerp = Mathf.Max(0, attachment.syncLerp - Time.fixedDeltaTime / 6); //Decrease over the span of 6 seconds
                     return;
                 }
-                attachment.syncLerp = Mathf.InverseLerp(((float)attachment.stack / 2f) * (float)attachment.nba.attachedBody.healthComponent.fullCombinedHealth, 0f, (float)attachment.accumulatedDamage);
+                attachment.syncLerp = Mathf.InverseLerp(((float)attachment.stack) * (float)attachment.nba.attachedBody.healthComponent.fullCombinedHealth, 0f, (float)attachment.accumulatedDamage);
             }
         }
     }

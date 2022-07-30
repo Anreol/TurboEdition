@@ -218,7 +218,7 @@ MonoBehaviour:
   blastDamageCoefficient: 2.5
   blastProcCoefficient: 1
   blastAttackerFiltering: 0
-  bonusBlastForce: {x: 200, y: 300, z: 200}
+  bonusBlastForce: {x: 200, y: 0, z: 200}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e,

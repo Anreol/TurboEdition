@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 8896665261586244783}
   - component: {fileID: 1546852646074600187}
   - component: {fileID: 2409703566218172478}
-  - component: {fileID: 893082470335495441}
-  - component: {fileID: 1435255850773271999}
+  - component: {fileID: -7706103419862583865}
+  - component: {fileID: 354496905569418107}
   - component: {fileID: 1782425723763529551}
   m_Layer: 14
   m_Name: GrenadierBasicPrimaryAltProjectile
@@ -116,7 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamIndexInternal: 0
   defaultTeam: -1
 --- !u!114 &1117116352880543111
 MonoBehaviour:
@@ -130,15 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  transform: {fileID: 0}
-  rb: {fileID: 0}
-  interpolatedTransform: {fileID: 0}
   positionTransmitInterval: 0.033333335
   interpolationFactor: 1
   allowClientsideCollision: 0
-  serverPosition: {x: 0, y: 0, z: 0}
-  serverRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &3104996826693707152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,18 +151,10 @@ MonoBehaviour:
   startSound: 
   cannotBeDeleted: 0
   flightSoundLoop: {fileID: 0}
-  rigidbody: {fileID: 0}
-  <teamFilter>k__BackingField: {fileID: 0}
-  <ghost>k__BackingField: {fileID: 0}
-  <isPrediction>k__BackingField: 0
   canImpactOnTrigger: 1
-  <shouldPlaySounds>k__BackingField: 0
   allowPrediction: 1
   owner: {fileID: 0}
-  <procChainMask>k__BackingField:
-    mask: 0
   procCoefficient: 1
-  myColliders: []
 --- !u!114 &8896665261586244783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,11 +181,6 @@ MonoBehaviour:
   oscillate: 0
   oscillateMagnitude: 20
   oscillateSpeed: 0
-  deltaHeight: 0
-  oscillationStopwatch: 0
-  stopwatch: 0
-  rigidbody: {fileID: 0}
-  transform: {fileID: 0}
 --- !u!114 &1546852646074600187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,18 +216,7 @@ MonoBehaviour:
   onFuse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 893082470335495441}
-        m_MethodName: Detonate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1435255850773271999}
+      - m_Target: {fileID: 354496905569418107}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -258,7 +227,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &893082470335495441
+      - m_Target: {fileID: -7706103419862583865}
+        m_MethodName: Detonate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-7706103419862583865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,18 +247,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7028506108066464535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -974958137, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: 11500000, guid: 907086068a2d51f4d9091c89b5eeac2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  projectileDamage: {fileID: 0}
-  alive: 1
   falloffModel: 2
   blastRadius: 14
   blastDamageCoefficient: 2
   blastProcCoefficient: 0.75
   blastAttackerFiltering: 0
-  bonusBlastForce: {x: 250, y: 250, z: 250}
+  bonusBlastForce: {x: -100, y: -100, z: -100}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e,
@@ -303,7 +280,17 @@ MonoBehaviour:
   maxStacksFromAttacker: 4294967295
   calculateTotalDamage: 0
   totalDamageMultiplier: 0
---- !u!114 &1435255850773271999
+  doExtraBlastAttack: 1
+  doDamage: 0
+  scaleBaseForceOffDamage: 0
+  falloffModelExtra: 0
+  blastRadiusExtra: 14
+  blastAttackerFilteringExtra: 3
+  bonusBlastForceExtra: {x: 300, y: 300, z: 300}
+  canRejectForceExtra: 1
+  blastAttackEffect: {fileID: 0}
+  damageTypeOverride: 2048
+--- !u!114 &354496905569418107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,18 +299,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7028506108066464535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f5ecaf9c2d126a46b8593162b8fde03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  projectileDamage: {fileID: 0}
-  alive: 1
   falloffModel: 2
   blastRadius: 6
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
-  blastAttackerFiltering: 1
-  bonusBlastForce: {x: 250, y: 250, z: 250}
+  blastAttackerFiltering: 0
+  bonusBlastForce: {x: -100, y: -100, z: -100}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: 2cd654e88532eca43b181f347506ebc9,
@@ -348,7 +332,6 @@ MonoBehaviour:
   maxStacksFromAttacker: 4294967295
   calculateTotalDamage: 0
   totalDamageMultiplier: 0
-  impactNormal: {x: 0, y: 1, z: 0}
   impactEffect: {fileID: 0}
   lifetimeExpiredSoundString: 
   lifetimeExpiredSound: {fileID: 0}
@@ -360,11 +343,17 @@ MonoBehaviour:
   lifetime: 0.3
   lifetimeAfterImpact: 0
   lifetimeRandomOffset: 0
-  stopwatch: 0
-  stopwatchAfterImpact: 0
-  hasImpact: 0
-  hasPlayedLifetimeExpiredSound: 0
   transformSpace: 0
+  doExtraBlastAttack: 1
+  doDamage: 0
+  scaleBaseForceOffDamage: 0
+  falloffModelExtra: 0
+  blastRadiusExtra: 8
+  blastAttackerFilteringExtra: 3
+  bonusBlastForceExtra: {x: 300, y: 300, z: 300}
+  canRejectForceExtra: 1
+  blastAttackEffect: {fileID: 0}
+  damageTypeOverride: 0
 --- !u!114 &1782425723763529551
 MonoBehaviour:
   m_ObjectHideFlags: 0

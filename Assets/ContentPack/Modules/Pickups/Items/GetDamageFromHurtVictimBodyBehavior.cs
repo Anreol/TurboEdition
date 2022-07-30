@@ -32,7 +32,8 @@ namespace TurboEdition.Items
 
         private NetworkedBodyAttachment attachment;
         public GetDamageFromHurtVictimBodyAttachment getDamageFromHurtVictimBodyAttachment;
-
+        internal const int stackFirst = 10;
+        internal const int stackLater = 10;
         private void Start()
         {
             if (NetworkServer.active)
@@ -109,21 +110,21 @@ namespace TurboEdition.Items
             public void onServerCharacterExecuted(DamageReport arg1, float executionHealthLost)
             {
                 if (!attachment) return;
-                if (arg1.attackerBody == attachment.nba.attachedBody && attachment.currentDamage < (25 + ((attachment.stack - 1) * 25)))
+                if (arg1.attackerBody == attachment.nba.attachedBody && attachment.currentDamage < (stackFirst + ((attachment.stack - 1) * stackLater)))
                     attachment.currentDamage += 15f;
-                attachment.currentDamage = Mathf.Min(attachment.currentDamage, 50 + ((attachment.stack - 1) * 25));
+                attachment.currentDamage = Mathf.Min(attachment.currentDamage, stackFirst + ((attachment.stack - 1) * stackLater));
             }
 
             public void OnDamageDealtServer(DamageReport damageReport)
             {
                 if (!attachment) return;
-                if (attachment.currentDamage >= (50 + ((attachment.stack - 1) * 25)) || !damageReport.victim.isHealthLow)
+                if (attachment.currentDamage >= (stackFirst + ((attachment.stack - 1) * stackLater)) || !damageReport.victim.isHealthLow)
                     return;
                 if (damageReport.combinedHealthBeforeDamage >= damageReport.victim.fullCombinedHealth && !damageReport.victim.alive)
                     attachment.currentDamage += 15f;
                 if (damageReport.victim.alive)
                     attachment.currentDamage += damageReport.damageInfo.procCoefficient;
-                attachment.currentDamage = Mathf.Min(attachment.currentDamage, 50 + ((attachment.stack - 1) * 25)); //it's 3am and i suck at math lol dont mind me
+                attachment.currentDamage = Mathf.Min(attachment.currentDamage, stackFirst + ((attachment.stack - 1) * stackLater)); //it's 3am and i suck at math lol dont mind me
             }
 
             public void OnTakeDamageServer(DamageReport damageReport)

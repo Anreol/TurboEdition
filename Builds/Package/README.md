@@ -1,5 +1,5 @@
 # Turbo Edition TEST-RELEASE
-# **NOTE:** THIS CURRENT RELEASE IS MEANT FOR **PLAYTESTING** AND IS **NOT** A RELEASE BUILD. In-dev content is enabled and there might be everywhere. 
+# **NOTE:** THIS CURRENT RELEASE IS MEANT FOR **PLAYTESTING** AND IS **NOT** A RELEASE BUILD. In-dev content is enabled and there might be bugs everywhere. 
 ### **Note:** This is a very heavy **WIP** mod, **issues and bugs** can arise.
 The mod has been tested and while *most features* are multiplayer compatible, some things may not work.
 
@@ -11,7 +11,7 @@ Installation looks like
 - plugins
 	- TurboEdition
 		- TurboEdition.dll
-		- language AND assetbundles folders
+		- language, assetbundles and soundbank folders
 ## Why?
 I'm pretty bad at coming up with names for what I make, and I followed Turbo Edition's development and just liked what it was.
 I also find *"Turbo"* a funny word that goes along pretty well with a lot of other words. You can probably think of a few ones.
@@ -36,6 +36,7 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 
 - Imp and Mimigun models and animations by DotFlare.
 - Graphics (Expansion Icon and Artifacts) by SOM.
+- Grenadier model by Anons.
 - Bubbet & Moffein for giving me a hand in a few things and showing me how dumb some of my practices are.
 - Kevin from HP support, learned a awful ton of Unity and proper practices thanks to my time spent in the SS2 team. Also, how the mod loads items is taken from there!
 - Special thanks to vm for playtesting.
@@ -53,7 +54,7 @@ You can contact me by messaging to Anreol#8231
 ## Changelog
 Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Changelog](https://rentry.org/TurboEditionChangelog)
 
-`0.0.6` 
+`0.1.0` - `0.1.2`
 Test Releases for playtesting.
 
 ## Rainfusion

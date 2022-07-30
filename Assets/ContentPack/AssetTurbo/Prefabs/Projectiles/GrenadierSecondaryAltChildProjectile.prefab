@@ -222,7 +222,8 @@ MonoBehaviour:
     type: 3}
   explosionSoundString: 
   fireChildren: 0
-  childrenProjectilePrefab: {fileID: 0}
+  childrenProjectilePrefab: {fileID: 7028506108066464535, guid: 7fbb2470eb6b09648818fbbcac186c61,
+    type: 3}
   childrenCount: 0
   childrenDamageCoefficient: 0
   minAngleOffset: {x: 0, y: 0, z: 0}

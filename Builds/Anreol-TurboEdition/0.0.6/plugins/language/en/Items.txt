@@ -18,7 +18,7 @@
 	
 	"ITEM_BANEMASK_NAME": "Voice Modulator",
 	"ITEM_BANEMASK_PICKUP": "Shriek each time you get hurt while in safety or with a chance depending of percent health lost when hurt, panicking nearby small enemies.",
-	"ITEM_BANEMASK_DESC": "Panic enemies within <style=cIsUtility>16m</style> <style=cStack>(+5m per stack)</style> upon <style=cIsUtility>leaving safety</style> or depending on <style=cIsHealth>percent health lost</style> when hurt, for <style=cIsUtility>10s</style></style>. Getting to safety <style=cIsUtility>recharges both uses</style>.",
+	"ITEM_BANEMASK_DESC": "Panic enemies within <style=cIsUtility>16m</style> <style=cStack>(+5m per stack)</style> upon <style=cIsUtility>leaving safety</style> or depending on <style=cIsHealth>percent health lost</style> when hurt, for <style=cIsUtility>10s</style></style> at most, depending on distance. Getting to safety <style=cIsUtility>recharges both uses</style>.",
 	"ITEM_BANEMASK_LORE": "Order: Military Grade Voice Modification Device\r\nTracking Number: 443*****\r\nEstimated Delivery: 07\/20\/2056\r\nShipping Method: High Priority/Fragile\r\nShipping Address: A-2012, Orbit Station, Sun\r\nShipping Details:\r\n\r\nThis locker's combination is 0055, four times. In the package you'll find the gadget, you don't get to bring more equipment in this job. The gadget will eventually melt and it won't work so good by where the location of the lockbox is, and a lot of effort for smuggling it, so don't let it go to waste. Put it next to your throat and it will change your voice to match your target's.\r\n\r\nAfter the last job, they will be expecting you, and they want you dead, so when you are done disposing the target, take it off,then, stick it to someone else. It will modify their voice, scaring off the remaining people around, attracting attention from the security forces, and getting caught. Use the chaos to get out of there, we'd like to continue onto the next step of our plan.\r\n\r\nGood luck.\r\n",
 	
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
@@ -50,7 +50,7 @@
 	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",
 	"ITEM_ITEMDEPLOYER_PICKUP": "Copy one of your items to a minion.",
 	"ITEM_ITEMDEPLOYER_DESC": "Give 1 <style=cStack>(+1 per stack)</style> item(s) to a minion. Give up this <style=cIsUtility>item's stack by two</style> of the chosen item to give.",
-	"ITEM_ITEMDEPLOYER_LORE": "",
+	"ITEM_ITEMDEPLOYER_LORE": "Order: \"Stick-\'Em-Up\" Red Tape\r\nTracking Number: 522***********\r\nEstimated Delivery: 4/15/2052\r\nShipping Method: Standard\r\Shipping Address: Cluster 3, Habitat 15, Moon\r\nShipping Details:\r\n\r\nYeehaw! Thank you for ordering Stick-'Em-Up brand adhesive tape, pardner. We pride ourselves on having prices so low our customers have made off like a bandit since 1982!\r\nThank you for purchasing one of our products. Your order is currently being processed and handled by UES, but due to circumstances out of our control, it may have up to a month of delay. We apologize for any inconvenience that may occur, and we\'ll automatically update this message with any updates on its delivery.\r\n\r\n<style=cMono>\r\n\/\/-- PACKAGE STATE: [Delivered] AT [2754583562] --\/\/<\/style>",
 	
 	"ITEM_KNIFEFAN_NAME": "Fan of Blades",
 	"ITEM_KNIFEFAN_PICKUP": "Throw knifes upon using your utility skill.",
@@ -59,8 +59,8 @@
 	
 	"ITEM_MELEEARMOR_NAME": "Nanomachines",
 	"ITEM_MELEEARMOR_PICKUP": "Boost your armor and damage in response to physical trauma.",
-	"ITEM_MELEEARMOR_DESC": "Getting hurt by an enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to <style=cIsUtility>2 times</style> <style=cStack>(+1 per stack)</style>. Gain <style=cIsDamage>25% more damage</style>.",
-	"ITEM_MELEEARMOR_LORE": "Order: Nanite Module\r\nTracking Number: 11******r\nEstimated Delivery: 6\/22\/2056\r\nShipping Method: Fragile\r\nShipping Address: LIMB, 48206 Detroit, United States, Earth\r\nShipping Details:\r\n\r\nSpecial delivery for your clinic, it should not raise suspicion as there's no reason to",
+	"ITEM_MELEEARMOR_DESC": "Getting hurt by an enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>35 armor</style> up to <style=cIsUtility>2 times</style> <style=cStack>(+1 per stack)</style> and a boost of <style=cIsDamage>25% more damage</style> once for 10 seconds.",
+	"ITEM_MELEEARMOR_LORE": "Order: Nanite Module\r\nTracking Number: 11******\r\nEstimated Delivery: 6\/22\/2056\r\nShipping Method: Fragile\r\nShipping Address: LIMB, 48206 Detroit, United States, Earth\r\nShipping Details:\r\n\r\nSpecial delivery for your clinic, it should not raise suspicion as there's no reason to inspect something that is labelled as fragile and going towards your location.\r\n\r\nSomewhat bleeding edge tech. From the ||||| Corporation, of course.\r\n\r\nI did not inspect it myself as I wanted to make it disappear ASAP, so check it before doing anything with it. Some patients might need it more than others, but make sure they have a mental well-being, I'\ve snooped reports of multiple soldiers and employees being pulled off the tests or from the branch as a whole due to rejection, entire body shutdown or things even worse.\r\n\r\nAfter you do your first patient, please have patience and wait for the outcome.",
 	
 	"ITEM_MONEYBANK_NAME": "Off-Planet Account",
 	"ITEM_MONEYBANK_PICKUP": "Gain access to a bank account where you can store money between stages.",
@@ -69,17 +69,17 @@
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
 	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Low chance of duplicating them.",
-	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 5% <style=cStack>(+1% per stack)</style> chance of <style=cIsUtility>duplicating</style> them.",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style> with a 7% <style=cStack>(+7% per stack)</style> chance of <style=cIsUtility>duplicating</style> them.",
 	"ITEM_PACKMAGNET_LORE": "Order: Magnetic Safety Belt\r\nTracking Number: 732***********r\nEstimated Delivery: 10\/28\/2056\r\nShipping Method: Standard\r\nShipping Address: Landfill 6-4, Scrap and Yard's Scrapyard, Earth\r\nShipping Details:\r\n\r\nHere it is, a prototype model, for now. I made a manual for a more professional look, tell me if there's any typos or errors.",
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
 	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",
-	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>25 more</style> <style=cStack>(+25 per stack)</style> each time you hit an enemy that is under 25% HP, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>10 more</style> <style=cStack>(+10 per stack)</style> each time you hit an enemy that is under 25% HP, bonus is lost when you get hurt.",
 	"ITEM_SOULDEVOURER_LORE": "",
 
 	"ITEM_STANDBONUS_NAME": "Punching Bag",
-	"ITEM_STANDBONUS_PICKUP": "Gain immunity to knockback and halve incoming damage after standing still. Defenses decrease as you take damage.",
-	"ITEM_STANDBONUS_DESC": "Gain a <style=cIsUtility>50% damage reduction</style> and <style=cIsUtility>inmunity to knockback</style> after standing still. Buff decreases as you take 50% <style=cStack>(+50% per stack)</style> damage of your combined maximum HP.",
+	"ITEM_STANDBONUS_PICKUP": "Gain immunity to knockback and halve incoming damage after standing still. Defenses decay as you take damage or after moving again.",
+	"ITEM_STANDBONUS_DESC": "Gain a <style=cIsUtility>50% damage reduction</style> and <style=cIsUtility>inmunity to knockback</style> after standing still. Buff decays as you take <style=cIsUtility>100%</style> <style=cStack>(+100% per stack)</style> damage of your <style=cIsHealth>combined maximum HP</style> or after <style=cIsDamage>moving again</style>.",
 	"ITEM_STANDBONUS_LORE": "",
 
 	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",

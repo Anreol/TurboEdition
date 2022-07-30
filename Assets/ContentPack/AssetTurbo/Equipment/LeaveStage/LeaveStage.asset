@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupModelPrefab: {fileID: 5004284487608745642, guid: 62cf4b451dc824948805a23cf6311b2e,
     type: 3}
-  cooldown: 90
+  cooldown: 0
   nameToken: EQUIPMENT_LEAVESTAGE_NAME
   pickupToken: EQUIPMENT_LEAVESTAGE_PICKUP
   descriptionToken: EQUIPMENT_LEAVESTAGE_DESC

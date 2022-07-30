@@ -45,7 +45,15 @@ namespace TurboEdition.Equipments
                 return false;
             if (canLeave)
             {
-                return UseThingie(slot);
+                if (UseThingie(slot))
+                {
+                    if ((slot.characterBody != null) ? slot.characterBody.inventory : null)
+                    {
+                        CharacterMasterNotificationQueue.SendTransformNotification(slot.characterBody.master, slot.characterBody.inventory.currentEquipmentIndex, EquipmentIndex.None, CharacterMasterNotificationQueue.TransformationType.Default);
+                        slot.characterBody.inventory.SetEquipmentIndex(EquipmentIndex.None);
+                    }
+                    return true;
+                }
             }
             //PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
             EntitySoundManager.EmitSoundServer(networkSound.index, slot.gameObject);
@@ -63,6 +71,14 @@ namespace TurboEdition.Equipments
                 sceneExitController.destinationScene = SceneCatalog.GetSceneDefFromSceneName("moon");
                 NetworkServer.Spawn(sceneExitGO);
                 sceneExitController.Begin();
+                return true;
+            }
+            if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("voidraid") && VoidRaidGauntletController.instance.gauntletIndex >= VoidRaidGauntletController.instance.phaseEncounters.Length)
+            {
+                GameObject sceneExitGO;
+                CreateSceneExitGameObject(out sceneExitGO);
+                NetworkServer.Spawn(sceneExitGO);
+                sceneExitGO.GetComponent<SceneExitController>()?.Begin();
                 return true;
             }
             if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) //Not a stage trololo

@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: -1895344032, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teamIndexInternal: 0
   defaultTeam: -1
 --- !u!114 &3104996826693707152
 MonoBehaviour:
@@ -108,18 +107,10 @@ MonoBehaviour:
   startSound: 
   cannotBeDeleted: 0
   flightSoundLoop: {fileID: 0}
-  rigidbody: {fileID: 0}
-  <teamFilter>k__BackingField: {fileID: 0}
-  <ghost>k__BackingField: {fileID: 0}
-  <isPrediction>k__BackingField: 0
   canImpactOnTrigger: 0
-  <shouldPlaySounds>k__BackingField: 0
   allowPrediction: 1
   owner: {fileID: 0}
-  <procChainMask>k__BackingField:
-    mask: 0
   procCoefficient: 1
-  myColliders: []
 --- !u!54 &54808093057743666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,15 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  transform: {fileID: 0}
-  rb: {fileID: 0}
-  interpolatedTransform: {fileID: 0}
   positionTransmitInterval: 0.033333335
   interpolationFactor: 1
   allowClientsideCollision: 0
-  serverPosition: {x: 0, y: 0, z: 0}
-  serverRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &8896665261586244783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,11 +168,6 @@ MonoBehaviour:
   oscillate: 0
   oscillateMagnitude: 20
   oscillateSpeed: 0
-  deltaHeight: 0
-  oscillationStopwatch: 0
-  stopwatch: 0
-  rigidbody: {fileID: 0}
-  transform: {fileID: 0}
 --- !u!135 &9195881915704691530
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -232,15 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileController: {fileID: 0}
-  projectileDamage: {fileID: 0}
-  alive: 1
   falloffModel: 0
   blastRadius: 14
   blastDamageCoefficient: 1
   blastProcCoefficient: 1
-  blastAttackerFiltering: 3
-  bonusBlastForce: {x: 200, y: 300, z: 200}
+  blastAttackerFiltering: 0
+  bonusBlastForce: {x: -500, y: -200, z: -500}
   canRejectForce: 1
   projectileHealthComponent: {fileID: 0}
   explosionEffect: {fileID: 7214428371660463810, guid: f2ed93f59f607894ea14e7c3ddf0af2e,
@@ -265,7 +242,6 @@ MonoBehaviour:
   maxStacksFromAttacker: 4294967295
   calculateTotalDamage: 0
   totalDamageMultiplier: 0
-  impactNormal: {x: 0, y: 1, z: 0}
   impactEffect: {fileID: 0}
   lifetimeExpiredSoundString: 
   lifetimeExpiredSound: {fileID: 0}
@@ -277,10 +253,6 @@ MonoBehaviour:
   lifetime: 3
   lifetimeAfterImpact: 3
   lifetimeRandomOffset: 0
-  stopwatch: 0
-  stopwatchAfterImpact: 0
-  hasImpact: 0
-  hasPlayedLifetimeExpiredSound: 0
   transformSpace: 0
 --- !u!114 &6503306493459240982
 MonoBehaviour:

@@ -87,7 +87,7 @@
 						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
 							<Comment>Affects MUL-T</Comment>
 							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="200"/>
+								<Property Name="InitialValue" Type="Real64" Value="20"/>
 								<Property Name="Max" Type="Real64" Value="200"/>
 							</PropertyList>
 						</GameParameter>

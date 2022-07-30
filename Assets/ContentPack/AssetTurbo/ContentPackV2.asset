@@ -19,8 +19,6 @@ MonoBehaviour:
   masterPrefabs:
   - {fileID: 6518832654186872370, guid: bb7c43777775dfe49a54fdc52ad8bb94, type: 3}
   projectilePrefabs:
-  - {fileID: 2074815300407172818, guid: 5a2d61750beb9e24d9a179e83d0bdd18, type: 3}
-  - {fileID: 7028506108066464535, guid: c904b350a9d27ac4d8a9ed62ab4a8e58, type: 3}
   - {fileID: 7028506108066464535, guid: 8200670119ef60342a2a0d6a42791e6f, type: 3}
   - {fileID: 7028506108066464535, guid: e2c5419618b34094ba557ac18f7ae6c5, type: 3}
   - {fileID: 7028506108066464535, guid: f5a07deaa071d794b84450f29bbfc772, type: 3}
@@ -30,6 +28,7 @@ MonoBehaviour:
   - {fileID: 7028506108066464535, guid: 703f5e15e8cb80a4ab1d52c939245139, type: 3}
   - {fileID: 1553861968085051080, guid: 0378e98d38626d847b2a74f0e24b3d29, type: 3}
   - {fileID: 5927682615679395250, guid: 2f4e77b8486cca54c9f46200c5516d76, type: 3}
+  - {fileID: 2074815300407172818, guid: 5a2d61750beb9e24d9a179e83d0bdd18, type: 3}
   - {fileID: 7028506108066464535, guid: e18b338e4cb9d6840b2836eafb7a3c92, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs:
@@ -45,6 +44,7 @@ MonoBehaviour:
   - {fileID: 3504237565358304522, guid: a5016a1f6ecdf2e40a9cd6a6c657d06f, type: 3}
   - {fileID: 1323625397039631814, guid: d72a12080d7115640848022f186e8d36, type: 3}
   - {fileID: 5663598530513239181, guid: e65a533a064902b4ab5472e6c48e48d0, type: 3}
+  - {fileID: 7028506108066464535, guid: c904b350a9d27ac4d8a9ed62ab4a8e58, type: 3}
   skillDefs:
   - {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1, type: 2}
   - {fileID: 11400000, guid: 36b756b854a897a4fadb01184726acd6, type: 2}
@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 8263891234070803194, guid: bd0c8a4c707644a4b818dd8716e64f43, type: 3}
   - {fileID: 7153563187597557553, guid: e13f86efedfb2114cadfe81b4838b655, type: 3}
   - {fileID: 7214428371660463810, guid: 4cb548fb8f1dbf048b32ecb372949457, type: 3}
+  - {fileID: 3081867890154396561, guid: cfebc4ba51455fc499a32b825df64ace, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: d167a02be48e3f24d974ee1fb4117010, type: 2}

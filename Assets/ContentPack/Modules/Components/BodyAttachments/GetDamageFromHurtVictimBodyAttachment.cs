@@ -54,13 +54,13 @@ namespace TurboEdition.Components
             return new StatBarData
             {
                 fillBarColor = new Color(0.3f, 1f, 0.8f, 1f),
-                maxData = (50 + ((stack - 1) * 25)),
+                maxData = (GetDamageFromHurtVictimBodyBehavior.stackFirst + ((stack - 1) * GetDamageFromHurtVictimBodyBehavior.stackLater)),
                 currentData = currentDamage,
                 offData = "TOOLTIP_ITEM_NOBUFF_DESCRIPTION",
                 sprite = TEContent.Items.SoulDevourer.pickupIconSprite,
                 tooltipContent = new RoR2.UI.TooltipContent
                 {
-                    titleColor = ColorCatalog.GetColor(TEContent.Items.SoulDevourer.darkColorIndex),
+                    titleColor = ColorCatalog.GetColor(ItemTierCatalog.GetItemTierDef(TEContent.Items.SoulDevourer.tier).colorIndex),
                     titleToken = ItemCatalog.GetItemDef(ItemCatalog.FindItemIndex("SoulDevourer")).nameToken,
                     bodyToken = "TOOLTIP_ITEM_SOULDEVOURER_DESCRIPTION",
                     overrideBodyText = Language.GetString(overString),

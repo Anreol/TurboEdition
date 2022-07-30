@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1888550019, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: idrsEngiWalkerTurret
+  m_EditorClassIdentifier: 
+  namedItemRuleGroups: []
+  namedEquipmentRuleGroups: []
+  keyAssetRuleGroups:
+  - keyAsset: {fileID: 11400000, guid: 316652a0f390cfe489524dedaa60a90c, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: 28422e44dfc6b124e98cb1f2a1f5a755,
+          type: 3}
+        childName: Stomach
+        localPos: {x: 0.16651, y: 0.10982, z: -0.0489}
+        localAngles: {x: 351.1942, y: 119.0101, z: 359.5083}
+        localScale: {x: 0.8, y: 0.8, z: 0.8}
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 087e200b366c13f43b843170111cb07f, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: ac8aacf439e5d8448ba9394f78ba6c12,
+          type: 3}
+        childName: Chest
+        localPos: {x: -0.01, y: 0.35, z: -0.15}
+        localAngles: {x: 0.6, y: 357, z: 20}
+        localScale: {x: 0.5, y: 0.5, z: 0.5}
+        limbMask: 0
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: ac8aacf439e5d8448ba9394f78ba6c12,
+          type: 3}
+        childName: Chest
+        localPos: {x: 0.01, y: 0.35, z: -0.15}
+        localAngles: {x: 0.6, y: 3, z: 340}
+        localScale: {x: -0.5, y: 0.5, z: 0.5}
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: 299e4e4152716bf4caf65d885af0b391, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: d2e289b988ff9b345bbd7648b2fa3439,
+          type: 3}
+        childName: ThighL
+        localPos: {x: 0.1, y: 0.14, z: 0.025}
+        localAngles: {x: 0, y: 246, z: 12}
+        localScale: {x: 0.5, y: 0.5, z: 0.5}
+        limbMask: 0
+  - keyAsset: {fileID: 11400000, guid: cf1407890f7341b428d93b2f619db61c, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: 8a61f169e15df224abdfb4fe6f037b3d,
+          type: 3}
+        childName: ThighL
+        localPos: {x: 0.1, y: 0.14, z: 0.025}
+        localAngles: {x: 0, y: 246, z: 12}
+        localScale: {x: 0.5, y: 0.5, z: 0.5}
+        limbMask: 0

@@ -100,6 +100,8 @@
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MarkReducedSelfDamage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MineProximityDetonatorAttackerFiltering.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileDistanceFuse.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileExplosionBlast.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileImpactExplosionBlast.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectilePropertyModifier.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\ProjectileSurfaceImpactEffect.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\ShaderStuff\HGControllerFinder.cs" />

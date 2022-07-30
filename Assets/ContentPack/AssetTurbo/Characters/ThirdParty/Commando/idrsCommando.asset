@@ -56,5 +56,14 @@ MonoBehaviour:
         localAngles: {x: 0, y: 246, z: 12}
         localScale: {x: 0.5, y: 0.5, z: 0.5}
         limbMask: 0
-  runtimeItemRuleGroups: []
-  runtimeEquipmentRuleGroups: []
+  - keyAsset: {fileID: 11400000, guid: cf1407890f7341b428d93b2f619db61c, type: 2}
+    displayRuleGroup:
+      rules:
+      - ruleType: 0
+        followerPrefab: {fileID: 8324847417888579006, guid: 8a61f169e15df224abdfb4fe6f037b3d,
+          type: 3}
+        childName: Stomach
+        localPos: {x: -0.1315919, y: 0.1057428, z: -0.1038009}
+        localAngles: {x: 0.289, y: 264.08, z: 263.58}
+        localScale: {x: 1, y: 1, z: 1}
+        limbMask: 0

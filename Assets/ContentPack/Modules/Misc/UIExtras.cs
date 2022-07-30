@@ -35,8 +35,8 @@ namespace TurboEdition.Misc
         {
             if (obj)
             {
-                //TurboEdition.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, statBarContainer, "MainContainer/MainUIArea/SpringCanvas/LeftCluster"));
-                // TODO: FIX FIX FIX FIX FIX TurboUnityPlugin.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, scoreboardLeftSidePanel, "MainContainer/MainUIArea/SpringCanvas"));
+                //TurboUnityPlugin.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, statBarContainer, "MainContainer/MainUIArea/SpringCanvas/LeftCluster"));
+                TurboUnityPlugin.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, scoreboardLeftSidePanel, "MainContainer/MainUIArea/SpringCanvas"));
             }
         }
 

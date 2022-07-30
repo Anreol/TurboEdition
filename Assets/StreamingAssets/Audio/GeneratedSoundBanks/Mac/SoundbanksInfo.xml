@@ -186,7 +186,7 @@
 				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3375439807">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1464665651">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

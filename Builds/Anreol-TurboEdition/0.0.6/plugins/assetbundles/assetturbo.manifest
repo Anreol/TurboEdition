@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 835655922
+CRC: 2976820692
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c58cc9b92264cdbf7e71137b10dc24f3
+    Hash: dcf4ca07f77bc81e76310af893ecc9be
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f9b73c93c284e3ed1829bbc3f1eba7a6
+    Hash: e7574f04a6a491a34e6464a2f5987d8f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -74,11 +74,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 3143073, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 924743675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 760127866, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  Script: {fileID: 565651866, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -96,21 +92,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 422384671, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 1783796254, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 664490745, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1132406345, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-- Class: 114
-  Script: {fileID: 1873157448, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
 - Class: 114
@@ -135,6 +123,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 7340479488d815c4c925fdab181eb35e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c98f6a25d33cad04581805e6e4f4da0e, type: 3}
+- Class: 114
+  Script: {fileID: 1741964061, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
 - Class: 114
   Script: {fileID: 1301386320, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
 - Class: 114
@@ -166,6 +156,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fe275fb9cf3f7cd4cbde65460c7c8108, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 3f5ecaf9c2d126a46b8593162b8fde03, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c7e0d06a2bda94640b2f8e76ffaae769, type: 3}
@@ -186,11 +178,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -46258121, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -1184802484, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: -132178706, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1032072274, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 760127866, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1357070253, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -246,6 +238,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -410682677, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 924743675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -104859921, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -283,8 +277,6 @@ ClassTypes:
   Script: {fileID: -801810430, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -335813241, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 871971028, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -366,8 +358,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -343225066, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: -848926067, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: -974958137, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 353067543, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -375,6 +365,8 @@ ClassTypes:
   Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -270136354, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -899414464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1819008361, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -438,6 +430,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -408685376, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1873157448, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -946661946, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -201737183, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -480,25 +474,17 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 6a41756f81114744ea6cd11e63095898, type: 3}
 - Class: 114
-  Script: {fileID: -146705984, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: -946661946, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: -1630511094, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: -226763392, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-- Class: 114
   Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-- Class: 114
-  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
 - Class: 114
+  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 907086068a2d51f4d9091c89b5eeac2c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 120
@@ -544,7 +530,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdPanic.asset
 - Assets/ContentPack/AssetTurbo/Items/MeleeArmor/MeleeArmor.asset
 - Assets/Textures/Ramps/texRampRedBlackBlood.png
-- Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPassiveProjectile.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/GrenadierPassiveDelayBlast.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/matArcVisualGrenadier.mat
 - Assets/Mesh/Items/meshSandbag_.mesh
 - Assets/Textures/texAlphaKumo0101_under00.png
@@ -558,10 +544,12 @@ Assets:
 - Assets/Textures/texImpBomberNormal.png
 - Assets/Textures/texUIBgRoomSprite.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/DropletDupe.asset
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Huntress/idrsHuntress.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunSpinDown.asset
 - Assets/Mesh/Items/meshTeleporterLenses_.mesh
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/observatoryGroundNodesNodegraph.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOff.png
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Captain/idrsCaptain.asset
 - Assets/Textures/texDitherWave.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/matDropletDupe.mat
 - Assets/Textures/texBlackKumo0101_under00.png
@@ -574,7 +562,9 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/texCrosshairGrenadeSet.png
 - Assets/Textures/texHellLinkedBuffOverlay.png
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/observatoryAirNodesNodegraph.asset
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Bandit2/idrsBandit2.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SoulDevourerBodyAttachment.prefab
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Mage/idrsMage.asset
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/texAirborneBonusAlbedo.png
 - Assets/ContentPack/AssetTurbo/Items/SuperStickies/SuperStickies.asset
 - Assets/Textures/texSweat.png
@@ -587,6 +577,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierCrosshair.prefab
 - Assets/Materials/matTeamAreaIndicatorIntersectionMonster.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/HellchainDebuffArea.prefab
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/VoidSurvivor/idrsVoidSurvivor.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/MoneyBankPickerPanel.prefab
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/texItemDeployer.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Wings.png
@@ -603,6 +594,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Nanomachines.png
 - Assets/Materials/matHellLinkedBuffBillboard.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierPassiveBlastArmor.asset
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Treebot/idrsTreebot.asset
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ThrowableVisualizerArea.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mskImpBomberArmsOnly.mask
@@ -654,6 +646,7 @@ Assets:
 - Assets/Textures/Ramps/texRampBrightFire.png
 - Assets/Materials/matDevGreyChecker.mat
 - Assets/Mesh/Items/meshKnifeBlade.mesh
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Loader/idrsLoader.asset
 - Assets/ContentPack/AssetTurbo/Equipment/Hellchain/Hellchain.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/HGStandard.asset
@@ -677,7 +670,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/EntityStates.ImpBomber.Weapon.BombGet.asset
 - Assets/Materials/matSuperSticky.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/PlaceholderSphere1Prefab.prefab
-- Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheProjectileDotZone.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/BigScytheOverlapAttack.prefab
 - Assets/ContentPack/AssetTurbo/Items/SuperStickies/texSuperStickiesIcon.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BaneMaskPulse.prefab
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/matAirborneBonus.mat
@@ -706,6 +699,7 @@ Assets:
 - Assets/Textures/Ramps/texGolemRedRamp.png
 - Assets/Textures/texKnifeUVFresnel.png
 - Assets/Textures/Ramps/texRampDustSoft.png
+- Assets/Materials/matBigScytheSpark.mat
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunSpinUp.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/ScoreboardLeftSidePanel.prefab
 - Assets/Materials/matImpBomberBarrelTrail.mat
@@ -753,6 +747,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestSpecialItemSteal.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySecondaryFamily.asset
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Engi/idrsEngiTurret.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdCannotSprint.asset
 - Assets/Textures/texImpBomberDiffuse.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOn.png
@@ -787,10 +782,13 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/matImpFootstepSplash.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.SideWeapon.FireSecondary.asset
 - Assets/Wwise/ScriptableObjects/State/2A8F1DF4-F1CC-4469-9566-52A762ABEF0B.asset
+- Assets/ContentPack/AssetTurbo/Items/ItemDeployer/DisplayItemDeployer.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.SpecialChargeCurling.asset
+- Assets/Textures/texOmniHitspark7Mask.png
 - Assets/Textures/texGlowClean.png
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/ItemDeployer.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicSpecialProjectile.prefab
+- Assets/Textures/Ramps/texRampPurpleYellow.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/meshDropletDupeDisplay.mesh
 - Assets/Mesh/donut3Mesh.asset
 - Assets/Textures/texCloudDifferenceBW2.png
@@ -821,8 +819,10 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicSecondaryProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ThrowableVisualizerLine.prefab
 - Assets/Mesh/Items/meshIcosphere.mesh
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Croco/idrsCroco.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicSecondaryAltProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lenses.png
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Merc/idrsMerc.asset
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/texAirborneBonusNormal.png
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/AirborneBonus.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySpecialFamily.asset
@@ -870,6 +870,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/HitSharpVFXGround.prefab
 - Assets/ContentPack/AssetTurbo/Misc/PostProcessingProfiles/ppObervatoryRain.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierSpecialCrosshair.prefab
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Toolbot/idrsToolbot.asset
 - Assets/ContentPack/AssetTurbo/Misc/NetworkSoundEffectDefs/nseItemProcPackMagnetDuplicate.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.EnterReload.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
@@ -880,6 +881,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.SideWeapon.FireSecondaryAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/pain_deselected.png
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Engi/idrsEngiWalkerTurret.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpInitialDeathVFX.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/ImpBomberBody.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png
@@ -933,6 +935,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/SuperStickies/Items.SuperStickies.asset
 - Assets/Textures/texCardTest.png
 - Assets/ContentPack/AssetTurbo/Misc/uiPopoutPanel.asset
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Railgunner/idrsRailgunner.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/ShrineOvercharger/ShrineOvercharger.prefab
 - Assets/ContentPack/AssetTurbo/Items/WardOnLevelVoid/matVoidWarbannerBuffBillboard.mat
 - Assets/Textures/Ramps/texRampDustLong.png
@@ -944,6 +947,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Roll.UtilityRollLoopAerial.asset
 - Assets/ContentPack/AssetTurbo/Items/Hitlag/Hitlag.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.EnterReloadFast.asset
+- Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Engi/idrsEngi.asset
 - Assets/Textures/Ramps/texRampTritone.png
 - Assets/Materials/matTeamAreaIndicatorIntersectionPlayer.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png

@@ -6,7 +6,7 @@
 		"GRENADIER_BODY_LORE" : "GRENADIER_BODY_LORE",
 		
 		"GRENADIER_PASSIVE_NAME" : "Blast Armor",
-		"GRENADIER_PASSIVE_DESCRIPTION" : "Every <style=cIsHealth>20% health</style> lost, release bomblets from <style=cIsDamage>9x100%</style> to <style=cIsDamage>12x100% damage</style>. Recharges when <style=cIsUtility>out of danger</style>.",
+		"GRENADIER_PASSIVE_DESCRIPTION" : "Every <style=cIsHealth>20% health</style> lost, explode, from <style=cIsDamage>3x300%</style> to <style=cIsDamage>6x300% damage</style>, in 12 meters. Recharges when <style=cIsUtility>out of danger</style>.",
 		"GRENADIER_PRIMARY_NAME": "Primary MGL",
 		"GRENADIER_PRIMARY_DESCRIPTION" : "Fire an explosive for <style=cIsDamage>300% damage</style>. Hold up to 6.",
 		"GRENADIER_PRIMARY_ALT_NAME": "Rapid Blaster",
@@ -19,8 +19,8 @@
 		"GRENADIER_UTILITY_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Bounce off enemies for at least <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
 		"GRENADIER_UTILITY_ALT_NAME": "<sprite name=\"WIP\">Speed Booster<sprite name=\"WIP\">",
 		"GRENADIER_UTILITY_ALT_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Start running and crash into enemies for <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
-		"GRENADIER_SPECIAL_NAME": "Special",
-		"GRENADIER_SPECIAL_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each.",
+		"GRENADIER_SPECIAL_NAME": "Imploding Charge",
+		"GRENADIER_SPECIAL_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each, pulling enemies with the explosion.",
 		"GRENADIER_SPECIAL_ALT_NAME": "<sprite name=\"WIP\">Special Alt<sprite name=\"WIP\">",
 		"GRENADIER_SPECIAL_ALT_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +5 Stock</style>. Charge and throw all your sliding bombs, which when bouncing off obstacles, explode for <style=cIsDamage>200% damage</style>.",
 		

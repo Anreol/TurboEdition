@@ -112,7 +112,7 @@ namespace TurboEdition.Items
                     if (hc.body.isChampion || hc.body.isBoss)
                         return;
                     float num2 = UnityEngine.Random.Range(20f, 100f); //Guarantees enemies like lemurians and beetles never pass
-                    if (num2 <= Mathf.Pow(2f, hc.body.bestFitRadius)) //Best fit radius: Golems are 7.5, beetles are 1.82
+                    if (num2 <= Mathf.Pow(1.60f, hc.body.bestFitRadius)) //Best fit radius: Golems are 7.5, beetles are 1.82
                         return;
                     hc.body.AddTimedBuff(TEContent.Buffs.Panic, (10) * hitInfo.hitSeverity);
                     return;

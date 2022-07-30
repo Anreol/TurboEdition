@@ -1,4 +1,5 @@
-﻿using TurboEdition.ScriptableObjects;
+﻿using RoR2.Projectile;
+using TurboEdition.ScriptableObjects;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
@@ -62,7 +63,8 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                         instanceData.skillStocksExtra -= activatorSkillSlot.skillDef.stockToConsume;
                         activatorSkillSlot.RecalculateValues();
                     }
-                    activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
+                    //if (firedAtLeastOnce)
+                    //    activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
                     aimRay2.direction = rotation * aimRay2.direction;
                 }
             }
