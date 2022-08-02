@@ -2,6 +2,7 @@
 using RoR2.UI;
 using System;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -37,6 +38,7 @@ namespace TurboEdition.Misc
             {
                 //TurboUnityPlugin.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, statBarContainer, "MainContainer/MainUIArea/SpringCanvas/LeftCluster"));
                 TurboUnityPlugin.instance.StartCoroutine(AwaitForHUDCreationAndAppend(obj, scoreboardLeftSidePanel, "MainContainer/MainUIArea/SpringCanvas"));
+                TurboUnityPlugin.instance.StartCoroutine(AwaitForHUDCreationAndPatch(obj));
             }
         }
 
@@ -83,7 +85,38 @@ namespace TurboEdition.Misc
             });
             return;
         }
-
+        private static void PatchHUD(HUD newHud)
+        {
+            ChildLocator cl = newHud.GetComponent<ChildLocator>();
+            if (cl)
+            {
+                ChildLocator.NameTransformPair bottomRightCorner = new ChildLocator.NameTransformPair(){
+                    name = newHud.skillIcons[0].transform.parent.parent.name,
+                    transform = newHud.skillIcons[0].transform.parent.parent
+                };
+                ChildLocator.NameTransformPair skill1 = new ChildLocator.NameTransformPair()
+                {
+                    name = newHud.skillIcons[0].gameObject.name,
+                    transform = newHud.skillIcons[0].transform
+                };
+                ChildLocator.NameTransformPair skill2 = new ChildLocator.NameTransformPair()
+                {
+                    name = newHud.skillIcons[1].gameObject.name,
+                    transform = newHud.skillIcons[1].transform
+                };
+                ChildLocator.NameTransformPair skill3 = new ChildLocator.NameTransformPair()
+                {
+                    name = newHud.skillIcons[2].gameObject.name,
+                    transform = newHud.skillIcons[2].transform
+                };
+                ChildLocator.NameTransformPair skill4 = new ChildLocator.NameTransformPair()
+                {
+                    name = newHud.skillIcons[3].gameObject.name,
+                    transform = newHud.skillIcons[3].transform
+                };
+                cl.transformPairs = cl.transformPairs.Concat(new ChildLocator.NameTransformPair[] { bottomRightCorner, skill1, skill2, skill3, skill4 }).ToArray();
+            }
+        }
         private static void AssignHUDElement(HUD newHud, GameObject panel, string transform)
         {
             if (!newHud.transform.Find(transform))
@@ -144,6 +177,17 @@ namespace TurboEdition.Misc
         {
             Vector2 panel2UpperLeftCorner = new Vector2((rightPanel.anchorMax.x - rightPanel.rect.width), (rightPanel.anchorMax.y - rightPanel.rect.height));
             Vector2.Distance(leftPanel.anchorMax, panel2UpperLeftCorner);
+        }
+
+        private static IEnumerator AwaitForHUDCreationAndPatch(CameraRigController camera) //Me getting trolled by one single line of code
+        {
+            yield return new WaitForEndOfFrame();
+            if (SceneCatalog.mostRecentSceneDef.baseSceneName == "lobby")
+                yield break;
+            if (camera.hud == null && !SceneCatalog.mostRecentSceneDef.isOfflineScene)
+                TELog.LogW("Something went wrong when awaiting for the Camera's HUD creation on a Non-Offline Scene.");
+            else if (!SceneCatalog.mostRecentSceneDef.isOfflineScene)
+                PatchHUD(camera.hud);
         }
 
         private static IEnumerator AwaitForHUDCreationAndAppend(CameraRigController camera, GameObject objectToInstantiate = null, string parent = null) //Me getting trolled by one single line of code

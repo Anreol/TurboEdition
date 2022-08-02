@@ -40,3 +40,5 @@ MonoBehaviour:
   maxExtraStocksFromReloading: 3
   holdingFullStocksDescriptionToken: GRENADIER_SPECIAL_FULL_DESCRIPTION
   stockGainedSoundEffectString: Play_Grenadier_Special_GainExtraCharge
+  hudSkillOverlayPrefab: {fileID: 1919878615485810302, guid: e4740114c3d0ee04a9383d350c835481,
+    type: 3}

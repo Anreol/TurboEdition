@@ -85,11 +85,7 @@
 				<Folder Name="SFX_param" ID="{DF387BBF-919D-44CC-AC20-F2FEF5DC3C84}" ShortID="752673707">
 					<ChildrenList>
 						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
-							<Comment>Affects MUL-T</Comment>
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="20"/>
-								<Property Name="Max" Type="Real64" Value="200"/>
-							</PropertyList>
+							<Comment>Affects the sound of flying drones, maybe MUL-T too? Defaults to 50.</Comment>
 						</GameParameter>
 						<GameParameter Name="explosionSize" ID="{4209B276-A690-47FF-835C-6DCE739824C7}">
 							<PropertyList>
@@ -128,9 +124,7 @@ Default 50.
 							<Comment>Affects drones, default to 50. Stuff like drone spawn sounds and idle.</Comment>
 						</GameParameter>
 						<GameParameter Name="charMultSpeed" ID="{F89F9018-D6EE-47D9-AEB7-B93DBF369967}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
+							<Comment>Seems to affect only MUL-Ts transport mode, Defaults to 50</Comment>
 						</GameParameter>
 						<GameParameter Name="damageDirection" ID="{8D310096-22EA-4DCA-9391-9E4293748D8A}">
 							<PropertyList>

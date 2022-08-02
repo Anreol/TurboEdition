@@ -18,7 +18,7 @@ namespace TurboEdition.EntityStates.Grenadier.SideWeapon
         public override void FireProjectile()
         {
             base.FireProjectile();
-            if (base.characterMotor)
+            if (base.characterMotor && !characterMotor.isGrounded)
             {
                 base.characterMotor.ApplyForce(GetAimRay().direction * -selfForce, false, false);
             }

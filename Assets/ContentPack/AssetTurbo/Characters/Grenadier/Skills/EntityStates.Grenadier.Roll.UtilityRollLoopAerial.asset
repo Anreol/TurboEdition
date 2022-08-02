@@ -55,15 +55,15 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: ungroundSmallHopYVel
       fieldValue:
-        stringValue: 13
+        stringValue: 4
         objectValue: {fileID: 0}
     - fieldName: ungroundSmallHopForwardVel
       fieldValue:
-        stringValue: 4
+        stringValue: 2
         objectValue: {fileID: 0}
     - fieldName: newAirControl
       fieldValue:
-        stringValue: 0.25
+        stringValue: 0.2
         objectValue: {fileID: 0}
     - fieldName: overlapAttackResetFrequency
       fieldValue:

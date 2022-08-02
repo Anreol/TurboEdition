@@ -89,9 +89,9 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             }
         }
 
-        public override void ReturnToMain()
+        public override void OnExitNextFrameAuthority()
         {
-            base.ReturnToMain();
+            base.OnExitNextFrameAuthority();
             if (isInHitPause)
             {
                 base.ConsumeHitStopCachedState(this.hitStopCachedState, base.characterMotor, this.cachedAnimator);
@@ -178,23 +178,6 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
         public override Vector3? UpdateDirection()
         {
             return isInHitPause ? null : base.UpdateDirection();
-        }
-
-        public override BaseBodyRollSingle GetNextState()
-        {
-            UtilityRollLoopGrounded utilityRollLoopAerial = new UtilityRollLoopGrounded();
-            //Init overlap attack.
-            utilityRollLoopAerial.ResetOverlap();
-            //Append the currently hit victims to the next state, making them not get hit til next reset.
-            foreach (var item in base.overlapAttack.ignoredHealthComponentList)
-            {
-                utilityRollLoopAerial.overlapAttack.ignoredHealthComponentList.Add(item);
-            }
-            //Hitstop stuff
-            utilityRollLoopAerial.isInHitPause = isInHitPause;
-            utilityRollLoopAerial.hitStopCachedState = hitStopCachedState;
-            utilityRollLoopAerial.hitPauseTimer = hitPauseTimer;
-            return utilityRollLoopAerial;
         }
     }
 }

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2976820692
+CRC: 3440487375
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dcf4ca07f77bc81e76310af893ecc9be
+    Hash: 732b23803ebbc46cbba8eeef7a4d5404
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e7574f04a6a491a34e6464a2f5987d8f
+    Hash: 8f7b7d2933895765d7cfa46e85cda312
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -59,8 +59,6 @@ ClassTypes:
   Script: {fileID: 422384671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1810124184, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 511512695, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -139,6 +137,8 @@ ClassTypes:
   Script: {fileID: -234403039, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 1ddf9fe5dfc2392479cf661671b3808b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 907086068a2d51f4d9091c89b5eeac2c, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a4dfc8565e7f246419b17df85cd7069c, type: 3}
 - Class: 114
@@ -290,6 +290,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1792105662, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: -598719375, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -258887854, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1549848242, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -360,6 +362,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -974958137, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1810124184, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 353067543, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -317677761, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -375,6 +379,8 @@ ClassTypes:
   Script: {fileID: 1839950351, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 717380117, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: -1890862624, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -1695578394, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -474,17 +480,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 6a41756f81114744ea6cd11e63095898, type: 3}
 - Class: 114
-  Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+- Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 907086068a2d51f4d9091c89b5eeac2c, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+  Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 120
@@ -600,6 +604,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mskImpBomberArmsOnly.mask
 - Assets/Textures/texOmniHitspark5Mask.png
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2Artifact.asset
+- Assets/Materials/matSphereCore.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxPanicDrops.prefab
 - Assets/Textures/texGlowDirty.png
 - Assets/Textures/texKnifeUVNormal.png
@@ -631,6 +636,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_selected.png
 - Assets/ContentPack/AssetTurbo/Misc/physmatBouncy.physicMaterial
 - Assets/Mesh/Items/meshKnifeGuard.mesh
+- Assets/ContentPack/AssetTurbo/Prefabs/UI/GrenadierSkillUI.prefab
 - Assets/Textures/texNormalInvertFadeCone.png
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/HellChainTetherVFX.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/OmniExplosionVFXImpBomber.prefab
@@ -709,6 +715,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPrimaryProjectile.prefab
 - Assets/Textures/Ramps/texRampRedcross.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/CrabChestBody.prefab
+- Assets/Materials/matDustAdditiveGlow.mat
 - Assets/Mesh/Items/meshSuperSticky_.mesh
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Equipment.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberBodyPrimaryFamily.asset
@@ -759,6 +766,7 @@ Assets:
 - Assets/Textures/Ramps/texRampHuntressSoft2.png
 - Assets/Materials/matKnife.mat
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/animImpBomber.controller
+- Assets/Materials/matCrystalineDistortion.mat
 - Assets/Textures/texAlphaKumo0104_01.png
 - Assets/Textures/texBigScytheBase.png
 - Assets/Textures/texBlackKumo0101_00.png
@@ -878,10 +886,12 @@ Assets:
 - Assets/Mesh/Items/meshKnife_.mesh
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/EntityStates.ImpBomber.SpawnState.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
+- Assets/Textures/texCrystalineNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.SideWeapon.FireSecondaryAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/pain_deselected.png
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Engi/idrsEngiWalkerTurret.asset
+- Assets/Materials/matTracerMaroon.mat
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpInitialDeathVFX.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/ImpBomberBody.prefab
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png

@@ -1,8 +1,13 @@
 ﻿using JetBrains.Annotations;
 using RoR2;
+using RoR2.HudOverlay;
 using RoR2.Skills;
+using RoR2.UI;
 using System;
+using System.Linq;
+using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TurboEdition.ScriptableObjects
 {
@@ -18,6 +23,7 @@ namespace TurboEdition.ScriptableObjects
         [Tooltip("Wwise sound event string to play when a stock is gained.")]
         public string stockGainedSoundEffectString;
 
+        public GameObject hudSkillOverlayPrefab;
         public override SkillDef.BaseSkillInstanceData OnAssigned([NotNull] GenericSkill skillSlot)
         {
             return new GrenadierSpecialSkillDef.InstanceData(maxExtraStocksFromReloading);
@@ -26,7 +32,7 @@ namespace TurboEdition.ScriptableObjects
         public override string GetCurrentDescriptionToken(GenericSkill skillSlot)
         {
             GrenadierSpecialSkillDef.InstanceData instanceData = (GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData;
-            if (instanceData.skillStocksExtra == instanceData.maxSkillStockExtra)
+            if (instanceData != null && instanceData.skillStocksExtra == instanceData.maxSkillStockExtra)
             {
                 return holdingFullStocksDescriptionToken;
             }
@@ -35,7 +41,10 @@ namespace TurboEdition.ScriptableObjects
 
         public override void OnUnassigned(GenericSkill skillSlot)
         {
-            ((GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData).Dispose();
+            if (((GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData) != null)
+            {
+                ((GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData).Dispose();
+            }
             base.OnUnassigned(skillSlot);
         }
 
@@ -43,9 +52,38 @@ namespace TurboEdition.ScriptableObjects
         {
             base.OnFixedUpdate(skillSlot);
             GrenadierSpecialSkillDef.InstanceData instanceData = (GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData;
-            instanceData.FixedUpdate(skillSlot, stockGainedSoundEffectString);
+            if (instanceData != null)
+            {
+                if (instanceData.overlay == null)
+                {
+                    //Get hud and shit
+                    //TODO: Check if not checking if this is dirty or not breaks something.
+                    HUD hud = HUD.instancesList.FirstOrDefault(x => x.targetBodyObject == skillSlot.characterBody.gameObject);
+                    if (hud)
+                    {
+                        string entry = "";
+                        if (skillSlot == skillSlot.characterBody.skillLocator.primary)
+                            entry = "Skill1Root";
+                        if (skillSlot == skillSlot.characterBody.skillLocator.secondary)
+                            entry = "Skill2Root";
+                        if (skillSlot == skillSlot.characterBody.skillLocator.utility)
+                            entry = "Skill3Root";
+                        if (skillSlot == skillSlot.characterBody.skillLocator.special)
+                            entry = "Skill4Root";
+                        if (entry.Length > 0)
+                        {
+                            OverlayCreationParams overlayCreationParams = new OverlayCreationParams
+                            {
+                                prefab = hudSkillOverlayPrefab,
+                                childLocatorEntry = entry
+                            };
+                            instanceData.AssignOverlay(HudOverlayManager.AddOverlay(skillSlot.gameObject, overlayCreationParams));
+                        }
+                    }
+                }
+                instanceData.FixedUpdate(skillSlot, stockGainedSoundEffectString);
+            }
         }
-
         public override void OnExecute([NotNull] GenericSkill skillSlot)
         {
             skillSlot.stateMachine.SetInterruptState(this.InstantiateNextState(skillSlot), this.interruptPriority);
@@ -53,14 +91,12 @@ namespace TurboEdition.ScriptableObjects
             {
                 skillSlot.characterBody.isSprinting = false;
             }
-            //skillSlot.stock -= this.stockToConsume; commented out, controlled in OnTrueExecute
             if (this.resetCooldownTimerOnUse)
             {
                 skillSlot.rechargeStopwatch = 0f;
             }
             //Removed on skill executed from base
         }
-
         public override int GetMaxStock([NotNull] GenericSkill skillSlot)
         {
             GrenadierSpecialSkillDef.InstanceData instanceData = (GrenadierSpecialSkillDef.InstanceData)skillSlot.skillInstanceData;
@@ -93,11 +129,38 @@ namespace TurboEdition.ScriptableObjects
             /// </summary>
             public int previousSkillStocks;
 
+            internal OverlayController overlay;
+            internal ImageFillController imageFill;
+            internal HGTextMeshProUGUI meshProUGUI;
+            internal Animator uiAnimator;
             public InstanceData(int maxStockFromReloading)
             {
                 maxSkillStockExtra = maxStockFromReloading;
                 skillStocksExtra = 0;
                 previousSkillStocks = 0;
+            }
+            public void AssignOverlay(OverlayController newOverlay)
+            {
+                if (overlay != null)
+                {
+                    overlay.onInstanceAdded -= onOverlayAdded;
+                    overlay.onInstanceRemove -= onOverlayRemoved;
+                    HudOverlayManager.RemoveOverlay(overlay);
+                }
+                overlay = newOverlay;
+                overlay.onInstanceAdded += onOverlayAdded;
+                overlay.onInstanceRemove += onOverlayRemoved;
+            }
+            private void onOverlayRemoved(OverlayController controller, GameObject instance)
+            {
+
+            }
+
+            private void onOverlayAdded(OverlayController controller, GameObject instance)
+            {
+                imageFill = instance.GetComponent<ImageFillController>();
+                meshProUGUI = instance.GetComponent<HGTextMeshProUGUI>();
+                uiAnimator = instance.GetComponent<Animator>();
             }
 
             public void Dispose()
@@ -106,6 +169,12 @@ namespace TurboEdition.ScriptableObjects
                 maxSkillStockExtra = 0;
                 skillStocksExtra = 0;
                 previousSkillStocks = 0;
+                if (overlay != null)
+                {
+                    overlay.onInstanceAdded -= onOverlayAdded;
+                    overlay.onInstanceRemove -= onOverlayRemoved;
+                    HudOverlayManager.RemoveOverlay(overlay);
+                }
             }
 
             public void FixedUpdate(GenericSkill runningGS, string sfxToPlayOnExtraStockGained)
@@ -137,8 +206,35 @@ namespace TurboEdition.ScriptableObjects
                         {
                             runningGS.ApplyAmmoPack();
                             Util.PlaySound(sfxToPlayOnExtraStockGained, runningGS.gameObject);
+                            if (uiAnimator != null)
+                            {
+                                uiAnimator.CrossFadeInFixedTime("GotStockExtra", 0.5f, uiAnimator.GetLayerIndex("Popup"));
+                            }
                         }
                     }
+                }
+                if (overlay != null)
+                {
+                    UpdateUI();
+                }
+            }
+
+            private void UpdateUI()
+            {
+                if (imageFill)
+                {
+                    imageFill.SetTValue(skillStocksExtra / maxSkillStockExtra);
+                    foreach (Image image in imageFill.images)
+                    {
+                        image.color = skillStocksExtra == maxSkillStockExtra ? new Color(0.9987254f, 1, 0.4575472f) : Color.white;
+                    }
+                }
+                if (meshProUGUI)
+                {
+                    StringBuilder stringBuilder = HG.StringBuilderPool.RentStringBuilder();
+                    stringBuilder.Append("+").AppendInt(skillStocksExtra);
+                    meshProUGUI.SetText(stringBuilder);
+                    HG.StringBuilderPool.ReturnStringBuilder(stringBuilder);
                 }
             }
         }

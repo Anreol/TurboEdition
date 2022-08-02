@@ -37,7 +37,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             {
                 Vector3 rhs = Vector3.Cross(Vector3.up, finalRay.direction);
                 Vector3 axis = Vector3.Cross(finalRay.direction, rhs);
-                int startingStock = activatorSkillSlot.stock;
+                int startingStock = activatorSkillSlot.stock + 1; //Plus one because one stock is being consumed upon skill activation
                 float bloom = 0f;
                 if (base.characterBody)
                 {
@@ -63,8 +63,8 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                         instanceData.skillStocksExtra -= activatorSkillSlot.skillDef.stockToConsume;
                         activatorSkillSlot.RecalculateValues();
                     }
-                    //if (firedAtLeastOnce)
-                    //    activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
+                    if (firedAtLeastOnce)
+                        activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
                     aimRay2.direction = rotation * aimRay2.direction;
                 }
             }

@@ -126,19 +126,13 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
                 }
                 if (fixedAge >= calculatedDuration)
                 {
-                    BaseBodyRollSingle baseBodyRoll = GetNextState();
-                    this.outer.SetNextState(baseBodyRoll);
+                    OnLifetimeExpiredAuthority();
                 }
                 if (base.fixedAge >= this.minimumDuration && this.exitNextFrame)
                 {
-                    ReturnToMain();
+                    OnExitNextFrameAuthority();
                 }
             }
-        }
-
-        public override void OnExit()
-        {
-            base.OnExit();
         }
 
         public virtual void ModifyOverlapAttack(OverlapAttack overlapAttack)
@@ -217,17 +211,20 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
         }
 
         /// <summary>
-        /// Returns to the default state. Can ve overriden.
+        /// Called whenever exitNextFrame is true.
         /// </summary>
-        public virtual void ReturnToMain()
+        public virtual void OnExitNextFrameAuthority()
         {
             outer.SetNextStateToMain();
         }
 
         /// <summary>
-        /// Called whenever a single hit is performed.
+        /// Called whenever age is higher than calculated duration.
         /// </summary>
         /// <returns></returns>
-        public abstract BaseBodyRollSingle GetNextState();
+        public virtual void OnLifetimeExpiredAuthority() 
+        {
+            outer.SetNextStateToMain();
+        }
     }
 }

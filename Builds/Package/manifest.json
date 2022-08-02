@@ -5,7 +5,6 @@
 	"description": "WIP Content pack mod that adds items, equipment, and artifacts, to ruin your host with! Uploaded for public testing, do not download unless you know what you're doing!",
 	"dependencies": [
         "bbepis-BepInExPack-5.4.1905",
-		"RiskofThunder-HookGenPatcher-1.2.3",
-		"RiskofThunder-FixPluginTypesSerialization-1.0.2"
+		"RiskofThunder-HookGenPatcher-1.2.3"
 	]
 }

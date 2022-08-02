@@ -87,7 +87,6 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
                 }
                 if (shouldDamageAndExitIfGrounding)
                 {
-                    base.characterMotor.onMovementHit += onMovementHit;
                     characterMotor.onHitGroundAuthority += onHitGroundAuthority;
                 }
                 //Air control
@@ -102,7 +101,6 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             base.OnExit();
             if (shouldDamageAndExitIfGrounding)
             {
-                base.characterMotor.onMovementHit -= onMovementHit;
                 characterMotor.onHitGroundAuthority -= onHitGroundAuthority;
             }
             if (isAuthority)
@@ -111,14 +109,14 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             }
         }
 
-        public override void ReturnToMain()
+        public override void OnExitNextFrameAuthority()
         {
-            base.ReturnToMain();
             if (isInHitPause)
             {
                 base.ConsumeHitStopCachedState(this.hitStopCachedState, base.characterMotor, this.cachedAnimator);
                 isInHitPause = false;
             }
+            base.OnExitNextFrameAuthority();
         }
 
         public override void FixedUpdate()
@@ -164,22 +162,6 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             }
         }
 
-        private void onMovementHit(ref RoR2.CharacterMotor.MovementHitInfo movementHitInfo)
-        {
-            base.exitNextFrame = true;
-            if (movementHitInfo.hitCollider)
-            {
-                //Reset.
-                ResetOverlap();
-                //Do this instead of calling base modify attack, as the character speed might be already zero.
-                overlapAttack.damage = Mathf.Max(damageStat * baseOverlapAttackCoefficient, damageStat * (baseOverlapAttackCoefficient * Mathf.Max(1f, movementHitInfo.velocity.magnitude / base.characterBody.baseMoveSpeed)));
-                if (overlapAttack.Fire(victims))
-                {
-                    HitSuccessful(victims);
-                }
-            }
-        }
-
         private void onHitGroundAuthority(ref CharacterMotor.HitGroundInfo hitGroundInfo)
         {
             base.exitNextFrame = true;
@@ -213,7 +195,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             return isInHitPause ? null : base.UpdateDirection();
         }
 
-        public override BaseBodyRollSingle GetNextState()
+        public override void OnLifetimeExpiredAuthority()
         {
             UtilityRollLoopAerial utilityRollLoopAerial = new UtilityRollLoopAerial();
 
@@ -226,7 +208,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             utilityRollLoopAerial.isInHitPause = isInHitPause;
             utilityRollLoopAerial.hitStopCachedState = hitStopCachedState;
             utilityRollLoopAerial.hitPauseTimer = hitPauseTimer;
-            return utilityRollLoopAerial;
+            outer.SetNextState(utilityRollLoopAerial);
         }
     }
 }
