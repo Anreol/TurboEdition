@@ -198,7 +198,7 @@
 				<GameParameter Id="3729143042" Name="Volume_MSX" ObjectPath="\Game Parameters\Default Work Unit\Volume_MSX"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1664825278" Language="SFX" Hash="3814713138">
+		<SoundBank Id="1664825278" Language="SFX" Hash="4163950182">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboMusicBank</ObjectPath>
 			<ShortName>TurboMusicBank</ShortName>
 			<Path>TurboMusicBank.bnk</Path>

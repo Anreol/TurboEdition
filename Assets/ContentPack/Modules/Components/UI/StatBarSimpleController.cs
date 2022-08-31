@@ -88,7 +88,7 @@ namespace TurboEdition.UI
                 if (tooltipProvider)
                     tooltipProvider.SetContent(statBarData.tooltipContent);
                 if (fillRectTransform)
-                    fillRectTransform.GetComponent<RawImage>().color = statBarProviders[i].GetStatBarData().fillBarColor;
+                    fillRectTransform.GetComponent<Image>().color = statBarProviders[i].GetStatBarData().fillBarColor;
 
                 if (sprite)
                     sprite.texture = statBarProviders[i].GetStatBarData().sprite.texture;

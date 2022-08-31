@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using TurboEdition.Misc;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace TurboEdition
 {
@@ -96,12 +97,15 @@ namespace TurboEdition
                     dlcLoaded = true;
             }
 
-            //Void Items.
             if (baseGameLoaded && dlcLoaded && !alreadyLoadedBaseGame)
             {
                 alreadyLoadedBaseGame = true;
+                //Void Items.
                 args.output.itemRelationshipProviders[0].relationshipType = DLC1Content.ItemRelationshipTypes.ContagiousItem;
                 args.output.itemRelationshipProviders[0].relationships[0].itemDef1 = RoR2Content.Items.WardOnLevel;
+
+                //Scene destinations.
+                TEContent.Scenes.observatory.destinationsGroup = Addressables.LoadAssetAsync<SceneCollection>("RoR2/Base/SceneGroups/sgStage1.asset").WaitForCompletion();
             }
 
             if (onGenerateContentPack != null)
@@ -137,6 +141,7 @@ namespace TurboEdition
         public static class ItemTiers
         {
             public static ItemTierDef CurseItemTier;
+            public static ItemTierDef DualItemTier;
         }
         public static class Items
         {

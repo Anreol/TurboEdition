@@ -22,13 +22,15 @@
 		"GRENADIER_SPECIAL_NAME": "Imploding Charge",
 		"GRENADIER_SPECIAL_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each, pulling enemies in before exploding.",
 		"GRENADIER_SPECIAL_ALT_NAME": "<sprite name=\"WIP\">Tracker Bomb<sprite name=\"WIP\">",
-		"GRENADIER_SPECIAL_ALT_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +5 Stock</style>. Charge and throw all your sliding bombs, which when bouncing off obstacles, explode for <style=cIsDamage>200% damage</style>.",
+		"GRENADIER_SPECIAL_ALT_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +2 Stock</style>. Charge and throw all your sliding bombs, which lock on to a target until exploding for <style=cIsDamage>650% damage</style>.",
 		
 		"GRENADIER_SPECIAL_FULL_DESCRIPTION" : "Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each.\nCurrently holding additional maximum <style=cIsUtility>three stacks</style>.",
 		"GRENADIER_SPECIAL_ALT_FULL_DESCRIPTION" : "Charge and throw all your sliding bombs, which when bouncing off obstacles, explode for <style=cIsDamage>200% damage</style>.\nCurrently holding additional maximum <style=cIsUtility>five stacks</style>.",
 		
+		"GRENADIER_UI_SKILLDEF_FORMAT": "{0}",
+		
 		"GRENADIER_SKIN_ALT1_NAME" : "Officer",
-		"GRENADIER_DESCRIPTION" : "The Grenadier is a close to medium projectile survivor who has the potential to quickly wipe out large groups of enemies - as well extreme single target damage.<style=cSub>\r\n\r\n< ! > Blast Armor can protect you from a group of enemies closing in - or to attack them if you're diving in. Use it along with your Special to rapidly get rid of anybody near you.\r\n\r\n< ! > Your crosshair will turn red whenever you\'re in the appropiate range for your primary to hit your target, keep it in mind.\r\n\r\n< ! > Your Secondary acts almost instantly, and can travel very far, use it whenever your primary has no ammo or you're off range.\r\n\r\n< ! > Your Utility can be used to keep close enemies away, along with one of your explosives to reposition, or to reach high speeds and hit your enemies for high damage.\r\n<\/style>\r\n",
+		"GRENADIER_DESCRIPTION" : "The Grenadier is a close to medium projectile survivor who has the potential to quickly wipe out large groups of enemies - as well extreme single target damage.<style=cSub>\r\n\r\n< ! > Blast Armor can protect you from a group of enemies closing in - or to attack them if you're diving in.\r\n\r\n< ! > Your crosshair will turn red whenever you\'re in the appropiate range for your primary to hit your target, keep it in mind.\r\n\r\n< ! > Your Secondary acts almost instantly, and can travel very far, use it whenever your primary has no ammo or you're off range.\r\n\r\n< ! > Your Utility can be used to keep close enemies away, along with one of your explosives to reposition, or to reach high speeds and hit your enemies for high damage.\r\n<\/style>\r\n",
 
 
 		"CRABCHEST_BODY_NAME": "Mimigun",

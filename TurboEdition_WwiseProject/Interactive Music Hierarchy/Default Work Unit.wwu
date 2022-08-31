@@ -292,9 +292,6 @@
 									</TransitionList>
 									<Playlist>
 										<MusicPlaylistItem Name="" ID="{569817A2-ED58-40C4-BE3B-2FC8507A9652}" ShortID="210737356">
-											<PropertyList>
-												<Property Name="LoopCount" Type="int16" Value="0"/>
-											</PropertyList>
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{15211ED9-B2D5-4AC1-904C-AB4E7868B2D1}" ShortID="842653831">
 													<PropertyList>
@@ -540,7 +537,7 @@
 												<MusicCue Name="Exit Cue" ID="{F5C6BCA5-A344-4E34-B4EA-68E9586992EE}">
 													<PropertyList>
 														<Property Name="CueType" Type="int16" Value="1"/>
-														<Property Name="TimeMs" Type="Real64" Value="139895.402715938"/>
+														<Property Name="TimeMs" Type="Real64" Value="142815.782312925"/>
 													</PropertyList>
 												</MusicCue>
 											</CueList>
@@ -561,9 +558,6 @@
 									</TransitionList>
 									<Playlist>
 										<MusicPlaylistItem Name="" ID="{61F6B3AD-3833-4D62-85D9-A69E1AE99BBB}" ShortID="760385772">
-											<PropertyList>
-												<Property Name="LoopCount" Type="int16" Value="0"/>
-											</PropertyList>
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{C4F69CE8-8469-4E0F-8FD2-FC4E62C80264}" ShortID="745490714">
 													<PropertyList>
@@ -641,6 +635,37 @@
 													<MusicFade Name="Source Fade-out" ID="{E4FA7828-67DC-4620-8682-2AED1D48CA14}">
 														<PropertyList>
 															<Property Name="FadeCurve" Type="int16" Value="6"/>
+															<Property Name="FadeTime" Type="Real64" Value="1"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+											</TransitionInfo>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+								<MusicTransition Name="FromBoss" ID="{CCBB3CD7-9F12-4FAA-96D4-E7B999206F09}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{BE01DE93-D188-4B91-8C8B-525304BAA776}">
+											<PropertyList>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="BossSongChoice" ID="{B9F82FC1-D2C8-4F33-A0CD-7B065C4CFFDC}" WorkUnitID="{BDD272D9-F34C-4EB8-8382-0E27E51D5E51}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{F04D33A4-1DA2-4A22-BC09-E94CDE013C8A}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="7"/>
 															<Property Name="FadeTime" Type="Real64" Value="1"/>
 															<Property Name="FadeType" Type="int16" Value="1"/>
 														</PropertyList>

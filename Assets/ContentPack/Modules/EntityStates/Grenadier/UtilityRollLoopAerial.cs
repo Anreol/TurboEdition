@@ -7,18 +7,22 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
     internal class UtilityRollLoopAerial : BaseBodyRollSingle
     {
         public static bool shouldUngroundIfGrounded;
-        public static bool shouldApplyUngroundBoostIfAirborne;
+        public static bool shouldApplyAimBoostIfAirborne;
+
         [Tooltip("Should it apply ungroundSmallHopForwardVel when entering this state if already airborne.")]
         public static bool shouldApplyForwardBoostIfAirborne;
 
         [Tooltip("Should it deal damage and then exit to the main state if touching the ground.")]
         public static bool shouldDamageAndExitIfGrounding;
 
-        [Tooltip("Vertical Velocity to apply when entering this state if ungrounding.")]
-        public static float ungroundSmallHopYVel;
+        [Tooltip("Minimum Y velocity to apply whenever entering the state.")]
+        public static float minimumYVel;
 
-        [Tooltip("Forward Velocity to apply when entering this state if ungrounding.")]
-        public static float ungroundSmallHopForwardVel;
+        [Tooltip("Velocity to apply ONLY forward, gets multiplied by movement speed.")]
+        public static float forwardVel;
+
+        [Tooltip("Velocity to apply from the Aim Vector.")]
+        public static float aimVel;
 
         [Tooltip("Air control to set during this state.")]
         [SerializeField]
@@ -62,28 +66,27 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
 
         private float resetStopwatch;
         private float timeSinceLastHit;
+
         public override void OnEnter()
         {
             base.OnEnter();
             cachedAnimator = base.GetModelAnimator();
+
+            Vector3 direction = base.GetAimRay().direction;
             if (isAuthority)
             {
+                direction.y = Mathf.Max(direction.y, minimumYVel);
+                Vector3 aimBoost = direction.normalized * aimVel;
+                Vector3 forwardBoost = new Vector3(direction.x, 0f, direction.z).normalized * forwardVel * (this.moveSpeedStat / 4);
+
                 if (base.characterMotor.Motor.GroundingStatus.IsStableOnGround && shouldUngroundIfGrounded)
                 {
                     base.characterMotor.Motor.ForceUnground();
-                    //base.SmallHop(characterMotor, ungroundSmallHopYVel);
-                    if (characterDirection.moveVector != Vector3.zero)
-                    {
-                        base.characterMotor.velocity += new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z) + (characterDirection.moveVector * ungroundSmallHopForwardVel);
-                    }
-                    else
-                    {
-                        base.characterMotor.velocity += new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z);
-                    }
+                    base.characterMotor.velocity = aimBoost + forwardBoost;
                 }
                 if (!characterMotor.Motor.GroundingStatus.IsStableOnGround)
                 {
-                    base.characterMotor.velocity += (shouldApplyForwardBoostIfAirborne ? (base.inputBank.moveVector * ungroundSmallHopForwardVel) : Vector3.zero) + (shouldApplyUngroundBoostIfAirborne ? new Vector3(base.characterMotor.velocity.x, Mathf.Max(base.characterMotor.velocity.y, ungroundSmallHopYVel), base.characterMotor.velocity.z) : Vector3.zero);
+                    base.characterMotor.velocity = (shouldApplyForwardBoostIfAirborne ? forwardBoost : new Vector3(direction.x, 0f, direction.z).normalized) + (shouldApplyAimBoostIfAirborne ? aimBoost : new Vector3(0, direction.y, 0));
                 }
                 if (shouldDamageAndExitIfGrounding)
                 {
@@ -93,7 +96,11 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
                 previousAirControl = characterMotor.airControl;
                 characterMotor.airControl = newAirControl;
                 base.characterMotor.disableAirControlUntilCollision = false;
+
+                base.characterBody.isSprinting = true;
             }
+            //Fall damage negation
+            base.characterBody.bodyFlags |= CharacterBody.BodyFlags.IgnoreFallDamage;
         }
 
         public override void OnExit()
@@ -107,6 +114,9 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             {
                 characterMotor.airControl = previousAirControl;
             }
+
+            //Fall damage recover
+            base.characterBody.bodyFlags &= ~CharacterBody.BodyFlags.IgnoreFallDamage;
         }
 
         public override void OnExitNextFrameAuthority()
@@ -197,7 +207,9 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
 
         public override void OnLifetimeExpiredAuthority()
         {
-            UtilityRollLoopAerial utilityRollLoopAerial = new UtilityRollLoopAerial();
+            outer.SetNextStateToMain();
+
+            /*UtilityRollLoopAerial utilityRollLoopAerial = new UtilityRollLoopAerial();
 
             //Append the currently hit victims to the next state, making them not get hit til next reset.
             foreach (var item in base.overlapAttack.ignoredHealthComponentList)
@@ -208,7 +220,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
             utilityRollLoopAerial.isInHitPause = isInHitPause;
             utilityRollLoopAerial.hitStopCachedState = hitStopCachedState;
             utilityRollLoopAerial.hitPauseTimer = hitPauseTimer;
-            outer.SetNextState(utilityRollLoopAerial);
+            outer.SetNextState(utilityRollLoopAerial);*/
         }
     }
 }

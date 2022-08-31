@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matFogPlane
   m_Shader: {fileID: 4800000, guid: 2e68267ebb51d0a438acfc57e42a7269, type: 2}
-  m_ShaderKeywords: USE_CLOUDS
+  m_ShaderKeywords: DISABLEREMAP FADECLOSE USE_CLOUDS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9a5bb47efae3f4b4a85e0dca662d9b58, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -64,13 +64,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RemapTex:
-        m_Texture: {fileID: 2800000, guid: 7f29e620863051d4da1e978c29e780ea, type: 3}
+        m_Texture: {fileID: 2800000, guid: b416614671c73544bbad1f99d0f96e5e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBias: 0
-    - _AlphaBoost: 0.6
-    - _Boost: 1.8
+    - _AlphaBoost: 0.5
+    - _Boost: 1
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
@@ -79,20 +79,20 @@ Material:
     - _Cutoff: 0.5
     - _DepthOffset: 0
     - _DetailNormalMapScale: 1
-    - _DisableRemapOn: 0
+    - _DisableRemapOn: 1
     - _DistortionStrength: 0
     - _DstBlend: 10
     - _ExternalAlpha: 1
     - _Fade: 1
-    - _FadeCloseDistance: 0.034
-    - _FadeCloseOn: 0
+    - _FadeCloseDistance: 0.004
+    - _FadeCloseOn: 1
     - _FresnelOn: 0
-    - _FresnelPower: 0
+    - _FresnelPower: 0.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InternalSimpleBlendMode: 0
-    - _InvFade: 0.15
+    - _InvFade: 0.03
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -111,6 +111,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CutoffScroll: {r: 1, g: 1, b: 0, a: 0}
+    - _CutoffScroll: {r: -1.02, g: 0.67, b: 0.51, a: 0.06}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _TintColor: {r: 0.4685831, g: 0.54594964, b: 0.735849, a: 1}

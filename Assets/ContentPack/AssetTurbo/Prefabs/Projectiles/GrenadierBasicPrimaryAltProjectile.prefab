@@ -369,4 +369,4 @@ MonoBehaviour:
   reduceDamageFraction: 2
   forceNoCrit: 1
   clearDots: 1
-  damageTypeOverride: 1
+  damageTypeOverride: 2049

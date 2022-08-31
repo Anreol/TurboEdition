@@ -252,7 +252,7 @@ namespace TurboEdition.Components
 
         public string GetDisplayName()
         {
-            return Language.GetString(interactableString) + "(" + cachedSyncedMoneyAmount + "$ / " + MoneyBankManager.targetMoneyAmountToStore + "$ )";
+            return Language.GetString(interactableString) + " (" + cachedSyncedMoneyAmount + "$ / " + MoneyBankManager.targetMoneyAmountToStore + "$)";
         }
 
 

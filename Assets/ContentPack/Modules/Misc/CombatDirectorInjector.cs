@@ -11,6 +11,7 @@ namespace TurboEdition.Misc
         public static DccsPool.ConditionalPoolEntry frozenWallExtraEntry;
         public static DccsPool.ConditionalPoolEntry wispGraveyardExtraEntry;
         public static DccsPool.ConditionalPoolEntry dampCaveExtraEntry;
+        internal static bool needsRefresh;
 
         public static DirectorCard cscImpBomber;
 
@@ -100,8 +101,11 @@ namespace TurboEdition.Misc
                     CopyDccsToDccs(dccs, item.dccs);
                 }
             }
-            ClassicStageInfo.instance.RebuildCards();
-            RefreshAllAvailableDirectorCards();
+            if (needsRefresh)
+            {
+                ClassicStageInfo.instance.RebuildCards();
+                RefreshAllAvailableDirectorCards();
+            }
         }
 
         public static void DumpInfo(DccsPool.ConditionalPoolEntry[] conditionalPoolEntry)
@@ -152,6 +156,7 @@ namespace TurboEdition.Misc
                 }
                 if (dest.categories[i].name == source.categories[i].name)
                 {
+                    needsRefresh = true;
                     foreach (var item in source.categories[i].cards)
                     {
                         HG.ArrayUtils.ArrayAppend<DirectorCard>(ref dest.categories[i].cards, item);

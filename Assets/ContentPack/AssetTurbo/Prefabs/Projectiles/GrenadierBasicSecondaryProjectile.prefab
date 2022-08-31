@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 8896665261586244783}
   - component: {fileID: 1546852646074600187}
   - component: {fileID: 2929345596389720017}
-  - component: {fileID: 8710313284497637358}
   - component: {fileID: 6936129752384673999}
   - component: {fileID: 8281481652857300307}
   - component: {fileID: 7936670692002546938}
@@ -214,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   falloffModel: 2
-  blastRadius: 8
+  blastRadius: 3
   blastDamageCoefficient: 2.5
   blastProcCoefficient: 1
   blastAttackerFiltering: 0
@@ -255,22 +254,6 @@ MonoBehaviour:
   lifetimeAfterImpact: 0
   lifetimeRandomOffset: 0
   transformSpace: 0
---- !u!114 &8710313284497637358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028506108066464535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdf39fc0812dbdd4ba71529646b5902e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reduceDamageFraction: 2
-  forceNoCrit: 1
-  clearDots: 1
-  damageTypeOverride: 1
 --- !u!114 &6936129752384673999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +307,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 2.5
+          m_FloatArgument: 3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

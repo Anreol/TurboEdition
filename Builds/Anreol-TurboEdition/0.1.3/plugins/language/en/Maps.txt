@@ -1,0 +1,8 @@
+{
+	strings:
+	{
+		"MAP_OBSERVATORY_TITLE": "Observatory",
+		"MAP_OBSERVATORY_SUBTITLE": "Bulwark\'s Gardens",
+		"MAP_OBSERVATORY_LORE": "",
+	}	
+}

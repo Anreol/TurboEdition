@@ -24,6 +24,13 @@ namespace TurboEdition.Misc
             //TODO: AS OF JULY 4, LEAVE IT FOR NEXT UPDATE
             //SceneDirector.onGenerateInteractableCardSelection += AddDirectorCards;
             SceneDirector.onPrePopulateMonstersSceneServer += ExplicitInteracteableGeneration;
+
+            SceneCollection.SceneEntry observatoryEntry = new SceneCollection.SceneEntry()
+            {
+                sceneDef = TEContent.Scenes.observatory,
+                weightMinusOne = 0
+            };
+            HG.ArrayUtils.ArrayAppend<SceneCollection.SceneEntry>(ref SceneCatalog.GetSceneDefFromSceneName("dampcavesimple").destinationsGroup._sceneEntries, observatoryEntry);
         }
 
         private static void ExplicitInteracteableGeneration(SceneDirector obj)

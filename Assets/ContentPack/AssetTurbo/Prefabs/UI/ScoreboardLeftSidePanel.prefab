@@ -75,8 +75,8 @@ GameObject:
   m_Component:
   - component: {fileID: 460800786788519952}
   - component: {fileID: 3698133643568842504}
-  - component: {fileID: 2495735964113729142}
   - component: {fileID: 912733894653444963}
+  - component: {fileID: 6643213395330658720}
   m_Layer: 5
   m_Name: FillPanel
   m_TagString: Untagged
@@ -111,33 +111,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021939934486920005}
   m_CullTransparentMesh: 0
---- !u!114 &2495735964113729142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021939934486920005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.8490566, g: 0.41251338, b: 0.56227285, a: 1}
-  m_RaycastTarget: 0
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: -6056803576078541138, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &912733894653444963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,9 +123,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 2495735964113729142}
-  fieldName: texture
+  component: {fileID: 6643213395330658720}
+  fieldName: sprite
   assetAddress: RoR2/Base/UI/texUICleanButton.png
+--- !u!114 &6643213395330658720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021939934486920005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9339623, g: 0, b: 0.26910773, a: 1}
+  m_RaycastTarget: 0
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 7611533459502552279, guid: 00000000000000000000000000000000,
+    type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1495024726291655428
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,8 +166,8 @@ GameObject:
   m_Component:
   - component: {fileID: 107466863048104694}
   - component: {fileID: 784748565400237306}
-  - component: {fileID: 8744621830275254990}
   - component: {fileID: 912733894653444964}
+  - component: {fileID: 7631337211869658875}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -201,33 +204,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495024726291655428}
   m_CullTransparentMesh: 0
---- !u!114 &8744621830275254990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495024726291655428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -98529514, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 991646930615055029, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!114 &912733894653444964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,9 +216,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  component: {fileID: 8744621830275254990}
-  fieldName: texture
+  component: {fileID: 7631337211869658875}
+  fieldName: sprite
   assetAddress: RoR2/Base/UI/texUIHighlightBoxOutline.png
+--- !u!114 &7631337211869658875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495024726291655428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4382390363543403990, guid: 00000000000000000000000000000000,
+    type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1869069502175356998
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +486,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
+  m_fontSize: 12
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -562,7 +568,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 107.24002, y: 32}
+  m_SizeDelta: {x: 50.469986, y: 32}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7336185796892383157
 MonoBehaviour:

@@ -14,77 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType:
     assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Roll.UtilityRollLoopAerial,
-      TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
+      TurboEdition, Version=9999.0.1.2, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
-    - fieldName: baseDuration
-      fieldValue:
-        stringValue: 3
-        objectValue: {fileID: 0}
-    - fieldName: enterSoundString
-      fieldValue:
-        stringValue: 
-        objectValue: {fileID: 0}
-    - fieldName: baseMinDuration
-      fieldValue:
-        stringValue: 1
-        objectValue: {fileID: 0}
-    - fieldName: baseOverlapAttackCoefficient
-      fieldValue:
-        stringValue: 2
-        objectValue: {fileID: 0}
-    - fieldName: hitEffectPrefab
-      fieldValue:
-        stringValue: 
-        objectValue: {fileID: 0}
-    - fieldName: hitboxString
-      fieldValue:
-        stringValue: RollHitbox
-        objectValue: {fileID: 0}
-    - fieldName: hitSoundString
-      fieldValue:
-        stringValue: 
-        objectValue: {fileID: 0}
-    - fieldName: hitMaximumTargetsAtOnce
-      fieldValue:
-        stringValue: 6
-        objectValue: {fileID: 0}
-    - fieldName: hitRecoilAmplitude
-      fieldValue:
-        stringValue: 10
-        objectValue: {fileID: 0}
-    - fieldName: ungroundSmallHopYVel
-      fieldValue:
-        stringValue: 4
-        objectValue: {fileID: 0}
-    - fieldName: ungroundSmallHopForwardVel
-      fieldValue:
-        stringValue: 2
-        objectValue: {fileID: 0}
-    - fieldName: newAirControl
-      fieldValue:
-        stringValue: 0.2
-        objectValue: {fileID: 0}
-    - fieldName: overlapAttackResetFrequency
-      fieldValue:
-        stringValue: 0.25
-        objectValue: {fileID: 0}
-    - fieldName: baseHitPauseDuration
-      fieldValue:
-        stringValue: 0.15
-        objectValue: {fileID: 0}
-    - fieldName: hitSmallHopYVel
-      fieldValue:
-        stringValue: 28
-        objectValue: {fileID: 0}
-    - fieldName: baseOverlapPushAwayForce
-      fieldValue:
-        stringValue: 16
-        objectValue: {fileID: 0}
-    - fieldName: hitStateDurationExtention
-      fieldValue:
-        stringValue: 3
-        objectValue: {fileID: 0}
     - fieldName: shouldUngroundIfGrounded
       fieldValue:
         stringValue: 1
@@ -96,6 +28,58 @@ MonoBehaviour:
     - fieldName: shouldDamageAndExitIfGrounding
       fieldValue:
         stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: minimumYVel
+      fieldValue:
+        stringValue: 8
+        objectValue: {fileID: 0}
+    - fieldName: newAirControl
+      fieldValue:
+        stringValue: 0.2
+        objectValue: {fileID: 0}
+    - fieldName: improvedAirControl
+      fieldValue:
+        stringValue: 15
+        objectValue: {fileID: 0}
+    - fieldName: improvedAirControlCurve
+      fieldValue:
+        stringValue: '{"preWrapMode":8,"postWrapMode":8,"keys":[{"time":0.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.0,"outWeight":0.0,"weightedMode":0,"tangentMode":0},{"time":1.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.0,"outWeight":0.0,"weightedMode":0,"tangentMode":0}]}'
+        objectValue: {fileID: 0}
+    - fieldName: overlapAttackResetFrequency
+      fieldValue:
+        stringValue: 0.25
+        objectValue: {fileID: 0}
+    - fieldName: overlapAttackScaleFrequencyAttackSpeed
+      fieldValue:
+        stringValue: 0
+        objectValue: {fileID: 0}
+    - fieldName: baseHitPauseDuration
+      fieldValue:
+        stringValue: 0.15
+        objectValue: {fileID: 0}
+    - fieldName: hitStateDurationExtention
+      fieldValue:
+        stringValue: 1.5
+        objectValue: {fileID: 0}
+    - fieldName: baseDuration
+      fieldValue:
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: baseMinDuration
+      fieldValue:
+        stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: enterSoundString
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 0}
+    - fieldName: baseOverlapAttackCoefficient
+      fieldValue:
+        stringValue: 2
+        objectValue: {fileID: 0}
+    - fieldName: baseOverlapPushAwayForce
+      fieldValue:
+        stringValue: 24
         objectValue: {fileID: 0}
     - fieldName: baseOverlapAttackFireFrequency
       fieldValue:
@@ -109,19 +93,39 @@ MonoBehaviour:
       fieldValue:
         stringValue: 1
         objectValue: {fileID: 0}
-    - fieldName: improvedAirControl
+    - fieldName: hitEffectPrefab
       fieldValue:
-        stringValue: 15
+        stringValue: 
         objectValue: {fileID: 0}
-    - fieldName: improvedAirControlCurve
+    - fieldName: hitSoundString
       fieldValue:
-        stringValue: '{"preWrapMode":8,"postWrapMode":8,"keys":[{"time":0.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408,"weightedMode":0,"tangentMode":136},{"time":1.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.3333333432674408,"outWeight":0.3333333432674408,"weightedMode":0,"tangentMode":136}]}'
+        stringValue: 
         objectValue: {fileID: 0}
-    - fieldName: overlapAttackScaleFrequencyAttackSpeed
+    - fieldName: hitboxString
       fieldValue:
-        stringValue: 0
+        stringValue: RollHitbox
         objectValue: {fileID: 0}
-    - fieldName: shouldApplyUngroundBoostIfAirborne
+    - fieldName: hitSmallHopYVel
+      fieldValue:
+        stringValue: 25
+        objectValue: {fileID: 0}
+    - fieldName: hitMaximumTargetsAtOnce
+      fieldValue:
+        stringValue: 6
+        objectValue: {fileID: 0}
+    - fieldName: hitRecoilAmplitude
+      fieldValue:
+        stringValue: 10
+        objectValue: {fileID: 0}
+    - fieldName: shouldApplyAimBoostIfAirborne
       fieldValue:
         stringValue: 1
+        objectValue: {fileID: 0}
+    - fieldName: forwardVel
+      fieldValue:
+        stringValue: 4
+        objectValue: {fileID: 0}
+    - fieldName: aimVel
+      fieldValue:
+        stringValue: 2
         objectValue: {fileID: 0}

@@ -19,7 +19,7 @@ MonoBehaviour:
   baseSceneNameOverride: 
   sceneType: 1
   isOfflineScene: 0
-  stageOrder: 0
+  stageOrder: 5
   requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}
   nameToken: MAP_OBSERVATORY_TITLE
   subtitleToken: MAP_OBSERVATORY_SUBTITLE
@@ -30,7 +30,7 @@ MonoBehaviour:
   loreToken: MAP_OBSERVATORY_LORE
   dioramaPrefab: {fileID: 0}
   mainTrack: {fileID: 11400000, guid: 3b10239eadfb3114f84bc8b8d70c0d71, type: 2}
-  bossTrack: {fileID: 11400000, guid: 43ceed4a1921fe645a06f55fde3c15b2, type: 2}
+  bossTrack: {fileID: 11400000, guid: a53ab0b59b3b96d46a93e485d34d01be, type: 2}
   suppressPlayerEntry: 0
   suppressNpcEntry: 0
   blockOrbitalSkills: 0

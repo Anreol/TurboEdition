@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 7153563187597557553, guid: e13f86efedfb2114cadfe81b4838b655, type: 3}
   - {fileID: 7214428371660463810, guid: 4cb548fb8f1dbf048b32ecb372949457, type: 3}
   - {fileID: 3081867890154396561, guid: cfebc4ba51455fc499a32b825df64ace, type: 3}
+  - {fileID: 7214428371660463810, guid: b3da412cc6cbe6841b3e63258871aabf, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: d167a02be48e3f24d974ee1fb4117010, type: 2}
@@ -145,9 +146,10 @@ MonoBehaviour:
   musicTrackDefs:
   - {fileID: 11400000, guid: 3b10239eadfb3114f84bc8b8d70c0d71, type: 2}
   - {fileID: 11400000, guid: 43ceed4a1921fe645a06f55fde3c15b2, type: 2}
+  - {fileID: 11400000, guid: a53ab0b59b3b96d46a93e485d34d01be, type: 2}
   gameEndingDefs: []
   entityStateConfigurations:
-  - {fileID: 11400000, guid: 29cbfd4ffa0fde44fa880ee29a314965, type: 2}
+  - {fileID: 11400000, guid: 30a2d5365450aab45883dc861b130d6d, type: 2}
   - {fileID: 11400000, guid: 4140213d9eb4fec4d85e1acd98e60d7b, type: 2}
   - {fileID: 11400000, guid: 155365ac80eca7c469fc060a91f713e1, type: 2}
   - {fileID: 11400000, guid: 43371a5f17bc3514b92981572589de92, type: 2}

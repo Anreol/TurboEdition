@@ -29,7 +29,7 @@ namespace TurboEdition.Components
         private CharacterBody characterBody;
 
         private EntityStateMachine resolvedRollMachine;
-        private bool[] authBlastArmorStates;
+        private bool[] serverBlastArmorStates;
         private float blastArmorRechargeTime;
 
         [Header("Referenced Components")]
@@ -47,9 +47,9 @@ namespace TurboEdition.Components
                 Debug.LogError("Couldn't find a passive skill def or a passive skill slot for the Grenadier's blast armor, character won't work properly!");
             if (PassiveBlastArmorSkillDef)
             {
-                authBlastArmorStates = new bool[PassiveBlastArmorSkillDef.baseMaxStock];
-                for (int i = 0; i < authBlastArmorStates.Length; i++)
-                    authBlastArmorStates[i] = true;
+                serverBlastArmorStates = new bool[PassiveBlastArmorSkillDef.baseMaxStock];
+                for (int i = 0; i < serverBlastArmorStates.Length; i++)
+                    serverBlastArmorStates[i] = true;
             }
             resolvedRollMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Roll");
         }
@@ -65,11 +65,11 @@ namespace TurboEdition.Components
                     if (!characterBody.outOfDanger)
                     {
                         //Inside NOT isOutOfDanger because we don't want to trigger if regenerating hp
-                        for (int i = authBlastArmorStates.Length - 1; i >= 0 && baseIntervals * i > 0f; i--)
+                        for (int i = serverBlastArmorStates.Length - 1; i >= 0 && baseIntervals * i > 0f; i--)
                         {
-                            if (authBlastArmorStates[i] && characterBody.healthComponent.combinedHealthFraction < baseIntervals * i)
+                            if (serverBlastArmorStates[i] && characterBody.healthComponent.combinedHealthFraction < baseIntervals * i)
                             {
-                                authBlastArmorStates[i] = false;
+                                serverBlastArmorStates[i] = false;
                                 ServerTriggerBomblets();
                                 break;
                             }
@@ -82,11 +82,11 @@ namespace TurboEdition.Components
                         blastArmorRechargeTime -= Time.fixedDeltaTime;
                         if (blastArmorRechargeTime <= 0)
                         {
-                            for (int i = 0; i < authBlastArmorStates.Length; i++)
+                            for (int i = 0; i < serverBlastArmorStates.Length; i++)
                             {
-                                if (!authBlastArmorStates[i] && baseIntervals * i > characterBody.healthComponent.combinedHealthFraction) //Require to be above breaker to recharge it
+                                if (!serverBlastArmorStates[i] && baseIntervals * i > characterBody.healthComponent.combinedHealthFraction) //Require to be above breaker to recharge it
                                 {
-                                    authBlastArmorStates[i] = true;
+                                    serverBlastArmorStates[i] = true;
                                     blastArmorRechargeTime = PassiveBlastArmorSkillDef.baseRechargeInterval;
                                     break;
                                 }
@@ -153,9 +153,13 @@ namespace TurboEdition.Components
                         damageInfo.damageType = markReducedSelfDamage.damageTypeOverride;
                         damageInfo.procCoefficient = -255;
                         damageInfo.procChainMask = default(ProcChainMask);
+                        if (characterBody.characterMotor && !characterBody.characterMotor.isGrounded)
+                        {
+                            damageInfo.force *= 4f;
+                        }
                         if (isRolling)
                         {
-                            damageInfo.force *= 8f;
+                            damageInfo.force *= 2.5f;
                         }
                         if (damageInfo.rejected)
                         {

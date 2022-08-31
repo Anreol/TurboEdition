@@ -17,14 +17,14 @@ namespace TurboEdition
 #if DEBUG
             "9999." +
 #endif
-            "0.1.2";
+            "0.1.3";
 
         internal const string ModIdentifier = "TurboEdition";
         internal const string ModGuid = "com.Anreol." + ModIdentifier;
 
         public static TurboUnityPlugin instance;
         public static PluginInfo pluginInfo;
-
+        public static uint playMusicSystemID;
         public void Awake()
         {
             TELog.logger = Logger;
