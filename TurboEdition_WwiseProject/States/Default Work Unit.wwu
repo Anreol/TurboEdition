@@ -18,6 +18,7 @@
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="bossStatus" ID="{DA472F25-BF34-43ED-971F-A56B83153EE0}">
+					<Comment>Misleading name, used by the game if the teleporter event is starting or undergoing (alive) or is done charging (dead). Defaults to alive.</Comment>
 					<ChildrenList>
 						<State Name="None" ID="{11954B2B-39ED-4167-9974-62DC5F5F24FE}"/>
 						<State Name="alive" ID="{5C729783-949A-42B9-972D-CBBA1A338FA6}"/>
@@ -79,6 +80,7 @@
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="teleporterZone" ID="{4A1E6C18-490E-40D3-BCED-454E9DA43B4B}">
+					<Comment>Seems to be replaced by teleporterPlayerStatus. Unknown.</Comment>
 					<ChildrenList>
 						<State Name="None" ID="{BC116CC6-616D-4772-817F-F237A377A3CC}"/>
 						<State Name="OUT" ID="{8D4D4404-A442-4C1A-A5B2-A8BAA3EABB63}"/>

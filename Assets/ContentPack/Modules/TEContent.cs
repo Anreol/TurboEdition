@@ -123,9 +123,11 @@ namespace TurboEdition
                 Misc.MiscLanguage.AddDeathMessages();
             }
             CostAndStatExtras.Init();
-            RoR2Application.isModded = true;
 
-            //ItemDisplayRulesInjector.DoInjection();
+            //Extra stuff for hopoo
+            RoR2Application.isModded = true;
+            //Gets resolved to a hash, adding mod guid makes it unique, and adding modVer changes the hash generated with different versions. It can actually be literally any string desired. This is what appears in the mod mismatch error message when connecting to a remote server.
+            NetworkModCompatibilityHelper.networkModList = NetworkModCompatibilityHelper.networkModList.Append(TurboUnityPlugin.ModGuid + ";" + TurboUnityPlugin.ModVer);
 
             args.ReportProgress(1f);
             yield break;

@@ -77,6 +77,7 @@
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="enemyValue" ID="{1B384727-2635-4CEF-9DFA-17E6BFFA95E0}">
+					<Comment>Intensity of the current battle, determined by the amount of enemies around the player and enemies looking at the player, Probably from 0 to 100, unknown.</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="0"/>
 						<Property Name="Max" Type="Real64" Value="64"/>

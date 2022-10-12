@@ -654,7 +654,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 1aede29b1eb9a3468100f50120ccff6a
     GuidInternal: 
-    m_lastTime: -8585422039506327998
+    m_lastTime: -8585361139606216711
     List:
     - name: attackSpeed
       guid: 1356292310fd5c4f8a6df106fc1efae7
@@ -944,7 +944,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 6dcf724cba3b374197530a2398b4a8ae
     GuidInternal: 
-    m_lastTime: -8585448336434181926
+    m_lastTime: -8585361139606286609
     List:
     - name: bossPhase
       guid: 3195152bb04ecd43af54a3ece4c698c1
