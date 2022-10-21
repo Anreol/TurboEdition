@@ -1,0 +1,41 @@
+{
+	strings:
+	{
+	//[INTERACTABLES],
+	"MONEYBANK_NAME": "Off-Planet Account",
+	"MONEYBANK_INTERACTION_PROMPT": "Bank Transfer",
+	"MONEYBANK_INTERACTION_HEADER": "Off-Planet Account",
+	"MONEYBANK_INTERACTION_BALANCE": "Balance",
+	"MONEYBANK_INTERACTION_CURRENTBALANCEFORMAT": "{0} $",
+	"MONEYBANK_INTERACTION_TARGETBALANCEFORMAT": "/ {0} $",
+	"MONEYBANK_INTERACTION_WITHDRAW": "Withdraw",
+	"MONEYBANK_INTERACTION_CONTRIBUTE": "Contribute",
+	"MONEYBANK_INTERACTION_WITHDRAW_FORMAT": "< {0} $",
+	"MONEYBANK_INTERACTION_CONTRIBUTE_FORMAT": "{0} $ >",
+	
+	//[CHESTS],
+
+	//[LUNAR STUFF],
+
+	//[SHRINES],
+	"SHRINE_QUEST_NAME": "UES Beacon",
+	"SHRINE_QUEST_CONTEXT": "Download new data",
+	"SHRINE_QUEST_USE_MESSAGE_2P": "<style=cShrine>You have received new data.</color>",
+	"SHRINE_QUEST_USE_MESSAGE": "<style=cShrine>{0} has received a new data.</color>",
+	"SHRINE_QUEST_USE_MESSAGE_TEAM": "<style=cShrine>{0} has received new data for everyone.</color>",
+	
+	"SHRINE_TELEPORTEROVERCHARGER_NAME": "Teleporter Overcharger",
+	"SHRINE_TELEPORTEROVERCHARGER_CONTEXT": "Overcharge teleporter...?",
+	"SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE_2P": "<style=cShrine>You have overcharged the teleporter.</color>",
+	"SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE": "<style=cShrine>{0} has overcharged the teleporter.</color>",
+	
+	//MISC
+	
+	//[DRONES],
+	
+	//[TURRETS],
+
+
+	"COST_TELEPORTERCHARGE_FORMAT": "{0}% <sprite name=\"TP\" tint=1>",
+	}
+}

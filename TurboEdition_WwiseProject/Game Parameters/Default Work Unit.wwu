@@ -117,6 +117,7 @@ Default 50.
 							</PropertyList>
 						</GameParameter>
 						<GameParameter Name="eliteEnemy" ID="{CE0EFC42-8584-4987-A55D-F051280A3D5F}">
+							<Comment>Whenever an enemy is elite or not. 0 by default.</Comment>
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="1"/>
 							</PropertyList>
@@ -128,6 +129,7 @@ Default 50.
 							<Comment>Seems to affect only MUL-Ts transport mode, Defaults to 50</Comment>
 						</GameParameter>
 						<GameParameter Name="damageDirection" ID="{8D310096-22EA-4DCA-9391-9E4293748D8A}">
+							<Comment>Used in crosshairs, from 0 to 360, calculated from the camera to the damage source, plays the event: Play_UI_takeDamage</Comment>
 							<PropertyList>
 								<Property Name="InitialValue" Type="Real64" Value="1"/>
 							</PropertyList>

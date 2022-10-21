@@ -2022,9 +2022,9 @@ MonoBehaviour:
   m_Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionTransmitInterval: 0.5
+  positionTransmitInterval: 0.1
   lastPositionTransmitTime: -Infinity
-  interpolationFactor: 3
+  interpolationFactor: 2
   debugDuplicatePositions: 0
   debugSnapshotReceived: 0
 --- !u!114 &1439706858656675952

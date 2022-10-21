@@ -93,34 +93,12 @@ MonoBehaviour:
     type: 3}
   spawnOnStart: 0
   _teamIndex: 2
-  <networkIdentity>k__BackingField: {fileID: 0}
-  <hasEffectiveAuthority>k__BackingField: 0
   onBodyDeath:
     m_PersistentCalls:
       m_Calls: []
   destroyOnBodyDeath: 1
-  <inventory>k__BackingField: {fileID: 0}
-  aiComponents: []
-  <playerCharacterMasterController>k__BackingField: {fileID: 0}
-  <playerStatsComponent>k__BackingField: {fileID: 0}
-  <minionOwnership>k__BackingField: {fileID: 0}
-  resolvedBodyInstance: {fileID: 0}
-  bodyResolved: 0
-  <backupBodyIndex>k__BackingField: 0
-  _money: 0
-  _voidCoins: 0
-  <luck>k__BackingField: 0
   isBoss: 0
   preventGameOver: 1
-  <deathFootPosition>k__BackingField: {x: 0, y: 0, z: 0}
-  deathAimVector: {x: 0, y: 0, z: 0}
-  killedByUnsafeArea: 0
-  _internalSurvivalTime: 0
-  killerBodyIndex: -1
-  preventRespawnUntilNextStageServer: 0
-  godMode: 0
-  lostBodyToDeathFlag: 1
-  _miscFlags: 0
 --- !u!114 &8084405423545232728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,10 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 682687671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemStacks: 
   itemAcquisitionOrder: 
-  <activeEquipmentSlot>k__BackingField: 0
-  <infusionBonus>k__BackingField: 0
 --- !u!114 &3594424335973882826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: -1578512655, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ownerMaster>k__BackingField: {fileID: 0}
 --- !u!114 &3023498533053918485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,16 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 1357070253, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <master>k__BackingField: {fileID: 0}
-  <body>k__BackingField: {fileID: 0}
-  <bodyTransform>k__BackingField: {fileID: 0}
-  <bodyCharacterDirection>k__BackingField: {fileID: 0}
-  <bodyCharacterMotor>k__BackingField: {fileID: 0}
-  <bodyInputBank>k__BackingField: {fileID: 0}
-  <bodyHealthComponent>k__BackingField: {fileID: 0}
-  <bodySkillLocator>k__BackingField: {fileID: 0}
-  <networkIdentity>k__BackingField: {fileID: 0}
-  <skillDrivers>k__BackingField: []
   fullVision: 0
   neverRetaliateFriendlies: 0
   enemyAttentionDuration: 5
@@ -184,64 +148,8 @@ MonoBehaviour:
   enemyAttention: 0
   aimVectorDampTime: 0.2
   aimVectorMaxSpeed: 180
-  aimVelocity: 0
-  targetRefreshTimer: 0
   selectedSkilldriverName: 
-  <hasAimConfirmation>k__BackingField: 0
   debugEnemyHurtBox: {fileID: 0}
-  <currentEnemy>k__BackingField:
-    owner: {fileID: 0}
-    unset: 0
-    _gameObject: {fileID: 0}
-    <characterBody>k__BackingField: {fileID: 0}
-    <healthComponent>k__BackingField: {fileID: 0}
-    bestHurtBox: {fileID: 0}
-    hurtBoxGroup: {fileID: 0}
-    mainHurtBox: {fileID: 0}
-    bullseyeCount: 0
-    lastKnownBullseyePositionTime:
-      t: 0
-    hasLoS: 0
-  <leader>k__BackingField:
-    owner: {fileID: 0}
-    unset: 0
-    _gameObject: {fileID: 0}
-    <characterBody>k__BackingField: {fileID: 0}
-    <healthComponent>k__BackingField: {fileID: 0}
-    bestHurtBox: {fileID: 0}
-    hurtBoxGroup: {fileID: 0}
-    mainHurtBox: {fileID: 0}
-    bullseyeCount: 0
-    lastKnownBullseyePositionTime:
-      t: 0
-    hasLoS: 0
-  <buddy>k__BackingField:
-    owner: {fileID: 0}
-    unset: 0
-    _gameObject: {fileID: 0}
-    <characterBody>k__BackingField: {fileID: 0}
-    <healthComponent>k__BackingField: {fileID: 0}
-    bestHurtBox: {fileID: 0}
-    hurtBoxGroup: {fileID: 0}
-    mainHurtBox: {fileID: 0}
-    bullseyeCount: 0
-    lastKnownBullseyePositionTime:
-      t: 0
-    hasLoS: 0
-  <customTarget>k__BackingField:
-    owner: {fileID: 0}
-    unset: 0
-    _gameObject: {fileID: 0}
-    <characterBody>k__BackingField: {fileID: 0}
-    <healthComponent>k__BackingField: {fileID: 0}
-    bestHurtBox: {fileID: 0}
-    hurtBoxGroup: {fileID: 0}
-    mainHurtBox: {fileID: 0}
-    bullseyeCount: 0
-    lastKnownBullseyePositionTime:
-      t: 0
-    hasLoS: 0
-  skillDriverUpdateTimer: 0
 --- !u!114 &4339349503458679999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,9 +169,6 @@ MonoBehaviour:
   mainStateType:
     _typeName: EntityStates.AI.Walker.Wander, RoR2, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  <networker>k__BackingField: {fileID: 0}
-  <networkIdentity>k__BackingField: {fileID: 0}
-  <destroying>k__BackingField: 0
 --- !u!114 &3225343293923061251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +212,6 @@ MonoBehaviour:
   resetCurrentEnemyOnNextDriverSelection: 0
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
-  <timesSelected>k__BackingField: 0
 --- !u!114 &5202960411871120442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +255,6 @@ MonoBehaviour:
   resetCurrentEnemyOnNextDriverSelection: 0
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
-  <timesSelected>k__BackingField: 0
 --- !u!114 &-3657187071966948680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +298,6 @@ MonoBehaviour:
   resetCurrentEnemyOnNextDriverSelection: 0
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
-  <timesSelected>k__BackingField: 0
 --- !u!114 &6065530335983810957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,7 +341,6 @@ MonoBehaviour:
   resetCurrentEnemyOnNextDriverSelection: 1
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
-  <timesSelected>k__BackingField: 0
 --- !u!114 &4193669580412134045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +384,6 @@ MonoBehaviour:
   resetCurrentEnemyOnNextDriverSelection: 0
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
-  <timesSelected>k__BackingField: 0
 --- !u!114 &6383358538216101972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,7 +427,6 @@ MonoBehaviour:
   resetCurrentEnemyOnNextDriverSelection: 0
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
-  <timesSelected>k__BackingField: 0
 --- !u!114 &6061093960855827692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,4 +470,3 @@ MonoBehaviour:
   resetCurrentEnemyOnNextDriverSelection: 0
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
-  <timesSelected>k__BackingField: 0
