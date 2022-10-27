@@ -371,13 +371,13 @@
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Assets/Plugins/NGTools/NGSyncFolders/Editor/NGSyncFoldersEditor.dll</HintPath>
     </Reference>
     <Reference Include="Markdig.Signed">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@1aeb51e18e/Editor/ThirdParty/Markdig/Markdig.Signed.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@de6c944d35/Editor/ThirdParty/Markdig/Markdig.Signed.dll</HintPath>
     </Reference>
     <Reference Include="SharpCompress">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@1aeb51e18e/Editor/ThirdParty/SharpCompress/SharpCompress.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@de6c944d35/Editor/ThirdParty/SharpCompress/SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@1aeb51e18e/Editor/ThirdParty/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Library/PackageCache/com.passivepicasso.thunderkit@de6c944d35/Editor/ThirdParty/SharpZipLib/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/HookGenPatcher/BepInEx/plugins/MMHOOK/MMHOOK_RoR2.dll</HintPath>

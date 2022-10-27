@@ -23,6 +23,11 @@ mono_crash.*
 /[Tt]emp/
 /[Oo]bj/
 
+
+/[Tt]hunderkit/
+
+
+
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
@@ -239,7 +244,7 @@ PublishScripts/
 *.snupkg
 # The packages folder can be ignored because of Package Restore
 **/[Pp]ackages/*
-# except build/, which is used as an MSBuild target.
+# except build/, which is used as an MSBuild target. Except packages manifest and packages lock for Unity
 !**/[Pp]ackages/build/
 !**/[Pp]ackages/manifest.json
 !**/[Pp]ackages/packages-lock.json
@@ -249,14 +254,6 @@ PublishScripts/
 # NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
-
-# Microsoft Azure Build Output
-csx/
-*.build.csdef
-
-# Microsoft Azure Emulator
-ecf/
-rcf/
 
 # Windows Store app package directories and files
 AppPackages/
