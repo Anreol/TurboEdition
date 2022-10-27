@@ -84,29 +84,31 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "mmhook-assemblies": {
+      "version": "file:mmhook-assemblies",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "riskofrain2": {
       "version": "file:Risk of Rain 2",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
     },
-    "riskofthunder-hookgenpatcher": {
-      "version": "file:HookGenPatcher",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "riskofthunder-ror2editorkit": {
-      "version": "file:RoR2EditorKit",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "6adbccf93af9eefbbdd5b7f8098fc813e8b2a067"
     },
     "riskofthunder-ror2importextensions": {
-      "version": "file:RoR2ImportExtensions",
+      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git",
       "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "d99aff2e663586453a5df58f44359819f4307c12"
     },
     "riskofthunder-ror2multiplayerhlapi": {
       "version": "file:RoR2MultiplayerHLAPI",
@@ -191,6 +193,14 @@
         "com.unity.modules.imageconversion": "1.0.0"
       }
     },
+    "com.unity.modules.subsystems": {
+      "version": "1.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.jsonserialize": "1.0.0"
+      }
+    },
     "com.unity.modules.terrain": {
       "version": "1.0.0",
       "depth": 0,
@@ -219,6 +229,32 @@
       "dependencies": {
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0"
+      }
+    },
+    "com.unity.modules.unitywebrequest": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.modules.vr": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.xr": "1.0.0"
+      }
+    },
+    "com.unity.modules.xr": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.subsystems": "1.0.0"
       }
     }
   }

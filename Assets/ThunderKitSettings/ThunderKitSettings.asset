@@ -20,9 +20,9 @@ MonoBehaviour:
   DateTimeFormat: HH:mm:ss:fff
   CreatedDateFormat: MMM/dd HH:mm:ss
   ShowLogWindow: 1
-  MarkdownOpenMode: 0
+  MarkdownOpenMode: 1
   SelectedPipeline: {fileID: 11400000, guid: c67f5a6a33715114e8be7947dfe3c3e5, type: 2}
-  SelectedManifest: {fileID: 0}
+  SelectedManifest: {fileID: 11400000, guid: 2c1262962c6f2bd16ef910d2862a0880, type: 2}
   QuickAccessPipelines:
   - {fileID: 11400000, guid: c67f5a6a33715114e8be7947dfe3c3e5, type: 2}
   - {fileID: 11400000, guid: 93ed0b9123034b5429a1fd4e4a84d3ac, type: 2}

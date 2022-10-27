@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using RoR2EditorKit.Core;
 
 namespace Moonstorm.EditorUtils.Settings
 {
@@ -16,13 +17,13 @@ namespace Moonstorm.EditorUtils.Settings
         [Serializable]
         public class ShaderPair
         {
-            public Shader original;
-            public Shader stubbed;
+            public SerializableShaderWrapper original;
+            public SerializableShaderWrapper stubbed;
 
             public ShaderPair(Shader original, Shader stubbed)
             {
-                this.original = original;
-                this.stubbed = stubbed;
+                this.original = new SerializableShaderWrapper(original);
+                this.stubbed = new SerializableShaderWrapper(stubbed);
             }
         }
 
@@ -34,31 +35,44 @@ namespace Moonstorm.EditorUtils.Settings
             GetOrCreateSettings<ShaderDictionary>();
         }
 
-        public void UpdateLists()
-        {
-            var origs = shaderPairs.Where(p => p.original).Select(p => p.original);
-            var stubbeds = shaderPairs.Where(p => p.stubbed).Select(p => p.stubbed);
-
-            allShaders = origs.Union(stubbeds).ToList();
-            validPairs = shaderPairs.Where(p => p.original && p.stubbed).ToList();
-        }
-
         private SerializedObject shaderDictionarySO;
 
         public List<ShaderPair> shaderPairs = new List<ShaderPair>();
-        [HideInInspector]
-        public List<Shader> allShaders = new List<Shader>();
-        [HideInInspector]
-        public List<ShaderPair> validPairs = new List<ShaderPair>();
+        public string testString;
 
+        public static Dictionary<Shader, Shader> OrigToStubbed
+        {
+            get
+            {
+                return GetOrCreateSettings<ShaderDictionary>().shaderPairs
+                    .Select(sp => (sp.stubbed.LoadShader(), sp.original.LoadShader()))
+                    .Where(sp => sp.Item1 && sp.Item2)
+                    .ToDictionary(k => k.Item2, v => v.Item1);
+            }
+        }
+        public static Dictionary<Shader, Shader> StubbedToOrig
+        {
+            get
+            {
+                return GetOrCreateSettings<ShaderDictionary>().shaderPairs
+                    .Select(sp => (sp.stubbed.LoadShader(), sp.original.LoadShader()))
+                    .Where(sp => sp.Item1 && sp.Item2)
+                    .ToDictionary(k => k.Item1, v => v.Item2);
+            }
+        }
         public override void CreateSettingsUI(VisualElement rootElement)
         {
-            UpdateLists();
             if (shaderDictionarySO == null)
                 shaderDictionarySO = new SerializedObject(this);
 
-            if (shaderPairs.Count == 0)
-                FillWithDefaultShaders();
+            rootElement.Add(CreateStandardField(nameof(testString)));
+
+            var addDefaultStubbeds = new Button();
+            addDefaultStubbeds.text = $"Add Default Stubbed Shaders";
+            addDefaultStubbeds.tooltip = $"When clicked, MSU will populate the list with it's default stubbed shaders";
+            addDefaultStubbeds.style.maxWidth = new StyleLength(new Length(250));
+            addDefaultStubbeds.clicked += AddDefaultStubbeds;
+            rootElement.Add(addDefaultStubbeds);
 
             var attemptToFinish = new Button();
             attemptToFinish.text = $"Attempt to find missing keys";
@@ -78,29 +92,40 @@ namespace Moonstorm.EditorUtils.Settings
 
             rootElement.Bind(shaderDictionarySO);
         }
-        private void FillWithDefaultShaders()
+        internal static List<Shader> GetAllShadersFromDictionary()
         {
-            string rootPath = AssetDatabase.GUIDToAssetPath(ShaderRootGUID);
-            string fullPath = Path.GetFullPath(rootPath);
-            string pathWithoutFile = fullPath.Replace(Path.GetFileName(fullPath), "");
-            IEnumerable<string> files = Directory.EnumerateFiles(pathWithoutFile, "*.shader", SearchOption.AllDirectories);
-            shaderPairs = files.Select(ModifyPath)
-                .Select(path => FileUtil.GetProjectRelativePath(path.Replace("\\", "/")))
-                .Select(relativePath => AssetDatabase.LoadAssetAtPath<Shader>(relativePath))
-                .Select(shader => new ShaderPair(null, shader)).ToList();
-
-            shaderDictionarySO.Update();
-            shaderDictionarySO.ApplyModifiedProperties();
-            AssetDatabase.SaveAssets();
+            List<Shader> list = new List<Shader>();
+            var sd = GetOrCreateSettings<ShaderDictionary>();
+            foreach (ShaderPair pair in sd.shaderPairs)
+            {
+                var stubbed = pair.stubbed.LoadShader();
+                var orig = pair.original.LoadShader();
+                if (stubbed != null && !list.Contains(stubbed))
+                    list.Add(stubbed);
+                if (orig != null && !list.Contains(orig))
+                    list.Add(orig);
+            }
+            return list;
         }
 
-        private string ModifyPath(string path)
+        private void AddDefaultStubbeds()
         {
-            if (path.Contains($"Packages\\MoonstormSharedEditorUtils"))
+            string rootPath = AssetDatabase.GUIDToAssetPath(ShaderRootGUID);
+            string pathWithoutFile = rootPath.Replace(Path.GetFileName(rootPath), "");
+            IEnumerable<Shader> files = Directory.EnumerateFiles(pathWithoutFile, "*.shader", SearchOption.AllDirectories)
+                .Select(file => file.Replace("\\", "/"))
+                .Select(shaderPath => AssetDatabase.LoadAssetAtPath<Shader>(shaderPath));
+
+            foreach (Shader shader in files)
             {
-                return path.Replace($"Packages\\MoonstormSharedEditorUtils", "Packages\\teammoonstorm-moonstormsharededitorutils");
+                var stubbeds = shaderPairs.Select(sp => sp.stubbed.LoadShader());
+                if (!stubbeds.Contains(shader))
+                {
+                    shaderPairs.Add(new ShaderPair(null, shader));
+                }
             }
-            return path;
+
+            shaderDictionarySO.ApplyModifiedProperties();
         }
 
         private void AttemptToFinishDictionaryAutomatically()
@@ -110,10 +135,12 @@ namespace Moonstorm.EditorUtils.Settings
 
             foreach (ShaderPair pair in shaderPairs)
             {
-                if (pair.original || !pair.stubbed)
+                var orig = pair.original.LoadShader();
+                var stubbed = pair.stubbed.LoadShader();
+                if (orig || !stubbed)
                     continue;
 
-                string stubbedShaderFileName = Path.GetFileName(AssetDatabase.GetAssetPath(pair.stubbed));
+                string stubbedShaderFileName = Path.GetFileName(AssetDatabase.GetAssetPath(stubbed));
                 string origShaderFileName = stubbedShaderFileName.Replace(".shader", ".asset");
 
                 Shader origShader = allYAMLShaders.FirstOrDefault(shader =>
@@ -129,10 +156,9 @@ namespace Moonstorm.EditorUtils.Settings
                 if (!origShader)
                     continue;
 
-                pair.original = origShader;
+                pair.original.SetShader(origShader);
             }
 
-            shaderDictionarySO.Update();
             shaderDictionarySO.ApplyModifiedProperties();
         }
     }
