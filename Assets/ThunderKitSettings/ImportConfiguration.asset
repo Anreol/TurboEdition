@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4090d1da9d2c4d64393fc97cd46e8414, type: 3}
   m_Name: Unity GUI Uninstaller
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-8242264968811890278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a17181e89416446b9fb82f03553599, type: 3}
   m_Name: RoR2 LegacyResourceAPI Patcher
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-6974059043308597180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f74610dc9ac9d4dac443c315f5685d, type: 3}
   m_Name: Ensure RoR2 Thunderstore Source
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-6690019767075780926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecc301ed1414ee4ca063a9eeee2a159, type: 3}
   m_Name: TextMeshPro Uninstaller
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-6027975640725598593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512775de21a2e0e41ba77b90aced0c69, type: 3}
   m_Name: PostProcessing Unity Package Installer
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-5419076121453580246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4e66fd1b2f0a6b4e951af502eba5a2b, type: 3}
   m_Name: Create Game Package
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-1402391351379101815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892ee265a9c0b884c8c9c36e42a802c6, type: 3}
   m_Name: Install BepInEx
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
 --- !u!114 &-558799942596630189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87a9f1780c348d4080afaf9971d3a7e, type: 3}
   m_Name: Import Assemblies
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
   OldGuidGenerationMode: 0
   GuidGenerationMode: 1
 --- !u!114 &11400000
@@ -190,7 +190,7 @@ MonoBehaviour:
   - {fileID: 7660173166861341303}
   - {fileID: -5419076121453580246}
   - {fileID: -8242264968811890278}
-  ConfigurationIndex: 18
+  ConfigurationIndex: 8
 --- !u!114 &274692136875686968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2636f9900aca35942b349a07d34faaf4, type: 3}
   m_Name: Assembly Publicizer
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
   assemblyNames:
   - RoR2.dll
   - KinematicCharacterController.dll
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73dfaad4b0991214da3e623825c8357c, type: 3}
   m_Name: MMHook Generator
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
   assemblyNames:
   - RoR2.dll
   - KinematicCharacterController.dll
@@ -276,4 +276,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a6266570ba40d41bad5cf59676ab77, type: 3}
   m_Name: Install RoR2MultiplayerHLAPI
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0

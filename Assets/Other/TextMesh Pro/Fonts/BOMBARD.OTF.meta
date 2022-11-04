@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 81c4a852535a0b64fb06706bbd69814f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bombardier
+  fontNames:
+  - Bombardier
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a001c0026a3f4103ab0164a56b5ad7cc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

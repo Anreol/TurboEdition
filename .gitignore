@@ -120,8 +120,8 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
-*.obj
+#*.meta
+#*.obj
 *.iobj
 *.pch
 *.pdb
