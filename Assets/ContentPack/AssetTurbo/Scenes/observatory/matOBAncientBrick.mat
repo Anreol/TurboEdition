@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5b4b6eba13d21be4395a0df0ac9ed053, type: 3}
+        m_Texture: {fileID: 2800000, guid: 826387910d6d7994dafd94ed7413b361, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -110,7 +110,7 @@ Material:
     - _SnowSpecularStrength: 0
     - _SpecularExponent: 2.38
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0.389
+    - _SpecularStrength: 0.518
     - _SrcBlend: 1
     - _TriplanarOn: 0
     - _TriplanarTextureFactor: 1

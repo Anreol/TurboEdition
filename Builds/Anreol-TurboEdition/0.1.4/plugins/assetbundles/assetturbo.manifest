@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2806169886
+CRC: 2277262708
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 109fbf0cc2f9b856881e26ab7296c2f9
+    Hash: 124cc785051ca3d3397fd54623db43aa
   TypeTreeHash:
     serializedVersion: 2
-    Hash: a77b9be67422463b2ce4acf218f27977
+    Hash: 94d75ce2b3a1794d650275e460c4c0c1
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -488,6 +488,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 55cce1cf1261a63409fb809879bdf2fe, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 45cb1f24c669e13499bf11086dec9f90, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
@@ -583,6 +585,7 @@ Assets:
 - Assets/Textures/texSweat.png
 - Assets/Mesh/meshSphere.asset
 - Assets/Textures/texTriangleGrid.png
+- Assets/Textures/texTrimSheetAncientYellowDiffuse.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_BloodEconomy.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber.fbx
 - Assets/Materials/matProjectileFlare.mat
@@ -800,6 +803,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_ThievesHat.png
 - Assets/Textures/texSuperSticky.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/skinGrenadierDefault.asset
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/matOBLunarBrick.mat
 - Assets/Textures/Ramps/texRampSparkBright.png
 - Assets/ContentPack/AssetTurbo/ContentPackV2.asset
 - Assets/Materials/matUIPaintStreakTriangle.mat
@@ -851,6 +855,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/matImpFootstepCircleBright.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/idrsGrenadier.asset
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWispGraveyardMonstersTE.asset
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/matOBAncientBrick.mat
 - Assets/Textures/texDevGray.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/BigScytheImpactEffect.prefab
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/texAirborneBonusIcon.png
@@ -912,6 +917,7 @@ Assets:
 - Assets/Textures/Ramps/texRampBrownMiddle.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/HitSharpVFXGround.prefab
 - Assets/ContentPack/AssetTurbo/Misc/PostProcessingProfiles/ppObervatoryRain.asset
+- Assets/Textures/texTrimsheetAncientNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierSpecialCrosshair.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Toolbot/idrsToolbot.asset
 - Assets/ContentPack/AssetTurbo/Misc/NetworkSoundEffectDefs/nseItemProcPackMagnetDuplicate.asset
@@ -919,6 +925,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecialAlt.asset
 - Assets/Mesh/Items/meshKnife_.mesh
+- Assets/Textures/texTrimsheetObservatoryDiffuse.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/EntityStates.ImpBomber.SpawnState.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
 - Assets/Textures/texCrystalineNormal.png
@@ -947,6 +954,7 @@ Assets:
 - Assets/Textures/texGlowSmoke.png
 - Assets/Textures/texTeleporterLensesClothNormal.png
 - Assets/Materials/matBigScythe.mat
+- Assets/Textures/texTrimsheetObservatoryNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberSecondaryGetBomb.asset
 - Assets/Mesh/meshImpBomberBarrel.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: matOBAncientBrick
+  m_Name: matOBLunarBrick
   m_Shader: {fileID: 4800000, guid: c31f2d06c27c0c14e99e3dc58d3e2fd5, type: 2}
   m_ShaderKeywords: BINARYBLEND
   m_LightmapFlags: 4
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5b4b6eba13d21be4395a0df0ac9ed053, type: 3}
+        m_Texture: {fileID: 2800000, guid: af6dd2cc2649e0f40b684a8dd50a5604, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 2800000, guid: c0bdb48c809a528438d00165bbd361ea, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8c94bd7d7124565459a049b15ef5b320, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -118,6 +118,6 @@ Material:
     - _VertexColorOn: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.75685304, g: 0.6462264, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GradientBiasVector: {r: 0, g: 0, b: 0, a: 0}
