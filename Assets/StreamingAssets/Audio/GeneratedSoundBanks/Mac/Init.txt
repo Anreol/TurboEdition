@@ -1,6 +1,6 @@
 State Group	ID	Name			Wwise Object Path	Notes
 	425769398	bossVoidRaid_fog_status			\Default Work Unit\bossVoidRaid_fog_status	
-	549431000	bossStatus			\Default Work Unit\bossStatus	
+	549431000	bossStatus			\Default Work Unit\bossStatus	Misleading name, used by the game if the teleporter event is starting or undergoing (alive) or is done charging (dead). Defaults to alive.
 	792781730	Music_system			\Default Work Unit\Music_system	
 	1598298728	Music_menu			\Default Work Unit\Music_menu	
 	1741660947	gameplaySongChoice			\Default Work Unit\gameplaySongChoice	
@@ -8,7 +8,7 @@ State Group	ID	Name			Wwise Object Path	Notes
 	3028652072	TABStatus			\Default Work Unit\TABStatus	
 	3480929964	ghostStatus			\Default Work Unit\ghostStatus	
 	3807720919	enemyType			\Default Work Unit\enemyType	
-	4244680111	teleporterZone			\Default Work Unit\teleporterZone	
+	4244680111	teleporterZone			\Default Work Unit\teleporterZone	Seems to be replaced by teleporterPlayerStatus. Unknown.
 
 State	ID	Name	State Group			Notes
 	748895195	None	bossVoidRaid_fog_status			
@@ -29,6 +29,7 @@ State	ID	Name	State Group			Notes
 	2121506681	OutroCutsceneFULL	Music_menu			
 	2266819552	OutroCutsceneB	Music_menu			
 	2266819555	OutroCutsceneA	Music_menu			
+	2900001726	DLC1_Credits	Music_menu			
 	3161908922	Main	Music_menu			
 	3912041495	Prismatic	Music_menu			
 	402164444	songTurbo02	gameplaySongChoice			
@@ -55,24 +56,24 @@ State	ID	Name	State Group			Notes
 	1752637612	IN	teleporterZone			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	1514947204	Meter_Character			\Default Work Unit\Meter_Character	
-	1871679725	Meter_UI			\Default Work Unit\Meter_UI	
+	1514947204	Meter_Character			\Default Work Unit\Meter_Character	Unknown.
+	1871679725	Meter_UI			\Default Work Unit\Meter_UI	Unknown.
 	3673881719	Volume_SFX			\Default Work Unit\Volume_SFX	The volume of sound effects, from 0 to 100
 	3695994288	Volume_Master			\Default Work Unit\Volume_Master	The master volume of the game audio, from 0 to 100.
 	3729143042	Volume_MSX			\Default Work Unit\Volume_MSX	The music volume, from 0 to 100
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	85412153	Ambience			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Ambience	
+	85412153	Ambience			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Ambience	Seems to be used in ZONE type of sounds.
 	213475909	SFX_BUS			\Default Work Unit\Master Audio Bus\SFX_BUS	
-	436743010	Character			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Character	
+	436743010	Character			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Character	For survivors ONLY.
 	805203703	Master Secondary Bus			\Default Work Unit\Master Secondary Bus	
 	931844945	HDR			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR	
 	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\UI	
-	1560169506	Boss			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Boss	
+	1560169506	Boss			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Boss	Used for boss characters, seems like only Mithrix uses it?
 	1769218552	Env FX			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Env FX	
 	2060036974	MSX_Beacon			\Default Work Unit\Master Audio Bus\MSX_Beacon	
-	2151963051	Items			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Items	
-	2299321487	Enemy			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Enemy	
+	2151963051	Items			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Items	For equipment and item procs.
+	2299321487	Enemy			\Default Work Unit\Master Audio Bus\SFX_BUS\HDR\Enemy	For enemies ONLY.
 	2893081552	MSX_BUS			\Default Work Unit\Master Audio Bus\MSX_BUS	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 

@@ -1520,7 +1520,6 @@ GameObject:
   - component: {fileID: 6378433259991495200}
   - component: {fileID: 114989553434124176}
   - component: {fileID: 2043359037680833921}
-  - component: {fileID: 6453421489294159687}
   m_Layer: 0
   m_Name: GrenadierBody
   m_TagString: Untagged
@@ -2228,15 +2227,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}
   requireEntitlementIfPlayerControlled: 1
---- !u!114 &6453421489294159687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9196633835157065860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45cb1f24c669e13499bf11086dec9f90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -20,7 +20,7 @@
 	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="1857298081">
+		<SoundBank Id="34081325" Language="SFX" Hash="1897392197">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -186,7 +186,7 @@
 				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="228383262">
+		<SoundBank Id="1355168291" Language="SFX" Hash="445380309">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

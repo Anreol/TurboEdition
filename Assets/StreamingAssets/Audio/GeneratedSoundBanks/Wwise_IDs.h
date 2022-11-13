@@ -120,6 +120,7 @@ namespace AK
 
             namespace STATE
             {
+                static const AkUniqueID DLC1_CREDITS = 2900001726U;
                 static const AkUniqueID LOGBOOK = 1654435662U;
                 static const AkUniqueID MAIN = 3161908922U;
                 static const AkUniqueID NONE = 748895195U;
@@ -186,6 +187,22 @@ namespace AK
             } // namespace SWITCH
         } // namespace AUDIOSOURCE
 
+        namespace MATERIAL
+        {
+            static const AkUniqueID GROUP = 3865314626U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID DIRT = 2195636714U;
+                static const AkUniqueID GRASS = 4248645337U;
+                static const AkUniqueID METAL = 2473969246U;
+                static const AkUniqueID SNOW = 787898836U;
+                static const AkUniqueID STONE = 1216965916U;
+                static const AkUniqueID WATER_SHALLOW = 122593115U;
+                static const AkUniqueID WOOD = 2058049674U;
+            } // namespace SWITCH
+        } // namespace MATERIAL
+
         namespace MUSICEV
         {
             static const AkUniqueID GROUP = 3897813747U;
@@ -204,6 +221,8 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID ATTACKSPEED = 2450313110U;
+        static const AkUniqueID AUDIOTEAM = 3226782502U;
+        static const AkUniqueID AZIMUTH = 1437246667U;
         static const AkUniqueID CHARACTERSIZE = 2746825725U;
         static const AkUniqueID CHARMULTSPEED = 3103896380U;
         static const AkUniqueID DAMAGEDIRECTION = 3364282145U;

@@ -45,6 +45,7 @@
 						<State Name="OutroCutsceneA" ID="{E42509A6-20D4-4907-B7C4-11C5043F919F}"/>
 						<State Name="Main" ID="{69AE8A46-BFD5-4645-ACE5-9569A281D6CE}"/>
 						<State Name="Prismatic" ID="{3256C5F2-2AF9-479A-B047-4F3506EA40AA}"/>
+						<State Name="DLC1_Credits" ID="{E578B511-2295-4AB4-8AB6-B69B024FE0C6}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="bossPhase" ID="{2B159531-4EB0-43CD-AF54-A3ECE4C698C1}">

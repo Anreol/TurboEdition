@@ -74,8 +74,11 @@
 							<ChildrenList>
 								<Bus Name="HDR" ID="{419B87CF-8462-4EA8-BECF-D85918A8C5AB}">
 									<ChildrenList>
-										<Bus Name="Ambience" ID="{3F6E42E6-000D-43B6-8C24-A458A1BD2FB9}"/>
+										<Bus Name="Ambience" ID="{3F6E42E6-000D-43B6-8C24-A458A1BD2FB9}">
+											<Comment>Seems to be used in ZONE type of sounds.</Comment>
+										</Bus>
 										<Bus Name="Character" ID="{07366DDA-D791-44B0-8A1B-E9D51CFAD5BD}">
+											<Comment>For survivors ONLY.</Comment>
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<RTPCList>
@@ -139,10 +142,16 @@
 												</Property>
 											</PropertyList>
 										</Bus>
-										<Bus Name="Boss" ID="{563E7C78-A684-49E8-A8FE-0E61FF81806F}"/>
+										<Bus Name="Boss" ID="{563E7C78-A684-49E8-A8FE-0E61FF81806F}">
+											<Comment>Used for boss characters, seems like only Mithrix uses it?</Comment>
+										</Bus>
 										<Bus Name="Env FX" ID="{9C0BF6C3-27C7-441B-ABD0-93E01385C742}"/>
-										<Bus Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}"/>
-										<Bus Name="Enemy" ID="{AD36B429-548F-4D5C-B98D-CD975D97EA47}"/>
+										<Bus Name="Items" ID="{5B275700-5DF2-4EF9-BC5E-97DD68B53467}">
+											<Comment>For equipment and item procs.</Comment>
+										</Bus>
+										<Bus Name="Enemy" ID="{AD36B429-548F-4D5C-B98D-CD975D97EA47}">
+											<Comment>For enemies ONLY.</Comment>
+										</Bus>
 									</ChildrenList>
 								</Bus>
 							</ChildrenList>

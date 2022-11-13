@@ -275,6 +275,15 @@
 						<Event Name="Stop_Ambience_Loop" ID="{AFAB615E-6363-49D9-A733-333CB1C32D3A}"/>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Kill_loops" ID="{81507081-96C4-40E5-B6D8-D47F431364E0}">
+					<Comment>Might be used to kill all loops, as name implies.</Comment>
+				</Event>
+				<Event Name="Pause_All" ID="{B646BE06-1FDB-4BC3-A0CB-B8A60A250750}"/>
+				<Folder Name="UI" ID="{F136A5FC-1F3A-4244-ABF8-2C0952D81F79}" ShortID="693811228">
+					<ChildrenList>
+						<Event Name="Play_Achievement" ID="{290849AB-9AD7-463B-A480-3BDFECD0FD4A}"/>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

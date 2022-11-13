@@ -18,6 +18,18 @@
 						<Switch Name="HIGH" ID="{0C7672BD-786D-430A-A02A-32D39C3016C9}"/>
 					</ChildrenList>
 				</SwitchGroup>
+				<SwitchGroup Name="material" ID="{77C8344B-1F9F-46D3-A304-DC8480123C4F}">
+					<Comment>Might be materials for world surfaces.</Comment>
+					<ChildrenList>
+						<Switch Name="dirt" ID="{0C0ECECE-F9AF-4A1C-B781-4F7D1DEE1611}"/>
+						<Switch Name="snow" ID="{DF2AD028-1717-4AE4-9074-B26C4DFF25F3}"/>
+						<Switch Name="stone" ID="{53B79855-F455-46B0-9B6F-26633454E936}"/>
+						<Switch Name="grass" ID="{F14AED38-52A1-4C66-AE49-8C0FBCF35273}"/>
+						<Switch Name="metal" ID="{58BA4396-86AF-42BF-85F6-7CF60C6EEE8E}"/>
+						<Switch Name="water_shallow" ID="{93EB2544-7FB5-4D3B-89D0-A0541132979B}"/>
+						<Switch Name="wood" ID="{424E90ED-7516-4099-9941-06E4A1A63345}"/>
+					</ChildrenList>
+				</SwitchGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</Switches>

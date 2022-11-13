@@ -35,16 +35,19 @@
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Meter_Character" ID="{62956831-200A-4548-BC0A-5D07AB0BA9B7}">
+					<Comment>Unknown.</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="0"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Meter_UI" ID="{D7A3466D-9696-46F7-A83A-E59346C4C704}">
+					<Comment>Unknown.</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="100"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="Meter_SFX" ID="{A5457EEE-18B0-4531-80FE-B3A27DADDB55}">
+					<Comment>Unknown.</Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="100"/>
 					</PropertyList>
@@ -83,75 +86,6 @@
 						<Property Name="Max" Type="Real64" Value="64"/>
 					</PropertyList>
 				</GameParameter>
-				<Folder Name="SFX_param" ID="{DF387BBF-919D-44CC-AC20-F2FEF5DC3C84}" ShortID="752673707">
-					<ChildrenList>
-						<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
-							<Comment>Affects the sound of flying drones, maybe MUL-T too? Defaults to 50.</Comment>
-						</GameParameter>
-						<GameParameter Name="explosionSize" ID="{4209B276-A690-47FF-835C-6DCE739824C7}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="fallIntensity" ID="{6FB22469-2988-45F2-BD0B-3FAA360AED49}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="elevation" ID="{757D94F9-9BE2-415F-9290-9A6CAFE28B53}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="attackSpeed" ID="{23295613-FD10-4F5C-8A6D-F106FC1EFAE7}">
-							<Comment>Used in certain attacks. The math operation is 1200 * Log(AttackSpeed, 2) / 96 + 50
-Default 50.
-</Comment>
-							<PropertyList>
-								<Property Name="Max" Type="Real64" Value="1200"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="characterSize" ID="{71CABDF5-27B5-49C0-98F1-33ABDEE88762}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="eliteEnemy" ID="{CE0EFC42-8584-4987-A55D-F051280A3D5F}">
-							<Comment>Whenever an enemy is elite or not. 0 by default.</Comment>
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="droneSize" ID="{E749DB23-3767-445B-9FAF-6C2399F99CB7}">
-							<Comment>Affects drones, default to 50. Stuff like drone spawn sounds and idle.</Comment>
-						</GameParameter>
-						<GameParameter Name="charMultSpeed" ID="{F89F9018-D6EE-47D9-AEB7-B93DBF369967}">
-							<Comment>Seems to affect only MUL-Ts transport mode, Defaults to 50</Comment>
-						</GameParameter>
-						<GameParameter Name="damageDirection" ID="{8D310096-22EA-4DCA-9391-9E4293748D8A}">
-							<Comment>Used in crosshairs, from 0 to 360, calculated from the camera to the damage source, plays the event: Play_UI_takeDamage</Comment>
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="enemy_size" ID="{F4D70A98-540E-4343-8D8D-7D98C7799333}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="intensityWeather" ID="{6C42B04E-2108-4D21-9DA7-90E015C03964}">
-							<Comment>Used by SceneWeatherController. Maximum and minimum values can vary, but by default its 0 to 100</Comment>
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-						<GameParameter Name="podDistanceToGround" ID="{2F933841-74D5-4585-B0F9-FA8E01DE9834}">
-							<PropertyList>
-								<Property Name="InitialValue" Type="Real64" Value="1"/>
-							</PropertyList>
-						</GameParameter>
-					</ChildrenList>
-				</Folder>
 				<GameParameter Name="EscapeTimer" ID="{1EE32629-DE9C-43A9-957E-241402E06987}">
 					<Comment>Used by EscapeSequenceController. From 0 to 100.</Comment>
 					<PropertyList>

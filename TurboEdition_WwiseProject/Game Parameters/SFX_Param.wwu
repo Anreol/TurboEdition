@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{FD8CCE12-1270-44E2-BD3E-C505CEBD3B6B}" SchemaVersion="97">
+	<GameParameters>
+		<WorkUnit Name="SFX_Param" ID="{FD8CCE12-1270-44E2-BD3E-C505CEBD3B6B}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="intensityWeather" ID="{6C42B04E-2108-4D21-9DA7-90E015C03964}">
+					<Comment>Used by SceneWeatherController. ZONE and ENV might use this. Maximum and minimum values can vary, but by default its 0 to 100.</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="explosionSize" ID="{4209B276-A690-47FF-835C-6DCE739824C7}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="fallIntensity" ID="{6FB22469-2988-45F2-BD0B-3FAA360AED49}">
+					<Comment>Unknown. Might be for fall damage?</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="attackSpeed" ID="{23295613-FD10-4F5C-8A6D-F106FC1EFAE7}">
+					<Comment>Used in certain attacks. The math operation is 1200 * Log(AttackSpeed, 2) / 96 + 50
+Default 50.
+</Comment>
+					<PropertyList>
+						<Property Name="Max" Type="Real64" Value="1200"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="eliteEnemy" ID="{CE0EFC42-8584-4987-A55D-F051280A3D5F}">
+					<Comment>Whenever an enemy is elite or not. 0 by default.</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="charMultSpeed" ID="{F89F9018-D6EE-47D9-AEB7-B93DBF369967}">
+					<Comment>Seems to affect only MUL-Ts transport mode, Defaults to 50</Comment>
+				</GameParameter>
+				<GameParameter Name="damageDirection" ID="{8D310096-22EA-4DCA-9391-9E4293748D8A}">
+					<Comment>Used in crosshairs, from 0 to 360, calculated from the camera to the damage source, plays the event: Play_UI_takeDamage</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
+					<Comment>Affects the sound of flying drones, maybe MUL-T too? Defaults to 50.</Comment>
+				</GameParameter>
+				<GameParameter Name="elevation" ID="{757D94F9-9BE2-415F-9290-9A6CAFE28B53}">
+					<Comment>Might be elevation relative to world or to camera? Used in almost every SFX</Comment>
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="characterSize" ID="{71CABDF5-27B5-49C0-98F1-33ABDEE88762}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="droneSize" ID="{E749DB23-3767-445B-9FAF-6C2399F99CB7}">
+					<Comment>Affects drones, default to 50. Stuff like drone spawn sounds and idle.</Comment>
+				</GameParameter>
+				<GameParameter Name="enemy_size" ID="{F4D70A98-540E-4343-8D8D-7D98C7799333}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="podDistanceToGround" ID="{2F933841-74D5-4585-B0F9-FA8E01DE9834}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="audioTeam" ID="{79C11FB9-B7CF-49C4-B815-E814F6FD723A}">
+					<Comment>Might be the team from where the sound comes from? Unknown. Used in almost every SFX.</Comment>
+				</GameParameter>
+				<GameParameter Name="azimuth" ID="{38343354-0A50-44AC-BE87-A40A53545209}">
+					<Comment>An azimuth is an angular measurement in a spherical coordinate system. More specifically, it is the horizontal angle from a cardinal direction, most commonly north. Used in almost every SFX. Default values unknown.</Comment>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>
