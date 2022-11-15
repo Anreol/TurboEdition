@@ -24,9 +24,10 @@
     "com.unity.modules.terrainphysics": "1.0.0",
     "com.unity.modules.ui": "1.0.0",
     "com.unity.modules.uielements": "1.0.0",
+	"com.unity.modules.umbra": "1.0.0",
 	"com.unity.modules.vr": "1.0.0",
 	"com.unity.modules.unitywebrequest": "1.0.0",
-	    "com.unity.modules.wind": "1.0.0",
+	"com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
   }
 }
