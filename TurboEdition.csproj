@@ -404,6 +404,9 @@
     <Reference Include="MonoMod.Utils">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/MonoMod.Utils.dll</HintPath>
     </Reference>
+    <Reference Include="MonoMod.RuntimeDetour">
+      <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/BepInExPack/BepInExPack/BepInEx/core/MonoMod.RuntimeDetour.dll</HintPath>
+    </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>C:/Users/Anr/source/repos/TurboEdition/Packages/mmhook-assemblies/MMHOOK_RoR2.dll</HintPath>
     </Reference>

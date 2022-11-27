@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1195996771
+CRC: 1213866986
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 312d24d834aff9ae0910c8e18616ccf2
+    Hash: 979d6303669b68abc05b7960d0edcd4e
   TypeTreeHash:
     serializedVersion: 2
     Hash: a77b9be67422463b2ce4acf218f27977
@@ -960,6 +960,7 @@ Assets:
 - Assets/Le Tai's Asset/TranslucentImage/Material/Default-Translucent.mat
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/meshAirborneBonus.mesh
 - Assets/Materials/matTeleporterLensesGlass.mat
+- Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsTurboEditionMonsters.asset
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOBClothFlag.mat
 - Assets/ContentPack/AssetTurbo/Items/CurseItemTier.asset
 - Assets/ContentPack/AssetTurbo/Scenes/dev/matDevGridVeryLow.mat

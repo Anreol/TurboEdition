@@ -18,13 +18,17 @@ namespace TurboEdition.Misc
         {
             cards = new SerializableDirectorCard[]
             {
+                //Shrine Overcharger, one has more weight for the other.
                 Assets.mainAssetBundle.LoadAsset<SerializableDirectorCard>("sdcShrineOvercharger"),
                 Assets.mainAssetBundle.LoadAsset<SerializableDirectorCard>("sdcShrineOverchargerCommon")
             };
+
             //TODO: AS OF JULY 4, LEAVE IT FOR NEXT UPDATE
-            //SceneDirector.onGenerateInteractableCardSelection += AddDirectorCards;
+            SceneDirector.onGenerateInteractableCardSelection += AddDirectorCards;
             SceneDirector.onPrePopulateMonstersSceneServer += ExplicitInteracteableGeneration;
 
+
+            //Scenes
             SceneCollection.SceneEntry observatoryEntry = new SceneCollection.SceneEntry()
             {
                 sceneDef = TEContent.Scenes.observatory,
@@ -64,13 +68,13 @@ namespace TurboEdition.Misc
         {
             if (logCards)
             {
-                TELog.LogE("\n\nLogging cards\n\n");
+                TELog.LogE("\n\nLogging cards\n\n", true);
                 foreach (var item in arg2.categories)
                 {
-                    TELog.LogW("Director category: " + item.name);
+                    TELog.LogW("Director category: " + item.name, true);
                     foreach (var card in item.cards)
                     {
-                        TELog.LogD("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable());
+                        TELog.LogD("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable(), true);
                     }
                 }
             }

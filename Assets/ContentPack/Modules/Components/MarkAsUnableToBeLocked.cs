@@ -1,5 +1,6 @@
 ﻿using Mono.Cecil.Cil;
 using MonoMod.Cil;
+using MonoMod.RuntimeDetour;
 using RoR2;
 using System;
 using UnityEngine;
@@ -11,7 +12,24 @@ namespace TurboEdition.Components
         [SystemInitializer]
         public static void Initialize()
         {
-            IL.RoR2.OutsideInteractableLocker.ChestLockCoroutine += ChestLockCoroutine;
+            //IL.RoR2.OutsideInteractableLocker.ChestLockCoroutine += ChestLockCoroutine;
+
+            Type nestedType = typeof(OutsideInteractableLocker).GetNestedType("<ChestLockCoroutine>d__20", System.Reflection.BindingFlags.NonPublic);
+            var reflection = nestedType.GetMethod("MoveNext", (System.Reflection.BindingFlags)(-1));
+            _ = new ILHook(reflection, (ILContext.Manipulator)((il) =>
+            {
+                ILCursor c = new ILCursor(il);
+                c.GotoNext(MoveType.After,
+                    x => x.MatchLdfld(typeof(OutsideInteractableLocker.Candidate), "purchaseInteraction"));
+                c.EmitDelegate<Func<PurchaseInteraction, PurchaseInteraction>>((purchase) =>
+                {
+                    if (purchase.GetComponent<MarkAsUnableToBeLocked>())
+                    {
+                        return null;
+                    }
+                    return purchase;
+                });
+            }));
         }
 
         private static void ChestLockCoroutine(MonoMod.Cil.ILContext il)

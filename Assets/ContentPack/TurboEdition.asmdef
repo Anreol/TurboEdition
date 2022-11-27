@@ -22,6 +22,7 @@
         "BepInEx.dll",
         "Mono.Cecil.dll",
         "MonoMod.Utils.dll",
+        "MonoMod.RuntimeDetour.dll",
         "MMHOOK_RoR2.dll",
         "RoR2.dll"
     ],

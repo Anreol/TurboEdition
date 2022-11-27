@@ -8,6 +8,7 @@ namespace TurboEdition.Misc
     internal class CombatDirectorInjector
     {
         private const bool USE_UNIQUE_DCCS = false;
+        public static DirectorCardCategorySelection allTurboEditionMonsters = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsTurboEditionMonsters");
         public static DccsPool.ConditionalPoolEntry frozenWallExtraEntry;
         public static DccsPool.ConditionalPoolEntry wispGraveyardExtraEntry;
         public static DccsPool.ConditionalPoolEntry dampCaveExtraEntry;
@@ -37,8 +38,10 @@ namespace TurboEdition.Misc
 
                 Stage.onServerStageBegin += onServerStageBeginUnique; //Server has auth over stage
             }
-            //RoR2Content.mixEnemyMonsterCards.AddCard(3, frozenWallExtraEntry.dccs.categories[3].cards[0]); //ImpBomber
             Stage.onServerStageBegin += onServerStageBeginNormal; //Server has auth over stage
+
+            //Mix enemy Artifact
+            CopyDccsToDccs(RoR2Content.mixEnemyMonsterCards, allTurboEditionMonsters);
         }
 
         private static void onServerStageBeginUnique(Stage obj)
@@ -59,15 +62,17 @@ namespace TurboEdition.Misc
                 ClassicStageInfo.instance.RebuildCards();
                 RefreshAllAvailableDirectorCards();
             }
-            if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("voidraid"))
-            {
-                GameObject gameObject = GameObject.Find("EncounterPhases/VoidRaidCrabCombatEncounter Phase 1/");
-                if (gameObject)
-                {
-                    gameObject.GetComponent<ScriptedCombatEncounter>().spawns[0].explicitSpawnPosition.position = new Vector3(3.6765f, 89.98f, 0f);
-                    gameObject.GetComponent<ScriptedCombatEncounter>().spawns[0].spawnCard = Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/DLC1/VoidRaidCrab/cscVoidRaidCrab.asset").WaitForCompletion();
-                }
-            }
+
+            //Experiment for old voidling, do not uncomment
+            //if (obj.sceneDef == SceneCatalog.GetSceneDefFromSceneName("voidraid"))
+            //{
+            //    GameObject gameObject = GameObject.Find("EncounterPhases/VoidRaidCrabCombatEncounter Phase 1/");
+            //    if (gameObject)
+            //    {
+            //        gameObject.GetComponent<ScriptedCombatEncounter>().spawns[0].explicitSpawnPosition.position = new Vector3(3.6765f, 89.98f, 0f);
+            //        gameObject.GetComponent<ScriptedCombatEncounter>().spawns[0].spawnCard = Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/DLC1/VoidRaidCrab/cscVoidRaidCrab.asset").WaitForCompletion();
+            //    }
+            //}
         }
 
         //Pool categories usually have: Standard, Family event, and (maybe?) VoidInvasion
@@ -105,6 +110,8 @@ namespace TurboEdition.Misc
             {
                 ClassicStageInfo.instance.RebuildCards();
                 RefreshAllAvailableDirectorCards();
+                //And reset.
+                needsRefresh = false;
             }
         }
 
@@ -146,6 +153,12 @@ namespace TurboEdition.Misc
             Debug.LogError("Done dumping Info from weightedSelection");
         }
 
+        /// <summary>
+        /// Goes through every category, and merges the cards into matching categories. Appends extra categories into the destination.
+        /// Make sure the order is the same as hopoo's
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
         public static void CopyDccsToDccs(DirectorCardCategorySelection source, DirectorCardCategorySelection dest)
         {
             for (int i = 0; i < source.categories.Length; i++)
