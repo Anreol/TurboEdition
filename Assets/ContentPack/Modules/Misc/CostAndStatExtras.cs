@@ -11,7 +11,7 @@ namespace TurboEdition.Misc
 {
     internal class CostAndStatExtras
     {
-        public static readonly StatDef totalTeleporterOverchargerUsed = StatDef.Register("totalTeleporterOverchargerUsed", StatRecordType.Sum, StatDataType.ULong, 100.0, null);
+        public static readonly StatDef totalTeleporterOverchargerUsed = StatDef.Register("totalTeleporterOverchargerUsed", StatRecordType.Sum, StatDataType.ULong, 250.0, null);
         public static readonly StatDef highestTeleporterOverchargerUsed = StatDef.Register("highestTeleporterOverchargerUsed", StatRecordType.Max, StatDataType.ULong, 0.0, null);
         public static CostTypeDef teleporterCostType;
         public static int teleporterCostIndex;
@@ -84,7 +84,7 @@ namespace TurboEdition.Misc
             teleporterCostType.colorIndex = ColorCatalog.ColorIndex.Teleporter;
             teleporterCostType.saturateWorldStyledCostString = true;
             teleporterCostType.darkenWorldStyledCostString = false;
-            teleporterCostIndex = CostTypeCatalog.costTypeDefs.Length + obj.Count;
+            teleporterCostIndex = CostTypeCatalog.costTypeDefs.Length + obj.Count; //Get base length plus the length of the current list
             obj.Add(teleporterCostType);
         }
     }

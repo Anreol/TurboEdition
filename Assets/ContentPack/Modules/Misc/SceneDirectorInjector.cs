@@ -27,7 +27,6 @@ namespace TurboEdition.Misc
             SceneDirector.onGenerateInteractableCardSelection += AddDirectorCards;
             SceneDirector.onPrePopulateMonstersSceneServer += ExplicitInteracteableGeneration;
 
-
             //Scenes
             SceneCollection.SceneEntry observatoryEntry = new SceneCollection.SceneEntry()
             {
@@ -66,16 +65,13 @@ namespace TurboEdition.Misc
 
         private static void LogDirectorCards(SceneDirector arg1, DirectorCardCategorySelection arg2)
         {
-            if (logCards)
+            TELog.LogE("\n\nLogging cards:", true);
+            foreach (var item in arg2.categories)
             {
-                TELog.LogE("\n\nLogging cards\n\n", true);
-                foreach (var item in arg2.categories)
+                TELog.LogW("Director category: " + item.name, true);
+                foreach (var card in item.cards)
                 {
-                    TELog.LogW("Director category: " + item.name, true);
-                    foreach (var card in item.cards)
-                    {
-                        TELog.LogD("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable(), true);
-                    }
+                    TELog.LogW("Spawn Card: " + card.spawnCard + " Prefab: " + card.spawnCard.prefab + "Is valid: " + card.IsAvailable(), true);
                 }
             }
         }
@@ -96,6 +92,10 @@ namespace TurboEdition.Misc
                         continue;
                     }
                 }
+            }
+            if (logCards)
+            {
+                LogDirectorCards(arg1, arg2);
             }
         }
 

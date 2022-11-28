@@ -20,16 +20,26 @@ namespace TurboEdition.Components
         private CombatDirector shrineCombatDirector;
         private BossGroup bossGroup;
         private DirectorCard chosenDirectorCardToSpawn;
+        /// <summary>
+        /// Whenever it's waiting for it to be reactivated. Handled by the server only.
+        /// </summary>
         private bool waitingForRefresh = false;
         private float refreshTimer;
         private int purchaseCount;
 
-        public float refreshInterval = 2f;
-        public int maxPurchaseCount;
-        public float costMultiplierPerPurchase;
+        [Tooltip("Should the spawn target be overriden with the teleporter.")]
+        public bool setSpawnTargetAsTeleporter = false;
+        [SerializeField]
+        private float refreshInterval = 2f;
+        [SerializeField]
+        private int maxPurchaseCount;
+        [Tooltip("Cost multiplier per purchase, hard caps at 99.")]
+        [SerializeField]
+        private float costMultiplierPerPurchase;
         public float baseMonsterCredit;
-        public float monsterCreditCoefficientPerPurchase;
-        public Transform symbolTransform;
+        [Tooltip("Difficulty coefficient gets multiplied by this * current purchase amount.")]
+        [SerializeField]
+        private float monsterCreditCoefficientPerPurchase;
 
         private float calculatedMonsterCredit
         {
@@ -41,15 +51,34 @@ namespace TurboEdition.Components
 
         private void Awake()
         {
+            //Fix cost type to the custom one.
+            this.purchaseInteraction = base.GetComponent<PurchaseInteraction>();
+            purchaseInteraction.costType = (CostTypeIndex)Misc.CostAndStatExtras.teleporterCostIndex;
+
             if (NetworkServer.active)
             {
-                this.purchaseInteraction = base.GetComponent<PurchaseInteraction>();
                 this.shrineCombatDirector = base.GetComponent<CombatDirector>();
                 this.bossGroup = base.GetComponent<BossGroup>();
                 this.shrineCombatDirector.combatSquad.onDefeatedServer += this.OnDefeatedServer;
                 shrineCombatDirector.onSpawnedServer.AddListener(new UnityAction<GameObject>(ModifySpawnedMasters));
             }
-            purchaseInteraction.costType = (CostTypeIndex)Misc.CostAndStatExtras.teleporterCostIndex;
+        }
+
+        private void Start()
+        {
+            if (!TeleporterInteraction.instance)
+            {
+                Debug.Log("Could not find Teleporter for the Teleporter Overcharger Shrine, setting as non purchasable and returning.");
+                this.purchaseInteraction.SetAvailable(false);
+                return;
+            }
+            RollDirectorCard();
+            if (setSpawnTargetAsTeleporter)
+            {
+                this.shrineCombatDirector.currentSpawnTarget = TeleporterInteraction.instance.gameObject;
+                bossGroup.dropPosition = TeleporterInteraction.instance.transform;
+            }
+            bossGroup.dropTable = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/Base/Common/dtTier1Item.asset").WaitForCompletion();
         }
 
         [Server]
@@ -63,20 +92,6 @@ namespace TurboEdition.Components
             }
         }
 
-        private void Start()
-        {
-            if (!TeleporterInteraction.instance)
-            {
-                Debug.Log("Could not find Teleporter for the Teleporter Overcharger Shrine");
-                this.purchaseInteraction.SetAvailable(false);
-                return;
-            }
-            RollDirectorCard();
-            this.shrineCombatDirector.currentSpawnTarget = TeleporterInteraction.instance.gameObject;
-            bossGroup.dropPosition = TeleporterInteraction.instance.transform;
-            bossGroup.dropTable = Addressables.LoadAssetAsync<BasicPickupDropTable>("RoR2/Base/Common/dtTier1Item.asset").WaitForCompletion();
-        }
-
         private void OnDefeatedServer()
         {
             onDefeatedServerGlobal?.Invoke(this);
@@ -84,7 +99,7 @@ namespace TurboEdition.Components
 
         public void FixedUpdate()
         {
-            //Teleporter checks handled by TeleporterEventRelay
+            //Purchase interaction initial activation & disable handled by TeleporterEventRelay
             if (this.waitingForRefresh /*&& TeleporterInteraction.instance && (TeleporterInteraction.instance.isCharging || TeleporterInteraction.instance.isCharged)*/)
             {
                 this.refreshTimer -= Time.fixedDeltaTime;
@@ -97,43 +112,40 @@ namespace TurboEdition.Components
             }
         }
 
+        /// <summary>
+        /// Called through the purchase interaction event in the editor.
+        /// </summary>
+        /// <param name="interactor"></param>
         [Server]
         public void AddShrineStack(Interactor interactor)
         {
-            this.waitingForRefresh = true;
+            //Activate
             if (TeleporterInteraction.instance)
             {
-                OverchargeActivation(shrineCombatDirector, calculatedMonsterCredit, chosenDirectorCardToSpawn);
+                OverchargeActivation(shrineCombatDirector, calculatedMonsterCredit, chosenDirectorCardToSpawn, interactor);
                 RollDirectorCard(); //Roll a different card for next activation
             }
-            purchaseInteraction.SetAvailable(false);
-            CharacterBody component = interactor.GetComponent<CharacterBody>();
-            Chat.SendBroadcastChat(new Chat.SubjectFormatChatMessage
-            {
-                subjectAsCharacterBody = component,
-                baseToken = "SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE"
-            });
-            StatSheet statSheet = PlayerStatsComponent.FindBodyStatSheet(component);
-            if (statSheet != null)
-            {
-                statSheet.PushStatValue(TurboEdition.Misc.CostAndStatExtras.totalTeleporterOverchargerUsed, 1UL);
-                statSheet.PushStatValue(TurboEdition.Misc.CostAndStatExtras.highestTeleporterOverchargerUsed, statSheet.GetStatValueULong(TurboEdition.Misc.CostAndStatExtras.totalTeleporterOverchargerUsed));
-            }
-            /*EffectManager.SpawnEffect(LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/ShrineUseEffect"), new EffectData
+
+            EffectManager.SpawnEffect(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ShrineUseEffect.prefab").WaitForCompletion(), new EffectData
 			{
 				origin = base.transform.position,
 				rotation = Quaternion.identity,
 				scale = 1f,
 				color = new Color(0.7372549f, 0.90588236f, 0.94509804f)
-			}, true);*/
-            this.purchaseCount++;
+			}, true);
+
+            //Set unavailable and as waiting for refresh
+            purchaseInteraction.SetAvailable(false);
+            this.waitingForRefresh = true;
             this.refreshTimer = refreshInterval;
-            if (this.purchaseCount >= this.maxPurchaseCount)
-            {
-                this.symbolTransform.gameObject.SetActive(false);
-            }
+
+            //Increase purchases
+            this.purchaseCount++;
         }
 
+        /// <summary>
+        /// Used at initial spawn and after every purchase.
+        /// </summary>
         [Server]
         public void RollDirectorCard()
         {
@@ -145,12 +157,28 @@ namespace TurboEdition.Components
             }
         }
 
-        public void OverchargeActivation(CombatDirector director, float monsterCredit, DirectorCard chosenDirectorCard)
+        public void OverchargeActivation(CombatDirector director, float monsterCredit, DirectorCard chosenDirectorCard, Interactor interactor)
         {
+            //Do director stuff
             director.enabled = true;
             director.monsterCredit += monsterCredit;
             director.OverrideCurrentMonsterCard(chosenDirectorCard);
             director.monsterSpawnTimer = 0f;
+
+            //Show chat message.
+            CharacterBody component = interactor.GetComponent<CharacterBody>();
+            Chat.SendBroadcastChat(new Chat.SubjectFormatChatMessage
+            {
+                subjectAsCharacterBody = component,
+                baseToken = "SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE"
+            });
+            //and push stats
+            StatSheet statSheet = PlayerStatsComponent.FindBodyStatSheet(component);
+            if (statSheet != null)
+            {
+                statSheet.PushStatValue(TurboEdition.Misc.CostAndStatExtras.totalTeleporterOverchargerUsed, 1UL);
+                statSheet.PushStatValue(TurboEdition.Misc.CostAndStatExtras.highestTeleporterOverchargerUsed, statSheet.GetStatValueULong(TurboEdition.Misc.CostAndStatExtras.totalTeleporterOverchargerUsed));
+            }
         }
 
         private void OnValidate()

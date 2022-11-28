@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 3504237564816220409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.62, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children: []
   m_Father: {fileID: 3504237565358304541}
   m_RootOrder: 2
@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 5637564747669897097}
   - component: {fileID: 5124298350598795196}
   - component: {fileID: 4464108150388948463}
-  - component: {fileID: 8223672390701143404}
   - component: {fileID: 4740903879613813703}
   - component: {fileID: 6434871394043855969}
   m_Layer: 0
@@ -247,21 +246,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _modelTransform: {fileID: 3504237565430147543}
-  modelDestructionNotifier: {fileID: 0}
   modelBaseTransform: {fileID: 3504237565096007515}
   autoUpdateModelTransform: 1
   dontDetatchFromParent: 0
-  modelParentTransform: {fileID: 0}
   noCorpse: 0
   dontReleaseModelOnDeath: 0
   preserveModel: 0
   normalizeToFloor: 0
   normalSmoothdampTime: 0.1
   normalMaxAngleDelta: 90
-  normalSmoothdampVelocity: {x: 0, y: 0, z: 0}
-  targetNormal: {x: 0, y: 1, z: 0}
-  currentNormal: {x: 0, y: 1, z: 0}
-  characterMotor: {fileID: 0}
 --- !u!114 &3504237565358304528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,13 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayDistance: 15
   hologramPivot: {fileID: 3504237564685167686}
-  disableHologramRotation: 0
-  transformDampVelocity: 0
-  viewerReselectTimer: 0
-  viewerReselectInterval: 0.25
-  cachedViewer: {fileID: 0}
-  viewer: {fileID: 0}
-  hologramContentInstance: {fileID: 0}
+  disableHologramRotation: 1
 --- !u!114 &3504237565358304535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +368,6 @@ MonoBehaviour:
   disabledIndicatorObject: {fileID: 0}
   animator: {fileID: 0}
   mecanimBool: 
-  purchaseInteraction: {fileID: 0}
 --- !u!114 &3504237565358304533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fade: 0
-  bounds: {fileID: 8223672390701143404}
+  bounds: {fileID: 1450144179768602152}
   renderers:
   - {fileID: 3504237565430147541}
 --- !u!114 &8411741400921224714
@@ -410,12 +396,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef15fe0ef9cf7a441b1683ece7ca06ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refreshInterval: 2
+  setSpawnTargetAsTeleporter: 0
+  refreshInterval: 10
   maxPurchaseCount: 2
   costMultiplierPerPurchase: 1.515153
   baseMonsterCredit: 200
   monsterCreditCoefficientPerPurchase: 2
-  symbolTransform: {fileID: 3504237564816220165}
 --- !u!114 &5637564747669897097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,12 +414,8 @@ MonoBehaviour:
   m_Script: {fileID: -1720486850, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  membersList: []
-  memberHistory: []
   propagateMembershipToSummons: 1
   grantBonusHealthInMultiplayer: 1
-  onDestroyCallbacksServer: []
-  defeatedServer: 0
   onDefeatedClientLogicEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -452,23 +434,12 @@ MonoBehaviour:
   m_Script: {fileID: -1358022786, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossDropChance: 0.15
-  dropPosition: {fileID: 0}
+  bossDropChance: 0.05
+  dropPosition: {fileID: 3504237564816220165}
   dropTable: {fileID: 0}
   scaleRewardsByPlayerCount: 1
   shouldDisplayHealthBarOnHud: 1
-  <bonusRewardCount>k__BackingField: 0
-  <combatSquad>k__BackingField: {fileID: 0}
-  bossDropTables: []
-  enabledTime:
-    t: 0
   forceTier3Reward: 0
-  bossDrops: []
-  bossMemoryCount: 0
-  <bestObservedName>k__BackingField: 
-  <bestObservedSubtitle>k__BackingField: 
-  <totalMaxObservedMaxHealth>k__BackingField: 0
-  <totalObservedHealth>k__BackingField: 0
 --- !u!114 &4464108150388948463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,9 +467,9 @@ MonoBehaviour:
   maxSpawnDistance: Infinity
   minSpawnRange: 0
   shouldSpawnOneWave: 1
-  targetPlayers: 0
-  skipSpawnIfTooCheap: 0
-  maxConsecutiveCheapSkips: 2147483647
+  targetPlayers: 1
+  skipSpawnIfTooCheap: 1
+  maxConsecutiveCheapSkips: 30
   resetMonsterCardIfFailed: 1
   maximumNumberToSpawnBeforeSkipping: 1
   eliteBias: 0.5
@@ -510,48 +481,7 @@ MonoBehaviour:
   ignoreTeamSizeLimit: 1
   _monsterCards: {fileID: 0}
   fallBackToStageMonsterCards: 1
-  <monsterSpawnTimer>k__BackingField: 0
-  <lastAttemptedMonsterCard>k__BackingField:
-    spawnCard: {fileID: 0}
-    selectionWeight: 0
-    spawnDistance: 0
-    preventOverhead: 0
-    minimumStageCompletions: 0
-    requiredUnlockable: 
-    forbiddenUnlockable: 
-    requiredUnlockableDef: {fileID: 0}
-    forbiddenUnlockableDef: {fileID: 0}
-  <totalCreditsSpent>k__BackingField: 0
-  hasStartedWave: 0
-  currentMonsterCard:
-    spawnCard: {fileID: 0}
-    selectionWeight: 0
-    spawnDistance: 0
-    preventOverhead: 0
-    minimumStageCompletions: 0
-    requiredUnlockable: 
-    forbiddenUnlockable: 
-    requiredUnlockableDef: {fileID: 0}
-    forbiddenUnlockableDef: {fileID: 0}
-  currentActiveEliteDef: {fileID: 0}
-  currentMonsterCardCost: 0
-  consecutiveCheapSkips: 0
-  currentSpawnTarget: {fileID: 0}
-  playerRetargetTimer: 0
-  spawnCountInCurrentWave: 0
---- !u!65 &8223672390701143404
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3504237565358304522}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 1.5, z: 0}
+  currentSpawnTarget: {fileID: 3504237565358304522}
 --- !u!114 &4740903879613813703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +525,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  recordedActivationState: 0
 --- !u!114 &6434871394043855969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,6 +548,9 @@ GameObject:
   - component: {fileID: 3504237565430147543}
   - component: {fileID: 3504237565430147540}
   - component: {fileID: 3504237565430147541}
+  - component: {fileID: 5839234717215049792}
+  - component: {fileID: 1450144179768602152}
+  - component: {fileID: 6677816586896204883}
   m_Layer: 0
   m_Name: mdlImportGoesHere
   m_TagString: Untagged
@@ -636,7 +568,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_Children: []
+  m_Children:
+  - {fileID: 1838134288439978106}
   m_Father: {fileID: 3504237565096007515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -687,3 +620,88 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5839234717215049792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504237565430147530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -226763392, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformPairs:
+  - name: FireworkOrigin
+    transform: {fileID: 3504237564816220165}
+--- !u!65 &1450144179768602152
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504237565430147530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.45, z: 1.5}
+  m_Center: {x: 0, y: -0.25, z: 0}
+--- !u!114 &6677816586896204883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3504237565430147530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1161602148, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 3504237565358304522}
+--- !u!1 &5390543110904622457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838134288439978106}
+  - component: {fileID: 5575638717424190703}
+  m_Layer: 0
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1838134288439978106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390543110904622457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3504237565430147543}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5575638717424190703
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5390543110904622457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
