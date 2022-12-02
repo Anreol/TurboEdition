@@ -5,7 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3712621630	Unpause_Music			\Music\Unpause_Music	
 
 State Group	ID	Name			Wwise Object Path	Notes
-	549431000	bossStatus			\Default Work Unit\bossStatus	
+	549431000	bossStatus			\Default Work Unit\bossStatus	Misleading name, used by the game if the teleporter event is starting or undergoing (alive) or is done charging (dead). Defaults to alive.
 	792781730	Music_system			\Default Work Unit\Music_system	
 	1741660947	gameplaySongChoice			\Default Work Unit\gameplaySongChoice	
 	2561284575	bossPhase			\Default Work Unit\bossPhase	
@@ -38,12 +38,16 @@ State	ID	Name	State Group			Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	151362964	playerHealth			\Default Work Unit\playerHealth	Current maximum combined health of the player. From 0 to 100. 
 	1010989040	teleporterPlayerStatus			\Default Work Unit\teleporterPlayerStatus	Whenever a player is inside the teleporter zone or not. From 0 to 1.
+	1924079656	teleporterProximity			\Default Work Unit\teleporterProximity	Distance to the teleporter. Remaped input from min 20 and max 250 to output min 0 and max 10000, meaning that within 20 units of the teleporter, it will be in full effect. Scales pretty heavily, so it might be in centimiters instead of meters? Despite being proximity, it is NOT BOUND to Distance.
+	4014092120	teleporterDirection			\Default Work Unit\teleporterDirection	Angle to the Teleporter calculated from the Camera. Despite being calculated off a Signed Angle, it goes from 0 to 360, 0 and 360 being the teleporter in front of you, and 180 facing the opposite direction. NOT BOUND to Azimuth 
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	715305458	TURBO_01_MAIN	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicStage9_9EDFC787.wem		\Interactive Music Hierarchy\Default Work Unit\Music_System\GameplaySongChoice\TurboSong01\muArcticOscillation\TURBO_01_MAIN		7202
+	715305458	TURBO_01_MAIN	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicStage9_9EDFC787.wem		\Interactive Music Hierarchy\Default Work Unit\Music_System\GameplaySongChoice\TurboSong01\muArcticOscillation\TURBO_01_MAIN	Main music	7202
+	1042531047	TURBO_01_TELEPORTER	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicStage9_synth_9EDFC787.wem		\Interactive Music Hierarchy\Default Work Unit\Music_System\GameplaySongChoice\TurboSong01\muArcticOscillation\TURBO_01_TELEPORTER	Synths taken from Engineer Edition for the teleporter tune	6055
 	1067800072	TURBO_02_MAIN	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicBoss3_9EDFC787.wem		\Interactive Music Hierarchy\Default Work Unit\Music_System\BossSongChoice\TurboSong02\muHailstorm\TURBO_02_MAIN		4194
 
 Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
-	715305458	TURBO_01_MAIN	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicStage9_9EDFC787.wem	715305458.wem	\Interactive Music Hierarchy\Default Work Unit\Music_System\GameplaySongChoice\TurboSong01\muArcticOscillation\TURBO_01_MAIN	
+	715305458	TURBO_01_MAIN	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicStage9_9EDFC787.wem	715305458.wem	\Interactive Music Hierarchy\Default Work Unit\Music_System\GameplaySongChoice\TurboSong01\muArcticOscillation\TURBO_01_MAIN	Main music
+	1042531047	TURBO_01_TELEPORTER	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicStage9_synth_9EDFC787.wem	1042531047.wem	\Interactive Music Hierarchy\Default Work Unit\Music_System\GameplaySongChoice\TurboSong01\muArcticOscillation\TURBO_01_TELEPORTER	Synths taken from Engineer Edition for the teleporter tune
 	1067800072	TURBO_02_MAIN	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Mac\SFX\musicBoss3_9EDFC787.wem	1067800072.wem	\Interactive Music Hierarchy\Default Work Unit\Music_System\BossSongChoice\TurboSong02\muHailstorm\TURBO_02_MAIN	
 

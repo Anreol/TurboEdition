@@ -13,6 +13,10 @@
 			<ShortName>musicStage9.wav</ShortName>
 			<Path>SFX\musicStage9_9EDFC787.wem</Path>
 		</File>
+		<File Id="1042531047" Language="SFX">
+			<ShortName>musicStage9_synth.wav</ShortName>
+			<Path>SFX\musicStage9_synth_9EDFC787.wem</Path>
+		</File>
 		<File Id="1067800072" Language="SFX">
 			<ShortName>musicBoss3.wav</ShortName>
 			<Path>SFX\musicBoss3_9EDFC787.wem</Path>
@@ -186,7 +190,7 @@
 				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="445380309">
+		<SoundBank Id="1355168291" Language="SFX" Hash="2774278331">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -198,7 +202,7 @@
 				<GameParameter Id="3729143042" Name="Volume_MSX" ObjectPath="\Game Parameters\Default Work Unit\Volume_MSX"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1664825278" Language="SFX" Hash="4163950182">
+		<SoundBank Id="1664825278" Language="SFX" Hash="1462805121">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboMusicBank</ObjectPath>
 			<ShortName>TurboMusicBank</ShortName>
 			<Path>TurboMusicBank.bnk</Path>
@@ -210,6 +214,10 @@
 							<ShortName>musicStage9.wav</ShortName>
 							<Path>SFX\musicStage9_9EDFC787.wem</Path>
 						</File>
+						<File Id="1042531047" Language="SFX">
+							<ShortName>musicStage9_synth.wav</ShortName>
+							<Path>SFX\musicStage9_synth_9EDFC787.wem</Path>
+						</File>
 						<File Id="1067800072" Language="SFX">
 							<ShortName>musicBoss3.wav</ShortName>
 							<Path>SFX\musicBoss3_9EDFC787.wem</Path>
@@ -220,6 +228,11 @@
 							<ShortName>musicStage9.wav</ShortName>
 							<Path>SFX\musicStage9_9EDFC787.wem</Path>
 							<PrefetchSize>7202</PrefetchSize>
+						</File>
+						<File Id="1042531047" Language="SFX">
+							<ShortName>musicStage9_synth.wav</ShortName>
+							<Path>SFX\musicStage9_synth_9EDFC787.wem</Path>
+							<PrefetchSize>6055</PrefetchSize>
 						</File>
 						<File Id="1067800072" Language="SFX">
 							<ShortName>musicBoss3.wav</ShortName>
@@ -254,6 +267,7 @@
 								<SwitchContainer SwitchValue="{2A8F1DF4-F1CC-4469-9566-52A762ABEF0B}">
 									<Media>
 										<File Id="715305458"/>
+										<File Id="1042531047"/>
 									</Media>
 								</SwitchContainer>
 							</Children>
@@ -266,6 +280,10 @@
 							<ShortName>musicStage9.wav</ShortName>
 							<Path>SFX\musicStage9_9EDFC787.wem</Path>
 						</File>
+						<File Id="1042531047" Language="SFX">
+							<ShortName>musicStage9_synth.wav</ShortName>
+							<Path>SFX\musicStage9_synth_9EDFC787.wem</Path>
+						</File>
 						<File Id="1067800072" Language="SFX">
 							<ShortName>musicBoss3.wav</ShortName>
 							<Path>SFX\musicBoss3_9EDFC787.wem</Path>
@@ -276,6 +294,11 @@
 							<ShortName>musicStage9.wav</ShortName>
 							<Path>SFX\musicStage9_9EDFC787.wem</Path>
 							<PrefetchSize>7202</PrefetchSize>
+						</File>
+						<File Id="1042531047" Language="SFX">
+							<ShortName>musicStage9_synth.wav</ShortName>
+							<Path>SFX\musicStage9_synth_9EDFC787.wem</Path>
+							<PrefetchSize>6055</PrefetchSize>
 						</File>
 						<File Id="1067800072" Language="SFX">
 							<ShortName>musicBoss3.wav</ShortName>
@@ -289,6 +312,8 @@
 			<GameParameters>
 				<GameParameter Id="151362964" Name="playerHealth" ObjectPath="\Game Parameters\Default Work Unit\playerHealth"/>
 				<GameParameter Id="1010989040" Name="teleporterPlayerStatus" ObjectPath="\Game Parameters\Default Work Unit\teleporterPlayerStatus"/>
+				<GameParameter Id="1924079656" Name="teleporterProximity" ObjectPath="\Game Parameters\Default Work Unit\teleporterProximity"/>
+				<GameParameter Id="4014092120" Name="teleporterDirection" ObjectPath="\Game Parameters\Default Work Unit\teleporterDirection"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="549431000" Name="bossStatus" ObjectPath="\States\Default Work Unit\bossStatus">

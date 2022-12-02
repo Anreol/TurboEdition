@@ -46,12 +46,6 @@ Default 50.
 				<GameParameter Name="droneSpeed" ID="{05508E59-A783-46B0-BDEB-BFBB77E1CA45}">
 					<Comment>Affects the sound of flying drones, maybe MUL-T too? Defaults to 50.</Comment>
 				</GameParameter>
-				<GameParameter Name="elevation" ID="{757D94F9-9BE2-415F-9290-9A6CAFE28B53}">
-					<Comment>Might be elevation relative to world or to camera? Used in almost every SFX</Comment>
-					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="1"/>
-					</PropertyList>
-				</GameParameter>
 				<GameParameter Name="characterSize" ID="{71CABDF5-27B5-49C0-98F1-33ABDEE88762}">
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="1"/>
@@ -72,9 +66,6 @@ Default 50.
 				</GameParameter>
 				<GameParameter Name="audioTeam" ID="{79C11FB9-B7CF-49C4-B815-E814F6FD723A}">
 					<Comment>Might be the team from where the sound comes from? Unknown. Used in almost every SFX.</Comment>
-				</GameParameter>
-				<GameParameter Name="azimuth" ID="{38343354-0A50-44AC-BE87-A40A53545209}">
-					<Comment>An azimuth is an angular measurement in a spherical coordinate system. More specifically, it is the horizontal angle from a cardinal direction, most commonly north. Used in almost every SFX. Default values unknown.</Comment>
 				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>

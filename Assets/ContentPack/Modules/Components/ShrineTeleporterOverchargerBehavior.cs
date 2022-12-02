@@ -20,23 +20,37 @@ namespace TurboEdition.Components
         private CombatDirector shrineCombatDirector;
         private BossGroup bossGroup;
         private DirectorCard chosenDirectorCardToSpawn;
+
         /// <summary>
         /// Whenever it's waiting for it to be reactivated. Handled by the server only.
         /// </summary>
         private bool waitingForRefresh = false;
+
         private float refreshTimer;
         private int purchaseCount;
 
+        private string[] bodyNamesSpawned = new string[0];
+
+        /// <summary>
+        /// Amount of accumulated rewards from sequential activations without finishing the bosses. Handled by the server only.
+        /// </summary>
+        private int accumulatedRewards;
+
         [Tooltip("Should the spawn target be overriden with the teleporter.")]
         public bool setSpawnTargetAsTeleporter = false;
+
         [SerializeField]
         private float refreshInterval = 2f;
+
         [SerializeField]
         private int maxPurchaseCount;
+
         [Tooltip("Cost multiplier per purchase, hard caps at 99.")]
         [SerializeField]
         private float costMultiplierPerPurchase;
+
         public float baseMonsterCredit;
+
         [Tooltip("Difficulty coefficient gets multiplied by this * current purchase amount.")]
         [SerializeField]
         private float monsterCreditCoefficientPerPurchase;
@@ -89,6 +103,7 @@ namespace TurboEdition.Components
             {
                 cb.inventory.GiveItem(RoR2Content.Items.AdaptiveArmor);
                 cb.inventory.GiveItem(RoR2Content.Items.LevelBonus, purchaseCount);
+                HG.ArrayUtils.ArrayAppend(ref bodyNamesSpawned, Util.GetBestBodyName(gameObject));
             }
         }
 
@@ -122,17 +137,17 @@ namespace TurboEdition.Components
             //Activate
             if (TeleporterInteraction.instance)
             {
-                OverchargeActivation(shrineCombatDirector, calculatedMonsterCredit, chosenDirectorCardToSpawn, interactor);
+                OverchargeActivation(shrineCombatDirector, chosenDirectorCardToSpawn, interactor);
                 RollDirectorCard(); //Roll a different card for next activation
             }
 
             EffectManager.SpawnEffect(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ShrineUseEffect.prefab").WaitForCompletion(), new EffectData
-			{
-				origin = base.transform.position,
-				rotation = Quaternion.identity,
-				scale = 1f,
-				color = new Color(0.7372549f, 0.90588236f, 0.94509804f)
-			}, true);
+            {
+                origin = base.transform.position,
+                rotation = Quaternion.identity,
+                scale = 1f,
+                color = new Color(0.7372549f, 0.90588236f, 0.94509804f)
+            }, true);
 
             //Set unavailable and as waiting for refresh
             purchaseInteraction.SetAvailable(false);
@@ -157,21 +172,50 @@ namespace TurboEdition.Components
             }
         }
 
-        public void OverchargeActivation(CombatDirector director, float monsterCredit, DirectorCard chosenDirectorCard, Interactor interactor)
+        public void OverchargeActivation(CombatDirector director, DirectorCard chosenDirectorCard, Interactor interactor)
         {
-            //Do director stuff
+            //Do director stuff, first, reset.
+            director.hasStartedWave = false;
             director.enabled = true;
-            director.monsterCredit += monsterCredit;
+
+            //Then add credits. This has the side-effect of overloading other directors in case of excess credits.
+            director.monsterCredit += calculatedMonsterCredit;
             director.OverrideCurrentMonsterCard(chosenDirectorCard);
             director.monsterSpawnTimer = 0f;
+
+            //Do squad stuff
+            //If not defeated yet, add one stack to the rewards
+            if (NetworkServer.active && purchaseCount > 0)
+            {
+                if (!bossGroup.combatSquad.defeatedServer)
+                {
+                    bossGroup.bonusRewardCount++;
+                    accumulatedRewards++;
+                }
+                else
+                {
+                    //If already defeated, reset the combatSquad, and dial back rewards.
+                    bossGroup.combatSquad.defeatedServer = false;
+                    bossGroup.bonusRewardCount -= accumulatedRewards;
+                    accumulatedRewards = 0;
+                }
+            }
 
             //Show chat message.
             CharacterBody component = interactor.GetComponent<CharacterBody>();
             Chat.SendBroadcastChat(new Chat.SubjectFormatChatMessage
             {
                 subjectAsCharacterBody = component,
-                baseToken = "SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE"
+                baseToken = "SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE",
+                paramTokens = new string[]{
+                    purchaseInteraction.Networkcost.ToString()
+                }
             });
+
+            //Change memories
+            bossGroup.bestObservedName = string.Join(" & ", bodyNamesSpawned);
+            bossGroup.bestObservedSubtitle = Language.GetString("TELEPORTEROVERCHARGERSQUAD_SUBTITLE");
+
             //and push stats
             StatSheet statSheet = PlayerStatsComponent.FindBodyStatSheet(component);
             if (statSheet != null)

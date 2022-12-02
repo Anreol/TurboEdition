@@ -14,7 +14,7 @@ namespace TurboEdition.Equipments
         public override bool FireAction(EquipmentSlot slot)
         {
             if (!NetworkServer.active || projectilePrefab == null) return false;
-            return SpawnProjectile(slot.characterBody);
+            return SpawnProjectile(slot);
         }
 
         public bool OldSpawnProjectile(CharacterBody body)
@@ -45,7 +45,7 @@ namespace TurboEdition.Equipments
             return true;
         }
 
-        public bool SpawnProjectile(CharacterBody body)
+        public bool SpawnProjectile(EquipmentSlot equipSlot)
         {
             Vector3 impactPosition = Vector3.zero;
             CharacterBody[] allCharacters = new CharacterBody[CharacterBody.readOnlyInstancesList.Count];
@@ -53,9 +53,9 @@ namespace TurboEdition.Equipments
             Util.ShuffleArray<CharacterBody>(allCharacters);
             for (int i = 0; i < allCharacters.Length; i++)
             {
-                if (allCharacters[i].teamComponent && body.teamComponent)
+                if (allCharacters[i].teamComponent && equipSlot.teamComponent)
                 {
-                    if (TeamManager.IsTeamEnemy(allCharacters[i].teamComponent.teamIndex, body.teamComponent.teamIndex ) && allCharacters[i].coreTransform)
+                    if (TeamManager.IsTeamEnemy(allCharacters[i].teamComponent.teamIndex, equipSlot.teamComponent.teamIndex ) && allCharacters[i].coreTransform)
                     {
                         EntityStateMachine entityStateMachine = EntityStateMachine.FindByCustomName(allCharacters[i].gameObject, "Body");
                         if (entityStateMachine != null && entityStateMachine.state.GetType() == entityStateMachine.initialStateType.stateType)
@@ -86,13 +86,14 @@ namespace TurboEdition.Equipments
                 projectilePrefab = projectilePrefab,
                 position = impactPosition,
                 rotation = new Quaternion(0,0,0,0),
-                owner = body.gameObject,
-                damage = body.damage * 100,
+                owner = equipSlot.gameObject,
+                damage = equipSlot.characterBody.damage * 100,
                 force = 0,
-                crit = body.RollCrit(),
+                crit = equipSlot.characterBody.RollCrit(),
                 damageColorIndex = DamageColorIndex.Item
             };
             ProjectileManager.instance.FireProjectile(fireProjectileInfo);
+            equipSlot.subcooldownTimer = 0.15f;
             return true;
         }
     }

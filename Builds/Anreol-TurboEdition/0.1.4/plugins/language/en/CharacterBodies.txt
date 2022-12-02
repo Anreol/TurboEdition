@@ -1,6 +1,14 @@
 {
 	strings:
 	{
+		"TELEPORTEROVERCHARGERSQUAD_SUBTITLE": "<sprite name=\"TP\" tint=1> Teleporter Defenders <sprite name=\"TP\" tint=1>",
+		
+		"ELITE_MODIFIER_CLEANSER": "{0} of Absolution",
+		"ELITE_MODIFIER_ELECNODE": "Relaying {0}",
+		
+		"BODY_MODIFIER_HERO": "Partisan {0}",
+	
+		//[CHARACTER]
 		"GRENADIER_BODY_NAME": "Grenadier",
 		"GRENADIER_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
 		"GRENADIER_BODY_LORE" : "GRENADIER_BODY_LORE",

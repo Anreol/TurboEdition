@@ -132,4 +132,5 @@ MonoBehaviour:
   - <BuildPathSoundbanks>
   files:
   - {fileID: 102900000, guid: b5467b845ab3a884199144dc05155992, type: 3}
+  - {fileID: 102900000, guid: 327477c260a891042951d4724b450cd2, type: 3}
   - {fileID: 102900000, guid: 96d5a6abcf926bb469dab4fd54f41ad0, type: 3}

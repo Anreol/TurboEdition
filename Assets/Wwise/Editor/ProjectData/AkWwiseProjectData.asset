@@ -704,7 +704,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 1aede29b1eb9a3468100f50120ccff6a
     GuidInternal: 
-    m_lastTime: -8585335024816388451
+    m_lastTime: -8585316031824112954
     List:
     - name: enemyValue
       guid: 2747381b3526ef4c9dfa17e6bffa95e0
@@ -841,7 +841,7 @@ MonoBehaviour:
     ParentPath: SFX_Param
     guid: 12ce8cfd7012e244bd3ec505cebd3b6b
     GuidInternal: 
-    m_lastTime: -8585335024816568267
+    m_lastTime: -8585316229944998591
     List:
     - name: attackSpeed
       guid: 1356292310fd5c4f8a6df106fc1efae7
@@ -861,15 +861,6 @@ MonoBehaviour:
       - ElementName: audioTeam
         ObjectType: 13
       Path: SFX_Param\audioTeam
-    - name: azimuth
-      guid: 54333438500aac44be87a40a53545209
-      id: 1437246667
-      PathAndIcons:
-      - ElementName: SFX_Param
-        ObjectType: 12
-      - ElementName: azimuth
-        ObjectType: 13
-      Path: SFX_Param\azimuth
     - name: characterSize
       guid: f5bdca71b527c04998f133abdee88762
       id: 2746825725
@@ -915,15 +906,6 @@ MonoBehaviour:
       - ElementName: droneSpeed
         ObjectType: 13
       Path: SFX_Param\droneSpeed
-    - name: elevation
-      guid: f9947d75e29b5f4192909a6cafe28b53
-      id: 2141048674
-      PathAndIcons:
-      - ElementName: SFX_Param
-        ObjectType: 12
-      - ElementName: elevation
-        ObjectType: 13
-      Path: SFX_Param\elevation
     - name: eliteEnemy
       guid: 42fc0ece84858749a55df051280a3d5f
       id: 2906824402

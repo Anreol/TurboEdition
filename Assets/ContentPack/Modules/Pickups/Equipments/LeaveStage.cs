@@ -9,7 +9,7 @@ namespace TurboEdition.Equipments
     public class LeaveStage : Equipment
     {
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("LeaveStage");
-        private static NetworkSoundEventDef networkSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseLeaveStageError");
+        private static NetworkSoundEventDef errorNetworkSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseLeaveStageError");
 
         private static bool canLeave = true;
 
@@ -43,26 +43,25 @@ namespace TurboEdition.Equipments
         {
             if (!slot.characterBody.isPlayerControlled) //Is not a player, avoid grief.
                 return false;
-            if (canLeave)
+            if (canLeave && UseThingie(slot))
             {
-                if (UseThingie(slot))
+                if ((slot.characterBody != null) ? slot.characterBody.inventory : null)
                 {
-                    if ((slot.characterBody != null) ? slot.characterBody.inventory : null)
-                    {
-                        CharacterMasterNotificationQueue.SendTransformNotification(slot.characterBody.master, slot.characterBody.inventory.currentEquipmentIndex, EquipmentIndex.None, CharacterMasterNotificationQueue.TransformationType.Default);
-                        slot.characterBody.inventory.SetEquipmentIndex(EquipmentIndex.None);
-                    }
-                    return true;
+                    CharacterMasterNotificationQueue.SendTransformNotification(slot.characterBody.master, slot.characterBody.inventory.currentEquipmentIndex, EquipmentIndex.None, CharacterMasterNotificationQueue.TransformationType.Default);
+                    slot.characterBody.inventory.SetEquipmentIndex(EquipmentIndex.None);
                 }
+                return true;
             }
-            //PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
-            EntitySoundManager.EmitSoundServer(networkSound.index, slot.gameObject);
+            //PointSoundManager.EmitSoundServer(errorNetworkSound.index, slot.characterBody.transform.position);
+            slot.subcooldownTimer = 3f;
+            EntitySoundManager.EmitSoundServer(errorNetworkSound.index, slot.gameObject);
             return false;
         }
 
         public bool UseThingie(EquipmentSlot slot)
         {
-            if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) //Is anniversary moon. Do not know how to get it in a better way.
+            //Is anniversary moon. Do not know how to get it in a better way.
+            if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) 
             {
                 GameObject sceneExitGO;
                 CreateSceneExitGameObject(out sceneExitGO);
@@ -81,9 +80,10 @@ namespace TurboEdition.Equipments
                 sceneExitGO.GetComponent<SceneExitController>()?.Begin();
                 return true;
             }
-            if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) //Not a stage trololo
+            //Not a stage, but an intermission. Done after othe stage checks as void or old moon might be intermissions
+            if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) 
             {
-                PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
+                //PointSoundManager.EmitSoundServer(errorNetworkSound.index, slot.characterBody.transform.position);
                 return false;
             }
             if (TeleporterInteraction.instance.chargeFraction >= 0.99f || TeleporterInteraction.instance.monstersCleared || (TeleporterInteraction.instance.currentState is TeleporterInteraction.ChargedState && TeleporterInteraction.instance.monstersCleared))
@@ -94,7 +94,7 @@ namespace TurboEdition.Equipments
                 sceneExitGO.GetComponent<SceneExitController>()?.Begin();
                 return true;
             }
-            PointSoundManager.EmitSoundServer(networkSound.index, slot.characterBody.transform.position);
+            //PointSoundManager.EmitSoundServer(errorNetworkSound.index, slot.characterBody.transform.position);
             return false;
         }
 

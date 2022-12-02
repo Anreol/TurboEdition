@@ -222,13 +222,11 @@ namespace AK
     {
         static const AkUniqueID ATTACKSPEED = 2450313110U;
         static const AkUniqueID AUDIOTEAM = 3226782502U;
-        static const AkUniqueID AZIMUTH = 1437246667U;
         static const AkUniqueID CHARACTERSIZE = 2746825725U;
         static const AkUniqueID CHARMULTSPEED = 3103896380U;
         static const AkUniqueID DAMAGEDIRECTION = 3364282145U;
         static const AkUniqueID DRONESIZE = 2976360342U;
         static const AkUniqueID DRONESPEED = 1261390090U;
-        static const AkUniqueID ELEVATION = 2141048674U;
         static const AkUniqueID ELITEENEMY = 2906824402U;
         static const AkUniqueID ENEMY_SIZE = 3783208413U;
         static const AkUniqueID ENEMYVALUE = 3737037590U;

@@ -187,7 +187,7 @@
 												<Property Name="EndPosition" Type="Real64" Value="467652.994642871"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-5</Value>
+														<Value>-6</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -201,6 +201,7 @@
 											</ReferenceList>
 											<ChildrenList>
 												<MusicTrack Name="TURBO_01_MAIN" ID="{025FC589-46B9-42A7-BFFA-2486E0999251}" ShortID="726657458">
+													<Comment>Main music</Comment>
 													<PropertyList>
 														<Property Name="IsStreamingEnabled" Type="bool">
 															<ValueList>
@@ -250,6 +251,138 @@
 																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																	</PropertyList>
 																	<AudioSourceRef Name="musicStage9" ID="{EA4D673B-0445-4627-88E4-59390F76DA93}"/>
+																</MusicClip>
+															</ClipList>
+														</MusicTrackSequence>
+													</SequenceList>
+												</MusicTrack>
+												<MusicTrack Name="TURBO_01_TELEPORTER" ID="{C3D8CE01-28C6-46A3-AEDA-69DEEA28A16F}" ShortID="79625229">
+													<Comment>Synths taken from Engineer Edition for the teleporter tune</Comment>
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>2</Value>
+															</ValueList>
+														</Property>
+														<Property Name="IsStreamingEnabled" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="IsZeroLantency" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Lowpass" Type="int16">
+															<ValueList>
+																<Value>2</Value>
+															</ValueList>
+														</Property>
+														<Property Name="OverrideEffect" Type="bool" Value="True"/>
+														<Property Name="Volume" Type="Real64">
+															<RTPCList>
+																<RTPC Name="" ID="{EA048461-A9E4-498B-888C-F80F817499FA}" ShortID="601791474">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="teleporterProximity" ID="{222CC5C2-224A-4392-92CA-C98F6BD1385B}" WorkUnitID="{9BE2ED1A-B91E-46A3-8100-F50120CCFF6A}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{866F14DC-37BE-4AB1-895D-082872D83235}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>1.5</YPos>
+																				<Flags>5</Flags>
+																				<SegmentShape>Log1</SegmentShape>
+																			</Point>
+																			<Point>
+																				<XPos>10000</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+																<RTPC Name="" ID="{D12614E3-B7D2-4A53-B9D5-F024E0BB594F}" ShortID="867485578">
+																	<ReferenceList>
+																		<Reference Name="ControlInput">
+																			<ObjectRef Name="teleporterDirection" ID="{8D41A302-5CC0-41B0-A6D9-C16CA214AACC}" WorkUnitID="{9BE2ED1A-B91E-46A3-8100-F50120CCFF6A}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<Curve Name="" ID="{17F52228-3D7B-4155-A0EF-80FCFF3BEB2C}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>2.5</YPos>
+																				<Flags>5</Flags>
+																				<SegmentShape>Log1</SegmentShape>
+																			</Point>
+																			<Point>
+																				<XPos>180</XPos>
+																				<YPos>-2</YPos>
+																				<Flags>0</Flags>
+																				<SegmentShape>Exp1</SegmentShape>
+																			</Point>
+																			<Point>
+																				<XPos>360</XPos>
+																				<YPos>2.5</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</RTPC>
+															</RTPCList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="musicStage9_synth" ID="{75220C7C-7B43-499F-A176-9B0183B877A6}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>musicStage9_synth.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1042531047"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<PositioningInfo>
+														<Position Name="" ID="{9DA2724F-3723-4317-830A-34A0799B4531}"/>
+													</PositioningInfo>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{D740D60A-E455-470B-8466-94ED1F90A411}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<SequenceList>
+														<MusicTrackSequence Name="" ID="{98606483-B324-4EA7-ABBF-D0C5E9995299}">
+															<ClipList>
+																<MusicClip Name="musicStage9_synth" ID="{CC9FB1CA-2FB0-4B9E-8718-C202397D34B0}">
+																	<PropertyList>
+																		<Property Name="EndTrimOffset" Type="Real64" Value="400087.074829932"/>
+																		<Property Name="FadeInMode" Type="int16" Value="0"/>
+																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																	</PropertyList>
+																	<AudioSourceRef Name="musicStage9_synth" ID="{75220C7C-7B43-499F-A176-9B0183B877A6}"/>
 																</MusicClip>
 															</ClipList>
 														</MusicTrackSequence>

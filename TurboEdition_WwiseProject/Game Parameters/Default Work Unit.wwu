@@ -65,14 +65,15 @@
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="teleporterProximity" ID="{222CC5C2-224A-4392-92CA-C98F6BD1385B}">
-					<Comment>Distance to the teleporter. From 0 to 10000</Comment>
+					<Comment>Distance to the teleporter. Remaped input from min 20 and max 250 to output min 0 and max 10000, meaning that within 20 units of the teleporter, it will be in full effect. Scales pretty heavily, so it might be in centimiters instead of meters?
+Despite being proximity, it is NOT BOUND to Distance.</Comment>
 					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="10000"/>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
 						<Property Name="Max" Type="Real64" Value="10000"/>
 					</PropertyList>
 				</GameParameter>
 				<GameParameter Name="teleporterDirection" ID="{8D41A302-5CC0-41B0-A6D9-C16CA214AACC}">
-					<Comment>Angle to the Teleporter calculated from the Camera. From 0 to 360
+					<Comment>Angle to the Teleporter calculated from the Camera. Despite being calculated off a Signed Angle, it goes from 0 to 360, 0 and 360 being the teleporter in front of you, and 180 facing the opposite direction. NOT BOUND to Azimuth
 </Comment>
 					<PropertyList>
 						<Property Name="InitialValue" Type="Real64" Value="0"/>

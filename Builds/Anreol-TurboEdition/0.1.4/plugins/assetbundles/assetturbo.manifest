@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3233069259
+CRC: 3287707453
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 474847fb04e256a000e26442c85234e1
+    Hash: ac518bf87b6621defd21a7bb98e0b226
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f7b0fca6e9e85d6ce9991cdfb540a1e4
+    Hash: 9799fef864d066c689182f39817cc0df
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -67,8 +67,6 @@ ClassTypes:
   Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 198904373, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1080798252, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -388,6 +386,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1695578394, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 198904373, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 370243918, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -517518216, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -663,6 +663,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/texItemDeployerIcon.png
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxTonicTest.prefab
 - Assets/Textures/texTrimSheetAncientDirtNormal.png
+- Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/ReusableCombatSquad.prefab
 - Assets/Materials/matEmbers.mat
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/DisplayDropletDupe.prefab
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGDistortion.asset
@@ -741,6 +742,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_FiberCable.png
 - Assets/Textures/Ramps/texRampTeamAreaIndicatorEnemy.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/skinGrenadierAlt.asset
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/matOBTerrainBricks.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPrimaryProjectile.prefab
 - Assets/Textures/Ramps/texRampRedcross.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/CrabChestBody.prefab

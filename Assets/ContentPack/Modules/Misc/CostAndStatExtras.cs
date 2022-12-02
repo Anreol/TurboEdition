@@ -77,7 +77,7 @@ namespace TurboEdition.Misc
                 NetworkUser networkUser = Util.LookUpBodyNetworkUser(context.activator.gameObject);
                 if (TeleporterInteraction.instance && TeleporterInteraction.instance.holdoutZoneController.chargingTeam == networkUser.master.teamIndex)
                 {
-                    TeleporterInteraction.instance.holdoutZoneController.charge -= context.cost;
+                    TeleporterInteraction.instance.holdoutZoneController.charge -= context.cost / 100f; //Divide by 100, as the charge is normalized from 0 to 1!
                 }
                 MultiShopCardUtils.OnNonMoneyPurchase(context);
             };

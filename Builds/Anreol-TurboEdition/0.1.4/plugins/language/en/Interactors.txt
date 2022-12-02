@@ -26,8 +26,8 @@
 	
 	"SHRINE_TELEPORTEROVERCHARGER_NAME": "Teleporter Overcharger",
 	"SHRINE_TELEPORTEROVERCHARGER_CONTEXT": "Overcharge teleporter...?",
-	"SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE_2P": "<style=cShrine>You have overcharged the teleporter.</color>",
-	"SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE": "<style=cShrine>{0} has overcharged the teleporter.</color>",
+	"SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE_2P": "<style=cShrine>You have overcharged the teleporter. ({0}% <sprite name=\"TP\" tint=1></color>)",
+	"SHRINE_TELEPORTEROVERCHARGER_USE_MESSAGE": "<style=cShrine>{0} has overcharged the teleporter. ({0}% <sprite name=\"TP\" tint=1></color>)",
 	
 	//MISC
 	
