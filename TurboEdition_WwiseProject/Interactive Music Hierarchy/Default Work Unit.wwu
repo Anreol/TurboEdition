@@ -187,7 +187,7 @@
 												<Property Name="EndPosition" Type="Real64" Value="467652.994642871"/>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-6</Value>
+														<Value>-7</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>

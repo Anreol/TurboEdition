@@ -9,7 +9,7 @@ namespace TurboEdition.Components
         {
             if (!material)
             {
-                Debug.Log($"Material field was null, cannot run shader keyword method.");
+                TELog.LogE($"Material field was null, cannot run shader keyword method.");
                 return;
             }
 
@@ -54,6 +54,7 @@ namespace TurboEdition.Components
 
         public class HGStandardController : MaterialController
         {
+
             public bool _EnableCutout;
             public Color _Color;
             public Texture _MainTex;
@@ -85,7 +86,6 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
-
             public _RampInfoEnum _RampChoice;
 
             public enum _DecalLayerEnum
@@ -95,7 +95,6 @@ namespace TurboEdition.Components
                 Character = 2,
                 Misc = 3
             }
-
             public _DecalLayerEnum _DecalLayer;
 
             [Range(0f, 1f)]
@@ -110,7 +109,6 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
-
             public _CullEnum _Cull_Mode;
 
             public bool _EnableDither;
@@ -160,7 +158,6 @@ namespace TurboEdition.Components
                 TopDown = 1,
                 BackToFront = 3
             }
-
             public _PrintDirectionEnum _PrintDirection;
 
             public Texture _PrintRamp;
@@ -238,7 +235,6 @@ namespace TurboEdition.Components
             {
                 GrabMaterialValues();
             }
-
             public void GrabMaterialValues()
             {
                 if (material)
@@ -544,6 +540,7 @@ namespace TurboEdition.Components
                     SetShaderKeywordBasedOnBool(_EnableLimbRemoval, material, "LIMBREMOVAL");
                 }
             }
+
         }
 
         public class HGSnowToppedController : MaterialController
@@ -585,7 +582,6 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
-
             public _RampInfoEnum _RampChoice;
 
             public bool _IgnoreDiffuseAlphaForSpeculars;
@@ -647,7 +643,6 @@ namespace TurboEdition.Components
             {
                 GrabMaterialValues();
             }
-
             public void GrabMaterialValues()
             {
                 if (material)
@@ -767,6 +762,7 @@ namespace TurboEdition.Components
 
                     SetShaderKeywordBasedOnBool(_IgnoreDiffuseAlphaForSpeculars, material, "FORCE_SPEC");
 
+
                     material.SetFloat("_SpecularStrength", _SpecularStrength);
                     material.SetFloat("_SpecularExponent", _SpecularExponent);
                     material.SetFloat("_Smoothness", _Smoothness);
@@ -813,10 +809,28 @@ namespace TurboEdition.Components
                     material.SetFloat("_DirtSmoothness", _DirtSmoothness);
                 }
             }
+
         }
 
         public class HGCloudRemapController : MaterialController
         {
+            public enum _BlendEnums
+            {
+                Zero = 0,
+                One = 1,
+                DstColor = 2,
+                SrcColor = 3,
+                OneMinusDstColor = 4,
+                SrcAlpha = 5,
+                OneMinusSrcColor = 6,
+                DstAlpha = 7,
+                OneMinusDstAlpha = 8,
+                SrcAlphaSaturate = 9,
+                OneMinusSrcAlpha = 10
+            }
+            public _BlendEnums _SrcBlend;
+            public _BlendEnums _DstBlend;
+
             public Color _Tint;
             public bool _DisableRemapping;
             public Texture _MainTex;
@@ -850,7 +864,6 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
-
             public _CullEnum _Cull_Mode;
 
             public enum _ZTestEnum
@@ -865,7 +878,6 @@ namespace TurboEdition.Components
                 GreaterEqual = 7,
                 Always = 8
             }
-
             public _ZTestEnum _ZTest_Mode;
 
             [Range(-10f, 10f)]
@@ -906,6 +918,8 @@ namespace TurboEdition.Components
             {
                 if (material)
                 {
+                    _SrcBlend = (_BlendEnums)(int)material.GetFloat("_SrcBlend");
+                    _DstBlend = (_BlendEnums)(int)material.GetFloat("_DstBlend");
                     _Tint = material.GetColor("_TintColor");
                     _DisableRemapping = material.IsKeywordEnabled("DISABLEREMAP");
                     _MainTex = material.GetTexture("_MainTex");
@@ -946,8 +960,11 @@ namespace TurboEdition.Components
                 }
             }
 
+
+
             public void Update()
             {
+
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -955,6 +972,10 @@ namespace TurboEdition.Components
                         GrabMaterialValues();
                         PutMaterialIntoMeshRenderer(renderer, material);
                     }
+
+                    material.SetFloat("_SrcBlend", Convert.ToSingle(_SrcBlend));
+                    material.SetFloat("_DstBlend", Convert.ToSingle(_DstBlend));
+
                     material.SetColor("_TintColor", _Tint);
 
                     SetShaderKeywordBasedOnBool(_DisableRemapping, material, "DISABLEREMAP");
@@ -1052,7 +1073,6 @@ namespace TurboEdition.Components
                 SrcAlphaSaturate = 9,
                 OneMinusSrcAlpha = 10
             }
-
             public enum _DstBlendFloatEnum
             {
                 Zero = 0,
@@ -1067,7 +1087,6 @@ namespace TurboEdition.Components
                 SrcAlphaSaturate = 9,
                 OneMinusSrcAlpha = 10
             }
-
             public _SrcBlendFloatEnum _Source_Blend_Mode;
             public _DstBlendFloatEnum _Destination_Blend_Mode;
 
@@ -1113,7 +1132,6 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
-
             public _CullEnum _Cull_Mode;
 
             public bool _FadeFromVertexColorsOn;
@@ -1160,6 +1178,7 @@ namespace TurboEdition.Components
 
             public void Update()
             {
+
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1241,7 +1260,6 @@ namespace TurboEdition.Components
             public Texture _EmissionTex;
             public Vector2 _EmissionTexScale;
             public Vector2 _EmissionTexOffset;
-
             [Range(0.1f, 20f)]
             public float _EmissionPower;
 
@@ -1251,7 +1269,6 @@ namespace TurboEdition.Components
 
             [Range(0f, 1f)]
             public float _SpecularStrength;
-
             [Range(0.1f, 20f)]
             public float _SpecularExponent;
 
@@ -1267,14 +1284,12 @@ namespace TurboEdition.Components
 
             [Range(0, 20f)]
             public float _HeightStrength;
-
             [Range(0f, 1f)]
             public float _HeightBias;
 
             public Vector4 _ScrollSpeed;
 
             public float _Parallax;
-
             public enum _RampEnum
             {
                 TwoTone = 0,
@@ -1283,19 +1298,18 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
-
             public _RampEnum _RampInfo;
-
             public enum _CullEnum
             {
                 Off = 0,
                 Front = 1,
                 Back = 2
             }
-
             public _CullEnum _Cull_Mode;
 
             public bool _AlphaClip;
+
+
 
             public void Start()
             {
@@ -1337,8 +1351,11 @@ namespace TurboEdition.Components
                 }
             }
 
+
+
             public void Update()
             {
+
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1415,30 +1432,22 @@ namespace TurboEdition.Components
         public class HGWavyClothController : MaterialController
         {
             public Vector4 _Color;
-
             [Range(0f, 1f)]
             public float _Cutoff;
-
             public Texture _MainTex;
             public Vector2 _MainTexScale;
             public Vector2 _MainTexOffset;
             public Texture _ScrollingNormalMap;
             public Vector2 _NormalScale;
             public Vector2 _NormalOffset;
-
             [Range(0f, 5f)]
             public float _NormalStrength;
-
             public Vector4 _Scroll;
-
             [Range(0f, 5f)]
             public float _VertexOffsetStrength;
-
             public Vector4 _WindVector;
-
             [Range(0f, 1f)]
             public float _Smoothness;
-
             public enum _RampEnum
             {
                 TwoTone = 0,
@@ -1447,15 +1456,11 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
-
             public _RampEnum _RampInfo;
-
             [Range(0f, 1f)]
             public float _SpecularStrength;
-
             [Range(0.1f, 20f)]
             public float _SpecularExponent;
-
             public bool _EnableVertexColorDistortion;
 
             public void Start()
@@ -1488,8 +1493,11 @@ namespace TurboEdition.Components
                 }
             }
 
+
+
             public void Update()
             {
+
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1521,6 +1529,8 @@ namespace TurboEdition.Components
                         material.SetTexture("_ScrollingNormalMap", null);
                     }
 
+
+
                     material.SetFloat("_Smoothness", _Smoothness);
                     material.SetFloat("_Cutoff", _Cutoff);
                     material.SetFloat("_SpecularExponent", _SpecularExponent);
@@ -1529,12 +1539,584 @@ namespace TurboEdition.Components
 
                     material.SetFloat("_RampInfo", Convert.ToSingle(_RampInfo));
 
+
                     material.SetVector("_Scroll", _Scroll);
                     material.SetVector("_WindVector", _WindVector);
 
                     SetShaderKeywordBasedOnBool(_EnableVertexColorDistortion, material, "VERTEX_RED_FOR_DISTORTION");
 
                     material.SetFloat("_NormalStrength", _NormalStrength);
+                }
+            }
+        }
+
+        public class HGOpaqueCloudRemap : MaterialController
+        {
+            public Color _TintColor;
+            public Color _EmissionColor;
+            public Texture _MainTex;
+            public Vector2 _MainTexScale;
+            public Vector2 _MainTexOffset;
+            [Range(0f, 5f)]
+            public float _NormalStrength;
+            public Texture _NormalTex;
+            public Texture _Cloud1Tex;
+            public Vector2 _Cloud1TexScale;
+            public Vector2 _Cloud1TexOffset;
+            public Texture _Cloud2Tex;
+            public Vector2 _Cloud2TexScale;
+            public Vector2 _Cloud2TexOffset;
+            public Texture _RemapTex;
+            public Vector2 _RemapTexScale;
+            public Vector2 _RemapTexOffset;
+            public Vector4 _CutoffScroll;
+            [Range(0f, 30f)]
+            public float _InvFade;
+            [Range(0f, 20f)]
+            public float _AlphaBoost;
+            [Range(0f, 1f)]
+            public float _Cutoff;
+            [Range(0f, 1f)]
+            public float _SpecularStrength;
+            [Range(0.1f, 20f)]
+            public float _SpecularExponent;
+            [Range(0f, 10f)]
+            public float _ExtrusionStrength;
+            public enum _RampEnum
+            {
+                TwoTone = 0,
+                SmoothedTwoTone = 1,
+                Unlitish = 3,
+                Subsurface = 4,
+                Grass = 5
+            }
+            public _RampEnum _RampInfo;
+            public bool _EmissionFromAlbedo;
+            public bool _CloudNormalMap;
+            public bool _VertexAlphaOn;
+            public enum _CullEnum
+            {
+                Off = 0,
+                Front = 1,
+                Back = 2
+            }
+            public _CullEnum _Cull;
+            public float _ExternalAlpha;
+
+            public void Start()
+            {
+                GrabMaterialValues();
+            }
+            private void GrabMaterialValues()
+            {
+                if (material)
+                {
+                    _TintColor = material.GetColor("_TintColor");
+                    _EmissionColor = material.GetColor("_EmissionColor");
+                    _MainTex = material.GetTexture("_MainTex");
+                    _MainTexScale = material.GetTextureScale("_MainTex");
+                    _MainTexOffset = material.GetTextureOffset("_MainTex");
+                    _NormalStrength = material.GetFloat("_NormalStrength");
+                    _NormalTex = material.GetTexture("_NormalTex");
+                    _Cloud1Tex = material.GetTexture("_Cloud1Tex");
+                    _Cloud1TexScale = material.GetTextureScale("_Cloud1Tex");
+                    _Cloud1TexOffset = material.GetTextureOffset("_Cloud1Tex");
+                    _Cloud2Tex = material.GetTexture("_Cloud2Tex");
+                    _Cloud2TexScale = material.GetTextureScale("_Cloud2Tex");
+                    _Cloud2TexOffset = material.GetTextureScale("_Cloud2Tex");
+                    _RemapTex = material.GetTexture("_RemapTex");
+                    _RemapTexScale = material.GetTextureScale("_RemapTex");
+                    _RemapTexOffset = material.GetTextureOffset("_RemapTex");
+                    _CutoffScroll = material.GetVector("_CutoffScroll");
+                    _InvFade = material.GetFloat("_InvFade");
+                    _AlphaBoost = material.GetFloat("_AlphaBoost");
+                    _Cutoff = material.GetFloat("_Cutoff");
+                    _SpecularStrength = material.GetFloat("_SpecularStrength");
+                    _SpecularExponent = material.GetFloat("_SpecularExponent");
+                    _ExtrusionStrength = material.GetFloat("_ExtrusionFloat");
+                    _RampInfo = (_RampEnum)material.GetInt("_RampInfo");
+                    _EmissionFromAlbedo = material.IsKeywordEnabled("EMISSIONFROMALBEDO");
+                    _CloudNormalMap = material.IsKeywordEnabled("CLOUDNORMAL");
+                    _VertexAlphaOn = material.IsKeywordEnabled("VERTEXALPHA");
+                    _Cull = (_CullEnum)material.GetInt("_Cull");
+                    _ExternalAlpha = material.GetFloat("_ExternalAlpha");
+                }
+            }
+
+            public void Update()
+            {
+                if (material)
+                {
+                    if (material.name != MaterialName && renderer)
+                    {
+                        GrabMaterialValues();
+                        PutMaterialIntoMeshRenderer(renderer, material);
+                    }
+                }
+                material.SetColor("_TintColor", _TintColor);
+                material.SetColor("_EmissionColor", _EmissionColor);
+
+                if (_MainTex)
+                {
+                    material.SetTexture("_MainTex", _MainTex);
+                    material.SetTextureScale("_MainTex", _MainTexScale);
+                    material.SetTextureOffset("_MainTex", _MainTexOffset);
+                }
+                else
+                {
+                    material.SetTexture("_MainTex", null);
+                }
+
+                material.SetFloat("_NormalStrength", _NormalStrength);
+
+                if (_NormalTex)
+                {
+                    material.SetTexture("_NormalTex", _NormalTex);
+                }
+                else
+                {
+                    material.SetTexture("_NormalTex", null);
+                }
+
+                if (_Cloud1Tex)
+                {
+                    material.SetTexture("_Cloud1Tex", _Cloud1Tex);
+                    material.SetTextureScale("_Cloud1Tex", _Cloud1TexScale);
+                    material.SetTextureOffset("_Cloud1Tex", _Cloud1TexOffset);
+                }
+                else
+                {
+                    material.SetTexture("_Cloud1Tex", null);
+                }
+
+                if (_Cloud2Tex)
+                {
+                    material.SetTexture("_Cloud2Tex", _Cloud2Tex);
+                    material.SetTextureScale("_Cloud2Tex", _Cloud2TexScale);
+                    material.SetTextureOffset("_Cloud2Tex", _Cloud2TexOffset);
+                }
+                else
+                {
+                    material.SetTexture("_Cloud2Tex", null);
+                }
+
+                if (_RemapTex)
+                {
+                    material.SetTexture("_RemapTex", _RemapTex);
+                    material.SetTextureScale("_RemapTex", _RemapTexScale);
+                    material.SetTextureOffset("_RemapTex", _RemapTexOffset);
+                }
+                else
+                {
+                    material.SetTexture("_RemapTex", null);
+                }
+
+                material.SetVector("_CutoffScroll", _CutoffScroll);
+                material.SetFloat("_InvFade", _InvFade);
+                material.SetFloat("_AlphaBoost", _AlphaBoost);
+                material.SetFloat("_Cutoff", _Cutoff);
+                material.SetFloat("_SpecularStrength", _SpecularStrength);
+                material.SetFloat("_SpecularExponent", _SpecularExponent);
+                material.SetFloat("_ExtrusionStrength", _ExtrusionStrength);
+                material.SetInt("_RampInfo", (int)_RampInfo);
+                SetShaderKeywordBasedOnBool(_EmissionFromAlbedo, material, "EMISSIONFROMALBEDO");
+                SetShaderKeywordBasedOnBool(_CloudNormalMap, material, "CLOUDNORMAL");
+                SetShaderKeywordBasedOnBool(_VertexAlphaOn, material, "VERTEXALPHA");
+                material.SetInt("_Cull", (int)_Cull);
+                material.SetFloat("_ExternalAlpha", _ExternalAlpha);
+            }
+        }
+
+        public class HGTriplanarController : MaterialController
+        {
+            public bool _ColorsOn;
+            public bool _MixColorsOn;
+            public bool _MaskOn;
+            public bool _VerticalBiasOn;
+            public bool _DoubleSampleOn;
+
+            public Color _Color;
+            public Texture _NormalTex;
+
+            [Range(0f, 1f)]
+            public float _NormalStrength;
+
+            public enum _RampInfoEnum
+            {
+                TwoTone = 0,
+                SmoothedTwoTone = 1,
+                Unlitish = 2,
+                Subsurface = 3,
+                Grass = 4
+            }
+            public _RampInfoEnum _RampInfo;
+
+            public enum _DecalLayerEnum
+            {
+                Default = 0,
+                Environment = 1,
+                Character = 2,
+                Misc = 3
+            }
+            public _DecalLayerEnum _DecalLayer;
+
+            public enum _CullEnum
+            {
+                Off = 0,
+                Front = 1,
+                Back = 2
+            }
+            public _CullEnum _Cull;
+
+            [Range(0f, 1f)]
+            public float _TextureFactor;
+
+            [Range(0f, 1f)]
+            public float _Depth;
+
+            public Texture _SplatmapTex;
+
+            public Texture _RedChannelTopTex;
+            public Texture _RedChannelSideTex;
+            [Range(0f, 1f)]
+            public float _RedChannelSmoothness;
+            [Range(0f, 1f)]
+            public float _RedChannelSpecularStrength;
+            [Range(0.1f, 20f)]
+            public float _RedChannelSpecularExponent;
+            [Range(-2f, 5f)]
+            public float _RedChannelBias;
+
+            public Texture _GreenChannelTex;
+            [Range(0f, 1f)]
+            public float _GreenChannelSmoothness;
+            [Range(0f, 1f)]
+            public float _GreenChannelSpecularStrength;
+            [Range(0.1f, 20f)]
+            public float _GreenChannelSpecularExponent;
+            [Range(-2f, 5f)]
+            public float _GreenChannelBias;
+
+            public Texture _BlueChannelTex;
+            [Range(0f, 1f)]
+            public float _BlueChannelSmoothness;
+            [Range(0f, 1f)]
+            public float _BlueChannelSpecularStrength;
+            [Range(0.1f, 20f)]
+            public float _BlueChannelSpecularExponent;
+            [Range(-2f, 5f)]
+            public float _BlueChannelBias;
+
+            public bool _SnowOn;
+
+            public void Start()
+            {
+                GrabMaterialValues();
+            }
+
+            public void GrabMaterialValues()
+            {
+                if (material)
+                {
+                    _ColorsOn = material.IsKeywordEnabled("USE_VERTEX_COLORS");
+                    _MixColorsOn = material.IsKeywordEnabled("MIX_VERTEX_COLORS");
+                    _MaskOn = material.IsKeywordEnabled("USE_ALPHA_AS_MASK");
+                    _VerticalBiasOn = material.IsKeywordEnabled("USE_VERTICAL_BIAS");
+                    _DoubleSampleOn = material.IsKeywordEnabled("DOUBLESAMPLE");
+                    _Color = material.GetColor("_Color");//
+                    _NormalTex = material.GetTexture("_NormalTex");//
+                    _NormalStrength = material.GetFloat("_NormalStrength");//
+                    _RampInfo = (_RampInfoEnum)(int)material.GetFloat("_RampInfo");//
+                    _DecalLayer = (_DecalLayerEnum)(int)material.GetFloat("_DecalLayer");//
+                    _Cull = (_CullEnum)(int)material.GetFloat("_Cull");//
+                    _TextureFactor = material.GetFloat("_TextureFactor");//
+                    _Depth = material.GetFloat("_Depth");
+                    _SplatmapTex = material.GetTexture("_SplatmapTex");
+                    _RedChannelTopTex = material.GetTexture("_RedChannelTopTex");
+                    _RedChannelSideTex = material.GetTexture("_RedChannelSideTex");
+                    _RedChannelSmoothness = material.GetFloat("_RedChannelSmoothness");
+                    _RedChannelSpecularStrength = material.GetFloat("_RedChannelSpecularStrength");//
+                    _RedChannelSpecularExponent = material.GetFloat("_RedChannelSpecularExponent");//
+                    _RedChannelBias = material.GetFloat("_RedChannelBias");
+                    _GreenChannelTex = material.GetTexture("_GreenChannelTex");
+                    _GreenChannelSmoothness = material.GetFloat("_GreenChannelSmoothness");
+                    _GreenChannelSpecularStrength = material.GetFloat("_GreenChannelSpecularStrength");//
+                    _GreenChannelSpecularExponent = material.GetFloat("_GreenChannelSpecularExponent");//
+                    _GreenChannelBias = material.GetFloat("_GreenChannelBias");
+                    _BlueChannelTex = material.GetTexture("_BlueChannelTex");
+                    _BlueChannelSmoothness = material.GetFloat("_BlueChannelSmoothness");
+                    _BlueChannelSpecularStrength = material.GetFloat("_BlueChannelSpecularStrength");//
+                    _BlueChannelSpecularExponent = material.GetFloat("_BlueChannelSpecularExponent");//
+                    _BlueChannelBias = material.GetFloat("_BlueChannelBias");
+                    _SnowOn = material.IsKeywordEnabled("MICROFACET_SNOW");
+                }
+            }
+
+            public void Update()
+            {
+
+                if (material)
+                {
+                    if (material.name != MaterialName && renderer)
+                    {
+                        GrabMaterialValues();
+                        MaterialControllerComponents.PutMaterialIntoMeshRenderer(renderer, material);
+                    }
+
+                    material.SetColor("_Color", _Color);
+
+                    material.SetFloat("_NormalStrength", _NormalStrength);
+
+                    if (_NormalTex)
+                    {
+                        material.SetTexture("_NormalText", _NormalTex);
+                    }
+                    else
+                    {
+                        material.SetTexture("_NormalTex", null);
+                    }
+
+                    material.SetFloat("_RampInfo", Convert.ToSingle(_RampInfo));
+                    material.SetFloat("_DecalLayer", Convert.ToSingle(_DecalLayer));
+
+                    if (_RedChannelTopTex)
+                        material.SetTexture("_RedChannelTopTex", _RedChannelTopTex);
+                    else
+                        material.SetTexture("_RedChannelTopTex", null);
+                    if (_RedChannelSideTex)
+                        material.SetTexture("_RedChannelSideTex", _RedChannelSideTex);
+                    else
+                        material.SetTexture("_RedChannelSideTex", null);
+                    material.SetFloat("_RedChannelSmoothness", _RedChannelSmoothness);
+                    material.SetFloat("_RedChannelSpecularStrength", _RedChannelSpecularStrength);
+                    material.SetFloat("_RedChannelSpecularExponent", _RedChannelSpecularExponent);
+                    material.SetFloat("_RedChannelBias", _RedChannelBias);
+
+                    if (_GreenChannelTex)
+                        material.SetTexture("_GreenChannelTex", _GreenChannelTex);
+                    else
+                        material.SetTexture("_GreenChannelTex", null);
+                    material.SetFloat("_GreenChannelSmoothness", _GreenChannelSmoothness);
+                    material.SetFloat("_GreenChannelSpecularStrength", _GreenChannelSpecularStrength);
+                    material.SetFloat("_GreenChannelSpecularExponent", _GreenChannelSpecularExponent);
+                    material.SetFloat("_GreenChannelBias", _GreenChannelBias);
+
+                    if (_BlueChannelTex)
+                        material.SetTexture("_BlueChannelTex", _BlueChannelTex);
+                    else
+                        material.SetTexture("_BlueChannelTex", null);
+                    material.SetFloat("_BlueChannelSmoothness", _BlueChannelSmoothness);
+                    material.SetFloat("_BlueChannelSpecularStrength", _BlueChannelSpecularStrength);
+                    material.SetFloat("_BlueChannelSpecularExponent", _BlueChannelSpecularExponent);
+                    material.SetFloat("_BlueChannelBias", _BlueChannelBias);
+
+
+                    material.SetFloat("_Cull", Convert.ToSingle(_Cull));
+                    material.SetFloat("_TextureFactor", _TextureFactor);
+                    material.SetFloat("_Depth", _Depth);
+
+                    if (_SplatmapTex)
+                        material.SetTexture("_SplatmapTex", _SplatmapTex);
+                    else
+                        material.SetTexture("_SplatmapTex", null);
+
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_SnowOn, material, "MICROFACET_SNOW");
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_ColorsOn, material, "USE_VERTEX_COLORS");
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_MixColorsOn, material, "MIX_VERTEX_COLORS");
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_MaskOn, material, "USE_ALPHA_AS_MASK");
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_VerticalBiasOn, material, "USE_VERTICAL_BIAS");
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_DoubleSampleOn, material, "DOUBLESAMPLE");
+                }
+            }
+        }
+
+        public class CW_DX11_DoubleSidedController : MaterialController
+        {
+            public Color _Color;
+            public Color _DepthColor;
+            public float _Depth;
+            public bool _EnableFog;
+            public float _EdgeFade;
+            public Color _SpecColor;
+            [Range(0.01f, 5f)]
+            public float _Smoothness;
+
+            public Texture _BumpMap;
+            [Range(0f, 1f)]
+            public float _BumpStrength;
+            public bool _EnableLargeBump;
+            public Texture _BumpMapLarge;
+            [Range(0f, 1f)]
+            public float _BumpLargeStrength;
+            public bool _WorldSpace;
+
+            public Vector4 _Speeds;
+            public Vector4 _SpeedsLarge;
+            public float _Distortion;
+
+            public enum _DistortionQualityEnum
+            {
+                High = 0,
+                Low = 1
+            }
+            public _DistortionQualityEnum _DistortionQuality;
+
+            public enum _ReflectionTypeEnum
+            {
+                None = 0,
+                Mixed = 1,
+                RealTime = 2,
+                CubeMap = 3
+            }
+            public _ReflectionTypeEnum _ReflectionType;
+
+            public Color _CubeColor;
+            public Texture _Cube;
+            public Texture _ReflectionTex;
+            [Range(0f, 1f)]
+            public float _Reflection;
+            [Range(1f, 20f)]
+            public float _RimPower;
+
+            public bool _FOAM;
+            public Color _FoamColor;
+            public Texture _FoamTex;
+            public float _FoamSize;
+
+            public enum _DisplacementModeEnum
+            {
+                Off = 0,
+                Wave = 1,
+                Gerstner = 2
+            }
+            public _DisplacementModeEnum _DisplacementMode;
+
+            public float _Amplitude;
+            public float _Frequency;
+            public float _Speed;
+            public float _Steepness;
+            public Vector4 _WSpeed;
+            public Vector4 _WDirectionAB;
+            public Vector4 _WDirectionCD;
+
+            [Range(0f, 1f)]
+            public float _Smoothing;
+
+            [Range(1f, 32f)]
+            public float _Tess;
+
+            public void Start()
+            {
+                GrabMaterialValues();
+            }
+
+            public void GrabMaterialValues()
+            {
+                if (material)
+                {
+                    _Color = material.GetColor("_Color");
+                    _DepthColor = material.GetColor("_DepthColor");
+                    _Depth = material.GetFloat("_Depth");
+                    _EnableFog = material.IsKeywordEnabled("_DEPTHFOG_ON");
+                    _EdgeFade = material.GetFloat("_EdgeFade");
+                    _SpecColor = material.GetColor("_SpecColor");
+                    _Smoothness = material.GetFloat("_Smoothness");
+                    _BumpMap = material.GetTexture("_BumpMap");
+                    _BumpStrength = material.GetFloat("_BumpStrength");
+                    _EnableLargeBump = material.IsKeywordEnabled("_BUMPLARGE_ON");
+                    _BumpMapLarge = material.GetTexture("_BumpMapLarge");
+                    _BumpLargeStrength = material.GetFloat("_BumpLargeStrength");
+                    _WorldSpace = material.IsKeywordEnabled("_WORLDSPACE_ON");
+                    _Speeds = material.GetVector("_Speeds");
+                    _SpeedsLarge = material.GetVector("_SpeedsLarge");
+                    _Distortion = material.GetFloat("_Distortion");
+                    _DistortionQuality = (_DistortionQualityEnum)(int)material.GetFloat("_DistortionQuality");
+                    _ReflectionType = (_ReflectionTypeEnum)(int)material.GetFloat("_ReflectionType");
+                    _CubeColor = material.GetColor("_CubeColor");
+                    _Cube = material.GetTexture("_Cube");
+                    _ReflectionTex = material.GetTexture("_ReflectionTex");
+                    _Reflection = material.GetFloat("_Reflection");
+                    _RimPower = material.GetFloat("_RimPower");
+                    _FOAM = material.IsKeywordEnabled("_FOAM_ON");
+                    _FoamColor = material.GetColor("_FoamColor");
+                    _FoamTex = material.GetTexture("_FoamTex");
+                    _FoamSize = material.GetFloat("_FoamSize");
+                    _DisplacementMode = (_DisplacementModeEnum)(int)material.GetFloat("_DisplacementMode");
+                    _Amplitude = material.GetFloat("_Amplitude");
+                    _Frequency = material.GetFloat("_Frequency");
+                    _Speed = material.GetFloat("_Speed");
+                    _Steepness = material.GetFloat("_Steepness");
+                    _WSpeed = material.GetVector("_WSpeed");
+                    _WDirectionAB = material.GetVector("_WDirectionAB");
+                    _WDirectionCD = material.GetVector("_WDirectionCD");
+                    _Smoothing = material.GetFloat("_Smoothing");
+                    _Tess = material.GetFloat("_Tess");
+                }
+            }
+
+            public void Update()
+            {
+
+                if (material)
+                {
+                    if (material.name != MaterialName && renderer)
+                    {
+                        GrabMaterialValues();
+                        MaterialControllerComponents.PutMaterialIntoMeshRenderer(renderer, material);
+                    }
+
+                    material.SetColor("_Color", _Color);
+                    material.SetColor("_DepthColor", _DepthColor);
+                    material.SetFloat("_Depth", _Depth);
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_EnableFog, material, "_DEPTHFOG_ON");
+                    material.SetFloat("_EdgeFade", _EdgeFade);
+                    material.SetVector("_SpecColor", _SpecColor);
+                    material.SetFloat("_Smoothness", _Smoothness);
+                    if (_BumpMap)
+                        material.SetTexture("_BumpMap", _BumpMap);
+                    else
+                        material.SetTexture("_BumpMap", null);
+                    material.SetFloat("_BumpStrength", _BumpStrength);
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_EnableLargeBump, material, "_BUMPLARGE_ON");
+                    if (_BumpMapLarge)
+                        material.SetTexture("_BumpMapLarge", _BumpMapLarge);
+                    else
+                        material.SetTexture("_BumpMapLarge", null);
+                    material.SetFloat("_BumpLargeStrength", _BumpLargeStrength);
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_WorldSpace, material, "_WORLDSPACE_ON");
+                    material.SetVector("_Speeds", _Speeds);
+                    material.SetVector("_SpeedsLarge", _SpeedsLarge);
+                    material.SetFloat("_Distortion", _Distortion);
+                    material.SetFloat("_DistortionQuality", Convert.ToSingle(_DistortionQuality));
+                    material.SetFloat("_ReflectionType", Convert.ToSingle(_ReflectionType));
+                    material.SetColor("_CubeColor", _CubeColor);
+                    if (_Cube)
+                        material.SetTexture("_Cube", _Cube);
+                    else
+                        material.SetTexture("_Cube", null);
+                    if (_ReflectionTex)
+                        material.SetTexture("_ReflectionTex", _ReflectionTex);
+                    else
+                        material.SetTexture("_ReflectionTex", _ReflectionTex);
+                    material.SetFloat("_Reflection", _Reflection);
+                    material.SetFloat("_RimPower", _RimPower);
+                    MaterialControllerComponents.SetShaderKeywordBasedOnBool(_FOAM, material, "_FOAM_ON");
+                    material.SetColor("_FoamColor", _FoamColor);
+                    if (_FoamTex)
+                        material.SetTexture("_FoamTex", _FoamTex);
+                    else
+                        material.SetTexture("_FoamTex", _FoamTex);
+                    material.SetFloat("_FoamSize", _FoamSize);
+                    material.SetFloat("_DisplacementMode", Convert.ToSingle(_DisplacementMode));
+                    material.SetFloat("_Amplitude", _Amplitude);
+                    material.SetFloat("_Frequency", _Frequency);
+                    material.SetFloat("_Speed", _Speed);
+                    material.SetFloat("_Steepness", _Steepness);
+                    material.SetVector("_WSpeed", _WSpeed);
+                    material.SetVector("_WDirectionAB", _WDirectionAB);
+                    material.SetVector("_WDirectionCD", _WDirectionCD);
+                    material.SetFloat("_Smoothing", _Smoothing);
+                    material.SetFloat("_Tess", _Tess);
                 }
             }
         }
