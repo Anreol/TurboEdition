@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: -1881990681, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: Grenadier
   m_EditorClassIdentifier: 
-  <survivorIndex>k__BackingField: -1
-  _cachedName: Grenadier
   bodyPrefab: {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5,
     type: 3}
-  displayPrefab: {fileID: 0}
+  displayPrefab: {fileID: 854389678599148342, guid: cc26afd03dedcca4b908303606a3f57a,
+    type: 3}
   unlockableName: 
   unlockableDef: {fileID: 0}
   displayNameToken: GRENADIER_BODY_NAME

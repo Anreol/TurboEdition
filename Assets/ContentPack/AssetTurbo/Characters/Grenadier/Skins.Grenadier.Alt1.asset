@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: -1746479147, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: Skins.Grenadier.Alt1
   m_EditorClassIdentifier: 
-  <index>k__BackingField: -1
-  _cachedName: 
-  nameToken: ???
+  nameToken: GRENADIER_SKIN_ALT1_NAME
   displayModelPath: Prefabs/NullModel
   displayModelPrefab: {fileID: 0}
   hidden: 0
   achievementIcon: {fileID: 0}
-  <sortScore>k__BackingField: 0

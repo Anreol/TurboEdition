@@ -38,7 +38,9 @@
 		"GRENADIER_UI_SKILLDEF_FORMAT": "{0}",
 		
 		"GRENADIER_SKIN_ALT1_NAME" : "Officer",
-		"GRENADIER_DESCRIPTION" : "The Grenadier is a close to medium projectile survivor who has the potential to quickly wipe out large groups of enemies - as well extreme single target damage.<style=cSub>\r\n\r\n< ! > Blast Armor can protect you from a group of enemies closing in - or to attack them if you're diving in.\r\n\r\n< ! > Your crosshair will turn red whenever you\'re in the appropiate range for your primary to hit your target, keep it in mind.\r\n\r\n< ! > Your Secondary acts almost instantly, and can travel very far, use it whenever your primary has no ammo or you're off range.\r\n\r\n< ! > Your Utility can be used to keep close enemies away, along with one of your explosives to reposition, or to reach high speeds and hit your enemies for high damage.\r\n<\/style>\r\n",
+		"GRENADIER_SKIN_ALT2_NAME" : "Dune",
+		"GRENADIER_SKIN_LOWPOL_NAME" : "256",
+		"GRENADIER_DESCRIPTION" : "The Grenadier is a close to medium range projectile survivor who has the potential to quickly wipe out large groups of enemies - as well extreme single target damage.<style=cSub>\r\n\r\n< ! > Blast Armor can protect you from a group of enemies closing in - or to attack them if you're diving in.\r\n\r\n< ! > Your crosshair will turn red whenever you\'re in the appropiate range for your primary to hit your target, keep it in mind.\r\n\r\n< ! > Your Secondary acts almost instantly, and can travel very far, use it whenever your primary has no ammo or you're off range.\r\n\r\n< ! > Your Utility can be used to keep close enemies away, along with one of your explosives to reposition, or to reach high speeds and hit your enemies for high damage.\r\n<\/style>\r\n",
 
 
 		"CRABCHEST_BODY_NAME": "Mimigun",

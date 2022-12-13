@@ -223,11 +223,13 @@ namespace Moonstorm.EditorUtils.Pipelines
             var log = new List<string>();
             for (int i = 0; i < materials.Length; i++)
             {
-                var material = materials[i];
-                var shader = material.shader;
+                Material material = materials[i];
+                int beforeSwapRenderQ = material.renderQueue;
+                Shader shader = material.shader;
                 if (realToStubbed.TryGetValue(material.shader, out Shader stubbed))
                 {
                     material.shader = stubbed;
+                    material.renderQueue = beforeSwapRenderQ; //Note that if a shader on the material is changed, the render queue resets to that of the shader itself.
                     log.Add($"Swapped {MarkdownUtils.GenerateAssetLink(material)}'s shader ({MarkdownUtils.GenerateAssetLink(shader)} with {MarkdownUtils.GenerateAssetLink(stubbed)}");
                 }
                 else
@@ -243,11 +245,13 @@ namespace Moonstorm.EditorUtils.Pipelines
             var log = new List<string>();
             for (int i = 0; i < materials.Length; i++)
             {
-                var material = materials[i];
-                var shader = material.shader;
+                Material material = materials[i];
+                int beforeRestoreQ = material.renderQueue;
+                Shader shader = material.shader;
                 if (stubbedToOrig.TryGetValue(shader, out Shader orig))
                 {
                     material.shader = orig;
+                    material.renderQueue = beforeRestoreQ; //Note that if a shader on the material is changed, the render queue resets to that of the shader itself.
                     log.Add($"Swapped {MarkdownUtils.GenerateAssetLink(material)}'s shader ({MarkdownUtils.GenerateAssetLink(shader)} with {MarkdownUtils.GenerateAssetLink(orig)}");
                 }
                 else

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: -1255927399, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: skinGrenadierDefault
   m_EditorClassIdentifier: 
-  <skinIndex>k__BackingField: -1
   baseSkins: []
   icon: {fileID: 0}
   nameToken: DEFAULT_SKIN
@@ -21,11 +20,60 @@ MonoBehaviour:
   rootObject: {fileID: 6931545290462054027, guid: a5428e068b224314da4501cec31c9da5,
     type: 3}
   rendererInfos:
-  - renderer: {fileID: 3443578558510727532, guid: a5428e068b224314da4501cec31c9da5,
+  - renderer: {fileID: 418297804126362853, guid: a5428e068b224314da4501cec31c9da5,
       type: 3}
-    defaultMaterial: {fileID: 2100000, guid: 42b227e9a45adc643a253d739a2f8104, type: 2}
+    defaultMaterial: {fileID: 2100000, guid: eb1c227fc5f760f47839a8af73554e99, type: 2}
     defaultShadowCastingMode: 1
     ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 252109562752245029, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: dfcf6adf621ef464fb606daede493203, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 6611186160253978457, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: dfcf6adf621ef464fb606daede493203, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 779715004406739588, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: eb1c227fc5f760f47839a8af73554e99, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 3228883081832786981, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: eb1c227fc5f760f47839a8af73554e99, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 8599584396547826727, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: eb1c227fc5f760f47839a8af73554e99, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 509558791536852498, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: eb1c227fc5f760f47839a8af73554e99, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 1016866947154424955, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: eb1c227fc5f760f47839a8af73554e99, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 59890574654668636, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: eb1c227fc5f760f47839a8af73554e99, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
   gameObjectActivations: []
   meshReplacements: []
   projectileGhostReplacements: []

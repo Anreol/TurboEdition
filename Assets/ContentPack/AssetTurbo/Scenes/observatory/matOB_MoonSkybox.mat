@@ -13,14 +13,14 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 4000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _AtmosphereRamp:
-        m_Texture: {fileID: 2800000, guid: 75733e5c373e1534b8d8dc965e02fb81, type: 3}
+        m_Texture: {fileID: 2800000, guid: 45b50bb0e207e7249a54ee8ec15bc9f5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -40,27 +40,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DiffuseDetailTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 41bcc0b955fb253408db5c1ed3bc2ae1, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _DiffuseTex:
-        m_Texture: {fileID: 2800000, guid: f5d74212abdc73a498dbb298b4e445c5, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 40e489785eba7bb4b8afc3d02a3174cf, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9e7325631a8245e44bf34ef0fe1d5630, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: f371c95cc90a98742b4e590ebf85f329, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _LightWarpRamp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: eed4b85b5fa48ef49b82403ac6a85891, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -72,12 +72,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalDetailTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 03f42de52da0f1f42a7c796269c621ea, type: 3}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 3f39c4c74ad0fe54aa1fa8288e7a233d, type: 3}
+        m_Scale: {x: 12, y: 12}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
@@ -88,28 +88,28 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AtmosphereStrength: 1.6
+    - _AtmosphereStrength: 0.96
     - _BumpScale: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DetailStrength: 1
-    - _DoubleSampleFactor: 4.85
+    - _DetailStrength: 0.9
+    - _DoubleSampleFactor: 4.55
     - _DstBlend: 0
     - _DstBlendFloat: 10
-    - _EmissionStrength: 1
+    - _EmissionStrength: 1.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NormalStrength: 1
+    - _NormalStrength: 2.75
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RotationSpeed: 1.31
+    - _RotationSpeed: 0.05
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularPower: 137
+    - _SpecularPower: 12
     - _SrcBlend: 1
     - _SrcBlendFloat: 5
     - _UVSec: 0
@@ -117,5 +117,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 0.95686275, g: 0.7490196, b: 0.4745098, a: 0.4745098}
+    - _SpecColor: {r: 0.8962264, g: 0.49461553, b: 0.7143539, a: 1}
+    - _TintColor: {r: 0.8773585, g: 0.6651519, b: 0.38487893, a: 0.64705884}
