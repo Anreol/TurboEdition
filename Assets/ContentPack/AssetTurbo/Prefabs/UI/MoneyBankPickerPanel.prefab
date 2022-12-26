@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7167529143063718439}
   - component: {fileID: 6189058390956311883}
   - component: {fileID: 7326827154072748922}
-  - component: {fileID: 8324423424153827737}
   - component: {fileID: 8208292702659285357}
   - component: {fileID: 243328994603234922}
   - component: {fileID: 5908961790736810277}
@@ -19,6 +18,7 @@ GameObject:
   - component: {fileID: 3255988791126901860}
   - component: {fileID: 3520346031021578181}
   - component: {fileID: 1784909345419052047}
+  - component: {fileID: 3415626003705862210}
   - component: {fileID: 24818234540006127}
   m_Layer: 5
   m_Name: ContributeButtonTemplate
@@ -45,8 +45,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 73.5, y: 0}
-  m_SizeDelta: {x: 147, y: 129.2}
+  m_AnchoredPosition: {x: 73.5, y: -1}
+  m_SizeDelta: {x: 145, y: 119.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6189058390956311883
 CanvasRenderer:
@@ -85,21 +85,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8324423424153827737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081547705916983072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIAnimateSliceNakedButton.png
-  TargetComponents:
-  - {fileID: 7326827154072748922}
 --- !u!114 &8208292702659285357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: -103623725, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventSystemProvider: {fileID: 0}
-  _eventSystem: {fileID: 0}
 --- !u!114 &243328994603234922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +140,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  eventSystemLocator: {fileID: 8208292702659285357}
   allowAllEventSystems: 1
   submitOnPointerUp: 0
   disablePointerClick: 0
@@ -176,22 +158,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   defaultFallbackButton: 0
-  inPointerUp: 0
-  textMeshProUGui: {fileID: 0}
-  stopwatch: 570.8206
-  originalColor: {r: 1, g: 1, b: 1, a: 1}
   showImageOnHover: 1
   imageOnHover: {fileID: 0}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
   hoverToken: 
-  hovering: 0
-  previousState: 0
   uiClickSoundOverride: Play_UI_menuBack
-  buttonScaleVelocity: 0
-  imageOnHoverAlphaVelocity: 0
-  imageOnHoverScaleVelocity: 0
 --- !u!114 &5908961790736810277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,14 +217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinData: {fileID: 0}
-  button: {fileID: 243328994603234922}
   useRecommendedButtonWidth: 1
   useRecommendedButtonHeight: 1
   useRecommendedImage: 1
   useRecommendedMaterial: 1
   useRecommendedAlignment: 1
   useRecommendedLabel: 1
-  layoutElement: {fileID: 0}
 --- !u!114 &1784909345419052047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +238,21 @@ MonoBehaviour:
   component: {fileID: 7326827154072748922}
   fieldName: material
   assetAddress: RoR2/Base/UI/matUIAnimateAlphaNakedButton.mat
+--- !u!114 &3415626003705862210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081547705916983072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 7326827154072748922}
+  fieldName: sprite
+  assetAddress: RoR2/Base/UI/texUIAnimateSliceNakedButton.png
 --- !u!114 &24818234540006127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,9 +266,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_CONTRIBUTE_FORMAT
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 5478243863407792036}
 --- !u!1 &1587745744896233904
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +277,6 @@ GameObject:
   - component: {fileID: 3113417695459697952}
   - component: {fileID: 3413859258449711781}
   - component: {fileID: 9094880756896625477}
-  - component: {fileID: 8080442564300037598}
   - component: {fileID: 285852419349055394}
   - component: {fileID: 2470690421132258403}
   - component: {fileID: 4192407106609134973}
@@ -302,6 +284,7 @@ GameObject:
   - component: {fileID: 6328818531827682366}
   - component: {fileID: 8696831369449096431}
   - component: {fileID: 831990510758175173}
+  - component: {fileID: 3608080973044585780}
   - component: {fileID: 8338451006691005772}
   m_Layer: 5
   m_Name: WithdrawButtonTemplate
@@ -368,21 +351,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8080442564300037598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1587745744896233904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIAnimateSliceNakedButton.png
-  TargetComponents:
-  - {fileID: 9094880756896625477}
 --- !u!114 &285852419349055394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,8 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: -103623725, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventSystemProvider: {fileID: 0}
-  _eventSystem: {fileID: 0}
 --- !u!114 &2470690421132258403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,7 +406,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-  eventSystemLocator: {fileID: 285852419349055394}
   allowAllEventSystems: 1
   submitOnPointerUp: 0
   disablePointerClick: 0
@@ -459,22 +424,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   defaultFallbackButton: 0
-  inPointerUp: 0
-  textMeshProUGui: {fileID: 0}
-  stopwatch: 587.7008
-  originalColor: {r: 1, g: 1, b: 1, a: 1}
   showImageOnHover: 1
   imageOnHover: {fileID: 0}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
   hoverToken: 
-  hovering: 0
-  previousState: 0
   uiClickSoundOverride: Play_UI_menuBack
-  buttonScaleVelocity: 0
-  imageOnHoverAlphaVelocity: 0
-  imageOnHoverScaleVelocity: 0
 --- !u!114 &4192407106609134973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,14 +483,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinData: {fileID: 0}
-  button: {fileID: 2470690421132258403}
   useRecommendedButtonWidth: 1
   useRecommendedButtonHeight: 1
   useRecommendedImage: 1
   useRecommendedMaterial: 1
   useRecommendedAlignment: 1
   useRecommendedLabel: 1
-  layoutElement: {fileID: 0}
 --- !u!114 &831990510758175173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +504,21 @@ MonoBehaviour:
   component: {fileID: 9094880756896625477}
   fieldName: material
   assetAddress: RoR2/Base/UI/matUIAnimateAlphaNakedButton.mat
+--- !u!114 &3608080973044585780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587745744896233904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 9094880756896625477}
+  fieldName: sprite
+  assetAddress: RoR2/Base/UI/texUIAnimateSliceNakedButton.png
 --- !u!114 &8338451006691005772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,9 +532,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_WITHDRAW_FORMAT
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 7642209338621098168}
 --- !u!1 &1710239644934458469
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,7 +804,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2470199614437608703}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
@@ -852,10 +818,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: / 4294967295 $
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -935,9 +899,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_TARGETBALANCEFORMAT
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 2277970948393566474}
 --- !u!1 &2848120394185192482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1086,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2956451676225422399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
@@ -1139,10 +1100,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Withdraw
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1222,9 +1181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_WITHDRAW
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 1645548863867608196}
 --- !u!1 &3229760175339696816
 GameObject:
   m_ObjectHideFlags: 0
@@ -1237,7 +1193,6 @@ GameObject:
   - component: {fileID: 2670647776504036576}
   - component: {fileID: 4374657490249619328}
   - component: {fileID: 2126240563504615786}
-  - component: {fileID: 7286854903842240606}
   - component: {fileID: 5462413910217357656}
   - component: {fileID: 4911344451395711447}
   - component: {fileID: 7733935385204204490}
@@ -1245,6 +1200,7 @@ GameObject:
   - component: {fileID: 1934186539525970187}
   - component: {fileID: 2958551110968507363}
   - component: {fileID: 1994462998785628716}
+  - component: {fileID: 4213166984496304392}
   m_Layer: 5
   m_Name: CancelButton
   m_TagString: Untagged
@@ -1293,10 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: -573374155, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _token: CANCEL
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 1258407688452435509}
+  _token: OK
 --- !u!114 &2126240563504615786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,8 +1262,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: -2196571179615420756, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
@@ -1327,21 +1279,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7286854903842240606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3229760175339696816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIAnimateSliceNakedButton.png
-  TargetComponents:
-  - {fileID: 2126240563504615786}
 --- !u!114 &5462413910217357656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,8 +1291,6 @@ MonoBehaviour:
   m_Script: {fileID: -103623725, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventSystemProvider: {fileID: 0}
-  _eventSystem: {fileID: 0}
 --- !u!114 &4911344451395711447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,7 +1345,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  eventSystemLocator: {fileID: 5462413910217357656}
   allowAllEventSystems: 1
   submitOnPointerUp: 0
   disablePointerClick: 0
@@ -1429,22 +1363,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   defaultFallbackButton: 0
-  inPointerUp: 0
-  textMeshProUGui: {fileID: 0}
-  stopwatch: 679.9313
-  originalColor: {r: 1, g: 1, b: 1, a: 1}
   showImageOnHover: 1
   imageOnHover: {fileID: 0}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
   hoverToken: 
-  hovering: 0
-  previousState: 0
   uiClickSoundOverride: Play_UI_menuBack
-  buttonScaleVelocity: 0
-  imageOnHoverAlphaVelocity: 0
-  imageOnHoverScaleVelocity: 0
 --- !u!114 &7733935385204204490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1496,16 +1421,13 @@ MonoBehaviour:
   m_Script: {fileID: 1102028033, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinData: {fileID: -2178569569907395334, guid: 00000000000000000000000000000000,
-    type: 0}
-  button: {fileID: 4911344451395711447}
+  skinData: {fileID: 0}
   useRecommendedButtonWidth: 1
   useRecommendedButtonHeight: 1
   useRecommendedImage: 1
   useRecommendedMaterial: 1
   useRecommendedAlignment: 1
   useRecommendedLabel: 1
-  layoutElement: {fileID: 0}
 --- !u!114 &1994462998785628716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,6 +1443,21 @@ MonoBehaviour:
   component: {fileID: 2126240563504615786}
   fieldName: material
   assetAddress: RoR2/Base/UI/matUIAnimateAlphaNakedButton.mat
+--- !u!114 &4213166984496304392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3229760175339696816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 2126240563504615786}
+  fieldName: sprite
+  assetAddress: RoR2/Base/UI/texUIAnimateSliceNakedButton.png
 --- !u!1 &3288393682905940807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,7 +1593,7 @@ GameObject:
   - component: {fileID: 7728105694366938284}
   - component: {fileID: 8988722308347306415}
   - component: {fileID: 4322248320013445493}
-  - component: {fileID: 8035717866698504277}
+  - component: {fileID: 8082620918922349844}
   m_Layer: 5
   m_Name: Borders, Subtle
   m_TagString: Untagged
@@ -1740,7 +1677,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8035717866698504277
+--- !u!114 &8082620918922349844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1749,12 +1686,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3372182478963805015}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIHighlightBoxOutlineThickIcon.png
-  TargetComponents:
-  - {fileID: 4322248320013445493}
+  component: {fileID: 4322248320013445493}
+  fieldName: sprite
+  assetAddress: RoR2/Base/UI/texUIHighlightBoxOutlineThickIcon.png
 --- !u!1 &3541957157004287591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,12 +2013,11 @@ MonoBehaviour:
   image: {fileID: 0}
   rawImage: {fileID: 6488239846732705036}
   spriteRenderer: {fileID: 0}
-  timeMax: 5
+  timeMax: 10
   destroyOnEnd: 0
   loopOnEnd: 1
   disableGameObjectOnEnd: 0
   time: 0
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &6488239846732705036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,7 +2308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6489854857562378508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
@@ -2386,10 +2322,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Off-Planet Account
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2469,9 +2403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_HEADER
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 5609701696338307115}
 --- !u!1 &7083656176596787197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,8 +2533,6 @@ MonoBehaviour:
   m_Script: {fileID: -103623725, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventSystemProvider: {fileID: 0}
-  _eventSystem: {fileID: 0}
 --- !u!114 &4447926391034729345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,10 +2546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _forceCursorForGamepad: 0
-  eventSystemLocator: {fileID: 0}
-  _opening: 0
-  linkedEventSystemCount: 0
-  linkedEventSystems: []
 --- !u!114 &5969496291781141450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2648,8 +2573,6 @@ MonoBehaviour:
   requiredInputSource: 0
   objectsToFilter:
   - {fileID: 3229760175339696816}
-  eventSystemLocator: {fileID: 0}
-  wasOn: 0
 --- !u!114 &4946573769477933007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2664,8 +2587,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredInputSource: 1
   objectsToFilter: []
-  eventSystemLocator: {fileID: 0}
-  wasOn: 0
 --- !u!114 &5086905135331848905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2695,8 +2616,6 @@ MonoBehaviour:
         m_CallState: 2
   requiredTopLayer: {fileID: 3984220072457610002}
   enabledObjectsIfActive: []
-  eventSystemLocator: {fileID: 0}
-  couldAcceptInput: 0
 --- !u!114 &3984220072457610002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2716,8 +2635,6 @@ MonoBehaviour:
   onEndRepresentTopLayer:
     m_PersistentCalls:
       m_Calls: []
-  eventSystemLocator: {fileID: 0}
-  <representsTopLayer>k__BackingField: 0
 --- !u!114 &7622163826218744982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,8 +2697,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasSortingOrderDelta: 3
   canvas: {fileID: 7779686396379915459}
-  originalCanvasSortingOrder: 0
-  cachedOriginalCanvasSortingOrder: 0
 --- !u!114 &7439879658545262172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2836,7 +2751,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  eventSystemLocator: {fileID: 6179343030338005741}
   allowAllEventSystems: 0
   submitOnPointerUp: 0
   disablePointerClick: 0
@@ -2855,7 +2769,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   defaultFallbackButton: 0
-  inPointerUp: 0
 --- !u!114 &1876960655695255238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2993,12 +2906,11 @@ MonoBehaviour:
   image: {fileID: 0}
   rawImage: {fileID: 8328859035603973364}
   spriteRenderer: {fileID: 0}
-  timeMax: 5
+  timeMax: 10
   destroyOnEnd: 0
   loopOnEnd: 1
   disableGameObjectOnEnd: 0
   time: 0
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8328859035603973364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3098,18 +3010,6 @@ MonoBehaviour:
   transitionDuration: 0.2
   panningMagnitude: 128
   destroyOnEndOfTransition: 0
-  transitionStopwatch: 0
-  transitionEndAlpha: 0
-  transitionStartAlpha: 0
-  originalAlpha: 0
-  transitionStartPosition: {x: 0, y: 0}
-  transitionEndPosition: {x: 0, y: 0}
-  originalPosition: {x: 0, y: 0}
-  transitionStartSize: {x: 0, y: 0}
-  transitionEndSize: {x: 0, y: 0}
-  originalSize: {x: 0, y: 0, z: 0}
-  wasTransition: 0
-  hasInitialized: 0
 --- !u!222 &2507144455363829977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3197,9 +3097,9 @@ GameObject:
   - component: {fileID: 2002205152260002307}
   - component: {fileID: 1074006022358975164}
   - component: {fileID: 2943386022628586732}
-  - component: {fileID: 1793112954437802169}
   - component: {fileID: 3701032948602220616}
   - component: {fileID: 1175340748961700815}
+  - component: {fileID: 3796377831296440757}
   m_Layer: 5
   m_Name: HoverOutline
   m_TagString: Untagged
@@ -3263,21 +3163,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1793112954437802169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7621923305162688286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIHighlightBoxOutlineThick.png
-  TargetComponents:
-  - {fileID: 2943386022628586732}
 --- !u!223 &3701032948602220616
 Canvas:
   m_ObjectHideFlags: 0
@@ -3313,8 +3198,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasSortingOrderDelta: 1
   canvas: {fileID: 3701032948602220616}
-  originalCanvasSortingOrder: 0
-  cachedOriginalCanvasSortingOrder: 0
+--- !u!114 &3796377831296440757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621923305162688286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 2943386022628586732}
+  fieldName: sprite
+  assetAddress: RoR2/Base/UI/texUIHighlightBoxOutlineThick.png
 --- !u!1 &7820512339567713618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3367,7 +3265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7820512339567713618}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
@@ -3379,12 +3277,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cancel
+  m_text: OK
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3504,7 +3400,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7830038291112409552}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
@@ -3518,10 +3414,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Contribute
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3601,9 +3495,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_CONTRIBUTE
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 7287343742652600795}
 --- !u!1 &7894064440018242053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,9 +3542,9 @@ GameObject:
   - component: {fileID: 30142459978692206}
   - component: {fileID: 7147142163893606773}
   - component: {fileID: 1592267146927412963}
-  - component: {fileID: 3381112356094552223}
   - component: {fileID: 8218892160372231027}
   - component: {fileID: 2082612314450348046}
+  - component: {fileID: 6173082982380022689}
   m_Layer: 5
   m_Name: HoverOutline
   m_TagString: Untagged
@@ -3717,21 +3608,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3381112356094552223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7974399738950352910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIHighlightBoxOutlineThick.png
-  TargetComponents:
-  - {fileID: 1592267146927412963}
 --- !u!223 &8218892160372231027
 Canvas:
   m_ObjectHideFlags: 0
@@ -3767,8 +3643,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasSortingOrderDelta: 1
   canvas: {fileID: 8218892160372231027}
-  originalCanvasSortingOrder: 0
-  cachedOriginalCanvasSortingOrder: 0
+--- !u!114 &6173082982380022689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974399738950352910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 1592267146927412963}
+  fieldName: sprite
+  assetAddress: RoR2/Base/UI/texUIHighlightBoxOutlineThick.png
 --- !u!1 &8232193326523740810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3822,7 +3711,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8232193326523740810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
@@ -3836,10 +3725,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Balance
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3919,9 +3806,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_BALANCE
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 7078102328944070659}
 --- !u!1 &8357684532097491449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,7 +3818,7 @@ GameObject:
   - component: {fileID: 5963600748812626304}
   - component: {fileID: 3527215868493877250}
   - component: {fileID: 3643131773324986419}
-  - component: {fileID: 1991431444348607982}
+  - component: {fileID: 8947840006988397160}
   m_Layer: 5
   m_Name: Borders
   m_TagString: Untagged
@@ -4019,7 +3903,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1991431444348607982
+--- !u!114 &8947840006988397160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4028,12 +3912,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8357684532097491449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIHighlightBoxOutlineThickIcon.png
-  TargetComponents:
-  - {fileID: 3643131773324986419}
+  component: {fileID: 3643131773324986419}
+  fieldName: Sprite
+  assetAddress: RoR2/Base/UI/texUIHighlightBoxOutlineThickIcon.png
 --- !u!1 &8729605275358308107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,9 +3929,9 @@ GameObject:
   - component: {fileID: 9005909602772809311}
   - component: {fileID: 6319183321311476162}
   - component: {fileID: 3914678223027772417}
-  - component: {fileID: 1985353299959355156}
   - component: {fileID: 2169294466804384004}
   - component: {fileID: 848688002709357030}
+  - component: {fileID: 2028341211779419146}
   m_Layer: 5
   m_Name: HoverOutline
   m_TagString: Untagged
@@ -4111,21 +3995,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1985353299959355156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8729605275358308107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e35d4c59186d0df4bb490b749a6bc7b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/texUIHighlightBoxOutlineThick.png
-  TargetComponents:
-  - {fileID: 3914678223027772417}
 --- !u!223 &2169294466804384004
 Canvas:
   m_ObjectHideFlags: 0
@@ -4161,8 +4030,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasSortingOrderDelta: 1
   canvas: {fileID: 2169294466804384004}
-  originalCanvasSortingOrder: 0
-  cachedOriginalCanvasSortingOrder: 0
+--- !u!114 &2028341211779419146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729605275358308107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 3914678223027772417}
+  fieldName: Sprite
+  assetAddress: RoR2/Base/UI/texUIHighlightBoxOutlineThick.png
 --- !u!1 &8902783124810802115
 GameObject:
   m_ObjectHideFlags: 0
@@ -4216,7 +4098,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8902783124810802115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 649313124, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
@@ -4230,10 +4112,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 4294967295 $
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4313,9 +4193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: MONEYBANK_INTERACTION_CURRENTBALANCEFORMAT
-  previousToken: 
-  resolvedString: 
-  textMeshPro: {fileID: 5843725434089845272}
 --- !u!1 &8988821474423613223
 GameObject:
   m_ObjectHideFlags: 0

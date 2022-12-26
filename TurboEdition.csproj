@@ -139,6 +139,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeCurling.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeSatchels.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\SpecialChargeSidewinder.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityClashRoll.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityRollLoopAerial.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\UtilityRollLoopGrounded.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\BombGet.cs" />
