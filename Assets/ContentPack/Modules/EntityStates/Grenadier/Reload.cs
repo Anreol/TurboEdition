@@ -40,7 +40,8 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public override void OnEnter()
         {
             base.OnEnter();
-            base.PlayAnimation("Gesture, Additive", (base.characterBody.isSprinting && base.characterMotor && base.characterMotor.isGrounded) ? "ReloadSimple" : "Reload", "Reload.playbackRate", this.duration);
+            //base.PlayAnimation("Gesture, Additive", (base.characterBody.isSprinting && base.characterMotor && base.characterMotor.isGrounded) ? "ReloadSimple" : "Reload", "Reload.playbackRate", this.duration);
+            base.PlayAnimation("Gesture, Override", "ReloadLoop", "Reload.playbackRate", this.duration);
             Util.PlayAttackSpeedSound(enterSoundString, base.gameObject, enterSoundPitch);
             EffectManager.SimpleMuzzleFlash(reloadEffectPrefab, base.gameObject, reloadEffectMuzzleString, false);
         }

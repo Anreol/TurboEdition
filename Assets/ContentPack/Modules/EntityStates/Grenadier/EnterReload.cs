@@ -22,7 +22,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public override void OnEnter()
         {
             base.OnEnter();
-            base.PlayCrossfade("Gesture, Additive", "EnterReload", "Reload.playbackRate", this.duration, 0.1f);
+            base.PlayCrossfade("Gesture, Override", "ReloadStart", "Reload.playbackRate", this.duration, 0.1f);
             Util.PlaySound(enterSoundString, base.gameObject);
         }
 

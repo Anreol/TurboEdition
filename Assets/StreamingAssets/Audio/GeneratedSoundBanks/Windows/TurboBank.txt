@@ -1,20 +1,27 @@
 Event	ID	Name			Wwise Object Path	Notes
+	116129673	Stop_Ambience_Loop			\Default Work Unit\Ambience\Stop_Ambience_Loop	
 	183542901	Play_Grenadier_Primary_Fire			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Fire	
 	204571091	Play_LeaveStageError			\Default Work Unit\Equipment\Play_LeaveStageError	
 	310158201	Play_Item_Proc_PackMagnet_Grab			\Default Work Unit\Items\Play_Item_Proc_PackMagnet_Grab	
+	806162123	Stop_Shrine_TeleporterOvercharger_IdleLoop			\Default Work Unit\Stop_Shrine_TeleporterOvercharger_IdleLoop	
 	855800836	Play_Grenadier_ExplosionS			\Default Work Unit\Characters\Grenadier\Play_Grenadier_ExplosionS	
 	855800858	Play_Grenadier_ExplosionM			\Default Work Unit\Characters\Grenadier\Play_Grenadier_ExplosionM	
 	878563697	Play_Grenadier_Steps			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Steps	
 	902611312	Play_Item_Proc_ItemDeployer			\Default Work Unit\Items\Play_Item_Proc_ItemDeployer	
+	938309267	Play_AMB_zone_dark_rain			\Default Work Unit\Ambience\Play_AMB_zone_dark_rain	
 	1133541694	Play_BigScytheSwing			\Default Work Unit\Equipment\Play_BigScytheSwing	
 	1561076785	Play_Grenadier_Special_GainExtraCharge			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_GainExtraCharge	
 	1978592993	Play_Grenadier_Primary_Warn			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Warn	
 	2041123800	Play_Grenadier_Special_Charge			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Charge	
+	2105423861	Play_Shrine_TeleporterOvercharger_IdleLoop			\Default Work Unit\Play_Shrine_TeleporterOvercharger_IdleLoop	
 	2255434859	Play_Item_Proc_DropletDupe_Clone			\Default Work Unit\Items\Play_Item_Proc_DropletDupe_Clone	
 	2376185369	Play_Grenadier_Landing			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Landing	
 	2762120414	Play_Item_Proc_PackMagnet_Duplicate			\Default Work Unit\Items\Play_Item_Proc_PackMagnet_Duplicate	
 	3091314681	Play_Grenadier_Special_Ready			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Ready	
+	3433956687	Play_Achievement			\Default Work Unit\UI\Play_Achievement	
 	3477662151	Play_Grenadier_Reload			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Reload	
+	3633988413	Kill_loops			\Default Work Unit\Kill_loops	Might be used to kill all loops, as name implies.
+	3864097025	Pause_All			\Default Work Unit\Pause_All	
 	4088573137	Play_Grenadier_Secondary_Fire			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Secondary_Fire	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -22,6 +29,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	55014961	Item_Proc_DropletDupe_Clone	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\00325_streaming_B282B47B.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\ItemMixer\Items\Item_Proc_DropletDupe_Clone		19993
+	133592846	ror_synth_bells_02	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\ror_synth_bells_02_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\Shrine_TeleporterOvercharger_IdleLoop\ror_synth_bells_02		61784
 	143500258	se_reflet_step_right_m	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_step_right_m_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Steps\se_reflet_step_right_m		2315
 	240158681	se_reflet_landing02	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_landing02_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Landing\se_reflet_landing02		4642
 	289712532	Grenadier_ExplosionM	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_attackbomb_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_ExplosionM		7732
@@ -40,6 +48,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	778002739	Item_Proc_ItemDeployer2	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Item_Proc_ItemDeployer2_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\ItemMixer\Items\Item_Proc_ItemDeployer\Item_Proc_ItemDeployer2		6286
 	839927522	se_reflet_landing03	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_landing03_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Landing\se_reflet_landing03		6078
 	856589483	Item_Proc_PackMagnet_Duplicate	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\actors_samus_magnet_saminit_04_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\ItemMixer\Items\Item_Proc_PackMagnet_Duplicate		8379
+	858673885	ror_synth_bells_01	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\ror_synth_bells_01_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\Shrine_TeleporterOvercharger_IdleLoop\ror_synth_bells_01		62555
 	883888142	Grenadier_Primary_Warn	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\DetpackBeepEndA_1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Primary_Warn		6115
 	923839061	Milkor_FireMix1	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Milkor_FireMix1_0D5756A9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Primary_Fire\Milkor_FireMix1		8258
 	1005350925	se_reflet_landing01	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_landing01_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Landing\se_reflet_landing01		5038

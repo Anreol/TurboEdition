@@ -209,7 +209,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: ff69bd0cb0472246bf85651c36cdcb1d
     GuidInternal: 
-    m_lastTime: -8585447332423062256
+    m_lastTime: -8585305841899862604
     List:
     - name: TurboBank
       guid: 17de7e2c48388444a1e209fca9afe8f3
@@ -237,7 +237,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: f9aeee3adff9124fa97c10655bacd25f
     GuidInternal: 
-    m_lastTime: -8585335024815868779
+    m_lastTime: -8585305841899947756
     List:
     - name: Ambience
       guid: 99a9833588cef848951ae7302d9080f3
@@ -311,8 +311,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Kill_loops
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Pause_All
       guid: 06be46b6db1fc34ba0cbb8a60a250750
       id: 3864097025
@@ -323,8 +323,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Pause_All
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_Achievement
       guid: ab490829d79a3b46a4803bdfecd0fd4a
       id: 3433956687
@@ -337,8 +337,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\UI\Play_Achievement
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_AMB_zone_dark_rain
       guid: e47a0c79bd099d408fd90b7114bee841
       id: 938309267
@@ -351,8 +351,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Ambience\Play_AMB_zone_dark_rain
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: Play_BigScytheSwing
       guid: 4bbb722ff9254540a855c7b5d4161606
       id: 1133541694
@@ -613,6 +613,18 @@ MonoBehaviour:
       maxAttenuation: 50
       maxDuration: 0.790161
       minDuration: 0.78561
+    - name: Play_Shrine_TeleporterOvercharger_IdleLoop
+      guid: b102d0d4d565f042b1cf9c97cca2abad
+      id: 2105423861
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Shrine_TeleporterOvercharger_IdleLoop
+        ObjectType: 3
+      Path: Default Work Unit\Play_Shrine_TeleporterOvercharger_IdleLoop
+      maxAttenuation: 200
+      maxDuration: -1
+      minDuration: -1
     - name: Stop_Ambience_Loop
       guid: 5e61abaf6363d949a733333cb1c32d3a
       id: 116129673
@@ -625,8 +637,20 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\Ambience\Stop_Ambience_Loop
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_Shrine_TeleporterOvercharger_IdleLoop
+      guid: a311a6bfb5a1ec48aab69d8d5574ba1a
+      id: 806162123
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_Shrine_TeleporterOvercharger_IdleLoop
+        ObjectType: 3
+      Path: Default Work Unit\Stop_Shrine_TeleporterOvercharger_IdleLoop
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: UI
       guid: fca536f13a1f4442abf82c0952d81f79
       id: 1551306167
@@ -1501,6 +1525,9 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585542195489967775
     List: []
-  ExpandedItems: []
+  ExpandedItems:
+  - /TurboEdition_WwiseProject
+  - /TurboEdition_WwiseProject/Events
+  - /TurboEdition_WwiseProject/Events/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

@@ -4,59 +4,11 @@ ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: 3837638800551990511
-    second: mdlGrenadier|Ascend
-  - first:
-      74: -9011624224979304115
-    second: mdlGrenadier|CSS
-  - first:
-      74: 4264478691046761862
-    second: mdlGrenadier|CSS_Idle
-  - first:
-      74: 5449056408592923115
-    second: mdlGrenadier|Descend
-  - first:
-      74: -5962485141095151031
-    second: mdlGrenadier|Landing
-  - first:
-      74: 3557480374076601062
-    second: mdlGrenadier|Loop
-  - first:
-      74: -3571788084049582890
-    second: mdlGrenadier|Pitch
-  - first:
-      74: 5116104401943979326
-    second: mdlGrenadier|ReloadEnd
-  - first:
-      74: -6101026797554535367
-    second: mdlGrenadier|ReloadLoop
-  - first:
-      74: 5264741224929429434
-    second: mdlGrenadier|RunB
-  - first:
-      74: 4981307010157204750
-    second: mdlGrenadier|RunF
-  - first:
-      74: 4252466875631617684
-    second: mdlGrenadier|RunL
-  - first:
-      74: -5638011639274580405
-    second: mdlGrenadier|RunR
-  - first:
-      74: 1544488628236072137
-    second: mdlGrenadier|Shoot
-  - first:
-      74: -910647734336446190
-    second: mdlGrenadier|Sprint
-  - first:
-      74: 5921135546479083412
-    second: mdlGrenadier|test
-  - first:
-      74: -4277366039764581448
-    second: mdlGrenadier|Yaw
-  - first:
       74: 992126440383174644
     second: GrenadierArmature|Ascend
+  - first:
+      74: 3054554662917013471
+    second: GrenadierArmature|BodyRollLoop
   - first:
       74: -2256276262363853161
     second: GrenadierArmature|CSS
@@ -67,11 +19,23 @@ ModelImporter:
       74: 2541470161935183868
     second: GrenadierArmature|Descend
   - first:
-      74: -2925798003034300609
-    second: GrenadierArmature|Landing
+      74: -7309452535478538866
+    second: GrenadierArmature|FireHandheldWeapon
   - first:
-      74: -3390716114285094176
-    second: GrenadierArmature|Loop
+      74: 399523665454844213
+    second: GrenadierArmature|FireMainWeapon
+  - first:
+      74: 4983182053999975441
+    second: GrenadierArmature|FireSideWeapon
+  - first:
+      74: 1632238484587443965
+    second: GrenadierArmature|Idle
+  - first:
+      74: -5875238053096870868
+    second: GrenadierArmature|Jump
+  - first:
+      74: 7483890978222900466
+    second: GrenadierArmature|LightImpact
   - first:
       74: 6831374811434408337
     second: GrenadierArmature|Pitch
@@ -81,6 +45,9 @@ ModelImporter:
   - first:
       74: -1016565289836917748
     second: GrenadierArmature|ReloadLoop
+  - first:
+      74: 237832396247274445
+    second: GrenadierArmature|ReloadStart
   - first:
       74: 4780088160133654903
     second: GrenadierArmature|RunB
@@ -93,9 +60,6 @@ ModelImporter:
   - first:
       74: 7544522259759791940
     second: GrenadierArmature|RunR
-  - first:
-      74: -2810916531416062265
-    second: GrenadierArmature|Shoot
   - first:
       74: 2547150837739406992
     second: GrenadierArmature|Sprint
@@ -163,6 +127,35 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
+      name: GrenadierArmature|BodyRollLoop
+      takeName: GrenadierArmature|BodyRollLoop
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
       name: GrenadierArmature|CSS
       takeName: GrenadierArmature|CSS
       internalID: 0
@@ -203,8 +196,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -250,8 +243,37 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: GrenadierArmature|Landing
-      takeName: GrenadierArmature|Landing
+      name: GrenadierArmature|FireHandheldWeapon
+      takeName: GrenadierArmature|FireHandheldWeapon
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 57
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GrenadierArmature|FireMainWeapon
+      takeName: GrenadierArmature|FireMainWeapon
       internalID: 0
       firstFrame: 0
       lastFrame: 19
@@ -279,11 +301,98 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: GrenadierArmature|Loop
-      takeName: GrenadierArmature|Loop
+      name: GrenadierArmature|FireSideWeapon
+      takeName: GrenadierArmature|FireSideWeapon
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GrenadierArmature|Idle
+      takeName: GrenadierArmature|Idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GrenadierArmature|Jump
+      takeName: GrenadierArmature|Jump
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GrenadierArmature|LightImpact
+      takeName: GrenadierArmature|LightImpact
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -320,7 +429,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 1
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -377,8 +486,37 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: GrenadierArmature|ReloadStart
+      takeName: GrenadierArmature|ReloadStart
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 27
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -511,35 +649,6 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: GrenadierArmature|Shoot
-      takeName: GrenadierArmature|Shoot
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 19
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
       name: GrenadierArmature|Sprint
       takeName: GrenadierArmature|Sprint
       internalID: 0
@@ -610,7 +719,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 1
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -626,18 +735,18 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 10
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0

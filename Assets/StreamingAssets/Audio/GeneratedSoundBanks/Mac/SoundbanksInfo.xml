@@ -24,11 +24,15 @@
 	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="1897392197">
+		<SoundBank Id="34081325" Language="SFX" Hash="2991356478">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3633988413" Name="Kill_loops" ObjectPath="\Events\Default Work Unit\Kill_loops" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3864097025" Name="Pause_All" ObjectPath="\Events\Default Work Unit\Pause_All" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3433956687" Name="Play_Achievement" ObjectPath="\Events\Default Work Unit\UI\Play_Achievement" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="938309267" Name="Play_AMB_zone_dark_rain" ObjectPath="\Events\Default Work Unit\Ambience\Play_AMB_zone_dark_rain" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1133541694" Name="Play_BigScytheSwing" ObjectPath="\Events\Default Work Unit\Equipment\Play_BigScytheSwing" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.560937" DurationMax="0.629630">
 					<IncludedMemoryFiles>
 						<File Id="441768360" Language="SFX">
@@ -185,6 +189,20 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2105423861" Name="Play_Shrine_TeleporterOvercharger_IdleLoop" ObjectPath="\Events\Default Work Unit\Play_Shrine_TeleporterOvercharger_IdleLoop" MaxAttenuation="200.000000" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="133592846" Language="SFX">
+							<ShortName>ror_synth_bells_02.wav</ShortName>
+							<Path>SFX\ror_synth_bells_02_3F75BDB9.wem</Path>
+						</File>
+						<File Id="858673885" Language="SFX">
+							<ShortName>ror_synth_bells_01.wav</ShortName>
+							<Path>SFX\ror_synth_bells_01_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="116129673" Name="Stop_Ambience_Loop" ObjectPath="\Events\Default Work Unit\Ambience\Stop_Ambience_Loop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="806162123" Name="Stop_Shrine_TeleporterOvercharger_IdleLoop" ObjectPath="\Events\Default Work Unit\Stop_Shrine_TeleporterOvercharger_IdleLoop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="1612634724" Name="GrenadierSpecial_ChargeAmount" ObjectPath="\Game Parameters\Default Work Unit\Grenadier\GrenadierSpecial_ChargeAmount"/>

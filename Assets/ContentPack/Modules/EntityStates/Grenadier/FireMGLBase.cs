@@ -30,7 +30,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             minimumDuration = baseMinDuration / this.attackSpeedStat;
             if (base.characterBody)
                 base.characterBody.SetAimTimer(1.5f); //I have no idea what this does
-            base.PlayAnimation("Gesture, Additive", "FireMainWeapon", "FireMainWeapon.playbackRate", baseAnimDuration / this.attackSpeedStat);
+            base.PlayAnimation("Gesture, Override", "FireMainWeapon", "FireMainWeapon.playbackRate", baseAnimDuration / this.attackSpeedStat);
         }
 
         public override void FixedUpdate()

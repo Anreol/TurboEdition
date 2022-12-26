@@ -8,6 +8,7 @@
 						<ObjectRef Name="Grenadier" ID="{178DC00F-FFEB-402E-97D0-F61FDA5E47C2}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Items" ID="{93E991E4-8887-419A-9081-BF407C6BC025}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Equipment" ID="{AD1620A5-50C7-4EBC-9DDD-D5A5E47C93F3}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Default Work Unit" ID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" WorkUnitID="{3AEEAEF9-F9DF-4F12-A97C-10655BACD25F}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

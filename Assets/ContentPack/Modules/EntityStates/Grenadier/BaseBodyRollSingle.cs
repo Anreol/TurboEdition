@@ -87,7 +87,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
         public override void OnEnter()
         {
             base.OnEnter();
-            //PlayAnim(); //Fucking crashes the game if there's no animation.
+            PlayAnim(); //Fucking crashes the game if there's no animation.
             //If it hasnt been initialized...
             if (overlapAttack == null)
             {
@@ -168,7 +168,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
         /// </summary>
         protected virtual void PlayAnim()
         {
-            base.PlayCrossfade("FullBody, Override", "UtilityRoll", "UtilityRoll.playbackRate", calculatedDuration, 0.1f);
+            base.PlayCrossfade("Full Body, Override", "BodyRollLoop", "BodyRollLoop.playbackRate", calculatedDuration, 0.1f);
         }
 
         /// <summary>

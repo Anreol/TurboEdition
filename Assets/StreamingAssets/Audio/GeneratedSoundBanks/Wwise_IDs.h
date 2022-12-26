@@ -13,7 +13,11 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID KILL_LOOPS = 3633988413U;
+        static const AkUniqueID PAUSE_ALL = 3864097025U;
         static const AkUniqueID PAUSE_MUSIC = 2735935537U;
+        static const AkUniqueID PLAY_ACHIEVEMENT = 3433956687U;
+        static const AkUniqueID PLAY_AMB_ZONE_DARK_RAIN = 938309267U;
         static const AkUniqueID PLAY_BIGSCYTHESWING = 1133541694U;
         static const AkUniqueID PLAY_GRENADIER_EXPLOSIONM = 855800858U;
         static const AkUniqueID PLAY_GRENADIER_EXPLOSIONS = 855800836U;
@@ -33,6 +37,9 @@ namespace AK
         static const AkUniqueID PLAY_LEAVESTAGEERROR = 204571091U;
         static const AkUniqueID PLAY_MUSIC_SYSTEM = 3260968109U;
         static const AkUniqueID PLAY_MUSIC_SYSTEM_TURBOEDITON = 354587331U;
+        static const AkUniqueID PLAY_SHRINE_TELEPORTEROVERCHARGER_IDLELOOP = 2105423861U;
+        static const AkUniqueID STOP_AMBIENCE_LOOP = 116129673U;
+        static const AkUniqueID STOP_SHRINE_TELEPORTEROVERCHARGER_IDLELOOP = 806162123U;
         static const AkUniqueID UNPAUSE_MUSIC = 3712621630U;
     } // namespace EVENTS
 
