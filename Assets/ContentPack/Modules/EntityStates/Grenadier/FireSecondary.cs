@@ -3,20 +3,16 @@ using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.SideWeapon
 {
-    internal class FireSecondaryAlt : GenericProjectileBaseState
+    internal class FireSecondary : GenericProjectileBaseState
     {
-        [SerializeField]
-        public float baseAnimDuration = 1f;
-
+        [Tooltip("Base duration of an animation, gets multipled by the state duration later.")]
+        public static float baseAnimDuration = 1f;
         public static float minimumDuration;
         public static float selfForce;
-
-        public override void OnEnter()
+        public override void PlayAnimation(float duration)
         {
-            base.OnEnter();
-            if (base.characterBody)
-                base.characterBody.SetAimTimer(1.5f); //I have no idea what this does
-            base.PlayAnimation("Gesture, Left Arm, Additive", "FireSideWeapon", "FireSideWeapon.playbackRate", baseAnimDuration / this.attackSpeedStat);
+            base.PlayAnimation(duration);
+            base.PlayAnimation("Gesture, Left Arm, Additive", "FireSideWeapon", "FireSideWeapon.playbackRate", baseAnimDuration * duration);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

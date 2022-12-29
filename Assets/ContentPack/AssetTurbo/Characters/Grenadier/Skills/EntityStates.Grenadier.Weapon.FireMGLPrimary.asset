@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType:
     assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Weapon.FireMGLPrimary,
-      TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
+      TurboEdition, Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
     - fieldName: baseMinDuration
@@ -76,7 +76,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseAnimDuration
       fieldValue:
-        stringValue: 0
+        stringValue: 0.75
         objectValue: {fileID: 0}
     - fieldName: speedOverride
       fieldValue:

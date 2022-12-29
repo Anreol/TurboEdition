@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2068210574
+CRC: 3174524027
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 027b6d9840adc4d4f7d61359d6a60c58
+    Hash: 6949368b8083625f2b142807818d5533
   TypeTreeHash:
     serializedVersion: 2
     Hash: b2bf9ae875a78e3faca8db0ae62764ae
@@ -1006,6 +1006,7 @@ Assets:
 - Assets/Textures/texTrimsheetObservatoryNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberSecondaryGetBomb.asset
 - Assets/Mesh/meshImpBomberBarrel.mesh
+- Assets/Materials/matUIPaintStreakSimple.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/KnifeFanProjectile.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/animGrenadier.controller
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/PainArtifact.asset

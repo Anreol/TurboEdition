@@ -30,22 +30,22 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 - Finish a new shrine.
 - If you are interested in any of this, or the future, please contact me.
 
-## Credits
-- Majority of items modelled by the talented Big Nut.
+## Contributors
+- Some items modelled by Big Nut.
 	- [Check out his work at his ArtStation profile.](https://www.artstation.com/raditsys)
 
 - Imp and Mimigun models and animations by DotFlare.
-- Graphics (Expansion Icon and Artifacts) by SOM.
-- Grenadier model by Anons.
-- Bubbet & Moffein for giving me a hand in a few things and showing me how dumb some of my practices are.
-- Kevin from HP support, learned a awful ton of Unity and proper practices thanks to my time spent in the SS2 team. Also, how the mod loads items is taken from there!
-- Special thanks to vm for playtesting.
+- Expansion Icon by SOM.
+- Grenadier model by Anon.
+	- Texturing & animation by DotFlare.
+- Code assistance from Moffein.
+- Kevin from HP support, for experience in SS2 and some part of the codebase.
+- Special thanks to /vm/ for playtesting and /agdg/ for assistance.
 - Special thanks to Gnome, for introducing me to modding.
 - Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!
 
 ### Feedback
 If you can fill up [this form](https://forms.gle/6kEEJdguHPrKzHNo9) for [feedback](https://forms.gle/6kEEJdguHPrKzHNo9) I'd be extremely thankful.
-Alternatively you can contact me...
 
 ### Contact
 I'm open to contributions, specifically models, as they take me more time than what I wished. 
@@ -54,8 +54,10 @@ You can contact me by messaging to Anreol#8231
 ## Changelog
 Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Changelog](https://rentry.org/TurboEditionChangelog)
 
-`0.1.0` - `0.1.2`
-Test Releases for playtesting.
+### Latest release
+
+`0.1.4 Impromptu Test`
+This was a release made for a impromptu test, so bugs from the previous version are most likely still in, and features are unfinished or untested.
 
 ## Rainfusion
 You can find the original Turbo Edition by JoeyAsagiri on [rainfusion.ml](https://rainfusion.ml/) and a direct download can be found [here](https://cdn.rainfusion.ml/download-mod/18f68f57-bcfd-4979-873c-6df90c33e353/turbo_edition_0.3.1.zip). The original repository can be found [here](https://github.com/JoeySmulders/RoR-Turbo-Edition).

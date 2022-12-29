@@ -13,13 +13,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.passivepicasso.simplyaddress": {
-      "version": "https://github.com/PassivePicasso/SimplyAddress.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "930d0c66e70d514cfcba88c85f46dbb1312d34db"
-    },
     "com.passivepicasso.thunderkit": {
       "version": "https://github.com/PassivePicasso/ThunderKit.git",
       "depth": 0,
@@ -27,7 +20,7 @@
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "de6c944d35c7edb4f7d25ad2bd1f138fab8484f5"
+      "hash": "1140d4f3b331d803058b5bc73e98195643f706ff"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

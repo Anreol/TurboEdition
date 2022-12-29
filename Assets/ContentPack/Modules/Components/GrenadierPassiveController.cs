@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using RoR2.Projectile;
 using RoR2.Skills;
+using TurboEdition.EntityStates.Grenadier;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -21,14 +22,14 @@ namespace TurboEdition.Components
         {
             get
             {
-                return resolvedRollMachine.state.GetType() != resolvedRollMachine.mainStateType.stateType;
+                return resolvedBodyMachine.state.GetType() == typeof(BasePushMoreState);
             }
         }
 
         //TODO: run on the client, check for body auth, doesn't have to be networked, bomblets will be projectiles so we let the projectile manager take care of networking.
         private CharacterBody characterBody;
 
-        private EntityStateMachine resolvedRollMachine;
+        private EntityStateMachine resolvedBodyMachine;
         private bool[] serverBlastArmorStates;
         private float blastArmorRechargeTime;
 
@@ -51,7 +52,7 @@ namespace TurboEdition.Components
                 for (int i = 0; i < serverBlastArmorStates.Length; i++)
                     serverBlastArmorStates[i] = true;
             }
-            resolvedRollMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Roll");
+            resolvedBodyMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Body");
         }
 
         [Server]

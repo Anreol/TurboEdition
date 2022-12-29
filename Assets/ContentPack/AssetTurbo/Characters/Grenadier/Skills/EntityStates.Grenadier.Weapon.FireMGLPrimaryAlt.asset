@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType:
     assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.Weapon.FireMGLPrimaryAlt,
-      TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
+      TurboEdition, Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
     - fieldName: baseAnimDuration
       fieldValue:
-        stringValue: 0.8
+        stringValue: 0.75
         objectValue: {fileID: 0}
     - fieldName: baseMinDuration
       fieldValue:
@@ -48,7 +48,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: force
       fieldValue:
-        stringValue: 475
+        stringValue: 400
         objectValue: {fileID: 0}
     - fieldName: minSpread
       fieldValue:

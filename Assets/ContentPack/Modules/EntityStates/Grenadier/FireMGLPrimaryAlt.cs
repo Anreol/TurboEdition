@@ -2,7 +2,7 @@
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
-    internal class FireMGLPrimaryAlt : FireMGLBase
+    internal class FireMGLPrimaryAlt : BaseFireMGL
     {
         public override void OnEnter()
         {

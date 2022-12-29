@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetType:
     assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.SideWeapon.FireSecondaryAlt,
-      TurboEdition, Version=9999.0.0.6, Culture=neutral, PublicKeyToken=null
+      TurboEdition, Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
   serializedFieldsCollection:
     serializedFields:
     - fieldName: effectPrefab
@@ -77,4 +77,8 @@ MonoBehaviour:
     - fieldName: minimumDuration
       fieldValue:
         stringValue: 0.5
+        objectValue: {fileID: 0}
+    - fieldName: baseAnimDuration
+      fieldValue:
+        stringValue: 1
         objectValue: {fileID: 0}

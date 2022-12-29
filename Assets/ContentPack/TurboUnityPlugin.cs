@@ -17,7 +17,7 @@ namespace TurboEdition
 #if DEBUG
             "9999." +
 #endif
-            "0.1.4";
+            "0.1.5";
 
         internal const string ModIdentifier = "TurboEdition";
         internal const string ModGuid = "com.Anreol." + ModIdentifier;

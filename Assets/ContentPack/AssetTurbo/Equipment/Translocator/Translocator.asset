@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1512808244, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: Translocator
+  m_EditorClassIdentifier: 
+  pickupModelPrefab: {fileID: 5004284487608745642, guid: 62cf4b451dc824948805a23cf6311b2e,
+    type: 3}
+  cooldown: 30
+  nameToken: EQUIPMENT_TRANSLOCATOR_NAME
+  pickupToken: EQUIPMENT_TRANSLOCATOR_PICKUP
+  descriptionToken: EQUIPMENT_TRANSLOCATOR_DESC
+  loreToken: ITEM_TURBOWIP_LORE
+  pickupIconSprite: {fileID: 0}
+  unlockableDef: {fileID: 0}
+  colorIndex: 5
+  canDrop: 1
+  dropOnDeathChance: 0
+  canBeRandomlyTriggered: 0
+  enigmaCompatible: 0
+  isLunar: 0
+  isBoss: 0
+  passiveBuffDef: {fileID: 0}
+  appearsInSinglePlayer: 1
+  appearsInMultiPlayer: 1
+  requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}
+  mageElement: 0
