@@ -6,9 +6,9 @@ namespace TurboEdition.EntityStates.Grenadier
 {
     internal class RollClash : BaseRoll
     {
-        [Tooltip("Number to multiply the current damage by, and gets used for the hitstop duration. Set to zero or less to disable hitstop damage scaling.")]
+        [Tooltip("Should the hitstop duration scale with damage or not.")]
         [SerializeField]
-        public float hitstopDamageScaleCoeff = 1;
+        public bool hitstopDamageScale = false;
 
         [Tooltip("The value which will be multiplied by the base damage, and will be represented as currentHitstopDuration.")]
         [SerializeField]
@@ -25,7 +25,7 @@ namespace TurboEdition.EntityStates.Grenadier
         [Tooltip("The frequency (1/time) at which the overlap attack is fired. Higher values means more frequent ticks of damage.")]
         public static float attackFireFrequency = 1;
 
-        [Tooltip("The frequency (1/time) at which the overlap attack is reset. Higher values means more resets.")]
+        [Tooltip("The frequency (1/time) at which the overlap attack is reset and the character can hit again enemies already hit. Higher values means more resets.")]
         public static float attackResetFrequency = 1;
 
         [Tooltip("The push away force applied to the targets when hit.")]
@@ -49,12 +49,13 @@ namespace TurboEdition.EntityStates.Grenadier
         [Tooltip("Amount of forward velocity to apply to the character on enter, only if they are moving.")]
         public static float forwardVelocity;
 
-        internal override float currentHitstopDuration => hitstopDamageScaleCoeff > 0 ? base.currentHitstopDuration : Util.Remap(currentDamage * hitstopDamageScaleCoeff, currentDamage * hitstopDamageForMinStopCoeff, currentDamage * hitstopDamageForMaxStopCoeff, base.currentHitstopDuration, hitstopDamageMaxDuration);
+        internal override float currentHitstopDuration => hitstopDamageScale ? base.currentHitstopDuration : Util.Remap(currentDamage, currentDamage * hitstopDamageForMinStopCoeff, currentDamage * hitstopDamageForMaxStopCoeff, base.currentHitstopDuration, hitstopDamageMaxDuration);
+        internal override float currentAirControlCurveEval => fixedAge / 4;
 
         //Attack stuff
         internal OverlapAttack overlapAttack = null;
 
-        private bool hasClashedOrSuccessfullyAttacked = false;
+        private bool hasMovementHit = false;
         private float fireTimer;
         private float resetTimer;
 
@@ -112,7 +113,7 @@ namespace TurboEdition.EntityStates.Grenadier
                     }
                     //Do attack, with a timer to dont lag the hell out of the game.
                     fireTimer -= Time.fixedDeltaTime;
-                    if (fireTimer <= 0f)
+                    if (fireTimer <= 0f || hasMovementHit)
                     {
                         fireTimer = 1f / attackFireFrequency;
 
@@ -121,34 +122,36 @@ namespace TurboEdition.EntityStates.Grenadier
                         if (overlapAttack.Fire(victims))
                         {
                             HandleSuccessfulHit(victims);
+                            return;
+                        }
+                        if (hasMovementHit)
+                        {
+                            outer.SetNextStateToMain();
                         }
                     }
                 }
             }
-            if (hasClashedOrSuccessfullyAttacked)
+        }
+        public override void OnExit()
+        {
+            base.OnExit();
+            if (isAuthority)
             {
-                outer.SetNextStateToMain();
+                characterMotor.onMovementHit -= onMovementHit;
             }
         }
-
         public virtual void ModifyOverlapAttack(OverlapAttack overlapAttack)
         {
             overlapAttack.damage = Mathf.Max(currentDamage, currentDamage * GetDamageBoostFromSpeed());
         }
         private void onMovementHit(ref CharacterMotor.MovementHitInfo movementHitInfo)
         {
-            hasClashedOrSuccessfullyAttacked = true;
-            //Do an extra attack since we are exiting...?
-            ModifyOverlapAttack(overlapAttack);
-            if (overlapAttack.Fire(victims))
-            {
-                HandleSuccessfulHit(victims);
-            }
+            hasMovementHit = true;
         }
         public override void HandleSuccessfulHit(List<HurtBox> victims)
         {
             base.HandleSuccessfulHit(victims);
-            hasClashedOrSuccessfullyAttacked = true;
+            outer.SetNextStateToMain();
         }
 
         /// <summary>

@@ -51,12 +51,13 @@ namespace TurboEdition.EntityStates.Grenadier
                 rollVFXTransform.gameObject.SetActive(true);
                 rollVFXAlpha = rollVFXTransform.gameObject.GetComponent<AnimateShaderAlpha>();
             }
+            base.PlayAnimation("Full Body, Override", "BodyRollLoop");
         }
 
         public override void UpdateAnimationParameters()
         {
             base.UpdateAnimationParameters();
-            float playbackRate = Util.Remap(base.estimatedVelocity.y, animMinValue, animMaxValue, 0.05f, animMaxPlaybackSpeed);
+            float playbackRate = Util.Remap(GetDamageBoostFromSpeed(), animMinValue, animMaxValue, 0.05f, animMaxPlaybackSpeed);
             if (rollVFXAlpha)
             {
                 rollVFXAlpha.time = isInHitPause ? 0 : playbackRate;
@@ -115,7 +116,7 @@ namespace TurboEdition.EntityStates.Grenadier
             base.OnExit();
 
             rollVFXTransform?.gameObject.SetActive(false);
-
+            base.PlayAnimation("Full Body, Override", "Empty");
             int layerIndex = base.modelAnimator.GetLayerIndex("Impact");
             if (layerIndex >= 0)
             {

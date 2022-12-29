@@ -19,11 +19,11 @@ MonoBehaviour:
     serializedFields:
     - fieldName: hitstopDamageForMinStopCoeff
       fieldValue:
-        stringValue: 1
+        stringValue: 2
         objectValue: {fileID: 0}
     - fieldName: hitstopDamageForMaxStopCoeff
       fieldValue:
-        stringValue: 5
+        stringValue: 6
         objectValue: {fileID: 0}
     - fieldName: hitstopDamageMaxDuration
       fieldValue:
@@ -59,23 +59,23 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: airControlOverrideCurve
       fieldValue:
-        stringValue: '{"preWrapMode":8,"postWrapMode":8,"keys":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"inWeight":0.0,"outWeight":0.0,"weightedMode":0,"tangentMode":0},{"time":1.0,"value":0.8003755807876587,"inTangent":2.0,"outTangent":2.0,"inWeight":0.0,"outWeight":0.0,"weightedMode":0,"tangentMode":0}]}'
+        stringValue: '{"preWrapMode":8,"postWrapMode":8,"keys":[{"time":0.0,"value":0.035391177982091907,"inTangent":0.0,"outTangent":0.0,"inWeight":0.0,"outWeight":0.0,"weightedMode":0,"tangentMode":0},{"time":1.0,"value":0.8003755807876587,"inTangent":2.0,"outTangent":2.0,"inWeight":0.0,"outWeight":0.0,"weightedMode":0,"tangentMode":0}]}'
         objectValue: {fileID: 0}
     - fieldName: minimumAimDirectionY
       fieldValue:
-        stringValue: 15
+        stringValue: 5
         objectValue: {fileID: 0}
     - fieldName: aimDirectionVelocity
       fieldValue:
-        stringValue: 5
+        stringValue: 10
         objectValue: {fileID: 0}
     - fieldName: upwardVelocity
       fieldValue:
-        stringValue: 8
+        stringValue: 5
         objectValue: {fileID: 0}
     - fieldName: forwardVelocity
       fieldValue:
-        stringValue: 20
+        stringValue: 15
         objectValue: {fileID: 0}
     - fieldName: animMinValue
       fieldValue:
@@ -83,25 +83,25 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: attackFireFrequency
       fieldValue:
-        stringValue: 0.25
+        stringValue: 0.5
         objectValue: {fileID: 0}
     - fieldName: hitEffectPrefab
       fieldValue:
         stringValue: 
         objectValue: {fileID: 0}
-    - fieldName: hitstopDamageScaleCoeff
-      fieldValue:
-        stringValue: 0.5
-        objectValue: {fileID: 0}
     - fieldName: attackResetFrequency
       fieldValue:
-        stringValue: 0.5
+        stringValue: 0.25
         objectValue: {fileID: 0}
     - fieldName: attackPushAwayForce
       fieldValue:
-        stringValue: 0
+        stringValue: 20
         objectValue: {fileID: 0}
     - fieldName: attackMaxTargetsAtOnce
       fieldValue:
-        stringValue: 0
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: hitstopDamageScale
+      fieldValue:
+        stringValue: 1
         objectValue: {fileID: 0}

@@ -42,7 +42,7 @@ namespace TurboEdition.EntityStates.Grenadier
             base.FixedUpdate();
             if (airControlOverrideCurve != null)
             {
-                base.characterMotor.airControl = airControlOverrideCurve.Evaluate(currentAirControlCurveEval);
+                base.characterMotor.airControl = airControlOverrideCurve.Evaluate(Mathf.Clamp01(currentAirControlCurveEval));
             }
         }
 
