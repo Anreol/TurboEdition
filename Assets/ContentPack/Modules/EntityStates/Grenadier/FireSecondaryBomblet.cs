@@ -53,7 +53,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public override void ModifyNextState(EntityState nextState)
         {
             base.ModifyNextState(nextState);
-            if (step < comboThrows)
+            if (step+1 < comboThrows)
             {
                 FireSecondaryBomblet fireSecondaryBomblet;
                 if ((fireSecondaryBomblet = (nextState as FireSecondaryBomblet)) != null)
@@ -77,7 +77,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 return;
             }
             //TODO: throw anim
-            base.PlayAnimation("Gesture, Left Arm, Additive", "FireSideWeapon", "FireSideWeapon.playbackRate", baseAnimDuration * duration);
+            base.PlayAnimation("Gesture, Left Arm, Additive", "FireSideWeapon, FireNow", "FireSideWeapon.playbackRate", baseAnimDuration * duration);
         }
         public override void FireProjectile()
         {

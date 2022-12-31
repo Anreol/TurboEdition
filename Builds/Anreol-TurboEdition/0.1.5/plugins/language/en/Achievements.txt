@@ -11,5 +11,7 @@
 		
 		"ACHIEVEMENT_GRENADIERCLEARGAMEMONSOON_NAME": "Grenadier: Mastery",
 		"ACHIEVEMENT_GRENADIERCLEARGAMEMONSOON_DESCRIPTION": "As Grenadier, beat the game or obliterate on Monsoon.",
+		"ACHIEVEMENT_GRENADIERPOSTDEATHKILL_NAME": "Blowout",
+		"ACHIEVEMENT_GRENADIERPOSTDEATHKILL_DESCRIPTION": "As Grenadier, kill an enemy with your armor's detpack after dying.",
 	}
 }

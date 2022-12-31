@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1255927399, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: skinGrenadierRecolor
+  m_EditorClassIdentifier: 
+  baseSkins:
+  - {fileID: 0}
+  icon: {fileID: 0}
+  nameToken: GRENADIER_SKIN_RECOLOR_NAME
+  unlockableName: 
+  unlockableDef: {fileID: 11400000, guid: 0982df111677f304098eb245a4d44afa, type: 2}
+  rootObject: {fileID: 6931545290462054027, guid: a5428e068b224314da4501cec31c9da5,
+    type: 3}
+  rendererInfos:
+  - renderer: {fileID: 418297804126362853, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: b1d24fa75ddc06b4e934c17ea176b945, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 252109562752245029, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: 8d5397e2bbf619e4faa649c18174366c, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 6611186160253978457, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: 8d5397e2bbf619e4faa649c18174366c, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 779715004406739588, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: b1d24fa75ddc06b4e934c17ea176b945, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 3228883081832786981, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: b1d24fa75ddc06b4e934c17ea176b945, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 8599584396547826727, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: b1d24fa75ddc06b4e934c17ea176b945, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 509558791536852498, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: b1d24fa75ddc06b4e934c17ea176b945, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 1016866947154424955, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: b1d24fa75ddc06b4e934c17ea176b945, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  - renderer: {fileID: 59890574654668636, guid: a5428e068b224314da4501cec31c9da5,
+      type: 3}
+    defaultMaterial: {fileID: 2100000, guid: b1d24fa75ddc06b4e934c17ea176b945, type: 2}
+    defaultShadowCastingMode: 1
+    ignoreOverlays: 0
+    hideOnDeath: 0
+  gameObjectActivations: []
+  meshReplacements: []
+  projectileGhostReplacements: []
+  minionSkinReplacements: []

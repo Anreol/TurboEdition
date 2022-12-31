@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TurboEdition.EntityStates.Grenadier
+namespace TurboEdition.EntityStates.Grenadier.Roll
 {
     internal class RollClash : BaseRoll
     {
@@ -43,13 +43,16 @@ namespace TurboEdition.EntityStates.Grenadier
         [Tooltip("The value which the normalized aim direction will be multiplied by and applied to the character, only if they are moving.")]
         public static float aimDirectionVelocity;
 
+        [Tooltip("The value which the normalized aim direction will be multiplied by and applied to the character, without the Y, only if they are moving.")]
+        public static float aimDirectionBonusHorizontalVelocity;
+
         [Tooltip("Amount of upwards velocity to apply to the character on enter.")]
         public static float upwardVelocity;
 
         [Tooltip("Amount of forward velocity to apply to the character on enter, only if they are moving.")]
         public static float forwardVelocity;
 
-        internal override float currentHitstopDuration => hitstopDamageScale ? base.currentHitstopDuration : Util.Remap(currentDamage, currentDamage * hitstopDamageForMinStopCoeff, currentDamage * hitstopDamageForMaxStopCoeff, base.currentHitstopDuration, hitstopDamageMaxDuration);
+        internal override float currentHitstopDuration => hitstopDamageScale ? Mathf.Max(Util.Remap(currentDamage, currentDamage * hitstopDamageForMinStopCoeff, currentDamage * hitstopDamageForMaxStopCoeff, hitstopDuration, hitstopDamageMaxDuration), hitstopDuration): hitstopDuration;
         internal override float currentAirControlCurveEval => fixedAge / 4;
 
         //Attack stuff
@@ -73,9 +76,8 @@ namespace TurboEdition.EntityStates.Grenadier
                 characterMotor.onMovementHit += onMovementHit;
                 base.characterBody.isSprinting = true;
                 //Do only Y movement
-                if (characterBody.characterMotor.moveDirection.x > 0 || characterBody.characterMotor.moveDirection.z > 0)
+                if (characterBody.characterMotor.moveDirection.x == 0f && characterBody.characterMotor.moveDirection.z == 0f)
                 {
-                    direction.y = Mathf.Max(direction.y, minimumAimDirectionY);
                     Vector3 b = Vector3.up * upwardVelocity;
                     base.characterMotor.Motor.ForceUnground();
                     base.characterMotor.velocity += b;
@@ -83,8 +85,13 @@ namespace TurboEdition.EntityStates.Grenadier
                 else
                 {
                     //Do movement with all axis
+                    //Avoid slamming the player into the ground if already grounded
+                    if (characterMotor.isGrounded)
+                    {
+                        minimumAimDirectionY = 0.05f; 
+                    }
                     direction.y = Mathf.Max(direction.y, minimumAimDirectionY);
-                    Vector3 a = direction.normalized * aimDirectionVelocity * this.moveSpeedStat / characterBody.baseMoveSpeed;
+                    Vector3 a = ((direction.normalized * aimDirectionVelocity) + new Vector3(direction.normalized.x * aimDirectionBonusHorizontalVelocity, 0, direction.normalized.z * aimDirectionBonusHorizontalVelocity)) * this.moveSpeedStat / characterBody.baseMoveSpeed;
                     Vector3 b = Vector3.up * upwardVelocity;
                     Vector3 b2 = new Vector3(direction.x, 0f, direction.z).normalized * forwardVelocity;
                     base.characterMotor.Motor.ForceUnground();
@@ -96,62 +103,58 @@ namespace TurboEdition.EntityStates.Grenadier
             overlapAttack.maximumOverlapTargets = attackMaxTargetsAtOnce;
         }
 
-
-        public override void FixedUpdate()
+        public override void AuthorityFixedUpdate()
         {
-            base.FixedUpdate();
-            if (isAuthority)
-            {
-                if (overlapAttack != null)
-                {
-                    //Reset attack before firing
-                    resetTimer -= Time.fixedDeltaTime;
-                    if (resetTimer <= 0f)
-                    {
-                        resetTimer = 1f / attackResetFrequency;
-                        ResetOverlap();
-                    }
-                    //Do attack, with a timer to dont lag the hell out of the game.
-                    fireTimer -= Time.fixedDeltaTime;
-                    if (fireTimer <= 0f || hasMovementHit)
-                    {
-                        fireTimer = 1f / attackFireFrequency;
+            base.AuthorityFixedUpdate();
 
-                        //The damage might be outdated since the attack got initialized, update.
-                        ModifyOverlapAttack(overlapAttack);
-                        if (overlapAttack.Fire(victims))
-                        {
-                            HandleSuccessfulHit(victims);
-                            return;
-                        }
-                        if (hasMovementHit)
-                        {
-                            outer.SetNextStateToMain();
-                        }
+            if (overlapAttack != null)
+            {
+                //Reset attack before firing
+                resetTimer -= Time.fixedDeltaTime;
+                if (resetTimer <= 0f)
+                {
+                    resetTimer = 1f / attackResetFrequency;
+                    ResetOverlap();
+                }
+                //Do attack, with a timer to dont lag the hell out of the game.
+                fireTimer -= Time.fixedDeltaTime;
+                if (fireTimer <= 0f || hasMovementHit)
+                {
+                    finishOnNextHitstopExit = hasMovementHit;
+                    hasMovementHit = false;
+                    fireTimer = 1f / attackFireFrequency;
+
+                    //The damage might be outdated since the attack got initialized, update.
+                    AuthorityModifyOverlapAttack(overlapAttack);
+                    if (overlapAttack.Fire(victims))
+                    {
+                        AuthoritySuccessfulHit(victims);
+                        return;
                     }
                 }
             }
         }
-        public override void OnExit()
+
+        protected override void AuthorityOnFinish()
         {
-            base.OnExit();
-            if (isAuthority)
-            {
-                characterMotor.onMovementHit -= onMovementHit;
-            }
+            base.AuthorityOnFinish();
+            characterMotor.onMovementHit -= onMovementHit;
         }
-        public virtual void ModifyOverlapAttack(OverlapAttack overlapAttack)
+
+        public virtual void AuthorityModifyOverlapAttack(OverlapAttack overlapAttack)
         {
-            overlapAttack.damage = Mathf.Max(currentDamage, currentDamage * GetDamageBoostFromSpeed());
+            overlapAttack.damage = currentDamage * GetDamageBoostFromSpeed();
         }
+
         private void onMovementHit(ref CharacterMotor.MovementHitInfo movementHitInfo)
         {
             hasMovementHit = true;
         }
-        public override void HandleSuccessfulHit(List<HurtBox> victims)
+
+        public override void AuthoritySuccessfulHit(List<HurtBox> victims)
         {
-            base.HandleSuccessfulHit(victims);
-            outer.SetNextStateToMain();
+            base.AuthoritySuccessfulHit(victims);
+            finishOnNextHitstopExit = true;
         }
 
         /// <summary>

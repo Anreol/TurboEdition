@@ -22,7 +22,7 @@ namespace TurboEdition.Components
         {
             get
             {
-                return resolvedBodyMachine.state.GetType() == typeof(BasePushMoreState);
+                return resolvedBodyMachine.state.GetType().IsSubclassOf(typeof(BasePushMoreState));
             }
         }
 
@@ -52,7 +52,7 @@ namespace TurboEdition.Components
                 for (int i = 0; i < serverBlastArmorStates.Length; i++)
                     serverBlastArmorStates[i] = true;
             }
-            resolvedBodyMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Body");
+            resolvedBodyMachine = EntityStateMachine.FindByCustomName(characterBody.gameObject, "Roll");
         }
 
         [Server]

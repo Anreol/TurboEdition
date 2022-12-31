@@ -74,7 +74,7 @@
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
 	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",
-	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>10 more</style> <style=cStack>(+10 per stack)</style> each time you hit an enemy that is under 25% HP, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>10 more</style> <style=cStack>(+10 per stack)</style> each time you hit an enemy that is under 25% HP, bonus <color=#FF7F7F>is lost</color> when you get hurt.",
 	"ITEM_SOULDEVOURER_LORE": "",
 
 	"ITEM_STANDBONUS_NAME": "Punching Bag",

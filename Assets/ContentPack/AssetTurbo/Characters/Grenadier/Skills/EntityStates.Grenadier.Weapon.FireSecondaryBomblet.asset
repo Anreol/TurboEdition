@@ -56,11 +56,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: projectilePitchBonus
       fieldValue:
-        stringValue: -5
+        stringValue: 5
         objectValue: {fileID: 0}
     - fieldName: baseDelayBeforeFiringProjectile
       fieldValue:
-        stringValue: 1
+        stringValue: 1.65
         objectValue: {fileID: 0}
     - fieldName: targetMuzzle
       fieldValue:
@@ -72,15 +72,15 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: baseAnimDuration
       fieldValue:
-        stringValue: 1
+        stringValue: 2
         objectValue: {fileID: 0}
     - fieldName: baseMinDuration
       fieldValue:
-        stringValue: 0.5
+        stringValue: 1.5
         objectValue: {fileID: 0}
     - fieldName: smallHopVelocity
       fieldValue:
-        stringValue: 20
+        stringValue: 9
         objectValue: {fileID: 0}
     - fieldName: comboThrows
       fieldValue:
@@ -96,9 +96,9 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: comboSpreadBloomMod
       fieldValue:
-        stringValue: 0
+        stringValue: 1.5
         objectValue: {fileID: 0}
     - fieldName: comboDurationMod
       fieldValue:
-        stringValue: 0.5
+        stringValue: 0.70
         objectValue: {fileID: 0}

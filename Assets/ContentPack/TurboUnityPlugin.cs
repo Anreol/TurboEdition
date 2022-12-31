@@ -41,8 +41,8 @@ namespace TurboEdition
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);
 #endif
 
-            //RoR2Application.onFixedUpdate += onFixedUpdate;
-            //UnityEngine.SceneManagement.SceneManager.activeSceneChanged += activeSceneChanged;
+            RoR2Application.onFixedUpdate += onFixedUpdate;
+            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += activeSceneChanged;
             RoR2.Run.onClientGameOverGlobal += FeedbackLog;
         }
 
@@ -86,15 +86,29 @@ namespace TurboEdition
                         UnityEngine.Object.Instantiate(itemDef.pickupModelPrefab, new Vector3(-0.06f, 0.04f, 2.07f), Quaternion.Euler(0f, 210.6264f, 0f)).SetActive(false);
                     }
                 }
+                foreach (System.Reflection.FieldInfo survivor in typeof(TEContent.Survivors).GetFields())
+                {
+                    SurvivorDef survivorDef = (SurvivorDef)survivor.GetValue(null);
+                    if (!survivorDef.displayPrefab)
+                        continue;
+                    if (parent)
+                    {
+                        UnityEngine.Object.Instantiate(survivorDef.displayPrefab, parent.transform).SetActive(false);
+                    }
+                    else
+                    {
+                        UnityEngine.Object.Instantiate(survivorDef.displayPrefab, new Vector3(-0.06f, 0.04f, 2.07f), Quaternion.Euler(0f, 210.6264f, 0f)).SetActive(false);
+                    }
+                }
             }
         }
 
-        /*private void onFixedUpdate()
+        private void onFixedUpdate()
         {
             if (Input.GetKeyDown(KeyCode.F3))
             {
                 UnityEngine.AddressableAssets.Addressables.LoadSceneAsync("RoR2/Dev/renderitem/renderitem.unity", UnityEngine.SceneManagement.LoadSceneMode.Single);
             }
-        }*/
+        }
     }
 }

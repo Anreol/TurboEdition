@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GrenadierSecondaryBomblet
   m_EditorClassIdentifier: 
   skillName: 
-  skillNameToken: 
-  skillDescriptionToken: 
+  skillNameToken: GRENADIER_SECONDARY_ALT2_NAME
+  skillDescriptionToken: GRENADIER_SECONDARY_ALT2_DESCRIPTION
   keywordTokens: []
   icon: {fileID: 0}
   activationStateMachineName: Weapon
@@ -37,4 +37,4 @@ MonoBehaviour:
   isCombatSkill: 1
   mustKeyPress: 1
   stepCount: 3
-  stepGraceDuration: 0.35
+  stepGraceDuration: 0.75

@@ -64,7 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ContentPack\Modules\Achievements\BaseHasUnlockableAchievement.cs" />
     <Compile Include="Assets\ContentPack\Modules\Achievements\GrenadierClearGameMonsoonAchievement.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Achievements\GrenadierPostDeathKillAchievement.cs" />
     <Compile Include="Assets\ContentPack\Modules\Achievements\HostLobby.cs" />
     <Compile Include="Assets\ContentPack\Modules\Achievements\MinionDamage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Achievements\StackStickybombs.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseFireMGL.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BasePushMoreState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\BaseRoll.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\DeathState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReload.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\EnterReloadFast.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\Grenadier\FireMGLPrimary.cs" />
@@ -151,6 +154,7 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\SpawnState.cs" />
     <Compile Include="Assets\ContentPack\Modules\Mecanim\OverridePlaybackRate.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\AddressableFieldLoader.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\AddressablePrefab.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\AddressablesAsset.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\AddressablesAssetOnChildrens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\InjectRoR2Camera.cs" />

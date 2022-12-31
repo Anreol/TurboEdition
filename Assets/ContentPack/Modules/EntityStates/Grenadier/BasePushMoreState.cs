@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier
 {
-    internal abstract class BasePushMoreState : BaseCharacterMain
+    internal abstract class BasePushMoreState : BaseSkillState
     {
-
         [Tooltip("The minimum amount of seconds in which this state will have skill priority, scales with attack speed.")]
         [SerializeField]
         public float baseMinDuration;
@@ -44,7 +43,14 @@ namespace TurboEdition.EntityStates.Grenadier
             {
                 base.characterMotor.airControl = airControlOverrideCurve.Evaluate(Mathf.Clamp01(currentAirControlCurveEval));
             }
+            if (isAuthority)
+            {
+                AuthorityFixedUpdate();
+            }
         }
+
+        public virtual void AuthorityFixedUpdate()
+        { }
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
@@ -59,7 +65,7 @@ namespace TurboEdition.EntityStates.Grenadier
         {
             base.OnExit();
             base.characterMotor.airControl = previousAirControl;
-            base.characterBody.bodyFlags &= setIgnoreFallDamage ? CharacterBody.BodyFlags.IgnoreFallDamage : CharacterBody.BodyFlags.None;
+            base.characterBody.bodyFlags &= setIgnoreFallDamage ? ~CharacterBody.BodyFlags.IgnoreFallDamage : CharacterBody.BodyFlags.None;
         }
     }
 }

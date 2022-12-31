@@ -456,6 +456,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 761583074}
+  - {fileID: 1803871217}
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -678,14 +679,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 331090058}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/MonstersOnShrineUse/MonstersOnShrineUseSpawnEffect.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/MonstersOnShrineUse/MonstersOnShrineUseSpawnEffect.prefab
 --- !u!1 &505119408
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,14 +762,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 523304915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/Common/PlayerPositionIndicator.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/Common/PlayerPositionIndicator.prefab
 --- !u!1 &523775980
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,14 +810,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 523775980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/DLC1/VoidSurvivor/VoidSurvivorCorruptionUISimplified.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/DLC1/VoidSurvivor/VoidSurvivorCorruptionUISimplified.prefab
 --- !u!1 &569800938
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,14 +844,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 569800938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/Commando/CommandoBody.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/Commando/CommandoBody.prefab
 --- !u!4 &569800940
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,14 +1144,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 733033530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/ShrineCombat/CombatShrineCombatSquad.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/ShrineCombat/CombatShrineCombatSquad.prefab
 --- !u!4 &733033532
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,14 +1206,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 761583073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/WardOnLevel/WarbannerBuffEffect.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/WardOnLevel/WarbannerBuffEffect.prefab
 --- !u!1 &761755046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,14 +1240,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 761755046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/DLC1/Railgunner/RailgunnerMine.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/DLC1/Railgunner/RailgunnerMine.prefab
 --- !u!4 &761755048
 Transform:
   m_ObjectHideFlags: 0
@@ -1415,14 +1416,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 901365946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/DLC1/VoidSurvivor/VoidSurvivorBody.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/DLC1/VoidSurvivor/VoidSurvivorBody.prefab
 --- !u!4 &901365948
 Transform:
   m_ObjectHideFlags: 0
@@ -1477,14 +1478,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 904602412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/ShrineCombat/CombatShrineSpawnEffect.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/ShrineCombat/CombatShrineSpawnEffect.prefab
 --- !u!1 &905933989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,14 +1526,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 905933989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/Engi/EngiDisplay.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/Engi/EngiDisplay.prefab
 --- !u!4 &960057737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3504237565358304541, guid: a5016a1f6ecdf2e40a9cd6a6c657d06f,
@@ -1565,14 +1566,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 965000608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/ShrineCombat/ShrineCombat.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/ShrineCombat/ShrineCombat.prefab
 --- !u!4 &965000610
 Transform:
   m_ObjectHideFlags: 0
@@ -1627,14 +1628,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1027303882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/Common/NPCPositionIndicator.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/Common/NPCPositionIndicator.prefab
 --- !u!1 &1053556545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,14 +1748,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1114609845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/Common/PoiPositionIndicator.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/Common/PoiPositionIndicator.prefab
 --- !u!1 &1121681162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,14 +2042,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1134676049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/ChatBox, In Run.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/UI/ChatBox, In Run.prefab
 --- !u!1001 &1150138166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2163,14 +2164,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234206047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/UI/HUDSimple.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/UI/HUDSimple.prefab
 --- !u!1 &1308171628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,14 +2198,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308171628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/DLC1/VoidSurvivor/VoidSurvivorCorruptionUI.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/DLC1/VoidSurvivor/VoidSurvivorCorruptionUI.prefab
 --- !u!4 &1308171630
 Transform:
   m_ObjectHideFlags: 0
@@ -2328,14 +2329,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1501077170}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/Common/BossPositionIndicator.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/Common/BossPositionIndicator.prefab
 --- !u!1 &1556232139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,14 +2462,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1605334007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/Captain/CaptainBody.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/Captain/CaptainBody.prefab
 --- !u!4 &1605334009
 Transform:
   m_ObjectHideFlags: 0
@@ -2871,14 +2872,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1768794067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9179511125c6f73468334de11b7eac07, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Address: RoR2/Base/ShrineRestack/ShrineRestack.prefab
   replaceSelf: 1
   OnInstantiated:
     m_PersistentCalls:
       m_Calls: []
+  Address: RoR2/Base/ShrineRestack/ShrineRestack.prefab
 --- !u!4 &1768794069
 Transform:
   m_ObjectHideFlags: 0
@@ -2893,6 +2894,54 @@ Transform:
   m_Father: {fileID: 700251190}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1803871216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803871217}
+  - component: {fileID: 1803871218}
+  m_Layer: 0
+  m_Name: PlayerDeath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1803871217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803871216}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 277915321}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1803871218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803871216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceSelf: 1
+  OnInstantiated:
+    m_PersistentCalls:
+      m_Calls: []
+  Address: RoR2/Base/Common/PlayerDeathEffect.prefab
 --- !u!224 &1862793938 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1348855532995429489, guid: 9944e2f1d566ad74b9cec0083a72db0e,

@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 89795172, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: EntityStates.Grenadier.DeathState
+  m_EditorClassIdentifier: 
+  targetType:
+    assemblyQualifiedName: TurboEdition.EntityStates.Grenadier.DeathState, TurboEdition,
+      Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
+  serializedFieldsCollection:
+    serializedFields:
+    - fieldName: timeUntilBehavior
+      fieldValue:
+        stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: damageCoefficient
+      fieldValue:
+        stringValue: 10
+        objectValue: {fileID: 0}
+    - fieldName: blastRadius
+      fieldValue:
+        stringValue: 20
+        objectValue: {fileID: 0}
+    - fieldName: blastProcCoeff
+      fieldValue:
+        stringValue: 5
+        objectValue: {fileID: 0}
+    - fieldName: blastBaseForce
+      fieldValue:
+        stringValue: 200
+        objectValue: {fileID: 0}
+    - fieldName: blastBonusForce
+      fieldValue:
+        stringValue: 500
+        objectValue: {fileID: 0}
+    - fieldName: onEnterPrefab
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 7153563187597557553, guid: e13f86efedfb2114cadfe81b4838b655,
+          type: 3}
+    - fieldName: deathPrefab
+      fieldValue:
+        stringValue: 
+        objectValue: {fileID: 7214428371660463810, guid: 4cb548fb8f1dbf048b32ecb372949457,
+          type: 3}
+    - fieldName: childLocatorString
+      fieldValue:
+        stringValue: NeckBomb
+        objectValue: {fileID: 0}
+    - fieldName: achievementIdentificator
+      fieldValue:
+        stringValue: GrenadierPostDeathKill
+        objectValue: {fileID: 0}

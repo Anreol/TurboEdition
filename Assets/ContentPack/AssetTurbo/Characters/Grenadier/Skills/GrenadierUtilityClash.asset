@@ -18,10 +18,10 @@ MonoBehaviour:
   keywordTokens:
   - KEYWORD_HEAVY
   icon: {fileID: 0}
-  activationStateMachineName: Body
+  activationStateMachineName: Roll
   activationState:
-    _typeName: TurboEdition.EntityStates.Grenadier.RollClash, TurboEdition, Version=9999.0.1.5,
-      Culture=neutral, PublicKeyToken=null
+    _typeName: TurboEdition.EntityStates.Grenadier.Roll.RollClash, TurboEdition,
+      Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
   baseRechargeInterval: 9
   baseMaxStock: 2
