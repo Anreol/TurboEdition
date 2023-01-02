@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2210829811
+CRC: 4110835319
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f170fe5ea7cce76eae99435967a34f47
+    Hash: b9eb6bcc8310ce69489158e7c112aa94
   TypeTreeHash:
     serializedVersion: 2
     Hash: 75b0148e9fdba97b60122aa952ef62ee
@@ -1000,6 +1000,7 @@ Assets:
 - Assets/Textures/texEffSpark_Sheet.png
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/PickupTeleporterLenses.prefab
 - Assets/Materials/matTeleporterLensesCloth.mat
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/texGrenadierIcon.png
 - Assets/Le Tai's Asset/TranslucentImage/Material/Default-Translucent.mat
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/meshAirborneBonus.mesh
 - Assets/Materials/matTeleporterLensesGlass.mat
@@ -1008,6 +1009,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/CurseItemTier.asset
 - Assets/ContentPack/AssetTurbo/Scenes/dev/matDevGridVeryLow.mat
 - Assets/Textures/texEffGlowSmoke.png
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/texGrenadierUnlockIcon.png
 - Assets/Textures/texTeleporterLensesClothNormal.png
 - Assets/Materials/matBigScythe.mat
 - Assets/Textures/texTrimsheetObservatoryNormal.png

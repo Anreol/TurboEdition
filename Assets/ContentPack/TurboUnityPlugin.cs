@@ -28,8 +28,8 @@ namespace TurboEdition
         public void Awake()
         {
             TELog.logger = Logger;
-            TELog.LogI("Running Turbo Edition for PLAYTESTING!", true);
-            TELog.LogI("Whenever a run ends, a log message will appear with a link to a form for feedback. Fill it if you want!", true);
+            //TELog.LogI("Running Turbo Edition for PLAYTESTING!", true);
+            //TELog.LogI("Whenever a run ends, a log message will appear with a link to a form for feedback. Fill it if you want!", true);
 #if DEBUG
             TELog.outputAlways = true;
             TELog.LogW("Running TurboEdition DEBUG build. PANIC!");
@@ -41,9 +41,9 @@ namespace TurboEdition
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);
 #endif
 
-            RoR2Application.onFixedUpdate += onFixedUpdate;
-            UnityEngine.SceneManagement.SceneManager.activeSceneChanged += activeSceneChanged;
-            RoR2.Run.onClientGameOverGlobal += FeedbackLog;
+           // RoR2Application.onFixedUpdate += onFixedUpdate;
+            //UnityEngine.SceneManagement.SceneManager.activeSceneChanged += activeSceneChanged;
+            //RoR2.Run.onClientGameOverGlobal += FeedbackLog;
         }
 
         private void FeedbackLog(Run arg1, RunReport arg2)
@@ -91,14 +91,9 @@ namespace TurboEdition
                     SurvivorDef survivorDef = (SurvivorDef)survivor.GetValue(null);
                     if (!survivorDef.displayPrefab)
                         continue;
-                    if (parent)
-                    {
-                        UnityEngine.Object.Instantiate(survivorDef.displayPrefab, parent.transform).SetActive(false);
-                    }
-                    else
-                    {
-                        UnityEngine.Object.Instantiate(survivorDef.displayPrefab, new Vector3(-0.06f, 0.04f, 2.07f), Quaternion.Euler(0f, 210.6264f, 0f)).SetActive(false);
-                    }
+
+                        UnityEngine.Object.Instantiate(survivorDef.displayPrefab, new Vector3(0.04f, -0.09f, 2.17f), Quaternion.Euler(0f, 210.6264f, 0f)).SetActive(false);
+
                 }
             }
         }
