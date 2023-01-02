@@ -52,7 +52,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
         [Tooltip("Amount of forward velocity to apply to the character on enter, only if they are moving.")]
         public static float forwardVelocity;
 
-        internal override float currentHitstopDuration => hitstopDamageScale ? Mathf.Max(Util.Remap(currentDamage, currentDamage * hitstopDamageForMinStopCoeff, currentDamage * hitstopDamageForMaxStopCoeff, hitstopDuration, hitstopDamageMaxDuration), hitstopDuration): hitstopDuration;
+        internal override float currentHitstopDuration => hitstopDamageScale ? Mathf.Max(Util.Remap(currentDamage, currentDamage * hitstopDamageForMinStopCoeff, currentDamage * hitstopDamageForMaxStopCoeff, hitstopDuration, hitstopDamageMaxDuration), hitstopDuration) : hitstopDuration;
         internal override float currentAirControlCurveEval => fixedAge / 4;
 
         //Attack stuff
@@ -88,7 +88,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
                     //Avoid slamming the player into the ground if already grounded
                     if (characterMotor.isGrounded)
                     {
-                        minimumAimDirectionY = 0.05f; 
+                        minimumAimDirectionY = 0.05f;
                     }
                     direction.y = Mathf.Max(direction.y, minimumAimDirectionY);
                     Vector3 a = ((direction.normalized * aimDirectionVelocity) + new Vector3(direction.normalized.x * aimDirectionBonusHorizontalVelocity, 0, direction.normalized.z * aimDirectionBonusHorizontalVelocity)) * this.moveSpeedStat / characterBody.baseMoveSpeed;

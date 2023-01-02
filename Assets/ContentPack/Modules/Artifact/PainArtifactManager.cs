@@ -1,9 +1,7 @@
 ﻿using RoR2;
-using RoR2.Artifacts;
 using System;
 using System.Collections.Generic;
 using TurboEdition.Components;
-using UnityEngine;
 using UnityEngine.Networking;
 
 namespace TurboEdition.Artifacts

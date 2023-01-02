@@ -1,11 +1,11 @@
 ﻿using RoR2;
-using UnityEngine;
 
 namespace TurboEdition.Buffs
 {
     public class BuffHellLinked : Buff
     {
         public override BuffDef buffDef { get; set; } = TEContent.Buffs.HellLinked;
+
         public override void Initialize()
         {
         }
@@ -16,7 +16,6 @@ namespace TurboEdition.Buffs
 
         public override void OnBuffFirstStackGained(ref CharacterBody body)
         {
-            
         }
 
         public override void OnBuffLastStackLost(ref CharacterBody body)

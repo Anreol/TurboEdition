@@ -79,6 +79,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
                 return;
             }
         }
+
         public override void AuthorityFixedUpdate()
         {
             base.AuthorityFixedUpdate();

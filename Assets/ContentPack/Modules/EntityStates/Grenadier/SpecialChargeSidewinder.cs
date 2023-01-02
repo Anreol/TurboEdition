@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TurboEdition.EntityStates.Grenadier.SideWeapon
+﻿namespace TurboEdition.EntityStates.Grenadier.SideWeapon
 {
-    class SpecialChargeSidewinder
+    internal class SpecialChargeSidewinder
     {
     }
 }

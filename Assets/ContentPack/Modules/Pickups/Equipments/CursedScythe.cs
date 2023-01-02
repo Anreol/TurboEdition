@@ -55,7 +55,7 @@ namespace TurboEdition.Equipments
             {
                 if (allCharacters[i].teamComponent && equipSlot.teamComponent)
                 {
-                    if (TeamManager.IsTeamEnemy(allCharacters[i].teamComponent.teamIndex, equipSlot.teamComponent.teamIndex ) && allCharacters[i].coreTransform)
+                    if (TeamManager.IsTeamEnemy(allCharacters[i].teamComponent.teamIndex, equipSlot.teamComponent.teamIndex) && allCharacters[i].coreTransform)
                     {
                         EntityStateMachine entityStateMachine = EntityStateMachine.FindByCustomName(allCharacters[i].gameObject, "Body");
                         if (entityStateMachine != null && entityStateMachine.state.GetType() == entityStateMachine.initialStateType.stateType)
@@ -76,16 +76,16 @@ namespace TurboEdition.Equipments
                 impactPosition = raycastHit.point;
             }
             //Else snap to the ground no matter what
-           /* else if (Physics.Raycast(impactPosition, Vector3.down, out raycastHit, float.PositiveInfinity, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
-            {
-                impactPosition = raycastHit.point;
-            }*/
+            /* else if (Physics.Raycast(impactPosition, Vector3.down, out raycastHit, float.PositiveInfinity, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
+             {
+                 impactPosition = raycastHit.point;
+             }*/
 
             FireProjectileInfo fireProjectileInfo = new FireProjectileInfo
             {
                 projectilePrefab = projectilePrefab,
                 position = impactPosition,
-                rotation = new Quaternion(0,0,0,0),
+                rotation = new Quaternion(0, 0, 0, 0),
                 owner = equipSlot.gameObject,
                 damage = equipSlot.characterBody.damage * 100,
                 force = 0,

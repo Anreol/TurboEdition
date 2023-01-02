@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TurboEdition.EntityStates.ImpBomber.Weapon
 {
-    class BombThrowForced : BombThrow
+    internal class BombThrowForced : BombThrow
     {
         public override void OnEnter()
         {
@@ -17,6 +12,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
                 base.skillLocator.primary.DeductStock(base.skillLocator.primary.stock);
             }
         }
+
         public override Ray ModifyProjectileAimRay(Ray aimRay)
         {
             aimRay.direction = Vector3.up;

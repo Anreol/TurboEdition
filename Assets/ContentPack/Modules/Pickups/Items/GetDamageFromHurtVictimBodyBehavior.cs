@@ -34,6 +34,7 @@ namespace TurboEdition.Items
         public GetDamageFromHurtVictimBodyAttachment getDamageFromHurtVictimBodyAttachment;
         internal const int stackFirst = 10;
         internal const int stackLater = 10;
+
         private void Start()
         {
             if (NetworkServer.active)

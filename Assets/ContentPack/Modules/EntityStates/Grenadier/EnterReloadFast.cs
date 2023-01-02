@@ -1,7 +1,4 @@
-﻿using EntityStates;
-using RoR2;
-
-namespace TurboEdition.EntityStates.Grenadier.Weapon
+﻿namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
     public class EnterReloadFast : EnterReload
     {

@@ -45,10 +45,10 @@ namespace TurboEdition.Misc
                     c.EmitDelegate<Func<ValueTuple<string, string, UnityEngine.Texture>[], ValueTuple<string, string, UnityEngine.Texture>[]>>(array =>
                     {
                         List<ValueTuple<string, string, UnityEngine.Texture>> newArray = new List<ValueTuple<string, string, UnityEngine.Texture>>(array);
-                        
+
                         //totalTeleporterOverchargerUsed stat
                         newArray.Insert(17, (Language.GetString(totalTeleporterOverchargerUsed.displayToken), userProfile.statSheet.GetStatDisplayValue(totalTeleporterOverchargerUsed), null));
-                        
+
                         //Return
                         return newArray.ToArray();
                     });

@@ -1,19 +1,15 @@
 ﻿using EntityStates;
-using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.ImpBomber.Weapon
 {
-    class BombThrow : GenericProjectileBaseState
+    internal class BombThrow : GenericProjectileBaseState
     {
         public static string bombBoneChildName;
+
         [SerializeField]
         public GameObject bombPrefabDefault;
+
         private ChildLocator childLocator;
         private GameObject bombInstance;
 
@@ -32,6 +28,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             base.GetModelAnimator().SetBool("BombHolding.active", false);
             base.OnEnter();
         }
+
         public override void FireProjectile()
         {
             if (bombInstance)
@@ -40,11 +37,11 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             }
             base.FireProjectile();
         }
+
         public override void PlayAnimation(float duration)
         {
             base.PlayAnimation(duration);
             base.PlayCrossfade("Gesture, Additive", "ThrowBomb", "BombThrow.playbackRate", duration, 0.1f);
         }
-
     }
 }

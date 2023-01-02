@@ -1,8 +1,6 @@
-﻿using EntityStates;
-using RoR2;
+﻿using RoR2;
 using RoR2.ContentManagement;
 using RoR2.ExpansionManagement;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -53,7 +51,7 @@ namespace TurboEdition
             //Content pack things, RoR2 systems.
             Assets.loadedAssetBundles = new ReadOnlyCollection<AssetBundle>(loadedBundles);
             serializableContentPack = Assets.mainAssetBundle.LoadAsset<SerializableContentPack>("ContentPackV2");
-            
+
             tempPackFromSerializablePack = serializableContentPack.CreateContentPack();
             tempPackFromSerializablePack.identifier = identifier;
 
@@ -140,11 +138,13 @@ namespace TurboEdition
             public static ArtifactDef Spite2Artifact;
             public static ArtifactDef WormsArtifact;
         }
+
         public static class ItemTiers
         {
             public static ItemTierDef CurseItemTier;
             public static ItemTierDef DualItemTier;
         }
+
         public static class Items
         {
             public static ItemDef AddTeleporterRadius;
@@ -167,6 +167,7 @@ namespace TurboEdition
             public static ItemDef Typewriter;
             public static ItemDef WardOnLevelVoid;
         }
+
         public static class Equipment
         {
             public static EquipmentDef CursedScythe;
@@ -183,14 +184,17 @@ namespace TurboEdition
             public static BuffDef Panic;
             public static BuffDef WardOnLevelVoid;
         }
+
         public static class Expansions
         {
             public static ExpansionDef TurboExpansion;
         }
+
         public static class Survivors
         {
             public static SurvivorDef Grenadier;
         }
+
         public static class Scenes
         {
             public static SceneDef observatory;

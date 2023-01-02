@@ -11,7 +11,6 @@ namespace TurboEdition.Components
     [RequireComponent(typeof(NetworkUIPromptController))]
     public class MoneyBankInteractionController : NetworkBehaviour, IInteractable, IDisplayNameProvider
     {
-
         public GameObject panelPrefab;
 
         public bool available = true;
@@ -19,8 +18,10 @@ namespace TurboEdition.Components
         public int baseWithdrawCost = 5;
         public int contributeButtonsAmount = 3;
         public int withdrawButtonsAmount = 3;
+
         //Used on unity
         public MoneyBankInteractionController.MoneyInteractedUnityEvent onMoneyInteracted;
+
         public MoneyBankInteractionController.AffordableContributalUnityEvent onAffordableContributal;
         public MoneyBankInteractionController.AffordableWithdrawalUnityEvent onAffordableWithdrawal;
 
@@ -158,7 +159,7 @@ namespace TurboEdition.Components
         public void SubmitChoice(int moneyAmount)
         {
             //If its the client...
-            if (!NetworkServer.active) 
+            if (!NetworkServer.active)
             {
                 NetworkWriter networkWriter = this.networkUIPromptController.BeginMessageToServer(); //Start writing to server...
                 networkWriter.Write(0);
@@ -167,7 +168,7 @@ namespace TurboEdition.Components
                 return; //And return.
             }
             //If its already server...
-            this.HandleTransaction(this.networkUIPromptController.currentParticipantMaster, moneyAmount); 
+            this.HandleTransaction(this.networkUIPromptController.currentParticipantMaster, moneyAmount);
         }
 
         [Server]
@@ -255,7 +256,6 @@ namespace TurboEdition.Components
             return Language.GetString(interactableString) + " (" + cachedSyncedMoneyAmount + "$ / " + MoneyBankManager.targetMoneyAmountToStore + "$)";
         }
 
-
         [Serializable]
         public class MoneyInteractedUnityEvent : UnityEvent<CharacterMaster, int>
         {
@@ -265,6 +265,7 @@ namespace TurboEdition.Components
         public class AffordableContributalUnityEvent : UnityEvent<CharacterMaster, int>
         {
         }
+
         [Serializable]
         public class AffordableWithdrawalUnityEvent : UnityEvent<CharacterMaster, int>
         {

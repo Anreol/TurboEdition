@@ -1,7 +1,4 @@
-﻿using HG;
-using RoR2;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using RoR2;
 
 namespace TurboEdition.Equipments
 {

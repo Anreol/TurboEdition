@@ -1,6 +1,5 @@
 ﻿using EntityStates;
 using RoR2;
-using System;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.ImpBomber.Weapon
@@ -13,6 +12,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
 
         private ChildLocator childLocator;
         private GameObject bombInstance;
+
         [SerializeField]
         public GameObject bombPrefabDefault;
 
@@ -54,6 +54,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
                 this.outer.SetNextState(jc);
             }
         }
+
         public override void OnExit()
         {
             if (base.skillLocator)
@@ -64,6 +65,7 @@ namespace TurboEdition.EntityStates.ImpBomber.Weapon
             }
             base.OnExit();
         }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;

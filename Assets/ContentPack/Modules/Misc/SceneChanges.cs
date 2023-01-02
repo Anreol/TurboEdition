@@ -12,11 +12,11 @@ namespace TurboEdition.Misc
             //SceneCatalog.onMostRecentSceneDefChanged += onMostRecentSceneDefChanged;
         }
 
-        const int sgEnviron = 10;
-        const int sgSkybox = 0;
+        private const int sgEnviron = 10;
+        private const int sgSkybox = 0;
+
         private static void onMostRecentSceneDefChanged(SceneDef obj)
         {
-
             if (obj == SceneCatalog.GetSceneDefFromSceneName("shipgraveyard"))
             {
                 GameObject[] roots = SceneInfo.instance.gameObject.scene.GetRootGameObjects();

@@ -1,5 +1,4 @@
-﻿using RoR2.Projectile;
-using TurboEdition.ScriptableObjects;
+﻿using TurboEdition.ScriptableObjects;
 using UnityEngine;
 
 namespace TurboEdition.EntityStates.Grenadier.Weapon
@@ -56,7 +55,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 for (int i = 0; i < startingStock; i++)
                 {
                     base.FireProjectileOnce(aimRay2);
-                    
+
                     GrenadierSpecialSkillDef.InstanceData instanceData = (GrenadierSpecialSkillDef.InstanceData)activatorSkillSlot.skillInstanceData;
                     if (instanceData != null && instanceData.skillStocksExtra > 0)
                     {

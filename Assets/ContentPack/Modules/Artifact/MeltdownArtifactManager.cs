@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TurboEdition.Artifacts
+﻿namespace TurboEdition.Artifacts
 {
-    class MeltdownArtifactManager
+    internal class MeltdownArtifactManager
     {
     }
 }

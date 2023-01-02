@@ -178,7 +178,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                     if (isAuthority)
                     {
                         //if (firedAtLeastOnce) //We are beyond the first shot (which is free as using the skill consumes a stock)
-                            activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
+                        activatorSkillSlot.DeductStock(activatorSkillSlot.skillDef.stockToConsume);
                         FireProjectileOnce(currentTrajectoryInfo.finalRay);
                     }
                     base.OnProjectileFiredLocal();

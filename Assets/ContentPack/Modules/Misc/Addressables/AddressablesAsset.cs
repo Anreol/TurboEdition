@@ -13,6 +13,7 @@ namespace TurboEdition.Components
 
         [SerializeField]
         private Component _targetComponent;
+
         [SerializeField]
         private string _targetMemberInfoName;
 

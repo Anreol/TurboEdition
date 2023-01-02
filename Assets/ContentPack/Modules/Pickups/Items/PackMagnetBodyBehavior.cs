@@ -3,7 +3,6 @@ using RoR2.Audio;
 using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {

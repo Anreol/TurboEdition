@@ -7,6 +7,7 @@ namespace TurboEdition
     {
         public static ManualLogSource logger = null;
         public static bool outputAlways = false;
+
         public TELog(ManualLogSource logger_)
         {
             logger = logger_;

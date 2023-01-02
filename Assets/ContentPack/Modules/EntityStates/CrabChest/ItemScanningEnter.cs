@@ -1,5 +1,4 @@
-﻿using EntityStates;
-using RoR2;
+﻿using RoR2;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
@@ -57,6 +56,7 @@ namespace TurboEdition.EntityStates.CrabChest.ItemScanner
                 this.itemStealController.transform.position = base.GetModelChildLocator().FindChild(childBoneLocatorString).transform.position;
             }
         }
+
         public override void OnExit()
         {
             if (this.itemStealController && this.hasSubscribedToStealFinish)
@@ -66,6 +66,7 @@ namespace TurboEdition.EntityStates.CrabChest.ItemScanner
             }
             base.OnExit();
         }
+
         private void OnStealEndAuthority()
         {
             this.outer.SetNextState(new ItemScanningExit());

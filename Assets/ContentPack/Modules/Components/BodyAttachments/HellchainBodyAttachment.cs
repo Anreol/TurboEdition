@@ -1,9 +1,4 @@
 ﻿using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -19,11 +14,13 @@ namespace TurboEdition.Components
         private GameObject tetherEffectInstanceEnd;
 
         private GameObject targetTether;
+
         private void Awake()
         {
             this.nba = base.GetComponent<NetworkedBodyAttachment>();
             InstanceTracker.Add<HellchainBodyAttachment>(this);
         }
+
         public void Update() //Purely visual, so this goes on a update!
         {
             if (this.tetherEffectPrefab && !this.tetherEffectInstance)
@@ -52,6 +49,7 @@ namespace TurboEdition.Components
                 this.tetherEffectInstanceEnd.transform.position = aimRay.origin + aimRay.direction * this.GetRayDistance();
             }
         }
+
         private float GetRayDistance()
         {
             if (targetTether)
@@ -60,6 +58,7 @@ namespace TurboEdition.Components
             }
             return 0f;
         }
+
         private void OnDestroy()
         {
             //This SHOULDNT cause any errors because nothing should be fucking with the order of things in this list... I hope.

@@ -7,6 +7,7 @@ namespace TurboEdition.EntityStates.Grenadier.SideWeapon
     {
         [Tooltip("Base duration of an animation, gets multipled by the state duration later.")]
         public static float baseAnimDuration = 1f;
+
         public static float minimumDuration;
         public static float selfForce;
 
@@ -15,6 +16,7 @@ namespace TurboEdition.EntityStates.Grenadier.SideWeapon
             base.PlayAnimation(duration);
             base.PlayAnimation("Gesture, Left Arm, Additive", "FireSideWeapon", "FireSideWeapon.playbackRate", baseAnimDuration * duration);
         }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             if (fixedAge <= minimumDuration)
@@ -23,6 +25,7 @@ namespace TurboEdition.EntityStates.Grenadier.SideWeapon
             }
             return base.GetMinimumInterruptPriority();
         }
+
         public override void FireProjectile()
         {
             base.FireProjectile();

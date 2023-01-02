@@ -47,7 +47,6 @@ namespace TurboEdition.Components
                         surfaceDefIndex = surfaceDef.surfaceDefIndex,
                         rotation = tryToNormalize ? Util.QuaternionSafeLookRotation(normal) : EffectData.defaultRotation,
                         scale = scaleOverride != -1 ? scaleOverride : EffectData.defaultScale,
-
                     };
                     EffectManager.SpawnEffect(prefabEffect, effectData, false);
                 }

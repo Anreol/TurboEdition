@@ -54,8 +54,8 @@ namespace TurboEdition.Components
             }
         }
     }
+
     public class MarkAsUnableToBeLocked : MonoBehaviour
     {
-
     }
 }

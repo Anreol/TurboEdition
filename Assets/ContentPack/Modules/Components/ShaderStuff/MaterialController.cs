@@ -54,7 +54,6 @@ namespace TurboEdition.Components
 
         public class HGStandardController : MaterialController
         {
-
             public bool _EnableCutout;
             public Color _Color;
             public Texture _MainTex;
@@ -86,6 +85,7 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
+
             public _RampInfoEnum _RampChoice;
 
             public enum _DecalLayerEnum
@@ -95,6 +95,7 @@ namespace TurboEdition.Components
                 Character = 2,
                 Misc = 3
             }
+
             public _DecalLayerEnum _DecalLayer;
 
             [Range(0f, 1f)]
@@ -109,6 +110,7 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull_Mode;
 
             public bool _EnableDither;
@@ -158,6 +160,7 @@ namespace TurboEdition.Components
                 TopDown = 1,
                 BackToFront = 3
             }
+
             public _PrintDirectionEnum _PrintDirection;
 
             public Texture _PrintRamp;
@@ -235,6 +238,7 @@ namespace TurboEdition.Components
             {
                 GrabMaterialValues();
             }
+
             public void GrabMaterialValues()
             {
                 if (material)
@@ -540,7 +544,6 @@ namespace TurboEdition.Components
                     SetShaderKeywordBasedOnBool(_EnableLimbRemoval, material, "LIMBREMOVAL");
                 }
             }
-
         }
 
         public class HGSnowToppedController : MaterialController
@@ -582,6 +585,7 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
+
             public _RampInfoEnum _RampChoice;
 
             public bool _IgnoreDiffuseAlphaForSpeculars;
@@ -643,6 +647,7 @@ namespace TurboEdition.Components
             {
                 GrabMaterialValues();
             }
+
             public void GrabMaterialValues()
             {
                 if (material)
@@ -762,7 +767,6 @@ namespace TurboEdition.Components
 
                     SetShaderKeywordBasedOnBool(_IgnoreDiffuseAlphaForSpeculars, material, "FORCE_SPEC");
 
-
                     material.SetFloat("_SpecularStrength", _SpecularStrength);
                     material.SetFloat("_SpecularExponent", _SpecularExponent);
                     material.SetFloat("_Smoothness", _Smoothness);
@@ -809,7 +813,6 @@ namespace TurboEdition.Components
                     material.SetFloat("_DirtSmoothness", _DirtSmoothness);
                 }
             }
-
         }
 
         public class HGCloudRemapController : MaterialController
@@ -828,6 +831,7 @@ namespace TurboEdition.Components
                 SrcAlphaSaturate = 9,
                 OneMinusSrcAlpha = 10
             }
+
             public _BlendEnums _SrcBlend;
             public _BlendEnums _DstBlend;
 
@@ -864,6 +868,7 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull_Mode;
 
             public enum _ZTestEnum
@@ -878,6 +883,7 @@ namespace TurboEdition.Components
                 GreaterEqual = 7,
                 Always = 8
             }
+
             public _ZTestEnum _ZTest_Mode;
 
             [Range(-10f, 10f)]
@@ -960,11 +966,8 @@ namespace TurboEdition.Components
                 }
             }
 
-
-
             public void Update()
             {
-
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1073,6 +1076,7 @@ namespace TurboEdition.Components
                 SrcAlphaSaturate = 9,
                 OneMinusSrcAlpha = 10
             }
+
             public enum _DstBlendFloatEnum
             {
                 Zero = 0,
@@ -1087,6 +1091,7 @@ namespace TurboEdition.Components
                 SrcAlphaSaturate = 9,
                 OneMinusSrcAlpha = 10
             }
+
             public _SrcBlendFloatEnum _Source_Blend_Mode;
             public _DstBlendFloatEnum _Destination_Blend_Mode;
 
@@ -1132,6 +1137,7 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull_Mode;
 
             public bool _FadeFromVertexColorsOn;
@@ -1178,7 +1184,6 @@ namespace TurboEdition.Components
 
             public void Update()
             {
-
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1260,6 +1265,7 @@ namespace TurboEdition.Components
             public Texture _EmissionTex;
             public Vector2 _EmissionTexScale;
             public Vector2 _EmissionTexOffset;
+
             [Range(0.1f, 20f)]
             public float _EmissionPower;
 
@@ -1269,6 +1275,7 @@ namespace TurboEdition.Components
 
             [Range(0f, 1f)]
             public float _SpecularStrength;
+
             [Range(0.1f, 20f)]
             public float _SpecularExponent;
 
@@ -1284,12 +1291,14 @@ namespace TurboEdition.Components
 
             [Range(0, 20f)]
             public float _HeightStrength;
+
             [Range(0f, 1f)]
             public float _HeightBias;
 
             public Vector4 _ScrollSpeed;
 
             public float _Parallax;
+
             public enum _RampEnum
             {
                 TwoTone = 0,
@@ -1298,18 +1307,19 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
+
             public _RampEnum _RampInfo;
+
             public enum _CullEnum
             {
                 Off = 0,
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull_Mode;
 
             public bool _AlphaClip;
-
-
 
             public void Start()
             {
@@ -1351,11 +1361,8 @@ namespace TurboEdition.Components
                 }
             }
 
-
-
             public void Update()
             {
-
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1432,22 +1439,30 @@ namespace TurboEdition.Components
         public class HGWavyClothController : MaterialController
         {
             public Vector4 _Color;
+
             [Range(0f, 1f)]
             public float _Cutoff;
+
             public Texture _MainTex;
             public Vector2 _MainTexScale;
             public Vector2 _MainTexOffset;
             public Texture _ScrollingNormalMap;
             public Vector2 _NormalScale;
             public Vector2 _NormalOffset;
+
             [Range(0f, 5f)]
             public float _NormalStrength;
+
             public Vector4 _Scroll;
+
             [Range(0f, 5f)]
             public float _VertexOffsetStrength;
+
             public Vector4 _WindVector;
+
             [Range(0f, 1f)]
             public float _Smoothness;
+
             public enum _RampEnum
             {
                 TwoTone = 0,
@@ -1456,11 +1471,15 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
+
             public _RampEnum _RampInfo;
+
             [Range(0f, 1f)]
             public float _SpecularStrength;
+
             [Range(0.1f, 20f)]
             public float _SpecularExponent;
+
             public bool _EnableVertexColorDistortion;
 
             public void Start()
@@ -1493,11 +1512,8 @@ namespace TurboEdition.Components
                 }
             }
 
-
-
             public void Update()
             {
-
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1529,8 +1545,6 @@ namespace TurboEdition.Components
                         material.SetTexture("_ScrollingNormalMap", null);
                     }
 
-
-
                     material.SetFloat("_Smoothness", _Smoothness);
                     material.SetFloat("_Cutoff", _Cutoff);
                     material.SetFloat("_SpecularExponent", _SpecularExponent);
@@ -1538,7 +1552,6 @@ namespace TurboEdition.Components
                     material.SetFloat("_VertexOffsetStrength", _VertexOffsetStrength);
 
                     material.SetFloat("_RampInfo", Convert.ToSingle(_RampInfo));
-
 
                     material.SetVector("_Scroll", _Scroll);
                     material.SetVector("_WindVector", _WindVector);
@@ -1557,8 +1570,10 @@ namespace TurboEdition.Components
             public Texture _MainTex;
             public Vector2 _MainTexScale;
             public Vector2 _MainTexOffset;
+
             [Range(0f, 5f)]
             public float _NormalStrength;
+
             public Texture _NormalTex;
             public Texture _Cloud1Tex;
             public Vector2 _Cloud1TexScale;
@@ -1570,18 +1585,25 @@ namespace TurboEdition.Components
             public Vector2 _RemapTexScale;
             public Vector2 _RemapTexOffset;
             public Vector4 _CutoffScroll;
+
             [Range(0f, 30f)]
             public float _InvFade;
+
             [Range(0f, 20f)]
             public float _AlphaBoost;
+
             [Range(0f, 1f)]
             public float _Cutoff;
+
             [Range(0f, 1f)]
             public float _SpecularStrength;
+
             [Range(0.1f, 20f)]
             public float _SpecularExponent;
+
             [Range(0f, 10f)]
             public float _ExtrusionStrength;
+
             public enum _RampEnum
             {
                 TwoTone = 0,
@@ -1590,16 +1612,19 @@ namespace TurboEdition.Components
                 Subsurface = 4,
                 Grass = 5
             }
+
             public _RampEnum _RampInfo;
             public bool _EmissionFromAlbedo;
             public bool _CloudNormalMap;
             public bool _VertexAlphaOn;
+
             public enum _CullEnum
             {
                 Off = 0,
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull;
             public float _ExternalAlpha;
 
@@ -1607,6 +1632,7 @@ namespace TurboEdition.Components
             {
                 GrabMaterialValues();
             }
+
             private void GrabMaterialValues()
             {
                 if (material)
@@ -1749,6 +1775,7 @@ namespace TurboEdition.Components
                 Subsurface = 3,
                 Grass = 4
             }
+
             public _RampInfoEnum _RampInfo;
 
             public enum _DecalLayerEnum
@@ -1758,6 +1785,7 @@ namespace TurboEdition.Components
                 Character = 2,
                 Misc = 3
             }
+
             public _DecalLayerEnum _DecalLayer;
 
             public enum _CullEnum
@@ -1766,6 +1794,7 @@ namespace TurboEdition.Components
                 Front = 1,
                 Back = 2
             }
+
             public _CullEnum _Cull;
 
             [Range(0f, 1f)]
@@ -1778,32 +1807,44 @@ namespace TurboEdition.Components
 
             public Texture _RedChannelTopTex;
             public Texture _RedChannelSideTex;
+
             [Range(0f, 1f)]
             public float _RedChannelSmoothness;
+
             [Range(0f, 1f)]
             public float _RedChannelSpecularStrength;
+
             [Range(0.1f, 20f)]
             public float _RedChannelSpecularExponent;
+
             [Range(-2f, 5f)]
             public float _RedChannelBias;
 
             public Texture _GreenChannelTex;
+
             [Range(0f, 1f)]
             public float _GreenChannelSmoothness;
+
             [Range(0f, 1f)]
             public float _GreenChannelSpecularStrength;
+
             [Range(0.1f, 20f)]
             public float _GreenChannelSpecularExponent;
+
             [Range(-2f, 5f)]
             public float _GreenChannelBias;
 
             public Texture _BlueChannelTex;
+
             [Range(0f, 1f)]
             public float _BlueChannelSmoothness;
+
             [Range(0f, 1f)]
             public float _BlueChannelSpecularStrength;
+
             [Range(0.1f, 20f)]
             public float _BlueChannelSpecularExponent;
+
             [Range(-2f, 5f)]
             public float _BlueChannelBias;
 
@@ -1854,7 +1895,6 @@ namespace TurboEdition.Components
 
             public void Update()
             {
-
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)
@@ -1910,7 +1950,6 @@ namespace TurboEdition.Components
                     material.SetFloat("_BlueChannelSpecularExponent", _BlueChannelSpecularExponent);
                     material.SetFloat("_BlueChannelBias", _BlueChannelBias);
 
-
                     material.SetFloat("_Cull", Convert.ToSingle(_Cull));
                     material.SetFloat("_TextureFactor", _TextureFactor);
                     material.SetFloat("_Depth", _Depth);
@@ -1938,16 +1977,21 @@ namespace TurboEdition.Components
             public bool _EnableFog;
             public float _EdgeFade;
             public Color _SpecColor;
+
             [Range(0.01f, 5f)]
             public float _Smoothness;
 
             public Texture _BumpMap;
+
             [Range(0f, 1f)]
             public float _BumpStrength;
+
             public bool _EnableLargeBump;
             public Texture _BumpMapLarge;
+
             [Range(0f, 1f)]
             public float _BumpLargeStrength;
+
             public bool _WorldSpace;
 
             public Vector4 _Speeds;
@@ -1959,6 +2003,7 @@ namespace TurboEdition.Components
                 High = 0,
                 Low = 1
             }
+
             public _DistortionQualityEnum _DistortionQuality;
 
             public enum _ReflectionTypeEnum
@@ -1968,13 +2013,16 @@ namespace TurboEdition.Components
                 RealTime = 2,
                 CubeMap = 3
             }
+
             public _ReflectionTypeEnum _ReflectionType;
 
             public Color _CubeColor;
             public Texture _Cube;
             public Texture _ReflectionTex;
+
             [Range(0f, 1f)]
             public float _Reflection;
+
             [Range(1f, 20f)]
             public float _RimPower;
 
@@ -1989,6 +2037,7 @@ namespace TurboEdition.Components
                 Wave = 1,
                 Gerstner = 2
             }
+
             public _DisplacementModeEnum _DisplacementMode;
 
             public float _Amplitude;
@@ -2056,7 +2105,6 @@ namespace TurboEdition.Components
 
             public void Update()
             {
-
                 if (material)
                 {
                     if (material.name != MaterialName && renderer)

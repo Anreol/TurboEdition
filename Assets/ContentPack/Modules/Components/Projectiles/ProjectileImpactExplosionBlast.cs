@@ -1,8 +1,6 @@
 ﻿using RoR2;
-using RoR2.Audio;
 using RoR2.Projectile;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace TurboEdition.Components.Projectiles
 {
@@ -12,6 +10,7 @@ namespace TurboEdition.Components.Projectiles
     {
         [Header("Explosion Blast Configuration")]
         public bool doExtraBlastAttack = true;
+
         public bool doDamage = false;
         public bool scaleBaseForceOffDamage = false;
         public BlastAttack.FalloffModel falloffModelExtra = BlastAttack.FalloffModel.Linear;
@@ -26,10 +25,12 @@ namespace TurboEdition.Components.Projectiles
         {
             doExtraBlastAttack = set;
         }
+
         public void SetDoExtraBlastAttackDamage(bool set)
         {
             doDamage = set;
         }
+
         public void OnDestroy()
         {
             if (doExtraBlastAttack)
@@ -60,7 +61,7 @@ namespace TurboEdition.Components.Projectiles
                     blastAttack.baseDamage = doDamage ? this.projectileDamage.damage * this.blastDamageCoefficient : 0;
                     blastAttack.crit = doDamage ? this.projectileDamage.crit : false;
                     blastAttack.damageColorIndex = this.projectileDamage.damageColorIndex;
-                    blastAttack.damageType =  this.projectileDamage.damageType;
+                    blastAttack.damageType = this.projectileDamage.damageType;
                     if (damageTypeOverride != DamageType.Generic)
                     {
                         blastAttack.damageType = damageTypeOverride;

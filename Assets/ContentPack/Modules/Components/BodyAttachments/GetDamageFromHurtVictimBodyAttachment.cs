@@ -36,6 +36,7 @@ namespace TurboEdition.Components
                 attachedBody.GetComponent<GetDamageFromHurtVictimBodyBehavior>().getDamageFromHurtVictimBodyAttachment = this;
             }
         }
+
         public void OnDestroy()
         {
             if (NetworkServer.active && serverListener)
@@ -43,6 +44,7 @@ namespace TurboEdition.Components
                 Object.Destroy(serverListener);
             }
         }
+
         public void RecalculateStatsEnd()
         {
             nba.attachedBody.damage += currentDamage;

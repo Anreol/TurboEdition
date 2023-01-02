@@ -59,6 +59,7 @@ namespace TurboEdition.EntityStates.CrabChest.ItemScanner
                 NetworkServer.Spawn(gameObject);
             }
         }
+
         public bool TransformBypassesFilter(Vector3 targetTransform, Vector3 originTransform, Vector3 aimDirection, float coneAngle, float maxDist, float heightTolerance)
         {
             float cone = Mathf.Cos(coneAngle * 0.5f * 0.017453292f);

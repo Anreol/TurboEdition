@@ -25,6 +25,7 @@ namespace TurboEdition.Items
         private float stopwatch;
         private float graceStopwatch;
         private float accumulationAge;
+
         public void FixedUpdate()
         {
             if (!body.hasAuthority)
@@ -98,7 +99,7 @@ namespace TurboEdition.Items
                     stopwatch = curveDuration;
 
                     //Add iframes
-                    body.AddTimedBuffAuthority(RoR2Content.Buffs.HiddenInvincibility.buffIndex,  Mathf.Clamp01(animationCurveAsset.value.Evaluate(accumulationAge)));
+                    body.AddTimedBuffAuthority(RoR2Content.Buffs.HiddenInvincibility.buffIndex, Mathf.Clamp01(animationCurveAsset.value.Evaluate(accumulationAge)));
 
                     //Accumulate to stopwatch so spamming it results in less iframes
                     accumulationAge = Mathf.Clamp(0.25f, accumulationAge + accumulationTime, 10f);

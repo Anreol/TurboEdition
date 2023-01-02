@@ -1,11 +1,8 @@
 ﻿using RoR2;
 using RoR2.UI;
-using System;
 using System.Collections;
 using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace TurboEdition.Misc
 {
@@ -90,7 +87,8 @@ namespace TurboEdition.Misc
             ChildLocator cl = newHud.GetComponent<ChildLocator>();
             if (cl)
             {
-                ChildLocator.NameTransformPair bottomRightCorner = new ChildLocator.NameTransformPair(){
+                ChildLocator.NameTransformPair bottomRightCorner = new ChildLocator.NameTransformPair()
+                {
                     name = newHud.skillIcons[0].transform.parent.parent.name,
                     transform = newHud.skillIcons[0].transform.parent.parent
                 };
@@ -117,6 +115,7 @@ namespace TurboEdition.Misc
                 cl.transformPairs = cl.transformPairs.Concat(new ChildLocator.NameTransformPair[] { bottomRightCorner, skill1, skill2, skill3, skill4 }).ToArray();
             }
         }
+
         private static void AssignHUDElement(HUD newHud, GameObject panel, string transform)
         {
             if (!newHud.transform.Find(transform))

@@ -61,7 +61,7 @@ namespace TurboEdition.Equipments
         public bool UseThingie(EquipmentSlot slot)
         {
             //Is anniversary moon. Do not know how to get it in a better way.
-            if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries) 
+            if (SceneCatalog.mostRecentSceneDef == SceneCatalog.GetSceneDefFromSceneName("moon2") && MoonBatteryMissionController.instance.numChargedBatteries >= MoonBatteryMissionController.instance.numRequiredBatteries)
             {
                 GameObject sceneExitGO;
                 CreateSceneExitGameObject(out sceneExitGO);
@@ -81,7 +81,7 @@ namespace TurboEdition.Equipments
                 return true;
             }
             //Not a stage, but an intermission. Done after othe stage checks as void or old moon might be intermissions
-            if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage) 
+            if (SceneCatalog.mostRecentSceneDef.sceneType != SceneType.Stage || SceneCatalog.mostRecentSceneDef.isFinalStage)
             {
                 //PointSoundManager.EmitSoundServer(errorNetworkSound.index, slot.characterBody.transform.position);
                 return false;

@@ -18,11 +18,13 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 projectileBaseSpeed = targetProjectileBaseSpeed * charge;
             }
         }
+
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             activatorSkillSlot.skillDef.canceledFromSprinting = !firedAtLeastOnce;
         }
+
         public override void ModifyProjectile(ref FireProjectileInfo fireProjectileInfo)
         {
             ProjectileCharacterController pcc = fireProjectileInfo.projectilePrefab.GetComponent<ProjectileCharacterController>();

@@ -1,20 +1,18 @@
-﻿using System;
+﻿using RoR2;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-using RoR2;
 
 namespace TurboEdition.Components
 {
     public class PainArtifactServerListener : MonoBehaviour, IOnIncomingDamageServerReceiver
     {
         public CharacterBody body;
+
         private void OnEnable()
         {
             InstanceTracker.Add<PainArtifactServerListener>(this);
         }
+
         private void OnDisable()
         {
             InstanceTracker.Remove<PainArtifactServerListener>(this);

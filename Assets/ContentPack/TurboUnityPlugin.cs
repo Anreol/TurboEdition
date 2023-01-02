@@ -25,6 +25,7 @@ namespace TurboEdition
         public static TurboUnityPlugin instance;
         public static PluginInfo pluginInfo;
         public static uint playMusicSystemID;
+
         public void Awake()
         {
             TELog.logger = Logger;
@@ -41,7 +42,7 @@ namespace TurboEdition
             //Components.MaterialControllerComponents.AttachControllerFinderToObjects(Assets.mainAssetBundle);
 #endif
 
-           // RoR2Application.onFixedUpdate += onFixedUpdate;
+            // RoR2Application.onFixedUpdate += onFixedUpdate;
             //UnityEngine.SceneManagement.SceneManager.activeSceneChanged += activeSceneChanged;
             //RoR2.Run.onClientGameOverGlobal += FeedbackLog;
         }
@@ -92,8 +93,7 @@ namespace TurboEdition
                     if (!survivorDef.displayPrefab)
                         continue;
 
-                        UnityEngine.Object.Instantiate(survivorDef.displayPrefab, new Vector3(0.04f, -0.09f, 2.17f), Quaternion.Euler(0f, 210.6264f, 0f)).SetActive(false);
-
+                    UnityEngine.Object.Instantiate(survivorDef.displayPrefab, new Vector3(0.04f, -0.09f, 2.17f), Quaternion.Euler(0f, 210.6264f, 0f)).SetActive(false);
                 }
             }
         }

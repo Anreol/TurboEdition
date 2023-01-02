@@ -26,6 +26,7 @@ namespace TurboEdition.Items
         public virtual void RecalcStatsStart(ref CharacterBody body, int stack)
         {
         }
+
         public virtual void RecalcStatsEnd(ref CharacterBody body, int stack)
         {
         }

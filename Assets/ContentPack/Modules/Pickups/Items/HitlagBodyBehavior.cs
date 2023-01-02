@@ -2,6 +2,7 @@
 using RoR2.Items;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace TurboEdition.Items
 {
@@ -13,13 +14,15 @@ namespace TurboEdition.Items
             return TEContent.Items.Hitlag;
         }
 
-        internal List<DelayedDamageInfo> damageInfos = new List<DelayedDamageInfo>();
+        internal Queue<DelayedDamageInfo> damageInfos = new Queue<DelayedDamageInfo>();
 
         public void OnIncomingDamageServer(DamageInfo damageInfo)
         {
-            if (damageInfo.rejected)
+            if (damageInfo.rejected || damageInfo.attacker == body || damageInfo.inflictor == body)
                 return;
-            if (damageInfo.dotIndex != DotController.DotIndex.None || damageInfo.damageType == DamageType.VoidDeath || damageInfo.damageType == DamageType.Freeze2s || damageInfo.damageType == DamageType.Nullify || damageInfo.damageType == DamageType.Silent || damageInfo.damageType == DamageType.FallDamage || damageInfo.damageType == DamageType.BypassArmor || damageInfo.damageType == DamageType.BypassOneShotProtection || damageInfo.procChainMask.HasProc(ProcType.AACannon))
+            if (damageInfo.dotIndex != DotController.DotIndex.None || (damageInfo.damageType & (DamageType.VoidDeath | DamageType.Freeze2s | DamageType.Nullify | DamageType.Silent | DamageType.FallDamage | DamageType.BypassArmor | DamageType.BypassBlock | DamageType.BypassOneShotProtection)) != 0)
+                return;
+            if (damageInfo.damage == 0f)
                 return;
             damageInfo.rejected = true;
             DelayedDamageInfo delayedDamageInfo = new DelayedDamageInfo
@@ -42,49 +45,44 @@ namespace TurboEdition.Items
                 },
                 FixedTimeStamp = Run.FixedTimeStamp.now
             };
-            delayedDamageInfo.ReducedDamageInfo.procChainMask.AddProc(ProcType.AACannon); //l o l
             delayedDamageInfo.ReducedDamageInfo.damageType |= DamageType.BypassBlock;
-            damageInfos.Add(delayedDamageInfo);
+            damageInfos.Enqueue(delayedDamageInfo);
         }
 
         private void FixedUpdate()
         {
-            List<DelayedDamageInfo> buffer = new List<DelayedDamageInfo>();
-            for (int i = 0; i < damageInfos.Count; i++)
+            while (damageInfos.Count > 0 && damageInfos.Peek().FixedTimeStamp.timeSince >= (float)stack)
             {
-                if (damageInfos[i].FixedTimeStamp.timeSince >= (float)stack)
-                {
-                    TryToTakeDamage(damageInfos[i].ReducedDamageInfo);
-                    buffer.Add(damageInfos[i]);
-                }
+                TryToTakeDamage(damageInfos.Dequeue().ReducedDamageInfo);
             }
-            damageInfos = damageInfos.Except(buffer).ToList();
         }
 
         private void OnDestroy()
         {
-            if (base.body.healthComponent)
-            {
+
                 Cleanse();
-            }
+            
         }
 
         internal void Heal(HealthComponent hc, float amount, ProcChainMask procChainMask)
         {
             amount /= 4;
-            foreach (DelayedDamageInfo hitlag in damageInfos)
+            if (damageInfos != null && damageInfos.Count > 0)
             {
-                if (hitlag.ReducedDamageInfo.damage > hitlag.ogDamageInfoDamage / 2)
+                DelayedDamageInfo hitlag = damageInfos.FirstOrDefault(x => x.ReducedDamageInfo.damage > x.ogDamageInfoDamage / 2);
+                while (amount > 0)
                 {
-                    hitlag.ReducedDamageInfo.damage -= amount;
-                    amount = 0f;
-                    if (hitlag.ReducedDamageInfo.damage < hitlag.ogDamageInfoDamage / 2)
+                    if (amount > hitlag.ogDamageInfoDamage / 2)
                     {
-                        amount += (hitlag.ogDamageInfoDamage / 2) - hitlag.ReducedDamageInfo.damage; //Refund
+                        amount -= hitlag.ogDamageInfoDamage / 2;
                         hitlag.ReducedDamageInfo.damage = hitlag.ogDamageInfoDamage / 2;
                     }
-                    if (amount <= 0)
-                        break;
+                    else
+                    {
+                        hitlag.ReducedDamageInfo.damage -= amount;
+                        amount = 0;
+                    }
+                    hitlag = damageInfos.FirstOrDefault(x => x.ReducedDamageInfo.damage > x.ogDamageInfoDamage / 2);
                 }
             }
         }
@@ -94,11 +92,10 @@ namespace TurboEdition.Items
         {
             if (base.body.healthComponent)
             {
-                foreach (DelayedDamageInfo hitlag in damageInfos)
+                while (damageInfos.Count > 0)
                 {
-                    TryToTakeDamage(hitlag.ReducedDamageInfo);
+                    TryToTakeDamage(damageInfos.Dequeue().ReducedDamageInfo);
                 }
-                damageInfos.Clear();
             }
         }
 
@@ -125,7 +122,6 @@ namespace TurboEdition.Items
         {
             arg1.body.GetComponent<HitlagBodyBehavior>()?.Heal(arg1, arg2, procChainMask);
         }
-
     }
 
     internal struct DelayedDamageInfo

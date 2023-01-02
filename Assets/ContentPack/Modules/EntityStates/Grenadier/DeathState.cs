@@ -1,8 +1,6 @@
 ﻿using EntityStates;
 using RoR2;
-using RoR2.ExpansionManagement;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace TurboEdition.EntityStates.Grenadier
 {
@@ -125,7 +123,6 @@ namespace TurboEdition.EntityStates.Grenadier
                                 AchievementManager.GetUserAchievementManager(local).GrantAchievement(achievementDef);
                                 return;
                             }
-
                         }
                     }
                 }

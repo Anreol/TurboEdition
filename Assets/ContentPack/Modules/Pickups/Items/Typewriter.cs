@@ -21,35 +21,32 @@ namespace TurboEdition.Items
         {
             private char[] arr = new char[40];
             private float sprintTimer;
-            private static readonly float fireRate = 0.08571429f;
+            private static readonly float sprintingFireRate = 0.08571429f;
 
-            private GameObject trollJect = Assets.mainAssetBundle.LoadAsset<GameObject>("vfxTextEffect");
+            private GameObject textPrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("vfxTextEffect");
             private RoR2.UI.LanguageTextMeshController component;
 
             private void Start()
             {
-                EquipmentSlot.onServerEquipmentActivated += EquipmentSlot_onServerEquipmentActivated;
-                base.body.onSkillActivatedServer += Body_onSkillActivatedServer;
+                EquipmentSlot.onServerEquipmentActivated += onServerEquipmentActivated;
+                base.body.onSkillActivatedServer += onSkillActivatedServer;
 
                 if (component == null)
                 {
-                    component = trollJect.GetComponentInChildren<RoR2.UI.LanguageTextMeshController>();
+                    component = textPrefab.GetComponentInChildren<RoR2.UI.LanguageTextMeshController>();
                 }
             }
 
             private void OnDisable()
             {
-                base.body.onSkillActivatedServer -= Body_onSkillActivatedServer;
-                EquipmentSlot.onServerEquipmentActivated -= EquipmentSlot_onServerEquipmentActivated;
+                base.body.onSkillActivatedServer -= onSkillActivatedServer;
+                EquipmentSlot.onServerEquipmentActivated -= onServerEquipmentActivated;
             }
 
-            private void Body_onSkillActivatedServer(GenericSkill obj)
+            private void onSkillActivatedServer(GenericSkill obj)
             {
                 if (!Util.HasEffectiveAuthority(body.networkIdentity))
-                {
-                    TELog.LogW("Function 'System.Void TurboEdition.Items.Typewriter::Body_onSkillActivatedServer() called without authority.'");
                     return;
-                }
                 ForceAttempt();
                 for (int i = 0; i < stack; i++)
                 {
@@ -57,14 +54,9 @@ namespace TurboEdition.Items
                 }
             }
 
-            private void EquipmentSlot_onServerEquipmentActivated(EquipmentSlot arg1, EquipmentIndex arg2)
+            private void onServerEquipmentActivated(EquipmentSlot arg1, EquipmentIndex arg2)
             {
-                if (!arg1.characterBody == body) return;
-                if (!Util.HasEffectiveAuthority(body.networkIdentity))
-                {
-                    TELog.LogW("Function 'System.Void TurboEdition.Items.Typewriter::EquipmentSlot_onServerEquipmentActivated() called without authority.'");
-                    return;
-                }
+                if (!arg1.characterBody == body || !Util.HasEffectiveAuthority(body.networkIdentity)) return;
                 ForceAttempt();
                 for (int i = 0; i < stack; i++)
                 {
@@ -80,16 +72,13 @@ namespace TurboEdition.Items
             private void SprintBehavior()
             {
                 if (!Util.HasEffectiveAuthority(body.networkIdentity))
-                {
-                    TELog.LogW("Function 'System.Void TurboEdition.Items.Typewriter::SprintBehavior() called without authority.'");
                     return;
-                }
                 if (body.isSprinting)
                 {
                     this.sprintTimer -= Time.fixedDeltaTime;
                     if (this.sprintTimer <= 0f)
                     {
-                        this.sprintTimer += 1f / (fireRate * this.body.moveSpeed);
+                        this.sprintTimer += 1f / (sprintingFireRate * this.body.moveSpeed);
                         ForceAttempt();
                         for (int i = 0; i < stack; i++)
                         {
@@ -130,7 +119,7 @@ namespace TurboEdition.Items
                         rotation = Util.QuaternionSafeLookRotation((body.characterDirection.moveVector != Vector3.zero) ? body.characterDirection.moveVector : UnityEngine.Random.onUnitSphere)
                     };
                     effectData.SetHurtBoxReference(body.gameObject);
-                    EffectManager.SpawnEffect(trollJect, effectData, true);
+                    EffectManager.SpawnEffect(textPrefab, effectData, true);
                 }
             }
 

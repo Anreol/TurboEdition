@@ -53,7 +53,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         public override void ModifyNextState(EntityState nextState)
         {
             base.ModifyNextState(nextState);
-            if (step+1 < comboThrows)
+            if (step + 1 < comboThrows)
             {
                 FireSecondaryBomblet fireSecondaryBomblet;
                 if ((fireSecondaryBomblet = (nextState as FireSecondaryBomblet)) != null)
@@ -67,6 +67,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 }
             }
         }
+
         public override void PlayAnimation(float duration)
         {
             base.PlayAnimation(duration);
@@ -79,6 +80,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             //TODO: throw anim
             base.PlayAnimation("Gesture, Left Arm, Additive", "FireSideWeapon, FireNow", "FireSideWeapon.playbackRate", baseAnimDuration * duration);
         }
+
         public override void FireProjectile()
         {
             base.FireProjectile();
@@ -87,6 +89,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 SmallHop(characterMotor, smallHopVelocity);
             }
         }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             if (base.fixedAge <= minimumDuration || !firedProjectile)
@@ -95,6 +98,5 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             }
             return InterruptPriority.Any;
         }
-
     }
 }

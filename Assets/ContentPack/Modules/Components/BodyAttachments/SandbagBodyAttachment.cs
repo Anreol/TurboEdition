@@ -25,6 +25,7 @@ namespace TurboEdition.Components
         {
             this.nba = base.GetComponent<NetworkedBodyAttachment>();
         }
+
         private void OnDestroy()
         {
             if (NetworkServer.active && serverListener)
@@ -32,6 +33,7 @@ namespace TurboEdition.Components
                 Destroy(serverListener);
             }
         }
+
         public void OnAttachedBodyDiscovered(NetworkedBodyAttachment networkedBodyAttachment, CharacterBody attachedBody)
         {
             if (NetworkServer.active)

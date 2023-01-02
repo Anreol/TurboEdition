@@ -8,6 +8,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
     {
         [SerializeField]
         public float baseDuration;
+
         [SerializeField]
         public string enterSoundString;
 
@@ -34,10 +35,12 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
                 this.outer.SetNextState(GetNextState());
             }
         }
+
         public virtual Reload GetNextState()
         {
             return new Reload();
         }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;

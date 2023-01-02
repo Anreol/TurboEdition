@@ -18,10 +18,12 @@ namespace TurboEdition.Components.UI
         /// Skill stocks that the CrosshairController had when awoken.
         /// </summary>
         private CrosshairController.SkillStockSpriteDisplay[] baseSkillStocks = new CrosshairController.SkillStockSpriteDisplay[0];
+
         /// <summary>
         /// Skill stocks from the previous rebuild.
         /// </summary>
         private GameObject[] previousSkillStockObjects = new GameObject[0];
+
         private CrosshairController crossController;
         private SkillLocator bodySkillLocator; //Cache it!
         private int cacheMaxSkillLocatorStacks;

@@ -44,6 +44,7 @@ namespace TurboEdition.Items
             private int uniqueItemCount;
 
             private bool isTeleporter;
+
             private void Awake()
             {
                 this.holdoutZoneController = base.GetComponent<HoldoutZoneController>();

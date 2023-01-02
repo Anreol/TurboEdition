@@ -88,6 +88,7 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         {
             return new Reload();
         }
+
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;

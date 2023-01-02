@@ -1,6 +1,4 @@
-﻿using TurboEdition.Components;
-
-namespace TurboEdition.EntityStates.Grenadier.Weapon
+﻿namespace TurboEdition.EntityStates.Grenadier.Weapon
 {
     internal class FireMGLPrimary : BaseFireMGL
     {
