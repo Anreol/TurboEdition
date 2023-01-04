@@ -1,6 +1,9 @@
 ﻿using EntityStates;
 using RoR2;
+using RoR2.Stats;
+using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.EntityStates.Grenadier
 {
@@ -40,6 +43,11 @@ namespace TurboEdition.EntityStates.Grenadier
         [Tooltip("Blast Attack: Bonus physics force of the explosion.")]
         public static float blastBonusForce;
 
+        [Tooltip("Should the game not end for a little bit, to make sure the player sees the explosion. Set to zero or less to disable.")]
+        public static int preventGameOverDuration;
+
+        public static event Action<BlastAttack.Result> onPostDeathExplosionServer;
+
         private float stopwatch;
         private bool attemptedDeathBehavior;
         private Transform centerTransform;
@@ -47,6 +55,10 @@ namespace TurboEdition.EntityStates.Grenadier
         public override void OnEnter()
         {
             base.OnEnter();
+            if (NetworkServer.active && preventGameOverDuration > 0 && !isBrittle && !isVoidDeath)
+            {
+                characterBody.master.preventGameOver = true;
+            }
             if (base.modelLocator)
             {
                 ChildLocator component = base.modelLocator.modelTransform.GetComponent<ChildLocator>();
@@ -73,6 +85,10 @@ namespace TurboEdition.EntityStates.Grenadier
             if (this.stopwatch >= timeUntilBehavior && !isBrittle && !isVoidDeath)
             {
                 this.AttemptDeathBehavior();
+                if (stopwatch >= preventGameOverDuration + timeUntilBehavior && characterBody && characterBody.master && characterBody.master.preventGameOver)
+                {
+                    characterBody.master.preventGameOver = false;
+                }
             }
         }
 
@@ -83,7 +99,7 @@ namespace TurboEdition.EntityStates.Grenadier
                 return;
             }
             this.attemptedDeathBehavior = true;
-            if (deathPrefab && isAuthority && this.centerTransform)
+            if (deathPrefab && NetworkServer.active && this.centerTransform)
             {
                 EffectManager.SpawnEffect(deathPrefab, new EffectData
                 {
@@ -91,6 +107,13 @@ namespace TurboEdition.EntityStates.Grenadier
                     scale = blastRadius,
                     color = new Color(1, 0.5f, 0.7f)
                 }, true);
+
+                PlayerStatsComponent playerStatsComponent = PlayerStatsComponent.FindMasterStatsComponent(characterBody.master);
+                StatSheet temp = null;
+                if (playerStatsComponent)
+                {
+                    temp = playerStatsComponent.currentStats;
+                }
 
                 BlastAttack blastAttack = new BlastAttack();
                 blastAttack.baseDamage = damageStat * damageCoefficient;
@@ -110,21 +133,11 @@ namespace TurboEdition.EntityStates.Grenadier
                 blastAttack.attackerFiltering = AttackerFiltering.NeverHitSelf;
                 blastAttack.canRejectForce = false;
                 BlastAttack.Result result = blastAttack.Fire();
-                if (achievementIdentificator.Length > 0)
+                onPostDeathExplosionServer?.Invoke(result);
+
+                if (temp != null)
                 {
-                    AchievementDef achievementDef = AchievementManager.GetAchievementDef(achievementIdentificator);
-                    LocalUser local = Util.LookUpBodyNetworkUser(characterBody.gameObject).localUser;
-                    if (achievementDef != null && !local.userProfile.HasAchievement(achievementIdentificator) && result.hitPoints.Length > 0)
-                    {
-                        foreach (var hitpoint in result.hitPoints)
-                        {
-                            if (!hitpoint.hurtBox.healthComponent.wasAlive)
-                            {
-                                AchievementManager.GetUserAchievementManager(local).GrantAchievement(achievementDef);
-                                return;
-                            }
-                        }
-                    }
+                    playerStatsComponent.currentStats = temp;
                 }
             }
         }

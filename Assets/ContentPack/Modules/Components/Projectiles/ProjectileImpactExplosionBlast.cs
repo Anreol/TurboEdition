@@ -19,6 +19,8 @@ namespace TurboEdition.Components.Projectiles
         public Vector3 bonusBlastForceExtra;
         public bool canRejectForceExtra = true;
         public GameObject blastAttackEffect;
+        public bool inheritProcCoefficient;
+        public float blastAttackProcCoefficient;
         public DamageType damageTypeOverride;
 
         public void SetDoExtraBlastAttack(bool set)
@@ -50,7 +52,7 @@ namespace TurboEdition.Components.Projectiles
                 blastAttack.inflictor = base.gameObject;
                 blastAttack.teamIndex = this.projectileController.teamFilter.teamIndex;
                 blastAttack.procChainMask = this.projectileController.procChainMask;
-                blastAttack.procCoefficient = this.projectileController.procCoefficient * this.blastProcCoefficient;
+                blastAttack.procCoefficient = inheritProcCoefficient ? this.projectileController.procCoefficient * this.blastProcCoefficient : blastAttackProcCoefficient;
                 blastAttack.bonusForce = bonusBlastForceExtra;
                 blastAttack.falloffModel = falloffModelExtra;
                 blastAttack.attackerFiltering = blastAttackerFilteringExtra;

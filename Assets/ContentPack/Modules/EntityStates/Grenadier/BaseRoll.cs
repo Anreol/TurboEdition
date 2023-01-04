@@ -68,7 +68,7 @@ namespace TurboEdition.EntityStates.Grenadier.Roll
         public override void Update()
         {
             base.Update();
-            float playbackRate = Util.Remap(GetDamageBoostFromSpeed(), animMinValue, animMaxValue, 0.5f, animMaxPlaybackSpeed);
+            float playbackRate = Util.Remap(GetDamageBoostFromSpeed(), animMinValue, animMaxValue, 1f, animMaxPlaybackSpeed);
             if (rollVFXAlpha)
             {
                 rollVFXAlpha.time = authorityIsInHitStop ? 0 : playbackRate;

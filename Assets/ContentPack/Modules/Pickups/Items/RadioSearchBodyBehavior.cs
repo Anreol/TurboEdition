@@ -21,46 +21,17 @@ namespace TurboEdition.Items
         private float updateTimer;
         private const float updateInterval = 10f;
 
-        private void FixedUpdate()
-        {
-            this.updateTimer -= Time.fixedDeltaTime;
-            if (updateTimer <= 0f)
-            {
-                this.updateTimer = updateInterval;
-                CheckForNearbyContent();
-            }
-        }
-
-        private void CheckForNearbyContent()
-        {
-            foreach (var item in ChestRevealer.RevealedObject.currentlyRevealedObjects)
-            {
-                if (Vector3.Distance(body.transform.position, item.Key.transform.position) <= 12 && !alreadyCheckedChests.Contains(item.Key))
-                {
-                    HG.ArrayUtils.ArrayAppend(ref alreadyCheckedChests, item.Key);
-                    if (Util.CheckRoll(25 + (stack - 1) * 5, body.master))
-                    {
-                        SpriteRenderer sprote = item.Value.positionIndicator.insideViewObject.GetComponent<SpriteRenderer>();
-                        if (sprote && sprote.sprite == PingIndicator.GetInteractableIcon(item.Key.gameObject))
-                        {
-                            item.Key.AddComponent<PickupSpriteGetter>().spriteComponent = sprote;
-                            item.Value.lifetime += 30;
-                        }
-                    }
-                }
-            }
-        }
 
         [SystemInitializer(typeof(PickupCatalog))]
         public static void Initialize()
         {
             RoR2.Stage.onStageStartGlobal += StageStartGlobal; // RadioSearch
-            RoR2.Run.onRunStartGlobal += PrepareTypes;
+            PrepareTypes();
         }
 
-        private static void PrepareTypes(Run obj)
+        private static void PrepareTypes()
         {
-            RoR2.Run.onRunStartGlobal -= PrepareTypes;
+            //Is every interactable in the game minus some stuff
             foreach (var item in ChestRevealer.typesToCheck)
             {
                 if (!bannedTypes.Contains(item))

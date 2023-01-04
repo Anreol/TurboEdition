@@ -43,7 +43,7 @@
 	"ITEM_GRACEPERIOD_LORE": "",
 	
 	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
-	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage.",
+	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage, and be able to heal it.",
 	"ITEM_HITLAG_DESC": "Delay all incoming <style=cIsDamage>normal damage</style> by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>25% of incoming healing</style> <style=cIsUtility>reduces</style> damage currently being delayed up to a <style=cIsUtility>50%.</style> <style=cSub>Won't delay self-damage, armor bypasses and freezes.</style>",
 	"ITEM_HITLAG_LORE": "\u201CWe can set up communications, but God DAMN do these cables suck. Not only they are extremely short, every time we need to do a extension the data gets delayed an extra second. How are we supposed to know what is going to happen, if anything is ever going to happen? Also, sometimes the data does some kind of skip and it arrives everything at once, which overwhelms our barely functioning systems.\r\n\r\n...next time I'm setting this up with fiber cables, those surely will work better.\u201D\r\n\r\n-Signal echoes, UES Contact Light\r\n",
 	
@@ -64,7 +64,7 @@
 	
 	"ITEM_MONEYBANK_NAME": "Off-Planet Account",
 	"ITEM_MONEYBANK_PICKUP": "Gain access to a bank account where you can store money between stages.",
-	"ITEM_MONEYBANK_DESC": "Store up to <style=cIsUtility>500$</style> plus <style=cIsUtility>0$</style> <style=cStack>(+25$ per stack)</style> MORE <style=cIsDamage>each stage</style> in an off-planet account, storing your money for future stages.",
+	"ITEM_MONEYBANK_DESC": "Store up to <style=cIsUtility>500$</style> plus <style=cIsUtility>25$</style> <style=cStack>(+25$ per stack)</style> more <style=cIsDamage>each stage</style> in an off-planet account, storing your money for future stages.",
 	"ITEM_MONEYBANK_LORE": "",
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",

@@ -18,7 +18,7 @@ MonoBehaviour:
   keywordTokens:
   - KEYWORD_SNIPERCLASSIC_MORTAR
   - KEYWORD_STUNNING
-  icon: {fileID: 0}
+  icon: {fileID: -5735879290012288544, guid: 929351dceaa22b648bfdaa20e7a9da77, type: 3}
   activationStateMachineName: SideWeapon
   activationState:
     _typeName: TurboEdition.EntityStates.Grenadier.SideWeapon.FireSecondary, TurboEdition,

@@ -27,7 +27,7 @@ namespace TurboEdition.Items
                         moneyFromFirstStack += 500; //Basically count that tracks bodies that have at least one item
                     }
                 }
-                return (uint)(moneyFromFirstStack + ((Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) - (moneyFromFirstStack / 500)) * 25) * (Run.instance.stageClearCount + 1));
+                return (uint)(moneyFromFirstStack + (Util.GetItemCountForTeam(TeamIndex.Player, TEContent.Items.MoneyBank.itemIndex, false, true) * 25) * (Run.instance.stageClearCount + 1));
             }
         }
 

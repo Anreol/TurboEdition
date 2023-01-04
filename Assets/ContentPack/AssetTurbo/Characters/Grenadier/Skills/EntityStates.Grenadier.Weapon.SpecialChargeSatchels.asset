@@ -59,7 +59,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: damageCoefficient
       fieldValue:
-        stringValue: 5
+        stringValue: 6
         objectValue: {fileID: 0}
     - fieldName: baseMinimumDuration
       fieldValue:

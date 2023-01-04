@@ -160,6 +160,7 @@
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\InjectRoR2Camera.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\CombatDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\CostAndStatExtras.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\HealthbarStyleHelper.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\ItemDisplayRulesInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\MiscLanguage.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\WardOnLevelVoidManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\GrenadierSpecialSkillDef.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\MusicTrackSafeDef.cs" />
+    <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\SerializableBarStyle.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\SerializableContentPackExpanded.cs" />
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\SerializableDirectorCard.cs" />
     <Compile Include="Assets\ContentPack\Modules\TEContent.cs" />

@@ -16,4 +16,5 @@ MonoBehaviour:
   displayModelPath: Prefabs/NullModel
   displayModelPrefab: {fileID: 0}
   hidden: 0
-  achievementIcon: {fileID: 0}
+  achievementIcon: {fileID: 8489808146408259371, guid: f5b786d181ab3d446806ffce5e21b9cf,
+    type: 3}

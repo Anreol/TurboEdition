@@ -30,7 +30,7 @@
 		"GRENADIER_UTILITY_ALT_NAME": "<sprite name=\"WIP\">Speed Booster<sprite name=\"WIP\">",
 		"GRENADIER_UTILITY_ALT_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Start running and crash into enemies for <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
 		"GRENADIER_SPECIAL_NAME": "Imploding Charge",
-		"GRENADIER_SPECIAL_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each, pulling enemies in before exploding.",
+		"GRENADIER_SPECIAL_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Charge and throw all your available stacks for <style=cIsDamage>600% damage</style> each, pulling enemies in before exploding.",
 		"GRENADIER_SPECIAL_ALT_NAME": "<sprite name=\"WIP\">Tracker Bomb<sprite name=\"WIP\">",
 		"GRENADIER_SPECIAL_ALT_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +2 Stock</style>. Charge and throw all your sliding bombs, which lock on to a target until exploding for <style=cIsDamage>650% damage</style>.",
 		"GRENADIER_SPECIAL_ALT2_NAME": "Sidewinder",

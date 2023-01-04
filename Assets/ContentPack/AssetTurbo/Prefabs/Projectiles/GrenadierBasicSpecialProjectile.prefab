@@ -29145,6 +29145,8 @@ MonoBehaviour:
   bonusBlastForceExtra: {x: 550, y: 550, z: 550}
   canRejectForceExtra: 1
   blastAttackEffect: {fileID: 0}
+  inheritProcCoefficient: 0
+  blastAttackProcCoefficient: -999
   damageTypeOverride: 2048
 --- !u!114 &5711418286933940513
 MonoBehaviour:

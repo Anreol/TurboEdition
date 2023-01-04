@@ -35,11 +35,11 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: blastBaseForce
       fieldValue:
-        stringValue: 200
+        stringValue: 1200
         objectValue: {fileID: 0}
     - fieldName: blastBonusForce
       fieldValue:
-        stringValue: 500
+        stringValue: 2500
         objectValue: {fileID: 0}
     - fieldName: onEnterPrefab
       fieldValue:
@@ -58,4 +58,8 @@ MonoBehaviour:
     - fieldName: achievementIdentificator
       fieldValue:
         stringValue: GrenadierPostDeathKill
+        objectValue: {fileID: 0}
+    - fieldName: preventGameOverDuration
+      fieldValue:
+        stringValue: 3
         objectValue: {fileID: 0}

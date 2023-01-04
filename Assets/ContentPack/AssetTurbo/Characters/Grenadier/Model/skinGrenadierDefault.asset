@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: skinGrenadierDefault
   m_EditorClassIdentifier: 
   baseSkins: []
-  icon: {fileID: 0}
+  icon: {fileID: 1170390642980749519, guid: f5b786d181ab3d446806ffce5e21b9cf, type: 3}
   nameToken: DEFAULT_SKIN
   unlockableName: 
   unlockableDef: {fileID: 0}

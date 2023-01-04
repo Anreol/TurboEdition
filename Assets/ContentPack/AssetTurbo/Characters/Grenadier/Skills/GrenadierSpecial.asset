@@ -17,7 +17,7 @@ MonoBehaviour:
   skillDescriptionToken: GRENADIER_SPECIAL_DESCRIPTION
   keywordTokens:
   - KEYWORD_SYNCEDRELOAD
-  icon: {fileID: 0}
+  icon: {fileID: 483441253321786945, guid: 929351dceaa22b648bfdaa20e7a9da77, type: 3}
   activationStateMachineName: Weapon
   activationState:
     _typeName: TurboEdition.EntityStates.Grenadier.Weapon.SpecialChargeSatchels,

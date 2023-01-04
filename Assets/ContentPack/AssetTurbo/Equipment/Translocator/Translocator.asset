@@ -22,7 +22,7 @@ MonoBehaviour:
   pickupIconSprite: {fileID: 0}
   unlockableDef: {fileID: 0}
   colorIndex: 5
-  canDrop: 1
+  canDrop: 0
   dropOnDeathChance: 0
   canBeRandomlyTriggered: 0
   enigmaCompatible: 0

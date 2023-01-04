@@ -16,14 +16,14 @@ MonoBehaviour:
   skillNameToken: GRENADIER_SECONDARY_ALT2_NAME
   skillDescriptionToken: GRENADIER_SECONDARY_ALT2_DESCRIPTION
   keywordTokens: []
-  icon: {fileID: 0}
-  activationStateMachineName: Weapon
+  icon: {fileID: 7667553595731263548, guid: 929351dceaa22b648bfdaa20e7a9da77, type: 3}
+  activationStateMachineName: SideWeapon
   activationState:
-    _typeName: TurboEdition.EntityStates.Grenadier.Weapon.FireSecondaryBomblet, TurboEdition,
-      Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
+    _typeName: TurboEdition.EntityStates.Grenadier.SideWeapon.FireSecondaryBomblet,
+      TurboEdition, Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
   baseRechargeInterval: 5
-  baseMaxStock: 3
+  baseMaxStock: 1
   rechargeStock: 1
   requiredStock: 1
   stockToConsume: 1
@@ -37,4 +37,4 @@ MonoBehaviour:
   isCombatSkill: 1
   mustKeyPress: 1
   stepCount: 3
-  stepGraceDuration: 0.75
+  stepGraceDuration: 1

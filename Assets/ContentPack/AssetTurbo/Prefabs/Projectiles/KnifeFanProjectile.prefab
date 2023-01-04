@@ -4936,7 +4936,7 @@ MonoBehaviour:
   startSound: 
   cannotBeDeleted: 0
   flightSoundLoop: {fileID: 0}
-  canImpactOnTrigger: 0
+  canImpactOnTrigger: 1
   allowPrediction: 1
   owner: {fileID: 0}
   procCoefficient: 0.15
@@ -5167,8 +5167,8 @@ MonoBehaviour:
   m_Script: {fileID: 1839950351, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yAxisOnly: 0
-  rotationSpeed: 20
+  yAxisOnly: 1
+  rotationSpeed: 50
 --- !u!114 &1615215635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5181,12 +5181,12 @@ MonoBehaviour:
   m_Script: {fileID: -343225066, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRange: 100
-  lookCone: 10
+  lookRange: 300
+  lookCone: 25
   targetSearchInterval: 0.5
   onlySearchIfNoTarget: 1
   allowTargetLoss: 0
-  testLoS: 0
+  testLoS: 1
   ignoreAir: 0
   flierAltitudeTolerance: Infinity
   onNewTargetFound:

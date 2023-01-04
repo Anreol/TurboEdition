@@ -1,7 +1,10 @@
 ﻿using RoR2;
 using RoR2.Items;
+using RoR2.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using TurboEdition.ScriptableObjects;
 using UnityEngine;
 
 namespace TurboEdition.Items
@@ -14,7 +17,19 @@ namespace TurboEdition.Items
             return TEContent.Items.Hitlag;
         }
 
+
+        [SystemInitializer(typeof(PickupCatalog))]
+        public static void Initialize()
+        {
+            HealthComponent.onCharacterHealServer += onCharacterHealServer; //Hitlag
+        }
+
         internal Queue<DelayedDamageInfo> damageInfos = new Queue<DelayedDamageInfo>();
+
+        private void OnEnable()
+        {
+            UI.HealthbarStyleHelper.barDataInstances.Add(new HitlagBarData(body.healthComponent));
+        }
 
         public void OnIncomingDamageServer(DamageInfo damageInfo)
         {
@@ -31,6 +46,7 @@ namespace TurboEdition.Items
                 ReducedDamageInfo = new DamageInfo
                 {
                     attacker = damageInfo.attacker,
+                    canRejectForce = damageInfo.canRejectForce,
                     crit = damageInfo.crit,
                     damage = damageInfo.damage,
                     damageColorIndex = damageInfo.damageColorIndex,
@@ -59,9 +75,7 @@ namespace TurboEdition.Items
 
         private void OnDestroy()
         {
-
-                Cleanse();
-            
+            Cleanse();
         }
 
         internal void Heal(HealthComponent hc, float amount, ProcChainMask procChainMask)
@@ -70,7 +84,7 @@ namespace TurboEdition.Items
             if (damageInfos != null && damageInfos.Count > 0)
             {
                 DelayedDamageInfo hitlag = damageInfos.FirstOrDefault(x => x.ReducedDamageInfo.damage > x.ogDamageInfoDamage / 2);
-                while (amount > 0)
+                while (amount > 0 && hitlag != default)
                 {
                     if (amount > hitlag.ogDamageInfoDamage / 2)
                     {
@@ -109,25 +123,87 @@ namespace TurboEdition.Items
             if (!body.HasBuff(RoR2Content.Buffs.HiddenInvincibility))
             {
                 body.healthComponent.TakeDamage(di);
+                GlobalEventManager.instance.OnHitEnemy(di, body.gameObject);
+                GlobalEventManager.instance.OnHitAll(di, body.gameObject);
             }
         }
 
-        [SystemInitializer(typeof(PickupCatalog))]
-        public static void Initialize()
-        {
-            HealthComponent.onCharacterHealServer += onCharacterHealServer; //Hitlag
-        }
 
         private static void onCharacterHealServer(HealthComponent arg1, float arg2, ProcChainMask procChainMask)
         {
             arg1.body.GetComponent<HitlagBodyBehavior>()?.Heal(arg1, arg2, procChainMask);
         }
-    }
 
-    internal struct DelayedDamageInfo
-    {
-        public float ogDamageInfoDamage;
-        public DamageInfo ReducedDamageInfo;
-        public Run.FixedTimeStamp FixedTimeStamp;
+        internal struct DelayedDamageInfo
+        {
+            public float ogDamageInfoDamage;
+            public DamageInfo ReducedDamageInfo;
+            public Run.FixedTimeStamp FixedTimeStamp;
+
+            public override int GetHashCode()
+            {
+                return base.GetHashCode();
+            }
+
+            public override bool Equals(object obj)
+            {
+                if (obj is DelayedDamageInfo delayedDamage)
+                {
+                    return ogDamageInfoDamage == delayedDamage.ogDamageInfoDamage && ReducedDamageInfo == delayedDamage.ReducedDamageInfo && delayedDamage.FixedTimeStamp == FixedTimeStamp;
+                }
+                return false;
+            }
+
+            public static bool operator ==(DelayedDamageInfo c1, DelayedDamageInfo c2)
+            {
+                return c1.Equals(c2);
+            }
+
+            public static bool operator !=(DelayedDamageInfo c1, DelayedDamageInfo c2)
+            {
+                return !c1.Equals(c2);
+            }
+        }
+
+        public class HitlagBarData : UI.HealthbarStyleHelper.HealthBarData
+        {
+            private HitlagBodyBehavior hbb;
+
+            public HitlagBarData(HealthComponent healthComponent)
+            {
+                watcher = healthComponent;
+            }
+
+            public override HealthBarStyle.BarStyle GetStyle()
+            {
+                return Assets.mainAssetBundle.LoadAsset<SerializableBarStyle>("sbsBarStyles").style;
+            }
+
+            public override void CheckInventory(ref HealthBar healthBar)
+            {
+                base.CheckInventory(ref healthBar);
+                hbb = healthBar.source.body.GetComponent<HitlagBodyBehavior>();
+                if (!hbb)
+                {
+                    UI.HealthbarStyleHelper.barDataInstances.Remove(this);
+                }
+            }
+
+            public override void UpdateBarInfo(ref HealthBar.BarInfo info, HealthComponent.HealthBarValues healthBarValues, ref HealthBar healthBarInstance)
+            {
+                float damageAccumulated = 0;
+                if (hbb && hbb.damageInfos != null)
+                {
+                    foreach (var item in hbb.damageInfos)
+                    {
+                        damageAccumulated += item.ReducedDamageInfo.damage;
+                    }
+                }
+                info.enabled = damageAccumulated > 0;
+                info.normalizedXMin = Mathf.Clamp01(Util.Remap(damageAccumulated, 0, healthBarValues.healthDisplayValue, healthBarInstance.source.combinedHealthFraction, 0));
+                info.normalizedXMax = healthBarInstance.source.combinedHealthFraction;
+                base.UpdateBarInfo(ref info, healthBarValues, ref healthBarInstance);
+            }
+        }
     }
 }

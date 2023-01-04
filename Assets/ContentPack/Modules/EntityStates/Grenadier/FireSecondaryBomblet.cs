@@ -3,14 +3,10 @@ using RoR2;
 using RoR2.Skills;
 using UnityEngine;
 
-namespace TurboEdition.EntityStates.Grenadier.Weapon
+namespace TurboEdition.EntityStates.Grenadier.SideWeapon
 {
     public class FireSecondaryBomblet : GenericProjectileBaseState, SteppedSkillDef.IStepSetter, ISkillState
     {
-        [Tooltip("The minimum amount of seconds in which this state will have skill priority, scales with attack speed.")]
-        [SerializeField]
-        public float baseMinDuration;
-
         [Tooltip("Base duration of an animation, gets multipled by the state duration later.")]
         [SerializeField]
         public float baseAnimDuration = 1;
@@ -31,15 +27,14 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
         [SerializeField]
         public float comboSpreadMod = 1.5f;
 
-        [Tooltip("How much should consecutive throws be spread for. Accumulative")]
+        [Tooltip("How much should consecutive throws apply recoil for. Accumulative")]
         [SerializeField]
         public float comboRecoilMod = 1.2f;
 
-        [Tooltip("How much should consecutive throws be spread for. Accumulative")]
+        [Tooltip("How much should consecutive throws add bloom for. Accumulative")]
         [SerializeField]
         public float comboSpreadBloomMod = 1.5f;
 
-        private float minimumDuration => step == 0 ? baseMinDuration / this.attackSpeedStat : (baseMinDuration / this.attackSpeedStat) * comboDurationMod;
         private GenericSkill _skillslot;
         private int step;
 
@@ -88,15 +83,6 @@ namespace TurboEdition.EntityStates.Grenadier.Weapon
             {
                 SmallHop(characterMotor, smallHopVelocity);
             }
-        }
-
-        public override InterruptPriority GetMinimumInterruptPriority()
-        {
-            if (base.fixedAge <= minimumDuration || !firedProjectile)
-            {
-                return InterruptPriority.PrioritySkill;
-            }
-            return InterruptPriority.Any;
         }
     }
 }

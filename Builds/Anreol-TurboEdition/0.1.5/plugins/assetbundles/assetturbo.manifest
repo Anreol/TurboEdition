@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 280481230
+CRC: 1588102901
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b9eb6bcc8310ce69489158e7c112aa94
+    Hash: cad1b0cb40ff2111ed49c37a61a7b06e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 75b0148e9fdba97b60122aa952ef62ee
+    Hash: ebc56261dadeacad78ca230dc9440caa
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -57,10 +57,6 @@ ClassTypes:
   Script: {fileID: 1985007777, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 422384671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 1810124184, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 924743675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 268574540, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -232,6 +228,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -410682677, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 924743675, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -104859921, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -364,6 +362,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -974958137, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
+  Script: {fileID: 1810124184, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
   Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 353067543, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -463,6 +463,8 @@ ClassTypes:
   Script: {fileID: 874801135, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: ca88f1da97b61b54a9696effec1b9973, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cb7f3fea618720846830961f72c75be2, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 93509c1b6b241c24ab420710b7db3b1b, type: 3}
 - Class: 114
@@ -599,6 +601,7 @@ Assets:
 - Assets/Materials/matProjectileFlare.mat
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsFrozenWallMonstersTE.asset
 - Assets/Textures/texEffSmokePuffSmallDirectional2.png
+- Assets/Textures/texSkinSwatches.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierCrosshair.prefab
 - Assets/Materials/matTeamAreaIndicatorIntersectionMonster.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/HellchainDebuffArea.prefab
@@ -641,6 +644,7 @@ Assets:
 - Assets/Textures/texKnifeUV_Normal.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadieWeapon_Skin1_Recolor.mat
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGIntersectionCloudRemap.asset
+- Assets/ContentPack/AssetTurbo/Misc/sbsBarStyles.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpDeathVFX.prefab
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_ClothTarp.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/matGrenadierExplosionRadius.mat
@@ -872,6 +876,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/ItemDeployer.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicSpecialProjectile.prefab
 - Assets/Textures/Ramps/texRampPurpleYellow.png
+- Assets/Textures/texUIHealthBarWarning.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/meshDropletDupeDisplay.mesh
 - Assets/Mesh/effDonut3Mesh.asset
 - Assets/Textures/texTerrain_OB_Dirt.png
@@ -942,7 +947,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/BloodEconomy/BloodEconomy.asset
 - Assets/Textures/texSandbag_Diffuse.png
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/WormsArtifact.asset
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.FireSecondaryBomblet.asset
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.SideWeapon.FireSecondaryBomblet.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/Grenadier_Skin1_Diffuse.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdWardOnLevelVoid.asset
@@ -984,6 +989,7 @@ Assets:
 - Assets/Textures/texTrimsheetObservatoryDiffuse.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/EntityStates.ImpBomber.SpawnState.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
+- Assets/Textures/texPlaceholderSkills.png
 - Assets/Textures/texCrystalineNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.SideWeapon.FireSecondaryAlt.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/KnifeFanGhost.prefab

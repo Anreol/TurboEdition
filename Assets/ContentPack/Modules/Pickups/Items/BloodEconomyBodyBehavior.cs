@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using RoR2.Items;
+using System;
 using UnityEngine;
 
 namespace TurboEdition.Items
@@ -10,6 +11,13 @@ namespace TurboEdition.Items
         private static ItemDef GetItemDef()
         {
             return TEContent.Items.BloodEconomy;
+        }
+
+
+        [SystemInitializer(typeof(PickupCatalog))]
+        public static void Initialize()
+        {
+            OutlineHighlight.onPreRenderOutlineHighlight += new Action<OutlineHighlight>(BloodEconomyBodyBehavior.OnPreRenderOutlineHighlight);
         }
 
         //Cleans up everytime the body dies ie. death and stage change
@@ -96,6 +104,11 @@ namespace TurboEdition.Items
             }
 
             purchaseInteraction.cost = Mathf.Max(5, purchaseInteraction.cost -= Run.instance.GetDifficultyScaledCost(2));
+        }
+
+        private static void OnPreRenderOutlineHighlight(OutlineHighlight obj)
+        {
+
         }
     }
 }

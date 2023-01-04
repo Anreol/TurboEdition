@@ -17,7 +17,7 @@ MonoBehaviour:
   skillDescriptionToken: GRENADIER_UTILITY_DESCRIPTION
   keywordTokens:
   - KEYWORD_HEAVY
-  icon: {fileID: 0}
+  icon: {fileID: 1138943279953961057, guid: 929351dceaa22b648bfdaa20e7a9da77, type: 3}
   activationStateMachineName: Roll
   activationState:
     _typeName: TurboEdition.EntityStates.Grenadier.Roll.RollClash, TurboEdition,

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSkins:
   - {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: 8489808146408259371, guid: f5b786d181ab3d446806ffce5e21b9cf, type: 3}
   nameToken: GRENADIER_SKIN_RECOLOR_NAME
   unlockableName: 
   unlockableDef: {fileID: 11400000, guid: 0982df111677f304098eb245a4d44afa, type: 2}
