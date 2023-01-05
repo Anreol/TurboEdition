@@ -24,7 +24,7 @@ MonoBehaviour:
     - fieldName: projectilePrefab
       fieldValue:
         stringValue: 
-        objectValue: {fileID: 7028506108066464535, guid: f5a07deaa071d794b84450f29bbfc772,
+        objectValue: {fileID: 7028506108066464535, guid: dcb7d2ef3dcf9f846add02a842903620,
           type: 3}
     - fieldName: damageCoefficient
       fieldValue:
@@ -40,7 +40,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: maxSpread
       fieldValue:
-        stringValue: 10
+        stringValue: 5
         objectValue: {fileID: 0}
     - fieldName: baseDuration
       fieldValue:

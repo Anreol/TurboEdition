@@ -37,4 +37,4 @@ MonoBehaviour:
   isCombatSkill: 1
   mustKeyPress: 1
   stepCount: 3
-  stepGraceDuration: 1
+  stepGraceDuration: 1.5

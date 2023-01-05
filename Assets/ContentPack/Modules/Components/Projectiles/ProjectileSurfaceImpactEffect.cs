@@ -9,14 +9,19 @@ namespace TurboEdition.Components
     public class ProjectileSurfaceImpactEffect : MonoBehaviour, IProjectileImpactBehavior
     {
         public GameObject prefabEffect;
+        [Tooltip("Should the effect have a specific size instead of using the EffectData's default scale. -1 to disable")]
         public float scaleOverride = 1;
         public bool useSurfaceDefEffectToo;
+        [Tooltip("Should both the surfaceDef's and effect prefab rotate to the impact's normal angles.")]
         public bool tryToNormalize;
+        [Tooltip("Should the prefab effect use the color override instead of figuring out the color off the hit surfaceDef's color. Does not change the surfaceDef's effect color.")]
+        public bool useColorOverride = false;
+        public Color colorOverride = Color.white;
 
         public void OnProjectileImpact(ProjectileImpactInfo impactInfo)
         {
-            Vector3 normal = (impactInfo.estimatedImpactNormal == new Vector3(0, 0, 0)) ? -base.gameObject.transform.forward : impactInfo.estimatedImpactNormal;
-            Vector3 position = (impactInfo.estimatedPointOfImpact == new Vector3(0, 0, 0)) ? base.gameObject.transform.position : impactInfo.estimatedPointOfImpact;
+            Vector3 normal = (impactInfo.estimatedImpactNormal == default) ? -base.gameObject.transform.forward : impactInfo.estimatedImpactNormal;
+            Vector3 position = (impactInfo.estimatedPointOfImpact == default) ? base.gameObject.transform.position : impactInfo.estimatedPointOfImpact;
             SurfaceDef surfaceDef = SurfaceDefProvider.GetObjectSurfaceDef(impactInfo.collider, position);
             if (surfaceDef)
             {
@@ -42,7 +47,7 @@ namespace TurboEdition.Components
                 {
                     EffectData effectData = new EffectData()
                     {
-                        color = color,
+                        color = useColorOverride ? colorOverride : color,
                         origin = position,
                         surfaceDefIndex = surfaceDef.surfaceDefIndex,
                         rotation = tryToNormalize ? Util.QuaternionSafeLookRotation(normal) : EffectData.defaultRotation,
@@ -54,7 +59,7 @@ namespace TurboEdition.Components
             }
             if (prefabEffect)
             {
-                EffectManager.SimpleImpactEffect(prefabEffect, position, normal, false);
+                EffectManager.SimpleImpactEffect(prefabEffect, position, tryToNormalize ? normal : EffectData.defaultRotation.eulerAngles, useColorOverride ? colorOverride : Color.white, false);
             }
         }
     }

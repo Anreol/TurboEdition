@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1588102901
+CRC: 3084305296
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cad1b0cb40ff2111ed49c37a61a7b06e
+    Hash: 7e9464e17296af988a09cf28c6597d60
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ebc56261dadeacad78ca230dc9440caa
+    Hash: e77c6bcbd1017fde48ace8aaefb0df2f
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -615,6 +615,7 @@ Assets:
 - Assets/Textures/texTerrain_SandMixGrass_01_Diffuse.png
 - Assets/Textures/texHangingCloth1NormalTiled.png
 - Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
+- Assets/ContentPack/AssetTurbo/Misc/physmatBouncyFunball.physicMaterial
 - Assets/Mesh/Items/meshKnifeHandle.mesh
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skins.Grenadier.Alt2.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texTurboExpansionIcon.png
@@ -1046,6 +1047,7 @@ Assets:
 - Assets/Textures/texEffShockwaveHitsparkMask.png
 - Assets/Materials/matCardTest.mat
 - Assets/ContentPack/AssetTurbo/Scenes/dev/matDevInvertedGreen.mat
+- Assets/ContentPack/AssetTurbo/Misc/physmatRoll.physicMaterial
 - Assets/Textures/texPierceMask.png
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGCloudRemap.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierSecondaryAltChildProjectile.prefab
@@ -1103,6 +1105,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/GrenadierBasicPrimaryGhost.prefab
 - Assets/Textures/texOmniExplosion1Mask.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadieWeapon_Skin1.mat
+- Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierMiniBombletProjectile.prefab
 - Assets/Materials/matZiplineRope.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/GrenadierFullyChargedSecondaryEffect.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPassiveFamily.asset

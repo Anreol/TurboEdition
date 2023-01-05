@@ -75,7 +75,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: forwardVelocity
       fieldValue:
-        stringValue: 14
+        stringValue: 7.50
         objectValue: {fileID: 0}
     - fieldName: animMinValue
       fieldValue:
@@ -95,7 +95,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: attackPushAwayForce
       fieldValue:
-        stringValue: 20
+        stringValue: 1200
         objectValue: {fileID: 0}
     - fieldName: attackMaxTargetsAtOnce
       fieldValue:
@@ -107,5 +107,5 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: aimDirectionBonusHorizontalVelocity
       fieldValue:
-        stringValue: 5
+        stringValue: 4
         objectValue: {fileID: 0}

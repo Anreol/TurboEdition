@@ -23,7 +23,7 @@ MonoBehaviour:
     _typeName: TurboEdition.EntityStates.Grenadier.Roll.RollClash, TurboEdition,
       Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
-  baseRechargeInterval: 9
+  baseRechargeInterval: 11
   baseMaxStock: 2
   rechargeStock: 1
   requiredStock: 1
@@ -33,7 +33,7 @@ MonoBehaviour:
   dontAllowPastMaxStocks: 0
   beginSkillCooldownOnSkillEnd: 1
   cancelSprintingOnActivation: 0
-  forceSprintDuringState: 0
+  forceSprintDuringState: 1
   canceledFromSprinting: 0
   isCombatSkill: 0
   mustKeyPress: 1
