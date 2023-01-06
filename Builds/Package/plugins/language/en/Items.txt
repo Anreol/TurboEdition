@@ -23,7 +23,7 @@
 	
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
 	"ITEM_BLOODECONOMY_PICKUP": "Discount interactables that you cannot afford by paying with your blood.",
-	"ITEM_BLOODECONOMY_DESC": "<style=cIsUtility>Decrease the cost</style> by <style=cIsDamage>2$</style> of an interacteable you cannot afford by <color=#FF7F7F>damaging yourself by 35% HP</color> up to one time <style=cStack>(+1 per stack)</style>. <style=cIsUtility>Scales over time</style>.",
+	"ITEM_BLOODECONOMY_DESC": "<style=cIsUtility>Decrease the cost</style> by <style=cIsDamage>2$</style> of an interacteable you cannot afford by <color=#FF7F7F>damaging yourself</color> up to one time <style=cStack>(+1 per stack)</style>. <style=cIsUtility>Scales over time</style>.",
 	"ITEM_BLOODECONOMY_LORE": "Order: Segmented funding, 1 out of 452 367 198\r\nTracking Number: 732***********\r\nEstimated Delivery: 11\/17\/2056\r\nShipping Method: High Priority/Biological\r\nShipping Address: Black Rock, Kuiper Belt\r\nShipping Details:\r\n\r\nTell Mr. Tides that this isn\'t his standard \"charity\" donation, it has taken countless of assets to reach this amount. It would be a shame if a different organization got my attention, making you and him lose all of those plastic roots you both have managed to fabricate over the years.\r\nMake sure it resonates across the whole Solar System.",
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
@@ -43,8 +43,8 @@
 	"ITEM_GRACEPERIOD_LORE": "",
 	
 	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
-	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage.",
-	"ITEM_HITLAG_DESC": "Delay all incoming <style=cIsDamage>normal damage</style> by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>Healing</style> <style=cIsUtility>reduces</style> damage currently being delayed up to a <style=cIsUtility>50%.</style> <style=cSub>Affected by armor bypasses and freezes.</style>",
+	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage, and be able to heal it.",
+	"ITEM_HITLAG_DESC": "Delay all incoming <style=cIsDamage>normal damage</style> by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>25% of incoming healing</style> <style=cIsUtility>reduces</style> damage currently being delayed up to a <style=cIsUtility>50%.</style> <style=cSub>Won't delay self-damage, armor bypasses and freezes.</style>",
 	"ITEM_HITLAG_LORE": "\u201CWe can set up communications, but God DAMN do these cables suck. Not only they are extremely short, every time we need to do a extension the data gets delayed an extra second. How are we supposed to know what is going to happen, if anything is ever going to happen? Also, sometimes the data does some kind of skip and it arrives everything at once, which overwhelms our barely functioning systems.\r\n\r\n...next time I'm setting this up with fiber cables, those surely will work better.\u201D\r\n\r\n-Signal echoes, UES Contact Light\r\n",
 	
 	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",
@@ -64,7 +64,7 @@
 	
 	"ITEM_MONEYBANK_NAME": "Off-Planet Account",
 	"ITEM_MONEYBANK_PICKUP": "Gain access to a bank account where you can store money between stages.",
-	"ITEM_MONEYBANK_DESC": "Store up to <style=cIsUtility>500$</style> plus <style=cIsUtility>0$</style> <style=cStack>(+25$ per stack)</style> MORE <style=cIsDamage>each stage</style> in an off-planet account, storing your money for future stages.",
+	"ITEM_MONEYBANK_DESC": "Store up to <style=cIsUtility>500$</style> plus <style=cIsUtility>25$</style> <style=cStack>(+25$ per stack)</style> more <style=cIsDamage>each stage</style> in an off-planet account, storing your money for future stages.",
 	"ITEM_MONEYBANK_LORE": "",
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
@@ -74,7 +74,7 @@
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
 	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",
-	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>10 more</style> <style=cStack>(+10 per stack)</style> each time you hit an enemy that is under 25% HP, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>10 more</style> <style=cStack>(+10 per stack)</style> each time you hit an enemy that is under 25% HP, bonus <color=#FF7F7F>is lost</color> when you get hurt.",
 	"ITEM_SOULDEVOURER_LORE": "",
 
 	"ITEM_STANDBONUS_NAME": "Punching Bag",

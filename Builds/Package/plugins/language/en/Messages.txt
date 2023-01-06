@@ -34,7 +34,7 @@
 		"PLAYER_DEATH_QUOTE_TE_15_2P" : "*steps in you're path*",
 		"PLAYER_DEATH_QUOTE_TE_15" : "{0} tripped with something.",
 		"PLAYER_DEATH_QUOTE_TE_16_2P" : "Drizzlet.",
-		"PLAYER_DEATH_QUOTE_TE_16" : "{0} will be hosting on Drizzle later.",
+		"PLAYER_DEATH_QUOTE_TE_16" : "{0} will be playing on Drizzle later.",
 		"PLAYER_DEATH_QUOTE_TE_17_2P" : "People die if they are killed.",
 		"PLAYER_DEATH_QUOTE_TE_17" : "{0} died after getting killed.",
 		"PLAYER_DEATH_QUOTE_TE_18_2P" : "GAME.",

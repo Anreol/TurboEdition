@@ -23,7 +23,7 @@ MonoBehaviour:
       TurboEdition, Version=9999.0.1.5, Culture=neutral, PublicKeyToken=null
   interruptPriority: 1
   baseRechargeInterval: 5
-  baseMaxStock: 1
+  baseMaxStock: 2
   rechargeStock: 1
   requiredStock: 1
   stockToConsume: 1

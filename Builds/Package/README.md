@@ -56,8 +56,8 @@ Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Chang
 
 ### Latest release
 
-`0.1.4 Impromptu Test`
-This was a release made for a impromptu test, so bugs from the previous version are most likely still in, and features are unfinished or untested.
+`0.1.5 Public Test`
+Test release to gather feedback on Grenadier, has a few fixes and that's about it.
 
 ## Rainfusion
 You can find the original Turbo Edition by JoeyAsagiri on [rainfusion.ml](https://rainfusion.ml/) and a direct download can be found [here](https://cdn.rainfusion.ml/download-mod/18f68f57-bcfd-4979-873c-6df90c33e353/turbo_edition_0.3.1.zip). The original repository can be found [here](https://github.com/JoeySmulders/RoR-Turbo-Edition).
