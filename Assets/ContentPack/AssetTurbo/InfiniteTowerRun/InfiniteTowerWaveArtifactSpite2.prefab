@@ -146,31 +146,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBossWave: 0
-  combatDirector: {fileID: 0}
-  combatSquad: {fileID: 0}
-  baseCredits: 0
+  combatDirector: {fileID: 7280138350853733346}
+  combatSquad: {fileID: 2486831562688517445}
+  baseCredits: 159
   linearCreditsPerWave: 0
-  wavePeriodSeconds: 0
+  wavePeriodSeconds: 30
   secondsBeforeSuddenDeath: 60
   secondsBeforeFailsafe: 60
   suddenDeathRadiusConstrictingPerSecond: 0.05
   suddenDeathChatToken: INFINITETOWER_SUDDEN_DEATH
-  immediateCreditsFraction: 0
+  immediateCreditsFraction: 0.15
   maxSquadSize: 0
   secondsAfterWave: 0
   squadDefeatGracePeriod: 1
-  uiPrefab: {fileID: 0}
-  overlayEntries: []
+  uiPrefab: {fileID: -2332902178623352624, guid: 00000000000000000000000000000000,
+    type: 0}
+  overlayEntries:
+  - prefab: {fileID: 3103476043291598047, guid: 123a9f7e50d7ea441845978be9de1338,
+      type: 3}
+    hudChildName: CrosshairExtras
+  - prefab: {fileID: 4257320144421998181, guid: aa483f4e69d241741bcfa9b4ba4b87a6,
+      type: 3}
+    hudChildName: CrosshairExtras
   convertGoldOnWaveFinish: 0
   goldToExpConversionRatio: 0
-  rewardDropTable: {fileID: 0}
+  rewardDropTable: {fileID: -3865086810712067116, guid: 00000000000000000000000000000000,
+    type: 0}
   rewardDisplayTier: 0
-  rewardOptionCount: 0
-  rewardPickupPrefab: {fileID: 0}
-  rewardOffset: {x: 0, y: 0, z: 0}
-  beginChatToken: INFINITETOWER_WAVE_BEGIN
-  beginSoundString: 
-  onAllEnemiesDefeatedSoundString: 
+  rewardOptionCount: 3
+  rewardPickupPrefab: {fileID: 7788485303289882454, guid: 00000000000000000000000000000000,
+    type: 0}
+  rewardOffset: {x: 0, y: 3, z: 0}
+  beginChatToken: 
+  beginSoundString: Play_UI_arenaMode_wave_start
+  onAllEnemiesDefeatedSoundString: Play_UI_arenaMode_wave_complete
 --- !u!114 &5408886819316150461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,4 +237,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   component: {fileID: 4796761179788193275}
   fieldName: uiPrefab
-  assetAddress: 
+  assetAddress: RoR2/DLC1/GameModes/InfiniteTowerRun/InfiniteTowerAssets/InfiniteTowerDefaultWaveUI.prefab

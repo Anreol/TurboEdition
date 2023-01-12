@@ -1825,6 +1825,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: InfiniteTowerWaveArtifactSpite2
       objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i0
+      value: 234
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i1
+      value: 231
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i2
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i3
+      value: 141
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i4
+      value: 117
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i5
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i6
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i7
+      value: 212
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i8
+      value: 249
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i9
+      value: 187
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i11
+      value: 253
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i12
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i13
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i14
+      value: 169
+      objectReference: {fileID: 0}
+    - target: {fileID: 8698854804707867109, guid: eae70d8d75412dd4f9bb05fd0480a92a,
+        type: 3}
+      propertyPath: m_AssetId.i15
+      value: 42
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eae70d8d75412dd4f9bb05fd0480a92a, type: 3}
 --- !u!4 &1067468805 stripped
