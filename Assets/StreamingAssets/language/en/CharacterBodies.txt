@@ -39,7 +39,7 @@
 		"GRENADIER_SPECIAL_FULL_DESCRIPTION" : "Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each.\nCurrently holding additional maximum <style=cIsUtility>three stacks</style>.",
 		"GRENADIER_SPECIAL_ALT_FULL_DESCRIPTION" : "Charge and throw all your sliding bombs, which when bouncing off obstacles, explode for <style=cIsDamage>200% damage</style>.\nCurrently holding additional maximum <style=cIsUtility>five stacks</style>.",
 		"GRENADIER_SPECIAL_ALT2_FULL_DESCRIPTION" : "Load in your side weapon missiles and release all of them over time, each one dealing <style=cIsDamage>TODO% damage</style>.\nCurrently holding additional maximum <style=cIsUtility>eight stacks</style>.",
-				
+
 		"GRENADIER_UI_SKILLDEF_FORMAT": "{0}",
 		
 		"GRENADIER_SKIN_RECOLOR_NAME" : "Recolor",

@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &820812724130147729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 665204989711285884}
+  - component: {fileID: 8698854804707867109}
+  - component: {fileID: 7280138350853733346}
+  - component: {fileID: 2486831562688517445}
+  - component: {fileID: 4796761179788193275}
+  - component: {fileID: 5408886819316150461}
+  - component: {fileID: 6474364466257078680}
+  - component: {fileID: 2828237249643119305}
+  - component: {fileID: -965892468138164933}
+  m_Layer: 0
+  m_Name: InfiniteTowerWaveArtifactSpite2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &665204989711285884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1710.883, y: 223.49927, z: 224.56973}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8698854804707867109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &7280138350853733346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 653292689, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customName: 
+  monsterCredit: 0
+  expRewardCoefficient: 0.1
+  goldRewardCoefficient: 0.2
+  minSeriesSpawnInterval: 0.5
+  maxSeriesSpawnInterval: 0.5
+  minRerollSpawnInterval: 3
+  maxRerollSpawnInterval: 2
+  moneyWaveIntervals: []
+  teamIndex: 2
+  creditMultiplier: 0.75
+  spawnDistanceMultiplier: 1
+  maxSpawnDistance: 60
+  minSpawnRange: 30
+  shouldSpawnOneWave: 0
+  targetPlayers: 0
+  skipSpawnIfTooCheap: 1
+  maxConsecutiveCheapSkips: 10
+  resetMonsterCardIfFailed: 1
+  maximumNumberToSpawnBeforeSkipping: 10
+  eliteBias: 1.5
+  onSpawnedServer:
+    m_PersistentCalls:
+      m_Calls: []
+  combatSquad: {fileID: 2486831562688517445}
+  spawnEffectPrefab: {fileID: 0}
+  ignoreTeamSizeLimit: 0
+  _monsterCards: {fileID: 0}
+  fallBackToStageMonsterCards: 1
+  currentSpawnTarget: {fileID: 0}
+--- !u!114 &2486831562688517445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1720486850, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propagateMembershipToSummons: 0
+  grantBonusHealthInMultiplayer: 1
+  onDefeatedClientLogicEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onDefeatedServerLogicEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4796761179788193275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -906186375, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBossWave: 0
+  combatDirector: {fileID: 0}
+  combatSquad: {fileID: 0}
+  baseCredits: 0
+  linearCreditsPerWave: 0
+  wavePeriodSeconds: 0
+  secondsBeforeSuddenDeath: 60
+  secondsBeforeFailsafe: 60
+  suddenDeathRadiusConstrictingPerSecond: 0.05
+  suddenDeathChatToken: INFINITETOWER_SUDDEN_DEATH
+  immediateCreditsFraction: 0
+  maxSquadSize: 0
+  secondsAfterWave: 0
+  squadDefeatGracePeriod: 1
+  uiPrefab: {fileID: 0}
+  overlayEntries: []
+  convertGoldOnWaveFinish: 0
+  goldToExpConversionRatio: 0
+  rewardDropTable: {fileID: 0}
+  rewardDisplayTier: 0
+  rewardOptionCount: 0
+  rewardPickupPrefab: {fileID: 0}
+  rewardOffset: {x: 0, y: 0, z: 0}
+  beginChatToken: INFINITETOWER_WAVE_BEGIN
+  beginSoundString: 
+  onAllEnemiesDefeatedSoundString: 
+--- !u!114 &5408886819316150461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 793003435, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifactDef: {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}
+--- !u!114 &6474364466257078680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 4796761179788193275}
+  fieldName: rewardPickupPrefab
+  assetAddress: RoR2/DLC1/OptionPickup/OptionPickup.prefab
+--- !u!114 &2828237249643119305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 4796761179788193275}
+  fieldName: rewardDropTable
+  assetAddress: RoR2/DLC1/GameModes/InfiniteTowerRun/InfiniteTowerAssets/dtITDefaultWave.asset
+--- !u!114 &-965892468138164933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820812724130147729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 4796761179788193275}
+  fieldName: uiPrefab
+  assetAddress: 

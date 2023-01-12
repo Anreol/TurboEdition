@@ -240,7 +240,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 32b26c93a61600d4891d9ab7154385b0, type: 2}
+  - {fileID: 2100000, guid: 0f6a8bfc2dd7e1a41a8e7b40ca38b78a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,8 +291,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.050980408, g: 0.7372549, b: 0.49783087, a: 0.78431374}
-      key1: {r: 0.44482023, g: 0.62996554, b: 0.6415094, a: 0.39215687}
+      key0: {r: 0.036862753, g: 0.7372549, b: 0.48978308, a: 0.78431374}
+      key1: {r: 0.6431373, g: 0.4746353, b: 0.4746353, a: 0.39215687}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -321,7 +321,7 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 2
+    textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 1
@@ -353,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8202156028514425107}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.052, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2855768805968604168}
@@ -373,10 +373,6 @@ MonoBehaviour:
   m_Script: {fileID: 678291247, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transform: {fileID: 0}
-  migration: 0
-  <authorityTransform>k__BackingField: {fileID: 0}
-  <predictionTransform>k__BackingField: {fileID: 0}
   inheritScaleFromProjectile: 1
 --- !u!114 &2550770819232443552
 MonoBehaviour:

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: AddTeleporterRadius
   m_EditorClassIdentifier: 
-  _itemIndex: -1
   deprecatedTier: 0
   _itemTierDef: {fileID: 0}
   nameToken: ITEM_ADDTELEPORTERRADIUS_NAME
