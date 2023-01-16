@@ -98,7 +98,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\MarkAsUnableToBeLocked.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\MoneyBankInteractionController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PainArtifactServerListener.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Components\PickupPickerReroller.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\PickupPickerRerollerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\PreplacedZiplineController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Projectiles\MarkReducedSelfDamage.cs" />
@@ -115,6 +115,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\DynamicCrosshairStackController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\IStatBarProvider.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\MoneyBankPanel.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\UI\PickupPickerRerollerPanel.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\RangedCrosshairController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneChanges.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\TurboUtils.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\UIExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />

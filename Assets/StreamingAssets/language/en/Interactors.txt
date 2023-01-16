@@ -13,6 +13,19 @@
 	"MONEYBANK_INTERACTION_WITHDRAW_FORMAT": "< {0} $",
 	"MONEYBANK_INTERACTION_CONTRIBUTE_FORMAT": "{0} $ >",
 	
+	"OPTION_SPHERE_DESCRIPTION": "Choose your items.",
+	"OPTION_SPHERE_INTERACTION_PROMPT": "Open",
+	"OPTION_SPHERE_INTERACTION_HEADER" : "What do you wish for?",
+	"OPTION_SPHERE_INTERACTION_REROLL" : "Perceive again",
+	"OPTION_SPHERE_WHITE_NAME" : "White Cognitive Catalyst",
+	"OPTION_SPHERE_GREEN_NAME" : "Green Cognitive Catalyst",
+	"OPTION_SPHERE_RED_NAME" : "Red Cognitive Catalyst",
+	"OPTION_SPHERE_YELLOW_NAME" : "Yellow Cognitive Catalyst",
+	"OPTION_SPHERE_ORANGE_NAME" : "Orange Cognitive Catalyst",
+	"OPTION_SPHERE_BLUE_NAME" : "Blue Cognitive Catalyst",
+	"OPTION_SPHERE_VOID_NAME" : "Purple Cognitive Catalyst",
+	"OPTION_SPHERE_UNKNOWN_NAME" : "Unknown Cognitive Catalyst",
+	
 	//[CHESTS],
 
 	//[LUNAR STUFF],

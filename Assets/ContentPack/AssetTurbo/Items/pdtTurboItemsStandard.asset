@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1409057399, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: pdtTurboItemsStandard
+  m_EditorClassIdentifier: 
+  canDropBeReplaced: 1
+  pickupEntries:
+  - pickupDef: {fileID: 11400000, guid: 50e935ae7b819d948a13838fec39274d, type: 2}
+    pickupWeight: 0.8
+  - pickupDef: {fileID: 11400000, guid: 087e200b366c13f43b843170111cb07f, type: 2}
+    pickupWeight: 0.8
+  - pickupDef: {fileID: 11400000, guid: cea04826273f5ad4d9305499626b8e1c, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: d2baa190849934b42918cafaefa38084, type: 2}
+    pickupWeight: 0.8
+  - pickupDef: {fileID: 11400000, guid: a113d78be0c779243b35f58fc72fca16, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: a760ff4f0d4eb14419b43e97d1d7e7df, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: cf1407890f7341b428d93b2f619db61c, type: 2}
+    pickupWeight: 0.8
+  - pickupDef: {fileID: 11400000, guid: b43c64807a5e3a1498321fa7a0ebf4da, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: 6f26a54020669b047a113dcbe0fcbde2, type: 2}
+    pickupWeight: 0.01
+  - pickupDef: {fileID: 11400000, guid: c07e36f6baf15a0488ca46c2856dac94, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: 14b46053aaea12a41aa154aeaaa072c2, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: 1d3dd72e3b25fc449a408424b08a17f4, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: 909c95e53da82894fb312688494a7f6a, type: 2}
+    pickupWeight: 0.2
+  - pickupDef: {fileID: 11400000, guid: 3e7ec56cec60a0a47846c86c30f18eb2, type: 2}
+    pickupWeight: 0.01
+  - pickupDef: {fileID: 11400000, guid: 299e4e4152716bf4caf65d885af0b391, type: 2}
+    pickupWeight: 0.01
+  entries: []
