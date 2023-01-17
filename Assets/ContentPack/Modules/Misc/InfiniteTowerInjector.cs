@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RoR2.InfiniteTowerWaveCategory;
 
-namespace TurboEdition.Misc
+namespace TurboEdition.Utils
 {
     internal class InfiniteTowerInjector
     {

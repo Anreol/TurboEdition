@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace TurboEdition.Misc
+namespace TurboEdition.Utils
 {
     internal class ItemDisplayRulesInjector
     {

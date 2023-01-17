@@ -16,6 +16,11 @@ namespace TurboEdition.Components.UI
 
         private void OnEnable()
         {
+            if (mpButtonPrefab == null || container == null)
+            {
+                TELog.LogE("PickupPickerRerollerController instance has no mpButtonPrefab or container, disabling self.", true);
+                this.enabled = false;
+            }
             if (mpButtonPrefab && container)
             {
                 mpButtonInstance = UnityEngine.Object.Instantiate<GameObject>(mpButtonPrefab, container).GetComponent<MPButton>();

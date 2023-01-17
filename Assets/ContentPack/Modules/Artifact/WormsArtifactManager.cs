@@ -86,7 +86,7 @@ namespace TurboEdition.Artifacts
                 //directorInstance.GetComponent<CombatDirector>().monsterCards = dccsWormArtifact;
                 if (directorInstance)
                 {
-                    switch (Misc.RulebookExtras.runWormEliteHonor) //nintendo swix
+                    switch (Utils.RulebookExtras.runWormEliteHonor) //nintendo swix
                     {
                         case true:
                             directorInstance.GetComponent<CombatDirector>().monsterCards = dccsWormArtifact;
@@ -108,7 +108,7 @@ namespace TurboEdition.Artifacts
             CharacterBody cb = gameObject.GetComponent<CharacterMaster>().GetBody();
             if (cb)
             {
-                if (!Misc.RulebookExtras.runWormEliteHonor && CombatDirector.IsEliteOnlyArtifactActive()) //They shouldnt be elite... this is a failsafe to ensure they arent fucking elite
+                if (!Utils.RulebookExtras.runWormEliteHonor && CombatDirector.IsEliteOnlyArtifactActive()) //They shouldnt be elite... this is a failsafe to ensure they arent fucking elite
                 {
                     UnEliteSpawn(cb, true);
                 }
@@ -253,7 +253,7 @@ namespace TurboEdition.Artifacts
             string item = string.Format("{{ArtifactActive={0} DirectorActive={1}}}", RunArtifactManager.instance.IsArtifactEnabled(artifact), directorInstance.activeSelf);
             list.Add(item);
 
-            string item2 = string.Format("{{wormEliteHonorRule={0} wormEliteHonorRule.displayToken={1} wormEliteHonorRule.GetRuleChoice().extraData={2}}}\n", RuleCatalog.FindRuleDef("Misc.WormArtifactEliteHonor"), RuleCatalog.FindRuleDef("Misc.WormArtifactEliteHonor").displayToken, Misc.RulebookExtras.runWormEliteHonor);
+            string item2 = string.Format("{{wormEliteHonorRule={0} wormEliteHonorRule.displayToken={1} wormEliteHonorRule.GetRuleChoice().extraData={2}}}\n", RuleCatalog.FindRuleDef("Misc.WormArtifactEliteHonor"), RuleCatalog.FindRuleDef("Misc.WormArtifactEliteHonor").displayToken, Utils.RulebookExtras.runWormEliteHonor);
             list.Add(item2);
             for (int i = 0; i < dccsWormArtifact.categories[0].cards.Length; i++)
             {

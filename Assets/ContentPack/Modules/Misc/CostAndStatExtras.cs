@@ -7,7 +7,7 @@ using RoR2.UI.LogBook;
 using System;
 using System.Collections.Generic;
 
-namespace TurboEdition.Misc
+namespace TurboEdition.Utils
 {
     internal class CostAndStatExtras
     {

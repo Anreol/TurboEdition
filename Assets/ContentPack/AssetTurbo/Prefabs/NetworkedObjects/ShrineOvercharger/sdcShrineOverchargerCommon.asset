@@ -17,7 +17,7 @@ MonoBehaviour:
   - sulfurpools
   - dampcavesimple
   categoryName: Shrines
-  selectionWeight: 7
+  selectionWeight: 14
   spawnDistance: 0
   preventOverhead: 0
   minimumStageCompletions: 2

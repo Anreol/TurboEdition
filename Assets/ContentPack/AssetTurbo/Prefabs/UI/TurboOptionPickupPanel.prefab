@@ -206,7 +206,7 @@ MonoBehaviour:
       m_Calls: []
   defaultFallbackButton: 0
   showImageOnHover: 1
-  imageOnHover: {fileID: 0}
+  imageOnHover: {fileID: 1748889921698233507}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
@@ -368,8 +368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2672845643860450272, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -495,10 +494,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reroll
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -921,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: -573374155, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _token: OPTION_SPHERE_INTERACTION_REROLL
+  _token: OPTION_SPHERE_INTERACTION_REROLL_PROMPT
 --- !u!114 &9079762650237027962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,16 +931,14 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: -2196571179615420756, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4407584594163751253, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1049,11 +1044,11 @@ MonoBehaviour:
       m_Calls: []
   defaultFallbackButton: 0
   showImageOnHover: 1
-  imageOnHover: {fileID: 0}
+  imageOnHover: {fileID: 6216533584163359419}
   imageOnInteractable: {fileID: 0}
-  updateTextOnHover: 0
-  hoverLanguageTextMeshController: {fileID: 0}
-  hoverToken: 
+  updateTextOnHover: 1
+  hoverLanguageTextMeshController: {fileID: 3197101722184196761}
+  hoverToken: OPTION_SPHERE_INTERACTION_REROLL
   uiClickSoundOverride: Play_UI_menuBack
 --- !u!114 &5019324416775861195
 MonoBehaviour:
@@ -1106,8 +1101,7 @@ MonoBehaviour:
   m_Script: {fileID: 1102028033, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinData: {fileID: -2178569569907395334, guid: 00000000000000000000000000000000,
-    type: 0}
+  skinData: {fileID: 0}
   useRecommendedButtonWidth: 1
   useRecommendedButtonHeight: 1
   useRecommendedImage: 1
@@ -1168,7 +1162,6 @@ GameObject:
   - component: {fileID: 5175102825298648116}
   - component: {fileID: 9114404083616529203}
   - component: {fileID: 5271804375124987646}
-  - component: {fileID: 3754516382453855844}
   - component: {fileID: 2535698851022903995}
   m_Layer: 5
   m_Name: TurboOptionPickupPanel
@@ -1343,7 +1336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredInputSource: 1
-  objectsToFilter: []
+  objectsToFilter:
+  - {fileID: 5700059552949389837}
 --- !u!114 &7534139824207483499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,7 +1487,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 3754516382453855844}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1526,37 +1520,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   defaultFallbackButton: 0
---- !u!114 &3754516382453855844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5501365504958267231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1622332621, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 96c5704d0681e35408630c488fc0c234, type: 2}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
-  source: {fileID: 0}
-  spriteBlending: 0.65
 --- !u!114 &2535698851022903995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1994,8 +1957,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   defaultFallbackButton: 0
-  showImageOnHover: 0
-  imageOnHover: {fileID: 0}
+  showImageOnHover: 1
+  imageOnHover: {fileID: 5700059553022545348}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
@@ -2417,7 +2380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 9c79094e57b7ea047a72df6207348e50, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1

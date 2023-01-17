@@ -159,7 +159,7 @@ MonoBehaviour:
       m_Calls: []
   defaultFallbackButton: 0
   showImageOnHover: 1
-  imageOnHover: {fileID: 0}
+  imageOnHover: {fileID: 1592267146927412963}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
@@ -425,7 +425,7 @@ MonoBehaviour:
       m_Calls: []
   defaultFallbackButton: 0
   showImageOnHover: 1
-  imageOnHover: {fileID: 0}
+  imageOnHover: {fileID: 1592267146927412963}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
@@ -1370,7 +1370,7 @@ MonoBehaviour:
       m_Calls: []
   defaultFallbackButton: 0
   showImageOnHover: 1
-  imageOnHover: {fileID: 0}
+  imageOnHover: {fileID: 3914678223027772417}
   imageOnInteractable: {fileID: 0}
   updateTextOnHover: 0
   hoverLanguageTextMeshController: {fileID: 0}
@@ -2436,7 +2436,6 @@ GameObject:
   - component: {fileID: 7622163826218744982}
   - component: {fileID: 5794491412444044177}
   - component: {fileID: 7439879658545262172}
-  - component: {fileID: 1876960655695255238}
   - component: {fileID: 947560975756982809}
   m_Layer: 5
   m_Name: MoneyBankPickerPanel
@@ -2746,7 +2745,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1876960655695255238}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2779,37 +2778,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   defaultFallbackButton: 0
---- !u!114 &1876960655695255238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7083656176596787197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1622332621, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 96c5704d0681e35408630c488fc0c234, type: 2}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
-  source: {fileID: 0}
-  spriteBlending: 0.65
 --- !u!114 &947560975756982809
 MonoBehaviour:
   m_ObjectHideFlags: 0

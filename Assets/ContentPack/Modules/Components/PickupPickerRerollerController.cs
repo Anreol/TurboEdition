@@ -1,6 +1,6 @@
 ﻿using RoR2;
 using TurboEdition.Components.UI;
-using TurboEdition.Misc;
+using TurboEdition.Utils;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -32,11 +32,13 @@ namespace TurboEdition.Components
         private PickupPickerController.Option[] currentServerOptions;
         private NetworkUIPromptController networkUIPromptController;
         private PickupPickerRerollerPanel panelInstanceController;
-        private int optionCount => rerollBaseOptionsCount + (rerollOptionsCountMult* timesRerolled);
+        private int optionCount => rerollBaseOptionsCount + (rerollOptionsCountMult * timesRerolled);
+
         public void Start()
         {
             if (pickupPickerController == null)
             {
+                TELog.LogE("PickupPickerRerollerController instance has no pickupPickerController, destroying self.", true);
                 Destroy(this);
             }
 
@@ -56,11 +58,12 @@ namespace TurboEdition.Components
 
         private void OnDisplayBegin(NetworkUIPromptController arg1, LocalUser arg2, CameraRigController arg3)
         {
-            if (pickupPickerController.panelInstance)
+            if (!pickupPickerController.panelInstance)
             {
-                panelInstanceController = pickupPickerController.panelInstance.GetComponent<PickupPickerRerollerPanel>();
-                panelInstanceController.pickupPickerRerollerController = this;
+                TELog.LogE("PickupPickerRerollerControllerCannot find the pickupPickerController panel instance, is this okay?!.", true);
             }
+            panelInstanceController = pickupPickerController.panelInstance.GetComponent<PickupPickerRerollerPanel>();
+            panelInstanceController.pickupPickerRerollerController = this;
         }
 
         private void OnDisplayEnd(NetworkUIPromptController arg1, LocalUser arg2, CameraRigController arg3)
@@ -91,7 +94,7 @@ namespace TurboEdition.Components
         /// Automatically called when clientRequestedReRoll changes
         /// </summary>
         /// <param name="newInt">Sent by the SyncVar</param>
-        private void OnTimesRerolledChanged(int oldInt, int newInt)
+        private void OnTimesRerolledChanged(int newInt)
         {
             if (NetworkServer.active)
             {

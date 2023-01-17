@@ -318,6 +318,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8411741400921224714}
+        m_MethodName: RollDirectorCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8411741400921224714}
         m_MethodName: AddShrineStack
         m_Mode: 0
         m_Arguments:
@@ -400,6 +411,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef15fe0ef9cf7a441b1683ece7ca06ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossGroup: {fileID: 5124298350598795196}
+  dropTable: {fileID: 11400000, guid: d636fe079e9881f479faecdb84da6514, type: 2}
+  rewardDisplayTier: 10
+  rewardOptionCount: 3
+  rewardPickupPrefab: {fileID: 1594360160519940305, guid: 92901b5bc44719d41b0623e524ffef0d,
+    type: 3}
+  rewardOffset: {x: 0, y: 1, z: 0}
+  spawnTarget: {fileID: 3504237564816220165}
   setSpawnTargetAsTeleporter: 0
   refreshInterval: 10
   maxPurchaseCount: 2
@@ -425,7 +444,18 @@ MonoBehaviour:
       m_Calls: []
   onDefeatedServerLogicEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8411741400921224714}
+        m_MethodName: DropRewards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5124298350598795196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,10 +468,10 @@ MonoBehaviour:
   m_Script: {fileID: -1358022786, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossDropChance: 0.05
-  dropPosition: {fileID: 3504237564816220165}
+  bossDropChance: 0
+  dropPosition: {fileID: 0}
   dropTable: {fileID: 0}
-  scaleRewardsByPlayerCount: 1
+  scaleRewardsByPlayerCount: 0
   shouldDisplayHealthBarOnHud: 1
   forceTier3Reward: 0
 --- !u!114 &4464108150388948463
@@ -622,7 +652,8 @@ MonoBehaviour:
   m_callbackDataInternal: {fileID: 0}
   MultiPositionType: 1
   multiPositionTypeLabel: 0
-  LargeModePositions: []
+  LargeModePositions:
+  - {fileID: 0}
   multiPositionArray: []
 --- !u!114 &8658463809326771986
 MonoBehaviour:
@@ -656,7 +687,8 @@ MonoBehaviour:
   m_callbackDataInternal: {fileID: 0}
   MultiPositionType: 1
   multiPositionTypeLabel: 0
-  LargeModePositions: []
+  LargeModePositions:
+  - {fileID: 0}
   multiPositionArray: []
 --- !u!1 &3504237565430147530
 GameObject:
@@ -767,7 +799,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.45, z: 1.5}
+  m_Size: {x: 1.45, y: 0.45, z: 1.5}
   m_Center: {x: 0, y: -0.25, z: 0}
 --- !u!114 &6677816586896204883
 MonoBehaviour:

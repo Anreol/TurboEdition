@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Other\Editor\AddressablesAssetEditor.cs" />
+    <Compile Include="Assets\Other\Editor\Data\SearchAssetByGUID.cs" />
     <Compile Include="Assets\Other\Editor\Data\ShaderDictionary.cs" />
     <Compile Include="Assets\Other\Editor\EditorRecordAndSetTransforms.cs" />
     <Compile Include="Assets\Other\Editor\FindLocalID.cs" />

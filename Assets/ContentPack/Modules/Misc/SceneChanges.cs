@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TurboEdition.Misc
+namespace TurboEdition.Utils
 {
     internal class SceneChanges
     {

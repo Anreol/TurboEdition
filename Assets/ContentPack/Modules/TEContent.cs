@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using TurboEdition.Misc;
+using TurboEdition.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -118,7 +118,7 @@ namespace TurboEdition
             if (Directory.Exists(Assets.languageRoot))
             {
                 Language.collectLanguageRootFolders += (List<string> stringList) => stringList.Add(Assets.languageRoot);
-                Misc.MiscLanguage.AddDeathMessages();
+                Utils.MiscLanguage.AddDeathMessages();
             }
             CostAndStatExtras.Init();
 

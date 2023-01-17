@@ -2,7 +2,7 @@
 using RoR2.ExpansionManagement;
 using UnityEngine;
 
-namespace TurboEdition.Misc
+namespace TurboEdition.Utils
 {
     internal class CombatDirectorInjector
     {

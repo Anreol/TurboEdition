@@ -1,6 +1,7 @@
 ﻿using RoR2;
 using RoR2.Stats;
 using System;
+using TurboEdition.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Events;
@@ -10,15 +11,13 @@ namespace TurboEdition.Components
 {
     [RequireComponent(typeof(CombatDirector))]
     [RequireComponent(typeof(CombatSquad))]
-    [RequireComponent(typeof(BossGroup))]
     [RequireComponent(typeof(PurchaseInteraction))]
     internal class ShrineTeleporterOverchargerBehavior : NetworkBehaviour
     {
-        public static event Action<ShrineTeleporterOverchargerBehavior> onDefeatedServerGlobal;
+        public static event Action<ShrineTeleporterOverchargerBehavior> onCombatSquadDefeatedGlobal;
 
         private PurchaseInteraction purchaseInteraction;
         private CombatDirector shrineCombatDirector;
-        private BossGroup bossGroup;
         private DirectorCard chosenDirectorCardToSpawn;
 
         /// <summary>
@@ -36,12 +35,15 @@ namespace TurboEdition.Components
         /// </summary>
         private int accumulatedRewards;
 
+        [Tooltip("Only used for HUD Health bar and title.")]
+        public BossGroup bossGroup;
+
         [Header("Rewards")]
         [Tooltip("The drop table to use for the rewards")]
         [SerializeField]
         public PickupDropTable dropTable;
 
-        [Tooltip("Use this tier to get a pickup index for the reward.  The droplet's visuals will correspond to this.")]
+        [Tooltip("Use this tier to get a pickup index for the reward.  The droplet's visuals will correspond to this.  Set to Assigned at Runtime so it calculates off the most valuable option")]
         [SerializeField]
         protected ItemTier rewardDisplayTier;
 
@@ -53,14 +55,18 @@ namespace TurboEdition.Components
         [Tooltip("The prefab to use for the reward pickup.")]
         protected GameObject rewardPickupPrefab;
 
-        [Tooltip("Where to spawn the reward droplets relative to the spawn target (the spawning target of the combat director, or the teleporter).")]
+        [Tooltip("Where to spawn the reward droplets relative to the spawn target (spawnTarget, or the teleporter).")]
         [SerializeField]
         private Vector3 rewardOffset;
 
-        [Header("Purchase options")]
+        [Tooltip("Where to spawn the reward droplets.")]
+        [SerializeField]
+        private Transform spawnTarget;
+
         [Tooltip("Should the spawn target be overriden with the teleporter.")]
         public bool setSpawnTargetAsTeleporter = false;
 
+        [Header("Purchase options")]
         [SerializeField]
         private float refreshInterval = 2f;
 
@@ -76,6 +82,7 @@ namespace TurboEdition.Components
         [Tooltip("Difficulty coefficient gets multiplied by this * current purchase amount.")]
         [SerializeField]
         private float monsterCreditCoefficientPerPurchase;
+
         private Xoroshiro128Plus rng;
 
         private float calculatedMonsterCredit
@@ -90,14 +97,20 @@ namespace TurboEdition.Components
         {
             //Fix cost type to the custom one.
             this.purchaseInteraction = base.GetComponent<PurchaseInteraction>();
-            purchaseInteraction.costType = (CostTypeIndex)Misc.CostAndStatExtras.teleporterCostIndex;
+            purchaseInteraction.costType = (CostTypeIndex)Utils.CostAndStatExtras.teleporterCostIndex;
             rng = new Xoroshiro128Plus(Run.instance.treasureRng.nextUlong);
             if (NetworkServer.active)
             {
                 this.shrineCombatDirector = base.GetComponent<CombatDirector>();
-                this.bossGroup = base.GetComponent<BossGroup>();
                 this.shrineCombatDirector.combatSquad.onDefeatedServer += this.OnDefeatedServer;
                 shrineCombatDirector.onSpawnedServer.AddListener(new UnityAction<GameObject>(ModifySpawnedMasters));
+            }
+
+            //Make sure no item will spawn from the boss group
+            if (bossGroup)
+            {
+                bossGroup.dropPosition = null;
+                bossGroup.rng = null;
             }
         }
 
@@ -105,15 +118,14 @@ namespace TurboEdition.Components
         {
             if (!TeleporterInteraction.instance)
             {
-                Debug.Log("Could not find Teleporter for the Teleporter Overcharger Shrine, setting as non purchasable and returning.");
+                TELog.LogI("Could not find Teleporter for the Teleporter Overcharger Shrine, setting as non purchasable and returning.", true);
                 this.purchaseInteraction.SetAvailable(false);
                 return;
             }
-            RollDirectorCard();
             if (setSpawnTargetAsTeleporter)
             {
                 this.shrineCombatDirector.currentSpawnTarget = TeleporterInteraction.instance.gameObject;
-                bossGroup.dropPosition = TeleporterInteraction.instance.transform;
+                spawnTarget = TeleporterInteraction.instance.transform;
             }
             if (dropTable == null)
             {
@@ -134,7 +146,7 @@ namespace TurboEdition.Components
 
         private void OnDefeatedServer()
         {
-            onDefeatedServerGlobal?.Invoke(this);
+            onCombatSquadDefeatedGlobal?.Invoke(this);
         }
 
         public void FixedUpdate()
@@ -163,7 +175,6 @@ namespace TurboEdition.Components
             if (TeleporterInteraction.instance)
             {
                 OverchargeActivation(shrineCombatDirector, chosenDirectorCardToSpawn, interactor);
-                RollDirectorCard(); //Roll a different card for next activation
             }
 
             EffectManager.SpawnEffect(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Common/VFX/ShrineUseEffect.prefab").WaitForCompletion(), new EffectData
@@ -208,24 +219,6 @@ namespace TurboEdition.Components
             director.OverrideCurrentMonsterCard(chosenDirectorCard);
             director.monsterSpawnTimer = 0f;
 
-            //Do squad stuff
-            if (NetworkServer.active && purchaseCount > 0)
-            {
-                //If not defeated yet, add one stack to the rewards
-                if (!bossGroup.combatSquad.defeatedServer)
-                {
-                    bossGroup.bonusRewardCount++;
-                    accumulatedRewards++;
-                }
-                else
-                {
-                    //If already defeated, reset the combatSquad, and dial back rewards.
-                    bossGroup.combatSquad.defeatedServer = false;
-                    bossGroup.bonusRewardCount -= accumulatedRewards;
-                    accumulatedRewards = 0;
-                }
-            }
-
             //Show chat message.
             CharacterBody component = interactor.GetComponent<CharacterBody>();
             Chat.SendBroadcastChat(new Chat.SubjectFormatChatMessage
@@ -237,37 +230,56 @@ namespace TurboEdition.Components
                 }
             });
 
+            //Do squad stuff
+            if (NetworkServer.active && purchaseCount > 0)
+            {
+                //If not defeated yet, add one stack to the rewards, else reset so it drops at least one more drop when defeated
+                if (!shrineCombatDirector.combatSquad.defeatedServer)
+                {
+                    accumulatedRewards++;
+                }
+                else
+                {
+                    shrineCombatDirector.combatSquad.defeatedServer = false;
+                    shrineCombatDirector.combatSquad.memberHistory = new System.Collections.Generic.List<NetworkInstanceId>();
+                }
+            }
+
             //Change memories
-            bossGroup.bestObservedName = string.Join(" & ", bodyNamesSpawned);
-            bossGroup.bestObservedSubtitle = Language.GetString("TELEPORTEROVERCHARGERSQUAD_SUBTITLE");
+            if (bossGroup)
+            {
+                bossGroup.bestObservedName = string.Join(" & ", bodyNamesSpawned);
+                bossGroup.bestObservedSubtitle = Language.GetString("TELEPORTEROVERCHARGERSQUAD_SUBTITLE");
+            }
 
             //and push stats
             StatSheet statSheet = PlayerStatsComponent.FindBodyStatSheet(component);
             if (statSheet != null)
             {
-                statSheet.PushStatValue(TurboEdition.Misc.CostAndStatExtras.totalTeleporterOverchargerUsed, 1UL);
-                statSheet.PushStatValue(TurboEdition.Misc.CostAndStatExtras.highestTeleporterOverchargerUsed, statSheet.GetStatValueULong(TurboEdition.Misc.CostAndStatExtras.totalTeleporterOverchargerUsed));
+                statSheet.PushStatValue(TurboEdition.Utils.CostAndStatExtras.totalTeleporterOverchargerUsed, 1UL);
+                statSheet.PushStatValue(TurboEdition.Utils.CostAndStatExtras.highestTeleporterOverchargerUsed, statSheet.GetStatValueULong(TurboEdition.Utils.CostAndStatExtras.totalTeleporterOverchargerUsed));
             }
         }
 
         [Server]
-        private void DropRewards()
+        public void DropRewards()
         {
             int participatingPlayerCount = Run.instance.participatingPlayerCount;
-            if (participatingPlayerCount > 0 && shrineCombatDirector.currentSpawnTarget && dropTable)
+            if (participatingPlayerCount > 0 && spawnTarget && dropTable)
             {
                 int rewardCount = participatingPlayerCount * (accumulatedRewards + 1);
                 float angle = 360f / (float)rewardCount;
                 Vector3 vector = Quaternion.AngleAxis((float)UnityEngine.Random.Range(0, 360), Vector3.up) * (Vector3.up * 40f + Vector3.forward * 5f);
                 Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
-                Vector3 position = shrineCombatDirector.currentSpawnTarget.transform.position + rewardOffset;
+                Vector3 position = spawnTarget.transform.position + rewardOffset;
                 int i = 0;
                 while (i < rewardCount)
                 {
+                    PickupPickerController.Option[] pickerOptions = PickupPickerController.GenerateOptionsFromDropTable(this.rewardOptionCount, dropTable, this.rng);
                     PickupDropletController.CreatePickupDroplet(new GenericPickupController.CreatePickupInfo
                     {
-                        pickupIndex = PickupCatalog.FindPickupIndex(this.rewardDisplayTier),
-                        pickerOptions = PickupPickerController.GenerateOptionsFromDropTable(this.rewardOptionCount, dropTable, this.rng),
+                        pickupIndex = rewardDisplayTier == ItemTier.AssignedAtRuntime ? TurboUtils.FindMostValuablePickupInOptions(pickerOptions).pickupIndex : PickupCatalog.FindPickupIndex(this.rewardDisplayTier),
+                        pickerOptions = pickerOptions,
                         rotation = Quaternion.identity,
                         prefabOverride = this.rewardPickupPrefab
                     }, position, vector);
@@ -275,6 +287,9 @@ namespace TurboEdition.Components
                     vector = rotation * vector;
                 }
             }
+
+            //Reset rewards as they have been dropped
+            accumulatedRewards = 0;
         }
 
         private void OnValidate()

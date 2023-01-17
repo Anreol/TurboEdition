@@ -169,7 +169,6 @@
     <Compile Include="Assets\ContentPack\Modules\Misc\RulebookExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneChanges.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Misc\TurboUtils.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\UIExtras.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
@@ -207,6 +206,7 @@
     <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\TELog.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Utils\TurboUtils.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\InitVFX.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDeathCards.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\TempVFX\vfxDummy1.cs" />

@@ -3,7 +3,7 @@ using System;
 using TurboEdition.ScriptableObjects;
 using UnityEngine;
 
-namespace TurboEdition.Misc
+namespace TurboEdition.Utils
 {
     internal class SceneDirectorInjector
     {
