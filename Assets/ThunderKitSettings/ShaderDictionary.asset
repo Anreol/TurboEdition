@@ -272,20 +272,20 @@ MonoBehaviour:
       shaderName: StubbedRoR2/Base/Shaders/HGUIOverbrighten
       shaderGUID: 9c453b6c80783a848b24fb2a4c6a4303
   - original:
-      shaderName: 
-      shaderGUID: 
+      shaderName: Hidden/EfficientBlur
+      shaderGUID: 12e87e7c7fde8e74db9f75172456c5c3
     stubbed:
       shaderName: StubbedTranslucentImage/EfficientBlur
       shaderGUID: 1c6e2b9bd458f51479e35dbc4d9b8a14
   - original:
-      shaderName: 
-      shaderGUID: 
+      shaderName: Hidden/FillCrop
+      shaderGUID: d996ab4381100014d99e25e68e9aac84
     stubbed:
       shaderName: StubbedTranslucentImage/FillCrop
       shaderGUID: d470e331061c47e469d77715fd7bd0b2
   - original:
-      shaderName: 
-      shaderGUID: 
+      shaderName: UI/TranslucentImage
+      shaderGUID: b1115addd36579a429d5e6b4ffae668d
     stubbed:
       shaderName: StubbedTranslucentImage/TranslucentImage
       shaderGUID: 8985d519254739549aa02a0d4c50d158

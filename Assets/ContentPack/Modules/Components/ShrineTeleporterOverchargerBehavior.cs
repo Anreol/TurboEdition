@@ -195,7 +195,7 @@ namespace TurboEdition.Components
         }
 
         /// <summary>
-        /// Used at initial spawn and after every purchase.
+        /// Used at initial spawn and after every purchase through unity.
         /// </summary>
         [Server]
         public void RollDirectorCard()
@@ -216,7 +216,11 @@ namespace TurboEdition.Components
 
             //Then add credits. This has the side-effect of overloading other directors in case of excess credits.
             director.monsterCredit += calculatedMonsterCredit;
-            director.OverrideCurrentMonsterCard(chosenDirectorCard);
+            //Added a null check, as for some reason while testing, the combat director threw off a NRE while trying to reset elite types after doing this.
+            if (chosenDirectorCard != null)
+            {
+                director.OverrideCurrentMonsterCard(chosenDirectorCard);
+            }
             director.monsterSpawnTimer = 0f;
 
             //Show chat message.
