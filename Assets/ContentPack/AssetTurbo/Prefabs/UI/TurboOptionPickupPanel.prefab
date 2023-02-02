@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 7409318566947185552}
   - component: {fileID: 878586074343999715}
   - component: {fileID: 5634669274879278319}
+  - component: {fileID: 5237010048641765779}
   m_Layer: 5
   m_Name: BaseOutline
   m_TagString: Untagged
@@ -244,7 +245,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8d2b07c017bfead48b6acf2dbe3d8dd0, type: 3}
+  m_Sprite: {fileID: -5982802615382818890, guid: 00000000000000000000000000000000,
+    type: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -254,6 +256,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5237010048641765779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134793333601222957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd697e2ac54c15f4ab4d3ab3133eb320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 5634669274879278319}
+  fieldName: sprite
+  assetAddress: RoR2/Base/UI/texUIOutlineOnly.png
 --- !u!1 &199456632013394450
 GameObject:
   m_ObjectHideFlags: 0
@@ -4259,7 +4276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7383957380665673532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4267,7 +4284,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6351526013336486075}
-  m_LocalRotation: {x: 0.13052621, y: -0, z: -0, w: 0.9914449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4276,11 +4293,11 @@ RectTransform:
   - {fileID: 789176054650190784}
   m_Father: {fileID: 1892526090716650333}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 15.000001, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 410, y: -60}
-  m_SizeDelta: {x: 80, y: 80}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6223310256010557212
 CanvasRenderer:
