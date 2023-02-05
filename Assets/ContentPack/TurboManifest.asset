@@ -54,7 +54,7 @@ MonoBehaviour:
   Author: Anreol
   Name: Anreol-TurboEdition
   Description: Very WIP
-  Version: 0.1.5
+  Version: 0.1.6
   Dependencies:
   - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
 --- !u!114 &114338525782180936

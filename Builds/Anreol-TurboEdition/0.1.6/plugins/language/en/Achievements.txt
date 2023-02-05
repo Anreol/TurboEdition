@@ -1,0 +1,17 @@
+﻿{
+	"strings":
+	{
+		"ACHIEVEMENT_HOSTLOBBY_NAME": "Host?",
+		"ACHIEVEMENT_HOSTLOBBY_DESCRIPTION": "Host a multiplayer game.",
+		"ACHIEVEMENT_MINIONDAMAGE_NAME": "Lots Of Damage",
+		"ACHIEVEMENT_MINIONDAMAGE_DESCRIPTION": "Reach a total of 20.000 damage dealt by minions.",
+		"ACHIEVEMENT_STACKSTICKYBOMBS_NAME": "Martial Arts",
+		"ACHIEVEMENT_STACKSTICKYBOMBS_DESCRIPTION": "Find a stickybomb 60 times.",
+		
+		
+		"ACHIEVEMENT_GRENADIERCLEARGAMEMONSOON_NAME": "Grenadier: Mastery",
+		"ACHIEVEMENT_GRENADIERCLEARGAMEMONSOON_DESCRIPTION": "As Grenadier, beat the game or obliterate on Monsoon.",
+		"ACHIEVEMENT_GRENADIERPOSTDEATHKILL_NAME": "Blowout",
+		"ACHIEVEMENT_GRENADIERPOSTDEATHKILL_DESCRIPTION": "As Grenadier, kill an enemy with your armor's detpack after dying.",
+	}
+}

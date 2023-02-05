@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 845202650
+CRC: 532470815
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a597bb18bd3172561de9180b27a74c84
+    Hash: 57f79cb313a73b400a7893ccac23ace1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5cd06f645f0899d882107b616e675086
@@ -605,7 +605,6 @@ Assets:
 - Assets/Textures/Ramps/texRampMoonOrange.png
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Huntress/idrsHuntress.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunSpinDown.asset
-- Assets/Textures/texUIOutlineOnlyCheckered.png
 - Assets/Mesh/Items/meshTeleporterLenses_.mesh
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/observatoryGroundNodesNodegraph.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOff.png

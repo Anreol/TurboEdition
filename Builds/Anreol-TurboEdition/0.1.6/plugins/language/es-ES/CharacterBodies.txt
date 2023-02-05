@@ -1,0 +1,6 @@
+{
+	strings:
+	{
+		"GRENADIER_BODY_NAME": "Granadero",
+	}
+}
