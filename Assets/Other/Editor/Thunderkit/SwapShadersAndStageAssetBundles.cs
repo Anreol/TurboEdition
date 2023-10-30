@@ -13,7 +13,6 @@ using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
 using UnityEngine.Networking;
-using RoR2EditorKit.Utilities;
 using Object = UnityEngine.Object;
 using Moonstorm.EditorUtils.ShaderSystem;
 using Moonstorm.EditorUtils.Settings;

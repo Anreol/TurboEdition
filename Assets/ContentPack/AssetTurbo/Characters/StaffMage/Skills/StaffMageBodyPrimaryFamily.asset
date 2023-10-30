@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: StaffMageBodyPrimaryFamily
   m_EditorClassIdentifier: 
   variants:
-  - skillDef: {fileID: 11400000, guid: 36b756b854a897a4fadb01184726acd6, type: 2}
-    unlockableName: 
-    unlockableDef: {fileID: 0}
-  - skillDef: {fileID: 11400000, guid: ce681bd5473bb92429cdde9a3e5bdc57, type: 2}
+  - skillDef: {fileID: 11400000, guid: 0766cfa39c8a0a1459e8281b9013208a, type: 2}
     unlockableName: 
     unlockableDef: {fileID: 0}
   defaultVariantIndex: 0

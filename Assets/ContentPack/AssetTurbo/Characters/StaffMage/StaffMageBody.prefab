@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillFamily: {fileID: 11400000, guid: efd263ff8a40ae242bf658d798590161, type: 2}
+  _skillFamily: {fileID: 11400000, guid: a68ca15a92147304c8aa7662c0253dc1, type: 2}
   skillName: 
   hideInCharacterSelect: 0
   hasExecutedSuccessfully: 0
@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillFamily: {fileID: 11400000, guid: caeb681d695d8c541b21fa6cf6bd5a57, type: 2}
+  _skillFamily: {fileID: 11400000, guid: 64cf723ec0c77124a8d77274e6f032ac, type: 2}
   skillName: 
   hideInCharacterSelect: 0
   hasExecutedSuccessfully: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillFamily: {fileID: 11400000, guid: 2e6e76f69f3042f4981b0ad41036c579, type: 2}
+  _skillFamily: {fileID: 11400000, guid: a02393966c6a5e04da007e2b49e3c1e6, type: 2}
   skillName: 
   hideInCharacterSelect: 0
   hasExecutedSuccessfully: 0
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillFamily: {fileID: 11400000, guid: dd90df1c4872cbe4890b30f8bc2716c0, type: 2}
+  _skillFamily: {fileID: 11400000, guid: 8bc2dcf65b4cd1042b3ec3dbd8e5a9ed, type: 2}
   skillName: 
   hideInCharacterSelect: 0
   hasExecutedSuccessfully: 0
@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 298587437, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skillFamily: {fileID: 11400000, guid: 48c48b1cadf82d440befbeb2072c1238, type: 2}
+  _skillFamily: {fileID: 11400000, guid: 8d4d326c6352c90419aaab8d5b526d53, type: 2}
   skillName: 
   hideInCharacterSelect: 0
   hasExecutedSuccessfully: 0

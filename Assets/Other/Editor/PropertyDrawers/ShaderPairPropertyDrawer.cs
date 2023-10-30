@@ -1,4 +1,4 @@
-﻿using RoR2EditorKit.Core.PropertyDrawers;
+﻿using RoR2EditorKit.PropertyDrawers;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;

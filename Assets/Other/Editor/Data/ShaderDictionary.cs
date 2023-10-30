@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using RoR2EditorKit.Core;
+using RoR2EditorKit;
 
 namespace Moonstorm.EditorUtils.Settings
 {
@@ -130,7 +130,7 @@ namespace Moonstorm.EditorUtils.Settings
 
         private void AttemptToFinishDictionaryAutomatically()
         {
-            Shader[] allYAMLShaders = RoR2EditorKit.Utilities.AssetDatabaseUtils.FindAssetsByType<Shader>()
+            Shader[] allYAMLShaders = RoR2EditorKit.AssetDatabaseUtils.FindAssetsByType<Shader>()
                 .Where(shader => AssetDatabase.GetAssetPath(shader).EndsWith(".asset")).ToArray();
 
             foreach (ShaderPair pair in shaderPairs)

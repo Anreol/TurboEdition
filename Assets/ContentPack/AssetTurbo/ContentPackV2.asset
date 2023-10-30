@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5, type: 3}
   - {fileID: 9196633835157065860, guid: 76cb1e9685ad9fc4d97394864c5dda3e, type: 3}
   - {fileID: 9196633835157065860, guid: 8104befcda172954f9bc0dac09520ffa, type: 3}
+  - {fileID: 9196633835157065860, guid: 003b1370302a1644f95a1ffffc4fb222, type: 3}
   masterPrefabs:
   - {fileID: 6518832654186872370, guid: bb7c43777775dfe49a54fdc52ad8bb94, type: 3}
   projectilePrefabs:
@@ -78,6 +79,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 134c52305cdb3724eb77f19b98d08cf8, type: 2}
   - {fileID: 11400000, guid: 199c1db616950c743910567c84a82808, type: 2}
   - {fileID: 11400000, guid: 330cd15a9b6df7641bcb93fd13556520, type: 2}
+  - {fileID: 11400000, guid: a68ca15a92147304c8aa7662c0253dc1, type: 2}
+  - {fileID: 11400000, guid: 64cf723ec0c77124a8d77274e6f032ac, type: 2}
+  - {fileID: 11400000, guid: a02393966c6a5e04da007e2b49e3c1e6, type: 2}
+  - {fileID: 11400000, guid: 8d4d326c6352c90419aaab8d5b526d53, type: 2}
+  - {fileID: 11400000, guid: 8bc2dcf65b4cd1042b3ec3dbd8e5a9ed, type: 2}
   sceneDefs:
   - {fileID: 11400000, guid: c117d76215f53a74d94e2faf56dba582, type: 2}
   - {fileID: 11400000, guid: 845631bff6b64e243920384b7538e7df, type: 2}

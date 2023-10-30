@@ -20,7 +20,7 @@
       "dependencies": {
         "com.unity.scriptablebuildpipeline": "1.16.1"
       },
-      "hash": "1140d4f3b331d803058b5bc73e98195643f706ff"
+      "hash": "39f7d7c528fe6687bc223653dfb462808a3a3b8b"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -90,18 +90,18 @@
       "dependencies": {}
     },
     "riskofthunder-ror2editorkit": {
-      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git",
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#4.1.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "6adbccf93af9eefbbdd5b7f8098fc813e8b2a067"
+      "hash": "bf6bb94284f4071226a9464146a6c5f77b68251e"
     },
     "riskofthunder-ror2importextensions": {
       "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "d99aff2e663586453a5df58f44359819f4307c12"
+      "hash": "ebe4d6e4a27e4b766b33e5bdd3ab6c7d17518dfb"
     },
     "riskofthunder-ror2multiplayerhlapi": {
       "version": "file:RoR2MultiplayerHLAPI",
