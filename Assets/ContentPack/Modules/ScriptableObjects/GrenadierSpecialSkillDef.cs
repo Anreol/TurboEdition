@@ -212,6 +212,7 @@ namespace TurboEdition.ScriptableObjects
                 if (runningGS.characterBody.skillLocator.primary.stock == 0)
                     hasFullyUnloadedPrimary = true;
 
+                //We check the primary stocks, we could technically change this to any skill but that'd require some rewriting
                 if (runningGS.characterBody.skillLocator.primary.stock == runningGS.characterBody.skillLocator.primary.maxStock && hasFullyUnloadedPrimary /*&& runningGS.characterBody.skillLocator.primary.CanExecute()*/) //Don't care if we can execute or not. For now.
                 {
                     hasFullyUnloadedPrimary = false;
