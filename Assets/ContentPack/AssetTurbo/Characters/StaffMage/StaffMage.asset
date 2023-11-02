@@ -12,16 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: -1881990681, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: StaffMage
   m_EditorClassIdentifier: 
-  bodyPrefab: {fileID: 9196633835157065860, guid: a5428e068b224314da4501cec31c9da5,
+  bodyPrefab: {fileID: 9196633835157065860, guid: 003b1370302a1644f95a1ffffc4fb222,
     type: 3}
-  displayPrefab: {fileID: 854389678599148342, guid: cc26afd03dedcca4b908303606a3f57a,
-    type: 3}
+  displayPrefab: {fileID: 0}
   unlockableName: 
   unlockableDef: {fileID: 0}
   displayNameToken: STAFFMAGE_BODY_NAME
-  descriptionToken: STAFFMAGE_DESCRIPTION
+  descriptionToken: STAFFMAGE_BODY_DESCRIPTION
   outroFlavorToken: STAFFMAGE_OUTRO_FLAVOR
   mainEndingEscapeFailureFlavorToken: STAFFMAGE_MAIN_ENDING_ESCAPE_FAILURE_FLAVOR
-  primaryColor: {r: 0.9245283, g: 0.56256676, b: 0.5740209, a: 1}
-  desiredSortPosition: 16.4
+  primaryColor: {r: 0.13333334, g: 0.43529412, b: 0.6117647, a: 0}
+  desiredSortPosition: 16.5
   hidden: 0

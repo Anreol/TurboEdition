@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 532470815
+CRC: 4086645047
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 57f79cb313a73b400a7893ccac23ace1
+    Hash: 8aca292db945175a586e24039dc7a73d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5cd06f645f0899d882107b616e675086
+    Hash: 03a438ee5d7d87ceda94a777e01f78b2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -42,13 +42,13 @@ ClassTypes:
 - Class: 108
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
+- Class: 114
   Script: {fileID: 1790887305, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1297475563, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
 - Class: 114
   Script: {fileID: 1788389205, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: f8258ea15b8f74c4889ce485d21cbbb1, type: 3}
 - Class: 114
   Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -59,6 +59,8 @@ ClassTypes:
   Script: {fileID: 488236779, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 422384671, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1804351901, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -213,8 +215,6 @@ ClassTypes:
   Script: {fileID: -2096938146, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1530905962, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
-  Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -179576646, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -532,8 +532,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 55cce1cf1261a63409fb809879bdf2fe, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-- Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
@@ -541,6 +539,8 @@ ClassTypes:
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 120
@@ -591,6 +591,7 @@ Assets:
 - Assets/Mesh/Items/meshSandbag_.mesh
 - Assets/Textures/texCloudKumo0101_under00.png
 - Assets/Textures/Ramps/texRampGenericGreytint.png
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/StaffMageBody.prefab
 - Assets/Materials/matTracerBright.mat
 - Assets/ContentPack/AssetTurbo/Items/KnifeFan/KnifeFan.asset
 - Assets/Materials/matVFXLightshaft.mat
@@ -709,6 +710,7 @@ Assets:
 - Assets/Materials/matOmniSpark4.mat
 - Assets/Textures/texBigScythe_Fresnel.png
 - Assets/Mesh/Items/meshBigScythe_.mesh
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMagePrimaryStaffSteps.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/spite2_selected.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/WormArtifactSpawnEffect.prefab
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_Lvy_A.mat
@@ -800,6 +802,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierBody.prefab
 - Assets/Textures/texTeleporterLensesClothHeight.png
 - Assets/ContentPack/AssetTurbo/Items/WardOnLevelVoid/WardOnLevelVoid.asset
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/ccpStaffMage.asset
 - Assets/ContentPack/AssetTurbo/Items/AirborneDash/AirborneDash.asset
 - Assets/Textures/Ramps/texRampGolemRed.png
 - Assets/Textures/texKnifeUV_Fresnel.png
@@ -814,6 +817,7 @@ Assets:
 - Assets/Textures/Ramps/texRampTeamAreaIndicatorEnemy.png
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_Terrain_TempleFloor.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/Projectiles/GrenadierBasicPrimaryProjectile.prefab
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMageBodySecondaryFamily.asset
 - Assets/Textures/Ramps/texRampRedcross.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/CrabChestBody.prefab
 - Assets/Materials/matDustAdditiveGlow.mat
@@ -833,6 +837,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/MoneyBank/MoneyBank.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodySecondaryFamily.asset
 - Assets/Textures/texTerrain_DrySoil_01_Alpha.png
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMageBodyUtilityFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/pdtTeleporterOverchargerDrops.asset
 - Assets/Textures/texCloudSmoke.png
 - Assets/Mesh/Items/meshKnifeBase.mesh
@@ -950,6 +955,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/StageZiplineVehicle.prefab
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/MoneyBankInteracteable.prefab
 - Assets/ContentPack/AssetTurbo/Scenes/muTurboSafeSong02.asset
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMageBodyPassiveFamily.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberBodySecondaryFamily.asset
 - Assets/Textures/texWaves_1_Normal.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/vfxTextEffect.prefab
@@ -1027,6 +1033,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/GracePeriod/GracePeriod.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/SuperStickyGhost.prefab
 - Assets/Textures/texOBMoonEmission.png
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMageBodySpecialFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/StandBonus/StandBonus.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/matImpBomber.mat
 - Assets/Textures/texEffEmbersRemap.png
@@ -1060,6 +1067,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/Typewriter/Typewriter.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPrimaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/StandBonus/texSandbagIcon.png
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMagePassiveAura.asset
 - Assets/Textures/texEffSpark_Sheet.png
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/PickupTeleporterLenses.prefab
 - Assets/Materials/matTeleporterLensesCloth.mat
@@ -1098,6 +1106,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texDropletDupeAlbedo.png
 - Assets/ContentPack/AssetTurbo/Items/RadioSearch/RadioSearch.asset
 - Assets/Other/TextMesh Pro/Resources/Shaders/TMP_SDF.shader
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMageBodyPrimaryFamily.asset
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/HGWavyCloth.asset
 - Assets/Shaders/RoR2/Base/Shaders/UI/HGUIAnimateAlpha.asset
 - Assets/ContentPack/AssetTurbo/InfiniteTowerRun/InfiniteTowerCurrentArtifactSpite2WaveUI.prefab
@@ -1121,6 +1130,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsDampCaveMonstersTE.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/matGrenadierExplosionShockwave.mat
+- Assets/ContentPack/AssetTurbo/Characters/StaffMage/StaffMage.asset
 - Assets/Textures/texStage_Stone_01.png
 - Assets/ContentPack/AssetTurbo/Items/SuperStickies/Items.SuperStickies.asset
 - Assets/Textures/texCardTest.png

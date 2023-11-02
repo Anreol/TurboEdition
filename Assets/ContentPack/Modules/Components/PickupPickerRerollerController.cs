@@ -9,12 +9,10 @@ namespace TurboEdition.Components
     public class PickupPickerRerollerController : NetworkBehaviour
     {
         [Tooltip("Picker to be rerolled")]
-        [SerializeField]
-        protected PickupPickerController pickupPickerController;
+        [SerializeField] protected PickupPickerController pickupPickerController;
 
         [Tooltip("The drop table to use when rerolling.")]
-        [SerializeField]
-        protected PickupDropTable rerollDropTable;
+        [SerializeField] protected PickupDropTable rerollDropTable;
 
         [Tooltip("Number of times to reroll.")]
         public int rerollMaxTimes;
@@ -31,7 +29,7 @@ namespace TurboEdition.Components
         private Xoroshiro128Plus rng;
         private PickupPickerController.Option[] currentServerOptions;
         private NetworkUIPromptController networkUIPromptController;
-        private PickupPickerRerollerPanel panelInstanceController;
+        private PickupPickerPanelReroller panelInstanceController;
         private int optionCount => rerollBaseOptionsCount + (rerollOptionsCountMult * timesRerolled);
 
         public void Start()
@@ -48,11 +46,11 @@ namespace TurboEdition.Components
                 rerollBaseOptionsCount = pickupPickerController.options.Length;
             }
 
-            this.networkUIPromptController = base.GetComponent<NetworkUIPromptController>();
+            networkUIPromptController = GetComponent<NetworkUIPromptController>();
             if (NetworkClient.active)
             {
-                this.networkUIPromptController.onDisplayBegin += this.OnDisplayBegin;
-                this.networkUIPromptController.onDisplayEnd += this.OnDisplayEnd;
+                networkUIPromptController.onDisplayBegin += OnDisplayBegin;
+                networkUIPromptController.onDisplayEnd += OnDisplayEnd;
             }
         }
 
@@ -62,7 +60,7 @@ namespace TurboEdition.Components
             {
                 TELog.LogE("PickupPickerRerollerControllerCannot find the pickupPickerController panel instance, is this okay?!.", true);
             }
-            panelInstanceController = pickupPickerController.panelInstance.GetComponent<PickupPickerRerollerPanel>();
+            panelInstanceController = pickupPickerController.panelInstance.GetComponent<PickupPickerPanelReroller>();
             panelInstanceController.pickupPickerRerollerController = this;
         }
 
@@ -113,6 +111,7 @@ namespace TurboEdition.Components
                 SetNewOptionsServer();
                 return;
             }
+            //I've wrote this code like a year ago by now... sure this is okay, in the client?
             timesRerolled++;
         }
 
@@ -145,7 +144,7 @@ namespace TurboEdition.Components
         {
             if (!pickupPickerController)
             {
-                Debug.LogError("PickupPickerRerolledController MUST have a pickupPickerController assigned!.", base.gameObject);
+                Debug.LogError("PickupPickerRerolledController MUST have a pickupPickerController assigned!", gameObject);
             }
         }
     }

@@ -245,8 +245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5982802615382818890, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1809,8 +1808,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2550081576773636550}
-        m_MethodName: SubmitGenerateNewOptions
+      - m_Target: {fileID: 2810232199160976311}
+        m_MethodName: SubmitCurrentOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1820,8 +1819,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2550081576773636550}
-        m_MethodName: SubmitCurrentOptions
+      - m_Target: {fileID: 2810232199160976311}
+        m_MethodName: SubmitGenerateNewOptions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1958,7 +1957,7 @@ GameObject:
   - component: {fileID: 5035035977190179937}
   - component: {fileID: 5279477991152214666}
   - component: {fileID: 5501365504958267230}
-  - component: {fileID: 2550081576773636550}
+  - component: {fileID: 2810232199160976311}
   - component: {fileID: 8923771316336020047}
   - component: {fileID: 1417719608490046243}
   - component: {fileID: 8989497373557392232}
@@ -2070,7 +2069,7 @@ MonoBehaviour:
   - {fileID: 3098980158639029936}
   - {fileID: 618088750980192458}
   maxColumnCount: 9
---- !u!114 &2550081576773636550
+--- !u!114 &2810232199160976311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2079,13 +2078,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5501365504958267231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a214f5a189f88d74a91a49a089659c98, type: 3}
+  m_Script: {fileID: 11500000, guid: 8076f21f3a4c5754286260268e9d1028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doInstancing: 0
   mpButtonPrefab: {fileID: 5192262755327543733}
-  container: {fileID: 1892526090716650333}
-  buttonTextToken: OPTION_SPHERE_INTERACTION_REROLL
+  container: {fileID: 0}
+  buttonTextToken: OPTION_SPHERE_INTERACTION_REROLL_PROMPT
   buttonSprite: {fileID: 0}
+  mpButton: {fileID: 6329953319358140566}
 --- !u!114 &8923771316336020047
 MonoBehaviour:
   m_ObjectHideFlags: 0

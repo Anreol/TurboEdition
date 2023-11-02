@@ -32,9 +32,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   stageDebugDatabases: 1
+  releaseBuild: 1
   assemblyArtifactPath: <AssemblyStaging>
   buildTarget: 5
-  buildTargetGroup: 1
 --- !u!114 &114856607283172862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924ee63e6c016f14d8a1560b288f15a3, type: 3}
   m_Name: StageAssetBundles
   m_EditorClassIdentifier: 
-  Active: 0
+  Active: 1
   AssetBundleBuildOptions: 1
   buildTarget: 5
   recurseDirectories: 1

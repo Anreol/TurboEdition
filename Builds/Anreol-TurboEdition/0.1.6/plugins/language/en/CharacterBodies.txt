@@ -29,25 +29,39 @@
 		"GRENADIER_UTILITY_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Boost forward and clash into enemies for at least <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
 		"GRENADIER_UTILITY_ALT_NAME": "<sprite name=\"WIP\">Speed Booster<sprite name=\"WIP\">",
 		"GRENADIER_UTILITY_ALT_DESCRIPTION" : "<style=cIsUtility>Heavy</style>. Start running and crash into enemies for <style=cIsDamage>200% damage</style>. Get <style=cIsUtility>more push force</style> from your own explosives.",
-		"GRENADIER_SPECIAL_NAME": "Imploding Charge",
+		"GRENADIER_SPECIAL_NAME": "Imploding Charges",
 		"GRENADIER_SPECIAL_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Charge and throw all your available stacks for <style=cIsDamage>600% damage</style> each, pulling enemies in before exploding.",
 		"GRENADIER_SPECIAL_ALT_NAME": "<sprite name=\"WIP\">Tracker Bomb<sprite name=\"WIP\">",
 		"GRENADIER_SPECIAL_ALT_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +2 Stock</style>. Charge and throw all your sliding bombs, which lock on to a target until exploding for <style=cIsDamage>650% damage</style>.",
 		"GRENADIER_SPECIAL_ALT2_NAME": "Sidewinder",
 		"GRENADIER_SPECIAL_ALT2_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +4 Stock</style>. Load in your side weapon missiles and release all of them over time, each one dealing <style=cIsDamage>TODO% damage</style>.",
+		"GRENADIER_SPECIAL_ALT3_NAME": "TREMOR Charges",
+		"GRENADIER_SPECIAL_ALT3_DESCRIPTION" : "<style=cUserSetting>Synced Reload: +3 Stock</style>. Plant a motion-sensitive charge in the ground below you, which explodes for <style=cIsDamage>800% damage</style> as many times to <style=cIsDamage>as many charges as you held</style>, <style=cIsUtility>pushing enemies and yourself</style> perpendicularly away from the ground.",
 		
 		"GRENADIER_SPECIAL_FULL_DESCRIPTION" : "Charge and throw all your available stacks for <style=cIsDamage>500% damage</style> each.\nCurrently holding additional maximum <style=cIsUtility>three stacks</style>.",
 		"GRENADIER_SPECIAL_ALT_FULL_DESCRIPTION" : "Charge and throw all your sliding bombs, which when bouncing off obstacles, explode for <style=cIsDamage>200% damage</style>.\nCurrently holding additional maximum <style=cIsUtility>five stacks</style>.",
 		"GRENADIER_SPECIAL_ALT2_FULL_DESCRIPTION" : "Load in your side weapon missiles and release all of them over time, each one dealing <style=cIsDamage>TODO% damage</style>.\nCurrently holding additional maximum <style=cIsUtility>eight stacks</style>.",
+		"GRENADIER_SPECIAL_ALT3_FULL_DESCRIPTION" : "Plant a motion-sensitive charge in the ground, which explodes for <style=cIsDamage>800% damage</style> up to <style=cIsDamage>current stock</style> times, <style=cIsUtility>pushing enemies and yourself</style> perpendicularly from the ground.\nCurrently holding additional maximum <style=cIsUtility>eight stacks</style>.",
 
 		"GRENADIER_UI_SKILLDEF_FORMAT": "{0}",
 		
 		"GRENADIER_SKIN_RECOLOR_NAME" : "Recolor",
-		"GRENADIER_SKIN_ALT1_NAME" : "Officer",
+		"GRENADIER_SKIN_ALT1_NAME" : "Mob",
 		"GRENADIER_SKIN_ALT2_NAME" : "Dune",
 		"GRENADIER_SKIN_LOWPOL_NAME" : "256",
-		"GRENADIER_DESCRIPTION" : "The Grenadier is a close to medium range projectile survivor who has the potential to quickly wipe out large groups of enemies - as well extreme single target damage.<style=cSub>\r\n\r\n< ! > Blast Armor can protect you from a group of enemies closing in - or to attack them if you're diving in.\r\n\r\n< ! > Your crosshair will turn red whenever you\'re in the appropiate range for your primary to hit your target, keep it in mind.\r\n\r\n< ! > Your Secondary acts almost instantly, and can travel very far, use it whenever your primary has no ammo or you're off range.\r\n\r\n< ! > Your Utility can be used to keep close enemies away, along with one of your explosives to reposition, or to reach high speeds and hit your enemies for high damage.\r\n<\/style>\r\n",
+		"GRENADIER_DESCRIPTION" : "The Grenadier is a close to medium range projectile survivor who has the potential to quickly wipe out large groups of enemies - and dealing extreme single target damage as well.<style=cSub>\r\n\r\n< ! > Blast Armor can protect you from a group of enemies closing in - or to attack them if you're diving in.\r\n\r\n< ! > Your crosshair will turn red whenever you\'re in the appropiate range for your primary to hit your target.\r\n\r\n< ! > Your Secondary acts almost instantly, and can travel very far, use it whenever your primary has no ammo or you\'re off range.\r\n\r\n< ! > Your Utility can be used to keep close enemies away, along with one of your explosives to reposition, or to reach high speeds and hitting your enemies for high damage.\r\n<\/style>\r\n",
 
+
+		"STAFFMAGE_BODY_NAME": "STAFFMAGE_BODY_NAME",
+		"STAFFMAGE_BODY_SUBTITLE" : "STAFFMAGE_BODY_SUBTITLE",
+		"STAFFMAGE_BODY_LORE" : "STAFFMAGE_BODY_LORE",
+		
+		"STAFFMAGE_PASSIVE_NAME" : "Burning Aura",
+		"STAFFMAGE_PASSIVE_DESCRIPTION" : "Charging up spells <style=cIsUtility>panics</style> every enemy, excluding bosses, in an area which size is relative to the current energy being consumed. Passively regenerate <color=#6ABLC0>energy</color> overtime.",
+		"STAFFMAGE_PRIMARY_NAME" : "Staff",
+		"STAFFMAGE_PRIMARY_DESCRIPTION" : "Swing your staff for <style=cIsDamage>120% damage</style>, each hit recovering <color=#6ABLC0>energy</color>. The 3rd strike can be held performing a <style=cIsDamage>continous attack</style> for slightly less damage.",
+		"STAFFMAGE_SECONDARY_NAME": "Beam",
+		"STAFFMAGE_SECONDARY_DESCRIPTION": "<color=#0ED6B4>Coordinated (Primary)</color>."
 
 		"CRABCHEST_BODY_NAME": "Mimigun",
 		"CRABCHEST_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
