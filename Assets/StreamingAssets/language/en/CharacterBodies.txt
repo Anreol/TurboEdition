@@ -57,11 +57,13 @@
 		"STAFFMAGE_BODY_LORE" : "STAFFMAGE_BODY_LORE",
 		
 		"STAFFMAGE_PASSIVE_NAME" : "Burning Aura",
-		"STAFFMAGE_PASSIVE_DESCRIPTION" : "Charging up spells <style=cIsUtility>panics</style> every enemy, excluding bosses, in an area which size is relative to the current energy being consumed. Passively regenerate <color=#6ABLC0>energy</color> overtime.",
+		"STAFFMAGE_PASSIVE_DESCRIPTION" : "Charging up spells <style=cIsUtility>panics</style> every enemy, excluding bosses, in an area which size is relative to the current energy being consumed. Passively regenerate <color=#56a7ef>energy</color> overtime.",
 		"STAFFMAGE_PRIMARY_NAME" : "Staff",
-		"STAFFMAGE_PRIMARY_DESCRIPTION" : "Swing your staff for <style=cIsDamage>120% damage</style>, each hit recovering <color=#6ABLC0>energy</color>. The 3rd strike can be held performing a <style=cIsDamage>continous attack</style> for slightly less damage.",
+		"STAFFMAGE_PRIMARY_DESCRIPTION" : "Swing your staff for <style=cIsDamage>120% damage</style>, each hit recovering <color=#56a7ef>energy</color>. The 3rd strike can be held performing a <style=cIsDamage>continous attack</style> for slightly less damage.",
 		"STAFFMAGE_SECONDARY_NAME": "Beam",
 		"STAFFMAGE_SECONDARY_DESCRIPTION": "<color=#0ED6B4>Coordinated (Primary)</color>."
+		"STAFFMAGE_UTILITY_NAME": "Heal (Distort)",
+		"STAFFMAGE_UTILITY_DESCRIPTION": "Cast a spell that attaches "
 
 		"CRABCHEST_BODY_NAME": "Mimigun",
 		"CRABCHEST_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",

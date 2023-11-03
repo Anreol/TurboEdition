@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4086645047
+CRC: 4263470722
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8aca292db945175a586e24039dc7a73d
+    Hash: 448c619c22108d4c08f7ec44f9e1973e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 03a438ee5d7d87ceda94a777e01f78b2
+    Hash: 11170f7d43541d5059a074f81568317a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -95,8 +95,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f6b81f21ac9f7a6418053eaf8960edb2, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: a214f5a189f88d74a91a49a089659c98, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
 - Class: 114
@@ -526,11 +524,15 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1568778350, guid: 050936fea8909af15a3fd3b64da1ff83, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 8076f21f3a4c5754286260268e9d1028, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 13f6fd2f0e3a722458d4912a5340763e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6a41756f81114744ea6cd11e63095898, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 55cce1cf1261a63409fb809879bdf2fe, type: 3}
+- Class: 114
+  Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
 - Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -538,7 +540,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
-  Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
+  Script: {fileID: 11500000, guid: a214f5a189f88d74a91a49a089659c98, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
 - Class: 115
@@ -853,6 +855,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texCardSheet.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/WormDirector.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/ImpBomberMaster.prefab
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/observatoryV3.fbx
 - Assets/Mesh/effLightShaft.asset
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texDropletDupeNormal.png
 - Assets/Materials/matBanePulse.mat
