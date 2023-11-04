@@ -88,6 +88,7 @@
      <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboVFXManager.cs" />
      <Compile Include="Assets\ContentPack\Modules\Components\MarkAsUnableToBeLocked.cs" />
      <Compile Include="Assets\ContentPack\Modules\Components\MoneyBankInteractionController.cs" />
+     <Compile Include="Assets\ContentPack\Modules\Components\ObservatoryEventController.cs" />
      <Compile Include="Assets\ContentPack\Modules\Components\PainArtifactServerListener.cs" />
      <Compile Include="Assets\ContentPack\Modules\Components\PickupPickerRerollerController.cs" />
      <Compile Include="Assets\ContentPack\Modules\Components\PickupSpriteGetter.cs" />
