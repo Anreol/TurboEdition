@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4263470722
+CRC: 1993436458
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 448c619c22108d4c08f7ec44f9e1973e
+    Hash: 38a2738a6337e5e5c4fc1d2069d6097f
   TypeTreeHash:
     serializedVersion: 2
     Hash: 11170f7d43541d5059a074f81568317a
@@ -532,13 +532,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 55cce1cf1261a63409fb809879bdf2fe, type: 3}
 - Class: 114
-  Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
-- Class: 114
   Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
 - Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
+- Class: 114
+  Script: {fileID: 708136152, guid: e161fae64b898bc22624d03ed611378f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a214f5a189f88d74a91a49a089659c98, type: 3}
 - Class: 114
@@ -605,6 +605,7 @@ Assets:
 - Assets/Textures/texUIBgRoomSprite.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/Grenadier_Skin1_Normal.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/DropletDupe.asset
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_Terrain_Test.mat
 - Assets/Textures/Ramps/texRampMoonOrange.png
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Huntress/idrsHuntress.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunSpinDown.asset
@@ -717,6 +718,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/WormArtifactSpawnEffect.prefab
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_Lvy_A.mat
 - Assets/Materials/matOmniExplosion.mat
+- Assets/Textures/tex_reflectivity_50.png
 - Assets/Materials/matOmniSpark1.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BloodPackHeal.prefab
 - Assets/Textures/Ramps/texRampMaroonToYellow.png
@@ -765,6 +767,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormArtifact.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.Reload.asset
 - Assets/Textures/texEffImpactPillar_Sheet.png
+- Assets/Textures/tex_graygrid.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Boss.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/GenericUnavailableSkill.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/EntityStates.ImpBomber.Weapon.BombGet.asset
@@ -806,6 +809,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/WardOnLevelVoid/WardOnLevelVoid.asset
 - Assets/ContentPack/AssetTurbo/Characters/StaffMage/ccpStaffMage.asset
 - Assets/ContentPack/AssetTurbo/Items/AirborneDash/AirborneDash.asset
+- Assets/Textures/tex_dev_measurewall01d.png
 - Assets/Textures/Ramps/texRampGolemRed.png
 - Assets/Textures/texKnifeUV_Fresnel.png
 - Assets/Textures/texObservatoryBanner.png
@@ -896,6 +900,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_Terrain_TempleWall.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/mskGrenadierUpperBody.mask
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecialSidewinder.asset
+- Assets/Textures/tex_dev_measurewall01a.png
 - Assets/Textures/texOBMoonDiffuse.png
 - Assets/Wwise/ScriptableObjects/State/7BE463D5-0FA7-462D-A15F-BD98D0C9F8FD.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_ThievesHat.png
