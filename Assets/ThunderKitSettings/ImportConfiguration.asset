@@ -187,7 +187,7 @@ MonoBehaviour:
   - {fileID: 4564428737171075499}
   - {fileID: 8362727474068689475}
   - {fileID: -8932536241300676013}
-  configurationIndex: -1
+  configurationIndex: 22
   totalImportExtensionCount: 22
 --- !u!114 &688863073000048741
 MonoBehaviour:
@@ -266,9 +266,271 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b0facc354ed134db02010df191c2d0, type: 3}
   m_Name: R2API Submodule Installer
   m_EditorClassIdentifier: 
-  enabled: 1
+  enabled: 0
   serializeSelectionIntoJson: 1
-  r2apiSubmodules: []
+  r2apiSubmodules:
+  - submoduleName: R2API_Core
+    description: Core R2API module
+    dependedncyID: RiskofThunder-R2API_Core
+    shouldInstall: 1
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+  - submoduleName: R2API_ContentManagement
+    description: API for adding content to the game
+    dependedncyID: RiskofThunder-R2API_ContentManagement
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Addressables
+    description: R2API Submodule for implementing Addressables functionality
+    dependedncyID: RiskofThunder-R2API_Addressables
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_ArtifactCode
+    description: API for making Artifact Codes
+    dependedncyID: RiskofThunder-R2API_ArtifactCode
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Colors
+    description: API for registering Colors to the game
+    dependedncyID: RiskofThunder-R2API_Colors
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_CommandHelper
+    description: API for registering console commands
+    dependedncyID: RiskofThunder-R2API_CommandHelper
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_DamageType
+    description: API for registering damage types
+    dependedncyID: RiskofThunder-R2API_DamageType
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - R2API_Core
+    - BepInExPack
+  - submoduleName: R2API_Deployable
+    description: API for adding custom deployables
+    dependedncyID: RiskofThunder-R2API_Deployable
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Difficulty
+    description: API for adding custom in-game difficulties
+    dependedncyID: RiskofThunder-R2API_Difficulty
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Director
+    description: API for easily modifiying the Director (RoR2 monster / interactable
+      spawner) behaviour
+    dependedncyID: RiskofThunder-R2API_Director
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+    - R2API_Addressables
+  - submoduleName: R2API_Dot
+    description: API for adding custom damage over time effects
+    dependedncyID: RiskofThunder-R2API_Dot
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Elites
+    description: API for adding custom elite types
+    dependedncyID: RiskofThunder-R2API_Elites
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+    - R2API_ContentManagement
+  - submoduleName: R2API_Items
+    description: API for adding custom items
+    dependedncyID: RiskofThunder-R2API_Items
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - R2API_ContentManagement
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Language
+    description: API for modifying the language localisation of the game
+    dependedncyID: RiskofThunder-R2API_Language
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Loadout
+    description: API for registering skills, skins and entity states
+    dependedncyID: RiskofThunder-R2API_Loadout
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - R2API_ContentManagement
+    - R2API_Skins
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_LobbyConfig
+    description: API for modifying the in-game lobby rules
+    dependedncyID: RiskofThunder-R2API_LobbyConfig
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Networking
+    description: Networking API around the Unity UNet Low Level API (LLAPI)
+    dependedncyID: RiskofThunder-R2API_Networking
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Orb
+    description: API for creation and management of custom Orb types.
+    dependedncyID: RiskofThunder-R2API_Orb
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Prefab
+    description: API for Prefab creation, networking and duplication
+    dependedncyID: RiskofThunder-R2API_Prefab
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - R2API_ContentManagement
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_RecalculateStats
+    description: API for manipulating Character Stats
+    dependedncyID: RiskofThunder-R2API_RecalculateStats
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Rulebook
+    description: API for registering rules to the Rule Catalog
+    dependedncyID: RiskofThunder-R2API_Rulebook
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_SceneAsset
+    description: API for retrieving assets that live exclusively in game scenes
+    dependedncyID: RiskofThunder-R2API_SceneAsset
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Skins
+    description: R2API Submodule for adding custom Skins and Skin-related utilities
+      to the game
+    dependedncyID: RiskofThunder-R2API_Skins
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Sound
+    description: API for adding custom sounds or musics
+    dependedncyID: RiskofThunder-R2API_Sound
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - R2API_ContentManagement
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Stages
+    description: API for Stage creation
+    dependedncyID: RiskofThunder-R2API_Stages
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_StringSerializerExtensions
+    description: Increased string serializer support
+    dependedncyID: RiskofThunder-R2API_StringSerializerExtensions
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_TempVisualEffect
+    description: API for adding custom temporary visual effects for characters.
+    dependedncyID: RiskofThunder-R2API_TempVisualEffect
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - R2API_ContentManagement
+    - BepInExPack
+    - R2API_Core
+  - submoduleName: R2API_Unlockable
+    description: API for adding custom achievements and unlockables
+    dependedncyID: RiskofThunder-R2API_Unlockable
+    shouldInstall: 0
+    isHardDependency: 0
+    dependencies:
+    - HookGenPatcher
+    - R2API_ContentManagement
+    - BepInExPack
+    - R2API_Core
 --- !u!114 &5297434830334430722
 MonoBehaviour:
   m_ObjectHideFlags: 0
