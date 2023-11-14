@@ -68,18 +68,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SnowNormalTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 03f42de52da0f1f42a7c796269c621ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SnowTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 41bcc0b955fb253408db5c1ed3bc2ae1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BinaryBlendOn: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Depth: 0.2
+    - _Depth: 0.252
     - _DetailNormalMapScale: 1
     - _DirtBias: 0
     - _DirtOn: 0
@@ -103,11 +103,11 @@ Material:
     - _RampInfo: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
-    - _SnowBias: 0
+    - _SnowBias: -0.578
     - _SnowOn: 0
-    - _SnowSmoothness: 0
-    - _SnowSpecularExponent: 1
-    - _SnowSpecularStrength: 0
+    - _SnowSmoothness: 0.768
+    - _SnowSpecularExponent: 0
+    - _SnowSpecularStrength: 0.211
     - _SpecularExponent: 2.38
     - _SpecularHighlights: 1
     - _SpecularStrength: 0.518

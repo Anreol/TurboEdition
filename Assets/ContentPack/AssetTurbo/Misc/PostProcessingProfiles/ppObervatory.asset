@@ -15,6 +15,7 @@ MonoBehaviour:
   settings:
   - {fileID: 240756088117902094}
   - {fileID: 7767226438608125183}
+  - {fileID: 3371272220212995727}
 --- !u!114 &240756088117902094
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -33,37 +34,86 @@ MonoBehaviour:
     value: 1
   fogIntensity:
     overrideState: 1
-    value: 0.63
+    value: 0.7
   fogPower:
     overrideState: 1
-    value: 0.8
+    value: 11.06
   fogZero:
     overrideState: 1
-    value: -0.015
+    value: -0.63
   fogOne:
     overrideState: 1
-    value: 0.12
+    value: 0.216
   fogHeightStart:
     overrideState: 0
     value: -37
   fogHeightEnd:
-    overrideState: 0
+    overrideState: 1
     value: 198
   fogHeightIntensity:
-    overrideState: 0
+    overrideState: 1
     value: 0
   fogColorStart:
     overrideState: 1
-    value: {r: 0.4509804, g: 0.5647059, b: 0.16470589, a: 0.015686275}
+    value: {r: 0.4509804, g: 0.5647059, b: 0.16470589, a: 0.050980393}
   fogColorMid:
     overrideState: 1
-    value: {r: 0.67058825, g: 0.4745098, b: 0.3254902, a: 0.44705883}
+    value: {r: 0.67058825, g: 0.4745098, b: 0.3254902, a: 0.33333334}
   fogColorEnd:
     overrideState: 1
     value: {r: 0.6039216, g: 0.39215687, b: 0.33333334, a: 1}
   skyboxStrength:
     overrideState: 1
     value: 0.1
+--- !u!114 &3371272220212995727
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
+  m_Name: AmbientOcclusion
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  mode:
+    overrideState: 1
+    value: 1
+  intensity:
+    overrideState: 1
+    value: 0.74
+  color:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
+  ambientOnly:
+    overrideState: 1
+    value: 1
+  noiseFilterTolerance:
+    overrideState: 0
+    value: 0
+  blurTolerance:
+    overrideState: 0
+    value: -4.6
+  upsampleTolerance:
+    overrideState: 0
+    value: -12
+  thicknessModifier:
+    overrideState: 0
+    value: 1.36
+  directLightingStrength:
+    overrideState: 0
+    value: 0
+  radius:
+    overrideState: 1
+    value: 0.58
+  quality:
+    overrideState: 1
+    value: 2
 --- !u!114 &7767226438608125183
 MonoBehaviour:
   m_ObjectHideFlags: 3

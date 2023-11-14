@@ -1,7 +1,0 @@
-{
-	strings:
-	{
-	"ITEM_ADDTELEPORTERRADIUS_NAME": "Lentes Cromáticas",
-	"ITEM_ADDTELEPORTERRADIUS_PICKUP": "Incrementa el radio del Teletransportador"
-	}
-}

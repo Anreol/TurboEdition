@@ -105,7 +105,7 @@ Material:
     - _NormalStrength: 0.24
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RampInfo: 0
+    - _RampInfo: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SnowBias: 0

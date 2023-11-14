@@ -107,7 +107,7 @@ Material:
     - _NormalStrength: 0.35
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RampInfo: 3
+    - _RampInfo: 1
     - _RedChannelBias: 1
     - _RedChannelSmoothness: 0
     - _RedChannelSpecularExponent: 7.18
@@ -121,5 +121,5 @@ Material:
     - _VerticalBiasOn: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.851, g: 0.76864517, b: 0.64511293, a: 1}
+    - _Color: {r: 1, g: 0.99573296, b: 0.9669811, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

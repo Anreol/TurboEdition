@@ -1,6 +1,0 @@
-{
-	strings:
-	{
-		"STATNAME_TOTALTELEPORTEROVERCHARGERUSED": "Teleporters Overcharged",
-	}
-}

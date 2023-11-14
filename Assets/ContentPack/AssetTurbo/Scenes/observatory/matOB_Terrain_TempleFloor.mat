@@ -89,7 +89,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DecalLayer: 1
-    - _Depth: 0.5
+    - _Depth: 0.463
     - _DetailNormalMapScale: 1
     - _DoublesampleOn: 1
     - _DstBlend: 0
@@ -104,7 +104,7 @@ Material:
     - _Metallic: 0
     - _MixColorsOn: 1
     - _Mode: 0
-    - _NormalStrength: 0.075
+    - _NormalStrength: 0.765
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampInfo: 1
@@ -116,7 +116,7 @@ Material:
     - _SnowOn: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TextureFactor: 0.069
+    - _TextureFactor: 0.102
     - _UVSec: 0
     - _VerticalBiasOn: 0
     - _ZWrite: 1

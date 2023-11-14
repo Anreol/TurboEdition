@@ -102,10 +102,10 @@ Material:
     - _IgnoreBiasOn: 0
     - _Metallic: 0
     - _Mode: 0
-    - _NormalStrength: 0.16
+    - _NormalStrength: 0.35
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RampInfo: 0
+    - _RampInfo: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SnowBias: 0
@@ -121,7 +121,7 @@ Material:
     - _TriplanarTextureFactor: 1
     - _UVSec: 0
     - _VertexColorOn: 0
-    - _VertexOffsetStrength: 1.08
+    - _VertexOffsetStrength: 1.05
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

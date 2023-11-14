@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matOB_Trim_AncientDirt
   m_Shader: {fileID: 4800000, guid: c31f2d06c27c0c14e99e3dc58d3e2fd5, type: 2}
-  m_ShaderKeywords: BINARYBLEND DIRTON VERTEXCOLOR
+  m_ShaderKeywords: BINARYBLEND DIRTON GRADIENTBIAS TRIPLANAR VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -116,11 +116,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SnowNormalTex:
-        m_Texture: {fileID: 2800000, guid: 5e11c2fdfd4c2c84dac19838595c43c6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 03f42de52da0f1f42a7c796269c621ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SnowTex:
-        m_Texture: {fileID: 2800000, guid: ce034b7ab28680d44beec220de1cbe89, type: 3}
+        m_Texture: {fileID: 2800000, guid: 41bcc0b955fb253408db5c1ed3bc2ae1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SplatmapTex:
@@ -136,13 +136,13 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DecalLayer: 0
-    - _Depth: 0.2
+    - _Depth: 0.063
     - _DetailNormalMapScale: 1
-    - _DirtBias: 1.32
+    - _DirtBias: -0.31
     - _DirtOn: 1
-    - _DirtSmoothness: 0.299
-    - _DirtSpecularExponent: 1
-    - _DirtSpecularStrength: 0
+    - _DirtSmoothness: 0
+    - _DirtSpecularExponent: 0.94
+    - _DirtSpecularStrength: 0.04
     - _DitherOn: 0
     - _DstBlend: 0
     - _EliteBrightnessMax: 1
@@ -167,7 +167,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GradientBiasOn: 0
+    - _GradientBiasOn: 1
     - _GreenChannelBias: 0
     - _GreenChannelSmoothness: 0
     - _IgnoreBiasOn: 0
@@ -175,7 +175,7 @@ Material:
     - _LimbRemovalOn: 0
     - _Metallic: 0
     - _Mode: 0
-    - _NormalStrength: 1
+    - _NormalStrength: 0.972
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PrintBias: 0
@@ -183,25 +183,25 @@ Material:
     - _PrintDirection: 0
     - _PrintEmissionToAlbedoLerp: 0
     - _PrintOn: 0
-    - _RampInfo: 3
+    - _RampInfo: 0
     - _SliceAlphaDepth: 0.1
     - _SliceBandHeight: 1
     - _SliceHeight: 5
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
-    - _SnowBias: -1
+    - _SnowBias: -0.466
     - _SnowOn: 0
-    - _SnowSmoothness: 0.048
-    - _SnowSpecularExponent: 0.84
-    - _SnowSpecularStrength: 0.161
-    - _SpecularExponent: 1.12
+    - _SnowSmoothness: 0.445
+    - _SnowSpecularExponent: 3.12
+    - _SnowSpecularStrength: 0.164
+    - _SpecularExponent: 0.78
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0.281
+    - _SpecularStrength: 0.293
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
-    - _TriplanarOn: 0
-    - _TriplanarTextureFactor: 1
+    - _TriplanarOn: 1
+    - _TriplanarTextureFactor: 0.02
     - _UVSec: 0
     - _VertexColorOn: 1
     - _ZWrite: 1
@@ -210,4 +210,4 @@ Material:
     - _EmColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GradientBiasVector: {r: 0, g: 1, b: 0, a: 0}
+    - _GradientBiasVector: {r: 0, g: 0.015, b: 0, a: 0}
