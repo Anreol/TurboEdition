@@ -1,4 +1,5 @@
 ﻿using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace Moonstorm.EditorUtils
@@ -17,18 +18,27 @@ namespace Moonstorm.EditorUtils
         {
             GUILayout.Label("Enter guid");
             guid = GUILayout.TextField(guid);
+
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("Get Asset Path", GUILayout.Width(120)))
                 path = GetAssetPath(guid);
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
+
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("Abort", GUILayout.Width(120)))
                 Close();
+            if (GUILayout.Button("Select", GUILayout.Width(120)))
+            {
+                Object asset = AssetDatabase.LoadAssetAtPath<Object>(path);
+                Selection.activeObject = asset;
+                EditorGUIUtility.PingObject(asset);
+            }
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
+
             GUILayout.Label(path);
             Debug.Log($"GUID Finder: Found asset of guid " + guid + " at address " + path);
         }

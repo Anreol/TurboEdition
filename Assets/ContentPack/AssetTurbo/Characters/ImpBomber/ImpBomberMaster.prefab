@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullVision: 0
   neverRetaliateFriendlies: 0
-  enemyAttentionDuration: 5
+  enemyAttentionDuration: 3
   desiredSpawnNodeGraphType: 0
   stateMachine: {fileID: 4339349503458679999}
   scanState:
@@ -147,7 +147,7 @@ MonoBehaviour:
   isHealer: 0
   enemyAttention: 0
   aimVectorDampTime: 0.2
-  aimVectorMaxSpeed: 180
+  aimVectorMaxSpeed: 320
   selectedSkilldriverName: 
   debugEnemyHurtBox: {fileID: 0}
 --- !u!114 &4339349503458679999
@@ -244,15 +244,15 @@ MonoBehaviour:
   activationRequiresAimTargetLoS: 1
   activationRequiresAimConfirmation: 0
   movementType: 0
-  moveInputScale: 1
+  moveInputScale: 0
   aimType: 2
-  ignoreNodeGraph: 0
+  ignoreNodeGraph: 1
   shouldSprint: 0
   shouldFireEquipment: 0
   shouldTapButton: 0
   buttonPressType: 0
   driverUpdateTimerOverride: -1
-  resetCurrentEnemyOnNextDriverSelection: 0
+  resetCurrentEnemyOnNextDriverSelection: 1
   noRepeat: 0
   nextHighPriorityOverride: {fileID: 0}
 --- !u!114 &-3657187071966948680
@@ -330,9 +330,9 @@ MonoBehaviour:
   activationRequiresAimTargetLoS: 0
   activationRequiresAimConfirmation: 0
   movementType: 0
-  moveInputScale: 0.5
+  moveInputScale: 0
   aimType: 0
-  ignoreNodeGraph: 0
+  ignoreNodeGraph: 1
   shouldSprint: 0
   shouldFireEquipment: 0
   shouldTapButton: 0

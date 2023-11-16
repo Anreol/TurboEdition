@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0e45bf5627b554081a563dac04ff6a, type: 3}
   m_Name: Set Deferred Shading
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &-1915053502259843837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782d5ab1acc2056478f835108aa9474b, type: 3}
   m_Name: Configure Addressable Graphics Settings
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!114 &3050710510006106523
 MonoBehaviour:
   m_ObjectHideFlags: 0
