@@ -21,7 +21,7 @@ Material:
     m_TexEnvs:
     - _BlueChannelTex:
         m_Texture: {fileID: 2800000, guid: aed6c0ee5101d434d8800cea9b15e181, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelTex:
-        m_Texture: {fileID: 2800000, guid: 439fdeee9f35bca4aacf37aaaf730ae2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9ccb61bb2bcf59940979fb015958670e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
         m_Texture: {fileID: 2800000, guid: 4ec61eb78c8d3d444bf127b2aca10545, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.15, y: 0.15}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
@@ -80,46 +80,46 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BlueChannelBias: 4.68
-    - _BlueChannelSmoothness: 0
-    - _BlueChannelSpecularExponent: 18.41
-    - _BlueChannelSpecularStrength: 0.497
+    - _BlueChannelBias: -2
+    - _BlueChannelSmoothness: 0.529
+    - _BlueChannelSpecularExponent: 0.1
+    - _BlueChannelSpecularStrength: 0
     - _BumpScale: 1
     - _ColorsOn: 1
     - _Cull: 2
     - _Cutoff: 0.5
     - _DecalLayer: 1
-    - _Depth: 0.463
+    - _Depth: 0.395
     - _DetailNormalMapScale: 1
     - _DoublesampleOn: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GreenChannelBias: 0.15
+    - _GreenChannelBias: -0.05
     - _GreenChannelSmoothness: 0
-    - _GreenChannelSpecularExponent: 0.1
-    - _GreenChannelSpecularStrength: 0
+    - _GreenChannelSpecularExponent: 2.41
+    - _GreenChannelSpecularStrength: 0.072
     - _MaskOn: 1
     - _Metallic: 0
     - _MixColorsOn: 1
     - _Mode: 0
-    - _NormalStrength: 0.765
+    - _NormalStrength: 0.72
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampInfo: 1
-    - _RedChannelBias: 1.16
-    - _RedChannelSmoothness: 0
-    - _RedChannelSpecularExponent: 18.81
-    - _RedChannelSpecularStrength: 0.026
+    - _RedChannelBias: 0.82
+    - _RedChannelSmoothness: 0.024
+    - _RedChannelSpecularExponent: 4.88
+    - _RedChannelSpecularStrength: 0.311
     - _SmoothnessTextureChannel: 0
     - _SnowOn: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TextureFactor: 0.102
+    - _TextureFactor: 0.331
     - _UVSec: 0
     - _VerticalBiasOn: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.972549, g: 0.8784314, b: 0.737255, a: 1}
+    - _Color: {r: 0.9716981, g: 0.9221965, b: 0.8479441, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

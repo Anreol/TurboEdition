@@ -187,16 +187,16 @@ Material:
     - _SliceAlphaDepth: 0.1
     - _SliceBandHeight: 1
     - _SliceHeight: 5
-    - _Smoothness: 0
+    - _Smoothness: 0.064
     - _SmoothnessTextureChannel: 0
     - _SnowBias: -0.466
     - _SnowOn: 0
     - _SnowSmoothness: 0.445
     - _SnowSpecularExponent: 3.12
     - _SnowSpecularStrength: 0.164
-    - _SpecularExponent: 0.78
+    - _SpecularExponent: 0.64
     - _SpecularHighlights: 1
-    - _SpecularStrength: 0.293
+    - _SpecularStrength: 0.774
     - _SplatmapOn: 0
     - _SplatmapTileScale: 1
     - _SrcBlend: 1
@@ -206,7 +206,7 @@ Material:
     - _VertexColorOn: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.974, g: 0.8770829, b: 0.73700607, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlashColor: {r: 0, g: 0, b: 0, a: 1}

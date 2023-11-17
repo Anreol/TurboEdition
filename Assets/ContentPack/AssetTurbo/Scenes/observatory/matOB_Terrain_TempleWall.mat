@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matOB_Terrain_TempleWall
   m_Shader: {fileID: 4800000, guid: 9d73b7f5a30174440a89e4da6bf1a2a0, type: 2}
-  m_ShaderKeywords: DOUBLESAMPLE MIX_VERTEX_COLORS USE_ALPHA_AS_MASK USE_VERTEX_COLORS
+  m_ShaderKeywords: MIX_VERTEX_COLORS USE_ALPHA_AS_MASK USE_VERTEX_COLORS
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelTex:
-        m_Texture: {fileID: 2800000, guid: 439fdeee9f35bca4aacf37aaaf730ae2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9ccb61bb2bcf59940979fb015958670e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
         m_Texture: {fileID: 2800000, guid: 4ec61eb78c8d3d444bf127b2aca10545, type: 3}
-        m_Scale: {x: 0.25, y: 0.5}
+        m_Scale: {x: 0.4, y: 0.35}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
@@ -68,8 +68,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RedChannelSideTex:
-        m_Texture: {fileID: 2800000, guid: 172f1569c99dd674eac42850c9a1d327, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 57df55b28e9ba09448b407b1c879b0f7, type: 3}
+        m_Scale: {x: 0.25, y: 0.25}
         m_Offset: {x: 0, y: 0}
     - _RedChannelTopTex:
         m_Texture: {fileID: 2800000, guid: 5dc6d3a968a52e3468d88b9d592074b8, type: 3}
@@ -77,11 +77,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SplatmapTex:
         m_Texture: {fileID: 2800000, guid: 444c4a62f3faa1246945f19b66e35136, type: 3}
-        m_Scale: {x: 0.5, y: 0.5}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _BlueChannelBias: 0.25
-    - _BlueChannelSmoothness: 0.16
+    - _BlueChannelBias: 0.53
+    - _BlueChannelSmoothness: 0.411
     - _BlueChannelSpecularExponent: 0.1
     - _BlueChannelSpecularStrength: 0
     - _BumpScale: 1
@@ -89,34 +89,34 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DecalLayer: 1
-    - _Depth: 0.23
+    - _Depth: 0.367
     - _DetailNormalMapScale: 1
-    - _DoublesampleOn: 1
+    - _DoublesampleOn: 0
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _GreenChannelBias: 1.05
+    - _GreenChannelBias: -0.14
     - _GreenChannelSmoothness: 0
-    - _GreenChannelSpecularExponent: 0
-    - _GreenChannelSpecularStrength: 0
+    - _GreenChannelSpecularExponent: 0.1
+    - _GreenChannelSpecularStrength: 0.167
     - _MaskOn: 1
     - _Metallic: 0
     - _MixColorsOn: 1
     - _Mode: 0
-    - _NormalStrength: 0.35
+    - _NormalStrength: 0.64
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampInfo: 1
-    - _RedChannelBias: 1
-    - _RedChannelSmoothness: 0
-    - _RedChannelSpecularExponent: 7.18
-    - _RedChannelSpecularStrength: 0
+    - _RedChannelBias: 1.72
+    - _RedChannelSmoothness: 0.099
+    - _RedChannelSpecularExponent: 3.05
+    - _RedChannelSpecularStrength: 0.299
     - _SmoothnessTextureChannel: 0
     - _SnowOn: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TextureFactor: 0.1
+    - _TextureFactor: 0.052
     - _UVSec: 0
     - _VerticalBiasOn: 0
     - _ZWrite: 1

@@ -102,7 +102,7 @@ Material:
     - _IgnoreBiasOn: 0
     - _Metallic: 0
     - _Mode: 0
-    - _NormalStrength: 3.59
+    - _NormalStrength: 1.65
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampInfo: 0

@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BlueChannelTex:
-        m_Texture: {fileID: 2800000, guid: 2006efc81715da642b55e00e96438d5c, type: 3}
+        m_Texture: {fileID: 2800000, guid: d7539dfab61e2b3428ce1fed873a761b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GreenChannelTex:
-        m_Texture: {fileID: 2800000, guid: 9e390b227e4f18642ac43c936f38a341, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9ccb61bb2bcf59940979fb015958670e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -68,7 +68,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RedChannelSideTex:
-        m_Texture: {fileID: 2800000, guid: 8178ee80e586f9545a9d792d222a1356, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3f92aaf621cffb440bb0cd29b56626bc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RedChannelTopTex:
@@ -81,9 +81,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BlueChannelBias: 0
-    - _BlueChannelSmoothness: 0.228
-    - _BlueChannelSpecularExponent: 0.1
-    - _BlueChannelSpecularStrength: 0.204
+    - _BlueChannelSmoothness: 0
+    - _BlueChannelSpecularExponent: 0.18
+    - _BlueChannelSpecularStrength: 0.06
     - _BumpScale: 1
     - _ColorsOn: 1
     - _Cull: 2
@@ -97,9 +97,9 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _GreenChannelBias: 0
-    - _GreenChannelSmoothness: 0.099
-    - _GreenChannelSpecularExponent: 5.97
-    - _GreenChannelSpecularStrength: 0.539
+    - _GreenChannelSmoothness: 0.02
+    - _GreenChannelSpecularExponent: 0.1
+    - _GreenChannelSpecularStrength: 0.127
     - _MaskOn: 1
     - _Metallic: 0
     - _MixColorsOn: 0
@@ -108,7 +108,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampInfo: 1
-    - _RedChannelBias: 0
+    - _RedChannelBias: 0.04
     - _RedChannelSmoothness: 0
     - _RedChannelSpecularExponent: 0.1
     - _RedChannelSpecularStrength: 0

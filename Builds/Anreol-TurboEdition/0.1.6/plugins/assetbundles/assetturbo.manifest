@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1254828285
+CRC: 2939041273
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: db55ee1f5de1886e6b0e82db0e9d6e5c
+    Hash: 2c2586323bad2ea1b2aa0286b78f3585
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7b0e908f2c126afdda8ba344aae6b688
+    Hash: d3e82a7e63d7cf8a9c4879201fe94c2e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -30,6 +30,8 @@ ClassTypes:
 - Class: 65
   Script: {instanceID: 0}
 - Class: 74
+  Script: {instanceID: 0}
+- Class: 89
   Script: {instanceID: 0}
 - Class: 90
   Script: {instanceID: 0}
@@ -601,7 +603,6 @@ Assets:
 - Assets/Materials/matVFXLightshaft.mat
 - Assets/Textures/Ramps/texRampWhiteAlphaOnly.png
 - Assets/Materials/matIcosphereCage.mat
-- Assets/Textures/texTerrain_BigRock01_D.png
 - Assets/ContentPack/AssetTurbo/Equipment/CursedScythe/PickupCursedScythe.prefab
 - Assets/ContentPack/AssetTurbo/Items/BaneMask/BaneMask.asset
 - Assets/Textures/texImpBomber_N.png
@@ -615,6 +616,7 @@ Assets:
 - Assets/Mesh/Items/meshTeleporterLenses_.mesh
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/observatoryGroundNodesNodegraph.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOff.png
+- Assets/Textures/Skybox/texSkyboxStage3.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierDisplay.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Captain/idrsCaptain.asset
 - Assets/Textures/texDitherWave.png
@@ -657,7 +659,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Wings.png
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/texItemDeployerFresnel.png
 - Assets/Materials/matUIScanlineCloud.mat
-- Assets/Textures/texTerrain_Rock04_GrassYellowish.png
 - Assets/Textures/texHangingCloth1_Tiled_N.png
 - Assets/Other/TextMesh Pro/Fonts/RiskofRainFont SDF.asset
 - Assets/ContentPack/AssetTurbo/Misc/physmatBouncyFunball.physicMaterial
@@ -682,6 +683,7 @@ Assets:
 - Assets/Materials/matTurboOptionPickupInside.mat
 - Packages/com.unity.postprocessing/PostProcessing/Gizmos/PostProcessLayer.png
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/ThrowableVisualizerArea.prefab
+- Assets/Textures/Terrain/texStage_StoneBrick02_D.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mskImpBomberArmsOnly.mask
 - Assets/Textures/texOmniHitspark5Mask.png
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/Spite2Artifact.asset
@@ -693,6 +695,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/InfiniteTowerRun/ArtifactsSpite2DisabledPrerequisite.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadieWeapon_Skin1_Recolor.mat
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGIntersectionCloudRemap.asset
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_FoggySkybox.mat
 - Assets/ContentPack/AssetTurbo/Misc/sbsBarStyles.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpDeathVFX.prefab
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_ClothTarp.mat
@@ -707,7 +710,6 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/PickupDropletDupe.prefab
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texDropletDupeIcon.png
 - Assets/ContentPack/AssetTurbo/Items/PackMagnet/PackMagnet.asset
-- Assets/Textures/Ramps/texRampSparkPastel.png
 - Assets/ContentPack/AssetTurbo/Misc/NetworkSoundEffectDefs/nseLeaveStageError.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/GrenadierSecondaryAltChildGhost.prefab
 - Assets/Materials/matTracerAdditive.mat
@@ -754,7 +756,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Loader/idrsLoader.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/GrenadierWeapon_Skin1_Normal.png
 - Assets/ContentPack/AssetTurbo/Equipment/Hellchain/Hellchain.asset
-- Assets/Textures/texStage_OB_Crack_01.png
+- Assets/Textures/Terrain/texStage_OB_Crack_01.png
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxDeathCards.prefab
 - Assets/Shaders/RoR2/Base/Shaders/Deferred/HGStandard.asset
 - Assets/Materials/matOmniRing3Torn.mat
@@ -787,6 +789,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierUtilityClash.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_KnifeBlade.png
 - Assets/ContentPack/AssetTurbo/Items/AirborneDash/AirborneDashEvaluationCurve.asset
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_MoonAtmosphere.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/animGrenadierDisplay.controller
 - Assets/ContentPack/AssetTurbo/Items/WardOnLevelVoid/texIndicatorVoidWarbannerMask.png
 - Assets/Mesh/Items/meshItemDeployer_.mesh
@@ -795,7 +798,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/SoulDevourer/SoulDevourer.asset
 - Assets/Materials/matOmniDust2.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/ErrorMat.mat
-- Assets/Textures/texTerrain_Sand_01_N.png
+- Assets/Textures/Terrain/texTerrain_Sand_01_N.png
 - Assets/ContentPack/AssetTurbo/Prefabs/TemporaryVisualEffects/vfxHellLinkedBuffEffect.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/OmniExplosionGrenadierStandard.prefab
 - Assets/ContentPack/AssetTurbo/Equipment/LeaveStage/LeaveStage.asset
@@ -845,11 +848,12 @@ Assets:
 - Assets/Wwise/ScriptableObjects/State/E1A6B7F5-DB5D-43BE-90A0-49E34FDAFDDB.asset
 - Assets/ContentPack/AssetTurbo/Items/MoneyBank/MoneyBank.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodySecondaryFamily.asset
-- Assets/Textures/texTerrain_DrySoil_01_Alpha.png
+- Assets/Textures/Terrain/texTerrain_DrySoil_01_Alpha.png
 - Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMageBodyUtilityFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/pdtTeleporterOverchargerDrops.asset
 - Assets/Textures/texCloudSmoke.png
 - Assets/Mesh/Items/meshKnifeBase.mesh
+- Assets/Textures/Ramps/texRampMoonAtmosphere.png
 - Assets/Mesh/Items/meshIcosphereCage.mesh
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/ShrineOvercharger/matShrineOverchargerSymbol.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Uncommon.png
@@ -877,13 +881,14 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadier_Skin1_Recolor.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Hellchain.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/envradio.png
-- Assets/Textures/texStage_Brick_03_N.png
+- Assets/Textures/Terrain/texStage_Brick_03_N.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestSpecialItemSteal.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/mdlGrenadier@MasterAnims.fbx
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySecondaryFamily.asset
 - Assets/Textures/texOBMoonNormal.png
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Engi/idrsEngiTurret.asset
 - Assets/ContentPack/AssetTurbo/BuffDefs/bdCannotSprint.asset
+- Assets/Textures/Ramps/texRampMoonPreBoss.png
 - Assets/Textures/texImpBomber_D.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/miscIcons/texHonorWormRuleOn.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSecondaryQuickshot.asset
@@ -906,6 +911,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecialSidewinder.asset
 - Assets/Textures/tex_dev_measurewall01a.png
 - Assets/Textures/texOBMoonDiffuse.png
+- Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_MoonClouds.mat
 - Assets/Wwise/ScriptableObjects/State/7BE463D5-0FA7-462D-A15F-BD98D0C9F8FD.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_ThievesHat.png
 - Assets/Textures/texSuperSticky.png
@@ -921,23 +927,23 @@ Assets:
 - Assets/Textures/texGrappleIlm.png
 - Assets/ContentPack/AssetTurbo/Items/MoneyBank/iscMoneyBank.asset
 - Assets/ContentPack/AssetTurbo/Equipment/VoidSquad/VoidSquad.asset
-- Assets/Textures/texTerrain_Ice.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunFire.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/OmniExplosionVFXBloodxplosion.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/OmniExplosionGrenadierImpact.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skins.Grenadier.LowPol.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpSpawnVFX.prefab
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_MoonSkybox.mat
+- Assets/Textures/SkyboxClouds/texFluffyCloud1Mask.png
 - Assets/Wwise/ScriptableObjects/Soundbank/96498B6F-7969-4386-94F0-8364DA8113BB.asset
 - Assets/Materials/matDustBackdropGlow.mat
 - Assets/Wwise/ScriptableObjects/Event/BFA611A3-A1B5-48EC-AAB6-9D8D5574BA1A.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/matImpFootstepSplash.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/TurboOptionPickupPanel.prefab
-- Assets/Textures/texTerrain_DrySoil_01_N.png
+- Assets/Textures/Terrain/texTerrain_DrySoil_01_N.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.SideWeapon.FireSecondary.asset
 - Assets/Wwise/ScriptableObjects/State/2A8F1DF4-F1CC-4469-9566-52A762ABEF0B.asset
 - Assets/ContentPack/AssetTurbo/Items/ItemDeployer/DisplayItemDeployer.prefab
-- Assets/Textures/texTerrain_OB_RockSide.png
+- Assets/Textures/Terrain/texTerrain_OB_RockSide.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.SpecialChargeCurling.asset
 - Assets/Textures/texOmniHitspark7Mask.png
 - Assets/Shaders/RoR2/Base/Shaders/FX/HGForwardPlanet.asset
@@ -948,12 +954,12 @@ Assets:
 - Assets/Textures/texUIHealthBarWarning.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/meshDropletDupeDisplay.mesh
 - Assets/Mesh/Common/VFX/donut_3_Mesh.asset
-- Assets/Textures/texTerrain_OB_Dirt.png
+- Assets/Textures/Terrain/texTerrain_OB_Dirt.png
 - Assets/Textures/texCloudDifferenceBW2.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/HellchainBodyAttachment.prefab
 - Assets/Textures/Ramps/texRampGenericDust.png
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_ClothFlag_BG.mat
-- Assets/Textures/texTerrain_Sand_01_D.png
+- Assets/Textures/Terrain/texTerrain_Sand_01_D.png
 - Assets/ContentPack/AssetTurbo/Textures/Icons/ArtifactIcons/worm_deselected.png
 - Assets/ContentPack/AssetTurbo/Items/SuperStickies/DisplaySuperStickies.prefab
 - Assets/Textures/texCloudDiamondsLeft.png
@@ -991,6 +997,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Lenses.png
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Merc/idrsMerc.asset
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/texAirborneBonusNormal.png
+- Assets/Textures/Terrain/texTerrain_Cliff1.png
 - Assets/ContentPack/AssetTurbo/Items/AirborneBonus/AirborneBonus.asset
 - Assets/Textures/texLvy_B_01_Diffuse.png
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestBodySpecialFamily.asset
@@ -1022,6 +1029,7 @@ Assets:
 - Assets/Textures/texSandbag_D.png
 - Assets/ContentPack/AssetTurbo/ArtifactDefs/WormsArtifact.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.SideWeapon.FireSecondaryBomblet.asset
+- Assets/Textures/Terrain/texTerrain_Rock04_GrassRed2.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/Grenadier_Skin1_Diffuse.png
 - Assets/Textures/texDitherGridThick.png
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/CubeGhost.prefab
@@ -1089,6 +1097,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsTurboEditionMonsters.asset
 - Assets/ContentPack/AssetTurbo/Scenes/observatory/matOB_ClothFlag.mat
 - Assets/ContentPack/AssetTurbo/Items/CurseItemTier.asset
+- Assets/Textures/Ramps/texRampVerticalAlphaWhite.png
 - Assets/ContentPack/AssetTurbo/Scenes/dev/matDevGridVeryLow.mat
 - Assets/Textures/texEffGlowSmoke.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/texGrenadierUnlockIcon.png
@@ -1136,16 +1145,16 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/AddTeleporterRadius/AddTeleporterRadius.asset
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Commando/idrsCommando.asset
 - Assets/Textures/Ramps/texRampGolden.png
+- Assets/Textures/texCloudOrganic2.png
 - Assets/Materials/matOmniSpark2.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Roll.RollClash.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsDampCaveMonstersTE.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/matGrenadierExplosionShockwave.mat
 - Assets/ContentPack/AssetTurbo/Characters/StaffMage/StaffMage.asset
-- Assets/Textures/texStage_Stone_01.png
+- Assets/Textures/Terrain/texStage_Stone_01.png
 - Assets/ContentPack/AssetTurbo/Items/SuperStickies/Items.SuperStickies.asset
 - Assets/Textures/texCardTest.png
-- Assets/Textures/texTerrain_OB_GrassTerrain.png
 - Assets/ContentPack/AssetTurbo/Misc/uiPopoutPanel.asset
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Railgunner/idrsRailgunner.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/RadioSearchResultPanel.prefab
@@ -1166,7 +1175,7 @@ Assets:
 - Assets/Textures/Ramps/texRampTritone.png
 - Assets/Materials/matTeamAreaIndicatorIntersectionPlayer.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/skinGrenadierRecolor.asset
-- Assets/Textures/texTerrain_DrySoil_01.png
+- Assets/Textures/Terrain/texTerrain_DrySoil_01.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadier_Skin1.mat
 - Assets/Mesh/Common/VFX/donut_2_Mesh.asset
