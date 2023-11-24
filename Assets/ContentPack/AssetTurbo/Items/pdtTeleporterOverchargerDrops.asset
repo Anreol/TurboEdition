@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDropBeReplaced: 0
   requiredItemTags: 
-  bannedItemTags: 0a00000013000000
+  bannedItemTags: 0a000000130000000f000000090000000e000000
   tier1Weight: 0.55
   tier2Weight: 0.25
   tier3Weight: 0.01

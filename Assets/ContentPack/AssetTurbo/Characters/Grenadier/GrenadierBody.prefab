@@ -4554,6 +4554,10 @@ MonoBehaviour:
     transform: {fileID: 9078706434101173828}
   - name: NeckBomb
     transform: {fileID: 1607025606215415314}
+  - name: DemoGrenadeLauncherGrip
+    transform: {fileID: 8274694509536890930}
+  - name: DemoGrenadeLauncherCylinder
+    transform: {fileID: 8735825101789929454}
 --- !u!114 &2716314299726158451
 MonoBehaviour:
   m_ObjectHideFlags: 0

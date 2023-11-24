@@ -1,4 +1,5 @@
-﻿using EntityStates.AI.Walker;
+﻿using EntityStates;
+using EntityStates.AI.Walker;
 using RoR2;
 using RoR2.CharacterAI;
 using TurboEdition.EntityStates.AI.Walker;
@@ -44,6 +45,16 @@ namespace TurboEdition.Buffs
 
                         //Interrupt attack
                         EntityStateMachine.FindByCustomName(body.gameObject, "Weapon")?.SetNextStateToMain();
+
+                        //Set state on hurt is what the game uses to set other machines other than body to Idle when stunned or frozen or shocked.
+                        SetStateOnHurt setStateOnHurt = body.gameObject.GetComponent<SetStateOnHurt>();
+                        if (setStateOnHurt != null)
+                        {
+                            for (int x = 0; x < setStateOnHurt.idleStateMachine.Length; x++)
+                            {
+                                setStateOnHurt.idleStateMachine[x].SetNextState(new Idle());
+                            }
+                        }
                         return;
                     }
                 }

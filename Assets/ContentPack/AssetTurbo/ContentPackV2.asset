@@ -107,6 +107,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8579b21d89c54e445bb851aaac16fda2, type: 2}
   - {fileID: 11400000, guid: 0a18c326e9746e9479f942a8bf7a7937, type: 2}
   - {fileID: 11400000, guid: c07e36f6baf15a0488ca46c2856dac94, type: 2}
+  - {fileID: 11400000, guid: 8c0a6ebd19f04c9428fb64ee53ca9226, type: 2}
+  - {fileID: 11400000, guid: fd502dcb3bf6a544aba3f8e23db48eef, type: 2}
   equipmentDefs:
   - {fileID: 11400000, guid: db5f8f8735505d440aad0e7b540c4933, type: 2}
   - {fileID: 11400000, guid: 2b525fa417a5d5c4d9b9b424ac22d29c, type: 2}
@@ -155,6 +157,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 421beb8cba51a8e46b73f2f337706c1e, type: 2}
   - {fileID: 11400000, guid: ff554923878a42d499fe035614b75cfc, type: 2}
   - {fileID: 11400000, guid: 7a7f957368de1af4e9b1c46914e7fc23, type: 2}
+  - {fileID: 11400000, guid: 0cdf69b81d05cc94b945ee017b9f579d, type: 2}
   musicTrackDefs:
   - {fileID: 11400000, guid: 3b10239eadfb3114f84bc8b8d70c0d71, type: 2}
   - {fileID: 11400000, guid: 43ceed4a1921fe645a06f55fde3c15b2, type: 2}

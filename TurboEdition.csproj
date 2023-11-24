@@ -81,6 +81,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\BodyAttachments\GetDamageFromHurtVictimBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\BodyAttachments\HellchainBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\BodyAttachments\SandbagBodyAttachment.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\CustomSiphonNearbyController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GrenadierPassiveController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GyroTest.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\RangedCrosshairController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\UnsafeZoneDamageController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\WeaveTest.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\AI\ForceFlee.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\BaseItemStealState.cs" />
@@ -164,6 +166,7 @@
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneChanges.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\SceneDirectorInjector.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\UIExtras.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Misc\UnsafeZoneDamageManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\Hellchain.cs" />
@@ -176,6 +179,7 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\AirborneDashBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BaneMaskBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BloodEconomyBodyBehavior.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Pickups\Items\BloodEconomyManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\DropletDupeBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GetDamageFromHurtVictimBodyBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Items\GracePeriodBodyBehavior.cs" />

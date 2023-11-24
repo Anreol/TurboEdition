@@ -16,3 +16,5 @@ MonoBehaviour:
   relationships:
   - itemDef1: {fileID: 0}
     itemDef2: {fileID: 11400000, guid: 0a18c326e9746e9479f942a8bf7a7937, type: 2}
+  - itemDef1: {fileID: 11400000, guid: 14b46053aaea12a41aa154aeaaa072c2, type: 2}
+    itemDef2: {fileID: 11400000, guid: 8c0a6ebd19f04c9428fb64ee53ca9226, type: 2}

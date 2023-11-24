@@ -104,6 +104,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Item_Proc_BaneMask_Recharge" ID="{7AACBC44-E70B-414D-A875-A4C0CBF1FB94}">
+							<ChildrenList>
+								<Action Name="" ID="{7190B359-538C-4145-A30E-A6BA14B3A963}" ShortID="604817309">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Item_Proc_BaneMask_Recharge" ID="{AAF71E24-1F66-43BD-BE6D-65F843934971}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Characters" ID="{3981EC00-1F60-4EF3-AE12-8899C58116EB}" ShortID="217043008">
@@ -310,6 +324,34 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Shrine_TeleporterOvercharger_IdleLoop" ID="{1C847017-D69A-42BC-BA7F-DE4FD7FADF28}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Item_Proc_RadioSearch_Activate" ID="{B8403736-09A7-4072-9AA6-60BE5966153A}">
+					<ChildrenList>
+						<Action Name="" ID="{468B026E-A2EC-4ECE-915C-9B3E2F6DFBBD}" ShortID="379680174">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Item_Proc_RadioSearch_Activate" ID="{251DBCA3-0348-40CD-BA08-92D399376145}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Item_Proc_RadioSearch_Nearby" ID="{355E6302-E26C-4967-9D3C-41C1694BE872}">
+					<ChildrenList>
+						<Action Name="" ID="{43D4A3E2-5F1D-434B-BF69-269D5154DC6C}" ShortID="806093314">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Item_Proc_RadioSearch_Nearby" ID="{7DEDA6EF-93B2-4D20-8FE0-A2A701ECF4B9}" WorkUnitID="{C2CBEEC2-B816-48E1-8227-50BEACCFD8E4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

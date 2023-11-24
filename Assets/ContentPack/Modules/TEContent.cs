@@ -70,7 +70,7 @@ namespace TurboEdition
             InitVFX.Init();
 
             if (onLoadStaticContent != null)
-                yield return onLoadStaticContent;
+                yield return onLoadStaticContent(args);
 
             args.ReportProgress(1f);
             yield break;
@@ -107,7 +107,7 @@ namespace TurboEdition
             }
 
             if (onGenerateContentPack != null)
-                yield return onGenerateContentPack;
+                yield return onGenerateContentPack(args);
 
             args.ReportProgress(1f);
             yield break;
@@ -126,6 +126,9 @@ namespace TurboEdition
             RoR2Application.isModded = true;
             //Gets resolved to a hash, adding mod guid makes it unique, and adding modVer changes the hash generated with different versions. It can actually be literally any string desired. This is what appears in the mod mismatch error message when connecting to a remote server.
             NetworkModCompatibilityHelper.networkModList = NetworkModCompatibilityHelper.networkModList.Append(TurboUnityPlugin.ModGuid + ";" + TurboUnityPlugin.ModVer);
+
+            if (onFinalizeAsync != null)
+                yield return onFinalizeAsync(args);
 
             args.ReportProgress(1f);
             yield break;

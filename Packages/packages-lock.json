@@ -116,6 +116,12 @@
       "source": "embedded",
       "dependencies": {}
     },
+    "riskofthunder-hookgenpatcher": {
+      "version": "file:HookGenPatcher",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "riskofthunder-ror2editorkit": {
       "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#4.1.0",
       "depth": 0,

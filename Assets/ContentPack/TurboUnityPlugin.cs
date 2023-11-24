@@ -20,7 +20,7 @@ namespace TurboEdition
             "0.1.6";
 
         internal const string ModIdentifier = "TurboEdition";
-        internal const string ModGuid = "com.Anreol." + ModIdentifier;
+        public const string ModGuid = "com.Anreol." + ModIdentifier;
 
         public static TurboUnityPlugin instance;
         public static PluginInfo pluginInfo;

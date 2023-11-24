@@ -237,7 +237,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: f9aeee3adff9124fa97c10655bacd25f
     GuidInternal: 
-    m_lastTime: -8585305841899947756
+    m_lastTime: -8585009138677088606
     List:
     - name: Ambience
       guid: 99a9833588cef848951ae7302d9080f3
@@ -543,6 +543,20 @@ MonoBehaviour:
       maxAttenuation: 200
       maxDuration: 0.219891
       minDuration: 0.206346
+    - name: Play_Item_Proc_BaneMask_Recharge
+      guid: 44bcac7a0be74d41a875a4c0cbf1fb94
+      id: 181559271
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Items
+        ObjectType: 4
+      - ElementName: Play_Item_Proc_BaneMask_Recharge
+        ObjectType: 3
+      Path: Default Work Unit\Items\Play_Item_Proc_BaneMask_Recharge
+      maxAttenuation: 200
+      maxDuration: 1.132336
+      minDuration: 1.132336
     - name: Play_Item_Proc_DropletDupe_Clone
       guid: e3f950d7852fb84793c24145a62a6d89
       id: 2255434859
@@ -599,6 +613,30 @@ MonoBehaviour:
       maxAttenuation: 200
       maxDuration: 1.051239
       minDuration: 0.992238
+    - name: Play_Item_Proc_RadioSearch_Activate
+      guid: 363740b8a70972409aa660be5966153a
+      id: 3026428414
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Item_Proc_RadioSearch_Activate
+        ObjectType: 3
+      Path: Default Work Unit\Play_Item_Proc_RadioSearch_Activate
+      maxAttenuation: 200
+      maxDuration: 0.854512
+      minDuration: 0.854512
+    - name: Play_Item_Proc_RadioSearch_Nearby
+      guid: 02635e356ce267499d3c41c1694be872
+      id: 41927008
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_Item_Proc_RadioSearch_Nearby
+        ObjectType: 3
+      Path: Default Work Unit\Play_Item_Proc_RadioSearch_Nearby
+      maxAttenuation: 200
+      maxDuration: 1.102358
+      minDuration: 1.102358
     - name: Play_LeaveStageError
       guid: 74b10b8c7ac3e64da33eb5c915848108
       id: 204571091
@@ -610,7 +648,7 @@ MonoBehaviour:
       - ElementName: Play_LeaveStageError
         ObjectType: 3
       Path: Default Work Unit\Equipment\Play_LeaveStageError
-      maxAttenuation: 50
+      maxAttenuation: 25
       maxDuration: 0.790161
       minDuration: 0.78561
     - name: Play_Shrine_TeleporterOvercharger_IdleLoop

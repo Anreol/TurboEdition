@@ -1,5 +1,6 @@
 ﻿using HG;
 using RoR2;
+using RoR2.Audio;
 using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,8 @@ namespace TurboEdition.Items
             return TEContent.Items.BaneMask;
         }
 
-        public static GameObject pulsePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BaneMaskPulse");
+        private static GameObject pulsePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BaneMaskPulse");
+        private static NetworkSoundEventDef rechargeProcSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItem_Proc_BaneMask_Recharge");
 
         //Prefab info:
         //Final radius: 10, Duration 1.0
@@ -57,6 +59,7 @@ namespace TurboEdition.Items
             {
                 alreadyOut = true;
                 percentTriggered = false;
+                EntitySoundManager.EmitSoundServer(rechargeProcSound.akId, body.gameObject);
             }
         }
 
@@ -111,8 +114,8 @@ namespace TurboEdition.Items
                 {
                     if (hc.body.isChampion || hc.body.isBoss)
                         return;
-                    float num2 = UnityEngine.Random.Range(20f, 100f); //Guarantees enemies like lemurians and beetles never pass
-                    if (num2 <= Mathf.Pow(1.60f, hc.body.bestFitRadius)) //Best fit radius: Golems are 7.5, beetles are 1.82
+                    float num2 = UnityEngine.Random.Range(20f, 100f); //Guarantees enemies like lemurians and beetles always pass
+                    if (num2 <= Mathf.Pow(1.50f, hc.body.bestFitRadius)) //Best fit radius: Golems are 7.5, beetles are 1.82
                         return;
                     hc.body.AddTimedBuff(TEContent.Buffs.Panic, (10) * hitInfo.hitSeverity);
                     return;

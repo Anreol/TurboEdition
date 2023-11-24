@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace TurboEdition.Items
 {
+    [Obsolete]
     public class BloodEconomyBodyBehavior : BaseItemBodyBehavior
     {
-        [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = false, useOnClient = true)]
+        //[BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = false, useOnClient = true)]
         private static ItemDef GetItemDef()
         {
             return TEContent.Items.BloodEconomy;

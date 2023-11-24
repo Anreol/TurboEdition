@@ -16,6 +16,10 @@ namespace TurboEdition.Items
             IL.RoR2.GlobalEventManager.OnHitEnemy += ILHook;
         }
 
+        /// <summary>
+        /// This should add a hook in line 379 of <see cref="GlobalEventManager"/>
+        /// </summary>
+        /// <param name="il"></param>
         public static void ILHook(ILContext il) //Thanks bubbet & moffein for code
         {
             var c = new ILCursor(il);

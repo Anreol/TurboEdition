@@ -31,7 +31,7 @@ using System.Security.Permissions;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion(TurboEdition.TurboUnityPlugin.ModVer)]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion(TurboEdition.TurboUnityPlugin.ModVer)]
 [assembly: HG.Reflection.SearchableAttribute.OptIn]
 #pragma warning disable CS0618
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]

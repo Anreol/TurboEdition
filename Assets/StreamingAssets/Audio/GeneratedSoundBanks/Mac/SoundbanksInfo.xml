@@ -24,7 +24,7 @@
 	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="2991356478">
+		<SoundBank Id="34081325" Language="SFX" Hash="3085117099">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -145,6 +145,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="181559271" Name="Play_Item_Proc_BaneMask_Recharge" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_BaneMask_Recharge" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.132336" DurationMax="1.132336">
+					<IncludedMemoryFiles>
+						<File Id="503557531" Language="SFX">
+							<ShortName>SFX_CH0087_Public_Bomb.wav</ShortName>
+							<Path>SFX\SFX_CH0087_Public_Bomb_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2255434859" Name="Play_Item_Proc_DropletDupe_Clone" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_DropletDupe_Clone" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.580264" DurationMax="1.580264">
 					<IncludedMemoryFiles>
 						<File Id="55014961" Language="SFX">
@@ -181,7 +189,23 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="204571091" Name="Play_LeaveStageError" ObjectPath="\Events\Default Work Unit\Equipment\Play_LeaveStageError" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="0.785610" DurationMax="0.790161">
+				<Event Id="3026428414" Name="Play_Item_Proc_RadioSearch_Activate" ObjectPath="\Events\Default Work Unit\Play_Item_Proc_RadioSearch_Activate" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.854512" DurationMax="0.854512">
+					<IncludedMemoryFiles>
+						<File Id="995058103" Language="SFX">
+							<ShortName>SFX_CH0095_Debuff_Holo_UI.wav</ShortName>
+							<Path>SFX\SFX_CH0095_Debuff_Holo_UI_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="41927008" Name="Play_Item_Proc_RadioSearch_Nearby" ObjectPath="\Events\Default Work Unit\Play_Item_Proc_RadioSearch_Nearby" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.102358" DurationMax="1.102358">
+					<IncludedMemoryFiles>
+						<File Id="1025165948" Language="SFX">
+							<ShortName>SFX_CH0095_Debuff_Holo_UI_Check.wav</ShortName>
+							<Path>SFX\SFX_CH0095_Debuff_Holo_UI_Check_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="204571091" Name="Play_LeaveStageError" ObjectPath="\Events\Default Work Unit\Equipment\Play_LeaveStageError" MaxAttenuation="25.000000" DurationType="OneShot" DurationMin="0.785610" DurationMax="0.790161">
 					<IncludedMemoryFiles>
 						<File Id="647408152" Language="SFX">
 							<ShortName>Denied.wav</ShortName>
@@ -220,7 +244,7 @@
 				<GameParameter Id="3729143042" Name="Volume_MSX" ObjectPath="\Game Parameters\Default Work Unit\Volume_MSX"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1664825278" Language="SFX" Hash="1148005187">
+		<SoundBank Id="1664825278" Language="SFX" Hash="2870920239">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboMusicBank</ObjectPath>
 			<ShortName>TurboMusicBank</ShortName>
 			<Path>TurboMusicBank.bnk</Path>
@@ -242,6 +266,10 @@
 						</File>
 					</ReferencedStreamedFiles>
 					<IncludedMemoryFiles>
+						<File Id="303692914" Language="SFX">
+							<ShortName>musicBoss2b_transitionOut.wav</ShortName>
+							<Path>SFX\musicBoss2b_transitionOut_9EDFC787.wem</Path>
+						</File>
 						<File Id="715305458" Language="SFX">
 							<ShortName>musicStage9.wav</ShortName>
 							<Path>SFX\musicStage9_9EDFC787.wem</Path>
@@ -261,16 +289,21 @@
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{6EF93A07-B5EB-43B6-AE18-9B30C4F4E153}">
 							<Children>
-								<SwitchContainer SwitchValue="{E1A6B7F5-DB5D-43BE-90A0-49E34FDAFDDB}">
+								<SwitchContainer SwitchValue="{DA472F25-BF34-43ED-971F-A56B83153EE0}">
 									<Children>
-										<SwitchContainer SwitchValue="{DA472F25-BF34-43ED-971F-A56B83153EE0}">
+										<SwitchContainer SwitchValue="{E1A6B7F5-DB5D-43BE-90A0-49E34FDAFDDB}">
 											<Children>
-												<SwitchContainer SwitchValue="{356514B3-C062-4247-9967-1BEEF020BEC7}">
+												<SwitchContainer SwitchValue="{DA472F25-BF34-43ED-971F-A56B83153EE0}">
 													<Children>
-														<SwitchContainer SwitchValue="{2B159531-4EB0-43CD-AF54-A3ECE4C698C1}">
-															<Media>
-																<File Id="1067800072"/>
-															</Media>
+														<SwitchContainer SwitchValue="{356514B3-C062-4247-9967-1BEEF020BEC7}">
+															<Children>
+																<SwitchContainer SwitchValue="{2B159531-4EB0-43CD-AF54-A3ECE4C698C1}">
+																	<Media>
+																		<File Id="303692914"/>
+																		<File Id="1067800072"/>
+																	</Media>
+																</SwitchContainer>
+															</Children>
 														</SwitchContainer>
 													</Children>
 												</SwitchContainer>
@@ -282,13 +315,23 @@
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{7BE463D5-0FA7-462D-A15F-BD98D0C9F8FD}">
 							<Children>
-								<SwitchContainer SwitchValue="{2A8F1DF4-F1CC-4469-9566-52A762ABEF0B}">
-									<Media>
-										<File Id="715305458"/>
-										<File Id="1042531047"/>
-									</Media>
+								<SwitchContainer SwitchValue="{DA472F25-BF34-43ED-971F-A56B83153EE0}">
+									<Children>
+										<SwitchContainer SwitchValue="{2A8F1DF4-F1CC-4469-9566-52A762ABEF0B}">
+											<Media>
+												<File Id="715305458"/>
+												<File Id="1042531047"/>
+											</Media>
+										</SwitchContainer>
+									</Children>
 								</SwitchContainer>
 							</Children>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{ECC7D2FA-41E3-4D18-BAEA-4049962780C4}">
+							<Children/>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{75D88B17-154B-421F-BC83-F3059294E5F7}">
+							<Children/>
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
@@ -308,6 +351,10 @@
 						</File>
 					</ReferencedStreamedFiles>
 					<IncludedMemoryFiles>
+						<File Id="303692914" Language="SFX">
+							<ShortName>musicBoss2b_transitionOut.wav</ShortName>
+							<Path>SFX\musicBoss2b_transitionOut_9EDFC787.wem</Path>
+						</File>
 						<File Id="715305458" Language="SFX">
 							<ShortName>musicStage9.wav</ShortName>
 							<Path>SFX\musicStage9_9EDFC787.wem</Path>
