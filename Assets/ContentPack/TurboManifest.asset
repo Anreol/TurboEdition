@@ -37,7 +37,6 @@ MonoBehaviour:
   - <BuildPath>
   definitions:
   - {fileID: 5897886265953266890, guid: 92321e1e984a56941b638bfa92d9a0ef, type: 3}
-  - {fileID: 5897886265953266890, guid: ba846cded00632d428d68bade89b70cd, type: 3}
 --- !u!114 &114211852988908172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -56,8 +55,7 @@ MonoBehaviour:
   Name: Anreol-TurboEdition
   Description: Very WIP
   Version: 0.1.6
-  Dependencies:
-  - {fileID: 11400000, guid: 2d4d09ec817c24698d35dc9bf0704fdc, type: 2}
+  Dependencies: []
 --- !u!114 &114338525782180936
 MonoBehaviour:
   m_ObjectHideFlags: 0

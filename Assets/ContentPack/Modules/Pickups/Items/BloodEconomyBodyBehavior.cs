@@ -14,13 +14,6 @@ namespace TurboEdition.Items
             return TEContent.Items.BloodEconomy;
         }
 
-
-        [SystemInitializer(typeof(PickupCatalog))]
-        public static void Initialize()
-        {
-            OutlineHighlight.onPreRenderOutlineHighlight += new Action<OutlineHighlight>(BloodEconomyBodyBehavior.OnPreRenderOutlineHighlight);
-        }
-
         //Cleans up everytime the body dies ie. death and stage change
         private PurchaseInteraction[] localPurchaseList = new PurchaseInteraction[0];
 
@@ -105,11 +98,6 @@ namespace TurboEdition.Items
             }
 
             purchaseInteraction.cost = Mathf.Max(5, purchaseInteraction.cost -= Run.instance.GetDifficultyScaledCost(2));
-        }
-
-        private static void OnPreRenderOutlineHighlight(OutlineHighlight obj)
-        {
-
         }
     }
 }

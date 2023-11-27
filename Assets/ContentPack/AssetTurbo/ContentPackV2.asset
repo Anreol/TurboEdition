@@ -49,6 +49,7 @@ MonoBehaviour:
   - {fileID: 7028506108066464535, guid: c904b350a9d27ac4d8a9ed62ab4a8e58, type: 3}
   - {fileID: 1594360160519940305, guid: 92901b5bc44719d41b0623e524ffef0d, type: 3}
   - {fileID: 820812724130147729, guid: eae70d8d75412dd4f9bb05fd0480a92a, type: 3}
+  - {fileID: 9047648179428578189, guid: b00d828de8d15b149830db90df2af64a, type: 3}
   skillDefs:
   - {fileID: 11400000, guid: 88a2c0a24271bc84e86fbb0aef6ceed1, type: 2}
   - {fileID: 11400000, guid: 36b756b854a897a4fadb01184726acd6, type: 2}
@@ -150,6 +151,8 @@ MonoBehaviour:
   - {fileID: 7214428371660463810, guid: 4cb548fb8f1dbf048b32ecb372949457, type: 3}
   - {fileID: 3081867890154396561, guid: cfebc4ba51455fc499a32b825df64ace, type: 3}
   - {fileID: 7214428371660463810, guid: b3da412cc6cbe6841b3e63258871aabf, type: 3}
+  - {fileID: 7153563187597557553, guid: 215362ca9f11a9d4a81258e5b6030e32, type: 3}
+  - {fileID: 7153563187597557553, guid: 04cb6e53d9471f24c95ffea712cd9e7c, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: d167a02be48e3f24d974ee1fb4117010, type: 2}

@@ -17,7 +17,8 @@ namespace TurboEdition.Items
         }
 
         private static GameObject pulsePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BaneMaskPulse");
-        private static NetworkSoundEventDef rechargeProcSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItem_Proc_BaneMask_Recharge");
+        private static GameObject pulseRechargePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("FX_BaneMask_Recharge");
+        //private static NetworkSoundEventDef rechargeProcSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItem_Proc_BaneMask_Recharge");
 
         //Prefab info:
         //Final radius: 10, Duration 1.0
@@ -59,7 +60,12 @@ namespace TurboEdition.Items
             {
                 alreadyOut = true;
                 percentTriggered = false;
-                EntitySoundManager.EmitSoundServer(rechargeProcSound.akId, body.gameObject);
+                EffectManager.SpawnEffect(pulseRechargePrefab, new EffectData() 
+                { 
+                    origin = this.transform.position,
+                    scale = 1
+                }, true);
+                //EntitySoundManager.EmitSoundServer(rechargeProcSound.akId, body.gameObject);
             }
         }
 
@@ -74,7 +80,7 @@ namespace TurboEdition.Items
                 origin = body.transform.position,
             };
 
-            component.finalRadius = (16f + ((stack - 1) * 5f));
+            component.finalRadius = (8f + ((stack - 1) * 8f));
             component.duration = Mathf.Min(stack, 3);
             component.performSearch += Component_performSearch;
             component.onPulseHit += Component_onPulseHit;

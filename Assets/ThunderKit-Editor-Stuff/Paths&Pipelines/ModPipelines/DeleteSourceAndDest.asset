@@ -32,7 +32,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   PerManifest: 0
-  ExcludedManifests: []
+  ListType: 0
+  Manifests: []
   Recursive: 1
   IsFatal: 0
   Path: <ThunderKitRoot>
@@ -50,7 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   PerManifest: 1
-  ExcludedManifests: []
+  ListType: 0
+  Manifests: []
   Recursive: 1
   IsFatal: 0
   Path: <BuildPath>
@@ -68,7 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 1
   PerManifest: 0
-  ExcludedManifests: []
+  ListType: 0
+  Manifests: []
   Recursive: 1
   IsFatal: 0
   Path: <FDriveGang>

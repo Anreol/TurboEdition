@@ -287,8 +287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8379344147770960468, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -695,8 +694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2672845643860450272, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1072,8 +1070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7611533459502552279, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1489,36 +1486,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 9999
---- !u!1 &342610050
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 342610051}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &342610051
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342610050}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &363849054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,10 +1545,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Accept
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1669,6 +1634,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _token: SUBMENU_ACCEPT
+--- !u!1 &390466760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 390466761}
+  - component: {fileID: 390466762}
+  m_Layer: 0
+  m_Name: BloodTetherVFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &390466761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390466760}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1210539392}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390466762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390466760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceSelf: 1
+  OnInstantiated:
+    m_PersistentCalls:
+      m_Calls: []
+  Address: RoR2/Base/moon2/BloodSiphonTetherVFX.prefab
 --- !u!1 &438274580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,9 +2048,59 @@ Transform:
   - {fileID: 965000610}
   - {fileID: 904602413}
   - {fileID: 331090059}
+  - {fileID: 795441248}
+  - {fileID: 702279673}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &702279672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 702279673}
+  - component: {fileID: 702279674}
+  m_Layer: 0
+  m_Name: BloodPillarAttachment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &702279673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702279672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 67.81, y: 0, z: 12.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 700251190}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &702279674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702279672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceSelf: 1
+  OnInstantiated:
+    m_PersistentCalls:
+      m_Calls: []
+  Address: RoR2/Base/moon2/BloodSiphonNearbyAttachment.prefab
 --- !u!1 &705439263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,8 +2413,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5982802615382818890, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2465,6 +2527,54 @@ Transform:
   m_Father: {fileID: 1647101594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &795441247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795441248}
+  - component: {fileID: 795441249}
+  m_Layer: 0
+  m_Name: BloodPillar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795441248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795441247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.01, y: 0, z: 9.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 700251190}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795441249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795441247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceSelf: 1
+  OnInstantiated:
+    m_PersistentCalls:
+      m_Calls: []
+  Address: RoR2/Base/moon2/MoonBatteryBlood.prefab
 --- !u!1 &809033266
 GameObject:
   m_ObjectHideFlags: 0
@@ -6322,7 +6432,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1e-45, y: 0, z: 0, w: -340278.25}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -6699,6 +6809,7 @@ Transform:
   m_Children:
   - {fileID: 761583074}
   - {fileID: 1803871217}
+  - {fileID: 390466761}
   m_Father: {fileID: 277915321}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7477,10 +7588,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7677,10 +7786,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="tmpsprXboxOneGlyphs" name="texXBoxOneGlyphs_4">
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8009,10 +8116,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8746,10 +8851,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="tmpsprXboxOneGlyphs" name="texXBoxOneGlyphs_0">
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8933,10 +9036,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <sprite="tmpsprXboxOneGlyphs" name="texXBoxOneGlyphs_1">
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10634,10 +10735,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: What do you wish for?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11083,8 +11182,7 @@ MonoBehaviour:
   m_Script: {fileID: 1102028033, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinData: {fileID: -2178569569907395334, guid: 00000000000000000000000000000000,
-    type: 0}
+  skinData: {fileID: 0}
   useRecommendedButtonWidth: 1
   useRecommendedButtonHeight: 1
   useRecommendedImage: 1
@@ -11370,8 +11468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2672845643860450272, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11929,10 +12026,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cancel
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: -6463119800548833703, guid: 00000000000000000000000000000000,
-    type: 0}
-  m_sharedMaterial: {fileID: 4637027554361432571, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12229,16 +12324,14 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: -2196571179615420756, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4407584594163751253, guid: 00000000000000000000000000000000,
-    type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12263,6 +12356,75 @@ MonoBehaviour:
   component: {fileID: 6296001392675463110}
   fieldName: Sprite
   assetAddress: RoR2/Base/UI/texUIHighlightBoxOutlineThick.png
+--- !u!1001 &9047648179770032911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578188, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047648179428578189, guid: b00d828de8d15b149830db90df2af64a,
+        type: 3}
+      propertyPath: m_Name
+      value: GameObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b00d828de8d15b149830db90df2af64a, type: 3}
 --- !u!1 &9117216430641794808
 GameObject:
   m_ObjectHideFlags: 0

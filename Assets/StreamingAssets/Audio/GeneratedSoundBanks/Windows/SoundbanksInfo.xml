@@ -24,7 +24,7 @@
 	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="34081325" Language="SFX" Hash="3085117099">
+		<SoundBank Id="34081325" Language="SFX" Hash="1165580123">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboBank</ObjectPath>
 			<ShortName>TurboBank</ShortName>
 			<Path>TurboBank.bnk</Path>
@@ -153,6 +153,14 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2168858757" Name="Play_Item_Proc_BloodEconomy_Discount" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_BloodEconomy_Discount" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.045824" DurationMax="1.045824">
+					<IncludedMemoryFiles>
+						<File Id="230492816" Language="SFX">
+							<ShortName>SFX_Ako_Public_Drop.wav</ShortName>
+							<Path>SFX\SFX_Ako_Public_Drop_3F75BDB9.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2255434859" Name="Play_Item_Proc_DropletDupe_Clone" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_DropletDupe_Clone" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.580264" DurationMax="1.580264">
 					<IncludedMemoryFiles>
 						<File Id="55014961" Language="SFX">
@@ -189,7 +197,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3026428414" Name="Play_Item_Proc_RadioSearch_Activate" ObjectPath="\Events\Default Work Unit\Play_Item_Proc_RadioSearch_Activate" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.854512" DurationMax="0.854512">
+				<Event Id="3026428414" Name="Play_Item_Proc_RadioSearch_Activate" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_RadioSearch_Activate" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="0.854512" DurationMax="0.854512">
 					<IncludedMemoryFiles>
 						<File Id="995058103" Language="SFX">
 							<ShortName>SFX_CH0095_Debuff_Holo_UI.wav</ShortName>
@@ -197,7 +205,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="41927008" Name="Play_Item_Proc_RadioSearch_Nearby" ObjectPath="\Events\Default Work Unit\Play_Item_Proc_RadioSearch_Nearby" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.102358" DurationMax="1.102358">
+				<Event Id="41927008" Name="Play_Item_Proc_RadioSearch_Nearby" ObjectPath="\Events\Default Work Unit\Items\Play_Item_Proc_RadioSearch_Nearby" MaxAttenuation="200.000000" DurationType="OneShot" DurationMin="1.102358" DurationMax="1.102358">
 					<IncludedMemoryFiles>
 						<File Id="1025165948" Language="SFX">
 							<ShortName>SFX_CH0095_Debuff_Holo_UI_Check.wav</ShortName>
@@ -244,7 +252,7 @@
 				<GameParameter Id="3729143042" Name="Volume_MSX" ObjectPath="\Game Parameters\Default Work Unit\Volume_MSX"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1664825278" Language="SFX" Hash="2870920239">
+		<SoundBank Id="1664825278" Language="SFX" Hash="961849930">
 			<ObjectPath>\SoundBanks\Default Work Unit\TurboMusicBank</ObjectPath>
 			<ShortName>TurboMusicBank</ShortName>
 			<Path>TurboMusicBank.bnk</Path>

@@ -7,39 +7,66 @@ using UnityEngine.Networking;
 namespace TurboEdition.Utils
 {
     /// <summary>
-    /// Custom version of <see cref="FogDamageController"/> but not a MonoBehavior
+    /// Custom version of <see cref="FogDamageController"/> but not a MonoBehavior.
     /// </summary>
     public class UnsafeZoneDamageManager
     {
         /// <summary>
-        /// Used to control which teams to damage. If it's null, it damages ALL teams
+        /// Used to control which teams TO DAMAGE.
         /// </summary>
-        public TeamFilter teamFilter;
-
-        /// <summary>
-        /// If true, it damages all OTHER teams than the one specified. If false, it damages the specified team.
-        /// </summary>
-        public bool invertTeamFilter;
+        public TeamMask teamMask;
 
         public DamageType damageType;
 
         public DamageColorIndex damageColorIndex;
 
         /// <summary>
-        /// The fraction of combined health to deduct per second. Note that damage is actually applied per tick, not per second.
+        /// he period in seconds in between each tick
         /// </summary>
-        public float healthFractionPerTick;
+        public float tickPeriodSeconds;
 
-        [Tooltip("The coefficient to increase the damage by, for every tick they take inside the zones.")]
-        [SerializeField] private float healthFractionRampCoefficientPerTick;
+        /// <summary>
+        /// Should <see cref="healthFractionEachSecond"/> and <see cref="healthFractionRampCoefficientPerSecond"/> be used.
+        /// </summary>
+        public bool dealFractionDamage = false;
+
+        /// <summary>
+        /// The fraction of <see cref="HealthComponent.fullCombinedHealth"/> to deduct per tick. Note that damage is actually dealt each tick.
+        /// </summary>
+        public float healthFractionEachSecond;
+
+        /// <summary>
+        /// The coefficient to increase the damage by, for every tick they take inside the zones.
+        /// </summary>
+        public float healthFractionRampCoefficientPerSecond;
+
+        /// <summary>
+        /// Flat equivalent of <see cref="healthFractionEachSecond"/>
+        /// </summary>
+        public float flatDamageEachSecond;
+
+        /// <summary>
+        /// Flat equivalent of <see cref="healthFractionRampCoefficientPerSecond"/>
+        /// </summary>
+        public float flatDamageRampPerSecond;
+
+        /// <summary>
+        /// Possible attacker, can be null. The <see cref="CharacterBody"/> would go here
+        /// </summary>
+        public GameObject attacker;
+
+        public List<IZone> UnsafeZones { get => unsafeZones; }
+
+        public event Action<DamageInfo, HealthComponent> OnDamageDealtAnywhere;
 
         private Dictionary<CharacterBody, int> characterBodyToStacks = new Dictionary<CharacterBody, int>();
         private List<IZone> unsafeZones = new List<IZone>();
         private float damageTimer;
         private float dictionaryValidationTimer;
-        private float tickPeriodSeconds;
 
-        public UnsafeZoneDamageManager() {}
+        public UnsafeZoneDamageManager()
+        { }
+
         public UnsafeZoneDamageManager(IZone[] initialUnsafeZones)
         {
             foreach (IZone zone in initialUnsafeZones)
@@ -64,6 +91,8 @@ namespace TurboEdition.Utils
             {
                 damageTimer += fixedDeltaTime;
                 dictionaryValidationTimer += fixedDeltaTime;
+
+                //I have no idea why this exists
                 if (dictionaryValidationTimer > 60f)
                 {
                     dictionaryValidationTimer = 0f;
@@ -83,55 +112,51 @@ namespace TurboEdition.Utils
                 while (damageTimer > tickPeriodSeconds)
                 {
                     damageTimer -= tickPeriodSeconds;
-                    int teamDefLength = TeamCatalog.teamDefs.Length;
 
-                    //check the team filter
-                    if (teamFilter)
+                    int teamDefLength = TeamCatalog.teamDefs.Length;
+                    //check the team mask
+                    for (int teamIndex = 0; teamIndex < teamDefLength; teamIndex++)
                     {
-                        if (invertTeamFilter)
+                        if (teamMask.HasTeam((TeamIndex)teamIndex))
                         {
-                            for (int teamIndex = 0; teamIndex < teamDefLength; teamIndex++)
-                            {
-                                if ((TeamIndex)teamIndex != teamFilter.teamIndex && (TeamIndex)teamIndex != TeamIndex.None && (TeamIndex)teamIndex != TeamIndex.Neutral)
-                                {
-                                    EvaluateTeam((TeamIndex)teamIndex);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            EvaluateTeam(teamFilter.teamIndex);
+                            EvaluateTeam((TeamIndex)teamIndex);
                         }
                     }
-                    else
-                    {
-                        //Else Check all teams
-                        for (int teamIndex2 = 0; teamIndex2 < teamDefLength; teamIndex2++)
-                        {
-                            EvaluateTeam((TeamIndex)teamIndex2);
-                        }
-                    }
+
                     foreach (KeyValuePair<CharacterBody, int> keyValuePair in characterBodyToStacks)
                     {
                         CharacterBody characterBody = keyValuePair.Key;
                         if (characterBody && characterBody.transform && characterBody.healthComponent)
                         {
                             int stacks = keyValuePair.Value - 1;
-                            float num2 = healthFractionPerTick * (1f + (float)stacks * healthFractionRampCoefficientPerTick * tickPeriodSeconds) * tickPeriodSeconds * characterBody.healthComponent.fullCombinedHealth;
-                            if (num2 > 0f)
+                            float damageToDeal = CalcDamage(stacks, characterBody);
+                            if (damageToDeal > 0f)
                             {
-                                characterBody.healthComponent.TakeDamage(new DamageInfo
+                                DamageInfo damageInfo = new DamageInfo
                                 {
-                                    damage = num2,
+                                    damage = damageToDeal,
                                     position = characterBody.corePosition,
                                     damageType = damageType,
-                                    damageColorIndex = damageColorIndex
-                                });
+                                    damageColorIndex = damageColorIndex,
+                                    
+                                    attacker = attacker
+                                };
+                                OnDamageDealtAnywhere?.Invoke(damageInfo, characterBody.healthComponent);
+                                characterBody.healthComponent.TakeDamage(damageInfo);
                             }
                         }
                     }
                 }
             }
+        }
+
+        private float CalcDamage(int stacks, CharacterBody victim)
+        {
+            if (dealFractionDamage)
+            {
+                return healthFractionEachSecond * (1f + stacks * healthFractionRampCoefficientPerSecond * tickPeriodSeconds) * tickPeriodSeconds * victim.healthComponent.fullCombinedHealth;
+            }
+            return ((flatDamageEachSecond + (flatDamageRampPerSecond * stacks))) * tickPeriodSeconds;
         }
 
         public void EvaluateTeam(TeamIndex teamIndex)
@@ -170,50 +195,30 @@ namespace TurboEdition.Utils
                     characterBodyToStacks.Remove(body);
                     continue;
                 }
-                //If it didn't pass above, that means the body is not being tracked. Add it to the dictionary and add a stack.
-                characterBodyToStacks.Add(body, 1);
+                if (isInBounds)
+                {
+                    //If it didn't pass above, that means the body is not being tracked. Add it to the dictionary and add a stack.
+                    characterBodyToStacks.Add(body, 1);
+                }
             }
         }
 
         public IEnumerable<CharacterBody> GetAffectedBodies()
         {
             int teamDefLength = TeamCatalog.teamDefs.Length;
-            if (teamFilter)
+
+            for (int currentTeam = 0; currentTeam < teamDefLength; currentTeam++)
             {
-                if (invertTeamFilter)
+                if (teamMask.HasTeam((TeamIndex)currentTeam))
                 {
-                    for (int currentTeam = 0; currentTeam < teamDefLength; currentTeam++)
-                    {
-                        if ((TeamIndex)currentTeam != teamFilter.teamIndex && (TeamIndex)currentTeam != TeamIndex.None && (TeamIndex)currentTeam != TeamIndex.Neutral)
-                        {
-                            IEnumerable<CharacterBody> affectedBodiesOnInvertedTeamFilter = GetAffectedBodiesOnTeam((TeamIndex)currentTeam);
-                            foreach (CharacterBody characterBody in affectedBodiesOnInvertedTeamFilter)
-                            {
-                                yield return characterBody;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    IEnumerable<CharacterBody> affectedBodiesOnTeamFilter = GetAffectedBodiesOnTeam(teamFilter.teamIndex);
-                    foreach (CharacterBody characterBody in affectedBodiesOnTeamFilter)
+                    IEnumerable<CharacterBody> affectedBodies = GetAffectedBodiesOnTeam((TeamIndex)currentTeam);
+                    foreach (CharacterBody characterBody in affectedBodies)
                     {
                         yield return characterBody;
                     }
                 }
             }
-            else
-            {
-                for (int currentTeam = 0; currentTeam < teamDefLength; currentTeam++)
-                {
-                    IEnumerable<CharacterBody> affectedBodiesOnAllTeams = GetAffectedBodiesOnTeam((TeamIndex)currentTeam);
-                    foreach (CharacterBody characterBody in affectedBodiesOnAllTeams)
-                    {
-                        yield return characterBody;
-                    }
-                }
-            }
+
             yield break;
         }
 

@@ -145,7 +145,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 0.3455882, g: 0.2058283, b: 0.2058283, a: 1}
-      maxColor: {r: 0.1982467, g: 0.2424408, b: 0.254717, a: 1}
+      maxColor: {r: 0.3584906, g: 0.30900908, b: 0.21813814, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -207,8 +207,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 1
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -381,7 +381,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 3
+      value: 1.21
       mode: 0
       spread: 0
       speed:
@@ -466,7 +466,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 40
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -2880,8 +2880,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.1098039, g: 0.5419608, b: 0.5647059, a: 1}
-      maxColor: {r: 0.07524917, g: 0.3159736, b: 0.8396226, a: 1}
+      minColor: {r: 0.5647059, g: 0.24887489, b: 0.109803915, a: 1}
+      maxColor: {r: 0.8199442, g: 0.8392157, b: 0.07450981, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5221,7 +5221,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 49ee38a39d77f414f8e7a62a1aa1aeb8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,6 +1,0 @@
-﻿{
-	"strings": {
-		"GRENADIER_OUTRO_FLAVOR": "..and so she left, ready to take her shot.",
-		"GRENADIER_MAIN_ENDING_ESCAPE_FAILURE_FLAVOR": "..and so she vanished, out of sight.",
-	}
-}

@@ -1,5 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
-	41927008	Play_Item_Proc_RadioSearch_Nearby			\Default Work Unit\Play_Item_Proc_RadioSearch_Nearby	
+	41927008	Play_Item_Proc_RadioSearch_Nearby			\Default Work Unit\Items\Play_Item_Proc_RadioSearch_Nearby	
 	116129673	Stop_Ambience_Loop			\Default Work Unit\Ambience\Stop_Ambience_Loop	
 	181559271	Play_Item_Proc_BaneMask_Recharge			\Default Work Unit\Items\Play_Item_Proc_BaneMask_Recharge	
 	183542901	Play_Grenadier_Primary_Fire			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Fire	
@@ -16,10 +16,11 @@ Event	ID	Name			Wwise Object Path	Notes
 	1978592993	Play_Grenadier_Primary_Warn			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Primary_Warn	
 	2041123800	Play_Grenadier_Special_Charge			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Charge	
 	2105423861	Play_Shrine_TeleporterOvercharger_IdleLoop			\Default Work Unit\Play_Shrine_TeleporterOvercharger_IdleLoop	
+	2168858757	Play_Item_Proc_BloodEconomy_Discount			\Default Work Unit\Items\Play_Item_Proc_BloodEconomy_Discount	
 	2255434859	Play_Item_Proc_DropletDupe_Clone			\Default Work Unit\Items\Play_Item_Proc_DropletDupe_Clone	
 	2376185369	Play_Grenadier_Landing			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Landing	
 	2762120414	Play_Item_Proc_PackMagnet_Duplicate			\Default Work Unit\Items\Play_Item_Proc_PackMagnet_Duplicate	
-	3026428414	Play_Item_Proc_RadioSearch_Activate			\Default Work Unit\Play_Item_Proc_RadioSearch_Activate	
+	3026428414	Play_Item_Proc_RadioSearch_Activate			\Default Work Unit\Items\Play_Item_Proc_RadioSearch_Activate	
 	3091314681	Play_Grenadier_Special_Ready			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Special_Ready	
 	3433956687	Play_Achievement			\Default Work Unit\UI\Play_Achievement	
 	3477662151	Play_Grenadier_Reload			\Default Work Unit\Characters\Grenadier\Play_Grenadier_Reload	
@@ -34,6 +35,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	55014961	Item_Proc_DropletDupe_Clone	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\00325_streaming_B282B47B.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\ItemMixer\Items\Item_Proc_DropletDupe_Clone		19993
 	133592846	ror_synth_bells_02	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\ror_synth_bells_02_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\Shrine_TeleporterOvercharger_IdleLoop\ror_synth_bells_02		61784
 	143500258	se_reflet_step_right_m	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_step_right_m_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Steps\se_reflet_step_right_m		2315
+	230492816	Item_Proc_BloodEconomy_Discount	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\SFX_Ako_Public_Drop_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\ItemMixer\Items\Item_Proc_BloodEconomy_Discount		4251
 	240158681	se_reflet_landing02	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_landing02_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_Landing\se_reflet_landing02		4642
 	289712532	Grenadier_ExplosionM	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\se_reflet_attackbomb_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\CHARACTER\Grenadier\Grenadier_ExplosionM		7732
 	325557564	Item_Proc_ItemDeployer1	C:\Users\Anr\source\repos\TurboEdition\TurboEdition_WwiseProject\.cache\Windows\SFX\Item_Proc_ItemDeployer1_3F75BDB9.wem		\Actor-Mixer Hierarchy\Default Work Unit\MasterAudioMixer\SFX_Mixer\ItemMixer\Items\Item_Proc_ItemDeployer\Item_Proc_ItemDeployer1		7846

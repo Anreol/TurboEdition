@@ -328,7 +328,7 @@
 																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
 																<Property Name="VolumeOffset" Type="Real64">
 																	<ValueList>
-																		<Value>8</Value>
+																		<Value>9</Value>
 																	</ValueList>
 																</Property>
 															</PropertyList>
@@ -407,6 +407,56 @@
 													</ChildrenList>
 													<ActiveSourceList>
 														<ActiveSource Name="SFX_CH0095_Debuff_Holo_UI_Check" ID="{8DDBB0D7-BDD6-4983-891D-E889CD459292}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Item_Proc_BloodEconomy_Discount" ID="{B723B4AF-0337-4BE1-9389-219B9B1C6086}" ShortID="392865531">
+													<PropertyList>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>40</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Pitch" Type="int32">
+															<ValueList>
+																<Value>-530</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>12</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{778F70FB-B99C-4411-9052-9CA2F0B30410}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C5097219-647A-4062-AAB7-5EACA2B7C5B0}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="SFX_Ako_Public_Drop" ID="{44AF6E3D-F85D-45BA-85F3-C570365E8E8F}">
+															<PropertyList>
+																<Property Name="LoopBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="LoopEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimBegin" Type="Real64" Value="-0.001"/>
+																<Property Name="TrimEnd" Type="Real64" Value="-0.001"/>
+																<Property Name="VolumeOffset" Type="Real64">
+																	<ValueList>
+																		<Value>15</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<Language>SFX</Language>
+															<AudioFile>SFX_Ako_Public_Drop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="230492816"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="SFX_Ako_Public_Drop" ID="{44AF6E3D-F85D-45BA-85F3-C570365E8E8F}" Platform="Linked"/>
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>

@@ -7,53 +7,49 @@ using UnityEngine.Networking;
 namespace TurboEdition.Components
 {
     /// <summary>
-    /// MonoBeahviour wrapper for 
+    /// <see cref="MonoBehaviour"/> wrapper for <see cref="UnsafeZoneDamageManager"/>
     /// </summary>
     public class UnsafeZoneDamageController : MonoBehaviour
     {
-        [Tooltip("An initial list of unsafe zones behaviors where bodies will be dealt damage in.")]
+        [Tooltip("An initial list of unsafe zones where bodies will be dealt damage in.")]
         [SerializeField] private BaseZoneBehavior[] initialUnsafeZones;
 
         [Header("Team stuff")]
-        [Tooltip("Used to control which teams to damage. If it's null, it damages ALL teams")]
-        [SerializeField] private TeamFilter teamFilter;
-
-        [Tooltip("If true, it damages all OTHER teams than the one specified.  If false, it damages the specified team.")]
-        [SerializeField] private bool invertTeamFilter;
+        [Tooltip("Used to control which teams TO DAMAGE.")]
+        [SerializeField] private TeamMask teamMask;
 
         [Header("Damage things")]
         [SerializeField] private DamageType damageType;
 
         [SerializeField] private DamageColorIndex damageColorIndex;
 
+        [Header("Tick things")]
+        [Tooltip("The period in seconds in between each tick")]
+        [SerializeField] private float tickPeriodSeconds;
+
         [Range(0f, 1f)]
-        [Tooltip("The fraction of combined health to deduct per second.  Note that damage is actually applied per tick, not per second.")]
-        [SerializeField] private float healthFractionPerTick;
+        [Tooltip("The fraction of combined health to deduct per tick. Note that damage is actually applied per tick, not per second.")]
+        [SerializeField] private float healthFractionPerSecond;
 
         [Tooltip("The coefficient to increase the damage by, for every tick they take inside the zones.")]
         [SerializeField] private float healthFractionRampCoefficientPerSecond;
 
-        private Dictionary<CharacterBody, int> characterBodyToStacks = new Dictionary<CharacterBody, int>();
-        private List<IZone> unsafeZones = new List<IZone>();
-        private float damageTimer;
-        private float dictionaryValidationTimer;
-        private float tickPeriodSeconds;
+        public UnsafeZoneDamageManager unsafeZoneDamageManager;
 
-        UnsafeZoneDamageManager unsafeZoneDamageManager;
-
-        private void Start()
+        private void OnEnable()
         {
-            unsafeZoneDamageManager = new UnsafeZoneDamageManager(initialUnsafeZones);
-        }
-
-        public void AddUnsafeZone(IZone zone)
-        {
-            unsafeZones.Add(zone);
-        }
-
-        public void RemoveUnsafeZone(IZone zone)
-        {
-            unsafeZones.Remove(zone);
+            if(unsafeZoneDamageManager == null)
+            {
+                unsafeZoneDamageManager = new UnsafeZoneDamageManager(initialUnsafeZones)
+                {
+                    teamMask = teamMask,
+                    damageType = damageType,
+                    damageColorIndex = damageColorIndex,
+                    tickPeriodSeconds = tickPeriodSeconds,
+                    healthFractionEachSecond = healthFractionPerSecond,
+                    healthFractionRampCoefficientPerSecond = healthFractionRampCoefficientPerSecond
+                };
+            }
         }
 
         private void FixedUpdate()
@@ -62,108 +58,6 @@ namespace TurboEdition.Components
             {
                 unsafeZoneDamageManager.ServerFixedUpdate(Time.fixedDeltaTime);
             }
-        }
-
-        private void EvaluateTeam(TeamIndex teamIndex)
-        {
-            foreach (TeamComponent teamComponent in TeamComponent.GetTeamMembers(teamIndex))
-            {
-                CharacterBody body = teamComponent.body;
-                bool isInBounds = false;
-
-                using (List<IZone>.Enumerator unsafeZonesEnumerator = unsafeZones.GetEnumerator())
-                {
-                    //Go through every unsafe zone
-                    while (unsafeZonesEnumerator.MoveNext())
-                    {
-                        //If its in bounds
-                        if (unsafeZonesEnumerator.Current.IsInBounds(teamComponent.transform.position))
-                        {
-                            //Set true and break as we don't need to search anymore
-                            isInBounds = true;
-                            break;
-                        }
-                    }
-                }
-
-                //If its being tracked
-                if (characterBodyToStacks.ContainsKey(body))
-                {
-                    //If its in bounds
-                    if (isInBounds)
-                    {
-                        //Add a stack
-                        characterBodyToStacks[body]++;
-                        continue;
-                    }
-                    //Else remove it
-                    characterBodyToStacks.Remove(body);
-                    continue;
-                }
-                //If it didn't pass above, that means the body is not being tracked. Add it to the dictionary and add a stack.
-                characterBodyToStacks.Add(body, 1);
-            }
-        }
-
-        public IEnumerable<CharacterBody> GetAffectedBodies()
-        {
-            int teamDefLength = TeamCatalog.teamDefs.Length;
-            if (teamFilter)
-            {
-                if (invertTeamFilter)
-                {
-                    for (int currentTeam = 0; currentTeam < teamDefLength; currentTeam++)
-                    {
-                        if ((TeamIndex)currentTeam != teamFilter.teamIndex && (TeamIndex)currentTeam != TeamIndex.None && (TeamIndex)currentTeam != TeamIndex.Neutral)
-                        {
-                            IEnumerable<CharacterBody> affectedBodiesOnInvertedTeamFilter = GetAffectedBodiesOnTeam((TeamIndex)currentTeam);
-                            foreach (CharacterBody characterBody in affectedBodiesOnInvertedTeamFilter)
-                            {
-                                yield return characterBody;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    IEnumerable<CharacterBody> affectedBodiesOnTeamFilter = GetAffectedBodiesOnTeam(teamFilter.teamIndex);
-                    foreach (CharacterBody characterBody in affectedBodiesOnTeamFilter)
-                    {
-                        yield return characterBody;
-                    }
-                }
-            }
-            else
-            {
-                for (int currentTeam = 0; currentTeam < teamDefLength; currentTeam++)
-                {
-                    IEnumerable<CharacterBody> affectedBodiesOnAllTeams = GetAffectedBodiesOnTeam((TeamIndex)currentTeam);
-                    foreach (CharacterBody characterBody in affectedBodiesOnAllTeams)
-                    {
-                        yield return characterBody;
-                    }
-                }
-            }
-            yield break;
-        }
-
-        public IEnumerable<CharacterBody> GetAffectedBodiesOnTeam(TeamIndex teamIndex)
-        {
-            foreach (TeamComponent teamComponent in TeamComponent.GetTeamMembers(teamIndex))
-            {
-                using (List<IZone>.Enumerator enumerator2 = unsafeZones.GetEnumerator())
-                {
-                    while (enumerator2.MoveNext())
-                    {
-                        if (enumerator2.Current.IsInBounds(teamComponent.transform.position))
-                        {
-                            yield return teamComponent.body;
-                            break;
-                        }
-                    }
-                }
-            }
-            yield break;
         }
     }
 }

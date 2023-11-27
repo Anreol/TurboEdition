@@ -115,6 +115,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UI\StatBarSimpleController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\UnsafeZoneDamageController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\VerticalCylinderZone.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\WeaveTest.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\AI\ForceFlee.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\CrabChest\BaseItemStealState.cs" />

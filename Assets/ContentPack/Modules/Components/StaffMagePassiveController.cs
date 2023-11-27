@@ -11,9 +11,7 @@ namespace TurboEdition.Components
 {
     internal class StaffMagePassiveController : NetworkBehaviour
     {
-
-
-        [SyncVar]
+        [SyncVar] [HideInInspector] 
         public float energy;
 
         public GameObject overlayPrefab;
