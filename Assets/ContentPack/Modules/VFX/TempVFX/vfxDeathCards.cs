@@ -5,7 +5,7 @@ namespace TurboEdition.TempVFX
 {
     internal class vfxDeathCards : TemporaryVFX
     {
-        public override GameObject tempVfxRootGO { get; set; } = Assets.mainAssetBundle.LoadAsset<GameObject>("vfxDeathCards");
+        public override GameObject tempVfxRootGO { get; set; } = Assets.mainAssetBundle.LoadAsset<GameObject>("FX_Death_Cards");
 
         public override bool IsEnabled(ref CharacterBody body)
         {

@@ -23,7 +23,7 @@
 	
 	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
 	"ITEM_BLOODECONOMY_PICKUP": "Interacting with something unaffordable creates a damaging area that decreases the cost.",
-	"ITEM_BLOODECONOMY_DESC": "Interacting with something <color=#FF7F7F>unaffordable</color> makes a <style=cIsDamage>damaging area</style> for <style=cIsDamage>25% bleed damage</style> <style=stack>(+25% per stack)</style> <style=cIsUtility>reducing its cost by 10% of the damage dealt</style>. This effect can only be in 3 interactables at once, expires when its purchased.",
+	"ITEM_BLOODECONOMY_DESC": "Interacting with something <color=#FF7F7F>unaffordable</color> makes a <style=cIsDamage>damaging area</style> for <style=cIsDamage>25% <style=cStack>(+25% per stack)</style> bleed damage</style>, <style=cIsUtility>reducing its cost for half of the damage dealt</style>. This effect can only be in 3 interactables at once, expires when its purchased.",
 	"ITEM_BLOODECONOMY_LORE": "Order: Segmented funding, 1 out of 452 367 198\r\nTracking Number: 732***********\r\nEstimated Delivery: 11\/17\/2056\r\nShipping Method: High Priority/Biological\r\nShipping Address: Black Rock, Kuiper Belt\r\nShipping Details:\r\n\r\nTell Mr. Tides that this isn\'t his standard \"charity\" donation, it has taken countless of assets to reach this amount. It would be a shame if a different organization got my attention, making you and him lose all of those plastic roots you both have managed to fabricate over the years.\r\nMake sure it resonates across the whole Solar System.",
 
 	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
@@ -89,7 +89,7 @@
 
 	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
 	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
-	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on <style=cIsUtility>sticky bomb activation</style> to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>540%</style> <style=cStack>(+180% per stack)</style> TOTAL damage.",
+	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on <style=cIsUtility>sticky bomb activation</style> to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>540%</style> <style=cStack>(+540% per stack)</style> TOTAL damage.",
 	"ITEM_SUPERSTICKIES_LORE": "\u201CHey... What if, instead of throwing them one after the other, we just tape them together?\u201D\r\n\r\n-Signal echoes, UES Contact Light\r\n",
 
 	"ITEM_TYPEWRITER_NAME": "Typewriter",

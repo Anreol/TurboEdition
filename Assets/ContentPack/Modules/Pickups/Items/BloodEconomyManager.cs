@@ -1,10 +1,11 @@
 using RoR2;
 using System.Collections.Generic;
 using System.Linq;
-using ThunderKit.Core.Pipelines.Jops;
 using TurboEdition.Utils;
 using UnityEngine;
 using UnityEngine.Networking;
+using static Rewired.InputMapper;
+using static RoR2.NetworkSession;
 
 namespace TurboEdition.Items
 {
@@ -16,7 +17,7 @@ namespace TurboEdition.Items
             {
                 if (_cachedZonePrefab == null)
                 {
-                    _cachedZonePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BloodEconomyZone");
+                    _cachedZonePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("Net_BloodEconomy_Zone");
                     return _cachedZonePrefab;
                 }
                 return _cachedZonePrefab;
@@ -25,6 +26,7 @@ namespace TurboEdition.Items
 
         private static Dictionary<CharacterBody, UnsafeZoneDamageManager> _bodyAndUnsafeZoneManagerPairs = new Dictionary<CharacterBody, UnsafeZoneDamageManager>();
         private static Dictionary<IZone, PurchaseInteraction> _zonesAndPurchaseInteractorsPairs = new Dictionary<IZone, PurchaseInteraction>();
+        private static List<PurchaseInteraction> _purchaseInteractionsToIgnore = new List<PurchaseInteraction>();
 
         private static GameObject discountEffectPrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("FX_BloodEconomy_Discount");
         private static GameObject _cachedZonePrefab;
@@ -54,8 +56,9 @@ namespace TurboEdition.Items
         /// <param name="obj"></param>
         private static void FlushData(Stage obj)
         {
-            _bodyAndUnsafeZoneManagerPairs = new Dictionary<CharacterBody, UnsafeZoneDamageManager>();
-            _zonesAndPurchaseInteractorsPairs = new Dictionary<IZone, PurchaseInteraction>();
+            _bodyAndUnsafeZoneManagerPairs.Clear();
+            _zonesAndPurchaseInteractorsPairs.Clear();
+            _purchaseInteractionsToIgnore.Clear();
         }
 
         private static void OnInteractionPerformed(On.RoR2.Interactor.orig_PerformInteraction orig, Interactor interactor, GameObject interactableObject)
@@ -71,7 +74,8 @@ namespace TurboEdition.Items
             //Make sure its money.
             //All of this shit runs on the first purchase interactor, could make a "get best fit" purchase interactor, but that might be troublesome...
             //Consider it if it gives problems.
-            if (purchaseInteractions[0] && purchaseInteractions[0].GetInteractability(interactor) == Interactability.ConditionsNotMet && CostTypeCatalog.GetCostTypeDef(purchaseInteractions[0].costType) == CostTypeCatalog.GetCostTypeDef(CostTypeIndex.Money))
+
+            if (purchaseInteractions.Length > 0 && purchaseInteractions[0] && purchaseInteractions[0].GetInteractability(interactor) == Interactability.ConditionsNotMet && CostTypeCatalog.GetCostTypeDef(purchaseInteractions[0].costType) == CostTypeCatalog.GetCostTypeDef(CostTypeIndex.Money))
             {
                 CharacterBody characterBody = interactor.GetComponent<CharacterBody>();
                 int itemStacks = characterBody.inventory.GetItemCount(TEContent.Items.BloodEconomy);
@@ -95,6 +99,9 @@ namespace TurboEdition.Items
                             //Update damage, because that's how things are
                             _bodyAndUnsafeZoneManagerPairs[characterBody].flatDamageEachSecond = (characterBody.damage * itemStacks) * 0.25f;
 
+                            //Get other shops
+                            CheckForOtherTerminals(zoneComponent, purchaseInteractions[0]);
+
                             //Spawn the thing
                             NetworkServer.Spawn(newZone);
                         }
@@ -108,7 +115,7 @@ namespace TurboEdition.Items
                     UnsafeZoneDamageManager unsafeZoneDamageManager = new UnsafeZoneDamageManager()
                     {
                         attacker = characterBody.gameObject,
-                        flatDamageEachSecond = (characterBody.damage * itemStacks) * 0.25f,
+                        flatDamageEachSecond = (characterBody.damage * itemStacks) * 0.5f,
                         damageType = DamageType.BleedOnHit,
                         damageColorIndex = DamageColorIndex.Bleed,
                         tickPeriodSeconds = 0.5f,
@@ -126,6 +133,9 @@ namespace TurboEdition.Items
                     _zonesAndPurchaseInteractorsPairs.Add(zoneComponentForNewManager, purchaseInteractions[0]);
                     _bodyAndUnsafeZoneManagerPairs.Add(characterBody, unsafeZoneDamageManager);
                     unsafeZoneDamageManager.AddUnsafeZone(zoneComponentForNewManager);
+
+                    //Get other shops
+                    CheckForOtherTerminals(zoneComponentForNewManager, purchaseInteractions[0]);
 
                     //Finally spawn the thing
                     NetworkServer.Spawn(newZoneForNewManager);
@@ -146,7 +156,7 @@ namespace TurboEdition.Items
             {
                 if (zip.Key.IsInBounds(obj.position)) //XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD XD
                 {
-                    Renderer renderer = zip.Value.gameObject.GetComponentInChildren<Renderer>();
+                    //Renderer renderer = zip.Value.gameObject.GetComponentInChildren<Renderer>();
 
                     int futureCost = zip.Value.cost -= Mathf.Max(Mathf.FloorToInt(obj.damage * 0.10f), 1);
                     if (futureCost <= 0) //Code below based on captain's hacking beacon
@@ -154,7 +164,7 @@ namespace TurboEdition.Items
                         EffectManager.SpawnEffect(discountEffectPrefab, new EffectData()
                         {
                             origin = zip.Value.transform.position,
-                            scale = renderer ? renderer.bounds.size.sqrMagnitude * 3 : 3,
+                            scale = /*renderer ? renderer.bounds.size.sqrMagnitude * 3 :*/ 3,
                         }, true);
 
                         zip.Value.cost = 0;
@@ -171,10 +181,31 @@ namespace TurboEdition.Items
                     EffectManager.SpawnEffect(discountEffectPrefab, new EffectData()
                     {
                         origin = zip.Value.transform.position,
-                        scale = renderer ? renderer.bounds.size.sqrMagnitude : 1,
+                        scale = /*renderer ? renderer.bounds.size.sqrMagnitude :*/ 1,
                     }, true);
 
                     zip.Value.cost = futureCost;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Code lifted from <see cref="RoR2.Items.MultiShopCardUtils"/>
+        /// </summary>
+        /// <param name="zoneBeingCreated"></param>
+        /// <param name="purchaseInteraction"></param>
+        private static void CheckForOtherTerminals(IZone zoneBeingCreated, PurchaseInteraction purchaseInteraction)
+        {
+            ShopTerminalBehavior shopTerminalBehavior = (purchaseInteraction != null) ? purchaseInteraction.GetComponent<ShopTerminalBehavior>() : null;
+            if (shopTerminalBehavior && shopTerminalBehavior.serverMultiShopController)
+            {
+                foreach (var terminalGameObject in shopTerminalBehavior.serverMultiShopController._terminalGameObjects)
+                {
+                    PurchaseInteraction terminalPurchaseInteraction = terminalGameObject.GetComponent<PurchaseInteraction>();
+                    if (terminalPurchaseInteraction)
+                    {
+                        _purchaseInteractionsToIgnore.Add(terminalPurchaseInteraction);
+                    }
                 }
             }
         }

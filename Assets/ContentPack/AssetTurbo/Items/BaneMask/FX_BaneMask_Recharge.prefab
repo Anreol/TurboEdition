@@ -9635,7 +9635,7 @@ GameObject:
   - component: {fileID: 6412683524533173698}
   - component: {fileID: 3144858132280422503}
   m_Layer: 0
-  m_Name: BaneMaskRechargeEffect
+  m_Name: FX_BaneMask_Recharge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9687,7 +9687,7 @@ MonoBehaviour:
   m_Script: {fileID: 816898038, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxPriority: 2
+  vfxPriority: 1
   vfxIntensity: 0
   optionalLights: []
   secondaryParticleSystem:

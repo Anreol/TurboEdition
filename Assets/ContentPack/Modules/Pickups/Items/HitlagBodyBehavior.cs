@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TurboEdition.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace TurboEdition.Items
 {
@@ -24,13 +25,23 @@ namespace TurboEdition.Items
             HealthComponent.onCharacterHealServer += onCharacterHealServer; //Hitlag
         }
 
-        internal Queue<DelayedDamageInfo> damageInfos = new Queue<DelayedDamageInfo>();
+        /// <summary>
+        /// Server-only queue where damages are stored.
+        /// </summary>
+        internal Queue<DelayedDamageInfo> serverDamageInfos = new Queue<DelayedDamageInfo>();
 
+        /// <summary>
+        /// Both server and client.
+        /// </summary>
         private void OnEnable()
         {
             UI.HealthbarStyleHelper.barDataInstances.Add(new HitlagBarData(body.healthComponent));
         }
 
+        /// <summary>
+        /// Server
+        /// </summary>
+        /// <param name="damageInfo"></param>
         public void OnIncomingDamageServer(DamageInfo damageInfo)
         {
             if (damageInfo.rejected || damageInfo.attacker == body || damageInfo.inflictor == body)
@@ -62,28 +73,31 @@ namespace TurboEdition.Items
                 FixedTimeStamp = Run.FixedTimeStamp.now
             };
             delayedDamageInfo.ReducedDamageInfo.damageType |= DamageType.BypassBlock;
-            damageInfos.Enqueue(delayedDamageInfo);
+            serverDamageInfos.Enqueue(delayedDamageInfo);
         }
 
         private void FixedUpdate()
         {
-            while (damageInfos.Count > 0 && damageInfos.Peek().FixedTimeStamp.timeSince >= (float)stack)
+            if (NetworkServer.active)
             {
-                TryToTakeDamage(damageInfos.Dequeue().ReducedDamageInfo);
+                while (serverDamageInfos.Count > 0 && serverDamageInfos.Peek().FixedTimeStamp.timeSince >= (float)stack)
+                {
+                    TryToTakeDamage(serverDamageInfos.Dequeue().ReducedDamageInfo);
+                }
             }
         }
 
         private void OnDestroy()
         {
-            Cleanse();
+            CleanseServer();
         }
 
         internal void Heal(HealthComponent hc, float amount, ProcChainMask procChainMask)
         {
             amount /= 4;
-            if (damageInfos != null && damageInfos.Count > 0)
+            if (serverDamageInfos != null && serverDamageInfos.Count > 0)
             {
-                DelayedDamageInfo hitlag = damageInfos.FirstOrDefault(x => x.ReducedDamageInfo.damage > x.ogDamageInfoDamage / 2);
+                DelayedDamageInfo hitlag = serverDamageInfos.FirstOrDefault(x => x.ReducedDamageInfo.damage > x.ogDamageInfoDamage / 2);
                 while (amount > 0 && hitlag != default)
                 {
                     if (amount > hitlag.ogDamageInfoDamage / 2)
@@ -96,19 +110,25 @@ namespace TurboEdition.Items
                         hitlag.ReducedDamageInfo.damage -= amount;
                         amount = 0;
                     }
-                    hitlag = damageInfos.FirstOrDefault(x => x.ReducedDamageInfo.damage > x.ogDamageInfoDamage / 2);
+                    hitlag = serverDamageInfos.FirstOrDefault(x => x.ReducedDamageInfo.damage > x.ogDamageInfoDamage / 2);
                 }
             }
         }
 
-        //Special method that can be called whenever
-        internal void Cleanse()
+        /// <summary>
+        /// Method that takes all damages in <see cref="serverDamageInfos"/> and calls <see cref="TryToTakeDamage(DamageInfo)"/> on them. Only for the server.
+        /// </summary>
+        internal void CleanseServer()
         {
+            if (!NetworkServer.active)
+            {
+                return;
+            }
             if (base.body.healthComponent)
             {
-                while (damageInfos.Count > 0)
+                while (serverDamageInfos.Count > 0)
                 {
-                    TryToTakeDamage(damageInfos.Dequeue().ReducedDamageInfo);
+                    TryToTakeDamage(serverDamageInfos.Dequeue().ReducedDamageInfo);
                 }
             }
         }
@@ -192,9 +212,9 @@ namespace TurboEdition.Items
             public override void UpdateBarInfo(ref HealthBar.BarInfo info, HealthComponent.HealthBarValues healthBarValues, ref HealthBar healthBarInstance)
             {
                 float damageAccumulated = 0;
-                if (hbb && hbb.damageInfos != null)
+                if (hbb && hbb.serverDamageInfos != null)
                 {
-                    foreach (var item in hbb.damageInfos)
+                    foreach (var item in hbb.serverDamageInfos)
                     {
                         damageAccumulated += item.ReducedDamageInfo.damage;
                     }

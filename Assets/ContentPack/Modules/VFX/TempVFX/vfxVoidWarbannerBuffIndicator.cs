@@ -5,7 +5,7 @@ namespace TurboEdition.TempVFX
 {
     internal class VfxVoidWarbannerBuffIndicator : TemporaryVFX
     {
-        public override GameObject tempVfxRootGO { get; set; } = Assets.mainAssetBundle.LoadAsset<GameObject>("vfxVoidWarbannerBuffEffect");
+        public override GameObject tempVfxRootGO { get; set; } = Assets.mainAssetBundle.LoadAsset<GameObject>("FX_VoidWarbanner_Buff_Effect");
 
         public override bool IsEnabled(ref CharacterBody body)
         {

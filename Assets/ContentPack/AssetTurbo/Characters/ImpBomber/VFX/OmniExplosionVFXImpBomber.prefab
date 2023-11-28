@@ -7040,6 +7040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305693666989053698}
   - component: {fileID: 3452276926806023924}
+  - component: {fileID: 5589702595455649485}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -7072,7 +7073,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.8113208, g: 0.56350636, b: 0.003826994, a: 1}
+  m_Color: {r: 0.8117647, g: 0.120503165, b: 0.0039215516, a: 1}
   m_Intensity: 100
   m_Range: 3
   m_SpotAngle: 30
@@ -7122,6 +7123,46 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5589702595455649485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842848860928201480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 296141222, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.02
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  timeMax: 2
+  loop: 0
+  randomStart: 0
+  enableNegativeLights: 0
 --- !u!1 &4944576752415917369
 GameObject:
   m_ObjectHideFlags: 0
@@ -18412,7 +18453,6 @@ MonoBehaviour:
   m_Script: {fileID: -335047464, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ps: {fileID: 0}
 --- !u!114 &8046353392873570123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18431,12 +18471,6 @@ MonoBehaviour:
   applyScale: 1
   soundName: Play_mage_m1_impact
   disregardZScale: 0
-  didResolveReferencedObject: 0
-  referencedObject: {fileID: 0}
-  didResolveReferencedChildTransform: 0
-  referencedChildTransform: {fileID: 0}
-  didResolveReferencedHurtBox: 0
-  referencedHurtBoxGameObject: {fileID: 0}
 --- !u!114 &5515385273435483636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18595,7 +18629,6 @@ MonoBehaviour:
       particleSystemOverrideMaterial: {fileID: 0}
       maximumValidRadius: Infinity
       bonusEmissionPerBonusRadius: 2
-  radius: 0
 --- !u!114 &2767909476793351181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18618,10 +18651,6 @@ MonoBehaviour:
   radius: 10
   scaleShakeRadiusWithLocalScale: 1
   amplitudeTimeDecay: 1
-  stopwatch: Infinity
-  halfPeriodTimer: 0
-  halfPeriodVector: {x: 0, y: 0, z: 0}
-  currentOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &7326933916471780653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18636,7 +18665,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   resetAgeOnDisable: 0
-  age: 0
 --- !u!1 &7453787238201736081
 GameObject:
   m_ObjectHideFlags: 0

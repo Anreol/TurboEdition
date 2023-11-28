@@ -31,9 +31,6 @@ namespace TurboEdition
             TELog.LogD($"Getting Legacy Items found inside {Assembly.GetExecutingAssembly()}...", true);
             Assembly.GetExecutingAssembly().GetTypes()
                            .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Item)))
-                           .Where(type => !type.GetCustomAttributes(true)
-                                    .Select(obj => obj.GetType())
-                                    .Contains(typeof(DisabledContent)))
                            .Select(itemType => (Item)Activator.CreateInstance(itemType)).ToList().ForEach(item => TrackItem(item));
             return null;
         }
@@ -51,9 +48,6 @@ namespace TurboEdition
             TELog.LogD($"Getting the Equipments found inside {Assembly.GetExecutingAssembly()}...");
             Assembly.GetExecutingAssembly().GetTypes()
                            .Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(Equipment)))
-                           .Where(type => !type.GetCustomAttributes(true)
-                                    .Select(obj => obj.GetType())
-                                    .Contains(typeof(DisabledContent)))
                            .Select(eqpType => (Equipment)Activator.CreateInstance(eqpType)).ToList().ForEach(eqp => TrackEquipment(eqp));
             return null;
         }

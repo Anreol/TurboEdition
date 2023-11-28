@@ -50,12 +50,12 @@ namespace TurboEdition.Items
                     Vector3 forward = characterBody.corePosition - position;
                     float magnitude = forward.magnitude;
                     Quaternion rotation = (magnitude != 0f) ? Util.QuaternionSafeLookRotation(forward) : UnityEngine.Random.rotationUniform;
-                    float damageCoefficient4 = 5.4f + (1.8f * (stack - 1));
+                    float damageCoefficient4 = 5.4f + (5.4f * (stack - 1));
                     float damage = Util.OnHitProcDamage(damageInfo.damage, characterBody.damage, damageCoefficient4);
                     //ProjectileManager.instance.FireProjectile(Resources.Load<GameObject>("Prefabs/Projectiles/StickyBomb"), position, rotation, damageInfo.attacker, damage, 100f, damageInfo.crit, DamageColorIndex.Item, null, alive ? (magnitude * num4) : -1f);
                     ProjectileManager.instance.FireProjectile(new FireProjectileInfo
                     {
-                        projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("SuperStickyBombProjectile"),
+                        projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("PRJ_SuperStickyBomb"),
                         crit = damageInfo.crit,
                         damage = damage,
                         damageColorIndex = DamageColorIndex.Item,

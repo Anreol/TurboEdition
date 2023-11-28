@@ -6,7 +6,7 @@ namespace TurboEdition.TempVFX
 {
     internal class vfxPanicDrops : TemporaryVFX
     {
-        public override GameObject tempVfxRootGO { get; set; } = Assets.mainAssetBundle.LoadAsset<GameObject>("vfxPanicDrops");
+        public override GameObject tempVfxRootGO { get; set; } = Assets.mainAssetBundle.LoadAsset<GameObject>("FX_Panic_Buff_Effect");
 
         public override string GetChildOverride(ref CharacterBody body)
         {

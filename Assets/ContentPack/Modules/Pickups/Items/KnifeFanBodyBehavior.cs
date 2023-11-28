@@ -13,7 +13,7 @@ namespace TurboEdition.Items
             return TEContent.Items.KnifeFan;
         }
 
-        private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("KnifeFanProjectile"); //Resources.Load<GameObject>("prefabs/projectiles/EngiGrenadeProjectile"); for testing!
+        private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("PRJ_KnifeFan"); //Resources.Load<GameObject>("prefabs/projectiles/EngiGrenadeProjectile"); for testing!
 
         private void Start()
         {

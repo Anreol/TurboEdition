@@ -85,12 +85,12 @@ namespace TurboEdition.Utils
             unsafeZones.Remove(zone);
         }
 
-        public void ServerFixedUpdate(float fixedDeltaTime)
+        public void ServerFixedUpdate(float deltaTime)
         {
             if (NetworkServer.active)
             {
-                damageTimer += fixedDeltaTime;
-                dictionaryValidationTimer += fixedDeltaTime;
+                damageTimer += deltaTime;
+                dictionaryValidationTimer += deltaTime;
 
                 //I have no idea why this exists
                 if (dictionaryValidationTimer > 60f)
@@ -164,8 +164,12 @@ namespace TurboEdition.Utils
             foreach (TeamComponent teamComponent in TeamComponent.GetTeamMembers(teamIndex))
             {
                 CharacterBody body = teamComponent.body;
-                bool isInBounds = false;
+                if (!teamComponent || !body)
+                {
+                    continue;
+                }
 
+                bool isInBounds = false;
                 using (List<IZone>.Enumerator unsafeZonesEnumerator = unsafeZones.GetEnumerator())
                 {
                     //Go through every unsafe zone

@@ -9,7 +9,7 @@ namespace TurboEdition.Equipments
     public class CursedScythe : Equipment
     {
         public override EquipmentDef equipmentDef { get; set; } = Assets.mainAssetBundle.LoadAsset<EquipmentDef>("CursedScythe");
-        private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BigScytheOverlapAttack");
+        private static GameObject projectilePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("PRJ_CursedScythe_OverlapAttack");
 
         public override bool FireAction(EquipmentSlot slot)
         {
@@ -48,29 +48,36 @@ namespace TurboEdition.Equipments
         public bool SpawnProjectile(EquipmentSlot equipSlot)
         {
             Vector3 impactPosition = Vector3.zero;
-            CharacterBody[] allCharacters = new CharacterBody[CharacterBody.readOnlyInstancesList.Count];
-            CharacterBody.readOnlyInstancesList.ToArray<CharacterBody>().CopyTo(allCharacters, 0);
-            Util.ShuffleArray<CharacterBody>(allCharacters);
-            for (int i = 0; i < allCharacters.Length; i++)
+            int teamDefLength = TeamCatalog.teamDefs.Length;
+            for (int teamIndex = 0; teamIndex < teamDefLength; teamIndex++)
             {
-                if (allCharacters[i].teamComponent && equipSlot.teamComponent)
+                if (!TeamManager.IsTeamEnemy((TeamIndex)teamIndex, equipSlot.teamComponent.teamIndex))
                 {
-                    if (TeamManager.IsTeamEnemy(allCharacters[i].teamComponent.teamIndex, equipSlot.teamComponent.teamIndex) && allCharacters[i].coreTransform)
+                    continue;
+                }
+
+                foreach (TeamComponent teamComponent in TeamComponent.GetTeamMembers((TeamIndex)teamIndex))
+                {
+                    CharacterBody body = teamComponent.body;
+                    EntityStateMachine entityStateMachine = EntityStateMachine.FindByCustomName(body.gameObject, "Body");
+                    if (entityStateMachine != null)
                     {
-                        EntityStateMachine entityStateMachine = EntityStateMachine.FindByCustomName(allCharacters[i].gameObject, "Body");
-                        if (entityStateMachine != null && entityStateMachine.state.GetType() == entityStateMachine.initialStateType.stateType)
+                        if (entityStateMachine.state.GetType() == entityStateMachine.initialStateType.stateType)
                             continue; //Do not spawn on enemies that are still spawning, thats rude!
-                        impactPosition = allCharacters[i].coreTransform.position;
-                        break;
                     }
+                    impactPosition = body.coreTransform.position;
+                    break;
                 }
             }
+
             if (impactPosition == Vector3.zero)
                 return false;
+
             Vector3 origin = impactPosition + Vector3.up * 6f;
             Vector3 onUnitSphere = UnityEngine.Random.onUnitSphere;
             onUnitSphere.y = -1f;
             RaycastHit raycastHit;
+
             if (Physics.Raycast(origin, onUnitSphere, out raycastHit, 12f, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
             {
                 impactPosition = raycastHit.point;
@@ -89,7 +96,7 @@ namespace TurboEdition.Equipments
                 owner = equipSlot.gameObject,
                 damage = equipSlot.characterBody.damage * 100,
                 force = 0,
-                crit = equipSlot.characterBody.RollCrit(),
+                crit = false,
                 damageColorIndex = DamageColorIndex.Item
             };
             ProjectileManager.instance.FireProjectile(fireProjectileInfo);

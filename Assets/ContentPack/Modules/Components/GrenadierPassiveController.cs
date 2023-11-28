@@ -32,12 +32,18 @@ namespace TurboEdition.Components
         private bool[] serverBlastArmorStates;
         private float blastArmorRechargeTime;
 
+
+        public GameObject healthBarPrefabOverlay;
+
         [Header("Referenced Components")]
         public GenericSkill passiveSkillSlot;
 
         [Header("Skill Defs")]
         public SkillDef PassiveBlastArmorSkillDef;
 
+        /// <summary>
+        /// Assigned through the editor, but by default is Net_Grenadier_Passive_DelayBlast
+        /// </summary>
         public GameObject PassiveBlastArmorBombletPrefab;
 
         private void Awake()

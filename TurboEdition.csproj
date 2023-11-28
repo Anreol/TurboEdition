@@ -172,7 +172,6 @@
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\CursedScythe.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\Hellchain.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\LeaveStage.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Pickups\Equipments\RandomKill.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\IStatItemBehavior.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\InitPickups.cs" />
     <Compile Include="Assets\ContentPack\Modules\Pickups\Item.cs" />
@@ -205,7 +204,6 @@
     <Compile Include="Assets\ContentPack\Modules\ScriptableObjects\SerializableDirectorCard.cs" />
     <Compile Include="Assets\ContentPack\Modules\TEContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\CleanTokens.cs" />
-    <Compile Include="Assets\ContentPack\Modules\Utils\DisabledContent.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\TELog.cs" />
     <Compile Include="Assets\ContentPack\Modules\Utils\TurboUtils.cs" />
     <Compile Include="Assets\ContentPack\Modules\VFX\InitVFX.cs" />

@@ -3,7 +3,7 @@
 	{
 		"EQUIPMENT_CURSEDSCYTHE_NAME" : "Big Scythe",
 		"EQUIPMENT_CURSEDSCYTHE_PICKUP" : "Summon a scythe at a random enemy for massive damage.",
-		"EQUIPMENT_CURSEDSCYTHE_DESC" : "Summon a small circle on a random enemy in which the scythe will deal <style=cIsDamage>10000%</style> damage to all enemies inside.",
+		"EQUIPMENT_CURSEDSCYTHE_DESC" : "Summon a small circle on a random enemy in which the scythe will deal <style=cIsDamage>10000%</style> damage. Cannot critically hit.",
 		"EQUIPMENT_CURSEDSCYTHE_LORE" : "",
 
 		"EQUIPMENT_HELLCHAIN_NAME" : "Bloody Cross",

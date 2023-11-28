@@ -100,7 +100,7 @@ namespace TurboEdition.Equipments
 
         public void CreateSceneExitGameObject(out GameObject sceneExitGO)
         {
-            sceneExitGO = UnityEngine.Object.Instantiate(Assets.mainAssetBundle.LoadAsset<GameObject>("DummySceneExitController"));
+            sceneExitGO = UnityEngine.Object.Instantiate(Assets.mainAssetBundle.LoadAsset<GameObject>("Net_Dummy_SceneExitController"));
             SceneExitController sceneExitController = sceneExitGO.GetComponent<SceneExitController>();
             sceneExitController.SetState(SceneExitController.ExitState.Idle); //Idle by default
         }
