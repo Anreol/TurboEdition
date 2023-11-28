@@ -88,7 +88,8 @@ MonoBehaviour:
     - fieldName: hitEffectPrefab
       fieldValue:
         stringValue: 
-        objectValue: {fileID: 0}
+        objectValue: {fileID: 4606360583382528122, guid: 7e16b77af9bf09f4cbff6a37cac96f0e,
+          type: 3}
     - fieldName: attackResetFrequency
       fieldValue:
         stringValue: 0.5

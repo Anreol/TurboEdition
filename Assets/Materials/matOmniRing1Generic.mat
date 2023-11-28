@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matOmniRing1Generic
   m_Shader: {fileID: 4800000, guid: 2e68267ebb51d0a438acfc57e42a7269, type: 2}
-  m_ShaderKeywords: USE_CLOUDS VERTEXCOLOR
+  m_ShaderKeywords: VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -74,7 +74,7 @@ Material:
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
-    - _CloudsOn: 1
+    - _CloudsOn: 0
     - _Cull: 0
     - _Cutoff: 0.5
     - _DepthOffset: 0

@@ -22,7 +22,7 @@ MonoBehaviour:
   pickupModelPrefab: {fileID: 5004284487608745642, guid: 62cf4b451dc824948805a23cf6311b2e,
     type: 3}
   pickupIconSprite: {fileID: 0}
-  hidden: 0
+  hidden: 1
   canRemove: 0
   tags: 0300000004000000
   requiredExpansion: {fileID: 11400000, guid: f7deac7cda3c1364d99ed9ad4bb3bd92, type: 2}

@@ -23,4 +23,4 @@ MonoBehaviour:
   mainEndingEscapeFailureFlavorToken: STAFFMAGE_MAIN_ENDING_ESCAPE_FAILURE_FLAVOR
   primaryColor: {r: 0.13333334, g: 0.43529412, b: 0.6117647, a: 0}
   desiredSortPosition: 16.5
-  hidden: 0
+  hidden: 1

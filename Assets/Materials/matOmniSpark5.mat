@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: matOmniSpark5
   m_Shader: {fileID: 4800000, guid: 2e68267ebb51d0a438acfc57e42a7269, type: 2}
-  m_ShaderKeywords: USE_CLOUDS VERTEXCOLOR
+  m_ShaderKeywords: VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0191a2da958a6e245893939be96de193, type: 3}
+        m_Texture: {fileID: 2800000, guid: 56518f7bf12dc514586b55e271d28609, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -69,12 +69,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AlphaBias: 0
-    - _AlphaBoost: 1
-    - _Boost: 1
+    - _AlphaBoost: 2.77
+    - _Boost: 3
     - _BumpScale: 1
     - _CalcTextureAlphaOn: 0
     - _CloudOffsetOn: 0
-    - _CloudsOn: 1
+    - _CloudsOn: 0
     - _Cull: 0
     - _Cutoff: 0.5
     - _DepthOffset: 0

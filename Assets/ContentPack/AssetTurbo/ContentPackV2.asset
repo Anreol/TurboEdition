@@ -148,11 +148,13 @@ MonoBehaviour:
   - {fileID: 1367687870407945083, guid: 94fdad7c1e233ba49b11306bb73d88d3, type: 3}
   - {fileID: 8263891234070803194, guid: bd0c8a4c707644a4b818dd8716e64f43, type: 3}
   - {fileID: 7153563187597557553, guid: e13f86efedfb2114cadfe81b4838b655, type: 3}
+  - {fileID: 7153563187597557553, guid: 26cca32e85c2d35459b133aee0abb912, type: 3}
   - {fileID: 7214428371660463810, guid: 4cb548fb8f1dbf048b32ecb372949457, type: 3}
   - {fileID: 3081867890154396561, guid: cfebc4ba51455fc499a32b825df64ace, type: 3}
   - {fileID: 7214428371660463810, guid: b3da412cc6cbe6841b3e63258871aabf, type: 3}
   - {fileID: 7153563187597557553, guid: 215362ca9f11a9d4a81258e5b6030e32, type: 3}
   - {fileID: 7153563187597557553, guid: 04cb6e53d9471f24c95ffea712cd9e7c, type: 3}
+  - {fileID: 4606360583382528122, guid: 7e16b77af9bf09f4cbff6a37cac96f0e, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: d167a02be48e3f24d974ee1fb4117010, type: 2}

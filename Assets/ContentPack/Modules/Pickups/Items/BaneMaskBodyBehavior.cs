@@ -1,6 +1,5 @@
 ﻿using HG;
 using RoR2;
-using RoR2.Audio;
 using RoR2.Items;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +15,7 @@ namespace TurboEdition.Items
             return TEContent.Items.BaneMask;
         }
 
-        private static GameObject pulsePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("BaneMaskPulse");
+        private static GameObject pulsePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("Net_BaneMask_Pulse");
         private static GameObject pulseRechargePrefab = Assets.mainAssetBundle.LoadAsset<GameObject>("FX_BaneMask_Recharge");
         //private static NetworkSoundEventDef rechargeProcSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItem_Proc_BaneMask_Recharge");
 
@@ -60,8 +59,8 @@ namespace TurboEdition.Items
             {
                 alreadyOut = true;
                 percentTriggered = false;
-                EffectManager.SpawnEffect(pulseRechargePrefab, new EffectData() 
-                { 
+                EffectManager.SpawnEffect(pulseRechargePrefab, new EffectData()
+                {
                     origin = this.transform.position,
                     scale = 1
                 }, true);
@@ -120,10 +119,10 @@ namespace TurboEdition.Items
                 {
                     if (hc.body.isChampion || hc.body.isBoss)
                         return;
-                    float num2 = UnityEngine.Random.Range(20f, 100f); //Guarantees enemies like lemurians and beetles always pass
+                    /*float num2 = UnityEngine.Random.Range(20f, 100f); //Guarantees enemies like lemurians and beetles always pass
                     if (num2 <= Mathf.Pow(1.50f, hc.body.bestFitRadius)) //Best fit radius: Golems are 7.5, beetles are 1.82
-                        return;
-                    hc.body.AddTimedBuff(TEContent.Buffs.Panic, (10) * hitInfo.hitSeverity);
+                        return;*/
+                    hc.body.AddTimedBuff(TEContent.Buffs.Panic, 5 * hitInfo.hitSeverity);
                     return;
                 }
             }

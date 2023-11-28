@@ -163,7 +163,9 @@ namespace TurboEdition
             public static ItemDef MeleeArmor;
             public static ItemDef MoneyBank;
             public static ItemDef PackMagnet;
+            public static ItemDef PackDuplicator;
             public static ItemDef RadioSearch;
+            public static ItemDef RadioSearchVoid;
             public static ItemDef SoulDevourer;
             public static ItemDef StandBonus;
             public static ItemDef SuperStickies;
@@ -176,6 +178,7 @@ namespace TurboEdition
             public static EquipmentDef CursedScythe;
             public static EquipmentDef Hellchain;
             public static EquipmentDef LeaveStage;
+            public static EquipmentDef VoidSquad;
         }
 
         public static class Buffs
@@ -196,6 +199,7 @@ namespace TurboEdition
         public static class Survivors
         {
             public static SurvivorDef Grenadier;
+            public static SurvivorDef StaffMage;
         }
 
         public static class Scenes

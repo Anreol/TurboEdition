@@ -31,8 +31,9 @@ namespace TurboEdition.Utils
             SceneCollection.SceneEntry observatoryEntry = new SceneCollection.SceneEntry()
             {
                 sceneDef = TEContent.Scenes.observatory,
-                weightMinusOne = 0
+                weightMinusOne = 0,
             };
+
             HG.ArrayUtils.ArrayAppend<SceneCollection.SceneEntry>(ref SceneCatalog.GetSceneDefFromSceneName("dampcavesimple").destinationsGroup._sceneEntries, observatoryEntry);
         }
 

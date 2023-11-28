@@ -83,6 +83,7 @@
     <Compile Include="Assets\ContentPack\Modules\Components\BodyAttachments\SandbagBodyAttachment.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\CustomSiphonNearbyController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\DirectorTimeScalerController.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Components\EventFunctionsExtended.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GrenadierPassiveController.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\GyroTest.cs" />
     <Compile Include="Assets\ContentPack\Modules\Components\Managers\TurboBuffManager.cs" />
