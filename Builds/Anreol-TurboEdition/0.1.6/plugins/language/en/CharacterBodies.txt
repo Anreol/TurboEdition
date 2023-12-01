@@ -10,8 +10,8 @@
 	
 		//[CHARACTER]
 		"GRENADIER_BODY_NAME": "Grenadier",
-		"GRENADIER_BODY_SUBTITLE" : "GRENADIER_BODY_SUBTITLE",
-		"GRENADIER_BODY_LORE" : "GRENADIER_BODY_LORE",
+		"GRENADIER_BODY_SUBTITLE" : "Arrabón Security",
+		"GRENADIER_BODY_LORE" : "<style=cMono>\/\/-- AUTO-TRANSCRIPTION OF <\\ARRABÓN SECURITY\\> #14 --\/\/<\/style>\r\n\r\n\"Ma\'am, that door is out of boun-!\"\r\n\r\n<i>\/*CRASH*\/<\/i>\r\n\r\n\"Information on our SQUAD member, now.\"\r\n\r\n\"|| |||| |||| ||| ||||||| |||| ||| |||||| |||||.\"\r\n\r\n\"...\"\r\n\"You\'ve lost one of our members while on their active duty.\"\n\r\n\r<i>*Tap, tap, tap*<\/i>\n\r\n\r\"You\'re aware that goes against our company\'s guidelines. But, we can do an exception...\"\n\r\"Come in. - This lass over here is getting on that ship, weapons and armor, you\'ll supply the ammunition; tell that to whoever is in charge.\"\n\r\n\r\"||||||||||\"\n\r\n\r<i>*Fllllp*<\/i>\n\r\n\r\"Look through the written contract for the finer details. Also, her helmet stays on.\"\n\r\n\r<style=cMono>/\/-- Everyone in this recording has consented to being recorded, anybody who hasn\'t has had their data expunged; this recording invokes mutual and continual agreement between UES and [AFFECTED COMPANY]. For any concerns, please contact your local UES representative. --\/\/<\/style>\r\n",
 		
 		"GRENADIER_PASSIVE_NAME" : "Blast Armor",
 		"GRENADIER_PASSIVE_DESCRIPTION" : "Every <style=cIsHealth>20% health</style> lost, explode, from <style=cIsDamage>3x300%</style> to <style=cIsDamage>6x300% damage</style>, in 12 meters. Recharges when <style=cIsUtility>out of danger</style>.",

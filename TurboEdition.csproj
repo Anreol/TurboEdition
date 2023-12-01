@@ -61,6 +61,7 @@
     <Compile Include="Assets\ContentPack\Modules\Achievements\GrenadierPostDeathKillAchievement.cs" />
     <Compile Include="Assets\ContentPack\Modules\Achievements\HostLobby.cs" />
     <Compile Include="Assets\ContentPack\Modules\Achievements\MinionDamage.cs" />
+    <Compile Include="Assets\ContentPack\Modules\Achievements\PlayerKillSelf.cs" />
     <Compile Include="Assets\ContentPack\Modules\Achievements\StackStickybombs.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\Bomb2ArtifactManager.cs" />
     <Compile Include="Assets\ContentPack\Modules\Artifact\MeltdownArtifactManager.cs" />
