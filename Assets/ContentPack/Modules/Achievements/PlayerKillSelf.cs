@@ -43,6 +43,7 @@ namespace TurboEdition.Achievements
                     Grant();
                 }
             }
+            //Would be funny to check umbras. No idea how.
         }
     }
 }

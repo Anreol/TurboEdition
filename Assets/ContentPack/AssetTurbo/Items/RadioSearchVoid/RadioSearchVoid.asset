@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -1284244208, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
   m_Name: RadioSearchVoid
   m_EditorClassIdentifier: 
-  deprecatedTier: 7
+  deprecatedTier: 5
   _itemTierDef: {fileID: 0}
   nameToken: ITEM_RADIOSEARCHVOID_NAME
   pickupToken: ITEM_RADIOSEARCHVOID_PICKUP

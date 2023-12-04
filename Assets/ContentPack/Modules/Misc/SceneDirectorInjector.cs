@@ -34,7 +34,7 @@ namespace TurboEdition.Utils
                 weightMinusOne = 0,
             };
 
-            HG.ArrayUtils.ArrayAppend<SceneCollection.SceneEntry>(ref SceneCatalog.GetSceneDefFromSceneName("dampcavesimple").destinationsGroup._sceneEntries, observatoryEntry);
+            //HG.ArrayUtils.ArrayAppend<SceneCollection.SceneEntry>(ref SceneCatalog.GetSceneDefFromSceneName("dampcavesimple").destinationsGroup._sceneEntries, observatoryEntry);
         }
 
         private static void ExplicitInteracteableGeneration(SceneDirector obj)

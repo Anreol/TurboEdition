@@ -16,11 +16,15 @@ namespace TurboEdition.Artifacts
         private static DirectorCardCategorySelection dccsWormArtifact = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsWormArtifact");
         private static DirectorCardCategorySelection dccsWormNonEliteArtifact = Assets.mainAssetBundle.LoadAsset<DirectorCardCategorySelection>("dccsWormNonEliteArtifact");
 
+        /// <summary>
+        /// The current instance of the director object. Only gets instantiated in <see cref="onServerStageBegin(Stage)"/>, meaning its server only.
+        /// </summary>
         private static GameObject directorInstance = null;
 
         [SystemInitializer(new Type[]
         {
-            typeof(ArtifactCatalog)
+            typeof(ArtifactCatalog),
+            typeof(ItemCatalog),
         })]
         private static void Init()
         {
@@ -108,7 +112,7 @@ namespace TurboEdition.Artifacts
             CharacterBody cb = gameObject.GetComponent<CharacterMaster>().GetBody();
             if (cb)
             {
-                if (!Utils.RulebookExtras.runWormEliteHonor && CombatDirector.IsEliteOnlyArtifactActive()) //They shouldnt be elite... this is a failsafe to ensure they arent fucking elite
+                if (cb.isElite && (!Utils.RulebookExtras.runWormEliteHonor && CombatDirector.IsEliteOnlyArtifactActive())) //They shouldnt be elite... this is a failsafe to ensure they aren't fucking elite
                 {
                     UnEliteSpawn(cb, true);
                 }
@@ -116,36 +120,52 @@ namespace TurboEdition.Artifacts
                 if (deathRewards)
                 {
                     deathRewards.spawnValue = (int)Mathf.Max(1f, (float)deathRewards.spawnValue / 8f);
-                    deathRewards.expReward = (uint)Mathf.Ceil(deathRewards.expReward / 8f);
-                    deathRewards.goldReward = (uint)Mathf.Ceil(deathRewards.goldReward / 8f);
+                    deathRewards.expReward = (uint)Mathf.CeilToInt(deathRewards.expReward / 8f);
+                    deathRewards.goldReward = (uint)Mathf.CeilToInt(deathRewards.goldReward / 8f);
+                }
+
+                cb.baseMaxHealth /= 4f;
+                cb.levelMaxHealth *= 0.5f;
+                cb.baseArmor = 0;
+                cb.levelArmor = 0;
+                cb.baseDamage *= 0.5f;
+
+                //No death events.
+                cb.healthComponent.globalDeathEventChanceCoefficient = 0f;
+
+                //Wacky things that I don't even know what they do
+                WormBodyPositionsDriver wormBodyPositionsDriver = cb.GetComponent<WormBodyPositionsDriver>();
+                if (wormBodyPositionsDriver != null)
+                {
+                    //Shoving is... something weird. It's not player shoving, it lets worms fly up and down, akin to ror1. This behavior seems to be used in the beta, but got removed.
+                    wormBodyPositionsDriver.allowShoving = true;
+                    wormBodyPositionsDriver.yShoveForce = wormBodyPositionsDriver.yShoveForce == 0 ? wormBodyPositionsDriver.yShoveForce = 50f : wormBodyPositionsDriver.yShoveForce *= 2f;
+                    wormBodyPositionsDriver.wormForceCoefficientAboveGround *= 2f;
+                    wormBodyPositionsDriver.maxTurnSpeed *= 0.5f; //Yes, halve.
+                    wormBodyPositionsDriver.maxBreachSpeed *= 2f;
+                    wormBodyPositionsDriver.ySpringConstant = wormBodyPositionsDriver.ySpringConstant == 0 ? wormBodyPositionsDriver.ySpringConstant = 300f : wormBodyPositionsDriver.ySpringConstant *= 3f; //Just fuck me up
+                }
+                WormBodyPositions2[] wormBodyPositions2s = cb.GetComponents<WormBodyPositions2>();
+                foreach (WormBodyPositions2 component in wormBodyPositions2s)
+                {
+                    component.speedMultiplier *= 2f; //Default seems to be 2. Just crank it up.
+                    component.meatballCount /= 2;
+                    component.impactCooldownDuration += 1f;
                 }
             }
         }
 
         private static List<CharacterSpawnCard> SetupBaseCards()
         {
-            List<CharacterSpawnCard> spawnCards = new List<CharacterSpawnCard>();
-            spawnCards.Add(UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/MagmaWorm/cscMagmaWorm.asset").WaitForCompletion()));
-            spawnCards.Add(UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/ElectricWorm/cscElectricWorm.asset").WaitForCompletion()));
+            List<CharacterSpawnCard> spawnCards = new List<CharacterSpawnCard>
+            {
+                UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/MagmaWorm/cscMagmaWorm.asset").WaitForCompletion()),
+                UnityEngine.Object.Instantiate(Addressables.LoadAssetAsync<CharacterSpawnCard>("RoR2/Base/ElectricWorm/cscElectricWorm.asset").WaitForCompletion())
+            };
+
             foreach (CharacterSpawnCard item in spawnCards)
             {
                 item.name += "Artifact";
-
-                item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<CharacterBody>().baseMaxHealth /= 3;
-                WormBodyPositionsDriver wormBodyPositionsDriver = item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponent<WormBodyPositionsDriver>();
-                if (wormBodyPositionsDriver != null)
-                {
-                    wormBodyPositionsDriver.allowShoving = true;
-                    wormBodyPositionsDriver.wormForceCoefficientAboveGround += 0.5f;
-                    wormBodyPositionsDriver.maxBreachSpeed *= 2f;
-                    wormBodyPositionsDriver.ySpringConstant *= 2.5f;
-                }
-                WormBodyPositions2[] wormBodyPositions2s = item.prefab.GetComponent<CharacterMaster>().bodyPrefab.GetComponents<WormBodyPositions2>();
-                foreach (WormBodyPositions2 component in wormBodyPositions2s)
-                {
-                    component.meatballCount /= 2;
-                    component.impactCooldownDuration += 1f;
-                }
             }
             return spawnCards;
         }
