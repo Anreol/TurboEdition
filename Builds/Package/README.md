@@ -1,5 +1,4 @@
-# Turbo Edition TEST-RELEASE
-# **NOTE:** THIS CURRENT RELEASE IS MEANT FOR **PLAYTESTING** AND IS **NOT** A RELEASE BUILD. In-dev content is enabled and there might be bugs everywhere. 
+# Turbo Edition
 ### **Note:** This is a very heavy **WIP** mod, **issues and bugs** can arise.
 The mod has been tested and while *most features* are multiplayer compatible, some things may not work.
 
@@ -17,22 +16,14 @@ I'm pretty bad at coming up with names for what I make, and I followed Turbo Edi
 I also find *"Turbo"* a funny word that goes along pretty well with a lot of other words. You can probably think of a few ones.
 
 ## Features
-- 17 Awful items to ruin your host with.
+- 17 Awful items to ruin your host with. (Some of them are currently disabled)
 - 2 Equipments that probably do something useful.
 - 3 Artifacts to make your run harder, for some reason.
 
 Keep in mind that with mods, anything can go wrong anytime, especially when you are loading 500 different mods at once, let me know if something breaks.
 
-## Planned Features
-
-- Finish the currently in-dev survivor.
-- Finish the currently in-dev stage.
-- Finish a new shrine.
-- If you are interested in any of this, or the future, please contact me.
-
 ## Contributors
 - Some items modelled by Big Nut.
-	- [Check out his work at his ArtStation profile.](https://www.artstation.com/raditsys)
 
 - Imp and Mimigun models and animations by DotFlare.
 - Expansion Icon by SOM.
@@ -44,20 +35,45 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 - Special thanks to Gnome, for introducing me to modding.
 - Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!
 
-### Feedback
-If you can fill up [this form](https://forms.gle/6kEEJdguHPrKzHNo9) for [feedback](https://forms.gle/6kEEJdguHPrKzHNo9) I'd be extremely thankful.
-
-### Contact
-I'm open to contributions, specifically models, as they take me more time than what I wished. 
-You can contact me by messaging to Anreol#8231
 
 ## Changelog
 Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Changelog](https://rentry.org/TurboEditionChangelog)
 
 ### Latest release
 
-`0.1.5 Public Test`
-Test release to gather feedback on Grenadier, has a few fixes and that's about it.
+`0.1.7 Some kind of release`
+Release with some work done, biggest difference is that unfinished or broken content has been temporarily disabled.
+Such content is planned to return in the foreseeable future.
+
+- Panic
+	- Changed Panic VFX to be more noticeable.
+	- Skill interruption should beheave more in line to other interruptions in the game.
+
+- Equipment
+	- Changed Cursed Scythe VFX to be more noticeable.
+
+- Items
+	- Changed some numbers on the items to buff them.
+	- Reworked Blood Economy.
+	 - Voice Modulator 
+		- Now has a recharge SFX and VFX.
+		- Removed the weird RNG math on whenever enemies should have the debuff applied or not.
+		- Point-blank duration has been decreased from 10s -> 5s.
+	- Wrote some item logs.
+	- Rewrote some item descriptions to be more understandable.
+
+- Hopefully fixed Artifact of Worms messing the real worms.
+	- On a secondary note, the way worms beheave is different now, they no longer slide across the ground.
+	- They also have been nerfed some more: No armor and 1/4 of their original health (previously 1/3).
+	- They won't proc any On-Death effects.
+
+- Wrote Grenadier's log.
+- Changed how Imp Trasher beheaves to be more in line with the intended experience.
+- Fixed a couple of bugs.
+
+- Known Issues
+	- Grenadier's body material in the log book is currently wrong. Reason unknown.
+
 
 ## Rainfusion
 You can find the original Turbo Edition by JoeyAsagiri on [rainfusion.ml](https://rainfusion.ml/) and a direct download can be found [here](https://cdn.rainfusion.ml/download-mod/18f68f57-bcfd-4979-873c-6df90c33e353/turbo_edition_0.3.1.zip). The original repository can be found [here](https://github.com/JoeySmulders/RoR-Turbo-Edition).
