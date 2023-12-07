@@ -10,7 +10,7 @@ namespace TurboEdition.Items
 {
     public static class ItemDeployerManager
     {
-        private static NetworkSoundEventDef networkSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItemProcItemDeployer");
+        private static NetworkSoundEventDef networkSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItem_Proc_ItemDeployer");
 
         [SystemInitializer(typeof(PickupCatalog))]
         public static void Initialize()

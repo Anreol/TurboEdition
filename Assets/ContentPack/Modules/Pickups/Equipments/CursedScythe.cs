@@ -58,14 +58,18 @@ namespace TurboEdition.Equipments
 
                 foreach (TeamComponent teamComponent in TeamComponent.GetTeamMembers((TeamIndex)teamIndex))
                 {
-                    CharacterBody body = teamComponent.body;
+                    /*CharacterBody body = teamComponent.body;
                     EntityStateMachine entityStateMachine = EntityStateMachine.FindByCustomName(body.gameObject, "Body");
                     if (entityStateMachine != null)
                     {
                         if (entityStateMachine.state.GetType() == entityStateMachine.initialStateType.stateType)
                             continue; //Do not spawn on enemies that are still spawning, thats rude!
+                    }*/
+                    if (!teamComponent.body.healthComponent.alive)
+                    {
+                        continue;
                     }
-                    impactPosition = body.coreTransform.position;
+                    impactPosition = teamComponent.body.coreTransform.position;
                     break;
                 }
             }

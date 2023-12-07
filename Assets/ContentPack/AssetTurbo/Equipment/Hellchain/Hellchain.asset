@@ -18,7 +18,7 @@ MonoBehaviour:
   nameToken: EQUIPMENT_HELLCHAIN_NAME
   pickupToken: EQUIPMENT_HELLCHAIN_PICKUP
   descriptionToken: EQUIPMENT_HELLCHAIN_DESC
-  loreToken: ITEM_TURBOWIP_LORE
+  loreToken: EQUIPMENT_HELLCHAIN_LORE
   pickupIconSprite: {fileID: 21300000, guid: e31648b79e50e7a41bd78da6efe9fd6b, type: 3}
   unlockableDef: {fileID: 0}
   colorIndex: 5

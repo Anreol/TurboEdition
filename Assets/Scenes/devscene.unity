@@ -1122,6 +1122,7 @@ Transform:
   - {fileID: 1210539392}
   - {fileID: 9140952473640551157}
   - {fileID: 342091703}
+  - {fileID: 6629441096640382634}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1486,6 +1487,54 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 9999
+--- !u!1 &357673326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357673327}
+  - component: {fileID: 357673328}
+  m_Layer: 0
+  m_Name: Death Mark
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &357673327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357673326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1210539392}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &357673328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357673326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ffa3c2637f4df41a6b0eec23eb30c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replaceSelf: 1
+  OnInstantiated:
+    m_PersistentCalls:
+      m_Calls: []
+  Address: RoR2/Base/DeathMark/DeathMarkEffect.prefab
 --- !u!1 &363849054
 GameObject:
   m_ObjectHideFlags: 0
@@ -6795,7 +6844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1210539392
 Transform:
   m_ObjectHideFlags: 0
@@ -6810,6 +6859,7 @@ Transform:
   - {fileID: 761583074}
   - {fileID: 1803871217}
   - {fileID: 390466761}
+  - {fileID: 357673327}
   m_Father: {fileID: 277915321}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11678,6 +11728,69 @@ MonoBehaviour:
   component: {fileID: 8975028043147252397}
   fieldName: sprite
   assetAddress: RoR2/Base/UI/texUIAnimateSliceNakedButton.png
+--- !u!1001 &6629441096640382633
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 277915321}
+    m_Modifications:
+    - target: {fileID: 1666685398145762, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_Name
+      value: FX_HellLinked_Buff_Effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa152de55057c9b4d929e4b961a4ecc5, type: 3}
+--- !u!4 &6629441096640382634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4960273485938348, guid: aa152de55057c9b4d929e4b961a4ecc5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6629441096640382633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6642801777420512680
 MonoBehaviour:
   m_ObjectHideFlags: 0

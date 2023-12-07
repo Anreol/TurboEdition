@@ -17,7 +17,7 @@ I also find *"Turbo"* a funny word that goes along pretty well with a lot of oth
 
 ## Features
 - 17 Awful items to ruin your host with. (Some of them are currently disabled)
-- 2 Equipments that probably do something useful.
+- 3 Equipments that probably do something useful.
 - 3 Artifacts to make your run harder, for some reason.
 	- One of them available as a wave in Simulacrum
 
@@ -26,7 +26,7 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 ## Contributors
 - Some items modelled by Big Nut.
 
-- Imp and Mimigun models and animations by DotFlare.
+- Imp Trasher models and animations by DotFlare.
 - Expansion Icon by SOM.
 - Grenadier model by Anon.
 	- Texturing & animation by DotFlare.
@@ -36,41 +36,26 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 - Special thanks to Gnome, for introducing me to modding.
 - Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!
 
+## Contact
+For any issues, please create a report [in my Github page](https://github.com/Anreol/TurboEdition/issues).
+I ***will not*** accept any other means of communication.
+
 
 ## Changelog
 Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Changelog](https://rentry.org/TurboEditionChangelog)
 
 ### Latest release
 
-`0.1.7 Some kind of release`
-Release with some work done, biggest difference is that unfinished or broken content has been temporarily disabled.
-Such content is planned to return in the foreseeable future.
-
-- Panic
-	- Changed Panic VFX to be more noticeable.
-	- Skill interruption should beheave more in line to other interruptions in the game.
+`0.1.8` Some kind of equipment
 
 - Equipment
-	- Changed Cursed Scythe VFX to be more noticeable.
-
+	- Re-added Bloody Cross
+		- It currently has no model.
+	- Removed some logic Cursed Scythe which made it so it would't target enemies still spawning, but had un-intended side effects where it didn't target certain enemies.
+	
 - Items
-	- Changed some numbers on the items to buff them.
-	- Reworked Blood Economy.
-	 - Voice Modulator 
-		- Now has a recharge SFX and VFX.
-		- Removed the weird RNG math on whenever enemies should have the debuff applied or not.
-		- Point-blank duration has been decreased from 10s -> 5s.
-	- Wrote some item logs.
-	- Rewrote some item descriptions to be more understandable.
-
-- Hopefully fixed Artifact of Worms messing the real worms.
-	- On a secondary note, the way worms beheave is different now, they no longer slide across the ground.
-	- They also have been nerfed some more: No armor and 1/4 of their original health (previously 1/3).
-	- They won't proc any On-Death effects.
-
-- Wrote Grenadier's log.
-- Changed how Imp Trasher beheaves to be more in line with the intended experience.
-- Fixed a couple of bugs.
+	 - Red Tape Roll
+		- Fixed a error where it wouldn't find the sound to play due to some reorganization I made internally in the project.
 
 - Known Issues
 	- Grenadier's body material in the log book is currently wrong. Reason unknown.

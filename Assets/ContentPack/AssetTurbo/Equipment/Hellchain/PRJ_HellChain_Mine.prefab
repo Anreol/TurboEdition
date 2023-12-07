@@ -259,8 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customName: ProjectileState
   initialStateType:
-    _typeName: RoR2.RouletteChestController+Idle, RoR2, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    _typeName: EntityStates.Idle, RoR2, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   mainStateType:
     _typeName: TurboEdition.EntityStates.Projectiles.HellChainPreCasting, TurboEdition,
       Version=9999.0.1.6, Culture=neutral, PublicKeyToken=null

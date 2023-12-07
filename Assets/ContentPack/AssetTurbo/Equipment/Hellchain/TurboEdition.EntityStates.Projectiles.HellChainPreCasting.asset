@@ -19,7 +19,7 @@ MonoBehaviour:
     serializedFields:
     - fieldName: detachForce
       fieldValue:
-        stringValue: 200
+        stringValue: 800
         objectValue: {fileID: 0}
     - fieldName: torqueForce
       fieldValue:
@@ -32,4 +32,8 @@ MonoBehaviour:
     - fieldName: durationBeforeCast
       fieldValue:
         stringValue: 3
+        objectValue: {fileID: 0}
+    - fieldName: shouldStick
+      fieldValue:
+        stringValue: 0
         objectValue: {fileID: 0}

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1011932402
+CRC: 3622025163
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 36cd4267c626de3e22bdcda36282cc92
+    Hash: 97a3bdd204da25325215a98201c90104
   TypeTreeHash:
     serializedVersion: 2
     Hash: 19831f5812be9bdae84f5f67abe2cc4d
@@ -650,6 +650,7 @@ Assets:
 - Assets/Textures/texEffSweat.png
 - Assets/Mesh/meshSphere.asset
 - Assets/Textures/texTriangleGrid.png
+- Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/warbannervoid_buff.png
 - Assets/Textures/texTrimSheet_Ancient_Yellow_D.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_BloodEconomy.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber.fbx
@@ -784,7 +785,7 @@ Assets:
 - Assets/Textures/texSuperStickyFresnel.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Projectiles/ImpBomberBarrelProjectile.prefab
 - Assets/Textures/texEffHitspark_Sheet.png
-- Assets/Textures/texLineMaskAura.png
+- Assets/Textures/FX_Shared/FX_TEX_Line_Aura.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormArtifact.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.Reload.asset
 - Assets/Textures/texEffImpactPillar_Sheet.png
@@ -809,7 +810,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/animGrenadierDisplay.controller
 - Assets/ContentPack/AssetTurbo/Items/WardOnLevelVoid/texIndicatorVoidWarbannerMask.png
 - Assets/Mesh/Items/meshItemDeployer_.mesh
-- Assets/Textures/texLineMaskChain.png
+- Assets/Textures/FX_Shared/FX_TEX_Line_Chain.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/Net_Dummy_SceneExitController.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierPrimaryBombAlt.asset
 - Assets/ContentPack/AssetTurbo/Items/SoulDevourer/SoulDevourer.asset
@@ -881,7 +882,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
 - Assets/Materials/matUIScrollingBlobs.mat
 - Assets/Textures/texKnifeUV_D.png
-- Assets/Textures/texLineMaskSmoothIntense.png
+- Assets/Textures/FX_Shared/FX_TEX_Line_Smooth_Intense.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texCardSheet.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/WormDirector.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/ImpBomberMaster.prefab
@@ -1116,6 +1117,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png
 - Assets/Textures/texSandbag_Roughness.png
 - Assets/ContentPack/AssetTurbo/Items/Typewriter/Typewriter.asset
+- Assets/Mesh/Common/VFX/donut_8_Mesh.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPrimaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/StandBonus/texSandbagIcon.png
 - Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMagePassiveAura.asset
@@ -1156,7 +1158,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/BloodEconomy/mat_BloodEconomy_ZoneBubbles.mat
 - Assets/Textures/texTeleporterLensesCloth_D.png
 - Assets/ContentPack/AssetTurbo/Items/Hitlag/Items.Hitlag.asset
-- Assets/Textures/texLineMaskForce.png
+- Assets/Textures/FX_Shared/FX_TEX_Line_Force.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSecondaryBomblet.asset
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texDropletDupeAlbedo.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/FX_Grenadier_Charged_Secondary_Flare.prefab
