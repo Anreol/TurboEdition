@@ -1,0 +1,13 @@
+{
+	strings:
+	{
+		"KEYWORD_SNIPERCLASSIC_MORTAR" : "<style=cKeywordName>Mortar</style><style=cSub>An explosive projectile that gains <style=cIsDamage>extra blast radius</style> with distance traveled.</style>",
+		"KEYWORD_SYNCEDRELOAD" : "<style=cKeywordName>Synced Reload</style><style=cSub>Fully <style=cIsHealth>unloading</style> and <style=cIsUtility>reloading</style> your <style=cIsDamage>Primary</style> skill grants additional bonuses to this skill.</style>",
+		"KEYWORD_COORDINATION": "<style=cKeywordName>Coordination</style><style=cSub>This skill <style=cIsUtility>beheaves differently</style> depending on the state of a different skill.</style>",
+		"KEYWORD_COORDINATION_PRIMARY": "<style=cKeywordName>Coordination</style><style=cSub>This skill beheaves <style=cIsUtility>differently depending</style> on the state of your <style=cIsDamage>Primary</style> skill.</style>",
+		"KEYWORD_COORDINATION_SECONDARY": "<style=cKeywordName>Coordination</style><style=cSub>This skill beheaves <style=cIsUtility>differently depending</style> on the state of your <style=cIsDamage>Secundary</style> skill.</style>",
+		"KEYWORD_COORDINATION_UTILITY": "<style=cKeywordName>Coordination</style><style=cSub>This skill beheaves <style=cIsUtility>differently depending</style> on the state of your <style=cIsDamage>Utility</style> skill.</style>",
+		"KEYWORD_COORDINATION_SPECIAL": "<style=cKeywordName>Coordination</style><style=cSub>This skill beheaves <style=cIsUtility>differently depending</style> on the state of your <style=cIsDamage>Special</style> skill.</style>",
+
+	}
+}

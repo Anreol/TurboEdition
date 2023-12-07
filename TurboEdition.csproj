@@ -153,6 +153,8 @@
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\DeathState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\ImpHurtState.cs" />
     <Compile Include="Assets\ContentPack\Modules\EntityStates\ImpBomber\SpawnState.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Projectiles\HellChainCasting.cs" />
+    <Compile Include="Assets\ContentPack\Modules\EntityStates\Projectiles\HellChainPreCasting.cs" />
     <Compile Include="Assets\ContentPack\Modules\Mecanim\OverridePlaybackRate.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\AddressableFieldLoader.cs" />
     <Compile Include="Assets\ContentPack\Modules\Misc\Addressables\AddressablePrefab.cs" />

@@ -19,6 +19,7 @@ I also find *"Turbo"* a funny word that goes along pretty well with a lot of oth
 - 17 Awful items to ruin your host with. (Some of them are currently disabled)
 - 2 Equipments that probably do something useful.
 - 3 Artifacts to make your run harder, for some reason.
+	- One of them available as a wave in Simulacrum
 
 Keep in mind that with mods, anything can go wrong anytime, especially when you are loading 500 different mods at once, let me know if something breaks.
 

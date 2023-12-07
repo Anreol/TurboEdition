@@ -32,6 +32,7 @@ MonoBehaviour:
   - {fileID: 2074815300407172818, guid: 5a2d61750beb9e24d9a179e83d0bdd18, type: 3}
   - {fileID: 7028506108066464535, guid: e18b338e4cb9d6840b2836eafb7a3c92, type: 3}
   - {fileID: 7028506108066464535, guid: dcb7d2ef3dcf9f846add02a842903620, type: 3}
+  - {fileID: 7657906640374886913, guid: 845dade07cd582844bf3c82967993b0f, type: 3}
   gameModePrefabs: []
   networkedObjectPrefabs:
   - {fileID: 1918061013436419, guid: ff8a7375923956040b7e09f90304fc9e, type: 3}
@@ -156,6 +157,7 @@ MonoBehaviour:
   - {fileID: 7153563187597557553, guid: 215362ca9f11a9d4a81258e5b6030e32, type: 3}
   - {fileID: 7153563187597557553, guid: 04cb6e53d9471f24c95ffea712cd9e7c, type: 3}
   - {fileID: 4606360583382528122, guid: 7e16b77af9bf09f4cbff6a37cac96f0e, type: 3}
+  - {fileID: 5198284370799113885, guid: f9a7b029f6b5fca49807f3d6bfeb2edc, type: 3}
   surfaceDefs: []
   networkSoundEventDefs:
   - {fileID: 11400000, guid: d167a02be48e3f24d974ee1fb4117010, type: 2}
@@ -192,6 +194,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8617585608878de429690cc648fc6439, type: 2}
   - {fileID: 11400000, guid: 965453e88ad61364f938ba4f942cbe17, type: 2}
   - {fileID: 11400000, guid: 790a1634961888c48869a31de461d5d3, type: 2}
+  - {fileID: 11400000, guid: 8ce4497001720f54d8fe4dca922c8a37, type: 2}
+  - {fileID: 11400000, guid: b583afbc666cb3344aa951807c7dfdf4, type: 2}
   entityStateTypes: []
   itemTierDefs:
   - {fileID: 11400000, guid: 0c88764d8ce49f045b07565a3316082b, type: 2}

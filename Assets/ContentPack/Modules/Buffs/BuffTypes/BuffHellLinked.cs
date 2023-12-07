@@ -29,5 +29,13 @@ namespace TurboEdition.Buffs
         public override void RecalcStatsEnd(ref CharacterBody body)
         {
         }
+
+        /// <summary>
+        /// Class that handles transmitting damage from one body to another.
+        /// </summary>
+        public class HellLinkedManager
+        {
+
+        }
     }
 }
