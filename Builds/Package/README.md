@@ -4,7 +4,7 @@ The mod has been tested and while *most features* are multiplayer compatible, so
 
 Turbo Edition is a content pack mod, that for now, it adds a couple of weird items and equipments.
 Based off Risk Of Rain's Turbo Edition, it has a few returning items and new ones, but the goal of this mod is not to be a direct port, so keep in mind that some items will never come back, but it adds new ones, (and new features! *Soon!* )
-Keep in mind that this is a single man made mod, so if you expected something big, I'm sorry to break it to you, but I cannot do everything at once!
+Keep in mind that this is a single man made mod, so if you expected something big, I'm sorry to break it to you, but I cannot do everything at once.
 
 Installation looks like
 - plugins
@@ -25,16 +25,15 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 
 ## Contributors
 - Some items modelled by Big Nut.
-
 - Imp Trasher models and animations by DotFlare.
 - Expansion Icon by SOM.
 - Grenadier model by Anon.
 	- Texturing & animation by DotFlare.
-- Code assistance from Moffein.
+- Assistance from Moffein.
 - Kevin from HP support, for experience in SS2 and some part of the codebase.
 - Special thanks to /vm/ for playtesting and /agdg/ for assistance.
 - Special thanks to Gnome, for introducing me to modding.
-- Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod!
+- Special thanks to JoeyAsagiri for making me want to make a mod myself. And by making the original mod.
 
 ## Contact
 For any issues, please create a report [in my Github page](https://github.com/Anreol/TurboEdition/issues).
@@ -47,6 +46,14 @@ Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Chang
 ### Latest release
 
 `0.1.8` Some kind of equipment
+- Grenadier
+	- Set the proc chance of the additional blast attack that the main projectiles do from -999 to 0 in hopes of fixing unintended behavior.
+	- Alt Secondary
+		- Now throws 3 grenades per use to account for low damage and high spread.
+		- Base stock decreased 2 -> 1
+		- Small hop velocity increased 9 -> 20
+		- Combo grace duration increased 1.5s -> 3s
+		- Updated skill description to reflect this better.
 
 - Equipment
 	- Re-added Bloody Cross
@@ -56,9 +63,10 @@ Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Chang
 - Items
 	 - Red Tape Roll
 		- Fixed a error where it wouldn't find the sound to play due to some reorganization I made internally in the project.
+	- Fixed some wrong copy-pasted code in one of the items. Hopefully nobody noticed it malfunctioning.
 
 - Known Issues
-	- Grenadier's body material in the log book is currently wrong. Reason unknown.
+	- Leftover from the previous update: Grenadier's body material in the log book is currently wrong. Reason unknown.
 
 
 ## Rainfusion

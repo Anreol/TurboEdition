@@ -76,7 +76,7 @@ MonoBehaviour:
         objectValue: {fileID: 0}
     - fieldName: smallHopVelocity
       fieldValue:
-        stringValue: 9
+        stringValue: 20
         objectValue: {fileID: 0}
     - fieldName: comboThrows
       fieldValue:
@@ -97,4 +97,8 @@ MonoBehaviour:
     - fieldName: comboDurationMod
       fieldValue:
         stringValue: 0.5
+        objectValue: {fileID: 0}
+    - fieldName: projectileCount
+      fieldValue:
+        stringValue: 3
         objectValue: {fileID: 0}

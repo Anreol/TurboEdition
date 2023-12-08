@@ -8,32 +8,28 @@ namespace TurboEdition.EntityStates.Grenadier.SideWeapon
     public class FireSecondaryBomblet : GenericProjectileBaseState, SteppedSkillDef.IStepSetter, ISkillState
     {
         [Tooltip("Base duration of an animation, gets multipled by the state duration later.")]
-        [SerializeField]
-        public float baseAnimDuration = 1;
+        [SerializeField] public float baseAnimDuration = 1;
 
         [Tooltip("Vertical velocity of the small hop to perform.")]
-        [SerializeField]
-        public float smallHopVelocity;
+        [SerializeField] public float smallHopVelocity;
+
+        [Tooltip("Amount of projectiles to throw per use.")]
+        [SerializeField] public float projectileCount;
 
         [Tooltip("Max number of throws to perform.")]
-        [SerializeField]
-        public float comboThrows = 3;
+        [SerializeField] public float comboThrows = 3;
 
         [Tooltip("How much should consecutive throws be slowed or fasten up")]
-        [SerializeField]
-        public float comboDurationMod = 0.5f;
+        [SerializeField] public float comboDurationMod = 0.5f;
 
         [Tooltip("How much should consecutive throws be spread for. Accumulative")]
-        [SerializeField]
-        public float comboSpreadMod = 1.5f;
+        [SerializeField] public float comboSpreadMod = 1.5f;
 
         [Tooltip("How much should consecutive throws apply recoil for. Accumulative")]
-        [SerializeField]
-        public float comboRecoilMod = 1.2f;
+        [SerializeField] public float comboRecoilMod = 1.2f;
 
         [Tooltip("How much should consecutive throws add bloom for. Accumulative")]
-        [SerializeField]
-        public float comboSpreadBloomMod = 1.5f;
+        [SerializeField] public float comboSpreadBloomMod = 1.5f;
 
         private GenericSkill _skillslot;
         private int step;
@@ -78,7 +74,10 @@ namespace TurboEdition.EntityStates.Grenadier.SideWeapon
 
         public override void FireProjectile()
         {
-            base.FireProjectile();
+            for (int i = 0; i < projectileCount; i++)
+            {
+                base.FireProjectile();
+            }
             if (!characterMotor.isGrounded)
             {
                 SmallHop(characterMotor, smallHopVelocity);

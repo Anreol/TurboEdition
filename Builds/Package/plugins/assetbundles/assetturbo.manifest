@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1671092719
+CRC: 2229388927
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 228e9da90dbd93ed99dc0e8ed3cc3ca4
+    Hash: 3376380bf660222643f422694f5be419
   TypeTreeHash:
     serializedVersion: 2
-    Hash: d2fb668bec6db219696571b965451f2a
+    Hash: 19831f5812be9bdae84f5f67abe2cc4d
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -67,6 +67,8 @@ ClassTypes:
   Script: {fileID: 161585894, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1804351901, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
+- Class: 114
+  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: 1080798252, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
@@ -364,8 +366,6 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1931460509, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
-  Script: {fileID: 1918207524, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
-- Class: 114
   Script: {fileID: -1977880532, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
 - Class: 114
   Script: {fileID: -609359282, guid: 951ce57ad999ac1f040a4dceb5f8b763, type: 3}
@@ -540,9 +540,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 55cce1cf1261a63409fb809879bdf2fe, type: 3}
 - Class: 114
-  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+- Class: 114
+  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -604,6 +604,7 @@ Assets:
 - Assets/Textures/Ramps/texRampGenericGreytint.png
 - Assets/ContentPack/AssetTurbo/Characters/StaffMage/StaffMageBody.prefab
 - Assets/Materials/matTracerBright.mat
+- Assets/ContentPack/AssetTurbo/Equipment/Hellchain/TurboEdition.EntityStates.Projectiles.HellChainCasting.asset
 - Assets/ContentPack/AssetTurbo/Items/KnifeFan/KnifeFan.asset
 - Assets/Materials/matVFXLightshaft.mat
 - Assets/Textures/Ramps/texRampWhiteAlphaOnly.png
@@ -626,6 +627,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/GrenadierDisplay.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Captain/idrsCaptain.asset
 - Assets/Textures/texDitherWave.png
+- Assets/ContentPack/AssetTurbo/Equipment/Hellchain/PRJ_HellChain_Mine.prefab
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/matDropletDupe.mat
 - Assets/ContentPack/AssetTurbo/Misc/PostProcessingProfiles/ppRunBase.asset
 - Assets/Materials/matInvisibleOutlineMeshHolder.mat
@@ -648,6 +650,7 @@ Assets:
 - Assets/Textures/texEffSweat.png
 - Assets/Mesh/meshSphere.asset
 - Assets/Textures/texTriangleGrid.png
+- Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/warbannervoid_buff.png
 - Assets/Textures/texTrimSheet_Ancient_Yellow_D.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_BloodEconomy.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/mdlImpBomber.fbx
@@ -782,7 +785,7 @@ Assets:
 - Assets/Textures/texSuperStickyFresnel.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Projectiles/ImpBomberBarrelProjectile.prefab
 - Assets/Textures/texEffHitspark_Sheet.png
-- Assets/Textures/texLineMaskAura.png
+- Assets/Textures/FX_Shared/FX_TEX_Line_Aura.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsWormArtifact.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Weapon.Reload.asset
 - Assets/Textures/texEffImpactPillar_Sheet.png
@@ -807,6 +810,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/animGrenadierDisplay.controller
 - Assets/ContentPack/AssetTurbo/Items/WardOnLevelVoid/texIndicatorVoidWarbannerMask.png
 - Assets/Mesh/Items/meshItemDeployer_.mesh
+- Assets/Textures/FX_Shared/FX_TEX_Line_Chain.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/Net_Dummy_SceneExitController.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierPrimaryBombAlt.asset
 - Assets/ContentPack/AssetTurbo/Items/SoulDevourer/SoulDevourer.asset
@@ -857,6 +861,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/CrabChestPrimaryMinigun.asset
 - Assets/ContentPack/AssetTurbo/Characters/States.AI.Walker.ForceFlee.asset
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/ShrineOvercharger/iscShrineOvercharger.asset
+- Assets/Materials/matHellHand_Hook.mat
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Rare.png
 - Assets/Textures/Ramps/texRampEmber.png
 - Assets/Wwise/ScriptableObjects/State/E1A6B7F5-DB5D-43BE-90A0-49E34FDAFDDB.asset
@@ -877,7 +882,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Unique.png
 - Assets/Materials/matUIScrollingBlobs.mat
 - Assets/Textures/texKnifeUV_D.png
-- Assets/Textures/texLineMaskSmoothIntense.png
+- Assets/Textures/FX_Shared/FX_TEX_Line_Smooth_Intense.png
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texCardSheet.png
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/WormDirector.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/ImpBomberMaster.prefab
@@ -916,6 +921,7 @@ Assets:
 - Assets/Textures/Ramps/texRampHuntressSoft2.png
 - Assets/Materials/matKnife.mat
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/animImpBomber.controller
+- Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/Ghost_Hellchain_Mine.prefab
 - Assets/Materials/matCrystalineDistortion.mat
 - Assets/Textures/FX_Shared/FX_TEX_Cloud_Kumo_0104_01.png
 - Assets/Materials/matUIBGTranslucent.mat
@@ -944,7 +950,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/MoneyBank/iscMoneyBank.asset
 - Assets/ContentPack/AssetTurbo/Equipment/VoidSquad/VoidSquad.asset
 - Assets/ContentPack/AssetTurbo/Characters/CrabChest/Skills/EntityStates.CrabChest.Weapon.DoubleMinigunFire.asset
-- Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/Omni_Explosion_Blood.prefab
+- Assets/ContentPack/AssetTurbo/Prefabs/Effects/OmniEffect/FX_Omni_Explosion_Blood.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/OmniExplosionGrenadierImpact.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skins.Grenadier.LowPol.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/ImpSpawnVFX.prefab
@@ -953,6 +959,7 @@ Assets:
 - Assets/Wwise/ScriptableObjects/Soundbank/96498B6F-7969-4386-94F0-8364DA8113BB.asset
 - Assets/Materials/matDustBackdropGlow.mat
 - Assets/Wwise/ScriptableObjects/Event/BFA611A3-A1B5-48EC-AAB6-9D8D5574BA1A.asset
+- Assets/ContentPack/AssetTurbo/Equipment/Hellchain/FX_HellChain_Casting.prefab
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/VFX/matImpFootstepSplash.mat
 - Assets/ContentPack/AssetTurbo/Prefabs/UI/TurboOptionPickupPanel.prefab
 - Assets/Textures/Terrain/texTerrain_DrySoil_01_N.png
@@ -1095,6 +1102,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/NetworkedObjects/BodyAttatchments/SandbagBodyAttachment.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSpecialAlt.asset
 - Assets/Mesh/Items/meshKnife_.mesh
+- Assets/ContentPack/AssetTurbo/Equipment/Hellchain/TurboEdition.EntityStates.Projectiles.HellChainPreCasting.asset
 - Assets/Textures/texTrimSheet_Observatory_D.png
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/EntityStates.ImpBomber.SpawnState.asset
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Scythe.png
@@ -1110,6 +1118,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Radio.png
 - Assets/Textures/texSandbag_Roughness.png
 - Assets/ContentPack/AssetTurbo/Items/Typewriter/Typewriter.asset
+- Assets/Mesh/Common/VFX/donut_8_Mesh.asset
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPrimaryFamily.asset
 - Assets/ContentPack/AssetTurbo/Items/StandBonus/texSandbagIcon.png
 - Assets/ContentPack/AssetTurbo/Characters/StaffMage/Skills/StaffMagePassiveAura.asset
@@ -1150,7 +1159,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Items/BloodEconomy/mat_BloodEconomy_ZoneBubbles.mat
 - Assets/Textures/texTeleporterLensesCloth_D.png
 - Assets/ContentPack/AssetTurbo/Items/Hitlag/Items.Hitlag.asset
-- Assets/Textures/texLineMaskForce.png
+- Assets/Textures/FX_Shared/FX_TEX_Line_Force.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierSecondaryBomblet.asset
 - Assets/ContentPack/AssetTurbo/Items/DropletDupe/texDropletDupeAlbedo.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/FX_Grenadier_Charged_Secondary_Flare.prefab
@@ -1180,6 +1189,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/EntityStates.Grenadier.Roll.RollClash.asset
 - Assets/ContentPack/AssetTurbo/Textures/Icons/BuffIcons/hellchain_linked.png
 - Assets/ContentPack/AssetTurbo/DirectorCardCategorySelections/dccsDampCaveMonstersTE.asset
+- Assets/Textures/FX_Shared/FX_TEX_Cloud_Cracked_Ice_Inverted.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/matGrenadierExplosionShockwave.mat
 - Assets/ContentPack/AssetTurbo/Characters/StaffMage/StaffMage.asset
 - Assets/Textures/Terrain/texStage_Stone_01.png
@@ -1204,11 +1214,13 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Characters/ThirdParty/Engi/idrsEngi.asset
 - Assets/Textures/Ramps/texRampTritone.png
 - Assets/Materials/matTeamAreaIndicatorIntersectionPlayer.mat
+- Assets/Textures/FX/FX_TEX_Hand_Hook_Rotated.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/skinGrenadierRecolor.asset
 - Assets/Textures/Terrain/texTerrain_DrySoil_01.png
 - Assets/ContentPack/AssetTurbo/Misc/Placeholder/Placeholder_Common.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadier_Skin1.mat
 - Assets/Mesh/Common/VFX/donut_2_Mesh.asset
+- Assets/Materials/matHellHand_Line.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Grenadier.asset
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Skills/ImpBomberPrimaryThrowBomb.asset
 - Assets/Textures/FX_Shared/FX_TEX_Gradient_Soft_Edges.png
@@ -1226,7 +1238,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/Ghost_Grenadier_Basic_Primary.prefab
 - Assets/Textures/FX_Shared/FX_TEX_Omni_Explosion_1_Mask.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadieWeapon_Skin1.mat
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Projectiles/GrenadierMiniBombletProjectile.prefab
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Projectiles/PRJ_Grenadier_MiniBomblet.prefab
 - Assets/Materials/matZiplineRope.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/FX_Grenadier_Fully_Charged_Secondary.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPassiveFamily.asset

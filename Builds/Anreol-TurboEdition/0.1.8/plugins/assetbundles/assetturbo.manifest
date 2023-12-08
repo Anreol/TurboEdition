@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3622025163
+CRC: 2229388927
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 97a3bdd204da25325215a98201c90104
+    Hash: 3376380bf660222643f422694f5be419
   TypeTreeHash:
     serializedVersion: 2
     Hash: 19831f5812be9bdae84f5f67abe2cc4d
@@ -540,9 +540,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 55cce1cf1261a63409fb809879bdf2fe, type: 3}
 - Class: 114
-  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+- Class: 114
+  Script: {fileID: -1466055214, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
   Script: {fileID: -573374155, guid: 06dd3d5416bf43ea368cc39ff96e6d5a, type: 3}
 - Class: 114
@@ -921,6 +921,7 @@ Assets:
 - Assets/Textures/Ramps/texRampHuntressSoft2.png
 - Assets/Materials/matKnife.mat
 - Assets/ContentPack/AssetTurbo/Characters/ImpBomber/Model/animImpBomber.controller
+- Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/Ghost_Hellchain_Mine.prefab
 - Assets/Materials/matCrystalineDistortion.mat
 - Assets/Textures/FX_Shared/FX_TEX_Cloud_Kumo_0104_01.png
 - Assets/Materials/matUIBGTranslucent.mat
@@ -1237,7 +1238,7 @@ Assets:
 - Assets/ContentPack/AssetTurbo/Prefabs/ProjectileGhosts/Ghost_Grenadier_Basic_Primary.prefab
 - Assets/Textures/FX_Shared/FX_TEX_Omni_Explosion_1_Mask.png
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Model/matGrenadieWeapon_Skin1.mat
-- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Projectiles/GrenadierMiniBombletProjectile.prefab
+- Assets/ContentPack/AssetTurbo/Characters/Grenadier/Projectiles/PRJ_Grenadier_MiniBomblet.prefab
 - Assets/Materials/matZiplineRope.mat
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/VFX/FX_Grenadier_Fully_Charged_Secondary.prefab
 - Assets/ContentPack/AssetTurbo/Characters/Grenadier/Skills/GrenadierBodyPassiveFamily.asset

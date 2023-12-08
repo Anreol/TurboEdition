@@ -7,9 +7,9 @@
 		"EQUIPMENT_CURSEDSCYTHE_LORE" : "",
 
 		"EQUIPMENT_HELLCHAIN_NAME" : "Bloody Cross",
-		"EQUIPMENT_HELLCHAIN_PICKUP" : "Link nearby enemies, making them share their damage.",
-		"EQUIPMENT_HELLCHAIN_DESC" : "<style=cSub>Link</style> all enemies within <style=cIsUtility>30m</style>, attacking a linked enemy will hurt all connected enemies for 50% TOTAL damage.",
-		"EQUIPMENT_HELLCHAIN_LORE" : "",
+		"EQUIPMENT_HELLCHAIN_PICKUP" : "Throw a cross which links nearby enemies, sharing their suffering.",
+		"EQUIPMENT_HELLCHAIN_DESC" : "Inflict <style=cIsHealth>Hell Link</style> to all enemies within <style=cIsUtility>30m</style> of the cross. Attacking a <style=cIsHealth>inflicted</style> enemy will <style=cIsDamage>mirror half of the damage dealt</style> to all other <style=cIsHealth>inflicted</style> members of its team.",
+		"EQUIPMENT_HELLCHAIN_LORE" : "In other words, if I were the Devil\n\r\nI\'d just keep right on doing what he\'s doing.",
 
 		"EQUIPMENT_LEAVESTAGE_NAME" : "Ejection Lever",
 		"EQUIPMENT_LEAVESTAGE_PICKUP" : "Escape, escape.",

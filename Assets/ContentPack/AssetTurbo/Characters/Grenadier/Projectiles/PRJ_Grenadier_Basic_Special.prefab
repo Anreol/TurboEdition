@@ -28833,7 +28833,7 @@ GameObject:
   - component: {fileID: 6503306493459240982}
   - component: {fileID: 1782425723763529551}
   m_Layer: 14
-  m_Name: GrenadierBasicSpecialProjectile
+  m_Name: PRJ_Grenadier_Basic_Special
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29146,7 +29146,7 @@ MonoBehaviour:
   canRejectForceExtra: 1
   blastAttackEffect: {fileID: 0}
   inheritProcCoefficient: 0
-  blastAttackProcCoefficient: -999
+  blastAttackProcCoefficient: 0
   damageTypeOverride: 2048
 --- !u!114 &5711418286933940513
 MonoBehaviour:
@@ -29167,7 +29167,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 6.5
+      value: 6
       inSlope: -0.23035046
       outSlope: -0.23035046
       tangentMode: 0
@@ -29219,6 +29219,8 @@ MonoBehaviour:
   scaleOverride: 1
   useSurfaceDefEffectToo: 1
   tryToNormalize: 1
+  useColorOverride: 0
+  colorOverride: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1782425723763529551
 MonoBehaviour:
   m_ObjectHideFlags: 0

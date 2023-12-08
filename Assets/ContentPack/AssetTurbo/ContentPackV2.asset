@@ -135,7 +135,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0d972a02b824f8d4fb5f9416d33eb60e, type: 2}
   survivorDefs:
   - {fileID: 11400000, guid: e57d078f7bf83ed449125183c01c095b, type: 2}
-  - {fileID: 11400000, guid: 836898deb88f5234786da8db5963a46d, type: 2}
   artifactDefs:
   - {fileID: 11400000, guid: 09dec09dc17766b46b38d41a6089551b, type: 2}
   - {fileID: 11400000, guid: da0c10c2a5ef063419e9e2f06d2a46c7, type: 2}

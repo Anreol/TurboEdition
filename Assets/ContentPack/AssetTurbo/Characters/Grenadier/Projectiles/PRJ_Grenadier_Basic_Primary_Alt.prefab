@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 354496905569418107}
   - component: {fileID: 1782425723763529551}
   m_Layer: 14
-  m_Name: GrenadierBasicPrimaryAltProjectile
+  m_Name: PRJ_Grenadier_Basic_Primary_Alt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   canRejectForceExtra: 1
   blastAttackEffect: {fileID: 0}
   inheritProcCoefficient: 0
-  blastAttackProcCoefficient: -10
+  blastAttackProcCoefficient: 0
   damageTypeOverride: 2048
 --- !u!114 &354496905569418107
 MonoBehaviour:
@@ -356,7 +356,7 @@ MonoBehaviour:
   canRejectForceExtra: 1
   blastAttackEffect: {fileID: 0}
   inheritProcCoefficient: 0
-  blastAttackProcCoefficient: -999
+  blastAttackProcCoefficient: 0
   damageTypeOverride: 0
 --- !u!114 &1782425723763529551
 MonoBehaviour:
