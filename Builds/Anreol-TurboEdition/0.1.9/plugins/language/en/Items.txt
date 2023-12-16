@@ -1,0 +1,113 @@
+{
+	strings:
+	{
+	"ITEM_ADDTELEPORTERRADIUS_NAME": "Chromatic Lenses",
+	"ITEM_ADDTELEPORTERRADIUS_PICKUP": "Increase Teleporter charging radius.",
+	"ITEM_ADDTELEPORTERRADIUS_DESC": "Increase Teleporter charging radius by <style=cIsUtility>+16m</style> <style=cStack>(+8m per stack)</style>. Other zones get increased by <style=cIsUtility>+4m</style>.",
+	"ITEM_ADDTELEPORTERRADIUS_LORE": "",
+	
+	"ITEM_AIRBORNEBONUS_NAME": "Angel Wings",
+	"ITEM_AIRBORNEBONUS_PICKUP": "Deal more damage while airbone.",
+	"ITEM_AIRBORNEBONUS_DESC": "Deal <style=cIsDamage>10%</style> <style=cStack>(+10% per stack)</style> more damage while <style=cIsUtility>airbone</style>.",
+	"ITEM_AIRBORNEBONUS_LORE": "Order: Mysterious Wing\r\nTracking Number: 972***********\r\nEstimated Delivery: 10\/10\/2056\r\nShipping Method: Biological\r\nShipping Address: 2341 NE, Residential Complex, Io\r\nShipping Details:\r\n\r\nHey, son! Sorry we\'ve been gone for a while, you holding in there?\r\n\r\nWell, I\'ll tell you what, we\'ve definitely got it together here. We\'ve been exploring planets all across our solar system, and we've found all sorts of gemstones, forgotten tools, artifacts, and even made new friends, something an old man like me would never get the chance to do in the current times. So, back to this story. We were exploring through a forest, well, more like a jungle, in the Northern Hemisphere of Celonias, and while crossing a big glade, we came across these weird wings laying on the grass in the middle of nowhere. They were a bit bloody and somehow twitching.\n\r\n\rRight after picking them up, we kept moving along through the trees and accidently hit the edge of a cliff. The guide nearly fell off since he was going first, but your mother and I managed to save the situation! It was like an angel came and helped us, and somehow the wings were some kind of premonition. After that, we took a break and turned back, as there wasn\'t any way to go beyond there. We\'re sending this to you as a gift and to see if you know anything more about it. You\'ve always been interested in things like this. Our guide said that he hasn\'t seen anything like that in that planet, so maybe we found a new species... I\'ll leave it to the experts. (That\'s you! Don\'t let me down!).\r\n\r\nLove you, and see you soon!",
+	
+	"ITEM_AIRBORNEDASH_NAME": "Thieves' Hat",
+	"ITEM_AIRBORNEDASH_PICKUP": "Double tap a direction to evade.",
+	"ITEM_AIRBORNEDASH_DESC": "Tapping the same movement direction twice performs a <style=cIsUtility>evasion</style> at <style=cIsUtility>10m/s</style> <style=cStack>(+ 10m/s per stack)</style> granting you short invincibility.",
+	"ITEM_AIRBORNEDASH_LORE": "Order: Lost Thief Hat\r\nTracking Number: 724***********\r\nEstimated Delivery: 02\/27\/2056\r\nShipping Method: Standard\r\nShipping Address: Lower Docks, Hangar 12, Helios Space Station\r\nShipping Details:\r\n\r\nDid you leave anything behind before we had to run for our lives in the last hit?\r\n\r\nI know you like to do all kinds of flashy movements, presentations and monologues, even if that means losing the element of surprise or ruining an ambush. Sometimes, that exposes a gap for me so I can act, hell, sometimes you even make me laugh!\r\n\r\nI\'m not going to ask you to stop doing it, it\'s just a part of what makes \"you\", but the situation got a bit out of control, didn\'t it?\r\n\r\nAnywho, I don\'t know how you made it out, or if you made it out, but I\'m sending you this to the usual address in hopes to see you wearing it again someday. Don\'t tell me that I\'m being tactless by sending you this over delivery, and that I could\'ve just handled it over in person to be cooler or whatever you think. I\'m still recovering, and still in the space road too, so it will be a while before we see eachother again.\r\n\r\nIn the meanwhile, don\'t you dare to lose it again, okay?\r\n",
+	
+	"ITEM_BANEMASK_NAME": "Voice Modulator",
+	"ITEM_BANEMASK_PICKUP": "Shriek each time you get hurt while in safety or with a chance depending of percent health lost when hurt, panicking nearby enemies.",
+	"ITEM_BANEMASK_DESC": "Apply Panic on enemies within <style=cIsUtility>8m</style> <style=cStack>(+8m per stack)</style> upon <style=cIsUtility>leaving safety</style> or with a chance on <style=cIsHealth>percent health lost</style> when hurt, for <style=cIsUtility>5s</style></style> at point blank, decreasing with distance. Safety <style=cIsUtility>recharges both uses</style>. <style=cSub>Panic makes enemies <style=cIsUtility>flee</style>, <style=cIsDamage>interrupting</style> their attacks.</style>",
+	"ITEM_BANEMASK_LORE": "Order: Military Grade Voice Modification Device\r\nTracking Number: 443*****\r\nEstimated Delivery: 07\/20\/2056\r\nShipping Method: High Priority/Fragile\r\nShipping Address: A-2012, Orbit Station, Sun\r\nShipping Details:\r\n\r\nThis locker's combination is 0055, four times. In the package you'll find the gadget, you don't get to bring more equipment in this job. The gadget will eventually melt and it won't work so good by where the location of the lockbox is, and a lot of effort for smuggling it, so don't let it go to waste. Put it in your neck and it will change your voice to match your target's.\r\n\r\nAfter the last job, they will be expecting you, and they want you dead, so when you are done disposing of the target, take it off, and stick it to someone else. It will modify their voice, scaring off the remaining people around, attracting attention from the security forces, and getting caught.\r\nUse the chaos to get out of there, as we'd like to continue onto the next step of our plan.\r\n\r\nGood luck.\r\n",
+	
+	"ITEM_BLOODECONOMY_NAME": "Blood Economy",
+	"ITEM_BLOODECONOMY_PICKUP": "Interacting with something unaffordable creates a damaging area that decreases the cost.",
+	"ITEM_BLOODECONOMY_DESC": "Interacting with something <color=#FF7F7F>unaffordable</color> makes a <style=cIsDamage>damaging area</style> for <style=cIsDamage>25% <style=cStack>(+25% per stack)</style> bleed damage</style>, <style=cIsUtility>reducing its cost for half of the damage dealt</style>. This effect can only be in 3 interactables at once, expires when its purchased.",
+	"ITEM_BLOODECONOMY_LORE": "Order: Segmented funding, 1 out of 452 367 198\r\nTracking Number: 732***********\r\nEstimated Delivery: 11\/17\/2056\r\nShipping Method: High Priority/Biological\r\nShipping Address: Black Rock, Kuiper Belt\r\nShipping Details:\r\n\r\nTell Mr. Tides that this isn\'t his standard \"charity\" donation, it has taken countless of assets to reach this amount. It would be a shame if a different organization got my attention, making you and him lose all of those plastic roots you both have managed to fabricate over the years.\r\nMake sure it resonates across the whole Solar System.",
+
+	"ITEM_DROPLETDUPE_NAME": "Playing Cards",
+	"ITEM_DROPLETDUPE_PICKUP": "Chance to duplicate every item that appears... <color=#FF7F7F>BUT have a chance of instantly dying</color>.",
+	"ITEM_DROPLETDUPE_DESC": "8% chance <style=cStack>(+2.5% per stack)</style> to <style=cIsUtility>duplicate items</style> that fall. 3% chance <style=cStack>(+1% per stack)</style> to <color=#FF7F7F>instantly die when hurt</color>. <style=cIsUtility>Death chance is affected by luck</style>.",
+	"ITEM_DROPLETDUPE_LOREOLD": "I remember having... observed some of them.\r\n\r\nMost, ALL of them, are uncivilized, beasts, vermin.\r\n\r\nBut the ones that showed superiority to the others had some of the least interesting customs.\r\n\r\nSometimes, instead of killing each other, or killing the many other different species, they would go around and about carrying objects that were the same in shape and size. Primitive. I don't know where they got them from.\r\n\r\nThen they would gather and toss and exchange or hold to those imperfect, ugly looking things. It seemed like that's how they passed time.\r\n\r\n\r\n\r\n...why is it not working now?",
+	"ITEM_DROPLETDUPE_LORE": "\u201C...Hey sweetie, remember that videogame you liked so much had a sequel...? Yeah! So, since it might take a while until the packages arrive, I'm sending this too now. If you wonder where it came from, it's hand crafted! Sending tons of love along with it. Cheers!\u201D\r\n\r\n-Signal echoes, UES Contact Light\r\n",
+	
+	"ITEM_RADIOSEARCH_NAME": "UVB-51 Radio",
+	"ITEM_RADIOSEARCH_PICKUP": "Upon reaching a stage, recieve information about purchasables that can be found.",
+	"ITEM_RADIOSEARCH_DESC": "Upon <style=cIsUtility>reaching a stage</style>, <style=cIsUtility>reveal the contents</style> of 3 <style=cStack>(+3 per stack)</style> interactables that cost any money in your scoreboard. Approaching a interactable whose contents were revealed will <style=cIsUtility>show them</style>.",
+	"ITEM_RADIOSEARCH_LORE": "<style=cMono>\r\n\/\/--THE FOLLOWING MESSAGE IS TRANSMITTED AT THE REQUEST OF [Redacted] --\/\/<\/style>\r\n\r\n\u201CIt's happening. The worst, yet, expected outcome.\r\nThey tried to warn us.\r\n\r\nWe entirely ignored it.\r\nWe closed our eyes when we saw all that debris in orbit.\r\n\r\nWe didn't listen to the beacon, or to the calls, to the warnings, or to anything.\r\nWe were told it wouldn\'t be like this. It didn\'t HAVE to be like this.\r\n\r\nThe monsters overwhelmed our transport pod, and now it\'s entirely unusuable.\r\nWe are trapped in this horrible planet, with half of my group killed or in the verge of death.\r\n\r\nI don\'t think any of them will make to the rallypoint. If any of us ever do.\r\nAll of this, this whole operation, is over before it has even begun.\r\n\r\nAnybody with a remaining desire to keep their lives, should stay off this rock.\u201C",
+	
+	"ITEM_GRACEPERIOD_NAME": "Soul Container",
+	"ITEM_GRACEPERIOD_PICKUP": "Enemies you've hurt in the last few seconds before their death will activate all of your <style=cIsDamage>On Kill</style> effects, even <color=#FF7F7F>negative effects</color>.",
+	"ITEM_GRACEPERIOD_DESC": "Any enemy you've hurt directly in the <style=cIsDamage>last 2 seconds</style> from their death <style=cStack>(+ 1s per stack)</style> will trigger all of your <style=cIsDamage>On Kill</style> effects, even <color=#FF7F7F>negative effects</color>... <color=#FF7F7F>BUT</color>",
+	"ITEM_GRACEPERIOD_LORE": "",
+	
+	"ITEM_HITLAG_NAME": "Broken Fiber Cable",
+	"ITEM_HITLAG_PICKUP": "Delay all incoming normal damage, and be able to heal it.",
+	"ITEM_HITLAG_DESC": "Delay all incoming <style=cIsDamage>normal damage</style> by 1 second <style=cStack>(+1s per stack)</style>. <style=cIsHealing>25% of incoming healing</style> <style=cIsUtility>reduces</style> damage currently being delayed up to a <style=cIsUtility>50%.</style> <style=cSub>Won't delay self-damage, armor bypasses and freezes.</style>",
+	"ITEM_HITLAG_LORE": "\u201CAs spacefaring became commonplace in our lives, interplanetary colonists faced issues with staying in contact with their supply lines, headquarters, and friends and family. The technical limitations of connecting the Internet through space led to planets setting up their own communications networks, developed in isolation for long periods of time. Eventually, the infrastructure required for interplanetary communication arose, and it finally became possible for common users to send and receive information from different planets.\n\r\n\rThis however, stretched the Internet far too wide: with so many moving parts and due to is world driving power, it got fragmented into many small-i internets. Specific areas in Mars wouldn\'t be able to connect back to Earth, and even entire planets would be locked from certain services, repeating the same scenerio that happened during and after the War where ISPs were found to be throttling, blackholing, shutting down services; or goverments imposing censorship, laws, and fines.\n\r\n\rWith the situation out of control and with the people fed up, each colony returned to their previous hardware and systems and this time, setting up their own proper RIRs, Internet registrars and infrastructure finally killing what we knew as the Internet. Not all were negatives, as with such changes new modern technology came around, like new protocols or encoding which propelled communications forward.\r\n\r\nIn recent years, though while some planets are still isolated, interplanetary communications have improved as a common neutral ground is being found between the large variety of states and companies across the system. The uppercase i Internet will never be recovered, but soon we might be able to see a entirely new concept, a net made up of many different internets.\u201D\r\n\r\n-Communications Frontier, A man on the Internet\r\n",
+	
+	"ITEM_ITEMDEPLOYER_NAME": "Red Tape Roll",
+	"ITEM_ITEMDEPLOYER_PICKUP": "Copy one of your items to a minion.",
+	"ITEM_ITEMDEPLOYER_DESC": "Give 1 <style=cStack>(+1 per stack)</style> item(s) to a minion. Give up this <style=cIsUtility>item's stack multiplied by two</style> of the chosen item to give.",
+	"ITEM_ITEMDEPLOYER_LORE": "Order: \"Stick-\'Em-Up\" Red Tape\r\nTracking Number: 522***********\r\nEstimated Delivery: 4/15/2052\r\nShipping Method: Standard\r\nShipping Address: Cluster 3, Habitat 15, Moon\r\nShipping Details:\r\n\r\nYeehaw! Thank you for ordering Stick-'Em-Up brand adhesive tape, pardner. We pride ourselves on having prices so low our customers have made off like a bandit since 1982!\r\n\r\nThank you for purchasing one of our products. Your order is currently being processed and handled by UES, but due to circumstances out of our control, it may have up to a month of delay.\r\n\r\nWe apologize for any inconvenience that may occur, and we\'ll automatically update this message with any updates on its delivery.\r\n\r\nThank you for putting your trust on us pardner! If you have any questions feel free to just Shoot-\'Em-Up by sending us a message at [EMAIL HIDDEN]. Have a great day!\r\n\r\n<style=cMono>\r\n\/\/-- PACKAGE STATE: [Delivered] AT [2754583562] --\/\/<\/style>",
+	
+	"ITEM_KNIFEFAN_NAME": "Fan of Blades",
+	"ITEM_KNIFEFAN_PICKUP": "Throw knifes upon using your utility skill.",
+	"ITEM_KNIFEFAN_DESC": "Throw 2 knifes <style=cStack>(+1 per stack)</style> around you on Utility skill use, dealing <style=cIsDamage>285% armor piercing damage</style> each.",
+	"ITEM_KNIFEFAN_LORE": "",
+	
+	"ITEM_MELEEARMOR_NAME": "Nanomachines",
+	"ITEM_MELEEARMOR_PICKUP": "Boost your armor and damage in response to physical trauma.",
+	"ITEM_MELEEARMOR_DESC": "Getting hurt by an enemy within <style=cIsUtility>21 m</style> grants <style=cIsUtility>Nanomachines</style> up to <style=cIsUtility>2 times</style> <style=cStack>(+1 per stack)</style> for 10 seconds. <style=cSub>Nanomachines <style=cIsUtility>boosts</style> armor by <style=cIsUtility>40 per stack</style> and <style=cIsDamage>damage</style> by <style=cIsDamage>25%</style>.</style>",
+	"ITEM_MELEEARMOR_LORE": "Order: Nanite Module\r\nTracking Number: 11******\r\nEstimated Delivery: 6\/22\/2056\r\nShipping Method: Fragile\r\nShipping Address: LIMB, 48206 Detroit, United States, Earth\r\nShipping Details:\r\n\r\nSpecial delivery for your clinic, it should not raise suspicion as there\'s no reason to inspect something that is labelled as fragile and going towards your location.\r\n\r\nSomewhat bleeding edge tech. From some of our \"friends\" over at ||||| Corporation, of course.\r\nI did not analyze it myself as I wanted to make it disappear from my office ASAP, so check it out before doing anything with it.\r\n\r\nSome patients might need it more than others, but make sure they have a mental well-being.\r\n\r\nI'\ve read multiple reports of agents and employees being pulled off the tests, or from the branch as a whole due to rejection, entire body shutdown or even worse results...\r\n\r\nAfter you help your first patient, please have patience and wait for the outcome. Also, do not send me any reports, we\'ll stay in touch in a different way.",
+	
+	"ITEM_MONEYBANK_NAME": "Off-Planet Account",
+	"ITEM_MONEYBANK_PICKUP": "Gain access to a bank account where you can store money between stages.",
+	"ITEM_MONEYBANK_DESC": "Store up to <style=cIsUtility>500$</style> plus <style=cIsUtility>25$</style> <style=cStack>(+25$ per stack)</style> more <style=cIsDamage>each stage</style> in an off-planet account, storing your money for future stages.",
+	"ITEM_MONEYBANK_LORE": "",
+	
+	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
+	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Hit enemies to generate scrap, improving mechanical allies on pick-up.",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style>. Have a <style=cIsUtility>17% chance</style> when hitting enemies to drop <style=cIsUtility>scrap</style> that grants <style=cIsUtility>mechanical allies</style> a <style=cIsHealing>temporary barrier</style> for <style=cIsHealing>16 health</style> <style=cStack>(+16 per stack)</style>.",
+	"ITEM_PACKMAGNET_LORE": "Order: Magnetic Safety Belt\r\nTracking Number: 732***********\r\nEstimated Delivery: 10\/28\/2056\r\nShipping Method: Standard\r\nShipping Address: Landfill 6-4, Scrap and Yard's Scrapyard, Venus\r\nShipping Details:\r\n\r\nHere it is, a prototype model, for now. I made a manual for a more professional look, tell me if there's any typos or suggestions, anybody should be able to understand it.\r\n\r\n<style=cMono>\r\n\/\/-- ATTACHED ITEMS: [1] (ONE) --\/\/<\/style>\r\n\r\n\"There\'s a note with a bunch of crude drawings on it... Maybe the original attachment got lost?\"",
+	
+	"ITEM_PACKDUPLICATOR_NAME": "",
+	"ITEM_PACKDUPLICATOR_PICKUP": "Duplicate nearby packs. Hit enemies to generate shield repairing energy orbs.",
+	"ITEM_PACKDUPLICATOR_DESC": "Gain a 7% <style=cStack>(+7% per stack)</style> chance of duplicating packs within <style=cIsUtility>16m</style>. Have a <style=cIsUtility>5% chance</style>",
+	"ITEM_PACKDUPLICATOR_LORE": "",
+	
+	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
+	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when hurt.",
+	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>10 more</style> <style=cStack>(+10 per stack)</style> each time you hit an enemy that is under 25% HP, bonus <color=#FF7F7F>is lost</color> when you get hurt.",
+	"ITEM_SOULDEVOURER_LORE": "",
+
+	"ITEM_STANDBONUS_NAME": "Punching Bag",
+	"ITEM_STANDBONUS_PICKUP": "Gain immunity to knockback and halve incoming damage after standing still. Defenses decay as you take damage or after moving again.",
+	"ITEM_STANDBONUS_DESC": "Gain a <style=cIsUtility>50% damage reduction</style> and <style=cIsUtility>inmunity to knockback</style> after standing still. Defenses decay as you take <style=cIsUtility>100%</style> <style=cStack>(+100% per stack)</style> damage of your <style=cIsHealth>combined maximum HP</style> or after <style=cIsDamage>moving again</style>.",
+	"ITEM_STANDBONUS_LORE": "",
+
+	"ITEM_SUPERSTICKIES_NAME": "Super Stickies",
+	"ITEM_SUPERSTICKIES_PICKUP": "Sticky bombs have a chance to attach a super sticky bomb to enemies.",
+	"ITEM_SUPERSTICKIES_DESC": "<style=cIsDamage>15%</style> chance on <style=cIsUtility>sticky bomb activation</style> to attach a <style=cIsDamage>super bomb</style> to an enemy, detonating for <style=cIsDamage>540%</style> <style=cStack>(+540% per stack)</style> TOTAL damage.",
+	"ITEM_SUPERSTICKIES_LORE": "\u201CHey... What if, instead of throwing them one after the other, we just tape them together?\u201D\r\n\r\n-Signal echoes, UES Contact Light\r\n",
+
+	"ITEM_TYPEWRITER_NAME": "Typewriter",
+	"ITEM_TYPEWRITER_PICKUP": "Get a text prompt every minute, fulfilling it in time grants a special effect.",
+	"ITEM_TYPEWRITER_DESC": "Get one <style=cStack>(+1 per stack)</style> unique <style=cIsDamage>text prompt</style> every minute, fulfilling it in time will do a effect <style=cIsUtility>related to the word written</style>.",
+	"ITEM_TYPEWRITER_LORE": "",
+	
+	"ITEM_RADIOSEARCHVOID_NAME": "",
+	"ITEM_RADIOSEARCHVOID_PICKUP": "Upon reaching a stage, mark enemies that on kill grant buffs that last the whole stage.",
+	"ITEM_RADIOSEARCHVOID_DESC": "Upon <style=cIsUtility>reaching a stage</style>, <style=cIsUtility>mark enemies to kill</style> 2 times <style=cStack>(+2 per stack)</style>. They\'ll drop temporal, substantial buffs that <style=cIsUtility>last the whole stage</style>.",
+	"ITEM_RADIOSEARCHVOID_LORE": "",
+	
+	
+	"ITEM_WARDONLEVELVOID_NAME": "War Declaration",
+	"ITEM_WARDONLEVELVOID_PICKUP": "Declare war on level up and at the start of each stage. Grants nearby allies attack speed, movement speed, health regeneration and armor. <style=cIsVoid>Corrupts all Warbanners</style>.",
+	"ITEM_WARDONLEVELVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>15 seconds</style> <style=cStack>(+15s per stack)</style>. <style=cIsVoid>Corrupts all Warbanners</style>.",
+	"ITEM_WARDONLEVELVOID_LORE": "",
+
+	"ITEM_TURBOWIP_LORE": "<style=cMono>\r\nWelcome to DataScraper (v3.6.20 \u2013 TURBO branch)\r\n$ Scraping memory... error.\r\n$ Combing for relevant data... error.\r\n$ Falling back to failsafe... error.\r\n$ Resolving...\r\nSuccess!\r\nOutputting logs...\r\n<\/style>\r\n\r\nFound a data entry, but it seems to be null or empty. Contact this branch's administrator if you are interested in filling it.\r\nTry again later.\r\n"
+	}
+}

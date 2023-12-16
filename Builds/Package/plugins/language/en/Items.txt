@@ -68,8 +68,8 @@
 	"ITEM_MONEYBANK_LORE": "",
 	
 	"ITEM_PACKMAGNET_NAME": "Magnetic Belt",
-	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Hit enemies to generate scrap, which improves mechanical allies on pick-up.",
-	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style>. Have a <style=cIsUtility>17% chance</style> when hitting enemies to drop <style=cIsUtility>scrap</style> that grants style=cIsUtility>mechanical allies</style> a <style=cIsHealing>temporary barrier</style> for <style=cIsHealing>16 health</style> <style=cStack>(+16 per stack)</style>.",
+	"ITEM_PACKMAGNET_PICKUP": "Attract nearby packs. Hit enemies to generate scrap, improving mechanical allies on pick-up.",
+	"ITEM_PACKMAGNET_DESC": "Attract packs up to <style=cIsUtility>16m</style> <style=cStack>(+8 m per stack)</style>. Have a <style=cIsUtility>17% chance</style> when hitting enemies to drop <style=cIsUtility>scrap</style> that grants <style=cIsUtility>mechanical allies</style> a <style=cIsHealing>temporary barrier</style> for <style=cIsHealing>16 health</style> <style=cStack>(+16 per stack)</style>.",
 	"ITEM_PACKMAGNET_LORE": "Order: Magnetic Safety Belt\r\nTracking Number: 732***********\r\nEstimated Delivery: 10\/28\/2056\r\nShipping Method: Standard\r\nShipping Address: Landfill 6-4, Scrap and Yard's Scrapyard, Venus\r\nShipping Details:\r\n\r\nHere it is, a prototype model, for now. I made a manual for a more professional look, tell me if there's any typos or suggestions, anybody should be able to understand it.\r\n\r\n<style=cMono>\r\n\/\/-- ATTACHED ITEMS: [1] (ONE) --\/\/<\/style>\r\n\r\n\"There\'s a note with a bunch of crude drawings on it... Maybe the original attachment got lost?\"",
 	
 	"ITEM_PACKDUPLICATOR_NAME": "",
@@ -78,7 +78,7 @@
 	"ITEM_PACKDUPLICATOR_LORE": "",
 	
 	"ITEM_SOULDEVOURER_NAME": "Soul Taker",
-	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when you get hurt.",
+	"ITEM_SOULDEVOURER_PICKUP": "Hitting an enemy that has low health increases your damage, bonus is lost when hurt.",
 	"ITEM_SOULDEVOURER_DESC": "<style=cIsDamage>Increase your damage</style> up to <style=cIsDamage>10 more</style> <style=cStack>(+10 per stack)</style> each time you hit an enemy that is under 25% HP, bonus <color=#FF7F7F>is lost</color> when you get hurt.",
 	"ITEM_SOULDEVOURER_LORE": "",
 
@@ -105,7 +105,7 @@
 	
 	"ITEM_WARDONLEVELVOID_NAME": "War Declaration",
 	"ITEM_WARDONLEVELVOID_PICKUP": "Declare war on level up and at the start of each stage. Grants nearby allies attack speed, movement speed, health regeneration and armor. <style=cIsVoid>Corrupts all Warbanners</style>.",
-	"ITEM_WARDONLEVELVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>15 seconds</style>. <style=cStack>(+15s per stack)</style>. <style=cIsVoid>Corrupts all Warbanners</style>.",
+	"ITEM_WARDONLEVELVOID_DESC": "On <style=cIsUtility>level up</style> or at the <style=cIsUtility>start of each stage</style> grant a buff that raises <style=cIsDamage>attack speed</style>, <style=cIsUtility>movement speed</style>, <style=cIsHealing>health regeneration</style> and <style=cIsUtility>armor</style> by <style=cIsDamage>20%</style> to yourself and anybody else within <style=cIsUtility>8m</style> for <style=cIsUtility>15 seconds</style> <style=cStack>(+15s per stack)</style>. <style=cIsVoid>Corrupts all Warbanners</style>.",
 	"ITEM_WARDONLEVELVOID_LORE": "",
 
 	"ITEM_TURBOWIP_LORE": "<style=cMono>\r\nWelcome to DataScraper (v3.6.20 \u2013 TURBO branch)\r\n$ Scraping memory... error.\r\n$ Combing for relevant data... error.\r\n$ Falling back to failsafe... error.\r\n$ Resolving...\r\nSuccess!\r\nOutputting logs...\r\n<\/style>\r\n\r\nFound a data entry, but it seems to be null or empty. Contact this branch's administrator if you are interested in filling it.\r\nTry again later.\r\n"

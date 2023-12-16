@@ -1,8 +1,8 @@
 ﻿{
 	"name": "TurboEdition",
-	"version_number": "0.1.8",
+	"version_number": "0.1.9",
 	"website_url": "https://github.com/Anreol/TurboEdition",
-	"description": "WIP Content pack mod that adds items, equipment, and artifacts, to ruin your host with.",
+	"description": "WIP Content pack mod that adds 15 items, 3 equipment, 3 artifacts and even a completly original survivor \"Grenadier\" to ruin your host with.",
 	"dependencies": [
         "bbepis-BepInExPack-5.4.1905",
 		"RiskofThunder-HookGenPatcher-1.2.3"

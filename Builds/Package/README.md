@@ -39,7 +39,7 @@ Keep in mind that with mods, anything can go wrong anytime, especially when you 
 
 ## Contact
 For any issues, please create a report [in my Github page](https://github.com/Anreol/TurboEdition/issues).
-I ***will not*** accept any other means of communication.
+I ***will not*** accept *any other means of communication*.
 
 
 ## Changelog
@@ -47,29 +47,12 @@ Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Chang
 
 ### Latest release
 
-`0.1.8` Some kind of equipment
-- Grenadier
-	- Set the proc chance of the additional blast attack that the main projectiles do from -999 to 0 in hopes of fixing unintended behavior.
-	- Alt Secondary
-		- Now throws 3 grenades per use to account for low damage and high spread.
-		- Base stock decreased 2 -> 1
-		- Small hop velocity increased 9 -> 20
-		- Combo grace duration increased 1.5s -> 3s
-		- Updated skill description to reflect this better.
-
-- Equipment
-	- Re-added Bloody Cross
-		- It currently has no model.
-	- Removed some logic Cursed Scythe which made it so it would't target enemies still spawning, but had un-intended side effects where it didn't target certain enemies.
-	
-- Items
-	 - Red Tape Roll
-		- Fixed a error where it wouldn't find the sound to play due to some reorganization I made internally in the project.
-	- Fixed some wrong copy-pasted code in one of the items. Hopefully nobody noticed it malfunctioning.
-
-- Known Issues
-	- Leftover from the previous update: Grenadier's body material in the log book is currently wrong. Reason unknown.
-
+`0.1.9` A single bug fix
+- Fixed code throwing a NRE when a masterless body without the masterless tag was spawned in.
+- Changed some text around to match the recently made wiki.
+- YES I MADE A [WIKI](https://thunderstore.io/package/Anreol/TurboEdition/wiki/)
+	- YES YOU SHOULD [CHECK IT OUT](https://thunderstore.io/package/Anreol/TurboEdition/wiki/)
+		- ITS [HERE](https://thunderstore.io/package/Anreol/TurboEdition/wiki/)
 
 ## Rainfusion
 You can find the original Turbo Edition by JoeyAsagiri on [rainfusion.ml](https://rainfusion.ml/) and a direct download can be found [here](https://cdn.rainfusion.ml/download-mod/18f68f57-bcfd-4979-873c-6df90c33e353/turbo_edition_0.3.1.zip). The original repository can be found [here](https://github.com/JoeySmulders/RoR-Turbo-Edition).
