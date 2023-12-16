@@ -16,9 +16,11 @@ I'm pretty bad at coming up with names for what I make, and I followed Turbo Edi
 I also find *"Turbo"* a funny word that goes along pretty well with a lot of other words. You can probably think of a few ones.
 
 ## Features
-- 17 Awful items to ruin your host with. (Some of them are currently disabled)
-- 3 Equipments that probably do something useful.
-- 3 Artifacts to make your run harder, for some reason.
+You can click each category to access its page on the [wiki](https://thunderstore.io/package/Anreol/TurboEdition/wiki/)
+
+- 17 [Awful items to ruin your host with.](https://thunderstore.io/package/Anreol/TurboEdition/wiki/668-items/) (Some of them are currently disabled)
+- 3 [Equipments that probably do something useful.](https://thunderstore.io/package/Anreol/TurboEdition/wiki/669-equipment/)
+- 3 [Artifacts to make your run harder, for some reason.](https://thunderstore.io/package/Anreol/TurboEdition/wiki/670-artifacts)
 	- One of them available as a wave in Simulacrum
 
 Keep in mind that with mods, anything can go wrong anytime, especially when you are loading 500 different mods at once, let me know if something breaks.
