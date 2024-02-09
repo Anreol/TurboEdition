@@ -205,7 +205,7 @@ namespace TurboEdition.Items
                 hbb = healthBar.source.body.GetComponent<HitlagBodyBehavior>();
                 if (!hbb)
                 {
-                    UI.HealthbarStyleHelper.barDataInstances.Remove(this);
+                    Dispose();
                 }
             }
 

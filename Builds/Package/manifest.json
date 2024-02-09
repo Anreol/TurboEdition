@@ -1,6 +1,6 @@
 ﻿{
 	"name": "TurboEdition",
-	"version_number": "0.1.9",
+	"version_number": "0.1.10",
 	"website_url": "https://github.com/Anreol/TurboEdition",
 	"description": "WIP Content pack mod that adds 15 items, 3 equipment, 3 artifacts and even a completly original survivor \"Grenadier\" to ruin your host with.",
 	"dependencies": [

@@ -14,6 +14,9 @@ namespace TurboEdition
         //public static TemporaryOverlay[] temporaryOverlays = new TemporaryOverlay[] { };
         public static void Init()
         {
+            if (RoR2.RoR2Application.isDedicatedServer || Application.isBatchMode) //We dont need graphics. Pray this doesn't break anything.
+                return;
+
             InitializeVfx();
             //InitializeOverlays();
 

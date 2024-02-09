@@ -10,8 +10,8 @@ namespace TurboEdition.Items
     //All packs are sent through the net.
     public class PackMagnetBodyBehavior : BaseItemBodyBehavior
     {
-        private static NetworkSoundEventDef grabSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItemProcPackMagnetGrab");
-        private static NetworkSoundEventDef duplicateSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItemProcPackMagnetDuplicate");
+        private static NetworkSoundEventDef grabSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItem_Proc_PackMagnet_Grab");
+        private static NetworkSoundEventDef duplicateSound = Assets.mainAssetBundle.LoadAsset<NetworkSoundEventDef>("nseItem_Proc_PackMagnet_Duplicate");
 
         [BaseItemBodyBehavior.ItemDefAssociationAttribute(useOnServer = true, useOnClient = false)]
         private static ItemDef GetItemDef()
@@ -19,8 +19,8 @@ namespace TurboEdition.Items
             return TEContent.Items.PackMagnet;
         }
 
-        private SphereSearch sphereSearch;
         private List<Collider> colliders;
+        private SphereSearch sphereSearch;
 
         private void OnEnable()
         {
@@ -44,7 +44,7 @@ namespace TurboEdition.Items
             sphereSearch.RefreshCandidates().OrderCandidatesByDistance().GetColliders(colliders);
             foreach (var item in colliders)
             {
-                if (item == null)
+                if (item == null || item.gameObject == null)
                     return; //How did we get here
                 GravitatePickup gravitatePickup = item.gameObject.GetComponent<GravitatePickup>();
                 if (gravitatePickup && gravitatePickup.gravitateTarget == null) //It does not have a gravitation target, lets take it.

@@ -23,7 +23,9 @@ namespace TurboEdition.Components
                     x => x.MatchLdfld(typeof(OutsideInteractableLocker.Candidate), "purchaseInteraction"));
                 c.EmitDelegate<Func<PurchaseInteraction, PurchaseInteraction>>((purchase) =>
                 {
-                    if (purchase.GetComponent<MarkAsUnableToBeLocked>())
+                    //The game checks if the purchase is null LATER in the code, but as we are doing a GetComponent here, we do need to check it right here right now.
+                    //...The purchases come from InstanceTracker.GetInstancesList<PurchaseInteraction>(), so it quite literally should be impossible for it to be null, but things happen...
+                    if (purchase != null && purchase.GetComponent<MarkAsUnableToBeLocked>())
                     {
                         return null;
                     }

@@ -47,12 +47,17 @@ Click [here](https://rentry.org/TurboEditionChangelog) to access the [full Chang
 
 ### Latest release
 
-`0.1.9` A single bug fix
-- Fixed code throwing a NRE when a masterless body without the masterless tag was spawned in.
-- Changed some text around to match the recently made wiki.
-- YES I MADE A [WIKI](https://thunderstore.io/package/Anreol/TurboEdition/wiki/)
-	- YES YOU SHOULD [CHECK IT OUT](https://thunderstore.io/package/Anreol/TurboEdition/wiki/)
-		- ITS [HERE](https://thunderstore.io/package/Anreol/TurboEdition/wiki/)
+`0.1.10` Dedicated server optimizations
+- Fixes
+	- Hopefully fixed an error that happened due to modifying the mod's healthbar collection while it was being iterated on
+	- Hopefully fixed a NRE due to a IL hook related to MarkAsUnableToBeLocked
+	- Updated scriptable object name lookups in PackMagnetBodyBehavior to fix a NRE
+
+- Dedicated server optimizations
+	- Healthbar code will now not run if the game is ran as dedicated server or in batch mode
+	- Temporary visual effect code will now not run if the game is ran as dedicated server or in batch mode
+
+- Updated BepInEx's plugin version to the current version (prev 0.1.6) which otherwise would lead to possible net version mismatches
 
 ## Rainfusion
 You can find the original Turbo Edition by JoeyAsagiri on [rainfusion.ml](https://rainfusion.ml/) and a direct download can be found [here](https://cdn.rainfusion.ml/download-mod/18f68f57-bcfd-4979-873c-6df90c33e353/turbo_edition_0.3.1.zip). The original repository can be found [here](https://github.com/JoeySmulders/RoR-Turbo-Edition).
